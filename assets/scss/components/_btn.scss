@@ -6,55 +6,37 @@
 	background-color: $gray-200;
 }
 
-.btn-text:hover {
-	span:first-child {
-		color: $primary !important;
-	}
-
-	span:last-child {
-		background: $primary !important;
-	}
-}
-
-// .btn-text.disabled {
-// 	span:first-child {
-// 		color: $gray-300 !important;
-// 	}
-
-// 	span:last-child {
-// 		background: $gray-200 !important;
-// 		color: $gray-300 !important;
-// 	}
-// }
-
 .btn-text {
-	display: flex;
-	align-items: center;
 	position: relative;
-
-	span:first-child {
-		color: $black;
-		margin-right: 4px;
+	border: 0;
+	background-color: transparent;
+	margin-right: 24px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	&::after {
+		content: ">";
+		position: absolute;
 		font-weight: bold;
-	}
-
-	span:last-child {
-		padding: 4px;
-		font-size: 16px;
-		line-height: 16px;
-		color: $white;
+		color: white;
+		line-height: 22px;
+		border: 0;
+		border-radius: 50%;
+		width: 24px;
+		height: 24px;
 		background-color: $secondary2;
-		border-radius: 50rem;
+		right: -21px;
 	}
-}
-
-.btn-text:disabled {
-	span:first-child {
-		color: $gray-300 !important;
+	&:hover {
+		color: $primary;
+		&::after {
+			background-color: $primary;
+		}
 	}
-
-	span:last-child {
+	&:disabled {
 		color: $gray-300;
-		background-color: $gray-100 !important;
+		&::after {
+			background-color: $gray-200;
+			color: $gray-300;
+		}
 	}
 }
