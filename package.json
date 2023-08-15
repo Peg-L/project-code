@@ -7,7 +7,12 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "vite build && gh-pages -d dist"
+    "deploy": "vite build && gh-pages -d dist",
+    "home": "git remote add  Peg-L git@github.com:Peg-L/project-code.git",
+    "pull": "git fetch Peg-L && git merge Peg-L/main",
+    "moon-PR": "start chrome --app=https://github.com/Peg-L/project-code/compare/main...moon-start:project-code:main"
+
+    
   },
   "devDependencies": {
     "ejs": "^3.1.9",

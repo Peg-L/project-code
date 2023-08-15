@@ -9,6 +9,8 @@
 @import "../../node_modules/bootstrap/scss/mixins";
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
+@import "./base/base.scss";
+
 @import "./layout/header.scss";
 @import "./layout/footer.scss";
 @import "./components/btn";

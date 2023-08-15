@@ -9,7 +9,7 @@
 $white: #fff !default;
 $gray-100: #f5f6f8 !default;
 $gray-200: #d6d6d6 !default;
-$gray-300: #7b7b7b !default;
+$gray-300: #6c757d !default; //7b7b7b
 $gray-400: #ced4da !default;
 $gray-500: #adb5bd !default;
 $gray-600: #6c757d !default;
@@ -484,10 +484,10 @@ $body-emphasis-color: $black !default;
 //
 // Style anchor elements.
 
-$link-color: $primary !default;
-$link-decoration: none; //underline !default;
+$link-color: $black !default;
+$link-decoration: none !default;
 $link-shade-percentage: 20% !default;
-$link-hover-color: shift-color($link-color, $link-shade-percentage) !default;
+$link-hover-color: $primary !default;
 $link-hover-decoration: null !default;
 
 $stretched-link-pseudo-element: after !default;

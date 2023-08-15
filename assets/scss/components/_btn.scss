@@ -40,3 +40,62 @@
 		}
 	}
 }
+.btn-text {
+	position: relative;
+	border: 0;
+	background-color: transparent;
+	margin-right: 24px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	&::after {
+		content: ">";
+		position: absolute;
+		font-weight: bold;
+		color: white;
+		line-height: 22px;
+		border: 0;
+		border-radius: 50%;
+		width: 24px;
+		height: 24px;
+		background-color: $secondary2;
+		right: -21px;
+	}
+	&:hover {
+		color: $primary;
+		&::after {
+			background-color: $primary;
+		}
+	}
+	&:disabled {
+		color: $gray-300;
+		&::after {
+			background-color: $gray-200;
+			color: $gray-300;
+		}
+	}
+}
+
+.btn-link:disabled {
+	color: $gray-200;
+}
+
+.btn-social {
+	border: 1px solid $gray-200;
+	width: 36px;
+	height: 36px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	svg {
+		vertical-align: text-bottom;
+	}
+
+	&:hover {
+		border-color: $primary;
+		background-color: $primary;
+		color: white;
+		svg > path {
+			fill: white;
+		}
+	}
+}
