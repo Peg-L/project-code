@@ -5,3 +5,56 @@
 .btn-secondary2:disabled {
 	background-color: $gray-200;
 }
+
+.btn-text:hover {
+	span:first-child {
+		color: $primary !important;
+	}
+
+	span:last-child {
+		background: $primary !important;
+	}
+}
+
+// .btn-text.disabled {
+// 	span:first-child {
+// 		color: $gray-300 !important;
+// 	}
+
+// 	span:last-child {
+// 		background: $gray-200 !important;
+// 		color: $gray-300 !important;
+// 	}
+// }
+
+.btn-text {
+	display: flex;
+	align-items: center;
+	position: relative;
+
+	span:first-child {
+		color: $black;
+		margin-right: 4px;
+		font-weight: bold;
+	}
+
+	span:last-child {
+		padding: 4px;
+		font-size: 16px;
+		line-height: 16px;
+		color: $white;
+		background-color: $secondary2;
+		border-radius: 50rem;
+	}
+}
+
+.btn-text:disabled {
+	span:first-child {
+		color: $gray-300 !important;
+	}
+
+	span:last-child {
+		color: $gray-300;
+		background-color: $gray-100 !important;
+	}
+}
