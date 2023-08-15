@@ -861,13 +861,13 @@ $btn-padding-y-lg: $input-btn-padding-y-lg !default;
 $btn-padding-x-lg: $input-btn-padding-x-lg !default;
 $btn-font-size-lg: $input-btn-font-size-lg !default;
 
-$btn-border-width: $input-btn-border-width !default;
+$btn-border-width: none; //$input-btn-border-width !default;
 
 $btn-font-weight: $font-weight-normal !default;
 $btn-box-shadow: inset 0 1px 0 rgba($white, 0.15), 0 1px 1px rgba($black, 0.075) !default;
 $btn-focus-width: $input-btn-focus-width !default;
 $btn-focus-box-shadow: $input-btn-focus-box-shadow !default;
-$btn-disabled-opacity: 0.65 !default;
+$btn-disabled-opacity: 1; //0.65 !default;
 $btn-active-box-shadow: inset 0 3px 5px rgba($black, 0.125) !default;
 
 $btn-link-color: var(--#{$prefix}link-color) !default;
@@ -875,7 +875,7 @@ $btn-link-hover-color: var(--#{$prefix}link-hover-color) !default;
 $btn-link-disabled-color: $gray-600 !default;
 
 // Allows for customizing button radius independently from global border radius
-$btn-border-radius: var(--#{$prefix}border-radius) !default;
+$btn-border-radius: 50rem; //var(--#{$prefix}border-radius) !default;
 $btn-border-radius-sm: var(--#{$prefix}border-radius-sm) !default;
 $btn-border-radius-lg: var(--#{$prefix}border-radius-lg) !default;
 
