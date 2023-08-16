@@ -45,23 +45,17 @@
   color: $gray-200;
 }
 
-.btn-social {
+.btn-outlined-circle {
   border: 1px solid $gray-200;
   width: 36px;
   height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
-  svg {
-    vertical-align: text-bottom;
-  }
 
   &:hover {
     border-color: $primary;
     background-color: $primary;
     color: white;
-    svg > path {
-      fill: white;
-    }
   }
 }
