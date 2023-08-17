@@ -166,7 +166,13 @@
 		}
 		transition: transform 0.5s;
 	}
-
+    &:not(:hover) {
+		transform: scale(1);
+		@include media-breakpoint-up(md) {
+			transform: scale(1);
+		}
+		transition: transform 0.5s;
+	}
 	.btn-secondary2 {
 		font-size: 14px;
 		@include media-breakpoint-up(md) {
