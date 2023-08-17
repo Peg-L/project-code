@@ -1,112 +1,172 @@
-.teacher-card{
-    width: 416px;
-    padding: 24px;
-    box-shadow: 0px 4px 30px 0px rgba(150, 150, 150, 0.20);
-    &-content{
-        display: flex;
-        flex-direction: column;
-        margin-right: auto;
-    }
-    &-profile{
-        display: flex;
-        padding-bottom: 20px;
-        border-bottom:1px solid #D6D6D6;
-        margin-bottom: 20px;
-    }
-    &-img{
-        border-radius: 50px;
-    }
-    &-title{
-        font-family: 'Noto Sans TC';
-        padding-left: 24px;
-        position: relative;
-        font-size: 20px;
-        font-weight: 500;
-        margin-bottom: 8px;
-        &::after{
-            position: absolute;
-            content:"";
-            background-image: url('../../../assets/images/hot.svg');
-            width: 24px;
-            height: 24px;
-            top:0;
-            left:-4px;
-        }
-    }
-    &-name{
-        font-size: 14px;
-        line-height: 1.5;
-        color:#7B7B7B;
-        margin-bottom: 8px;
-    }
-    &-object{
-        display: flex;
-        gap:12px;
-        font-family: 'Noto Sans TC';
-        font-size: 12px;
-        line-height: 1.5;
-        margin-bottom: 8px;
-    }
-    &-evaluate{
-        color:#01A3E8;
-        position: relative;
-        padding-left: 16px;
-        &::after{
-            position: absolute;
-            content:"";
-            background-image: url('../../../assets/images/star.svg');
-            width: 16px;
-            height: 16px;
-            top:0;
-            left:-4px;
-        }
-    }
-    &-hours{
-        color: #7B7B7B;
-        position: relative;
-        padding-left: 16px;
-        &::after{
-            position: absolute;
-            content:"";
-            background-image: url('../../../assets/images/clock.svg');
-            width: 16px;
-            height: 16px;
-            top:1px;
-            left:-4px;
-        }
-    }
-    &-price{
-        font-family: 'Noto Sans TC';
-        font-size: 18px;
-        font-weight: 500;
-        line-height: 1.2;
-    }
-    &-text{
-        color: #7B7B7B;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis; 
-        font-family: 'Noto Sans TC';
-        font-size: 14px;
-        line-height: 1.5;
-        margin-bottom: 24px;
-    }
-    &-btn{
-        display: block;
-        font-family: Noto Sans TC;
-        padding: 0;
-        font-size: 14px;
-        font-weight: 500;
-        line-height: 1.5;
-        color: #115BC9;
-        text-align: center;
-        &:hover{
-            color:#01A3E8;
-        }
-    }
-    &:hover{
-        transform: scale(1.05);
-        transition: transform 0.5s;
-    }
-}
+.teacher-card {
+	padding: 16px;
+	@include md {
+		padding: 24px;
+	}
 
+	box-shadow: 0px 4px 30px 0px rgba(150, 150, 150, 0.2);
+
+	&-profile {
+		display: flex;
+
+		padding-bottom: 12px;
+		margin-bottom: 12px;
+
+		@include md {
+			padding-bottom: 20px;
+			margin-bottom: 20px;
+		}
+
+		border-bottom: 1px solid $gray-200;
+	}
+
+	&-content {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		margin-right: auto;
+	}
+
+	&-img {
+		border-radius: 50px;
+	}
+
+	&-title {
+		font-family: "Noto Sans TC";
+		padding-left: 28px;
+		position: relative;
+
+		font-size: 18px;
+		@include md {
+			font-size: 20px;
+		}
+		font-weight: 500;
+		line-height: 1.2;
+
+		margin-bottom: 4px;
+		@include md {
+			margin-bottom: 8px;
+		}
+
+		&::after {
+			position: absolute;
+			content: "";
+			background-image: url("../../../assets/images/hot.svg");
+			width: 24px;
+			height: 24px;
+			top: 0;
+			left: 0px;
+		}
+	}
+
+	&-name {
+		font-size: 12px;
+		@include md {
+			font-size: 14px;
+		}
+
+		line-height: 1.5;
+		color: $gray-300;
+
+		margin-bottom: 4px;
+		@include md {
+			margin-bottom: 8px;
+		}
+	}
+
+	&-object {
+		display: flex;
+		gap: 12px;
+		font-family: "Noto Sans TC", sans-serif;
+		font-size: 12px;
+		line-height: 1.5;
+
+		margin-bottom: 4px;
+		@include md {
+			margin-bottom: 8px;
+		}
+	}
+
+	&-evaluate {
+		color: $primary;
+		position: relative;
+		padding-left: 20px;
+		&::after {
+			position: absolute;
+			content: "";
+			background-image: url("../../../assets/images/star.svg");
+			width: 16px;
+			height: 16px;
+			top: 0;
+			left: 0;
+		}
+	}
+
+	&-hours {
+		color: $gray-300;
+		position: relative;
+		padding-left: 20px;
+		&::after {
+			position: absolute;
+			content: "";
+			background-image: url("../../../assets/images/clock.svg");
+			width: 16px;
+			height: 16px;
+			top: 1px;
+			left: 0;
+		}
+	}
+
+	&-price {
+		font-family: "Noto Sans TC", sans-serif;
+		font-size: 16px;
+		@include md {
+			font-size: 18px;
+		}
+		font-weight: 500;
+		line-height: 1.2;
+
+		span {
+			margin-left: 4px;
+		}
+	}
+
+	&-text {
+		color: $gray-300;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		font-family: "Noto Sans TC", sans-serif;
+		font-size: 12px;
+		@include md {
+			font-size: 14px;
+		}
+		line-height: 1.5;
+		margin-bottom: 24px;
+	}
+
+	&-btn {
+		display: block;
+		font-family: "Noto Sans TC", sans-serif;
+		padding: 0;
+		font-size: 14px;
+		font-weight: 500;
+		line-height: 1.5;
+		color: $secondary2;
+		text-align: center;
+		&:hover {
+			color: $primary;
+		}
+	}
+	&:hover {
+		transform: scale(1.05);
+		transition: transform 0.5s;
+	}
+
+	.btn-secondary2 {
+		font-size: 14px;
+		@include md {
+			font-size: 16px;
+		}
+	}
+}
