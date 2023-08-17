@@ -1,5 +1,6 @@
 //font family
 @import url("https://fonts.googleapis.com/css2?family=Manrope&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap");
+
 // icon
 @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css";
 
@@ -13,9 +14,6 @@
 
 // base
 @import "./base/base.scss";
-
-// utils
-@import "./utils/mixins";
 
 // components
 @import "./components/btn";

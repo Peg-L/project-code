@@ -1,6 +1,6 @@
 .teacher-card {
 	padding: 16px;
-	@include md {
+	@include media-breakpoint-up(md) {
 		padding: 24px;
 	}
 
@@ -12,7 +12,7 @@
 		padding-bottom: 12px;
 		margin-bottom: 12px;
 
-		@include md {
+		@include media-breakpoint-up(md) {
 			padding-bottom: 20px;
 			margin-bottom: 20px;
 		}
@@ -37,14 +37,14 @@
 		position: relative;
 
 		font-size: 18px;
-		@include md {
+		@include media-breakpoint-up(md) {
 			font-size: 20px;
 		}
 		font-weight: 500;
 		line-height: 1.2;
 
 		margin-bottom: 4px;
-		@include md {
+		@include media-breakpoint-up(md) {
 			margin-bottom: 8px;
 		}
 
@@ -61,7 +61,7 @@
 
 	&-name {
 		font-size: 12px;
-		@include md {
+		@include media-breakpoint-up(md) {
 			font-size: 14px;
 		}
 
@@ -69,7 +69,7 @@
 		color: $gray-300;
 
 		margin-bottom: 4px;
-		@include md {
+		@include media-breakpoint-up(md) {
 			margin-bottom: 8px;
 		}
 	}
@@ -82,7 +82,7 @@
 		line-height: 1.5;
 
 		margin-bottom: 4px;
-		@include md {
+		@include media-breakpoint-up(md) {
 			margin-bottom: 8px;
 		}
 	}
@@ -120,7 +120,7 @@
 	&-price {
 		font-family: "Noto Sans TC", sans-serif;
 		font-size: 16px;
-		@include md {
+		@include media-breakpoint-up(md) {
 			font-size: 18px;
 		}
 		font-weight: 500;
@@ -138,7 +138,7 @@
 		text-overflow: ellipsis;
 		font-family: "Noto Sans TC", sans-serif;
 		font-size: 12px;
-		@include md {
+		@include media-breakpoint-up(md) {
 			font-size: 14px;
 		}
 		line-height: 1.5;
@@ -158,14 +158,18 @@
 			color: $primary;
 		}
 	}
+
 	&:hover {
-		transform: scale(1.05);
+		transform: scale(1.025);
+		@include media-breakpoint-up(md) {
+			transform: scale(1.05);
+		}
 		transition: transform 0.5s;
 	}
 
 	.btn-secondary2 {
 		font-size: 14px;
-		@include md {
+		@include media-breakpoint-up(md) {
 			font-size: 16px;
 		}
 	}

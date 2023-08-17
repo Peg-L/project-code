@@ -1,61 +1,64 @@
 .btn-secondary2:hover {
-  background-color: $primary !important;
+	background-color: $primary !important;
 }
 
 .btn-secondary2:disabled {
-  background-color: $gray-200;
+	background-color: $gray-200;
 }
 
 .btn-text {
-  position: relative;
-  border: 0;
-  background-color: transparent;
-  margin-right: 24px;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  &::after {
-    content: ">";
-    position: absolute;
-    font-weight: bold;
-    color: white;
-    line-height: 22px;
-    border: 0;
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-    background-color: $secondary2;
-    right: -21px;
-  }
-  &:hover {
-    color: $primary;
-    &::after {
-      background-color: $primary;
-    }
-  }
-  &:disabled {
-    color: $gray-300;
-    &::after {
-      background-color: $gray-200;
-      color: $gray-300;
-    }
-  }
+	position: relative;
+	border: 0;
+	background-color: transparent;
+	margin-right: 24px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	&::after {
+		font-family: "Font Awesome\ 5 Free";
+		content: "\f105";
+		position: absolute;
+		font-weight: bold;
+		color: white;
+		line-height: 24px;
+		border: 0;
+		border-radius: 50%;
+		width: 24px;
+		height: 24px;
+		background-color: $secondary2;
+		right: -21px;
+		font-size: 12px;
+	}
+
+	&:hover {
+		color: $primary;
+		&::after {
+			background-color: $primary;
+		}
+	}
+	&:disabled {
+		color: $gray-300;
+		&::after {
+			background-color: $gray-200;
+			color: $gray-300;
+		}
+	}
 }
 
 .btn-link:disabled {
-  color: $gray-200;
+	color: $gray-200;
 }
 
 .btn-outlined-circle {
-  border: 1px solid $gray-200;
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	border: 1px solid $gray-200;
+	width: 36px;
+	height: 36px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
-  &:hover {
-    border-color: $primary;
-    background-color: $primary;
-    color: white;
-  }
+	&:hover {
+		border-color: $primary;
+		background-color: $primary;
+		color: white;
+	}
 }
