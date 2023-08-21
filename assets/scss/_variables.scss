@@ -680,6 +680,8 @@ $font-sizes: (
 	4: $h4-font-size,
 	5: $h5-font-size,
 	6: $h6-font-size,
+	sm: $font-size-sm,
+	tiny: 12px,
 ) !default;
 // scss-docs-end font-sizes
 
@@ -845,7 +847,7 @@ $input-btn-border-width: var(--#{$prefix}border-width) !default;
 // For each of Bootstrap's buttons, define text, background, and border color.
 
 // scss-docs-start btn-variables
-$btn-color: var(--#{$prefix}body-color) !default;
+$btn-color: $secondary2; //var(--#{$prefix}body-color) !default;
 $btn-padding-y: $input-btn-padding-y !default;
 $btn-padding-x: $input-btn-padding-x !default;
 $btn-font-family: $input-btn-font-family !default;
@@ -1260,8 +1262,8 @@ $navbar-brand-margin-end: 1rem !default;
 $navbar-toggler-padding-y: 0.25rem !default;
 $navbar-toggler-padding-x: 0.75rem !default;
 $navbar-toggler-font-size: $font-size-lg !default;
-$navbar-toggler-border-radius: $btn-border-radius !default;
-$navbar-toggler-focus-width: $btn-focus-width !default;
+$navbar-toggler-border-radius: 4px; // $btn-border-radius !default;
+$navbar-toggler-focus-width: 1px; //$btn-focus-width !default;
 $navbar-toggler-transition: box-shadow 0.15s ease-in-out !default;
 
 $navbar-light-color: rgba(var(--#{$prefix}emphasis-color-rgb), 0.65) !default;
@@ -1445,7 +1447,7 @@ $accordion-padding-y: 1rem !default;
 $accordion-padding-x: 1.25rem !default;
 $accordion-color: var(--#{$prefix}body-color) !default;
 $accordion-bg: var(--#{$prefix}body-bg) !default;
-$accordion-border-width: var(--#{$prefix}border-width) !default;
+$accordion-border-width: none; //var(--#{$prefix}border-width) !default;
 $accordion-border-color: var(--#{$prefix}border-color) !default;
 $accordion-border-radius: var(--#{$prefix}border-radius) !default;
 $accordion-inner-border-radius: subtract(
@@ -1461,11 +1463,11 @@ $accordion-button-padding-x: $accordion-padding-x !default;
 $accordion-button-color: var(--#{$prefix}body-color) !default;
 $accordion-button-bg: var(--#{$prefix}accordion-bg) !default;
 $accordion-transition: $btn-transition, border-radius 0.15s ease !default;
-$accordion-button-active-bg: var(--#{$prefix}primary-bg-subtle) !default;
+$accordion-button-active-bg: none; //var(--#{$prefix}primary-bg-subtle) !default;
 $accordion-button-active-color: var(--#{$prefix}primary-text-emphasis) !default;
 
 $accordion-button-focus-border-color: $input-focus-border-color !default;
-$accordion-button-focus-box-shadow: $btn-focus-box-shadow !default;
+$accordion-button-focus-box-shadow: none; //$btn-focus-box-shadow !default;
 
 $accordion-icon-width: 1.25rem !default;
 $accordion-icon-color: $body-color !default;
