@@ -17,27 +17,29 @@
 }
 
 .btn-text {
-  position: relative;
-  border: 0;
-  background-color: transparent;
-  margin-right: 24px;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  &::after {
-    font-family: "Font Awesome\ 5 Free";
-    content: "\f105";
-    position: absolute;
-    font-weight: bold;
-    color: white;
-    line-height: 24px;
-    border: 0;
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-    background-color: $secondary2;
-    right: -21px;
-    font-size: 12px;
-  }
+
+	position: relative;
+	border: 0;
+	background-color: transparent;
+	margin-right: 24px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+
+	&::after {
+		font-family: "Font Awesome\ 5 Free";
+		content: "\f105";
+		position: absolute;
+		font-weight: bold;
+		color: white;
+		line-height: 24px;
+		border: 0;
+		border-radius: 50%;
+		width: 24px;
+		height: 24px;
+		background-color: $secondary2;
+		right: -21px;
+		font-size: 12px;
+	}
 
   &:hover {
     color: $primary;
