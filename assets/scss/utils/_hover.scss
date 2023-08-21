@@ -1,0 +1,6 @@
+.hover-text-secondary2 {
+  &:hover {
+    color: $secondary2;
+    transition: color 0.3s;
+  }
+}
