@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>index</title>
+		<script type="module" crossorigin src="/project-code/assets/main-ae412579.js"></script>
+		<link rel="stylesheet" href="/project-code/assets/main-adf79f09.css">
+	</head>
+	<body>
+		<!-- new -->
+<nav class="navbar navbar-expand-lg bg-white">
+	<div class="container">
+		<h1 class="navbar-brand">
+			<a href="./index.html">
+				<img
+					class="d-none d-lg-block"
+					src="/project-code/assets/logo-b4744193.svg"
+					alt="C0DE logo" />
+				<img
+					class="d-block d-lg-none"
+					src="/project-code/assets/logo-sm-a5bbfe02.svg"
+					alt="C0DE logo" />
+			</a>
+		</h1>
+
+		<div>
+			<input type="checkbox" id="menu-toggle" />
+			<label
+				for="menu-toggle"
+				class="navbar-toggler"
+				type="button"
+				data-bs-toggle="collapse"
+				data-bs-target="#navbarScroll"
+				aria-controls="navbarScroll"
+				aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</label>
+		</div>
+
+		<div class="navbar-collapse collapse py-6 py-lg-0" id="navbarScroll">
+			<ul
+				id="accordionFlush"
+				class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll m-auto column-gap-10 row-gap-2"
+				style="--bs-scroll-height: 205px">
+				<li class="nav-item">
+					<a class="nav-link pc d-none d-lg-block" aria-current="page" href="#"
+						>課程分類</a
+					>
+					<div
+						class="accordion accordion-flush d-block d-lg-none"
+						id="accordionFlush">
+						<div class="accordion-item">
+							<h2 class="accordion-header">
+								<button
+									class="accordion-button collapsed nav-link"
+									type="button"
+									data-bs-toggle="collapse"
+									data-bs-target="#category"
+									aria-expanded="false"
+									aria-controls="category">
+									課程分類
+								</button>
+							</h2>
+							<div
+								id="category"
+								class="accordion-collapse collapse"
+								data-bs-parent="#accordionFlush">
+								<ul class="accordion-body text-center">
+									<li><a href="###">前端</a></li>
+									<li><a href="###">後端</a></li>
+									<li><a href="###">資料庫</a></li>
+									<li><a href="###">資安</a></li>
+									<li><a href="###">產品測試</a></li>
+									<li><a href="###">UI / UX</a></li>
+									<li><a href="###">開發維運</a></li>
+									<li><a href="###">行動應用</a></li>
+									<li><a href="###">AI</a></li>
+									<li><a href="###">遊戲開發</a></li>
+									<li><a href="###">程式入門</a></li>
+									<li><a href="###">職涯</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link pc d-none d-lg-block" aria-current="page" href="#"
+						>常見問題</a
+					>
+					<div
+						class="accordion accordion-flush d-block d-lg-none"
+						id="accordionFlush">
+						<div class="accordion-item">
+							<h2 class="accordion-header">
+								<button
+									class="accordion-button collapsed nav-link"
+									type="button"
+									data-bs-toggle="collapse"
+									data-bs-target="#faq"
+									aria-expanded="false"
+									aria-controls="faq">
+									常見問題
+								</button>
+							</h2>
+							<div
+								id="faq"
+								class="accordion-collapse collapse"
+								data-bs-parent="#accordionFlush">
+								<ul class="accordion-body text-center">
+									<li><a href="###">學生常見問答</a></li>
+									<li><a href="###">老師常見問答</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link pc d-none d-lg-block" aria-current="page" href="#"
+						>聯絡老師</a
+					>
+					<a class="nav-link d-block d-lg-none" aria-current="page" href="#"
+						>聯絡老師</a
+					>
+				</li>
+			</ul>
+
+			<!-- 透過加上/刪除 isLogin 來切換登入狀態 -->
+			<div
+				class="d-flex flex-column flex-lg-row row-gap-2 mt-6 mt-lg-0 isLogin">
+				<button type="button" class="btn btn-member btn-secondary2">
+					會員中心
+				</button>
+
+				<button type="button" class="btn btn-register btn-secondary2">
+					註冊
+				</button>
+				<button type="button" class="btn btn-login fw-medium">登入</button>
+			</div>
+		</div>
+	</div>
+</nav>
+		<div class="container">
+			<!-- btn -->
+			<button type="button" class="btn btn-secondary2">範例按鈕</button>
+			<button type="button" class="btn btn-secondary2" disabled>
+				範例按鈕
+			</button>
+
+			<br />
+			<!-- btn text -->
+			<button type="button" class="btn-text">範例按鈕</button>
+			<button type="button" class="btn-text" disabled>範例按鈕</button>
+
+			<br />
+			<!-- btn arrow -->
+			<button class="btn btn-link" type="button">
+				<i class="fa-solid fa-arrow-left"></i>
+			</button>
+			<button class="btn btn-link" type="button" disabled>
+				<i class="fa-solid fa-arrow-right"></i>
+			</button>
+
+			<br />
+			<!--btn social -->
+			<div class="d-flex">
+				<button class="btn btn-outlined-circle" type="button">
+					<div class="d-flex">
+						<i class="fa-brands fa-facebook-f"></i>
+					</div>
+				</button>
+				<button class="btn btn-outlined-circle" type="button">
+					<div class="d-flex">
+						<i class="fa-brands fa-instagram"></i>
+					</div>
+				</button>
+				<button class="btn btn-outlined-circle" type="button">
+					<div class="d-flex">
+						<i class="fa-brands fa-linkedin-in"></i>
+					</div>
+				</button>
+			</div>
+		</div>
+
+		<br />
+		<!-- card component-->
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-6">
+					<div class="col">
+						<div class="teacher-card">
+							<div class="teacher-card-profile">
+								<div class="teacher-card-content">
+									<h3 class="teacher-card-title">JavaScript 大師</h3>
+									<p class="teacher-card-name">麥克先生</p>
+									<ul class="teacher-card-object">
+										<!-- 評價 -->
+										<li class="teacher-card-evaluate">5.0</li>
+										<!-- 時數 -->
+										<li class="teacher-card-hours">50分鐘</li>
+									</ul>
+									<p class="teacher-card-price">NT$<span>800</span></p>
+								</div>
+								<div class="teacher-card-img">
+									<img src="/project-code/assets/Rectangle 7-ab3dd5b8.png" alt="" class="" />
+								</div>
+							</div>
+							<p class="teacher-card-text">
+								一起探索 JavaScript
+								更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...
+							</p>
+							<button type="button" class="btn btn-secondary2 w-100 mb-3">
+								立即上課
+							</button>
+							<a type="button" class="btn teacher-card-btn">查看介紹</a>
+						</div>
+					</div>
+					<div class="col">
+						<div class="teacher-card">
+							<div class="teacher-card-profile">
+								<div class="teacher-card-content">
+									<h3 class="teacher-card-title">JavaScript 大師</h3>
+									<p class="teacher-card-name">麥克先生</p>
+									<ul class="teacher-card-object">
+										<!-- 評價 -->
+										<li class="teacher-card-evaluate">5.0</li>
+										<!-- 時數 -->
+										<li class="teacher-card-hours">50分鐘</li>
+									</ul>
+									<p class="teacher-card-price">NT$<span>800</span></p>
+								</div>
+								<div class="teacher-card-img">
+									<img src="/project-code/assets/Rectangle 7-ab3dd5b8.png" alt="" class="" />
+								</div>
+							</div>
+							<p class="teacher-card-text">
+								一起探索 JavaScript
+								更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...
+							</p>
+							<button type="button" class="btn btn-secondary2 w-100 mb-3">
+								立即上課
+							</button>
+							<a type="button" class="btn teacher-card-btn">查看介紹</a>
+						</div>
+					</div>
+					<div class="col">
+						<div class="teacher-card">
+							<div class="teacher-card-profile">
+								<div class="teacher-card-content">
+									<h3 class="teacher-card-title">JavaScript 大師</h3>
+									<p class="teacher-card-name">麥克先生</p>
+									<ul class="teacher-card-object">
+										<!-- 評價 -->
+										<li class="teacher-card-evaluate">5.0</li>
+										<!-- 時數 -->
+										<li class="teacher-card-hours">50分鐘</li>
+									</ul>
+									<p class="teacher-card-price">NT$<span>800</span></p>
+								</div>
+								<div class="teacher-card-img">
+									<img src="/project-code/assets/Rectangle 7-ab3dd5b8.png" alt="" class="" />
+								</div>
+							</div>
+							<p class="teacher-card-text">
+								一起探索 JavaScript
+								更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...
+							</p>
+							<button type="button" class="btn btn-secondary2 w-100 mb-3">
+								立即上課
+							</button>
+							<a type="button" class="btn teacher-card-btn">查看介紹</a>
+						</div>
+					</div>
+					<div class="col">
+						<div class="teacher-card">
+							<div class="teacher-card-profile">
+								<div class="teacher-card-content">
+									<h3 class="teacher-card-title">JavaScript 大師</h3>
+									<p class="teacher-card-name">麥克先生</p>
+									<ul class="teacher-card-object">
+										<!-- 評價 -->
+										<li class="teacher-card-evaluate">5.0</li>
+										<!-- 時數 -->
+										<li class="teacher-card-hours">50分鐘</li>
+									</ul>
+									<p class="teacher-card-price">NT$<span>800</span></p>
+								</div>
+								<div class="teacher-card-img">
+									<img src="/project-code/assets/Rectangle 7-ab3dd5b8.png" alt="" class="" />
+								</div>
+							</div>
+							<p class="teacher-card-text">
+								一起探索 JavaScript
+								更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...
+							</p>
+							<button type="button" class="btn btn-secondary2 w-100 mb-3">
+								立即上課
+							</button>
+							<a type="button" class="btn teacher-card-btn">查看介紹</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		
+	</body>
+</html>
