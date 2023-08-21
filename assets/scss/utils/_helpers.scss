@@ -1,0 +1,29 @@
+.no-events {
+  pointer-events: none;
+}
+.text-nowrap {
+  white-space: nowrap;
+}
+.list-disc {
+  position: relative;
+  padding-left: 28px;
+
+  &::after {
+    font-family: "Font Awesome\ 5 Free";
+    content: "\f00c";
+    position: absolute;
+    font-weight: bold;
+    font-size: 12px;
+    display: inline-block;
+    top: 0px;
+    left: 0px;
+  }
+}
+.multiline-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+}
+.text-justify {
+  text-align: justify;
+}
