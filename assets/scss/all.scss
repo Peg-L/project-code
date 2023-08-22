@@ -1,5 +1,5 @@
 //font family
-@import url("https://fonts.googleapis.com/css2?family=Manrope&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap");
 
 // icon
 @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css";
@@ -7,9 +7,10 @@
 // bootstrap
 @import "../../node_modules/bootstrap/scss/functions";
 @import "./variables";
-// @import "../../node_modules/bootstrap/scss/variables-dark";
-// @import "../../node_modules/bootstrap/scss/maps";
+@import "../../node_modules/bootstrap/scss/variables-dark";
+@import "../../node_modules/bootstrap/scss/maps";
 // @import "../../node_modules/bootstrap/scss/mixins";
+@import "./utilities";
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
 // base
@@ -20,9 +21,13 @@
 @import "./components/card";
 @import "./components/badge-title";
 @import "./components/input-search";
+@import "./components/collapse";
 
 // layout
 @import "./layout/header.scss";
 @import "./layout/footer.scss";
 
 @import "./pages/index.scss";
+
+//utils
+@import "./utils/helpers.scss";

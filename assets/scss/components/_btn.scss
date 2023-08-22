@@ -1,12 +1,23 @@
 .btn-secondary2:hover {
-	background-color: $primary !important;
+  background-color: $primary !important;
 }
 
 .btn-secondary2:disabled {
-	background-color: $gray-200;
+  background-color: $gray-200;
+}
+
+.btn-link-primary {
+  background-color: $white;
+  color: $secondary2;
+
+  &:hover {
+    background-color: $white;
+    color: $primary;
+  }
 }
 
 .btn-text {
+
 	position: relative;
 	border: 0;
 	background-color: transparent;
@@ -30,37 +41,37 @@
 		font-size: 12px;
 	}
 
-	&:hover {
-		color: $primary;
-		&::after {
-			background-color: $primary;
-		}
-	}
-	&:disabled {
-		color: $gray-300;
-		&::after {
-			background-color: $gray-200;
-			color: $gray-300;
-		}
-	}
+  &:hover {
+    color: $primary;
+    &::after {
+      background-color: $primary;
+    }
+  }
+  &:disabled {
+    color: $gray-300;
+    &::after {
+      background-color: $gray-200;
+      color: $gray-300;
+    }
+  }
 }
 
 .btn-link:disabled {
-	color: $gray-200;
+  color: $gray-200;
 }
 
 .btn-outlined-circle {
-	border: 1px solid $gray-200;
-	width: 36px;
-	height: 36px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  border: 1px solid $gray-200;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-	&:hover {
-		border-color: $primary;
-		background-color: $primary;
-		color: white;
-	}
+  &:hover {
+    border-color: $primary;
+    background-color: $primary;
+    color: white;
+  }
 }
 
