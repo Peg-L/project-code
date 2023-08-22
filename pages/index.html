@@ -1,12 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
-	</head>
-	<body>
-		<%- include("./layout/header.ejs") -%>
-		<script type="module" src="../main.js"></script>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>C0DE | 讓你從 0 到 Expert</title>
+    <link
+      rel="shortcut icon"
+      href="../assets/images/favicon.ico"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <%- include("./layout/header.ejs") -%>
+    <div class="banner-md">
+      <!-- data-bs-ride="carousel" -->
+      <div id="carouselBanner" class="container carousel carousel-dark slide">
+        <div class="carousel-inner">
+          <div
+            class="carousel-item banner-sm banner-1 active flex-column justify-content-end align-items-start justify-content-md-center"
+            data-bs-interval="6000"
+          >
+            <h3
+              class="badge-title badge-title-lg bg-primary text-white mb-2 mb-md-3"
+            >
+              學生五星好評推薦
+            </h3>
+            <h2 class="banner-title">經驗豐富的優質教師</h2>
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="今天想學什麼..."
+                aria-label="search keywords"
+                aria-describedby="button-addon2"
+              />
+              <button
+                class="btn btn-secondary2 btn-search"
+                type="button"
+                id="button-addon2"
+              >
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </div>
+          </div>
+          <div
+            class="carousel-item banner-sm banner-2 flex-column justify-content-end align-items-start justify-content-md-center"
+            data-bs-interval="3000"
+          >
+            <h3
+              class="badge-title badge-title-lg bg-primary text-white mb-2 mb-md-3"
+            >
+              嚴格篩選機制
+            </h3>
+            <h2 class="banner-title">經試教審核後成為教師，定期考核</h2>
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="今天想學什麼..."
+                aria-label="search keywords"
+                aria-describedby="button-addon2"
+              />
+              <button
+                class="btn btn-secondary2 btn-search"
+                type="button"
+                id="button-addon2"
+              >
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </div>
+          </div>
+          <div
+            class="carousel-item banner-sm banner-3 flex-column justify-content-end align-items-start justify-content-md-center"
+            data-bs-interval="0"
+          >
+            <h3
+              class="badge-title badge-title-lg bg-primary text-white mb-2 mb-md-3"
+            >
+              擊退畢業焦慮
+            </h3>
+            <h2 class="banner-title">任選教師，買10堂課送5堂</h2>
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="今天想學什麼..."
+                aria-label="search keywords"
+                aria-describedby="button-addon2"
+              />
+              <button
+                class="btn btn-secondary2 btn-search"
+                type="button"
+                id="button-addon2"
+              >
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselBanner"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselBanner"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselBanner"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- <%- include("./layout/footer.ejs") -%> -->
+    <script type="module" src="../main.js"></script>
+  </body>
 </html>

@@ -1,3 +1,83 @@
-.index-title {
-  font-size: 100px;
+// banner
+.banner-sm {
+  border-radius: 12px;
+  height: 300px;
+  padding: 16px;
+
+  background: url("../images/banner.svg") no-repeat center / cover;
+
+  & > * {
+    display: none;
+  }
+
+  &.active {
+    display: flex;
+
+    & > * {
+      display: flex;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    background: none;
+    height: 640px;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .banner-md {
+    background: url("../images/banner.svg") no-repeat center / cover;
+    display: block;
+    height: 640px;
+    margin: 0 20px;
+    border-radius: 20px;
+  }
+}
+
+.banner-title {
+  font-size: 30px;
+  color: $white;
+  margin-bottom: 24px;
+  font-weight: bold;
+
+  @include media-breakpoint-up(md) {
+    font-size: 60px;
+    margin-bottom: 48px;
+  }
+}
+
+.carousel-indicators {
+  position: relative;
+  margin: 20px 0 0 0;
+  gap: 16px;
+
+  @include media-breakpoint-up(md) {
+    position: absolute;
+    margin-bottom: 40px;
+    gap: 24px;
+  }
+
+  & [data-bs-target] {
+    display: block;
+    background-color: $gray-200;
+    width: 6px;
+    height: 6px;
+    border: none;
+    border-radius: 50%;
+    margin: 0;
+
+    &.active {
+      background-color: $primary;
+    }
+
+    @include media-breakpoint-up(md) {
+      background-color: rgba($white, 0.3);
+      width: 8px;
+      height: 8px;
+
+      &.active {
+        background-color: $white;
+      }
+    }
+  }
 }

@@ -158,3 +158,17 @@
 		display: none;
 	}
 }
+
+
+.footer-cate-title {
+	font-size: 16px;
+	margin-bottom: 16px;
+	font-family: "Noto Sans TC", sans-serif;
+}
+
+.footer-cate-list {
+	font-size: 14px;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}

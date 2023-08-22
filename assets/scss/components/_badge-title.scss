@@ -1,0 +1,27 @@
+.badge-title {
+	font-weight: 400;
+	border-radius: 12px 12px 12px 0px;
+	padding: 4px 12px;
+	display: inline-block;
+	vertical-align: center;
+	line-height: 1.5;
+
+	&-lg {
+		font-size: 14px;
+
+		@include media-breakpoint-up(md) {
+			padding: 8px 16px;
+			font-size: 20px;
+		}
+	}
+
+	&-sm {
+		font-size: 12px;
+
+		@include media-breakpoint-up(md) {
+			padding: 4px 16px;
+			font-size: 16px;
+		}
+	}
+}
+
