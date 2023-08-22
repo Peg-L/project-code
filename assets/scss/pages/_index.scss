@@ -1,3 +1,58 @@
-.index-title {
-  font-size: 100px;
+// banner
+.banner-sm {
+  background: url("../images/banner.svg") no-repeat center / cover;
+  border-radius: 12px;
+  height: 300px;
+
+  @include media-breakpoint-up(md) {
+    background: none;
+    height: 640px;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .banner-md {
+    background: url("../images/banner.svg") no-repeat center / cover;
+    display: block;
+    height: 640px;
+    margin: 0 20px;
+    border-radius: 20px;
+  }
+}
+
+.banner-title {
+  font-size: 30px;
+  color: $white;
+  margin-bottom: 24px;
+
+  @include media-breakpoint-up(md) {
+    font-size: 60px;
+    margin-bottom: 48px;
+  }
+}
+
+// banner - input
+.input-group {
+  max-width: 416px;
+}
+
+.btn-input {
+  border-radius: 0 6px 6px 0;
+  padding: 8px;
+  border: 1px solid $white;
+
+  .fa-magnifying-glass {
+    width: 24px;
+
+    &::before {
+      font-size: 17px;
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .btn-input {
+    border-radius: 0 8px 8px 0;
+    padding: 12px;
+  }
 }
