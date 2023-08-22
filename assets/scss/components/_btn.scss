@@ -5,8 +5,16 @@
 .btn-secondary2:disabled {
   background-color: $gray-200;
 }
+.btn-gray {
+  background-color: $gray-100;
+  color: $gray-300;
+}
 
-.btn-link-primary {
+.btn-link:disabled {
+  color: $gray-200;
+}
+
+.btn-white {
   background-color: $white;
   color: $secondary2;
 
@@ -17,29 +25,28 @@
 }
 
 .btn-text {
+  position: relative;
+  border: 0;
+  background-color: transparent;
+  margin-right: 24px;
+  padding-top: 8px;
+  padding-bottom: 8px;
 
-	position: relative;
-	border: 0;
-	background-color: transparent;
-	margin-right: 24px;
-	padding-top: 8px;
-	padding-bottom: 8px;
-
-	&::after {
-		font-family: "Font Awesome\ 5 Free";
-		content: "\f105";
-		position: absolute;
-		font-weight: bold;
-		color: white;
-		line-height: 24px;
-		border: 0;
-		border-radius: 50%;
-		width: 24px;
-		height: 24px;
-		background-color: $secondary2;
-		right: -21px;
-		font-size: 12px;
-	}
+  &::after {
+    font-family: "Font Awesome\ 5 Free";
+    content: "\f105";
+    position: absolute;
+    font-weight: bold;
+    color: white;
+    line-height: 24px;
+    border: 0;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    background-color: $secondary2;
+    right: -21px;
+    font-size: 12px;
+  }
 
   &:hover {
     color: $primary;
@@ -54,10 +61,6 @@
       color: $gray-300;
     }
   }
-}
-
-.btn-link:disabled {
-  color: $gray-200;
 }
 
 .btn-outlined-circle {

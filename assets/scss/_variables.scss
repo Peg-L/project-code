@@ -674,14 +674,14 @@ $h6-font-size: $font-size-base * 1.125 !default; //18px
 
 // scss-docs-start font-sizes
 $font-sizes: (
-	1: $h1-font-size,
-	2: $h2-font-size,
-	3: $h3-font-size,
-	4: $h4-font-size,
-	5: $h5-font-size,
-	6: $h6-font-size,
-	sm: $font-size-sm,
-	tiny: 12px,
+  1: $h1-font-size,
+  2: $h2-font-size,
+  3: $h3-font-size,
+  4: $h4-font-size,
+  5: $h5-font-size,
+  6: $h6-font-size,
+  sm: $font-size-sm,
+  tiny: 12px,
 ) !default;
 // scss-docs-end font-sizes
 
