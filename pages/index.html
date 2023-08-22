@@ -3,10 +3,27 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
+		<title>C0DE | 讓你從 0 到 Expert</title>
+		<link
+			rel="shortcut icon"
+			href="../assets/images/favicon.ico"
+			type="image/x-icon" />
 	</head>
 	<body>
 		<%- include("./layout/header.ejs") -%>
+		<div class="banner-md">
+			<div class="container">
+				<div class="banner-sm d-flex flex-column justify-content-end align-items-start justify-content-md-center p-4 p-md-0">
+					<h3 class="badge badge-title badge-title-lg bg-primary text-white mb-2 mb-md-3">學生五星好評推薦</h3>
+					<h2 class="banner-title">經驗豐富的優質教師</h2>
+					<div class="input-group">
+						<input type="text" class="form-control" placeholder="今天想學什麼..." aria-label="search keywords" aria-describedby="button-addon2">
+						<button class="btn btn-secondary2 btn-input" type="button" id="button-addon2"><i class="fa-solid fa-magnifying-glass"></i></button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- <%- include("./layout/footer.ejs") -%> -->
 		<script type="module" src="../main.js"></script>
 	</body>
 </html>

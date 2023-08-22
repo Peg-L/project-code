@@ -670,6 +670,7 @@ $h3-font-size: $font-size-base * 1.875 !default; //30px
 $h4-font-size: $font-size-base * 1.5 !default; //24px
 $h5-font-size: $font-size-base * 1.25 !default; //20px
 $h6-font-size: $font-size-base * 1.125 !default; //18px
+$h7-font-size: $font-size-base !default;
 // scss-docs-end font-variables
 
 // scss-docs-start font-sizes
@@ -680,6 +681,7 @@ $font-sizes: (
 	4: $h4-font-size,
 	5: $h5-font-size,
 	6: $h6-font-size,
+	7: $h7-font-size,
 	sm: $font-size-sm,
 	tiny: 12px,
 ) !default;
@@ -847,7 +849,7 @@ $input-btn-border-width: var(--#{$prefix}border-width) !default;
 // For each of Bootstrap's buttons, define text, background, and border color.
 
 // scss-docs-start btn-variables
-$btn-color: $secondary2; //var(--#{$prefix}body-color) !default;
+$btn-color: var(--#{$prefix}body-color) !default;
 $btn-padding-y: $input-btn-padding-y !default;
 $btn-padding-x: $input-btn-padding-x !default;
 $btn-font-family: $input-btn-font-family !default;
@@ -934,7 +936,7 @@ $input-disabled-bg: var(--#{$prefix}secondary-bg) !default;
 $input-disabled-border-color: null !default;
 
 $input-color: var(--#{$prefix}body-color) !default;
-$input-border-color: var(--#{$prefix}border-color) !default;
+$input-border-color: $white; //var(--#{$prefix}border-color) !default;
 $input-border-width: $input-btn-border-width !default;
 $input-box-shadow: $box-shadow-inset !default;
 
