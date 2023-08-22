@@ -28,7 +28,13 @@
 	}
 
 	&-img {
+		width: 120px;
 		border-radius: 50px;
+		img{
+			width: 100%;
+			height:auto;
+			border-radius: 50px;
+		}
 	}
 
 	&-title {

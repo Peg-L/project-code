@@ -1,0 +1,39 @@
+.title-line::before{
+    content: "";
+    position: absolute;
+    border-left: 4px solid $primary;
+    top:2px;
+    left:0;
+    height: 18px;
+}
+.list-decorate::before{
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: $primary;
+    top:10px;
+    left:0;
+}
+.calendar-list{
+    display: flex;
+    flex-direction: column;
+    width: 86px;
+    gap:8px;
+    padding-top: 8px;
+    border-top: 4px solid $primary;
+}
+.calendar-time{
+    display: flex;
+    flex-direction: column;
+    gap:4px;
+    li{
+        text-align: center;
+    }
+}
+.circle .circle-text{
+    font-size: 16px;
+}
+.circle .circle-info-text{
+    font-size: 12px;
+}

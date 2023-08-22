@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Circliful - examples</title>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../dist/main.css" rel="stylesheet">
+    <link href="custom.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div id="circle1" class="circle-default-style"></div>
+    <div id="circle2" class="circle-default-style"></div>
+    <div id="circle6" class="circle-stat-custom circle-default-style"></div>
+    <div id="circle3" class="circle-default-style"></div>
+    <div id="circle4"
+         class="circle-default-style"
+         data-percent="100"
+         data-no-percentage-sign="true"
+         data-animation="false"
+         data-stroke-linecap="round">
+    </div>
+    <div id="circle5" class="circle-default-style"></div>
+
+    <div id="circle7" class="circle-default-style"></div>
+    <div id="circle8" class="circle-default-style"></div>
+</div>
+<script type="text/javascript" src="../dist/circliful.js"></script>
+<script>
+    (function () {
+        var circle1 = circliful.newCircle({
+            id: 'circle1',
+            type: 'simple',
+            percent: 60,
+            strokeGradient: ["#05a", "#0a5"],
+            onAnimationEnd: () => {
+                console.log('custom animation end event');
+            },
+            animationStep: 3,
+            backgroundCircleWidth: 15,
+            additionalCssClasses: {
+                svgContainer: 'circle1-container',
+                foregroundCircle: 'circle1-foreground-circle',
+                text: 'circle1-text',
+                icon: 'circle1-icon',
+                infoText: 'circle1-info-text'
+            },
+            icon: 'f0d0',
+            text: 'Lorem',
+            noPercentageSign: true,
+            strokeLinecap: "round",
+        });
+
+        setTimeout(() => {
+            circle1.update([
+                {type: 'percent', value: 30},
+                {type: 'animation', value: false}
+            ]);
+            circle1.get('percent')
+        }, 3000);
+
+        var circle2 = circliful.newCircle({
+            percent: 80,
+            id: 'circle2',
+            type: 'simple',
+            icon: 'f179',
+            text: 'TP Wins',
+            noPercentageSign: true,
+            backgroundCircleWidth: 12,
+            foregroundCircleWidth: 20,
+            progressColors: [
+                {percent: 1, color: 'red'},
+                {percent: 30, color: 'orange'},
+                {percent: 60, color: 'green'}
+            ]
+        });
+
+        setTimeout(() => {
+            circle2.update([
+                {type: 'percent', value: 95},
+                {type: 'text', value: 'TP has won'},
+            ]);
+        }, 3000);
+
+        circliful.newCircle({
+            percent: 40,
+            id: 'circle6',
+            type: 'simple',
+            point: true,
+            pointSize: 70,
+            foregroundCircleWidth: 10,
+            animateInView: true
+        });
+
+        circliful.newCircleWithDataSet('circle4', 'simple');
+
+        circliful.newCircle({
+            percent: 50,
+            id: 'circle3',
+            type: 'half',
+            animateInView: true
+        });
+
+        circliful.newCircle({
+            percent: 100,
+            id: 'circle5',
+            type: 'plain',
+            animation: false,
+            animateInView: true
+        });
+
+        var circle7 = circliful.newCircle({
+            percent: 75,
+            id: 'circle7',
+            type: 'plain',
+            animation: false,
+            animateInView: true
+        });
+
+        console.log('get', circle7.get('percent'));
+
+        circliful.newCircle({
+            percent: 80,
+            id: 'circle8',
+            type: 'simple',
+            foregroundCircleWidth: 10,
+            startAngle: -145,
+            backgroundCircleWidth: 0
+        });
+    })();
+</script>
+</body>
+</html>
