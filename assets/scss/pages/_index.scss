@@ -30,29 +30,3 @@
     margin-bottom: 48px;
   }
 }
-
-// banner - input
-.input-group {
-  max-width: 416px;
-}
-
-.btn-input {
-  border-radius: 0 6px 6px 0;
-  padding: 8px;
-  border: 1px solid $white;
-
-  .fa-magnifying-glass {
-    width: 24px;
-
-    &::before {
-      font-size: 17px;
-    }
-  }
-}
-
-@include media-breakpoint-up(md) {
-  .btn-input {
-    border-radius: 0 8px 8px 0;
-    padding: 12px;
-  }
-}
