@@ -1,6 +1,6 @@
-.hover-text-secondary2 {
+.hover-bold {
   &:hover {
-    color: $secondary2;
-    transition: color 0.3s;
+    font-weight: bold;
+    transition: font-weight 0.4s;
   }
 }
