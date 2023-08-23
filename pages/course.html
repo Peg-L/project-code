@@ -11,9 +11,24 @@
     <!-- course -->
     <div class="container">
       <div class="row">
+        <div class="d-flex justify-content-between align-items-end mb-2">
+        <p class="mb-2">共 12 個結果</p>
+        <div class="d-flex gap-4">
+          <button type="button" class="btn btn-outline-secondary2" data-bs-toggle="collapse" data-bs-target="#collapse-filter" aria-expanded="true" aria-controls="collapse-filter">篩選 (3)</button>
+          <div class="dropdown">
+            <button class="btn btn-outline-secondary2 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              排序依據
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">最熱門</a></li>
+              <li><a class="dropdown-item" href="#">最高評等</a></li>
+              <li><a class="dropdown-item" href="#">最新</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
         <!-- card -->
         <div class="w-100">
-          <p class="mb-2">共12個結果</p>
           <!-- 1 -->
           <div class="card shadow">
             <div class="d-flex flex-wrap flex-md-nowrap">
@@ -30,11 +45,9 @@
                   <a href="#" class="text-center">
                     <div class="mb-2">
                       <img
-                        class="img-fluid avatar"
+                        class="avatar"
                         src="../assets/images/Rectangle 7.png"
                         alt="teacher"
-                        width="90px"
-                        height="90px"
                       />
                     </div>
                     <!-- 姓名、職稱 -->
@@ -178,7 +191,7 @@
                       <!-- 你將獲得 -->
                       <div class="course-card-text">
                         <h4 class="course-card-title mb-2">你將獲得</h4>
-                        <ul class="mb-0">
+                        <ul class="fs-sm fs-sm-7 fs-md-6 mb-0">
                           <li class="list-disc">
                             我擁有多年的前端開發經驗，課程內容將充滿實際案例。
                           </li>
@@ -193,21 +206,21 @@
                       <!-- 評價 -->
                       <div class="course-card-text">
                         <h4 class="course-card-title mb-2">精選評價</h4>
-                        <p class="text-justify mb-2">
+                        <p class="fs-sm fs-sm-7 fs-md-6 text-justify mb-1 mb-md-2">
                           "這個課程是我轉職成功的關鍵！老師專業且耐心，從零開始教我寫程式，培養了我的切版能力。擁有作品集和個人網站，面試中展示給我巨大優勢。謝謝老師的教導和指導，強烈推薦！"
                         </p>
                         <div
                           class="d-flex justify-content-end align-items-center"
                         >
                           <img
-                            class="me-2"
+                            class="me-2 d-none d-md-block"
                             src="../assets/images/Ellipse 1.svg"
                             alt="student"
                             width="40"
                             height="40"
                           />
-                          <div>
-                            <p class="fw-bold me-2">Cookie</p>
+                          <div class="d-flex  flex-md-column fs-sm fs-md-7">
+                            <p class="fw-bold me-2 me-md-0  ">Cookie</p>
                             <p>2023/7/1</p>
                           </div>
                         </div>
@@ -215,7 +228,7 @@
                     </div>
                     <!-- 瀏覽更多 -->
                     <button
-                      class="d-none d-md-block btn btn-gray float-end readMore"
+                      class=" btn btn-gray fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4 float-end readMore"
                       type="button"
                       data-bs-toggle="collapse"
                       data-bs-target="#collapseCourse1"
