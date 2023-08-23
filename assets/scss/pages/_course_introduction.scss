@@ -15,6 +15,18 @@
     top:10px;
     left:0;
 }
+.calendar{
+    position: relative;
+}
+.btn-calendar{
+    position: absolute;
+    top:100%;
+    left:0;
+    right: 0;
+    &:hover{
+        color: $primary !important;
+    }
+}
 .calendar-list{
     display: flex;
     flex-direction: column;
@@ -36,4 +48,52 @@
 }
 .circle .circle-info-text{
     font-size: 12px;
+}
+
+.star{
+    color: $primary;
+    display: flex;
+    align-items: center;
+    span{
+        font-size: 18px;
+    }
+}
+
+.card-evaluate {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px;
+    border-radius: 20px 20px 0 20px;
+    box-shadow: 0px 4px 30px 0px #96969633;
+    position: relative;
+    &-content{
+        padding-top: 56px;
+    }
+    &-person{
+        display: flex;
+        align-items: center;
+        gap:12px;
+    }
+    &-name{
+        font-size: 18px;
+        font-weight: 500;
+        margin-right: 4px;
+    }
+    &-title{
+        font-size: 14px;
+        font-weight: 400;
+        color: #7B7B7B;
+    }
+    &::before{
+        content:"";
+        position: absolute;
+        background-image: url("../../../assets/images/”.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 40px;
+        height: 30px;
+        top: 24px;
+        left: 24px;
+    }
 }

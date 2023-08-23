@@ -9,9 +9,10 @@
 // bootstrap
 @import "../../node_modules/bootstrap/scss/functions";
 @import "./variables";
-// @import "../../node_modules/bootstrap/scss/variables-dark";
-// @import "../../node_modules/bootstrap/scss/maps";
+@import "../../node_modules/bootstrap/scss/variables-dark";
+@import "../../node_modules/bootstrap/scss/maps";
 // @import "../../node_modules/bootstrap/scss/mixins";
+@import "./utilities";
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
 // base
@@ -19,9 +20,11 @@
 
 // components
 @import "./components/btn";
-
-@import "./components/collapse";
 @import "./components/card";
+@import "./components/badge-title";
+@import "./components/input-search";
+@import "./components/collapse";
+@import "./components/block-title";
 // layout
 @import "./layout/header.scss";
 @import "./layout/footer.scss";
