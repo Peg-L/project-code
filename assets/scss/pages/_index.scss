@@ -81,3 +81,87 @@
     }
   }
 }
+
+// why us
+.whyus-list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  row-gap: 28px;
+  margin-bottom: 0;
+
+  @include media-breakpoint-up(md) {
+    flex-direction: row;
+    column-gap: 60px;
+  }
+
+  .whyus-item {
+    display: block;
+    width: 200px;
+    height: 200px;
+    position: relative;
+
+    @include media-breakpoint-up(md) {
+      width: 264px;
+      height: 264px;
+    }
+
+    &.best-platform {
+      background: url("../images/whyus/best-platform.svg") no-repeat center /
+        cover;
+    }
+
+    &.discount {
+      background: url("../images/whyus/discount.svg") no-repeat center / cover;
+    }
+
+    &.evaluation {
+      background: url("../images/whyus/evaluation.svg") no-repeat center / cover;
+    }
+
+    &.flexible {
+      background: url("../images/whyus/flexible.svg") no-repeat center / cover;
+    }
+  }
+
+  .badge-title {
+    font-size: 16px;
+    padding: 8px 12px;
+    position: relative;
+    top: 12px;
+    left: -12px;
+
+    @include media-breakpoint-up(md) {
+      font-size: 20px;
+      padding: 12px 16px;
+      top: 16px;
+      left: -16px;
+    }
+
+    &::after {
+      content: url("../images/whyus/triangle.svg");
+      display: inline;
+      position: absolute;
+      left: 0;
+      top: 30px;
+
+      @include media-breakpoint-up(md) {
+        content: url("../images/whyus/triangle-lg.svg");
+        top: 42px;
+      }
+    }
+  }
+
+  .whyus-info {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    color: $white;
+
+    li:first-child {
+      margin-bottom: 4px;
+    }
+  }
+}
