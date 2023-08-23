@@ -1,5 +1,5 @@
 //font family
-@import url("https://fonts.googleapis.com/css2?family=Manrope&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap");
 
 // icon
 @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css";
@@ -19,11 +19,15 @@
 
 // components
 @import "./components/btn";
-@import "./components/card";
 
+@import "./components/collapse";
+@import "./components/card";
 // layout
 @import "./layout/header.scss";
 @import "./layout/footer.scss";
 
 @import "./pages/index.scss";
 @import "./pages/course_introduction";
+
+//utils
+@import "./utils/helpers.scss";

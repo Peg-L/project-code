@@ -1,4 +1,133 @@
-<h1 class="header">我是 header</h1>
-<a href="index.html">index</a>
-<a href="about.html">about</a>
-<a href="contact.html">contact</a>
+<!-- new -->
+<nav class="navbar navbar-expand-lg bg-white">
+	<div class="container">
+		<h1 class="navbar-brand">
+			<a href="./index.html">
+				<img
+					class="d-none d-lg-block"
+					src="../assets/images/logo.svg"
+					alt="C0DE logo" />
+				<img
+					class="d-block d-lg-none"
+					src="../assets/images/logo-sm.svg"
+					alt="C0DE logo" />
+			</a>
+		</h1>
+
+		<div>
+			<input type="checkbox" id="menu-toggle" />
+			<label
+				for="menu-toggle"
+				class="navbar-toggler"
+				type="button"
+				data-bs-toggle="collapse"
+				data-bs-target="#navbarScroll"
+				aria-controls="navbarScroll"
+				aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</label>
+		</div>
+
+		<div class="navbar-collapse collapse py-6 py-lg-0" id="navbarScroll">
+			<ul
+				id="accordionFlush"
+				class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll m-auto column-gap-10 row-gap-2"
+				style="--bs-scroll-height: 205px">
+				<li class="nav-item">
+					<a class="nav-link pc d-none d-lg-block" aria-current="page" href="#"
+						>課程分類</a
+					>
+					<div
+						class="accordion accordion-flush d-block d-lg-none"
+						id="accordionFlush">
+						<div class="accordion-item">
+							<h2 class="accordion-header">
+								<button
+									class="accordion-button collapsed nav-link"
+									type="button"
+									data-bs-toggle="collapse"
+									data-bs-target="#category"
+									aria-expanded="false"
+									aria-controls="category">
+									課程分類
+								</button>
+							</h2>
+							<div
+								id="category"
+								class="accordion-collapse collapse"
+								data-bs-parent="#accordionFlush">
+								<ul class="accordion-body text-center">
+									<li><a href="###">前端</a></li>
+									<li><a href="###">後端</a></li>
+									<li><a href="###">資料庫</a></li>
+									<li><a href="###">資安</a></li>
+									<li><a href="###">產品測試</a></li>
+									<li><a href="###">UI / UX</a></li>
+									<li><a href="###">開發維運</a></li>
+									<li><a href="###">行動應用</a></li>
+									<li><a href="###">AI</a></li>
+									<li><a href="###">遊戲開發</a></li>
+									<li><a href="###">程式入門</a></li>
+									<li><a href="###">職涯</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link pc d-none d-lg-block" aria-current="page" href="#"
+						>常見問題</a
+					>
+					<div
+						class="accordion accordion-flush d-block d-lg-none"
+						id="accordionFlush">
+						<div class="accordion-item">
+							<h2 class="accordion-header">
+								<button
+									class="accordion-button collapsed nav-link"
+									type="button"
+									data-bs-toggle="collapse"
+									data-bs-target="#faq"
+									aria-expanded="false"
+									aria-controls="faq">
+									常見問題
+								</button>
+							</h2>
+							<div
+								id="faq"
+								class="accordion-collapse collapse"
+								data-bs-parent="#accordionFlush">
+								<ul class="accordion-body text-center">
+									<li><a href="###">學生常見問答</a></li>
+									<li><a href="###">老師常見問答</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link pc d-none d-lg-block" aria-current="page" href="#"
+						>聯絡老師</a
+					>
+					<a class="nav-link d-block d-lg-none" aria-current="page" href="#"
+						>聯絡老師</a
+					>
+				</li>
+			</ul>
+
+			<!-- 透過加上/刪除 isLogin 來切換登入狀態 -->
+			<div
+				class="d-flex flex-column flex-lg-row row-gap-2 mt-6 mt-lg-0 isLogin">
+				<button type="button" class="btn btn-member btn-secondary2">
+					會員中心
+				</button>
+
+				<button type="button" class="btn btn-register btn-secondary2">
+					註冊
+				</button>
+				<button type="button" class="btn btn-login fw-medium">登入</button>
+			</div>
+		</div>
+	</div>
+</nav>

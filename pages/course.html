@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <%- include('./layout/header'); -%>
+    <!-- banner -->
+    <!-- course -->
+    <div class="container">
+      <div class="row">
+        <!-- card -->
+        <div class="w-100">
+          <p class="mb-2">共12個結果</p>
+          <!-- 1 -->
+          <div class="card shadow">
+            <div class="row g-0">
+              <!-- 老師區塊 -->
+
+              <div class="card-body col-2 text-nowrap flex-grow-0">
+                <!-- 愛心 -->
+                <a href="#" class="text-primary">
+                  <i class="fa-regular fa-heart"></i>
+                </a>
+                <!-- 圖 -->
+                <div class="mb-2 text-center">
+                  <img
+                    class="img-fluid rounded-circle"
+                    src="../assets/images/Rectangle 7.png"
+                    alt="teacher"
+                    width="100px"
+                    height="100px"
+                  />
+                </div>
+                <!-- 姓名、職稱 -->
+                <ul class="teacher-card-name text-center">
+                  <li><h3 class="fs-6 text-secondary2">麥克先生</h3></li>
+                  <li>機快有限公司</li>
+                  <li>資深前端工程師</li>
+                </ul>
+                <!-- link -->
+                <ul class="d-flex justify-content-center mb-0">
+                  <li class="me-1">
+                    <a href="#" class="hover-text-secondary2 p-1">
+                      <i class="fa-brands fa-github"></i
+                    ></a>
+                  </li>
+                  <li class="me-1">
+                    <a href="#" class="hover-text-secondary2 p-1">
+                      <i class="fa-brands fa-linkedin-in"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#" class="hover-text-secondary2 p-1">
+                      <i class="fa-brands fa-codepen"></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+              <!-- 課程區塊 -->
+              <div class="card-body col-8">
+                <div>
+                  <!-- 課程名稱 -->
+                  <h2 class="teacher-card-title fs-4">
+                    從零開始成為切版大師
+                    <span class="badge bg-primary ms-2">優良教師</span>
+                  </h2>
+                  <!-- 課程tag -->
+                  <ul class="d-flex flex-wrap text-secondary2 text-nowrap mb-2">
+                    <li class="me-1">#業界技術</li>
+                    <li class="me-1">#實戰專案開發</li>
+                    <li class="me-1">#5年家教經驗</li>
+                    <li class="me-1">#前端</li>
+                  </ul>
+                  <!-- 課程評價、難度 -->
+                  <div class="d-flex">
+                    <div class="text-primary d-flex align-items-center mb-3">
+                      <img src="../assets/images/star.svg" alt="star" />
+                      <img src="../assets/images/star.svg" alt="star" />
+                      <img src="../assets/images/star.svg" alt="star" />
+                      <img src="../assets/images/star.svg" alt="star" />
+                      <img src="../assets/images/star.svg" alt="star" />
+                      <span class="ms-1 fw-bold">5.0</span>
+                    </div>
+                    <span>・</span>
+                    <a href="#" class="me-2">28個評論 </a>
+                    <p class="text-gray-300">| 入門</p>
+                  </div>
+                  <!-- 課程介紹 -->
+                  <ul>
+                    <li class="list-disc">
+                      沒有公版講義，也不用花錢買書。我會根據你的程度客製化屬於你的課程。
+                    </li>
+                    <li class="list-disc">
+                      截至目前為止我輔導超過30位非本科系學生都轉職成功，且最後都得到不錯的薪資。
+                    </li>
+                  </ul>
+
+                  <div class="collapse" id="collapseCourse1">
+                    <!-- 課程篩選tag -->
+                    <div
+                      class="border-top border-bottom border-gray-200 py-4 mb-4"
+                    >
+                      <h4 class="fs-5 mb-2">你可以跟我學</h4>
+                      <ul class="d-flex flex-wrap mb-0 font-m">
+                        <li class="me-2">
+                          <span
+                            class="badge text-bg-secondary text-gray-300 fs-6"
+                            >HTML</span
+                          >
+                        </li>
+                        <li class="me-2">
+                          <span
+                            class="badge text-bg-secondary text-gray-300 fs-6"
+                            >CSS</span
+                          >
+                        </li>
+                        <li class="me-2">
+                          <span
+                            class="badge text-bg-secondary text-gray-300 fs-6"
+                            >SCSS</span
+                          >
+                        </li>
+                        <li class="me-2">
+                          <span
+                            class="badge text-bg-secondary text-gray-300 fs-6"
+                            >Tailwind</span
+                          >
+                        </li>
+                        <li class="me-2">
+                          <span
+                            class="badge text-bg-secondary text-gray-300 fs-6"
+                            >Bootstrap</span
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                    <!-- 評價 -->
+                    <div>
+                      <h4 class="fs-5 mb-2">精選評價</h4>
+                      <p class="text-justify mb-2">
+                        這個課程是我轉職成功的關鍵！老師專業且耐心，從零開始教我寫程式，培養了我的切版能力。擁有作品集和個人網站，面試中展示給我巨大優勢。謝謝老師的教導和指導，強烈推薦！
+                      </p>
+                      <div class="d-flex justify-content-end">
+                        <p class="fw-bold me-2">Cookie</p>
+                        <p class="text-gray-300 me-2">前端工程師</p>
+                        <p>2023/7/1</p>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- 瀏覽更多 -->
+                  <button
+                    class="btn btn-gray-100 readMore"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseCourse1"
+                    aria-expanded="false"
+                    aria-controls="collapseCourse1"
+                  ></button>
+                </div>
+              </div>
+              <!-- 按鈕區塊 -->
+              <div class="bg-secondary col-3 col-lg-2">
+                <div class="card-body flex-grow-0 d-flex flex-column">
+                  <!-- 價格 -->
+                  <div class="d-flex mb-8 mx-auto">
+                    <p class="text-center text-nowrap me-8">
+                      <span class="fw-bold fs-5">NT$ 200 </span><br />體驗價
+                    </p>
+                    <p class="text-center text-nowrap">
+                      <span class="fw-bold fs-5">NT$ 800 </span><br />50分鐘
+                    </p>
+                  </div>
+                  <!-- 購買按鈕 -->
+                  <button type="button" class="btn btn-secondary2 mb-6">
+                    立即上課
+                  </button>
+                  <button type="button" class="btn btn-link btn-link-primary">
+                    查看介紹
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- filter -->
+        <div class="col-4 bg-warning"></div>
+      </div>
+    </div>
+
+    <%- include('./layout/footer'); -%>
+    <script type="module" src="../main.js"></script>
+  </body>
+</html>

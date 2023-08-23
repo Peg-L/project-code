@@ -1,4 +1,160 @@
-.header{
-  background: #69F0AE;
-  font-size: 64px;
+// 漢堡選單
+.navbar-toggler {
+	width: 40px;
+	height: 40px;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&-icon,
+	&-icon::before,
+	&-icon::after {
+		background-image: none;
+		display: block;
+		content: "";
+		background-color: $black;
+		position: absolute;
+		height: 2px;
+		width: 30px;
+		transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+		border-radius: 4px;
+	}
+
+	&-icon {
+		&::before {
+			margin-top: -8px;
+		}
+
+		&::after {
+			margin-top: 8px;
+		}
+	}
+
+	&:hover {
+		border: 1px solid $gray-100;
+		box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+	}
+}
+
+#menu-toggle {
+	display: none;
+
+	&:checked {
+		+ .navbar-toggler {
+			.navbar-toggler-icon {
+				background-color: $white;
+
+				&::before {
+					margin-top: 0;
+					transform: rotate(405deg);
+				}
+
+				&::after {
+					margin-top: 0;
+					transform: rotate(-405deg);
+				}
+			}
+		}
+	}
+}
+
+::-webkit-scrollbar {
+	display: none; // 隱藏滾動軸
+}
+
+.nav-link {
+	font-size: 14px;
+	font-weight: 500;
+	color: $black;
+	text-align: center;
+	position: relative;
+
+	&:hover {
+		color: $primary;
+	}
+
+	@include media-breakpoint-up(lg) {
+		font-size: 16px;
+	}
+}
+
+.nav-link.pc {
+	&:hover {
+		&::after {
+			content: "";
+			display: block;
+			position: absolute;
+			right: 0;
+			top: 6px;
+			width: 6px;
+			height: 6px;
+			border-radius: 50%;
+			background-color: $primary;
+		}
+	}
+}
+
+.accordion-body {
+	padding: 0;
+	padding-top: 8px;
+
+	a {
+		padding: 8px 0;
+		display: block;
+		font-size: 12px;
+		color: $black;
+
+		&:hover {
+			color: $primary;
+		}
+	}
+}
+
+.accordion-button {
+	text-align: center;
+	justify-content: center;
+	padding: 8px 0;
+
+	&::after {
+		margin: 0;
+		right: 0;
+		position: absolute;
+		background-image: url("../images/chevron-down.svg");
+
+		@include media-breakpoint-up(lg) {
+			display: none;
+		}
+	}
+}
+
+.accordion-button:not(.collapsed)::after {
+	background-image: url("../images/chevron-down.svg");
+	@include media-breakpoint-up(lg) {
+		display: none;
+	}
+}
+
+.btn-login {
+	padding: 8px 16px;
+
+	&:hover {
+		color: $primary;
+	}
+}
+
+// 透過加上 isLogin 來切換登入狀態
+.btn-member {
+	display: none;
+}
+
+.isLogin {
+	.btn-member {
+		display: block;
+	}
+
+	.btn-register,
+	.btn-login {
+		display: none;
+	}
 }
