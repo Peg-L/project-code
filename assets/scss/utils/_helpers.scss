@@ -1,6 +1,3 @@
-.no-events {
-  pointer-events: none;
-}
 .text-nowrap {
   white-space: nowrap;
 }
@@ -19,10 +16,11 @@
     left: 0px;
   }
 }
-.multiline-ellipsis {
+
+.line-ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;
-  display: -webkit-box;
+  white-space: nowrap;
 }
 .text-justify {
   text-align: justify;

@@ -1,3 +1,7 @@
+.view-move{
+    position: sticky;
+    top:40px;
+}
 .title-line::before{
     content: "";
     position: absolute;
@@ -95,5 +99,19 @@
         height: 30px;
         top: 24px;
         left: 24px;
+    }
+}
+.bg-custom{
+    background-image: url('../../../assets/images/background.jpg');
+    height: 600px;
+    background-size: cover;
+}
+
+@media (max-width:768px){
+    .bg-custom{
+        height: 448px;
+    }
+    .view-move{
+        position:unset;
     }
 }
