@@ -1,0 +1,11 @@
+.page-item.active{
+    pointer-events: none;
+}
+.page-item:first-child .page-link{
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+}
+.page-item:last-child .page-link{
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
