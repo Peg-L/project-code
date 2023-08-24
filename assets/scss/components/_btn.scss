@@ -78,3 +78,12 @@
   }
 }
 
+.btn-outline-secondary2{
+  border: 2px solid $secondary2;
+  transition: all 0.3s;
+  &.show, &:hover, &:active, &:focus-visible{
+    background-color: $white !important;
+    border-color: $primary !important;
+    color: $primary !important;
+  }
+}
