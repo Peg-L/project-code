@@ -52,9 +52,8 @@
   gap: 16px;
 
   @include media-breakpoint-up(md) {
-    position: absolute;
-    margin-bottom: 40px;
     gap: 24px;
+    top: -60px;
   }
 
   & [data-bs-target] {
@@ -80,6 +79,43 @@
       }
     }
   }
+}
+
+// 推薦教師
+.bg-recommend {
+  background: url("../images/recommend-bg.jpg");
+}
+
+.swiper-button-next:after,
+.swiper-rtl .swiper-button-prev:after {
+  content: "";
+}
+
+.swiper-button-prev:after,
+.swiper-rtl .swiper-button-next:after {
+  content: "";
+}
+
+.swiper-btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-button-next,
+.swiper-rtl .swiper-button-prev {
+  display: flex;
+}
+
+.swiper-button-prev,
+.swiper-rtl .swiper-button-next {
+  display: flex;
+}
+
+.swiper-horizontal
+  > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
+.swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+  transform: none;
 }
 
 // why us
@@ -169,14 +205,21 @@
 // 探索地圖 category
 // - 背景圖
 .category {
-  background: url("../images/category/category-bgMask.png") no-repeat center /
+  background: url("../images/category/category-bgMask-sm.png") no-repeat center /
     cover;
+
+  @include media-breakpoint-up(md) {
+    background: url("../images/category/category-bgMask.png") no-repeat center /
+      cover;
+  }
 }
 
-//  - 去除標題多餘藍色點點
-.block-title:first-of-type {
-  &::after {
-    display: none;
+//  - 去除 category 標題多餘藍色點點
+.category {
+  .block-title:first-of-type {
+    &::after {
+      display: none;
+    }
   }
 }
 

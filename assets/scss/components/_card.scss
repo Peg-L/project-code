@@ -1,5 +1,7 @@
 .teacher-card {
   padding: 16px;
+  background-color: $white;
+
   @include media-breakpoint-up(md) {
     padding: 24px;
   }
