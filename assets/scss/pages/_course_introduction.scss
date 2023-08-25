@@ -1,0 +1,117 @@
+.view-move{
+    position: sticky;
+    top:40px;
+}
+.title-line::before{
+    content: "";
+    position: absolute;
+    border-left: 4px solid $primary;
+    top:2px;
+    left:0;
+    height: 18px;
+}
+.list-decorate::before{
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: $primary;
+    top:10px;
+    left:0;
+}
+.calendar{
+    position: relative;
+}
+.btn-calendar{
+    position: absolute;
+    top:100%;
+    left:0;
+    right: 0;
+    &:hover{
+        color: $primary !important;
+    }
+}
+.calendar-list{
+    display: flex;
+    flex-direction: column;
+    width: 86px;
+    gap:8px;
+    padding-top: 8px;
+    border-top: 4px solid $primary;
+}
+.calendar-time{
+    display: flex;
+    flex-direction: column;
+    gap:4px;
+    li{
+        text-align: center;
+    }
+}
+.circle .circle-text{
+    font-size: 16px;
+}
+.circle .circle-info-text{
+    font-size: 12px;
+}
+
+.star{
+    color: $primary;
+    display: flex;
+    align-items: center;
+    span{
+        font-size: 18px;
+    }
+}
+
+.card-evaluate {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px;
+    border-radius: 20px 20px 0 20px;
+    box-shadow: 0px 4px 30px 0px #96969633;
+    position: relative;
+    &-content{
+        padding-top: 56px;
+    }
+    &-person{
+        display: flex;
+        align-items: center;
+        gap:12px;
+    }
+    &-name{
+        font-size: 18px;
+        font-weight: 500;
+        margin-right: 4px;
+    }
+    &-title{
+        font-size: 14px;
+        font-weight: 400;
+        color: #7B7B7B;
+    }
+    &::before{
+        content:"";
+        position: absolute;
+        background-image: url("../../../assets/images/”.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 40px;
+        height: 30px;
+        top: 24px;
+        left: 24px;
+    }
+}
+.bg-custom{
+    background-image: url('../../../assets/images/background.jpg');
+    height: 600px;
+    background-size: cover;
+}
+
+@media (max-width:768px){
+    .bg-custom{
+        height: 448px;
+    }
+    .view-move{
+        position:unset;
+    }
+}
