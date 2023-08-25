@@ -94,7 +94,7 @@
 
   @include media-breakpoint-up(md) {
     flex-direction: row;
-    column-gap: 60px;
+    column-gap: 80px;
   }
 
   .whyus-item {
@@ -162,6 +162,101 @@
 
     li:first-child {
       margin-bottom: 4px;
+    }
+  }
+}
+
+// 探索地圖 category
+// - 背景圖
+.category {
+  background: url("../images/category/category-bgMask.png") no-repeat center /
+    cover;
+}
+
+//  - 去除標題多餘藍色點點
+.block-title:first-of-type {
+  &::after {
+    display: none;
+  }
+}
+
+// - 漸層標題
+.title-highlight {
+  background: var(
+    --linear,
+    linear-gradient(180deg, #00e4f2 0%, #0067ff 100%)
+  ); // background定義了線性梯度的背景。從180度方向,0%處為#00E4F2,100%處為#0067FF
+  background-clip: text; // 將背景只裁切到文本區域
+  -webkit-background-clip: text; // 是Chrome/Safari的兼容前綴屬性
+  -webkit-text-fill-color: transparent; // 使文本透明，以露出背景
+}
+
+// - 藏寶圖
+.treasure {
+  width: 276px;
+  display: block;
+  position: relative;
+
+  @include media-breakpoint-up(md) {
+    width: 478px;
+    left: -94px;
+  }
+}
+
+// - 教師分類
+.cate-item {
+  width: calc((100% - 8px) / 2);
+
+  @include media-breakpoint-up(sm) {
+    width: calc((100% - 48px) / 3);
+  }
+  @include media-breakpoint-up(lg) {
+    width: calc((100% - 72px) / 4);
+  }
+
+  a {
+    padding: 28px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $white;
+    border: 2px solid $secondary;
+    border-radius: 6px;
+    box-shadow: 0px 4px 30px 0px rgba(0, 179, 255, 0.2);
+    transition: all 0.3s ease-in-out;
+    @include media-breakpoint-up(md) {
+      border-radius: 8px;
+    }
+
+    &:hover {
+      background-color: $secondary;
+      border: 2px solid $white;
+      box-shadow: 0px 4px 30px 0px rgba(0, 179, 255, 0.3);
+
+      h4 {
+        color: $primary;
+      }
+    }
+  }
+
+  h4 {
+    color: $black;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    transition: color 0.3s ease-in-out;
+
+    @include media-breakpoint-up(md) {
+      font-size: 20px;
+    }
+  }
+
+  img {
+    width: 48px;
+
+    @include media-breakpoint-up(md) {
+      width: 56px;
     }
   }
 }
