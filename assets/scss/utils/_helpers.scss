@@ -1,9 +1,22 @@
+//text
 .text-nowrap {
   white-space: nowrap;
 }
+.text-justify {
+  text-align: justify;
+}
+.line-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .list-disc {
   position: relative;
-  padding-left: 28px;
+  padding-left: 20px;
+  @include media-breakpoint-up(md) {
+    padding-left: 28px;
+  }
 
   &::after {
     font-family: "Font Awesome\ 5 Free";
@@ -14,14 +27,19 @@
     display: inline-block;
     top: 0px;
     left: 0px;
+
   }
 }
-
-.line-ellipsis {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+//img
+.img-gray {
+  filter: grayscale(100%);
 }
-.text-justify {
-  text-align: justify;
+//sticky
+.sticky-end{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  overflow-y: auto !important;
 }
