@@ -3,6 +3,8 @@
 
 // icon
 @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css";
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0');
+
 
 // bootstrap
 @import "../../node_modules/bootstrap/scss/functions";
@@ -23,12 +25,12 @@
 @import "./components/input-search";
 @import "./components/collapse";
 @import "./components/block-title";
-
 // layout
 @import "./layout/header.scss";
 @import "./layout/footer.scss";
 
 @import "./pages/index.scss";
+@import "./pages/course_introduction";
 @import "./pages/course.scss";
 
 //utils

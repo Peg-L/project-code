@@ -1,5 +1,6 @@
 .teacher-card {
   padding: 16px;
+  background: #fff;
   @include media-breakpoint-up(md) {
     padding: 24px;
   }
@@ -27,19 +28,16 @@
     margin-right: auto;
   }
 
-  &-img {
-    width: 100px;
-    @include media-breakpoint-up(md) {
-      width: 120px;
-    }
-
-    border-radius: 50px;
-    img {
-      width: 100%;
-      height: auto;
-      border-radius: 50px;
-    }
-  }
+	&-img {
+		width: 120px;
+		border-radius: 50px;
+		img{
+			width: 100%;
+			height:auto;
+			border-radius: 50px;
+		}
+	}
+  
 
   &-title {
     font-family: "Noto Sans TC";
@@ -180,11 +178,11 @@
     transform: scale(1);
     transition: transform 0.5s;
   }
-
+}
   .btn-secondary2 {
     font-size: 14px;
     @include media-breakpoint-up(md) {
       font-size: 16px;
     }
   }
-}
+

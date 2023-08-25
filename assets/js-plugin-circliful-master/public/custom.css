@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.circle-icon.fa {
+    font-size: .8rem;
+    fill: #3498DB;
+    transform: translate(0, 5%); /* change position of circle */
+}
+
+.circle-text {
+    font-size: .9rem;
+}
+
+.circle-info-text {
+    transform: translate(0, -6%); /* position text outside of circle */
+    font-size: .5rem;
+}
+
+#svg-circle2 {
+    transform: translate(16%, 15%);
+}
+
+.circle-container {
+    transform: translate(9%, 8%);
+}
