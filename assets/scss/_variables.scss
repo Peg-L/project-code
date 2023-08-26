@@ -587,7 +587,7 @@ $border-radius-2xl: $border-radius-xxl !default; // Deprecated in v5.3.0
 // fusv-enable
 
 // scss-docs-start box-shadow-variables
-$box-shadow: 0 0.5rem 1rem rgba($black, 0.15) !default;
+$box-shadow: 0px 4px 30px 0px rgba(150, 150, 150, 0.2);
 $box-shadow-sm: 0 0.125rem 0.25rem rgba($black, 0.075) !default;
 $box-shadow-lg: 0 1rem 3rem rgba($black, 0.175) !default;
 $box-shadow-inset: inset 0 1px 2px rgba($black, 0.075) !default;
@@ -1375,12 +1375,12 @@ $pagination-font-size: $font-size-base !default;
 
 $pagination-color: var(--#{$prefix}link-color) !default;
 $pagination-bg: var(--#{$prefix}body-bg) !default;
-$pagination-border-radius: var(--#{$prefix}border-radius) !default;
+$pagination-border-radius: none;//var(--#{$prefix}border-radius) !default;
 $pagination-border-width: var(--#{$prefix}border-width) !default;
 $pagination-margin-start: calc(
   #{$pagination-border-width} * -1
 ) !default; // stylelint-disable-line function-disallowed-list
-$pagination-border-color: var(--#{$prefix}border-color) !default;
+$pagination-border-color: $gray-200;//var(--#{$prefix}border-color) !default;
 
 $pagination-focus-color: var(--#{$prefix}link-hover-color) !default;
 $pagination-focus-bg: var(--#{$prefix}secondary-bg) !default;
@@ -1389,24 +1389,22 @@ $pagination-focus-outline: 0 !default;
 
 $pagination-hover-color: var(--#{$prefix}link-hover-color) !default;
 $pagination-hover-bg: var(--#{$prefix}tertiary-bg) !default;
-$pagination-hover-border-color: var(
-  --#{$prefix}border-color
-) !default; // Todo in v6: remove this?
+$pagination-hover-border-color: $gray-200; //var(--#{$prefix}border-color) !default; // Todo in v6: remove this?
 
 $pagination-active-color: $component-active-color !default;
 $pagination-active-bg: $component-active-bg !default;
 $pagination-active-border-color: $component-active-bg !default;
 
-$pagination-disabled-color: var(--#{$prefix}secondary-color) !default;
-$pagination-disabled-bg: var(--#{$prefix}secondary-bg) !default;
-$pagination-disabled-border-color: var(--#{$prefix}border-color) !default;
+$pagination-disabled-color: $white; //var(--#{$prefix}secondary-color) !default;
+$pagination-disabled-bg: $gray-200; //var(--#{$prefix}secondary-bg) !default;
+$pagination-disabled-border-color: $gray-200; //var(--#{$prefix}border-color) !default;
 
 $pagination-transition: color 0.15s ease-in-out,
   background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
   box-shadow 0.15s ease-in-out !default;
 
 $pagination-border-radius-sm: var(--#{$prefix}border-radius-sm) !default;
-$pagination-border-radius-lg: var(--#{$prefix}border-radius-lg) !default;
+$pagination-border-radius-lg: none; //var(--#{$prefix}border-radius-lg) !default;
 // scss-docs-end pagination-variables
 
 // Placeholders
