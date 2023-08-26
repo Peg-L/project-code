@@ -34,12 +34,21 @@
 .img-gray {
   filter: grayscale(100%);
 }
+.img-gray-50 {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 1;
+  }
+
+
 //sticky
 .sticky-end{
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  right: 0;
-  height: 100vh;
-  overflow-y: auto !important;
+  @include media-breakpoint-up(lg){
+    position: sticky;
+    top: 0;
+    height: 100vh ;
+    overflow-y: auto;
+}
 }

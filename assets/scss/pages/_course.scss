@@ -85,3 +85,17 @@
     font-size: 20px;
   }
 }
+
+.filter{
+  &.show{
+    @include media-breakpoint-up(lg){
+      min-width: 250px;
+      padding:0 20px 0 20px ;
+    }
+    @include media-breakpoint-up(xl){
+      min-width: 340px;
+      padding:0 20px 0 20px ;
+    }
+}
+
+}

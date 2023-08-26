@@ -80,6 +80,7 @@
 
 .btn-outline-secondary2{
   border: 2px solid $secondary2;
+  background-color: $white ;
   transition: all 0.3s;
   &.show, &:hover, &:active, &:focus-visible{
     background-color: $white !important;
