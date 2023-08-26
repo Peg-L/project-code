@@ -35,14 +35,23 @@
   filter: grayscale(100%);
 }
 .img-gray-50 {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.4);
-  z-index: 1;
+  position: relative;
+  display: block;
+  filter: grayscale(100%);
+  z-index: 0;
+  &::after{
+    content: "";
+    position: absolute;
+    background: url("../images/star.svg");
+    background-position:top left;
+    height: 100%;
+    width:50%;
+    top: 0;
+    left: 0;
+    z-index:100;
   }
 
-
+}
 //sticky
 .sticky-end{
   @include media-breakpoint-up(lg){
