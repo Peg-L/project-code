@@ -86,16 +86,30 @@
   }
 }
 
-.filter{
-  &.show{
-    @include media-breakpoint-up(lg){
-      min-width: 250px;
-      padding:0 20px 0 20px ;
-    }
-    @include media-breakpoint-up(xl){
-      min-width: 340px;
-      padding:0 20px 0 20px ;
-    }
+.filter-bar{
+  position: sticky;
+  top:0;
+  z-index: 5;
+  background-color: $white;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.filter-list{
+  @include media-breakpoint-up(lg){
+    position: sticky;
+    top: 68px;
+    height: calc(100vh - 68px) ;
+    overflow-y: auto;
+}
+&.show{
+  @include media-breakpoint-up(lg){
+    min-width: 300px;
+    padding:0 20px 0 40px ;
+  }
+  @include media-breakpoint-up(xl){
+    min-width: 380px;
+    padding:0 20px 0 60px ;
+  }
+}
 }
 
-}
