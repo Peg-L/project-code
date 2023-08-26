@@ -24,6 +24,7 @@
     "bootstrap": "^5.3.1",
     "gh-pages": "^5.0.0",
     "glob": "^10.2.2",
+    "jQuery": "^1.7.4",
     "sass": "^1.61.0",
     "sass-loader": "^13.2.2",
     "vite-plugin-live-reload": "^3.0.2"
