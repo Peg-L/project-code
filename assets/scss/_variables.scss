@@ -577,7 +577,7 @@ $border-color-translucent: rgba($black, 0.175) !default;
 // scss-docs-start border-radius-variables
 $border-radius: 0.375rem !default;
 $border-radius-sm: 0.25rem !default;
-$border-radius-lg: 0.5rem !default;
+$border-radius-lg: 0.75rem;//0.5rem !default;
 $border-radius-xl: 1rem !default;
 $border-radius-xxl: 2rem !default;
 $border-radius-pill: 50rem !default;
@@ -1432,7 +1432,7 @@ $card-inner-border-radius: subtract(
 ) !default;
 $card-cap-padding-y: $card-spacer-y * 0.5 !default;
 $card-cap-padding-x: $card-spacer-x !default;
-$card-cap-bg: rgba(var(--#{$prefix}body-color-rgb), 0.03) !default;
+$card-cap-bg: $secondary;//rgba(var(--#{$prefix}body-color-rgb), 0.03) !default;
 $card-cap-color: null !default;
 $card-height: null !default;
 $card-color: null !default;

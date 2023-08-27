@@ -16,14 +16,14 @@
     =          banner          =
     =========================-->
     <div class="container-fluid ">
-      <div class="sub-banner mb-8 mb-md-13">
-        <div class="container">
+      <div class="rounded-3 d-flex mb-8 mb-md-13 h-200 h-md-300" style="background: url('../assets/images/banner.svg') no-repeat top / cover">
+        <div class="container my-auto">
           <h3
           class="badge-title badge-title-lg bg-primary text-white mb-2 mb-md-3"
         >
           學生五星好評推薦
         </h3>
-        <h2 class="banner-title">經驗豐富的優質教師</h2>
+        <h2 class="fw-bold text-white fs-3 fs-md-2 mb-4 mb-md-6">經驗豐富的優質教師</h2>
         <div class="input-group">
           <input
             type="text"
@@ -47,17 +47,17 @@
     <!--========================
     =      filter button       =
     =========================-->
-    <div class="sticky-margin">
-      <div class="filter-bar">
+    <div id="js-sticky-mt">
+      <div class="position-sticky top-0 z-3 bg-white py-3" id="js-filter-bar">
         <div class="container">
           <div class="d-flex justify-content-between align-items-center " >
             <p class="fs-7 fs-md-6">共 12 個結果</p>
             <div class="d-flex gap-4">
               <!-- collapse 按鈕 -->
-              <button type="button" class="btn btn-outline-secondary2 d-none d-lg-block" data-bs-toggle="collapse" data-bs-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter">篩選 (3)</button>
+              <button type="button" class="btn btn-outline-secondary2 d-none d-xl-block" data-bs-toggle="collapse" data-bs-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter">篩選 (3)</button>
 
               <!-- offcanvas 按鈕 -->
-              <button type="button" class="btn btn-outline-secondary2 d-lg-none fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFilter" aria-controls="offcanvasFilter"
+              <button type="button" class="btn btn-outline-secondary2 d-xl-none fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFilter" aria-controls="offcanvasFilter"
               >
                 篩選 (3)
               </button>
@@ -86,12 +86,12 @@
           <!-- card -->
           <div class="w-100 d-flex flex-column gap-8 gap-md-10">
             <!-- 1 -->
-            <div class="course-card shadow">
-              <div class="d-flex flex-grow-1 p-3 p-sm-4">
+            <div class="card flex-row flex-wrap flex-md-nowrap shadow">
+              <div class="d-flex flex-grow-1 p-4 p-lg-8">
                 <!--  老師區塊 -->
-                <div class="course-card-header me-4">
+                <div class="d-flex flex-column align-items-center fix-min-w-100 fix-min-w-md-150 bg-white me-4">
                   <!-- 愛心 -->
-                  <button type="button" class="btn mtn-link align-self-start">
+                  <button type="button" class="btn p-0 text-center align-self-start">
                     <i
                       class="fa-regular fa-heart fs-3 text-primary hover-bold"
                     ></i>
@@ -102,7 +102,7 @@
                     <!-- 圖 -->
                     <div class="mb-2">
                       <img
-                        class="avatar"
+                        class="fix-min-area-90 fix-min-area-md-100 rounded-circle"
                         src="../assets/images/Rectangle 7.png"
                         alt="teacher"
                       />
@@ -141,11 +141,11 @@
                   </ul>
                 </div>
                 <!--  課程區塊 -->
-                <div class="flex-grow-1">
+                <div class="">
                     <!-- 課程名稱 -->
-                    <h2 class="fs-6 fs-sm-5 fs-md-4 line-ellipsis mb-2">
+                    <h3 class="card-title fs-6 fs-sm-4 line-ellipsis">
                       從零開始成為切版大師
-                    </h2>
+                    </h3>
                     <!-- 優質標籤 -->
                     <ul class="d-flex gap-2 mb-2">
                       <li class="badge bg-primary fw-normal fs-sm fs-lg-7">
@@ -160,12 +160,12 @@
                     </ul>
                     <!-- 課程tag -->
                     <ul
-                      class="d-flex flex-wrap text-primary text-nowrap fs-sm fs-md-7 mb-1 mb-sm-2"
+                      class="d-flex flex-wrap mb-1 mb-sm-2 column-gap-1"
                     >
-                      <li class="me-1">#業界技術</li>
-                      <li class="me-1">#實戰專案開發</li>
-                      <li class="me-1">#5年家教經驗</li>
-                      <li class="me-1">#前端</li>
+                      <li class="text-primary text-nowrap fs-sm fs-md-7">#業界技術</li>
+                      <li class="text-primary text-nowrap fs-sm fs-md-7">#實戰專案開發</li>
+                      <li class="text-primary text-nowrap fs-sm fs-md-7">#5年家教經驗</li>
+                      <li class="text-primary text-nowrap fs-sm fs-md-7">#前端</li>
                     </ul>
                     <!-- 課程評價、難度 -->
                     <div class="d-flex">
@@ -181,15 +181,16 @@
                       <p class="text-gray-300">| 入門</p>
                     </div>
                     <!-- 課程介紹 -->
-                    <p class="fs-sm fs-sm-7 fs-md-6 text-justify mb-2 mb-md-4">
+                    <p class="fs-sm fs-sm-7 fs-md-6 text-justify">
                       透過我的課程，從零開始成為前端切版專家，開啟引人注目的網頁開發之旅！
                     </p>
+                    <hr>
                     <!-- 課程篩選tag -->
-                    <div class="course-card-text">
-                      <h4 class="course-card-title mb-2 mb-sm-3">
+                    <div>
+                      <h4 class=" text-secondary2 fs-7 fs-sm-6 fs-md-5 mb-2 mb-sm-3">
                         你可以跟我學
                       </h4>
-                      <ul class="d-flex gap-1 gap-md-2 flex-wrap mb-0">
+                      <ul class="d-flex flex-wrap gap-1 gap-md-2 mb-0">
                         <li>
                           <span
                             class="badge text-bg-secondary text-gray-300 fs-sm fs-md-6">
@@ -222,26 +223,28 @@
                         </li>
                       </ul>
                     </div>
+                    <hr>
                     <!-- 收合內容 -->
                     <div class="collapse" id="collapseCourse1">
                       <!-- 你將獲得 -->
-                      <div class="course-card-text">
-                        <h4 class="course-card-title mb-2">你將獲得</h4>
-                        <ul class="fs-sm fs-sm-7 fs-md-6 mb-0">
-                          <li class="list-disc">
+                      <div>
+                        <h4 class="text-secondary2 fs-7 fs-sm-5 mb-2 mb-sm-3">你將獲得</h4>
+                        <ul class="mb-0">
+                          <li class="list-disc fs-sm fs-sm-7 fs-md-6">
                             我擁有多年的前端開發經驗，課程內容將充滿實際案例。
                           </li>
-                          <li class="list-disc">
+                          <li class="list-disc fs-sm fs-sm-7 fs-md-6">
                             根據你的背景和目標，提供量身定制的指導和建議。
                           </li>
-                          <li class="list-disc">
+                          <li class="list-disc fs-sm fs-sm-7 fs-md-6">
                             我建立一個學生社群，你可以在這個社群中與其他學生互相學習和交流
                           </li>
                         </ul>
                       </div>
+                      <hr>
                       <!-- 評價 -->
-                      <div class="course-card-text">
-                        <h4 class="course-card-title mb-2">精選評價</h4>
+                      <div>
+                        <h4 class="text-secondary2 fs-7 fs-sm-5 mb-2 mb-sm-3">精選評價</h4>
                         <p class="fs-sm fs-sm-7 fs-md-6 text-justify mb-1 mb-md-2">
                           "這個課程是我轉職成功的關鍵！老師專業且耐心，從零開始教我寫程式，培養了我的切版能力。擁有作品集和個人網站，面試中展示給我巨大優勢。謝謝老師的教導和指導，強烈推薦！"
                         </p>
@@ -261,6 +264,7 @@
                           </div>
                         </div>
                       </div>
+                      <hr>
                     </div>
                     <!-- 瀏覽更多 -->
                     <button
@@ -274,10 +278,10 @@
                 </div>
               </div>
               <!--  按鈕區塊 -->
-              <div class="course-card-footer gap-2 gap-sm-6">
+              <div class="card-footer card-md-horizontal fix-min-w-lg-250 fix-min-w-md-200 gap-2 gap-sm-6 p-md-8">
                 <!-- 價格 -->
                 <div
-                  class="d-flex justify-content-center flex-md-wrap gap-2 gap-sm-5"
+                  class="d-flex justify-content-center flex-md-wrap gap-2 gap-sm-4"
                 >
                   <p class="text-nowrap text-center fs-sm fs-sm-6">
                     <span class="fw-bold fs-6 fs-sm-5">NT$ 200 </span
@@ -306,12 +310,12 @@
             </div>
 
             <!-- 2 -->
-            <div class="course-card shadow">
-              <div class="d-flex flex-grow-1 p-3 p-sm-4">
+            <div class="card flex-row flex-wrap flex-md-nowrap shadow">
+              <div class="d-flex flex-grow-1 p-4 p-lg-8">
                 <!--  老師區塊 -->
-                <div class="course-card-header me-4">
+                <div class="d-flex flex-column align-items-center fix-min-w-100 fix-min-w-md-150 bg-white me-4">
                   <!-- 愛心 -->
-                  <button type="button" class="btn mtn-link align-self-start">
+                  <button type="button" class="btn p-0 text-center align-self-start">
                     <i
                       class="fa-regular fa-heart fs-3 text-primary hover-bold"
                     ></i>
@@ -322,7 +326,7 @@
                     <!-- 圖 -->
                     <div class="mb-2">
                       <img
-                        class="avatar"
+                        class="fix-min-area-90 fix-min-area-md-100 rounded-circle"
                         src="../assets/images/Rectangle 7.png"
                         alt="teacher"
                       />
@@ -361,11 +365,11 @@
                   </ul>
                 </div>
                 <!--  課程區塊 -->
-                <div class="flex-grow-1">
+                <div class="">
                     <!-- 課程名稱 -->
-                    <h2 class="fs-6 fs-sm-5 fs-md-4 line-ellipsis mb-2">
+                    <h3 class="card-title fs-6 fs-sm-4 line-ellipsis">
                       從零開始成為切版大師
-                    </h2>
+                    </h3>
                     <!-- 優質標籤 -->
                     <ul class="d-flex gap-2 mb-2">
                       <li class="badge bg-primary fw-normal fs-sm fs-lg-7">
@@ -380,12 +384,12 @@
                     </ul>
                     <!-- 課程tag -->
                     <ul
-                      class="d-flex flex-wrap text-primary text-nowrap fs-sm fs-md-7 mb-1 mb-sm-2"
+                      class="d-flex flex-wrap mb-1 mb-sm-2 column-gap-1"
                     >
-                      <li class="me-1">#業界技術</li>
-                      <li class="me-1">#實戰專案開發</li>
-                      <li class="me-1">#5年家教經驗</li>
-                      <li class="me-1">#前端</li>
+                      <li class="text-primary text-nowrap fs-sm fs-md-7">#業界技術</li>
+                      <li class="text-primary text-nowrap fs-sm fs-md-7">#實戰專案開發</li>
+                      <li class="text-primary text-nowrap fs-sm fs-md-7">#5年家教經驗</li>
+                      <li class="text-primary text-nowrap fs-sm fs-md-7">#前端</li>
                     </ul>
                     <!-- 課程評價、難度 -->
                     <div class="d-flex">
@@ -401,15 +405,16 @@
                       <p class="text-gray-300">| 入門</p>
                     </div>
                     <!-- 課程介紹 -->
-                    <p class="fs-sm fs-sm-7 fs-md-6 text-justify mb-2 mb-md-4">
+                    <p class="fs-sm fs-sm-7 fs-md-6 text-justify">
                       透過我的課程，從零開始成為前端切版專家，開啟引人注目的網頁開發之旅！
                     </p>
+                    <hr>
                     <!-- 課程篩選tag -->
-                    <div class="course-card-text">
-                      <h4 class="course-card-title mb-2 mb-sm-3">
+                    <div>
+                      <h4 class=" text-secondary2 fs-7 fs-sm-6 fs-md-5 mb-2 mb-sm-3">
                         你可以跟我學
                       </h4>
-                      <ul class="d-flex gap-1 gap-md-2 flex-wrap mb-0">
+                      <ul class="d-flex flex-wrap gap-1 gap-md-2 mb-0">
                         <li>
                           <span
                             class="badge text-bg-secondary text-gray-300 fs-sm fs-md-6">
@@ -442,26 +447,28 @@
                         </li>
                       </ul>
                     </div>
+                    <hr>
                     <!-- 收合內容 -->
-                    <div class="collapse" id="collapseCourse2">
+                    <div class="collapse" id="collapseCourse1">
                       <!-- 你將獲得 -->
-                      <div class="course-card-text">
-                        <h4 class="course-card-title mb-2">你將獲得</h4>
-                        <ul class="fs-sm fs-sm-7 fs-md-6 mb-0">
-                          <li class="list-disc">
+                      <div>
+                        <h4 class="text-secondary2 fs-7 fs-sm-5 mb-2 mb-sm-3">你將獲得</h4>
+                        <ul class="mb-0">
+                          <li class="list-disc fs-sm fs-sm-7 fs-md-6">
                             我擁有多年的前端開發經驗，課程內容將充滿實際案例。
                           </li>
-                          <li class="list-disc">
+                          <li class="list-disc fs-sm fs-sm-7 fs-md-6">
                             根據你的背景和目標，提供量身定制的指導和建議。
                           </li>
-                          <li class="list-disc">
+                          <li class="list-disc fs-sm fs-sm-7 fs-md-6">
                             我建立一個學生社群，你可以在這個社群中與其他學生互相學習和交流
                           </li>
                         </ul>
                       </div>
+                      <hr>
                       <!-- 評價 -->
-                      <div class="course-card-text">
-                        <h4 class="course-card-title mb-2">精選評價</h4>
+                      <div>
+                        <h4 class="text-secondary2 fs-7 fs-sm-5 mb-2 mb-sm-3">精選評價</h4>
                         <p class="fs-sm fs-sm-7 fs-md-6 text-justify mb-1 mb-md-2">
                           "這個課程是我轉職成功的關鍵！老師專業且耐心，從零開始教我寫程式，培養了我的切版能力。擁有作品集和個人網站，面試中展示給我巨大優勢。謝謝老師的教導和指導，強烈推薦！"
                         </p>
@@ -481,23 +488,24 @@
                           </div>
                         </div>
                       </div>
+                      <hr>
                     </div>
                     <!-- 瀏覽更多 -->
                     <button
                       class=" btn btn-gray fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4 float-end readMore"
                       type="button"
                       data-bs-toggle="collapse"
-                      data-bs-target="#collapseCourse2"
+                      data-bs-target="#collapseCourse1"
                       aria-expanded="false"
-                      aria-controls="collapseCourse2"
+                      aria-controls="collapseCourse1"
                     ></button>
                 </div>
               </div>
               <!--  按鈕區塊 -->
-              <div class="course-card-footer gap-2 gap-sm-6">
+              <div class="card-footer card-md-horizontal fix-min-w-lg-250 fix-min-w-md-200 gap-2 gap-sm-6 p-md-8">
                 <!-- 價格 -->
                 <div
-                  class="d-flex justify-content-center flex-md-wrap gap-2 gap-sm-5"
+                  class="d-flex justify-content-center flex-md-wrap gap-2 gap-sm-4"
                 >
                   <p class="text-nowrap text-center fs-sm fs-sm-6">
                     <span class="fw-bold fs-6 fs-sm-5">NT$ 200 </span
@@ -526,13 +534,12 @@
             </div>
 
             <!-- 3 -->
-            <div class="course-card shadow">
-              <div class="d-flex flex-grow-1 p-3 p-sm-4">
-
-                <!-- 老師區塊 -->
-                <div class="course-card-header me-4">
+            <div class="card flex-row flex-wrap flex-md-nowrap shadow">
+              <div class="d-flex flex-grow-1 p-4 p-lg-8">
+                <!--  老師區塊 -->
+                <div class="d-flex flex-column align-items-center fix-min-w-100 fix-min-w-md-150 bg-white me-4">
                   <!-- 愛心 -->
-                  <button type="button" class="btn mtn-link align-self-start">
+                  <button type="button" class="btn p-0 text-center align-self-start">
                     <i
                       class="fa-regular fa-heart fs-3 text-primary hover-bold"
                     ></i>
@@ -543,7 +550,7 @@
                     <!-- 圖 -->
                     <div class="mb-2">
                       <img
-                        class="avatar"
+                        class="fix-min-area-90 fix-min-area-md-100 rounded-circle"
                         src="../assets/images/Rectangle 7.png"
                         alt="teacher"
                       />
@@ -581,12 +588,12 @@
                     </li>
                   </ul>
                 </div>
-                <!-- 課程區塊 -->
-                <div class="flex-grow-1">
+                <!--  課程區塊 -->
+                <div class="">
                     <!-- 課程名稱 -->
-                    <h2 class="fs-6 fs-sm-5 fs-md-4 line-ellipsis mb-2">
+                    <h3 class="card-title fs-6 fs-sm-4 line-ellipsis">
                       從零開始成為切版大師
-                    </h2>
+                    </h3>
                     <!-- 優質標籤 -->
                     <ul class="d-flex gap-2 mb-2">
                       <li class="badge bg-primary fw-normal fs-sm fs-lg-7">
@@ -601,12 +608,12 @@
                     </ul>
                     <!-- 課程tag -->
                     <ul
-                      class="d-flex flex-wrap text-primary text-nowrap fs-sm fs-md-7 mb-1 mb-sm-2"
+                      class="d-flex flex-wrap mb-1 mb-sm-2 column-gap-1"
                     >
-                      <li class="me-1">#業界技術</li>
-                      <li class="me-1">#實戰專案開發</li>
-                      <li class="me-1">#5年家教經驗</li>
-                      <li class="me-1">#前端</li>
+                      <li class="text-primary text-nowrap fs-sm fs-md-7">#業界技術</li>
+                      <li class="text-primary text-nowrap fs-sm fs-md-7">#實戰專案開發</li>
+                      <li class="text-primary text-nowrap fs-sm fs-md-7">#5年家教經驗</li>
+                      <li class="text-primary text-nowrap fs-sm fs-md-7">#前端</li>
                     </ul>
                     <!-- 課程評價、難度 -->
                     <div class="d-flex">
@@ -622,15 +629,16 @@
                       <p class="text-gray-300">| 入門</p>
                     </div>
                     <!-- 課程介紹 -->
-                    <p class="fs-sm fs-sm-7 fs-md-6 text-justify mb-2 mb-md-4">
+                    <p class="fs-sm fs-sm-7 fs-md-6 text-justify">
                       透過我的課程，從零開始成為前端切版專家，開啟引人注目的網頁開發之旅！
                     </p>
+                    <hr>
                     <!-- 課程篩選tag -->
-                    <div class="course-card-text">
-                      <h4 class="course-card-title mb-2 mb-sm-3">
+                    <div>
+                      <h4 class=" text-secondary2 fs-7 fs-sm-6 fs-md-5 mb-2 mb-sm-3">
                         你可以跟我學
                       </h4>
-                      <ul class="d-flex gap-1 gap-md-2 flex-wrap mb-0">
+                      <ul class="d-flex flex-wrap gap-1 gap-md-2 mb-0">
                         <li>
                           <span
                             class="badge text-bg-secondary text-gray-300 fs-sm fs-md-6">
@@ -663,26 +671,28 @@
                         </li>
                       </ul>
                     </div>
+                    <hr>
                     <!-- 收合內容 -->
-                    <div class="collapse" id="collapseCourse3">
+                    <div class="collapse" id="collapseCourse1">
                       <!-- 你將獲得 -->
-                      <div class="course-card-text">
-                        <h4 class="course-card-title mb-2">你將獲得</h4>
-                        <ul class="fs-sm fs-sm-7 fs-md-6 mb-0">
-                          <li class="list-disc">
+                      <div>
+                        <h4 class="text-secondary2 fs-7 fs-sm-5 mb-2 mb-sm-3">你將獲得</h4>
+                        <ul class="mb-0">
+                          <li class="list-disc fs-sm fs-sm-7 fs-md-6">
                             我擁有多年的前端開發經驗，課程內容將充滿實際案例。
                           </li>
-                          <li class="list-disc">
+                          <li class="list-disc fs-sm fs-sm-7 fs-md-6">
                             根據你的背景和目標，提供量身定制的指導和建議。
                           </li>
-                          <li class="list-disc">
+                          <li class="list-disc fs-sm fs-sm-7 fs-md-6">
                             我建立一個學生社群，你可以在這個社群中與其他學生互相學習和交流
                           </li>
                         </ul>
                       </div>
+                      <hr>
                       <!-- 評價 -->
-                      <div class="course-card-text">
-                        <h4 class="course-card-title mb-2">精選評價</h4>
+                      <div>
+                        <h4 class="text-secondary2 fs-7 fs-sm-5 mb-2 mb-sm-3">精選評價</h4>
                         <p class="fs-sm fs-sm-7 fs-md-6 text-justify mb-1 mb-md-2">
                           "這個課程是我轉職成功的關鍵！老師專業且耐心，從零開始教我寫程式，培養了我的切版能力。擁有作品集和個人網站，面試中展示給我巨大優勢。謝謝老師的教導和指導，強烈推薦！"
                         </p>
@@ -702,23 +712,24 @@
                           </div>
                         </div>
                       </div>
+                      <hr>
                     </div>
                     <!-- 瀏覽更多 -->
                     <button
                       class=" btn btn-gray fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4 float-end readMore"
                       type="button"
                       data-bs-toggle="collapse"
-                      data-bs-target="#collapseCourse3"
+                      data-bs-target="#collapseCourse1"
                       aria-expanded="false"
-                      aria-controls="collapseCourse3"
+                      aria-controls="collapseCourse1"
                     ></button>
                 </div>
               </div>
-              <!-- 按鈕區塊 -->
-              <div class="course-card-footer gap-2 gap-sm-6">
+              <!--  按鈕區塊 -->
+              <div class="card-footer card-md-horizontal fix-min-w-lg-250 fix-min-w-md-200 gap-2 gap-sm-6 p-md-8">
                 <!-- 價格 -->
                 <div
-                  class="d-flex justify-content-center flex-md-wrap gap-2 gap-sm-5"
+                  class="d-flex justify-content-center flex-md-wrap gap-2 gap-sm-4"
                 >
                   <p class="text-nowrap text-center fs-sm fs-sm-6">
                     <span class="fw-bold fs-6 fs-sm-5">NT$ 200 </span
@@ -747,14 +758,14 @@
             </div>
           </div>
           <!-- filter list (mobile:offcanvas desktop:collapse) -->
-          <div class="collapse collapse-horizontal show filter-list" id="collapseFilter" >
-            <div class="offcanvas-lg offcanvas-end"  tabindex="-1" id="offcanvasFilter"   aria-labelledby="offcanvasFilterTitle">
-              <div class="offcanvas-header ">
+          <div class="collapse collapse-horizontal show filter-sidebar-sticky" id="collapseFilter">
+            <div class="offcanvas-xl offcanvas-end"  tabindex="-1" id="offcanvasFilter"   aria-labelledby="offcanvasFilterTitle">
+              <div class="offcanvas-header">
                 <h5 class="offcanvas-title fs-4" id="offcanvasFilterTitle ">篩選列表</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
                 data-bs-target="#offcanvasFilter" aria-label="Close"></button>
               </div>
-              <div class="offcanvas-body flex-column pt-lg-4" >
+              <div class="offcanvas-body flex-column pt-xl-4" >
                 <!-- 1. 評等 -->
                 <div class="border-bottom border-2 border-secondary pb-4 mb-4">
                   <!-- 評等標題 -->
@@ -768,7 +779,7 @@
                     <li class="form-check mb-1">
                       <input class="form-check-input" type="radio" name="filterStar" id="filterStar5">
                       <label class="form-check-label d-flex text-nowrap" for="filterStar5">
-                        <div class="me-1 d-lg-none d-xl-block">
+                        <div class="me-1">
                         <img src="../assets/images/star.svg" alt="star">
                         <img class="" src="../assets/images/star.svg" alt="star">
                         <img class="d" src="../assets/images/star.svg" alt="star">
@@ -782,7 +793,7 @@
                     <li class="form-check mb-1">
                       <input class="form-check-input" type="radio" name="filterStar" id="filterStar4" checked>
                       <label class="form-check-label d-flex text-nowrap" for="filterStar4">
-                        <div class="me-1 d-lg-none d-xl-block">
+                        <div class="me-1">
                         <img src="../assets/images/star.svg" alt="star">
                         <img class="" src="../assets/images/star.svg" alt="star">
                         <img class="" src="../assets/images/star.svg" alt="star">
@@ -796,7 +807,7 @@
                     <li class="form-check mb-1">
                       <input class="form-check-input" type="radio" name="filterStar" id="filterStar4" checked>
                       <label class="form-check-label d-flex text-nowrap" for="filterStar4">
-                        <div class="me-1 d-lg-none d-xl-block">
+                        <div class="me-1">
                         <img src="../assets/images/star.svg" alt="star">
                         <img class="" src="../assets/images/star.svg" alt="star">
                         <img class="" src="../assets/images/star.svg" alt="star">
@@ -810,7 +821,7 @@
                     <li class="form-check mb-1">
                       <input class="form-check-input" type="radio" name="filterStar" id="filterStar4" checked>
                       <label class="form-check-label d-flex text-nowrap" for="filterStar4">
-                        <div class="me-1 d-lg-none d-xl-block">
+                        <div class="me-1">
                         <img src="../assets/images/star.svg" alt="star">
                         <img class="" src="../assets/images/star.svg" alt="star">
                         <img class="img-gray " src="../assets/images/star.svg" alt="star">
@@ -824,7 +835,7 @@
                     <li class="form-check">
                       <input class="form-check-input" type="radio" name="filterStar" id="filterStar4" checked>
                       <label class="form-check-label d-flex text-nowrap" for="filterStar4">
-                        <div class="me-1 d-lg-none d-xl-block">
+                        <div class="me-1">
                         <img src="../assets/images/star.svg" alt="star">
                         <img class="img-fluid img-gray " src="../assets/images/star.svg" alt="star">
                         <img class="img-gray " src="../assets/images/star.svg" alt="star">
@@ -1314,8 +1325,8 @@
     <script type="module" src="../main.js"></script>
     <script>
       //filter-bar 在 sticky 時添加陰影，且加上margin
-      let filterBar = document.querySelector(".filter-bar");
-      let stickyMargin = document.querySelector(".sticky-margin");
+      let filterBar = document.querySelector("#js-filter-bar");
+      let stickyMargin = document.querySelector("#js-sticky-mt");
 
       window.addEventListener("scroll", () => {
         if (window.scrollY < 418) {
@@ -1332,7 +1343,7 @@
       // 取得當前螢幕寬度
       const screenWidth = window.innerWidth || document.documentElement.clientWidth;
 
-      if (screenWidth < 992) {
+      if (screenWidth < 1200) {
         document.getElementById('collapseFilter').classList.add('show');
       } 
       });
