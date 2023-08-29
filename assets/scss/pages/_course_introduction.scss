@@ -31,10 +31,13 @@
         color: $primary !important;
     }
 }
+.calendar{
+    width: 100%;
+}
 .calendar-list{
     display: flex;
     flex-direction: column;
-    width: 86px;
+    width: 14%;
     gap:8px;
     padding-top: 8px;
     border-top: 4px solid $primary;
