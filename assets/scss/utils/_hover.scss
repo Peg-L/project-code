@@ -4,3 +4,8 @@
     transition: font-weight 0.4s;
   }
 }
+.hover-bg-gray{
+  &:hover{
+    background-color: $gray-100;
+  }
+}

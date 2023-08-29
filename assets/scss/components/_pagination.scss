@@ -1,5 +1,6 @@
 .page-item.active{
     pointer-events: none;
+    z-index: 0;
 }
 .page-item:first-child .page-link{
     border-top-left-radius: 0.5rem;
