@@ -450,6 +450,10 @@ $spacers: (
   18: $spacer * 4.5,
   // 80px
   20: $spacer * 5,
+  // 88px
+  22: $spacer * 5.5,
+  // 128px
+  32: $spacer * 8,
 ) !default;
 // scss-docs-end spacer-variables-maps
 
@@ -1375,12 +1379,12 @@ $pagination-font-size: $font-size-base !default;
 
 $pagination-color: var(--#{$prefix}link-color) !default;
 $pagination-bg: var(--#{$prefix}body-bg) !default;
-$pagination-border-radius: none;//var(--#{$prefix}border-radius) !default;
+$pagination-border-radius: none; //var(--#{$prefix}border-radius) !default;
 $pagination-border-width: var(--#{$prefix}border-width) !default;
 $pagination-margin-start: calc(
   #{$pagination-border-width} * -1
 ) !default; // stylelint-disable-line function-disallowed-list
-$pagination-border-color: $gray-200;//var(--#{$prefix}border-color) !default;
+$pagination-border-color: $gray-200; //var(--#{$prefix}border-color) !default;
 
 $pagination-focus-color: var(--#{$prefix}link-hover-color) !default;
 $pagination-focus-bg: var(--#{$prefix}secondary-bg) !default;
