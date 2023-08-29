@@ -187,3 +187,18 @@
     }
   }
 
+.card-footer{
+  border-top: none;
+  &:last-child{
+    border-radius: 0;
+  }
+} 
+
+.card-md-horizontal{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  @include media-breakpoint-up(md) {
+    flex-direction: column;
+  }
+}

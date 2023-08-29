@@ -450,8 +450,11 @@ $spacers: (
   18: $spacer * 4.5,
   // 80px
   20: $spacer * 5,
-  //
-  41: $spacer * 10.25
+  // 88px
+  22: $spacer * 5.5,
+  // 128px
+  32: $spacer * 8,
+  41: $spacer * 10.25,
 ) !default;
 // scss-docs-end spacer-variables-maps
 
@@ -579,7 +582,7 @@ $border-color-translucent: rgba($black, 0.175) !default;
 // scss-docs-start border-radius-variables
 $border-radius: 0.375rem !default;
 $border-radius-sm: 0.25rem !default;
-$border-radius-lg: 0.5rem !default;
+$border-radius-lg: 0.75rem;//0.5rem !default;
 $border-radius-xl: 1rem !default;
 $border-radius-xxl: 2rem !default;
 $border-radius-pill: 50rem !default;
@@ -1377,12 +1380,12 @@ $pagination-font-size: $font-size-base !default;
 
 $pagination-color: var(--#{$prefix}link-color) !default;
 $pagination-bg: var(--#{$prefix}body-bg) !default;
-$pagination-border-radius: none;//var(--#{$prefix}border-radius) !default;
+$pagination-border-radius: none; //var(--#{$prefix}border-radius) !default;
 $pagination-border-width: var(--#{$prefix}border-width) !default;
 $pagination-margin-start: calc(
   #{$pagination-border-width} * -1
 ) !default; // stylelint-disable-line function-disallowed-list
-$pagination-border-color: $gray-200;//var(--#{$prefix}border-color) !default;
+$pagination-border-color: $gray-200; //var(--#{$prefix}border-color) !default;
 
 $pagination-focus-color: var(--#{$prefix}link-hover-color) !default;
 $pagination-focus-bg: var(--#{$prefix}secondary-bg) !default;
@@ -1434,7 +1437,7 @@ $card-inner-border-radius: subtract(
 ) !default;
 $card-cap-padding-y: $card-spacer-y * 0.5 !default;
 $card-cap-padding-x: $card-spacer-x !default;
-$card-cap-bg: rgba(var(--#{$prefix}body-color-rgb), 0.03) !default;
+$card-cap-bg: $secondary;//rgba(var(--#{$prefix}body-color-rgb), 0.03) !default;
 $card-cap-color: null !default;
 $card-height: null !default;
 $card-color: null !default;

@@ -1,34 +1,6 @@
-// var swiper = new Swiper(".mySwiper", {
-//   slidesPerView: 1,
-//   spaceBetween: 16,
-//   breakpoints: {
-//     640: {
-//       slidesPerView: 2,
-//       spaceBetween: 20,
-//     },
-//     768: {
-//       slidesPerView: 4,
-//       spaceBetween: 32,
-//     },
-//   },
-//   loop: true,
-//   hashNavigation: {
-//     watchState: true,
-//   },
-//   pagination: {
-//     el: ".swiper-pagination",
-//     clickable: true,
-//     dynamicBullets: true,
-//   },
-//   navigation: {
-//     nextEl: ".swiper-button-next",
-//     prevEl: ".swiper-button-prev",
-//   },
-// });
-
 var swiper = new Swiper(".mySwiper", {
   slidesPerView: 1,
-  spaceBetween: 10,
+  spaceBetween: 24,
   loop: true,
   pagination: {
     el: ".swiper-pagination-custom",
@@ -54,6 +26,31 @@ var swiper = new Swiper(".mySwiper", {
       navigation: {
         nextEl: ".swiper-button-next-custom",
         prevEl: ".swiper-button-prev-custom",
+      },
+      pagination: {
+        dynamicMainBullets: 3,
+      },
+    },
+  },
+});
+
+var reviewsSwiper = new Swiper(".reviewsSwiper", {
+  slidesPerView: 1,
+  spaceBetween: 16,
+  loop: true,
+  pagination: {
+    el: ".reviewsSwiper-pagination-custom",
+    clickable: true,
+    dynamicBullets: true,
+    dynamicMainBullets: 5,
+  },
+  breakpoints: {
+    992: {
+      slidesPerView: 2,
+      spaceBetween: 24,
+      navigation: {
+        nextEl: ".reviewsSwiper-button-next-custom",
+        prevEl: ".reviewsSwiper-button-prev-custom",
       },
       pagination: {
         dynamicMainBullets: 3,

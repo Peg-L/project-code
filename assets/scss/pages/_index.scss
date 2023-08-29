@@ -82,8 +82,12 @@
 }
 
 // 推薦教師
-.bg-recommend {
-  background: url("../images/recommend-bg.jpg");
+.bg-gray-dot {
+  background: url("../images/bg-gray-dot-sm.png") no-repeat center / cover;
+
+  @include media-breakpoint-up(md) {
+    background: url("../images/bg-gray-dot.jpg") no-repeat center / cover;
+  }
 }
 
 .swiper-button-next:after,
@@ -116,6 +120,15 @@
   > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
 .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
   transform: none;
+}
+
+.reviews {
+  &.swiper-horizontal
+    > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
+  .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 // why us
@@ -301,5 +314,33 @@
     @include media-breakpoint-up(md) {
       width: 56px;
     }
+  }
+}
+
+.thumb-up-img {
+  position: relative;
+  background: url("../images/bg-thumbs-up-img-sm.png") no-repeat left / cover;
+
+  @include media-breakpoint-up(md) {
+    background: none;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+
+    @include media-breakpoint-up(md) {
+      content: url("../images/bg-thumbs-up-img.png");
+      left: 30%;
+    }
+  }
+}
+
+.reviews {
+  .teacher-card {
+    border-radius: 20px 20px 0px 20px;
+    box-shadow: 0px 4px 30px 0px rgba(150, 150, 150, 0.2);
   }
 }
