@@ -1,0 +1,47 @@
+.message {
+  .btn-search:hover {
+    border: 1px solid red;
+  }
+
+  .form-control:focus {
+    box-shadow: 0 0 0 0.5px $primary;
+  }
+}
+
+.truncate {
+  max-width: 80%;
+}
+
+.message-item {
+  a {
+    color: $dark;
+  }
+
+  &:hover {
+    color: $dark;
+    background: $gray-100;
+  }
+}
+
+.btn-back {
+  color: $gray-300;
+  font-size: 20px;
+
+  &:hover {
+    color: $dark;
+  }
+}
+
+.ck-body-wrapper {
+  --ck-z-default: 100;
+  --ck-z-modal: calc(var(--ck-z-default) + 1000);
+}
+
+.ck.ck-editor {
+  display: flex;
+  flex-direction: column;
+}
+
+.ck-editor__top {
+  order: 2;
+}

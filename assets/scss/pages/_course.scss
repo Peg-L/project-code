@@ -1,4 +1,4 @@
-.sub-banner{
+.sub-banner {
   border-radius: 12px;
   height: 200px;
   padding-bottom: 16px;
@@ -6,16 +6,13 @@
   flex-direction: column;
   justify-content: center;
 
-
   background: url("../images/banner.svg") no-repeat top / cover;
 
   @include media-breakpoint-up(md) {
-    
     height: 300px;
-
   }
 }
-.course-card{
+.course-card {
   display: flex;
   flex-wrap: wrap;
   @include media-breakpoint-up(md) {
