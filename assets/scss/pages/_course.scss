@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .sub-banner {
   border-radius: 12px;
   height: 200px;
@@ -82,3 +83,20 @@
     font-size: 20px;
   }
 }
+=======
+.filter-sidebar-sticky{
+  @include media-breakpoint-up(xl){
+    position: sticky;
+    top: 68px;
+    height: calc(100vh - 68px) ;
+    overflow-y: auto;
+}
+&.show{
+  @include media-breakpoint-up(xl){
+    min-width: 380px;
+    padding:0 20px 0 60px ;
+  }
+}
+}
+
+>>>>>>> d5e010c3d86e89fe444b6b20a39286e9c7932cec

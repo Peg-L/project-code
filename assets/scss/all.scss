@@ -22,6 +22,7 @@
 @import "./components/card";
 @import "./components/badge-title";
 @import "./components/input-search";
+@import "./components/input";
 @import "./components/collapse";
 @import "./components/block-title";
 @import "./components/pagination";
@@ -34,6 +35,9 @@
 @import "./pages/index.scss";
 @import "./pages/course_introduction";
 @import "./pages/course.scss";
+@import "./pages/account";
+@import "./pages/cart.scss";
+
 
 //utils
 @import "./utils/helpers.scss";

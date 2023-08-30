@@ -1,0 +1,13 @@
+.number-arrow-none{
+    /* Chrome, Safari, Edge, Opera */
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+
+    /* Firefox */
+    &[type=number] {
+    appearance: textfield;
+    }
+}
