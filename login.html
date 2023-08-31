@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>C0DE | 讓你從 0 到 Expert</title>
+    <link
+      rel="shortcut icon"
+      href="/project-code/assets/favicon-ee1e2dda.ico"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+    <script type="module" crossorigin src="/project-code/assets/index-f6bc7f5f.js"></script>
+    <link rel="stylesheet" href="/project-code/assets/index-3985381e.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-white">
+  <div class="container">
+    <h1 class="navbar-brand">
+      <a href="./index.html">
+        <img
+          class="d-none d-lg-block"
+          src="/project-code/assets/logo-a3c8a1c6.svg"
+          alt="C0DE logo"
+        />
+        <img
+          class="d-block d-lg-none"
+          src="/project-code/assets/logo-sm-9ed0e1e0.svg"
+          alt="C0DE logo"
+        />
+      </a>
+    </h1>
+    <div>
+      <input type="checkbox" id="menu-toggle" />
+      <label
+        for="menu-toggle"
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarScroll"
+        aria-controls="navbarScroll"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </label>
+    </div>
+
+    <div class="navbar-collapse collapse py-6 py-lg-0" id="navbarScroll">
+      <ul
+        id="accordionFlush"
+        class="navbar-scrollBar navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll m-auto column-gap-10 row-gap-2"
+        style="--bs-scroll-height: 205px"
+      >
+        <li class="nav-item">
+          <a
+            class="nav-link pc d-none d-lg-block"
+            aria-current="page"
+            href="./course.html"
+            >課程分類</a
+          >
+          <div
+            class="accordion accordion-flush d-block d-lg-none"
+            id="accordionFlush"
+          >
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed nav-link"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#category"
+                  aria-expanded="false"
+                  aria-controls="category"
+                >
+                  課程分類
+                </button>
+              </h2>
+              <div
+                id="category"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionFlush"
+              >
+                <ul class="accordion-body text-center">
+                  <li><a href="###">前端</a></li>
+                  <li><a href="###">後端</a></li>
+                  <li><a href="###">資料庫</a></li>
+                  <li><a href="###">資安</a></li>
+                  <li><a href="###">產品測試</a></li>
+                  <li><a href="###">UI / UX</a></li>
+                  <li><a href="###">開發維運</a></li>
+                  <li><a href="###">行動應用</a></li>
+                  <li><a href="###">AI</a></li>
+                  <li><a href="###">遊戲開發</a></li>
+                  <li><a href="###">程式入門</a></li>
+                  <li><a href="###">職涯</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link pc d-none d-lg-block" aria-current="page" href="#"
+            >常見問題</a
+          >
+          <div
+            class="accordion accordion-flush d-block d-lg-none"
+            id="accordionFlush"
+          >
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed nav-link"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq"
+                  aria-expanded="false"
+                  aria-controls="faq"
+                >
+                  常見問題
+                </button>
+              </h2>
+              <div
+                id="faq"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionFlush"
+              >
+                <ul class="accordion-body text-center">
+                  <li><a href="###">學生常見問答</a></li>
+                  <li><a href="###">老師常見問答</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link pc d-none d-lg-block"
+            aria-current="page"
+            href="#"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#message-list"
+            aria-controls="#message-list"
+            >聯絡老師</a
+          >
+          <a
+            class="nav-link d-block d-lg-none"
+            aria-current="page"
+            href="#"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#message-list"
+            aria-controls="#message-list"
+            >聯絡老師</a
+          >
+        </li>
+      </ul>
+
+      <!-- 透過加上/刪除 isLogin 來切換登入狀態 -->
+      <div
+        class="d-flex flex-column flex-lg-row row-gap-2 mt-6 mt-lg-0 isLogin"
+      >
+        <button type="button" class="btn btn-member btn-secondary2">
+          會員中心
+        </button>
+
+        <button type="button" class="btn btn-register btn-secondary2">
+          註冊
+        </button>
+        <button type="button" class="btn btn-login fw-medium">登入</button>
+      </div>
+    </div>
+  </div>
+</nav>
+    <div class="container py-5 py-md-10">
+      <div class="row d-flex justify-content-center">
+        <div class="col-12 d-flex flex-column align-items-center">
+          <img
+            class="mb-2 mb-md-3"
+            style="width: 40px"
+            src="/project-code/assets/logo-img-ee7a417d.svg"
+            alt="logo"
+          />
+          <h1 class="fs-3 mb-2 mb-md-4">會員登入</h1>
+
+          <form class="col-12 col-sm-10 col-md-8 col-lg-5">
+            <button
+              type="button"
+              class="btn btn-outline-secondary2 rounded-1 fs-5 w-100 py-3 mb-2 mb-md-4"
+            >
+              <i class="fa-brands fa-google me-3"></i>使用 Google 登入
+            </button>
+            <div
+              class="form-floating border border-gray-300 rounded-1 mb-2 mb-md-4"
+            >
+              <input
+                type="email"
+                class="form-control"
+                id="floatingInput"
+                placeholder="name@example.com"
+              />
+              <label for="floatingInput">Email</label>
+            </div>
+            <div
+              class="form-floating border border-gray-300 rounded-1 d-flex align-items-center"
+            >
+              <input
+                type="password"
+                class="form-control visibility-icon"
+                id="floatingPassword"
+                placeholder="Password"
+              />
+              <i class="bi bi-eye-slash-fill position-absolute end-0 pe-4"></i>
+              <label for="floatingPassword">密碼</label>
+            </div>
+            <div
+              id="passwordHelpBlock"
+              class="form-text d-flex justify-content-between ms-2 mb-2 mb-md-4"
+            >
+              <div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-exclamation-circle me-1"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                  />
+                  <path
+                    d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"
+                  />
+                </svg>
+                大小寫英文和數字混合
+              </div>
+              <div><a href="###">忘記密碼?</a></div>
+            </div>
+            <button
+              type="button"
+              class="btn btn-secondary2 rounded-1 fs-5 w-100 py-3 mb-4"
+            >
+              <i class="fa-solid fa-user me-3"></i>
+              登入會員
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- message -->
+    <div
+  class="offcanvas offcanvas-end message"
+  tabindex="-1"
+  id="message-list"
+  aria-labelledby="offcanvasRightLabel"
+>
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasRightLabel">訊息</h5>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    ></button>
+  </div>
+  <div class="input-group p-4 pt-0 border-bottom border-gray-200">
+    <input
+      type="text"
+      class="form-control border border-gray-200"
+      placeholder="搜尋教師姓名"
+      aria-label="search keywords"
+      aria-describedby="button-addon2"
+    />
+    <button
+      class="btn btn-secondary2 btn-search border border-secondary2"
+      type="button"
+      id="button-addon2"
+    >
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+  </div>
+  <ul class="offcanvas-body p-0 d-flex flex-column">
+    <li class="message-item">
+      <a
+        href="###"
+        class="d-block px-4 py-3"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#message-mike"
+        aria-controls="message-mike"
+      >
+        <div class="d-flex gap-3">
+          <img
+            style="width: 60px; height: 60px"
+            src="/project-code/assets/mike-e8622f4e.png"
+            alt="mike"
+          />
+          <div class="d-flex flex-column justify-content-between truncate">
+            <div class="d-flex justify-content-between">
+              <h4 class="fs-6">麥克先生</h4>
+              <span>3 天前</span>
+            </div>
+            <p class="text-truncate">
+              感謝你預約我的體驗課，在上課前請幫我填寫
+            </p>
+          </div>
+        </div>
+      </a>
+    </li>
+    <li class="message-item">
+      <a href="###" class="d-block px-4 py-3">
+        <div class="d-flex gap-3">
+          <img
+            style="width: 60px; height: 60px"
+            src="/project-code/assets/arong-bdd97516.png"
+            alt="mike"
+          />
+          <div class="d-flex flex-column justify-content-between truncate">
+            <div class="d-flex justify-content-between">
+              <h4 class="fs-6">Aaron</h4>
+              <span>4 天前</span>
+            </div>
+            <p class="text-truncate">
+              恭喜你上完 10 堂 JavaScript線上教學，順利
+            </p>
+          </div>
+        </div>
+      </a>
+    </li>
+    <li class="message-item">
+      <a href="###" class="d-block px-4 py-3">
+        <div class="d-flex gap-3">
+          <img
+            style="width: 60px; height: 60px"
+            src="/project-code/assets/alice-ec7da41c.png"
+            alt="mike"
+          />
+          <div class="d-flex flex-column justify-content-between truncate">
+            <div class="d-flex justify-content-between">
+              <h4 class="fs-6">Python 專家艾莉絲</h4>
+              <span>5 天前</span>
+            </div>
+            <p class="text-truncate">
+              嗨，我是艾莉絲，有 8 年 Python 教學經驗，
+            </p>
+          </div>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<div
+  class="offcanvas offcanvas-end"
+  tabindex="-1"
+  id="message-mike"
+  aria-labelledby="message"
+>
+  <div class="offcanvas-header border-bottom border-gray-200">
+    <div class="d-flex align-items-center">
+      <button
+        type="button"
+        class="btn btn-back"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#message-list"
+        aria-controls="#message-list"
+      >
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <img
+        class="me-3"
+        style="width: 50px; height: 50px"
+        src="/project-code/assets/mike-e8622f4e.png"
+        alt="mike"
+      />
+      <h5 class="offcanvas-title" id="offcanvasRightLabel">馬克先生</h5>
+    </div>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    ></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="d-flex flex-column gap-6">
+      <li class="dialog d-flex me-10">
+        <img
+          class="me-3"
+          style="width: 40px; height: 40px"
+          src="/project-code/assets/mike-e8622f4e.png"
+          alt="mike"
+        />
+        <div>
+          <p class="fs-6 bg-gray-100 p-3 mb-1 rounded-2">hello</p>
+          <p class="fs-7 text-gray-200">12天前</p>
+        </div>
+      </li>
+      <li class="dialog d-flex me-10">
+        <img
+          class="me-3"
+          style="width: 40px; height: 40px"
+          src="/project-code/assets/mike-e8622f4e.png"
+          alt="mike"
+        />
+        <div>
+          <p class="fs-6 bg-gray-100 p-3 mb-1 rounded-2">
+            嗨，我是麥克先生😀 不是麥克雞塊喔xDD 我的課會帶你一起探索 JavaScript
+            更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...等
+          </p>
+          <p class="fs-7 text-gray-200">12天前</p>
+        </div>
+      </li>
+      <li class="dialog d-flex me-10">
+        <img
+          class="me-3"
+          style="width: 40px; height: 40px"
+          src="/project-code/assets/mike-e8622f4e.png"
+          alt="mike"
+        />
+        <div>
+          <p class="fs-6 bg-gray-100 p-3 mb-1 rounded-2">
+            歡迎預約時間上課 體驗課有優惠喔~ 可以先體驗，再決定要不要買很多堂
+            有問題都可以直接詢問 👾
+          </p>
+          <p class="fs-7 text-gray-200">12天前</p>
+        </div>
+      </li>
+      <li class="dialog d-flex justify-content-end ms-13">
+        <div class="d-flex flex-column align-items-end">
+          <p class="fs-6 bg-gray-100 p-3 mb-1 rounded-2">
+            謝謝麥克老師！我看完介紹後已經手刀買了10堂課拉~ 期待第一次上課😆
+          </p>
+          <p class="fs-7 text-gray-200">10天前</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="editor"></div>
+</div>
+
+<script>
+  ClassicEditor.create(document.querySelector("#editor"), {
+    placeholder: "說些什麼...",
+    toolbar: ["uploadImage"],
+    link: {
+      addTargetToExternalLinks: true,
+    },
+  })
+    .then((res) => {
+      console.log("success");
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+</script>
+
+    <!-- footer -->
+    <div
+  class="container footer py-6 py-lg-10 d-flex flex-column flex-lg-row justify-content-between bg-white"
+>
+  <div
+    class="d-flex flex-lg-column justify-content-between mb-6 mb-lg-0 flex-wrap"
+  >
+    <h1 class="navbar-brand">
+      <a href="./index.html">
+        <img
+          class="d-none d-lg-block"
+          src="/project-code/assets/logo-a3c8a1c6.svg"
+          alt="C0DE logo"
+        />
+        <img
+          class="d-block d-lg-none"
+          src="/project-code/assets/logo-sm-9ed0e1e0.svg"
+          alt="C0DE logo"
+        />
+      </a>
+    </h1>
+    <div class="d-flex column-gap-3">
+      <button class="btn btn-outlined-circle" type="button">
+        <div class="d-flex">
+          <i class="fa-brands fa-facebook-f"></i>
+        </div>
+      </button>
+      <button class="btn btn-outlined-circle" type="button">
+        <div class="d-flex">
+          <i class="fa-brands fa-instagram"></i>
+        </div>
+      </button>
+      <button class="btn btn-outlined-circle" type="button">
+        <div class="d-flex">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </div>
+      </button>
+    </div>
+  </div>
+  <div class="d-flex gap-10 gap-lg-15">
+    <div>
+      <h4 class="footer-cate-title">學生上課</h4>
+      <ul class="footer-cate-list">
+        <li><a href="###">熱門教師</a></li>
+        <li><a href="###">搜尋教師</a></li>
+        <li><a href="###">教師分類</a></li>
+        <li><a href="###">立即體驗</a></li>
+        <li><a href="###">學生好評</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="footer-cate-title">成為教師</h4>
+      <ul class="footer-cate-list">
+        <li><a href="###">申請成為教師</a></li>
+        <li><a href="###">教師儀表板</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="footer-cate-title">關於C0DE</h4>
+      <ul class="footer-cate-list">
+        <li><a href="###">關於我們</a></li>
+        <li><a href="###">聯絡我們</a></li>
+        <li><a href="###">平台常見問題</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="bg-secondary2 text-white fs-tiny text-center py-3">
+  <div class="container">
+    <p>Copyright © 2023 C0DE, All Rights Reserved</p>
+  </div>
+</div>
+
+    
+  </body>
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>購物車 | C0DE</title>
+    <link
+    rel="shortcut icon"
+    href="/project-code/assets/favicon-ee1e2dda.ico"
+    type="image/x-icon"
+  />
+  <script type="module" crossorigin src="/project-code/assets/index-f6bc7f5f.js"></script>
+  <link rel="stylesheet" href="/project-code/assets/index-3985381e.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-white">
+  <div class="container">
+    <h1 class="navbar-brand">
+      <a href="./index.html">
+        <img
+          class="d-none d-lg-block"
+          src="/project-code/assets/logo-a3c8a1c6.svg"
+          alt="C0DE logo"
+        />
+        <img
+          class="d-block d-lg-none"
+          src="/project-code/assets/logo-sm-9ed0e1e0.svg"
+          alt="C0DE logo"
+        />
+      </a>
+    </h1>
+    <div>
+      <input type="checkbox" id="menu-toggle" />
+      <label
+        for="menu-toggle"
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarScroll"
+        aria-controls="navbarScroll"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </label>
+    </div>
+
+    <div class="navbar-collapse collapse py-6 py-lg-0" id="navbarScroll">
+      <ul
+        id="accordionFlush"
+        class="navbar-scrollBar navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll m-auto column-gap-10 row-gap-2"
+        style="--bs-scroll-height: 205px"
+      >
+        <li class="nav-item">
+          <a
+            class="nav-link pc d-none d-lg-block"
+            aria-current="page"
+            href="./course.html"
+            >課程分類</a
+          >
+          <div
+            class="accordion accordion-flush d-block d-lg-none"
+            id="accordionFlush"
+          >
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed nav-link"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#category"
+                  aria-expanded="false"
+                  aria-controls="category"
+                >
+                  課程分類
+                </button>
+              </h2>
+              <div
+                id="category"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionFlush"
+              >
+                <ul class="accordion-body text-center">
+                  <li><a href="###">前端</a></li>
+                  <li><a href="###">後端</a></li>
+                  <li><a href="###">資料庫</a></li>
+                  <li><a href="###">資安</a></li>
+                  <li><a href="###">產品測試</a></li>
+                  <li><a href="###">UI / UX</a></li>
+                  <li><a href="###">開發維運</a></li>
+                  <li><a href="###">行動應用</a></li>
+                  <li><a href="###">AI</a></li>
+                  <li><a href="###">遊戲開發</a></li>
+                  <li><a href="###">程式入門</a></li>
+                  <li><a href="###">職涯</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link pc d-none d-lg-block" aria-current="page" href="#"
+            >常見問題</a
+          >
+          <div
+            class="accordion accordion-flush d-block d-lg-none"
+            id="accordionFlush"
+          >
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed nav-link"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq"
+                  aria-expanded="false"
+                  aria-controls="faq"
+                >
+                  常見問題
+                </button>
+              </h2>
+              <div
+                id="faq"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionFlush"
+              >
+                <ul class="accordion-body text-center">
+                  <li><a href="###">學生常見問答</a></li>
+                  <li><a href="###">老師常見問答</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link pc d-none d-lg-block"
+            aria-current="page"
+            href="#"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#message-list"
+            aria-controls="#message-list"
+            >聯絡老師</a
+          >
+          <a
+            class="nav-link d-block d-lg-none"
+            aria-current="page"
+            href="#"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#message-list"
+            aria-controls="#message-list"
+            >聯絡老師</a
+          >
+        </li>
+      </ul>
+
+      <!-- 透過加上/刪除 isLogin 來切換登入狀態 -->
+      <div
+        class="d-flex flex-column flex-lg-row row-gap-2 mt-6 mt-lg-0 isLogin"
+      >
+        <button type="button" class="btn btn-member btn-secondary2">
+          會員中心
+        </button>
+
+        <button type="button" class="btn btn-register btn-secondary2">
+          註冊
+        </button>
+        <button type="button" class="btn btn-login fw-medium">登入</button>
+      </div>
+    </div>
+  </div>
+</nav>
+    <!--========================
+    =        step bar          =
+    =========================-->
+    <div class="container-sm">
+        <div class="row justify-content-center mb-6 mb-md-12">
+            <div class="col-sm-10 col-md-8 col-lg-6">
+                <ul
+                    class="stepbar list-unstyled d-flex justify-content-between mt-2 mt-md-7 mb-8 mb-md-13"
+                >
+                    <li class="d-flex flex-column align-items-center">
+                    <div class="stepbar-item ready mb-1 mb-md-2">1</div>
+                    <p class="fw-bold">確認付款</p>
+                    </li>
+                    <li class="d-flex flex-column align-items-center">
+                    <div class="stepbar-item mb-1 mb-md-2">2</div>
+                    <p class="fw-bold">預約時段</p>
+                    </li>
+                    <li class="d-flex flex-column align-items-center">
+                    <div class="stepbar-item mb-1 mb-md-2">3</div>
+                    <p class="fw-bold">課程明細</p>
+                    </li>
+                </ul>
+                <!--========================
+                =           card           =
+                =========================-->
+                <h2 class="fs-5 fs-md-4">訂單資訊</h2>
+                <!-- card1 -->
+                <div class="card">
+                    <div class="row g-6">
+                        <!-- 左 -->
+                        <div class="col-3 align-items-center">
+                            <img class="rounded-circle" src="/project-code/assets/Rectangle 7-ab3dd5b8.png" alt="teacher" width="90px"
+                            height="90px">
+                            <h3 class="fs-4">麥克先生</h3>
+
+                        </div>
+                        <!-- 中 -->
+                        <div class="col-6">
+                            <form action="">
+                                <label for="course1">課程</label><br>
+                                <input 
+                                class="form-control"
+                                type="text" name="course1" id="course1" value="一起打造你的前端職涯" readonly>
+                                <div class="d-flex">
+                                    <div class="w-50">
+                                        <label for="hour1">單堂時數</label><br>
+                                        <select class="form-select" name="hour1" id="hour1">
+                                            <option value="20">20 分鐘</option>
+                                            <option value="50" selected>50 分鐘</option>       
+                                        </select>
+                                    </div>
+                                    <div class="w-50">
+                                        <label for="count1">堂數</label><br>
+                                        <input class="form-control" type="text" name="hour1" id="hour1" value="1 堂" readonly>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- 右 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div
+  class="container footer py-6 py-lg-10 d-flex flex-column flex-lg-row justify-content-between bg-white"
+>
+  <div
+    class="d-flex flex-lg-column justify-content-between mb-6 mb-lg-0 flex-wrap"
+  >
+    <h1 class="navbar-brand">
+      <a href="./index.html">
+        <img
+          class="d-none d-lg-block"
+          src="/project-code/assets/logo-a3c8a1c6.svg"
+          alt="C0DE logo"
+        />
+        <img
+          class="d-block d-lg-none"
+          src="/project-code/assets/logo-sm-9ed0e1e0.svg"
+          alt="C0DE logo"
+        />
+      </a>
+    </h1>
+    <div class="d-flex column-gap-3">
+      <button class="btn btn-outlined-circle" type="button">
+        <div class="d-flex">
+          <i class="fa-brands fa-facebook-f"></i>
+        </div>
+      </button>
+      <button class="btn btn-outlined-circle" type="button">
+        <div class="d-flex">
+          <i class="fa-brands fa-instagram"></i>
+        </div>
+      </button>
+      <button class="btn btn-outlined-circle" type="button">
+        <div class="d-flex">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </div>
+      </button>
+    </div>
+  </div>
+  <div class="d-flex gap-10 gap-lg-15">
+    <div>
+      <h4 class="footer-cate-title">學生上課</h4>
+      <ul class="footer-cate-list">
+        <li><a href="###">熱門教師</a></li>
+        <li><a href="###">搜尋教師</a></li>
+        <li><a href="###">教師分類</a></li>
+        <li><a href="###">立即體驗</a></li>
+        <li><a href="###">學生好評</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="footer-cate-title">成為教師</h4>
+      <ul class="footer-cate-list">
+        <li><a href="###">申請成為教師</a></li>
+        <li><a href="###">教師儀表板</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="footer-cate-title">關於C0DE</h4>
+      <ul class="footer-cate-list">
+        <li><a href="###">關於我們</a></li>
+        <li><a href="###">聯絡我們</a></li>
+        <li><a href="###">平台常見問題</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="bg-secondary2 text-white fs-tiny text-center py-3">
+  <div class="container">
+    <p>Copyright © 2023 C0DE, All Rights Reserved</p>
+  </div>
+</div>
+    
+</body>
+</html>

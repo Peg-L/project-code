@@ -9,255 +9,290 @@
       href="/project-code/assets/favicon-ee1e2dda.ico"
       type="image/x-icon"
     />
-    <script type="module" crossorigin src="/project-code/assets/main-fb41e78e.js"></script>
-    <link rel="stylesheet" href="/project-code/assets/main-983415ab.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+    <script type="module" crossorigin src="/project-code/assets/index-f6bc7f5f.js"></script>
+    <link rel="stylesheet" href="/project-code/assets/index-3985381e.css">
   </head>
   <body>
-    <!-- new -->
-<nav class="navbar navbar-expand-lg bg-white">
-	<div class="container">
-		<h1 class="navbar-brand">
-			<a href="./index.html">
-				<img
-					class="d-none d-lg-block"
-					src="/project-code/assets/logo-a3c8a1c6.svg"
-					alt="C0DE logo" />
-				<img
-					class="d-block d-lg-none"
-					src="/project-code/assets/logo-sm-9ed0e1e0.svg"
-					alt="C0DE logo" />
-			</a>
-		</h1>
+    <nav class="navbar navbar-expand-lg bg-white">
+  <div class="container">
+    <h1 class="navbar-brand">
+      <a href="./index.html">
+        <img
+          class="d-none d-lg-block"
+          src="/project-code/assets/logo-a3c8a1c6.svg"
+          alt="C0DE logo"
+        />
+        <img
+          class="d-block d-lg-none"
+          src="/project-code/assets/logo-sm-9ed0e1e0.svg"
+          alt="C0DE logo"
+        />
+      </a>
+    </h1>
+    <div>
+      <input type="checkbox" id="menu-toggle" />
+      <label
+        for="menu-toggle"
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarScroll"
+        aria-controls="navbarScroll"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </label>
+    </div>
 
-		<div>
-			<input type="checkbox" id="menu-toggle" />
-			<label
-				for="menu-toggle"
-				class="navbar-toggler"
-				type="button"
-				data-bs-toggle="collapse"
-				data-bs-target="#navbarScroll"
-				aria-controls="navbarScroll"
-				aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</label>
-		</div>
+    <div class="navbar-collapse collapse py-6 py-lg-0" id="navbarScroll">
+      <ul
+        id="accordionFlush"
+        class="navbar-scrollBar navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll m-auto column-gap-10 row-gap-2"
+        style="--bs-scroll-height: 205px"
+      >
+        <li class="nav-item">
+          <a
+            class="nav-link pc d-none d-lg-block"
+            aria-current="page"
+            href="./course.html"
+            >課程分類</a
+          >
+          <div
+            class="accordion accordion-flush d-block d-lg-none"
+            id="accordionFlush"
+          >
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed nav-link"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#category"
+                  aria-expanded="false"
+                  aria-controls="category"
+                >
+                  課程分類
+                </button>
+              </h2>
+              <div
+                id="category"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionFlush"
+              >
+                <ul class="accordion-body text-center">
+                  <li><a href="###">前端</a></li>
+                  <li><a href="###">後端</a></li>
+                  <li><a href="###">資料庫</a></li>
+                  <li><a href="###">資安</a></li>
+                  <li><a href="###">產品測試</a></li>
+                  <li><a href="###">UI / UX</a></li>
+                  <li><a href="###">開發維運</a></li>
+                  <li><a href="###">行動應用</a></li>
+                  <li><a href="###">AI</a></li>
+                  <li><a href="###">遊戲開發</a></li>
+                  <li><a href="###">程式入門</a></li>
+                  <li><a href="###">職涯</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link pc d-none d-lg-block" aria-current="page" href="#"
+            >常見問題</a
+          >
+          <div
+            class="accordion accordion-flush d-block d-lg-none"
+            id="accordionFlush"
+          >
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed nav-link"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq"
+                  aria-expanded="false"
+                  aria-controls="faq"
+                >
+                  常見問題
+                </button>
+              </h2>
+              <div
+                id="faq"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionFlush"
+              >
+                <ul class="accordion-body text-center">
+                  <li><a href="###">學生常見問答</a></li>
+                  <li><a href="###">老師常見問答</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link pc d-none d-lg-block"
+            aria-current="page"
+            href="#"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#message-list"
+            aria-controls="#message-list"
+            >聯絡老師</a
+          >
+          <a
+            class="nav-link d-block d-lg-none"
+            aria-current="page"
+            href="#"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#message-list"
+            aria-controls="#message-list"
+            >聯絡老師</a
+          >
+        </li>
+      </ul>
 
-		<div class="navbar-collapse collapse py-6 py-lg-0" id="navbarScroll">
-			<ul
-				id="accordionFlush"
-				class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll m-auto column-gap-10 row-gap-2"
-				style="--bs-scroll-height: 205px">
-				<li class="nav-item">
-					<a class="nav-link pc d-none d-lg-block" aria-current="page" href="./course.html"
-						>課程分類</a
-					>
-					<div
-						class="accordion accordion-flush d-block d-lg-none"
-						id="accordionFlush">
-						<div class="accordion-item">
-							<h2 class="accordion-header">
-								<button
-									class="accordion-button collapsed nav-link"
-									type="button"
-									data-bs-toggle="collapse"
-									data-bs-target="#category"
-									aria-expanded="false"
-									aria-controls="category">
-									課程分類
-								</button>
-							</h2>
-							<div
-								id="category"
-								class="accordion-collapse collapse"
-								data-bs-parent="#accordionFlush">
-								<ul class="accordion-body text-center">
-									<li><a href="###">前端</a></li>
-									<li><a href="###">後端</a></li>
-									<li><a href="###">資料庫</a></li>
-									<li><a href="###">資安</a></li>
-									<li><a href="###">產品測試</a></li>
-									<li><a href="###">UI / UX</a></li>
-									<li><a href="###">開發維運</a></li>
-									<li><a href="###">行動應用</a></li>
-									<li><a href="###">AI</a></li>
-									<li><a href="###">遊戲開發</a></li>
-									<li><a href="###">程式入門</a></li>
-									<li><a href="###">職涯</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link pc d-none d-lg-block" aria-current="page" href="#"
-						>常見問題</a
-					>
-					<div
-						class="accordion accordion-flush d-block d-lg-none"
-						id="accordionFlush">
-						<div class="accordion-item">
-							<h2 class="accordion-header">
-								<button
-									class="accordion-button collapsed nav-link"
-									type="button"
-									data-bs-toggle="collapse"
-									data-bs-target="#faq"
-									aria-expanded="false"
-									aria-controls="faq">
-									常見問題
-								</button>
-							</h2>
-							<div
-								id="faq"
-								class="accordion-collapse collapse"
-								data-bs-parent="#accordionFlush">
-								<ul class="accordion-body text-center">
-									<li><a href="###">學生常見問答</a></li>
-									<li><a href="###">老師常見問答</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link pc d-none d-lg-block" aria-current="page" href="#"
-						>聯絡老師</a
-					>
-					<a class="nav-link d-block d-lg-none" aria-current="page" href="#"
-						>聯絡老師</a
-					>
-				</li>
-			</ul>
+      <!-- 透過加上/刪除 isLogin 來切換登入狀態 -->
+      <div
+        class="d-flex flex-column flex-lg-row row-gap-2 mt-6 mt-lg-0 isLogin"
+      >
+        <button type="button" class="btn btn-member btn-secondary2">
+          會員中心
+        </button>
 
-			<!-- 透過加上/刪除 isLogin 來切換登入狀態 -->
-			<div
-				class="d-flex flex-column flex-lg-row row-gap-2 mt-6 mt-lg-0 isLogin">
-				<button type="button" class="btn btn-member btn-secondary2">
-					會員中心
-				</button>
-
-				<button type="button" class="btn btn-register btn-secondary2">
-					註冊
-				</button>
-				<button type="button" class="btn btn-login fw-medium">登入</button>
-			</div>
-		</div>
-	</div>
+        <button type="button" class="btn btn-register btn-secondary2">
+          註冊
+        </button>
+        <button type="button" class="btn btn-login fw-medium">登入</button>
+      </div>
+    </div>
+  </div>
 </nav>
-    <div class="banner-md">
-      <div id="carouselBanner" class="container carousel carousel-dark slide">
-        <div class="carousel-inner">
-          <div
-            class="carousel-item banner-sm banner-1 active flex-column justify-content-end align-items-start justify-content-md-center"
-            data-bs-interval="6000"
-          >
-            <h3
-              class="badge-title badge-title-lg bg-primary text-white mb-2 mb-md-3"
+    <!-- banner -->
+    <div class="bg-gray-100">
+      <div class="banner-md">
+        <div id="carouselBanner" class="container carousel carousel-dark slide">
+          <div class="carousel-inner">
+            <div
+              class="carousel-item banner-sm banner-1 active flex-column justify-content-end align-items-start justify-content-md-center"
+              data-bs-interval="6000"
             >
-              學生五星好評推薦
-            </h3>
-            <h2 class="banner-title">經驗豐富的優質教師</h2>
-            <div class="input-group">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="今天想學什麼..."
-                aria-label="search keywords"
-                aria-describedby="button-addon2"
-              />
-              <button
-                class="btn btn-secondary2 btn-search"
-                type="button"
-                id="button-addon2"
+              <h3
+                class="badge-title badge-title-lg bg-primary text-white mb-2 mb-md-3"
               >
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </button>
+                學生五星好評推薦
+              </h3>
+              <h2 class="banner-title">經驗豐富的優質教師</h2>
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="今天想學什麼..."
+                  aria-label="search keywords"
+                  aria-describedby="button-addon2"
+                />
+                <button
+                  class="btn btn-secondary2 btn-search"
+                  type="button"
+                  id="button-addon2"
+                >
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+              </div>
+            </div>
+            <div
+              class="carousel-item banner-sm banner-2 flex-column justify-content-end align-items-start justify-content-md-center"
+              data-bs-interval="3000"
+            >
+              <h3
+                class="badge-title badge-title-lg bg-primary text-white mb-2 mb-md-3"
+              >
+                嚴格篩選機制
+              </h3>
+              <h2 class="banner-title">教師均通過內部審核</h2>
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="今天想學什麼..."
+                  aria-label="search keywords"
+                  aria-describedby="button-addon2"
+                />
+                <button
+                  class="btn btn-secondary2 btn-search"
+                  type="button"
+                  id="button-addon2"
+                >
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+              </div>
+            </div>
+            <div
+              class="carousel-item banner-sm banner-3 flex-column justify-content-end align-items-start justify-content-md-center"
+              data-bs-interval="0"
+            >
+              <h3
+                class="badge-title badge-title-lg bg-primary text-white mb-2 mb-md-3"
+              >
+                擊退畢業焦慮
+              </h3>
+              <h2 class="banner-title">任選教師，買10堂課送5堂</h2>
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="今天想學什麼..."
+                  aria-label="search keywords"
+                  aria-describedby="button-addon2"
+                />
+                <button
+                  class="btn btn-secondary2 btn-search"
+                  type="button"
+                  id="button-addon2"
+                >
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+              </div>
             </div>
           </div>
-          <div
-            class="carousel-item banner-sm banner-2 flex-column justify-content-end align-items-start justify-content-md-center"
-            data-bs-interval="3000"
-          >
-            <h3
-              class="badge-title badge-title-lg bg-primary text-white mb-2 mb-md-3"
-            >
-              嚴格篩選機制
-            </h3>
-            <h2 class="banner-title">教師均通過內部審核</h2>
-            <div class="input-group">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="今天想學什麼..."
-                aria-label="search keywords"
-                aria-describedby="button-addon2"
-              />
-              <button
-                class="btn btn-secondary2 btn-search"
-                type="button"
-                id="button-addon2"
-              >
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </button>
-            </div>
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#carouselBanner"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselBanner"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselBanner"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+            ></button>
           </div>
-          <div
-            class="carousel-item banner-sm banner-3 flex-column justify-content-end align-items-start justify-content-md-center"
-            data-bs-interval="0"
-          >
-            <h3
-              class="badge-title badge-title-lg bg-primary text-white mb-2 mb-md-3"
-            >
-              擊退畢業焦慮
-            </h3>
-            <h2 class="banner-title">任選教師，買10堂課送5堂</h2>
-            <div class="input-group">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="今天想學什麼..."
-                aria-label="search keywords"
-                aria-describedby="button-addon2"
-              />
-              <button
-                class="btn btn-secondary2 btn-search"
-                type="button"
-                id="button-addon2"
-              >
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-indicators">
-          <button
-            type="button"
-            data-bs-target="#carouselBanner"
-            data-bs-slide-to="0"
-            class="active"
-            aria-current="true"
-            aria-label="Slide 1"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselBanner"
-            data-bs-slide-to="1"
-            aria-label="Slide 2"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselBanner"
-            data-bs-slide-to="2"
-            aria-label="Slide 3"
-          ></button>
         </div>
       </div>
     </div>
 
-    <div class="container py-10 pt-md-20 pb-md-17">
-      <div class="d-flex justify-content-between align-items-end mb-5 mb-md-10">
+    <!-- 熱門教師推薦 recommend -->
+    <div class="bg-gray-dot py-10 pt-md-20 pb-md-17">
+      <div
+        class="container d-flex justify-content-between align-items-end mb-5 mb-md-10"
+      >
         <div class="d-flex flex-column align-items-start">
           <h3
             class="badge-title badge-title-sm bg-secondary text-primary mb-2 mb-md-4"
@@ -266,11 +301,11 @@
           </h3>
           <h2 class="block-title">熱門教師推薦</h2>
         </div>
-        <button type="button" class="btn-text">範例按鈕</button>
+        <button type="button" class="btn-text">查看更多</button>
       </div>
-      <div class="row justify-content-center">
-        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
-          <div class="col">
+      <div class="swiper mySwiper container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
             <div class="teacher-card">
               <div class="teacher-card-profile">
                 <div class="teacher-card-content">
@@ -298,7 +333,7 @@
               <a type="button" class="btn teacher-card-btn">查看介紹</a>
             </div>
           </div>
-          <div class="col">
+          <div class="swiper-slide">
             <div class="teacher-card">
               <div class="teacher-card-profile">
                 <div class="teacher-card-content">
@@ -326,7 +361,7 @@
               <a type="button" class="btn teacher-card-btn">查看介紹</a>
             </div>
           </div>
-          <div class="col">
+          <div class="swiper-slide">
             <div class="teacher-card">
               <div class="teacher-card-profile">
                 <div class="teacher-card-content">
@@ -354,7 +389,7 @@
               <a type="button" class="btn teacher-card-btn">查看介紹</a>
             </div>
           </div>
-          <div class="col">
+          <div class="swiper-slide">
             <div class="teacher-card">
               <div class="teacher-card-profile">
                 <div class="teacher-card-content">
@@ -382,7 +417,147 @@
               <a type="button" class="btn teacher-card-btn">查看介紹</a>
             </div>
           </div>
-          <div class="col">
+          <div class="swiper-slide">
+            <div class="teacher-card">
+              <div class="teacher-card-profile">
+                <div class="teacher-card-content">
+                  <h3 class="teacher-card-title">JavaScript 大師</h3>
+                  <p class="teacher-card-name">麥克先生</p>
+                  <ul class="teacher-card-object">
+                    <!-- 評價 -->
+                    <li class="teacher-card-evaluate">5.0</li>
+                    <!-- 時數 -->
+                    <li class="teacher-card-hours">50分鐘</li>
+                  </ul>
+                  <p class="teacher-card-price">NT$<span>800</span></p>
+                </div>
+                <div class="teacher-card-img">
+                  <img src="/project-code/assets/Rectangle 7-ab3dd5b8.png" alt="" class="" />
+                </div>
+              </div>
+              <p class="teacher-card-text">
+                一起探索 JavaScript
+                更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...
+              </p>
+              <button type="button" class="btn btn-secondary2 w-100 mb-3">
+                立即上課
+              </button>
+              <a type="button" class="btn teacher-card-btn">查看介紹</a>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="teacher-card">
+              <div class="teacher-card-profile">
+                <div class="teacher-card-content">
+                  <h3 class="teacher-card-title">JavaScript 大師</h3>
+                  <p class="teacher-card-name">麥克先生</p>
+                  <ul class="teacher-card-object">
+                    <!-- 評價 -->
+                    <li class="teacher-card-evaluate">5.0</li>
+                    <!-- 時數 -->
+                    <li class="teacher-card-hours">50分鐘</li>
+                  </ul>
+                  <p class="teacher-card-price">NT$<span>800</span></p>
+                </div>
+                <div class="teacher-card-img">
+                  <img src="/project-code/assets/Rectangle 7-ab3dd5b8.png" alt="" class="" />
+                </div>
+              </div>
+              <p class="teacher-card-text">
+                一起探索 JavaScript
+                更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...
+              </p>
+              <button type="button" class="btn btn-secondary2 w-100 mb-3">
+                立即上課
+              </button>
+              <a type="button" class="btn teacher-card-btn">查看介紹</a>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="teacher-card">
+              <div class="teacher-card-profile">
+                <div class="teacher-card-content">
+                  <h3 class="teacher-card-title">JavaScript 大師</h3>
+                  <p class="teacher-card-name">麥克先生</p>
+                  <ul class="teacher-card-object">
+                    <!-- 評價 -->
+                    <li class="teacher-card-evaluate">5.0</li>
+                    <!-- 時數 -->
+                    <li class="teacher-card-hours">50分鐘</li>
+                  </ul>
+                  <p class="teacher-card-price">NT$<span>800</span></p>
+                </div>
+                <div class="teacher-card-img">
+                  <img src="/project-code/assets/Rectangle 7-ab3dd5b8.png" alt="" class="" />
+                </div>
+              </div>
+              <p class="teacher-card-text">
+                一起探索 JavaScript
+                更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...
+              </p>
+              <button type="button" class="btn btn-secondary2 w-100 mb-3">
+                立即上課
+              </button>
+              <a type="button" class="btn teacher-card-btn">查看介紹</a>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="teacher-card">
+              <div class="teacher-card-profile">
+                <div class="teacher-card-content">
+                  <h3 class="teacher-card-title">JavaScript 大師</h3>
+                  <p class="teacher-card-name">麥克先生</p>
+                  <ul class="teacher-card-object">
+                    <!-- 評價 -->
+                    <li class="teacher-card-evaluate">5.0</li>
+                    <!-- 時數 -->
+                    <li class="teacher-card-hours">50分鐘</li>
+                  </ul>
+                  <p class="teacher-card-price">NT$<span>800</span></p>
+                </div>
+                <div class="teacher-card-img">
+                  <img src="/project-code/assets/Rectangle 7-ab3dd5b8.png" alt="" class="" />
+                </div>
+              </div>
+              <p class="teacher-card-text">
+                一起探索 JavaScript
+                更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...
+              </p>
+              <button type="button" class="btn btn-secondary2 w-100 mb-3">
+                立即上課
+              </button>
+              <a type="button" class="btn teacher-card-btn">查看介紹</a>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="teacher-card">
+              <div class="teacher-card-profile">
+                <div class="teacher-card-content">
+                  <h3 class="teacher-card-title">JavaScript 大師</h3>
+                  <p class="teacher-card-name">麥克先生</p>
+                  <ul class="teacher-card-object">
+                    <!-- 評價 -->
+                    <li class="teacher-card-evaluate">5.0</li>
+                    <!-- 時數 -->
+                    <li class="teacher-card-hours">50分鐘</li>
+                  </ul>
+                  <p class="teacher-card-price">NT$<span>800</span></p>
+                </div>
+                <div class="teacher-card-img">
+                  <img src="/project-code/assets/Rectangle 7-ab3dd5b8.png" alt="" class="" />
+                </div>
+              </div>
+              <p class="teacher-card-text">
+                一起探索 JavaScript
+                更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...
+              </p>
+              <button type="button" class="btn btn-secondary2 w-100 mb-3">
+                立即上課
+              </button>
+              <a type="button" class="btn teacher-card-btn">查看介紹</a>
+            </div>
+          </div>
+          <div class="swiper-slide">
             <div class="teacher-card">
               <div class="teacher-card-profile">
                 <div class="teacher-card-content">
@@ -412,8 +587,145 @@
           </div>
         </div>
       </div>
-      <!-- why us -->
-      <div class="whyus d-flex flex-column align-items-center py-10 py-md-20">
+      <div class="swiper-btns container mt-5 mt-md-7">
+        <button
+          class="btn btn-link swiper-button-prev-custom d-none d-sm-block"
+          type="button"
+          disabled
+        >
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <div class="swiper-pagination-custom"></div>
+        <button
+          class="btn btn-link swiper-button-next-custom d-none d-sm-block"
+          type="button"
+          disabled
+        >
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- 探索地圖 category  -->
+    <div class="bg-secondary category">
+      <div class="container">
+        <div
+          class="row d-flex justify-content-between align-items-center pt-10 pb-5 pt-md-20 pb-md-18"
+        >
+          <div class="col-md-4 d-flex flex-column align-items-start">
+            <h3
+              class="badge-title badge-title-sm bg-primary text-white mb-2 mb-md-4"
+            >
+              Explore
+            </h3>
+            <h2 class="block-title mb-1 mb-md-2">探索地圖</h2>
+            <h2 class="block-title mb-5 mb-md-10">
+              找尋<span class="title-highlight">領域寶藏</span>
+            </h2>
+            <img
+              class="treasure d-none d-md-block"
+              src="/project-code/assets/treasure-418b7d15.png"
+              alt="藏寶圖"
+            />
+          </div>
+          <ul class="col-md-8 d-flex flex-wrap gap-2 gap-sm-4 gap-md-6 mb-5">
+            <li class="cate-item">
+              <a href="###">
+                <h4>前端</h4>
+                <img src="/project-code/assets/frontend-4134f215.svg" alt="前端" />
+              </a>
+            </li>
+            <li class="cate-item">
+              <a href="###">
+                <h4>後端</h4>
+                <img src="/project-code/assets/backend-6df6e72c.svg" alt="後端" />
+              </a>
+            </li>
+            <li class="cate-item">
+              <a href="###">
+                <h4>資料庫</h4>
+                <img
+                  src="/project-code/assets/database-18cac984.svg"
+                  alt="資料庫"
+                />
+              </a>
+            </li>
+            <li class="cate-item">
+              <a href="###">
+                <h4>資安</h4>
+                <img src="/project-code/assets/security-9e7e4b0b.svg" alt="資安" />
+              </a>
+            </li>
+            <li class="cate-item">
+              <a href="###">
+                <h4>產品測試</h4>
+                <img
+                  src="/project-code/assets/testing-94ffe118.svg"
+                  alt="產品測試"
+                />
+              </a>
+            </li>
+            <li class="cate-item">
+              <a href="###">
+                <h4>UI / UX</h4>
+                <img src="/project-code/assets/UI-UX-b15c7273.svg" alt="UI / UX" />
+              </a>
+            </li>
+            <li class="cate-item">
+              <a href="###">
+                <h4>開發維運</h4>
+                <img
+                  src="/project-code/assets/DevOps-adceebe7.svg"
+                  alt="開發維運"
+                />
+              </a>
+            </li>
+            <li class="cate-item">
+              <a href="###">
+                <h4>行動應用</h4>
+                <img
+                  src="/project-code/assets/mobile-6d6099f3.svg"
+                  alt="行動應用"
+                />
+              </a>
+            </li>
+            <li class="cate-item">
+              <a href="###">
+                <h4>AI</h4>
+                <img src="/project-code/assets/AI-f960d585.svg" alt="AI" />
+              </a>
+            </li>
+            <li class="cate-item">
+              <a href="###">
+                <h4>遊戲開發</h4>
+                <img src="/project-code/assets/game-6cf1b467.svg" alt="遊戲開發" />
+              </a>
+            </li>
+            <li class="cate-item">
+              <a href="###">
+                <h4>程式入門</h4>
+                <img src="/project-code/assets/basic-a112429a.svg" alt="程式入門" />
+              </a>
+            </li>
+            <li class="cate-item">
+              <a href="###">
+                <h4>職涯</h4>
+                <img src="/project-code/assets/career-94d9ad84.svg" alt="職涯" />
+              </a>
+            </li>
+          </ul>
+          <img
+            class="treasure d-block d-md-none mx-auto"
+            src="/project-code/assets/treasure-418b7d15.png"
+            alt="藏寶圖"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- 為什麼選擇我們 why us  -->
+    <div class="container py-10 pt-md-20 pb-md-17">
+      <div class="whyus d-flex flex-column align-items-center">
         <h3
           class="badge-title badge-title-sm bg-secondary text-primary mb-2 mb-md-4"
         >
@@ -461,188 +773,503 @@
         </ul>
       </div>
     </div>
-    <!-- category 探索地圖 -->
-    <div class="bg-secondary category">
+
+    <!-- 學生好評 reviews -->
+    <div class="reviews bg-gray-dot overflow-hidden">
       <div class="container">
-        <div
-          class="row d-flex justify-content-between align-items-center pt-10 pb-5 pt-md-20 pb-md-18"
-        >
-          <div class="col-md-4 d-flex flex-column align-items-start">
-            <h3
-              class="badge-title badge-title-sm bg-primary text-white mb-2 mb-md-4"
-            >
-              Explore
-            </h3>
-            <h2 class="block-title mb-1 mb-md-2">探索地圖</h2>
-            <h2 class="block-title mb-5 mb-md-10">
-              找尋<span class="title-highlight">領域寶藏</span>
-            </h2>
-            <img
-              class="treasure d-none d-md-block"
-              src="/project-code/assets/treasure-418b7d15.png"
-              alt="藏寶圖"
-            />
+        <div class="row">
+          <div
+            class="col-md-6 col-lg-8 order-2 order-md-1 swiper reviewsSwiper d-flex flex-column pb-10 pt-md-20 pb-md-17"
+          >
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div
+                  class="teacher-card d-flex flex-column justify-content-between gap-10 h-100"
+                >
+                  <div class="d-flex justify-content-between flex-column gap-4">
+                    <img
+                      style="width: 40px; height: 40px"
+                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAANmSURBVHgB7ZjdUdtAEMf/d7IJJHyYCuLwkvCRwVQQuwLTQUwHpAJIB6aCmApCKkCpIGSCk8kTUAECJ8MMYB27h2wkWyfpZM3w4t+LNBJe/W93b28XYMqU50WYXvy4VJVZB01foKr/0IcnJE5WF8R35ORPT31QPmpKojKwiRkcrc2JC2QVSMKqZQdf6LYe+wuFc/rV/saiOISFsL7CvtEm4MoyWnFCIwL//lObd3249LSCFAR9cH1JfE77u+6V2lNCi0tFKuyuLYmDyHcGN9pzEscIQpqFNJGB51zY0QpHRw5uKKx7NuIY9gyLML3v++jAnvbvG/UaYYG8IejSQg6C3BpDC7dccEDFv8cuwgJnS9hEfupxXiTv1pAXhVbgtEeBvkrfFEn0ge2xb0xms1Iuo8k3EgUgzOUjP+oxAlqg7OMnJoC8VY15doEJEIFNLXB1WXDxPUF+xsJJ9fSILh7yIkICGUegjQLZWhaeKMDmUODqvDikXOqgQG7vcUA2z5EDFXg/sknWF8UO8q36PO4he5Hyu0Ffs04fysFxgczGgvhENayhvUl5qT3AVz5PTR8SZi9xfm8siS1HokU2jkI2XSmfCvIoKrBpbLfiOL1SZ7GnA3mdFwZLuBjTEXsZ967kYPvdK/Etcx3kZsJ0dJWkdUOgmXFgPMdn5GO0MgssJxi7uUWuJlbFnEAMpcLJStAbZj9JDE0B5ypvBliiI2JoUGRoo5aQgdNr9ZEu1bh3NBJk7qzD6PbOwAvnKWVSN0lSI8u7kUrTG1iS1MhyRHS5C0gNsZ5PTH2dYy4TJnjBpkaWFzxXjqZSokCeJ2DoVPRKqQzATlyFovHVtGCaGtsrI4OTSBJnGnaCldZXEsZFgzhOlfhGlgo31dLG6OOSwRCLM4aPNsaOpbhq4LlavDZacCl+R0cEBmNnBwntOh95tFIXGeleqyb1hp2EUdZLisZQIIf0zqeQJuxrFre+kD4LM3qxPtqKc9hs0yPPJqbKkwdF8lTHB/vafHSozkDd9ILDSkfk9tt5kdjND3exNAv0uLuxFac/bGrd6CjjsKaJiwgM/inkjhhyX5ZRe2+Rc2Hu7sHp4I3YbNPzhs0mG8IVno41RYl91v2vmiiAbk/tsc3Tnjr+1VN1TEpRwgZw2SpE2JQpz8QDlMBFQUZ/zl8AAAAASUVORK5CYII="
+                      alt="逗號"
+                    />
+                    <p>
+                      這個平台是我轉職成功的關鍵！老師專業且耐心，從零開始教我寫程式，培養了我的切版能力。擁有作品集和個人網站，面試中展示了我的巨大優勢，學習
+                      9 個月後找到工作~
+                    </p>
+                  </div>
+                  <div class="d-flex">
+                    <div class="d-flex flex-column gap-1 me-3 ms-auto">
+                      <ul class="d-flex gap-1 text-primary mb-0">
+                        <li><i class="fa-solid fa-star"></i></li>
+                        <li><i class="fa-solid fa-star"></i></li>
+                        <li><i class="fa-solid fa-star"></i></li>
+                        <li><i class="fa-solid fa-star"></i></li>
+                        <li><i class="fa-solid fa-star"></i></li>
+                      </ul>
+                      <p class="fs-6">
+                        貓咪<span class="ms-1 fs-tiny text-gray-300">學生</span>
+                      </p>
+                    </div>
+                    <img
+                      style="
+                        width: 60px;
+                        height: 60px;
+                        object-fit: cover;
+                        border-radius: 50%;
+                      "
+                      src="/project-code/assets/cat-708044de.jpg"
+                      alt="貓咪"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div
+                  class="teacher-card d-flex flex-column justify-content-between gap-10 h-100"
+                >
+                  <div class="d-flex justify-content-between flex-column gap-4">
+                    <img
+                      style="width: 40px; height: 40px"
+                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAANmSURBVHgB7ZjdUdtAEMf/d7IJJHyYCuLwkvCRwVQQuwLTQUwHpAJIB6aCmApCKkCpIGSCk8kTUAECJ8MMYB27h2wkWyfpZM3w4t+LNBJe/W93b28XYMqU50WYXvy4VJVZB01foKr/0IcnJE5WF8R35ORPT31QPmpKojKwiRkcrc2JC2QVSMKqZQdf6LYe+wuFc/rV/saiOISFsL7CvtEm4MoyWnFCIwL//lObd3249LSCFAR9cH1JfE77u+6V2lNCi0tFKuyuLYmDyHcGN9pzEscIQpqFNJGB51zY0QpHRw5uKKx7NuIY9gyLML3v++jAnvbvG/UaYYG8IejSQg6C3BpDC7dccEDFv8cuwgJnS9hEfupxXiTv1pAXhVbgtEeBvkrfFEn0ge2xb0xms1Iuo8k3EgUgzOUjP+oxAlqg7OMnJoC8VY15doEJEIFNLXB1WXDxPUF+xsJJ9fSILh7yIkICGUegjQLZWhaeKMDmUODqvDikXOqgQG7vcUA2z5EDFXg/sknWF8UO8q36PO4he5Hyu0Ffs04fysFxgczGgvhENayhvUl5qT3AVz5PTR8SZi9xfm8siS1HokU2jkI2XSmfCvIoKrBpbLfiOL1SZ7GnA3mdFwZLuBjTEXsZ967kYPvdK/Etcx3kZsJ0dJWkdUOgmXFgPMdn5GO0MgssJxi7uUWuJlbFnEAMpcLJStAbZj9JDE0B5ypvBliiI2JoUGRoo5aQgdNr9ZEu1bh3NBJk7qzD6PbOwAvnKWVSN0lSI8u7kUrTG1iS1MhyRHS5C0gNsZ5PTH2dYy4TJnjBpkaWFzxXjqZSokCeJ2DoVPRKqQzATlyFovHVtGCaGtsrI4OTSBJnGnaCldZXEsZFgzhOlfhGlgo31dLG6OOSwRCLM4aPNsaOpbhq4LlavDZacCl+R0cEBmNnBwntOh95tFIXGeleqyb1hp2EUdZLisZQIIf0zqeQJuxrFre+kD4LM3qxPtqKc9hs0yPPJqbKkwdF8lTHB/vafHSozkDd9ILDSkfk9tt5kdjND3exNAv0uLuxFac/bGrd6CjjsKaJiwgM/inkjhhyX5ZRe2+Rc2Hu7sHp4I3YbNPzhs0mG8IVno41RYl91v2vmiiAbk/tsc3Tnjr+1VN1TEpRwgZw2SpE2JQpz8QDlMBFQUZ/zl8AAAAASUVORK5CYII="
+                      alt="逗號"
+                    />
+                    <p>
+                      我找到了一位出色的Python老師，他的指導使我在後端能力上有了很大的進步。月薪也增加了2000元。強烈推薦給所有想！
+                    </p>
+                  </div>
+                  <div class="d-flex">
+                    <div class="d-flex flex-column gap-1 me-3 ms-auto">
+                      <ul class="d-flex gap-1 text-primary mb-0">
+                        <li><i class="fa-solid fa-star"></i></li>
+                        <li><i class="fa-solid fa-star"></i></li>
+                        <li><i class="fa-solid fa-star"></i></li>
+                        <li><i class="fa-solid fa-star"></i></li>
+                        <li><i class="fa-solid fa-star"></i></li>
+                      </ul>
+                      <p class="fs-6">
+                        小偉<span class="ms-1 fs-tiny text-gray-300"
+                          >後端工程師</span
+                        >
+                      </p>
+                    </div>
+                    <img
+                      style="
+                        width: 60px;
+                        height: 60px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                      "
+                      src="/project-code/assets/wei-b1126bdc.png"
+                      alt="貓咪"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div
+                  class="teacher-card d-flex flex-column justify-content-between gap-10 h-100"
+                >
+                  <div class="d-flex justify-content-between flex-column gap-4">
+                    <img
+                      style="width: 40px; height: 40px"
+                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAANmSURBVHgB7ZjdUdtAEMf/d7IJJHyYCuLwkvCRwVQQuwLTQUwHpAJIB6aCmApCKkCpIGSCk8kTUAECJ8MMYB27h2wkWyfpZM3w4t+LNBJe/W93b28XYMqU50WYXvy4VJVZB01foKr/0IcnJE5WF8R35ORPT31QPmpKojKwiRkcrc2JC2QVSMKqZQdf6LYe+wuFc/rV/saiOISFsL7CvtEm4MoyWnFCIwL//lObd3249LSCFAR9cH1JfE77u+6V2lNCi0tFKuyuLYmDyHcGN9pzEscIQpqFNJGB51zY0QpHRw5uKKx7NuIY9gyLML3v++jAnvbvG/UaYYG8IejSQg6C3BpDC7dccEDFv8cuwgJnS9hEfupxXiTv1pAXhVbgtEeBvkrfFEn0ge2xb0xms1Iuo8k3EgUgzOUjP+oxAlqg7OMnJoC8VY15doEJEIFNLXB1WXDxPUF+xsJJ9fSILh7yIkICGUegjQLZWhaeKMDmUODqvDikXOqgQG7vcUA2z5EDFXg/sknWF8UO8q36PO4he5Hyu0Ffs04fysFxgczGgvhENayhvUl5qT3AVz5PTR8SZi9xfm8siS1HokU2jkI2XSmfCvIoKrBpbLfiOL1SZ7GnA3mdFwZLuBjTEXsZ967kYPvdK/Etcx3kZsJ0dJWkdUOgmXFgPMdn5GO0MgssJxi7uUWuJlbFnEAMpcLJStAbZj9JDE0B5ypvBliiI2JoUGRoo5aQgdNr9ZEu1bh3NBJk7qzD6PbOwAvnKWVSN0lSI8u7kUrTG1iS1MhyRHS5C0gNsZ5PTH2dYy4TJnjBpkaWFzxXjqZSokCeJ2DoVPRKqQzATlyFovHVtGCaGtsrI4OTSBJnGnaCldZXEsZFgzhOlfhGlgo31dLG6OOSwRCLM4aPNsaOpbhq4LlavDZacCl+R0cEBmNnBwntOh95tFIXGeleqyb1hp2EUdZLisZQIIf0zqeQJuxrFre+kD4LM3qxPtqKc9hs0yPPJqbKkwdF8lTHB/vafHSozkDd9ILDSkfk9tt5kdjND3exNAv0uLuxFac/bGrd6CjjsKaJiwgM/inkjhhyX5ZRe2+Rc2Hu7sHp4I3YbNPzhs0mG8IVno41RYl91v2vmiiAbk/tsc3Tnjr+1VN1TEpRwgZw2SpE2JQpz8QDlMBFQUZ/zl8AAAAASUVORK5CYII="
+                      alt="逗號"
+                    />
+                    <p>
+                      這個平台是我轉職成功的關鍵！老師專業且耐心，從零開始教我寫程式，培養了我的切版能力。擁有作品集和個人網站，面試中展示了我的巨大優勢，學習
+                      9 個月後找到工作~
+                    </p>
+                  </div>
+                  <div class="d-flex">
+                    <div class="d-flex flex-column gap-1 me-3 ms-auto">
+                      <ul class="d-flex gap-1 text-primary mb-0">
+                        <li><i class="fa-solid fa-star"></i></li>
+                        <li><i class="fa-solid fa-star"></i></li>
+                        <li><i class="fa-solid fa-star"></i></li>
+                        <li><i class="fa-solid fa-star"></i></li>
+                        <li><i class="fa-solid fa-star"></i></li>
+                      </ul>
+                      <p class="fs-6">
+                        貓咪<span class="ms-1 fs-tiny text-gray-300">學生</span>
+                      </p>
+                    </div>
+                    <img
+                      style="
+                        width: 60px;
+                        height: 60px;
+                        object-fit: cover;
+                        border-radius: 50%;
+                      "
+                      src="/project-code/assets/cat-708044de.jpg"
+                      alt="貓咪"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div
+                  class="teacher-card d-flex flex-column justify-content-between gap-10 h-100"
+                >
+                  <div class="d-flex justify-content-between flex-column gap-4">
+                    <img
+                      style="width: 40px; height: 40px"
+                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAANmSURBVHgB7ZjdUdtAEMf/d7IJJHyYCuLwkvCRwVQQuwLTQUwHpAJIB6aCmApCKkCpIGSCk8kTUAECJ8MMYB27h2wkWyfpZM3w4t+LNBJe/W93b28XYMqU50WYXvy4VJVZB01foKr/0IcnJE5WF8R35ORPT31QPmpKojKwiRkcrc2JC2QVSMKqZQdf6LYe+wuFc/rV/saiOISFsL7CvtEm4MoyWnFCIwL//lObd3249LSCFAR9cH1JfE77u+6V2lNCi0tFKuyuLYmDyHcGN9pzEscIQpqFNJGB51zY0QpHRw5uKKx7NuIY9gyLML3v++jAnvbvG/UaYYG8IejSQg6C3BpDC7dccEDFv8cuwgJnS9hEfupxXiTv1pAXhVbgtEeBvkrfFEn0ge2xb0xms1Iuo8k3EgUgzOUjP+oxAlqg7OMnJoC8VY15doEJEIFNLXB1WXDxPUF+xsJJ9fSILh7yIkICGUegjQLZWhaeKMDmUODqvDikXOqgQG7vcUA2z5EDFXg/sknWF8UO8q36PO4he5Hyu0Ffs04fysFxgczGgvhENayhvUl5qT3AVz5PTR8SZi9xfm8siS1HokU2jkI2XSmfCvIoKrBpbLfiOL1SZ7GnA3mdFwZLuBjTEXsZ967kYPvdK/Etcx3kZsJ0dJWkdUOgmXFgPMdn5GO0MgssJxi7uUWuJlbFnEAMpcLJStAbZj9JDE0B5ypvBliiI2JoUGRoo5aQgdNr9ZEu1bh3NBJk7qzD6PbOwAvnKWVSN0lSI8u7kUrTG1iS1MhyRHS5C0gNsZ5PTH2dYy4TJnjBpkaWFzxXjqZSokCeJ2DoVPRKqQzATlyFovHVtGCaGtsrI4OTSBJnGnaCldZXEsZFgzhOlfhGlgo31dLG6OOSwRCLM4aPNsaOpbhq4LlavDZacCl+R0cEBmNnBwntOh95tFIXGeleqyb1hp2EUdZLisZQIIf0zqeQJuxrFre+kD4LM3qxPtqKc9hs0yPPJqbKkwdF8lTHB/vafHSozkDd9ILDSkfk9tt5kdjND3exNAv0uLuxFac/bGrd6CjjsKaJiwgM/inkjhhyX5ZRe2+Rc2Hu7sHp4I3YbNPzhs0mG8IVno41RYl91v2vmiiAbk/tsc3Tnjr+1VN1TEpRwgZw2SpE2JQpz8QDlMBFQUZ/zl8AAAAASUVORK5CYII="
+                      alt="逗號"
+                    />
+                    <p>
+                      我找到了一位出色的Python老師，他的指導使我在後端能力上有了很大的進步。月薪也增加了2000元。強烈推薦給所有想！
+                    </p>
+                  </div>
+                  <div class="d-flex">
+                    <div class="d-flex flex-column gap-1 me-3 ms-auto">
+                      <ul class="d-flex gap-1 text-primary mb-0">
+                        <li><i class="fa-solid fa-star"></i></li>
+                        <li><i class="fa-solid fa-star"></i></li>
+                        <li><i class="fa-solid fa-star"></i></li>
+                        <li><i class="fa-solid fa-star"></i></li>
+                        <li><i class="fa-solid fa-star"></i></li>
+                      </ul>
+                      <p class="fs-6">
+                        小偉<span class="ms-1 fs-tiny text-gray-300"
+                          >後端工程師</span
+                        >
+                      </p>
+                    </div>
+                    <img
+                      style="
+                        width: 60px;
+                        height: 60px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                      "
+                      src="/project-code/assets/wei-b1126bdc.png"
+                      alt="貓咪"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="reviews swiper-btns mt-5 mt-md-7">
+              <button
+                class="btn btn-link reviewsSwiper-button-next-custom d-none d-sm-block"
+                type="button"
+                disabled
+              >
+                <i class="fa-solid fa-arrow-left"></i>
+              </button>
+              <div class="reviewsSwiper-pagination-custom"></div>
+              <button
+                class="btn btn-link reviewsSwiper-button-next-custom d-none d-sm-block"
+                type="button"
+                disabled
+              >
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
           </div>
-          <ul class="col-md-8 d-flex flex-wrap gap-2 gap-sm-4 gap-md-6 mb-5">
-            <li class="cate-item">
-              <a href="###">
-                <h4>前端</h4>
-                <img src="/project-code/assets/frontend-9b369453.svg" alt="前端" />
-              </a>
-            </li>
-            <li class="cate-item">
-              <a href="###">
-                <h4>後端</h4>
-                <img src="/project-code/assets/backend-a34cd025.svg" alt="後端" />
-              </a>
-            </li>
-            <li class="cate-item">
-              <a href="###">
-                <h4>資料庫</h4>
-                <img
-                  src="/project-code/assets/database-c693bb8b.svg"
-                  alt="資料庫"
-                />
-              </a>
-            </li>
-            <li class="cate-item">
-              <a href="###">
-                <h4>資安</h4>
-                <img src="/project-code/assets/security-e99c014e.svg" alt="資安" />
-              </a>
-            </li>
-            <li class="cate-item">
-              <a href="###">
-                <h4>產品測試</h4>
-                <img
-                  src="/project-code/assets/testing-20e68d9a.svg"
-                  alt="產品測試"
-                />
-              </a>
-            </li>
-            <li class="cate-item">
-              <a href="###">
-                <h4>UI / UX</h4>
-                <img src="/project-code/assets/UI-UX-81e15dd8.svg" alt="UI / UX" />
-              </a>
-            </li>
-            <li class="cate-item">
-              <a href="###">
-                <h4>開發維運</h4>
-                <img
-                  src="/project-code/assets/DevOps-5b255f1d.svg"
-                  alt="開發維運"
-                />
-              </a>
-            </li>
-            <li class="cate-item">
-              <a href="###">
-                <h4>行動應用</h4>
-                <img
-                  src="/project-code/assets/mobile-2f03670e.svg"
-                  alt="行動應用"
-                />
-              </a>
-            </li>
-            <li class="cate-item">
-              <a href="###">
-                <h4>AI</h4>
-                <img src="/project-code/assets/AI-846a968a.svg" alt="AI" />
-              </a>
-            </li>
-            <li class="cate-item">
-              <a href="###">
-                <h4>遊戲開發</h4>
-                <img src="/project-code/assets/game-24993fb7.svg" alt="遊戲開發" />
-              </a>
-            </li>
-            <li class="cate-item">
-              <a href="###">
-                <h4>程式入門</h4>
-                <img src="/project-code/assets/basic-80cdba47.svg" alt="程式入門" />
-              </a>
-            </li>
-            <li class="cate-item">
-              <a href="###">
-                <h4>職涯</h4>
-                <img src="/project-code/assets/career-e8a89006.svg" alt="職涯" />
-              </a>
-            </li>
-          </ul>
-          <img
-            class="treasure d-block d-md-none mx-auto"
-            src="/project-code/assets/treasure-418b7d15.png"
-            alt="藏寶圖"
-          />
+          <div
+            class="col-md-6 col-lg-4 order-1 order-md-2 d-flex flex-column justify-content-between align-items-start pt-10 pt-md-20 pb-md-32 thumb-up-img"
+          >
+            <div
+              class="d-flex flex-column align-items-start justify-content-between mb-22 mb-md-0"
+            >
+              <h3
+                class="badge-title badge-title-sm bg-secondary text-primary mb-2 mb-md-4"
+              >
+                Reviews
+              </h3>
+              <h2 class="block-title mb-md-3">學生好評</h2>
+              <p class="fs-6 fw-medium d-none d-md-block">五星課程推薦</p>
+            </div>
+            <button type="button" class="btn-text mb-3 mb-md-0 fw-medium">
+              了解課程
+            </button>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="container footer py-6 py-lg-10 d-flex flex-column flex-lg-row justify-content-between">
-	<div class="d-flex flex-lg-column justify-content-between mb-6 mb-lg-0">
-		<h1 class="navbar-brand">
-			<a href="./index.html">
-				<img
-					class="d-none d-lg-block"
-					src="/project-code/assets/logo-a3c8a1c6.svg"
-					alt="C0DE logo" />
-				<img
-					class="d-block d-lg-none"
-					src="/project-code/assets/logo-sm-9ed0e1e0.svg"
-					alt="C0DE logo" />
-			</a>
-		</h1>
-		<div class="d-flex column-gap-3">
-			<button class="btn btn-outlined-circle" type="button">
-				<div class="d-flex">
-					<i class="fa-brands fa-facebook-f"></i>
-				</div>
-			</button>
-			<button class="btn btn-outlined-circle" type="button">
-				<div class="d-flex">
-					<i class="fa-brands fa-instagram"></i>
-				</div>
-			</button>
-			<button class="btn btn-outlined-circle" type="button">
-				<div class="d-flex">
-					<i class="fa-brands fa-linkedin-in"></i>
-				</div>
-			</button>
-		</div>
-	</div>
-	<div class="d-flex gap-10 gap-lg-15">
-		<div>
-			<h4 class="footer-cate-title">學生上課</h4>
-			<ul class="footer-cate-list">
-				<li><a href="###">熱門教師</a></li>
-				<li><a href="###">搜尋教師</a></li>
-				<li><a href="###">教師分類</a></li>
-				<li><a href="###">立即體驗</a></li>
-				<li><a href="###">學生好評</a></li>
-			</ul>
-		</div>
-		<div>
-			<h4 class="footer-cate-title">成為教師</h4>
-			<ul class="footer-cate-list">
-				<li><a href="###">申請成為教師</a></li>
-				<li><a href="###">教師儀表板</a></li>
-			</ul>
-		</div>
-		<div>
-			<h4 class="footer-cate-title">關於C0DE</h4>
-			<ul class="footer-cate-list">
-				<li><a href="###">關於我們</a></li>
-				<li><a href="###">聯絡我們</a></li>
-				<li><a href="###">平台常見問題</a></li>
-			</ul>
-		</div>
-	</div>
+    <!-- message -->
+    <div
+  class="offcanvas offcanvas-end message"
+  tabindex="-1"
+  id="message-list"
+  aria-labelledby="offcanvasRightLabel"
+>
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasRightLabel">訊息</h5>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    ></button>
+  </div>
+  <div class="input-group p-4 pt-0 border-bottom border-gray-200">
+    <input
+      type="text"
+      class="form-control border border-gray-200"
+      placeholder="搜尋教師姓名"
+      aria-label="search keywords"
+      aria-describedby="button-addon2"
+    />
+    <button
+      class="btn btn-secondary2 btn-search border border-secondary2"
+      type="button"
+      id="button-addon2"
+    >
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+  </div>
+  <ul class="offcanvas-body p-0 d-flex flex-column">
+    <li class="message-item">
+      <a
+        href="###"
+        class="d-block px-4 py-3"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#message-mike"
+        aria-controls="message-mike"
+      >
+        <div class="d-flex gap-3">
+          <img
+            style="width: 60px; height: 60px"
+            src="/project-code/assets/mike-e8622f4e.png"
+            alt="mike"
+          />
+          <div class="d-flex flex-column justify-content-between truncate">
+            <div class="d-flex justify-content-between">
+              <h4 class="fs-6">麥克先生</h4>
+              <span>3 天前</span>
+            </div>
+            <p class="text-truncate">
+              感謝你預約我的體驗課，在上課前請幫我填寫
+            </p>
+          </div>
+        </div>
+      </a>
+    </li>
+    <li class="message-item">
+      <a href="###" class="d-block px-4 py-3">
+        <div class="d-flex gap-3">
+          <img
+            style="width: 60px; height: 60px"
+            src="/project-code/assets/arong-bdd97516.png"
+            alt="mike"
+          />
+          <div class="d-flex flex-column justify-content-between truncate">
+            <div class="d-flex justify-content-between">
+              <h4 class="fs-6">Aaron</h4>
+              <span>4 天前</span>
+            </div>
+            <p class="text-truncate">
+              恭喜你上完 10 堂 JavaScript線上教學，順利
+            </p>
+          </div>
+        </div>
+      </a>
+    </li>
+    <li class="message-item">
+      <a href="###" class="d-block px-4 py-3">
+        <div class="d-flex gap-3">
+          <img
+            style="width: 60px; height: 60px"
+            src="/project-code/assets/alice-ec7da41c.png"
+            alt="mike"
+          />
+          <div class="d-flex flex-column justify-content-between truncate">
+            <div class="d-flex justify-content-between">
+              <h4 class="fs-6">Python 專家艾莉絲</h4>
+              <span>5 天前</span>
+            </div>
+            <p class="text-truncate">
+              嗨，我是艾莉絲，有 8 年 Python 教學經驗，
+            </p>
+          </div>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<div
+  class="offcanvas offcanvas-end"
+  tabindex="-1"
+  id="message-mike"
+  aria-labelledby="message"
+>
+  <div class="offcanvas-header border-bottom border-gray-200">
+    <div class="d-flex align-items-center">
+      <button
+        type="button"
+        class="btn btn-back"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#message-list"
+        aria-controls="#message-list"
+      >
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <img
+        class="me-3"
+        style="width: 50px; height: 50px"
+        src="/project-code/assets/mike-e8622f4e.png"
+        alt="mike"
+      />
+      <h5 class="offcanvas-title" id="offcanvasRightLabel">馬克先生</h5>
+    </div>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    ></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="d-flex flex-column gap-6">
+      <li class="dialog d-flex me-10">
+        <img
+          class="me-3"
+          style="width: 40px; height: 40px"
+          src="/project-code/assets/mike-e8622f4e.png"
+          alt="mike"
+        />
+        <div>
+          <p class="fs-6 bg-gray-100 p-3 mb-1 rounded-2">hello</p>
+          <p class="fs-7 text-gray-200">12天前</p>
+        </div>
+      </li>
+      <li class="dialog d-flex me-10">
+        <img
+          class="me-3"
+          style="width: 40px; height: 40px"
+          src="/project-code/assets/mike-e8622f4e.png"
+          alt="mike"
+        />
+        <div>
+          <p class="fs-6 bg-gray-100 p-3 mb-1 rounded-2">
+            嗨，我是麥克先生😀 不是麥克雞塊喔xDD 我的課會帶你一起探索 JavaScript
+            更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...等
+          </p>
+          <p class="fs-7 text-gray-200">12天前</p>
+        </div>
+      </li>
+      <li class="dialog d-flex me-10">
+        <img
+          class="me-3"
+          style="width: 40px; height: 40px"
+          src="/project-code/assets/mike-e8622f4e.png"
+          alt="mike"
+        />
+        <div>
+          <p class="fs-6 bg-gray-100 p-3 mb-1 rounded-2">
+            歡迎預約時間上課 體驗課有優惠喔~ 可以先體驗，再決定要不要買很多堂
+            有問題都可以直接詢問 👾
+          </p>
+          <p class="fs-7 text-gray-200">12天前</p>
+        </div>
+      </li>
+      <li class="dialog d-flex justify-content-end ms-13">
+        <div class="d-flex flex-column align-items-end">
+          <p class="fs-6 bg-gray-100 p-3 mb-1 rounded-2">
+            謝謝麥克老師！我看完介紹後已經手刀買了10堂課拉~ 期待第一次上課😆
+          </p>
+          <p class="fs-7 text-gray-200">10天前</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="editor"></div>
+</div>
+
+<script>
+  ClassicEditor.create(document.querySelector("#editor"), {
+    placeholder: "說些什麼...",
+    toolbar: ["uploadImage"],
+    link: {
+      addTargetToExternalLinks: true,
+    },
+  })
+    .then((res) => {
+      console.log("success");
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+</script>
+
+    <!-- footer -->
+    <div
+  class="container footer py-6 py-lg-10 d-flex flex-column flex-lg-row justify-content-between bg-white"
+>
+  <div
+    class="d-flex flex-lg-column justify-content-between mb-6 mb-lg-0 flex-wrap"
+  >
+    <h1 class="navbar-brand">
+      <a href="./index.html">
+        <img
+          class="d-none d-lg-block"
+          src="/project-code/assets/logo-a3c8a1c6.svg"
+          alt="C0DE logo"
+        />
+        <img
+          class="d-block d-lg-none"
+          src="/project-code/assets/logo-sm-9ed0e1e0.svg"
+          alt="C0DE logo"
+        />
+      </a>
+    </h1>
+    <div class="d-flex column-gap-3">
+      <button class="btn btn-outlined-circle" type="button">
+        <div class="d-flex">
+          <i class="fa-brands fa-facebook-f"></i>
+        </div>
+      </button>
+      <button class="btn btn-outlined-circle" type="button">
+        <div class="d-flex">
+          <i class="fa-brands fa-instagram"></i>
+        </div>
+      </button>
+      <button class="btn btn-outlined-circle" type="button">
+        <div class="d-flex">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </div>
+      </button>
+    </div>
+  </div>
+  <div class="d-flex gap-10 gap-lg-15">
+    <div>
+      <h4 class="footer-cate-title">學生上課</h4>
+      <ul class="footer-cate-list">
+        <li><a href="###">熱門教師</a></li>
+        <li><a href="###">搜尋教師</a></li>
+        <li><a href="###">教師分類</a></li>
+        <li><a href="###">立即體驗</a></li>
+        <li><a href="###">學生好評</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="footer-cate-title">成為教師</h4>
+      <ul class="footer-cate-list">
+        <li><a href="###">申請成為教師</a></li>
+        <li><a href="###">教師儀表板</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="footer-cate-title">關於C0DE</h4>
+      <ul class="footer-cate-list">
+        <li><a href="###">關於我們</a></li>
+        <li><a href="###">聯絡我們</a></li>
+        <li><a href="###">平台常見問題</a></li>
+      </ul>
+    </div>
+  </div>
 </div>
 <div class="bg-secondary2 text-white fs-tiny text-center py-3">
-	<div class="container">
-		<p>Copyright © 2023 C0DE, All Rights Reserved</p>
-	</div>
+  <div class="container">
+    <p>Copyright © 2023 C0DE, All Rights Reserved</p>
+  </div>
 </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
     
   </body>
 </html>

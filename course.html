@@ -3,172 +3,266 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script type="module" crossorigin src="/project-code/assets/main-fb41e78e.js"></script>
-    <link rel="stylesheet" href="/project-code/assets/main-983415ab.css">
+    <title>課程分類 | C0DE</title>
+    <link
+    rel="shortcut icon"
+    href="/project-code/assets/favicon-ee1e2dda.ico"
+    type="image/x-icon"
+  />
+    <script type="module" crossorigin src="/project-code/assets/index-f6bc7f5f.js"></script>
+    <link rel="stylesheet" href="/project-code/assets/index-3985381e.css">
   </head>
   <body>
-    <!-- new -->
-<nav class="navbar navbar-expand-lg bg-white">
-	<div class="container">
-		<h1 class="navbar-brand">
-			<a href="./index.html">
-				<img
-					class="d-none d-lg-block"
-					src="/project-code/assets/logo-a3c8a1c6.svg"
-					alt="C0DE logo" />
-				<img
-					class="d-block d-lg-none"
-					src="/project-code/assets/logo-sm-9ed0e1e0.svg"
-					alt="C0DE logo" />
-			</a>
-		</h1>
+    <nav class="navbar navbar-expand-lg bg-white">
+  <div class="container">
+    <h1 class="navbar-brand">
+      <a href="./index.html">
+        <img
+          class="d-none d-lg-block"
+          src="/project-code/assets/logo-a3c8a1c6.svg"
+          alt="C0DE logo"
+        />
+        <img
+          class="d-block d-lg-none"
+          src="/project-code/assets/logo-sm-9ed0e1e0.svg"
+          alt="C0DE logo"
+        />
+      </a>
+    </h1>
+    <div>
+      <input type="checkbox" id="menu-toggle" />
+      <label
+        for="menu-toggle"
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarScroll"
+        aria-controls="navbarScroll"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </label>
+    </div>
 
-		<div>
-			<input type="checkbox" id="menu-toggle" />
-			<label
-				for="menu-toggle"
-				class="navbar-toggler"
-				type="button"
-				data-bs-toggle="collapse"
-				data-bs-target="#navbarScroll"
-				aria-controls="navbarScroll"
-				aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</label>
-		</div>
+    <div class="navbar-collapse collapse py-6 py-lg-0" id="navbarScroll">
+      <ul
+        id="accordionFlush"
+        class="navbar-scrollBar navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll m-auto column-gap-10 row-gap-2"
+        style="--bs-scroll-height: 205px"
+      >
+        <li class="nav-item">
+          <a
+            class="nav-link pc d-none d-lg-block"
+            aria-current="page"
+            href="./course.html"
+            >課程分類</a
+          >
+          <div
+            class="accordion accordion-flush d-block d-lg-none"
+            id="accordionFlush"
+          >
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed nav-link"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#category"
+                  aria-expanded="false"
+                  aria-controls="category"
+                >
+                  課程分類
+                </button>
+              </h2>
+              <div
+                id="category"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionFlush"
+              >
+                <ul class="accordion-body text-center">
+                  <li><a href="###">前端</a></li>
+                  <li><a href="###">後端</a></li>
+                  <li><a href="###">資料庫</a></li>
+                  <li><a href="###">資安</a></li>
+                  <li><a href="###">產品測試</a></li>
+                  <li><a href="###">UI / UX</a></li>
+                  <li><a href="###">開發維運</a></li>
+                  <li><a href="###">行動應用</a></li>
+                  <li><a href="###">AI</a></li>
+                  <li><a href="###">遊戲開發</a></li>
+                  <li><a href="###">程式入門</a></li>
+                  <li><a href="###">職涯</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link pc d-none d-lg-block" aria-current="page" href="#"
+            >常見問題</a
+          >
+          <div
+            class="accordion accordion-flush d-block d-lg-none"
+            id="accordionFlush"
+          >
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed nav-link"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq"
+                  aria-expanded="false"
+                  aria-controls="faq"
+                >
+                  常見問題
+                </button>
+              </h2>
+              <div
+                id="faq"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionFlush"
+              >
+                <ul class="accordion-body text-center">
+                  <li><a href="###">學生常見問答</a></li>
+                  <li><a href="###">老師常見問答</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link pc d-none d-lg-block"
+            aria-current="page"
+            href="#"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#message-list"
+            aria-controls="#message-list"
+            >聯絡老師</a
+          >
+          <a
+            class="nav-link d-block d-lg-none"
+            aria-current="page"
+            href="#"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#message-list"
+            aria-controls="#message-list"
+            >聯絡老師</a
+          >
+        </li>
+      </ul>
 
-		<div class="navbar-collapse collapse py-6 py-lg-0" id="navbarScroll">
-			<ul
-				id="accordionFlush"
-				class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll m-auto column-gap-10 row-gap-2"
-				style="--bs-scroll-height: 205px">
-				<li class="nav-item">
-					<a class="nav-link pc d-none d-lg-block" aria-current="page" href="./course.html"
-						>課程分類</a
-					>
-					<div
-						class="accordion accordion-flush d-block d-lg-none"
-						id="accordionFlush">
-						<div class="accordion-item">
-							<h2 class="accordion-header">
-								<button
-									class="accordion-button collapsed nav-link"
-									type="button"
-									data-bs-toggle="collapse"
-									data-bs-target="#category"
-									aria-expanded="false"
-									aria-controls="category">
-									課程分類
-								</button>
-							</h2>
-							<div
-								id="category"
-								class="accordion-collapse collapse"
-								data-bs-parent="#accordionFlush">
-								<ul class="accordion-body text-center">
-									<li><a href="###">前端</a></li>
-									<li><a href="###">後端</a></li>
-									<li><a href="###">資料庫</a></li>
-									<li><a href="###">資安</a></li>
-									<li><a href="###">產品測試</a></li>
-									<li><a href="###">UI / UX</a></li>
-									<li><a href="###">開發維運</a></li>
-									<li><a href="###">行動應用</a></li>
-									<li><a href="###">AI</a></li>
-									<li><a href="###">遊戲開發</a></li>
-									<li><a href="###">程式入門</a></li>
-									<li><a href="###">職涯</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link pc d-none d-lg-block" aria-current="page" href="#"
-						>常見問題</a
-					>
-					<div
-						class="accordion accordion-flush d-block d-lg-none"
-						id="accordionFlush">
-						<div class="accordion-item">
-							<h2 class="accordion-header">
-								<button
-									class="accordion-button collapsed nav-link"
-									type="button"
-									data-bs-toggle="collapse"
-									data-bs-target="#faq"
-									aria-expanded="false"
-									aria-controls="faq">
-									常見問題
-								</button>
-							</h2>
-							<div
-								id="faq"
-								class="accordion-collapse collapse"
-								data-bs-parent="#accordionFlush">
-								<ul class="accordion-body text-center">
-									<li><a href="###">學生常見問答</a></li>
-									<li><a href="###">老師常見問答</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link pc d-none d-lg-block" aria-current="page" href="#"
-						>聯絡老師</a
-					>
-					<a class="nav-link d-block d-lg-none" aria-current="page" href="#"
-						>聯絡老師</a
-					>
-				</li>
-			</ul>
+      <!-- 透過加上/刪除 isLogin 來切換登入狀態 -->
+      <div
+        class="d-flex flex-column flex-lg-row row-gap-2 mt-6 mt-lg-0 isLogin"
+      >
+        <button type="button" class="btn btn-member btn-secondary2">
+          會員中心
+        </button>
 
-			<!-- 透過加上/刪除 isLogin 來切換登入狀態 -->
-			<div
-				class="d-flex flex-column flex-lg-row row-gap-2 mt-6 mt-lg-0 isLogin">
-				<button type="button" class="btn btn-member btn-secondary2">
-					會員中心
-				</button>
-
-				<button type="button" class="btn btn-register btn-secondary2">
-					註冊
-				</button>
-				<button type="button" class="btn btn-login fw-medium">登入</button>
-			</div>
-		</div>
-	</div>
+        <button type="button" class="btn btn-register btn-secondary2">
+          註冊
+        </button>
+        <button type="button" class="btn btn-login fw-medium">登入</button>
+      </div>
+    </div>
+  </div>
 </nav>
-    <!-- banner -->
-    <!-- course -->
-    <div class="container">
-      <div class="row">
-        <!-- card -->
-        <div class="w-100">
-          <p class="mb-2">共12個結果</p>
-          <!-- 1 -->
-          <div class="card shadow">
-            <div class="d-flex flex-wrap flex-md-nowrap">
-              <div class="d-flex flex-grow-1 p-3 p-sm-4">
-                <!-- 老師區塊 -->
-                <div class="course-card-header me-4">
+    <!--========================
+    =          banner          =
+    =========================-->
+    <div class="container-fluid ">
+      <div class="rounded-3 d-flex mb-8 mb-md-13 h-200 h-md-300" style="background: url('/project-code/assets/banner-245b0965.svg') no-repeat top / cover">
+        <div class="container my-auto">
+          <h3
+          class="badge-title badge-title-lg bg-primary text-white mb-2 mb-md-3"
+        >
+          學生五星好評推薦
+        </h3>
+        <h2 class="fw-bold text-white fs-3 fs-md-2 mb-4 mb-md-6">經驗豐富的優質教師</h2>
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="今天想學什麼..."
+            aria-label="search keywords"
+            aria-describedby="button-addon2"
+          />
+          <button
+            class="btn btn-secondary2 btn-search z-0"
+            type="button"
+            id="button-addon2"
+          >
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+        </div>
+      </div>
+    </div>
+    
+    <!--========================
+    =      filter button       =
+    =========================-->
+    <div id="js-sticky-mt">
+      <div class="position-sticky top-0 z-3 bg-white py-3" id="js-filter-bar">
+        <div class="container">
+          <div class="d-flex justify-content-between align-items-center " >
+            <p class="fs-7 fs-md-6">共 12 個結果</p>
+            <div class="d-flex gap-4">
+              <!-- collapse 按鈕 -->
+              <button type="button" class="btn btn-outline-secondary2 d-none d-xl-block" data-bs-toggle="collapse" data-bs-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter">篩選 (3)</button>
+
+              <!-- offcanvas 按鈕 -->
+              <button type="button" class="btn btn-outline-secondary2 d-xl-none fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFilter" aria-controls="offcanvasFilter"
+              >
+                篩選 (3)
+              </button>
+
+              <!-- 排序按鈕 -->
+              <div class="dropdown">
+                <button class="btn btn-outline-secondary2 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4 dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  排序依據
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">最熱門</a></li>
+                  <li><a class="dropdown-item" href="#">最高評等</a></li>
+                  <li><a class="dropdown-item" href="#">最新</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--========================
+      =      card & filter       =
+      =========================-->
+      <div class="container">
+        <div class="d-flex">
+          <!-- card -->
+          <div class="w-100 d-flex flex-column gap-8 gap-md-10">
+            <!-- 1 -->
+            <div class="card flex-row flex-wrap flex-md-nowrap shadow">
+              <div class="d-flex flex-grow-1 p-4 p-lg-8">
+                <!--  老師區塊 -->
+                <div class="d-flex flex-column align-items-center fix-min-w-100 fix-min-w-md-150 bg-white me-4">
                   <!-- 愛心 -->
-                  <a href="#" class="align-self-start">
+                  <button type="button" class="btn p-0 text-center align-self-start">
                     <i
                       class="fa-regular fa-heart fs-3 text-primary hover-bold"
                     ></i>
-                  </a>
-                  <!-- 圖 -->
-                  <a href="#" class="text-center">
+                  </button>
+
+                  <a href="#" 
+                  class="text-center">
+                    <!-- 圖 -->
                     <div class="mb-2">
                       <img
-                        class="img-fluid avatar"
+                        class="fix-min-area-90 fix-min-area-md-100 rounded-circle"
                         src="/project-code/assets/Rectangle 7-ab3dd5b8.png"
                         alt="teacher"
-                        width="90px"
-                        height="90px"
                       />
                     </div>
                     <!-- 姓名、職稱 -->
@@ -176,10 +270,10 @@
                   </a>
                   <ul class="text-center text-gray-300 fs-sm fs-md-7 mb-2">
                     <li class="d-flex align-items-center">
-                      <img src="/project-code/assets/star-0547ea17.svg" alt="star" /><span
-                        class="fw-bold me-1"
-                        >5.0</span
-                      >
+                      <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                      <span class="fw-bold me-1">
+                        5.0
+                      </span>
                       講師評等
                     </li>
                     <li>100 位學生</li>
@@ -204,13 +298,12 @@
                     </li>
                   </ul>
                 </div>
-                <!-- 課程區塊 -->
-                <div class="flex-grow-1">
-                  <div>
+                <!--  課程區塊 -->
+                <div class="">
                     <!-- 課程名稱 -->
-                    <h2 class="fs-6 fs-sm-5 fs-md-4 line-ellipsis mb-2">
+                    <h3 class="card-title fs-6 fs-sm-4 line-ellipsis">
                       從零開始成為切版大師
-                    </h2>
+                    </h3>
                     <!-- 優質標籤 -->
                     <ul class="d-flex gap-2 mb-2">
                       <li class="badge bg-primary fw-normal fs-sm fs-lg-7">
@@ -225,12 +318,12 @@
                     </ul>
                     <!-- 課程tag -->
                     <ul
-                      class="d-flex flex-wrap text-primary text-nowrap fs-sm fs-md-7 mb-1 mb-sm-2"
+                      class="d-flex flex-wrap mb-1 mb-sm-2 column-gap-1"
                     >
-                      <li class="me-1">#業界技術</li>
-                      <li class="me-1">#實戰專案開發</li>
-                      <li class="me-1">#5年家教經驗</li>
-                      <li class="me-1">#前端</li>
+                      <li class="text-primary text-nowrap fs-sm fs-md-7">#業界技術</li>
+                      <li class="text-primary text-nowrap fs-sm fs-md-7">#實戰專案開發</li>
+                      <li class="text-primary text-nowrap fs-sm fs-md-7">#5年家教經驗</li>
+                      <li class="text-primary text-nowrap fs-sm fs-md-7">#前端</li>
                     </ul>
                     <!-- 課程評價、難度 -->
                     <div class="d-flex">
@@ -239,26 +332,6 @@
                         class="d-flex align-items-center mb-1 mb-sm-2 mb-md-4"
                       >
                         <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
-                        <img
-                          class="d-none d-sm-inline"
-                          src="/project-code/assets/star-0547ea17.svg"
-                          alt="star"
-                        />
-                        <img
-                          class="d-none d-sm-inline"
-                          src="/project-code/assets/star-0547ea17.svg"
-                          alt="star"
-                        />
-                        <img
-                          class="d-none d-sm-inline"
-                          src="/project-code/assets/star-0547ea17.svg"
-                          alt="star"
-                        />
-                        <img
-                          class="d-none d-sm-inline"
-                          src="/project-code/assets/star-0547ea17.svg"
-                          alt="star"
-                        />
                         <span class="fw-bold fs-sm fs-md-7 ms-1">5.0</span>
                         ・
                         <span class="fs-sm fs-md-7 me-2">28個評論 </span>
@@ -266,104 +339,555 @@
                       <p class="text-gray-300">| 入門</p>
                     </div>
                     <!-- 課程介紹 -->
-                    <p class="fs-sm fs-sm-7 fs-md-6 text-justify mb-2 mb-md-4">
+                    <p class="fs-sm fs-sm-7 fs-md-6 text-justify">
                       透過我的課程，從零開始成為前端切版專家，開啟引人注目的網頁開發之旅！
                     </p>
+                    <hr>
                     <!-- 課程篩選tag -->
-                    <div class="course-card-text">
-                      <h4 class="course-card-title mb-2 mb-sm-3">
+                    <div>
+                      <h4 class=" text-secondary2 fs-7 fs-sm-6 fs-md-5 mb-2 mb-sm-3">
                         你可以跟我學
                       </h4>
-                      <ul class="d-flex gap-1 gap-md-2 flex-wrap mb-0">
+                      <ul class="d-flex flex-wrap gap-1 gap-md-2 mb-0">
                         <li>
                           <span
-                            class="badge text-bg-secondary text-gray-300 fs-sm fs-md-6"
-                            >HTML</span
-                          >
+                            class="badge text-bg-secondary text-gray-300 fs-sm fs-md-6">
+                            HTML
+                            </span>
+                        </li>
+                        <li>
+                          <span
+                            class="badge text-bg-secondary text-gray-300 fs-sm fs-md-6">
+                            CSS
+                          </span>
                         </li>
                         <li>
                           <span
                             class="badge text-bg-secondary text-gray-300 fs-sm fs-md-6"
-                            >CSS</span
-                          >
+                            >SCSS
+                          </span>
                         </li>
                         <li>
                           <span
                             class="badge text-bg-secondary text-gray-300 fs-sm fs-md-6"
-                            >SCSS</span
-                          >
+                            >Tailwind
+                          </span>
                         </li>
                         <li>
                           <span
                             class="badge text-bg-secondary text-gray-300 fs-sm fs-md-6"
-                            >Tailwind</span
-                          >
-                        </li>
-                        <li>
-                          <span
-                            class="badge text-bg-secondary text-gray-300 fs-sm fs-md-6"
-                            >Bootstrap</span
-                          >
+                            >Bootstrap
+                          </span>
                         </li>
                       </ul>
                     </div>
+                    <hr>
                     <!-- 收合內容 -->
                     <div class="collapse" id="collapseCourse1">
                       <!-- 你將獲得 -->
-                      <div class="course-card-text">
-                        <h4 class="course-card-title mb-2">你將獲得</h4>
+                      <div>
+                        <h4 class="text-secondary2 fs-7 fs-sm-5 mb-2 mb-sm-3">你將獲得</h4>
                         <ul class="mb-0">
-                          <li class="list-disc">
+                          <li class="list-disc fs-sm fs-sm-7 fs-md-6">
                             我擁有多年的前端開發經驗，課程內容將充滿實際案例。
                           </li>
-                          <li class="list-disc">
+                          <li class="list-disc fs-sm fs-sm-7 fs-md-6">
                             根據你的背景和目標，提供量身定制的指導和建議。
                           </li>
-                          <li class="list-disc">
+                          <li class="list-disc fs-sm fs-sm-7 fs-md-6">
                             我建立一個學生社群，你可以在這個社群中與其他學生互相學習和交流
                           </li>
                         </ul>
                       </div>
+                      <hr>
                       <!-- 評價 -->
-                      <div class="course-card-text">
-                        <h4 class="course-card-title mb-2">精選評價</h4>
-                        <p class="text-justify mb-2">
+                      <div>
+                        <h4 class="text-secondary2 fs-7 fs-sm-5 mb-2 mb-sm-3">精選評價</h4>
+                        <p class="fs-sm fs-sm-7 fs-md-6 text-justify mb-1 mb-md-2">
                           "這個課程是我轉職成功的關鍵！老師專業且耐心，從零開始教我寫程式，培養了我的切版能力。擁有作品集和個人網站，面試中展示給我巨大優勢。謝謝老師的教導和指導，強烈推薦！"
                         </p>
                         <div
                           class="d-flex justify-content-end align-items-center"
                         >
                           <img
-                            class="me-2"
+                            class="me-2 d-none d-md-block"
                             src="/project-code/assets/Ellipse 1-3b755c1a.svg"
                             alt="student"
                             width="40"
                             height="40"
                           />
-                          <div>
-                            <p class="fw-bold me-2">Cookie</p>
+                          <div class="d-flex  flex-md-column fs-sm fs-md-7">
+                            <p class="fw-bold me-2 me-md-0  ">Cookie</p>
                             <p>2023/7/1</p>
                           </div>
                         </div>
                       </div>
+                      <hr>
                     </div>
                     <!-- 瀏覽更多 -->
                     <button
-                      class="d-none d-md-block btn btn-gray float-end readMore"
+                      class=" btn btn-gray fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4 float-end readMore"
                       type="button"
                       data-bs-toggle="collapse"
                       data-bs-target="#collapseCourse1"
                       aria-expanded="false"
                       aria-controls="collapseCourse1"
                     ></button>
-                  </div>
                 </div>
               </div>
-              <!-- 按鈕區塊 -->
-              <div class="course-card-footer gap-2 gap-sm-6">
+              <!--  按鈕區塊 -->
+              <div class="card-footer card-md-horizontal fix-min-w-lg-250 fix-min-w-md-200 gap-2 gap-sm-6 p-md-8">
                 <!-- 價格 -->
                 <div
-                  class="d-flex justify-content-center flex-md-wrap gap-2 gap-sm-5"
+                  class="d-flex justify-content-center flex-md-wrap gap-2 gap-sm-4"
+                >
+                  <p class="text-nowrap text-center fs-sm fs-sm-6">
+                    <span class="fw-bold fs-6 fs-sm-5">NT$ 200 </span
+                    ><br />體驗價
+                  </p>
+                  <p class="text-nowrap text-center fs-sm fs-sm-6">
+                    <span class="fw-bold fs-6 fs-sm-5">NT$ 800 </span
+                    ><br />50分鐘
+                  </p>
+                </div>
+                <!-- 購買按鈕 -->
+                <button
+                  type="button"
+                  class="btn btn-secondary2 w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
+                >
+                  立即上課
+                </button>
+                <a
+                  href="#"
+                  type="button"
+                  class="btn btn-white w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
+                >
+                  查看介紹
+                </a>
+              </div>
+            </div>
+
+            <!-- 2 -->
+            <div class="card flex-row flex-wrap flex-md-nowrap shadow">
+              <div class="d-flex flex-grow-1 p-4 p-lg-8">
+                <!--  老師區塊 -->
+                <div class="d-flex flex-column align-items-center fix-min-w-100 fix-min-w-md-150 bg-white me-4">
+                  <!-- 愛心 -->
+                  <button type="button" class="btn p-0 text-center align-self-start">
+                    <i
+                      class="fa-regular fa-heart fs-3 text-primary hover-bold"
+                    ></i>
+                  </button>
+
+                  <a href="#" 
+                  class="text-center">
+                    <!-- 圖 -->
+                    <div class="mb-2">
+                      <img
+                        class="fix-min-area-90 fix-min-area-md-100 rounded-circle"
+                        src="/project-code/assets/Rectangle 7-ab3dd5b8.png"
+                        alt="teacher"
+                      />
+                    </div>
+                    <!-- 姓名、職稱 -->
+                    <h3 class="fs-7 fs-md-6 text-secondary2 mb-1">麥克先生</h3>
+                  </a>
+                  <ul class="text-center text-gray-300 fs-sm fs-md-7 mb-2">
+                    <li class="d-flex align-items-center">
+                      <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                      <span class="fw-bold me-1">
+                        5.0
+                      </span>
+                      講師評等
+                    </li>
+                    <li>100 位學生</li>
+                    <li>3 門課程</li>
+                  </ul>
+                  <!-- link -->
+                  <ul class="d-flex justify-content-center mb-0">
+                    <li class="me-1">
+                      <a href="#" class="p-1">
+                        <i class="fa-brands fa-github"></i
+                      ></a>
+                    </li>
+                    <li class="me-1">
+                      <a href="#" class="p-1">
+                        <i class="fa-brands fa-linkedin-in"></i
+                      ></a>
+                    </li>
+                    <li>
+                      <a href="#" class="p-1">
+                        <i class="fa-brands fa-codepen"></i
+                      ></a>
+                    </li>
+                  </ul>
+                </div>
+                <!--  課程區塊 -->
+                <div class="">
+                    <!-- 課程名稱 -->
+                    <h3 class="card-title fs-6 fs-sm-4 line-ellipsis">
+                      從零開始成為切版大師
+                    </h3>
+                    <!-- 優質標籤 -->
+                    <ul class="d-flex gap-2 mb-2">
+                      <li class="badge bg-primary fw-normal fs-sm fs-lg-7">
+                        熱門
+                      </li>
+                      <li class="badge bg-primary fw-normal fs-sm fs-lg-7">
+                        新
+                      </li>
+                      <li class="badge bg-primary fw-normal fs-sm fs-lg-7">
+                        優質老師
+                      </li>
+                    </ul>
+                    <!-- 課程tag -->
+                    <ul
+                      class="d-flex flex-wrap mb-1 mb-sm-2 column-gap-1"
+                    >
+                      <li class="text-primary text-nowrap fs-sm fs-md-7">#業界技術</li>
+                      <li class="text-primary text-nowrap fs-sm fs-md-7">#實戰專案開發</li>
+                      <li class="text-primary text-nowrap fs-sm fs-md-7">#5年家教經驗</li>
+                      <li class="text-primary text-nowrap fs-sm fs-md-7">#前端</li>
+                    </ul>
+                    <!-- 課程評價、難度 -->
+                    <div class="d-flex">
+                      <a
+                        href="#"
+                        class="d-flex align-items-center mb-1 mb-sm-2 mb-md-4"
+                      >
+                        <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                        <span class="fw-bold fs-sm fs-md-7 ms-1">5.0</span>
+                        ・
+                        <span class="fs-sm fs-md-7 me-2">28個評論 </span>
+                      </a>
+                      <p class="text-gray-300">| 入門</p>
+                    </div>
+                    <!-- 課程介紹 -->
+                    <p class="fs-sm fs-sm-7 fs-md-6 text-justify">
+                      透過我的課程，從零開始成為前端切版專家，開啟引人注目的網頁開發之旅！
+                    </p>
+                    <hr>
+                    <!-- 課程篩選tag -->
+                    <div>
+                      <h4 class=" text-secondary2 fs-7 fs-sm-6 fs-md-5 mb-2 mb-sm-3">
+                        你可以跟我學
+                      </h4>
+                      <ul class="d-flex flex-wrap gap-1 gap-md-2 mb-0">
+                        <li>
+                          <span
+                            class="badge text-bg-secondary text-gray-300 fs-sm fs-md-6">
+                            HTML
+                            </span>
+                        </li>
+                        <li>
+                          <span
+                            class="badge text-bg-secondary text-gray-300 fs-sm fs-md-6">
+                            CSS
+                          </span>
+                        </li>
+                        <li>
+                          <span
+                            class="badge text-bg-secondary text-gray-300 fs-sm fs-md-6"
+                            >SCSS
+                          </span>
+                        </li>
+                        <li>
+                          <span
+                            class="badge text-bg-secondary text-gray-300 fs-sm fs-md-6"
+                            >Tailwind
+                          </span>
+                        </li>
+                        <li>
+                          <span
+                            class="badge text-bg-secondary text-gray-300 fs-sm fs-md-6"
+                            >Bootstrap
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+                    <hr>
+                    <!-- 收合內容 -->
+                    <div class="collapse" id="collapseCourse1">
+                      <!-- 你將獲得 -->
+                      <div>
+                        <h4 class="text-secondary2 fs-7 fs-sm-5 mb-2 mb-sm-3">你將獲得</h4>
+                        <ul class="mb-0">
+                          <li class="list-disc fs-sm fs-sm-7 fs-md-6">
+                            我擁有多年的前端開發經驗，課程內容將充滿實際案例。
+                          </li>
+                          <li class="list-disc fs-sm fs-sm-7 fs-md-6">
+                            根據你的背景和目標，提供量身定制的指導和建議。
+                          </li>
+                          <li class="list-disc fs-sm fs-sm-7 fs-md-6">
+                            我建立一個學生社群，你可以在這個社群中與其他學生互相學習和交流
+                          </li>
+                        </ul>
+                      </div>
+                      <hr>
+                      <!-- 評價 -->
+                      <div>
+                        <h4 class="text-secondary2 fs-7 fs-sm-5 mb-2 mb-sm-3">精選評價</h4>
+                        <p class="fs-sm fs-sm-7 fs-md-6 text-justify mb-1 mb-md-2">
+                          "這個課程是我轉職成功的關鍵！老師專業且耐心，從零開始教我寫程式，培養了我的切版能力。擁有作品集和個人網站，面試中展示給我巨大優勢。謝謝老師的教導和指導，強烈推薦！"
+                        </p>
+                        <div
+                          class="d-flex justify-content-end align-items-center"
+                        >
+                          <img
+                            class="me-2 d-none d-md-block"
+                            src="/project-code/assets/Ellipse 1-3b755c1a.svg"
+                            alt="student"
+                            width="40"
+                            height="40"
+                          />
+                          <div class="d-flex  flex-md-column fs-sm fs-md-7">
+                            <p class="fw-bold me-2 me-md-0  ">Cookie</p>
+                            <p>2023/7/1</p>
+                          </div>
+                        </div>
+                      </div>
+                      <hr>
+                    </div>
+                    <!-- 瀏覽更多 -->
+                    <button
+                      class=" btn btn-gray fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4 float-end readMore"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseCourse1"
+                      aria-expanded="false"
+                      aria-controls="collapseCourse1"
+                    ></button>
+                </div>
+              </div>
+              <!--  按鈕區塊 -->
+              <div class="card-footer card-md-horizontal fix-min-w-lg-250 fix-min-w-md-200 gap-2 gap-sm-6 p-md-8">
+                <!-- 價格 -->
+                <div
+                  class="d-flex justify-content-center flex-md-wrap gap-2 gap-sm-4"
+                >
+                  <p class="text-nowrap text-center fs-sm fs-sm-6">
+                    <span class="fw-bold fs-6 fs-sm-5">NT$ 200 </span
+                    ><br />體驗價
+                  </p>
+                  <p class="text-nowrap text-center fs-sm fs-sm-6">
+                    <span class="fw-bold fs-6 fs-sm-5">NT$ 800 </span
+                    ><br />50分鐘
+                  </p>
+                </div>
+                <!-- 購買按鈕 -->
+                <button
+                  type="button"
+                  class="btn btn-secondary2 w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
+                >
+                  立即上課
+                </button>
+                <a
+                  href="#"
+                  type="button"
+                  class="btn btn-white w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
+                >
+                  查看介紹
+                </a>
+              </div>
+            </div>
+
+            <!-- 3 -->
+            <div class="card flex-row flex-wrap flex-md-nowrap shadow">
+              <div class="d-flex flex-grow-1 p-4 p-lg-8">
+                <!--  老師區塊 -->
+                <div class="d-flex flex-column align-items-center fix-min-w-100 fix-min-w-md-150 bg-white me-4">
+                  <!-- 愛心 -->
+                  <button type="button" class="btn p-0 text-center align-self-start">
+                    <i
+                      class="fa-regular fa-heart fs-3 text-primary hover-bold"
+                    ></i>
+                  </button>
+
+                  <a href="#" 
+                  class="text-center">
+                    <!-- 圖 -->
+                    <div class="mb-2">
+                      <img
+                        class="fix-min-area-90 fix-min-area-md-100 rounded-circle"
+                        src="/project-code/assets/Rectangle 7-ab3dd5b8.png"
+                        alt="teacher"
+                      />
+                    </div>
+                    <!-- 姓名、職稱 -->
+                    <h3 class="fs-7 fs-md-6 text-secondary2 mb-1">麥克先生</h3>
+                  </a>
+                  <ul class="text-center text-gray-300 fs-sm fs-md-7 mb-2">
+                    <li class="d-flex align-items-center">
+                      <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                      <span class="fw-bold me-1">
+                        5.0
+                      </span>
+                      講師評等
+                    </li>
+                    <li>100 位學生</li>
+                    <li>3 門課程</li>
+                  </ul>
+                  <!-- link -->
+                  <ul class="d-flex justify-content-center mb-0">
+                    <li class="me-1">
+                      <a href="#" class="p-1">
+                        <i class="fa-brands fa-github"></i
+                      ></a>
+                    </li>
+                    <li class="me-1">
+                      <a href="#" class="p-1">
+                        <i class="fa-brands fa-linkedin-in"></i
+                      ></a>
+                    </li>
+                    <li>
+                      <a href="#" class="p-1">
+                        <i class="fa-brands fa-codepen"></i
+                      ></a>
+                    </li>
+                  </ul>
+                </div>
+                <!--  課程區塊 -->
+                <div class="">
+                    <!-- 課程名稱 -->
+                    <h3 class="card-title fs-6 fs-sm-4 line-ellipsis">
+                      從零開始成為切版大師
+                    </h3>
+                    <!-- 優質標籤 -->
+                    <ul class="d-flex gap-2 mb-2">
+                      <li class="badge bg-primary fw-normal fs-sm fs-lg-7">
+                        熱門
+                      </li>
+                      <li class="badge bg-primary fw-normal fs-sm fs-lg-7">
+                        新
+                      </li>
+                      <li class="badge bg-primary fw-normal fs-sm fs-lg-7">
+                        優質老師
+                      </li>
+                    </ul>
+                    <!-- 課程tag -->
+                    <ul
+                      class="d-flex flex-wrap mb-1 mb-sm-2 column-gap-1"
+                    >
+                      <li class="text-primary text-nowrap fs-sm fs-md-7">#業界技術</li>
+                      <li class="text-primary text-nowrap fs-sm fs-md-7">#實戰專案開發</li>
+                      <li class="text-primary text-nowrap fs-sm fs-md-7">#5年家教經驗</li>
+                      <li class="text-primary text-nowrap fs-sm fs-md-7">#前端</li>
+                    </ul>
+                    <!-- 課程評價、難度 -->
+                    <div class="d-flex">
+                      <a
+                        href="#"
+                        class="d-flex align-items-center mb-1 mb-sm-2 mb-md-4"
+                      >
+                        <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                        <span class="fw-bold fs-sm fs-md-7 ms-1">5.0</span>
+                        ・
+                        <span class="fs-sm fs-md-7 me-2">28個評論 </span>
+                      </a>
+                      <p class="text-gray-300">| 入門</p>
+                    </div>
+                    <!-- 課程介紹 -->
+                    <p class="fs-sm fs-sm-7 fs-md-6 text-justify">
+                      透過我的課程，從零開始成為前端切版專家，開啟引人注目的網頁開發之旅！
+                    </p>
+                    <hr>
+                    <!-- 課程篩選tag -->
+                    <div>
+                      <h4 class=" text-secondary2 fs-7 fs-sm-6 fs-md-5 mb-2 mb-sm-3">
+                        你可以跟我學
+                      </h4>
+                      <ul class="d-flex flex-wrap gap-1 gap-md-2 mb-0">
+                        <li>
+                          <span
+                            class="badge text-bg-secondary text-gray-300 fs-sm fs-md-6">
+                            HTML
+                            </span>
+                        </li>
+                        <li>
+                          <span
+                            class="badge text-bg-secondary text-gray-300 fs-sm fs-md-6">
+                            CSS
+                          </span>
+                        </li>
+                        <li>
+                          <span
+                            class="badge text-bg-secondary text-gray-300 fs-sm fs-md-6"
+                            >SCSS
+                          </span>
+                        </li>
+                        <li>
+                          <span
+                            class="badge text-bg-secondary text-gray-300 fs-sm fs-md-6"
+                            >Tailwind
+                          </span>
+                        </li>
+                        <li>
+                          <span
+                            class="badge text-bg-secondary text-gray-300 fs-sm fs-md-6"
+                            >Bootstrap
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+                    <hr>
+                    <!-- 收合內容 -->
+                    <div class="collapse" id="collapseCourse1">
+                      <!-- 你將獲得 -->
+                      <div>
+                        <h4 class="text-secondary2 fs-7 fs-sm-5 mb-2 mb-sm-3">你將獲得</h4>
+                        <ul class="mb-0">
+                          <li class="list-disc fs-sm fs-sm-7 fs-md-6">
+                            我擁有多年的前端開發經驗，課程內容將充滿實際案例。
+                          </li>
+                          <li class="list-disc fs-sm fs-sm-7 fs-md-6">
+                            根據你的背景和目標，提供量身定制的指導和建議。
+                          </li>
+                          <li class="list-disc fs-sm fs-sm-7 fs-md-6">
+                            我建立一個學生社群，你可以在這個社群中與其他學生互相學習和交流
+                          </li>
+                        </ul>
+                      </div>
+                      <hr>
+                      <!-- 評價 -->
+                      <div>
+                        <h4 class="text-secondary2 fs-7 fs-sm-5 mb-2 mb-sm-3">精選評價</h4>
+                        <p class="fs-sm fs-sm-7 fs-md-6 text-justify mb-1 mb-md-2">
+                          "這個課程是我轉職成功的關鍵！老師專業且耐心，從零開始教我寫程式，培養了我的切版能力。擁有作品集和個人網站，面試中展示給我巨大優勢。謝謝老師的教導和指導，強烈推薦！"
+                        </p>
+                        <div
+                          class="d-flex justify-content-end align-items-center"
+                        >
+                          <img
+                            class="me-2 d-none d-md-block"
+                            src="/project-code/assets/Ellipse 1-3b755c1a.svg"
+                            alt="student"
+                            width="40"
+                            height="40"
+                          />
+                          <div class="d-flex  flex-md-column fs-sm fs-md-7">
+                            <p class="fw-bold me-2 me-md-0  ">Cookie</p>
+                            <p>2023/7/1</p>
+                          </div>
+                        </div>
+                      </div>
+                      <hr>
+                    </div>
+                    <!-- 瀏覽更多 -->
+                    <button
+                      class=" btn btn-gray fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4 float-end readMore"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseCourse1"
+                      aria-expanded="false"
+                      aria-controls="collapseCourse1"
+                    ></button>
+                </div>
+              </div>
+              <!--  按鈕區塊 -->
+              <div class="card-footer card-md-horizontal fix-min-w-lg-250 fix-min-w-md-200 gap-2 gap-sm-6 p-md-8">
+                <!-- 價格 -->
+                <div
+                  class="d-flex justify-content-center flex-md-wrap gap-2 gap-sm-4"
                 >
                   <p class="text-nowrap text-center fs-sm fs-sm-6">
                     <span class="fw-bold fs-6 fs-sm-5">NT$ 200 </span
@@ -391,77 +915,666 @@
               </div>
             </div>
           </div>
+          <!-- filter list (mobile:offcanvas desktop:collapse) -->
+          <div class="collapse collapse-horizontal show filter-sidebar-sticky" id="collapseFilter">
+            <div class="offcanvas-xl offcanvas-end"  tabindex="-1" id="offcanvasFilter"   aria-labelledby="offcanvasFilterTitle">
+              <div class="offcanvas-header">
+                <h5 class="offcanvas-title fs-4" id="offcanvasFilterTitle ">篩選列表</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                data-bs-target="#offcanvasFilter" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body flex-column pt-xl-4" >
+                <!-- 1. 評等 -->
+                <div class="border-bottom border-2 border-secondary pb-4 mb-4">
+                  <!-- 評等標題 -->
+                  <div class="d-flex justify-content-between align-items-center" >
+                    <h5 class="fs-5 text-nowrap fw-bold">評等</h5>
+                    <button class="btn btn-link fs-7 text-nowrap underline" type="button">清除篩選條件</button>
+                  </div>
+                  <!-- 評等內容 -->
+                  <ul class="mb-0 ms-4 ms-md-5">
+                    <!-- star 5 -->
+                    <li class="form-check mb-1">
+                      <input class="form-check-input" type="radio" name="filterStar" id="filterStar5">
+                      <label class="form-check-label d-flex text-nowrap" for="filterStar5">
+                        <div class="me-1">
+                        <img src="/project-code/assets/star-0547ea17.svg" alt="star">
+                        <img class="" src="/project-code/assets/star-0547ea17.svg" alt="star">
+                        <img class="d" src="/project-code/assets/star-0547ea17.svg" alt="star">
+                        <img class="" src="/project-code/assets/star-0547ea17.svg" alt="star">
+                        <img class="" src="/project-code/assets/star-0547ea17.svg" alt="star">
+                      </div>
+                      <p class="fs-7">5 顆星 (5 筆)</p>
+                      </label>
+                    </li>
+                    <!-- star 4 -->
+                    <li class="form-check mb-1">
+                      <input class="form-check-input" type="radio" name="filterStar" id="filterStar4" checked>
+                      <label class="form-check-label d-flex text-nowrap" for="filterStar4">
+                        <div class="me-1">
+                        <img src="/project-code/assets/star-0547ea17.svg" alt="star">
+                        <img class="" src="/project-code/assets/star-0547ea17.svg" alt="star">
+                        <img class="" src="/project-code/assets/star-0547ea17.svg" alt="star">
+                        <img class="" src="/project-code/assets/star-0547ea17.svg" alt="star">
+                        <img  class="img-gray" src="/project-code/assets/star-0547ea17.svg" alt="star">
+                      </div>
+                      <p class="fs-7">4 顆星以上 (10 筆)</p>
+                      </label>
+                    </li>
+                    <!-- star 3 -->
+                    <li class="form-check mb-1">
+                      <input class="form-check-input" type="radio" name="filterStar" id="filterStar4" checked>
+                      <label class="form-check-label d-flex text-nowrap" for="filterStar4">
+                        <div class="me-1">
+                        <img src="/project-code/assets/star-0547ea17.svg" alt="star">
+                        <img class="" src="/project-code/assets/star-0547ea17.svg" alt="star">
+                        <img class="" src="/project-code/assets/star-0547ea17.svg" alt="star">
+                        <img class="img-gray " src="/project-code/assets/star-0547ea17.svg" alt="star">
+                        <img class="img-gray " src="/project-code/assets/star-0547ea17.svg" alt="star">
+                      </div>
+                      <p class="fs-7">3 顆星以上 (15 筆)</p>
+                      </label>
+                    </li>
+                    <!-- star 2 -->
+                    <li class="form-check mb-1">
+                      <input class="form-check-input" type="radio" name="filterStar" id="filterStar4" checked>
+                      <label class="form-check-label d-flex text-nowrap" for="filterStar4">
+                        <div class="me-1">
+                        <img src="/project-code/assets/star-0547ea17.svg" alt="star">
+                        <img class="" src="/project-code/assets/star-0547ea17.svg" alt="star">
+                        <img class="img-gray " src="/project-code/assets/star-0547ea17.svg" alt="star">
+                        <img class="img-gray " src="/project-code/assets/star-0547ea17.svg" alt="star">
+                        <img class="img-gray " src="/project-code/assets/star-0547ea17.svg" alt="star">
+                      </div>
+                      <p class="fs-7">2 顆星以上 (16 筆)</p>
+                      </label>
+                    </li>
+                    <!-- star 1 -->
+                    <li class="form-check">
+                      <input class="form-check-input" type="radio" name="filterStar" id="filterStar4" checked>
+                      <label class="form-check-label d-flex text-nowrap" for="filterStar4">
+                        <div class="me-1">
+                        <img src="/project-code/assets/star-0547ea17.svg" alt="star">
+                        <img class="img-fluid img-gray " src="/project-code/assets/star-0547ea17.svg" alt="star">
+                        <img class="img-gray " src="/project-code/assets/star-0547ea17.svg" alt="star">
+                        <img class="img-gray " src="/project-code/assets/star-0547ea17.svg" alt="star">
+                        <img class="img-gray " src="/project-code/assets/star-0547ea17.svg" alt="star">
+                      </div>
+                      <p class="fs-7">1 顆星以上 (16 筆)</p>
+                      </label>
+                    </li>    
+                  </ul>                                
+                </div>
+                <!-- 2. 價格 -->
+                <div class="border-bottom border-2 border-secondary pb-4 mb-4">
+                  <!-- 價格標題 -->
+                  <h5 class="fs-5 text-nowrap fw-bold mb-3">價格(NT$)</h5>
+                  <!-- 價格內容 -->
+                  <div class="ms-4 ms-md-5">
+                    <div class="d-flex align-items-center ">
+                      <input class="form-control form-control-sm number-arrow-none text-center border  fs-7 " type="number" min="0" name="minPrice" id="minPrice" placeholder="最小值"  > <span class="mx-1">-</span> 
+                      <input class="form-control form-control-sm number-arrow-none text-center border fs-7" type="number" min="1" name="maxPrice" id="maxPrice" placeholder="最大值" >
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="accordion accordion-flush" id="accordionFilter">
+                  <!-- 3. 前端  -->
+                  <div class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4">
+                    <h2 class="accordion-header d-flex">
+                      <label class="fs-5 fw-bold text-nowrap d-flex  align-items-center" for="frontend">
+                        <input type="checkbox" name="frontend" id="frontend">
+                        <span>前端</span>
+                      </label>
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFrontend" aria-expanded="false" aria-controls="collapseFrontend">
+                      </button>
+                    </h2>
+                    <div id="collapseFrontend" class="accordion-collapse collapse" data-bs-parent="#accordionFilter">
+                      <ul class="accordion-body mb-0 ms-4 ms-md-5">
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="html">
+                            <input type="checkbox" name="html" id="html">
+                            <span>HTML (10)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap " for="css">
+                            <input type="checkbox" name="css" id="css">
+                            <span>CSS (10)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap " for="scss">
+                            <input type="checkbox" name="scss" id="scss">
+                            <span>SCSS (10)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="bootstrap">
+                            <input type="checkbox" name="bootstrap" id="bootstrap">
+                            <span>Bootstrap (10)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="tailwind">
+                            <input type="checkbox" name="tailwind" id="tailwind">
+                            <span>Tailwind (10)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="javascript">
+                            <input type="checkbox" name="javascript" id="javascript">
+                            <span>Javascript (10)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="vueJs">
+                            <input type="checkbox" name="vueJs" id="vueJs">
+                            <span>Vue.js (10)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="react">
+                            <input type="checkbox" name="react" id="react">
+                            <span>React (10)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="angular">
+                            <input type="checkbox" name="angular" id="angular">
+                            <span>Angular (10)</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- 4. 後端  -->
+                  <div class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4">
+                  <h2 class="accordion-header d-flex">
+                    <label class="fs-5 fw-bold text-nowrap d-flex align-items-center" for="backend">
+                      <input type="checkbox" name="backend" id="backend">
+                      <span>後端</span>
+                    </label>
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBackend" aria-expanded="false" aria-controls="collapseBackend">
+                    </button>
+                  </h2>
+                  <div id="collapseBackend" class="accordion-collapse collapse" data-bs-parent="#accordionFilter">
+                    <ul class="accordion-body mb-0 ms-4 ms-md-5">
+                      <li class="mb-2">
+                        <label class="fs-7 text-nowrap" for="HTML">
+                          <input type="checkbox" name="java" id="java">
+                          <span>Java (10)</span>
+                        </label>
+                      </li>
+                      <li class="mb-2">
+                        <label class="fs-7 text-nowrap" for="python">
+                          <input type="checkbox" name="python" id="python">
+                          <span>Python (10)</span>
+                        </label>
+                      </li>
+                      <li class="mb-2">
+                        <label class="fs-7 text-nowrap" for="cSharp">
+                          <input type="checkbox" name="cSharp" id="cSharp">
+                          <span>C# (10)</span>
+                        </label>
+                      </li>
+                      <li class="mb-2">
+                        <label class="fs-7 text-nowrap" for="ruby">
+                          <input type="checkbox" name="ruby" id="ruby">
+                          <span>Ruby (10)</span>
+                        </label>
+                      </li>
+                      <li class="mb-2">
+                        <label class="fs-7 text-nowrap" for="nodeJs">
+                          <input type="checkbox" name="nodeJs" id="nodeJs">
+                          <span>Node.js (5)</span>
+                        </label>
+                      </li>
+                      <li class="mb-2">
+                        <label class="fs-7 text-nowrap" for="php">
+                          <input type="checkbox" name="php" id="php">
+                          <span>PHP (10)</span>
+                        </label>
+                      </li>
+                      <li class="mb-2">
+                        <label class="fs-7 text-nowrap" for="cPlusPlus">
+                          <input type="checkbox" name="cPlusPlus" id="cPlusPlus">
+                          <span> C++ (8)</span>
+                        </label>
+                      </li>
+                      <li class="mb-2">
+                        <label class="fs-7 text-nowrap" for="React">
+                          <input type="checkbox" name="React" id="React">
+                          <span>React (10)</span>
+                        </label>
+                      </li>
+                      <li class="mb-2">
+                        <label class="fs-7 text-nowrap" for="c">
+                          <input type="checkbox" name="c" id="c">
+                          <span>C (6)</span>
+                        </label>
+                      </li>
+                      <li class="mb-2">
+                        <label class="fs-7 text-nowrap" for="go">
+                          <input type="checkbox" name="go" id="go">
+                          <span>Go (3)</span>
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                  </div>
+                  <!-- 5. 資料庫  -->
+                  <div class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4">
+                    <h2 class="accordion-header d-flex">
+                      <label class="fs-5 fw-bold text-nowrap d-flex align-items-center" for="database">
+                        <input type="checkbox" name="database" id="database">
+                        <span>資料庫</span>
+                      </label>
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDatabase" aria-expanded="false" aria-controls="collapseDatabase">
+                      </button>
+                    </h2>
+                    <div id="collapseDatabase" class="accordion-collapse collapse" data-bs-parent="#accordionFilter">
+                      <ul class="accordion-body mb-0 ms-4 ms-md-5">
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="sql">
+                            <input type="checkbox" name="sql" id="sql">
+                            <span>SQL (10)</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- 6. 行動應用  -->
+                  <div class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4">
+                    <h2 class="accordion-header d-flex">
+                      <label class="fs-5 fw-bold text-nowrap d-flex align-items-center" for="app">
+                        <input type="checkbox" name="app" id="app">
+                        <span>行動應用</span>
+                      </label>
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseApp" aria-expanded="false" aria-controls="collapseApp">
+                      </button>
+                    </h2>
+                    <div id="collapseApp" class="accordion-collapse collapse" data-bs-parent="#accordionFilter">
+                      <ul class="accordion-body mb-0 ms-4 ms-md-5">
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="android">
+                            <input type="checkbox" name="android" id="android">
+                            <span>Android 開發 (10)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="ios">
+                            <input type="checkbox" name="ios" id="ios">
+                            <span>iOS 開發 (10)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="googleFlutter">
+                            <input type="checkbox" name="googleFlutter" id="googleFlutter">
+                            <span>Google Flutter (10)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="swift">
+                            <input type="checkbox" name="swift" id="swift">
+                            <span>Swift (10)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="reactNative">
+                            <input type="checkbox" name="reactNative" id="reactNative">
+                            <span>React Native (8)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="swiftUI">
+                            <input type="checkbox" name="swiftUI" id="swiftUI">
+                            <span>SwiftUI (8)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="ionic">
+                            <input type="checkbox" name="ionic" id="ionic">
+                            <span> Ionic (8)</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- 7. 開發維運  -->
+                  <div class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4">
+                    <h2 class="accordion-header d-flex">
+                      <label class="fs-5 fw-bold text-nowrap d-flex align-items-center" for="devOps">
+                        <input type="checkbox" name="devOps" id="devOps">
+                        <span>開發維運</span>
+                      </label>
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDevOps" aria-expanded="false" aria-controls="collapseDevOps">
+                      </button>
+                    </h2>
+                    <div id="collapseDevOps" class="accordion-collapse collapse" data-bs-parent="#accordionFilter">
+                      <ul class="accordion-body mb-0 ms-4 ms-md-5">
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="aws">
+                            <input type="checkbox" name="aws" id="aws">
+                            <span>AWS (10)</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- 8. 產品測試  -->
+                  <div class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4">
+                    <h2 class="accordion-header d-flex">
+                      <label class="fs-5 fw-bold text-nowrap d-flex align-items-center" for="productTesting">
+                        <input type="checkbox" name="productTesting" id="productTesting">
+                        <span>產品測試</span>
+                      </label>
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseProductTesting" aria-expanded="false" aria-controls="collapseProductTesting">
+                      </button>
+                    </h2>
+                    <div id="collapseProductTesting" class="accordion-collapse collapse" data-bs-parent="#accordionFilter">
+                      <ul class="accordion-body mb-0 ms-4 ms-md-5">
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="scrum">
+                            <input type="checkbox" name="scrum" id="scrum">
+                            <span>Scrum (10)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="productManagement">
+                            <input type="checkbox" name="productManagement" id="productManagement">
+                            <span>Product Management (10)</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- 9. UI/UX  -->
+                  <div class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4">
+                    <h2 class="accordion-header d-flex">
+                      <label class="fs-5 fw-bold text-nowrap d-flex align-items-center" for="uiUX">
+                        <input type="checkbox" name="uiUX" id="uiUX">
+                        <span>UI/UX</span>
+                      </label>
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUiUX" aria-expanded="false" aria-controls="collapseUiUX">
+                      </button>
+                    </h2>
+                    <div id="collapseUiUX" class="accordion-collapse collapse" data-bs-parent="#accordionFilter">
+                      <ul class="accordion-body mb-0 ms-4 ms-md-5">
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="figma">
+                            <input type="checkbox" name="figma" id="figma">
+                            <span>Figma (10)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="adobeXd">
+                            <input type="checkbox" name="adobeXd" id="adobeXd">
+                            <span>Adobe XD (10)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="photoshop">
+                            <input type="checkbox" name="photoshop" id="photoshop">
+                            <span>Photoshop (10)</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- 10. 資安  -->
+                  <div class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4">
+                    <h2 class="accordion-header d-flex">
+                      <label class="fs-5 fw-bold text-nowrap d-flex align-items-center" for="informationSecurity">
+                        <input type="checkbox" name="informationSecurity" id="informationSecurity">
+                        <span>資安</span>
+                      </label>
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInformationSecurity" aria-expanded="false" aria-controls="collapseInformationSecurity">
+                      </button>
+                    </h2>
+                    <div id="collapseInformationSecurity" class="accordion-collapse collapse" data-bs-parent="#accordionFilter">
+                      <ul class="accordion-body mb-0 ms-4 ms-md-5">
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="EthicalHacking">
+                            <input type="checkbox" name="EthicalHacking" id="EthicalHacking">
+                            <span>Ethical Hacking (10)</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- 11. AI -->
+                  <div class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4">
+                    <h2 class="accordion-header d-flex">
+                      <label class="fs-5 fw-bold text-nowrap d-flex align-items-center" for="ai">
+                        <input type="checkbox" name="ai" id="ai">
+                        <span>AI</span>
+                      </label>
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAi" aria-expanded="false" aria-controls="collapseAi">
+                      </button>
+                    </h2>
+                    <div id="collapseAi" class="accordion-collapse collapse" data-bs-parent="#accordionFilter">
+                      <ul class="accordion-body mb-0 ms-4 ms-md-5">
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="chatGpt">
+                            <input type="checkbox" name="chatGpt" id="chatGpt">
+                            <span>chatGPT (10)</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- 12. 遊戲開發 -->
+                  <div class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4">
+                    <h2 class="accordion-header d-flex">
+                      <label class="fs-5 fw-bold text-nowrap d-flex align-items-center" for="gameDevelopment">
+                        <input type="checkbox" name="gameDevelopment" id="gameDevelopment">
+                        <span>遊戲開發</span>
+                      </label>
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGameDevelopment" aria-expanded="false" aria-controls="collapseGameDevelopment">
+                      </button>
+                    </h2>
+                    <div id="collapseGameDevelopment" class="accordion-collapse collapse" data-bs-parent="#accordionFilter">
+                      <ul class="accordion-body mb-0 ms-4 ms-md-5">
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="unity">
+                            <input type="checkbox" name="unity" id="unity">
+                            <span>Unity (10)</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- 13. 程度 -->
+                  <div class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4">
+                    <h2 class="accordion-header d-flex">
+                      <label class="fs-5 fw-bold text-nowrap d-flex align-items-center" for="level">
+                        <input type="checkbox" name="level" id="level">
+                        <span>程度</span>
+                      </label>
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLevel" aria-expanded="false" aria-controls="collapseLevel">
+                      </button>
+                    </h2>
+                    <div id="collapseLevel" class="accordion-collapse collapse" data-bs-parent="#accordionFilter">
+                      <ul class="accordion-body mb-0 ms-4 ms-md-5">
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="beginner">
+                            <input type="checkbox" name="beginner" id="beginner">
+                            <span>入門 (10)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="advanced">
+                            <input type="checkbox" name="advanced" id="advanced">
+                            <span>進階 (10)</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- 14. 職涯-->
+                  <div class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4">
+                    <h2 class="accordion-header d-flex">
+                      <label class="fs-5 fw-bold text-nowrap d-flex align-items-center" for="career">
+                        <input type="checkbox" name="career" id="career">
+                        <span>職涯</span>
+                      </label>
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCareer" aria-expanded="false" aria-controls="collapseCareer">
+                      </button>
+                    </h2>
+                    <div id="collapseCareer" class="accordion-collapse collapse" data-bs-parent="#accordionFilter">
+                      <ul class="accordion-body mb-0 ms-4 ms-md-5">
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="correction">
+                            <input type="checkbox" name="correction" id="correction">
+                            <span>作品修改 (3)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="resume">
+                            <input type="checkbox" name="resume" id="resume">
+                            <span>履歷 (3)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="interview">
+                            <input type="checkbox" name="interview" id="interview">
+                            <span>面試 (3)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="consult">
+                            <input type="checkbox" name="consult" id="consult">
+                            <span>諮詢 (1)</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <!-- filter -->
-        <div class="col-4 bg-warning"></div>
       </div>
+      <!--========================
+      =        pagination        =
+      =========================-->
+      <nav class="my-6 my-md-8" aria-label="Page navigation example">
+        <ul class="pagination pagination-lg justify-content-center">
+          <li class="page-item disabled ">
+            <a class="page-link" href="#" aria-label="Previous">
+              <i class="fa-solid fa-angle-left"></i>
+            </a>
+          </li>
+          <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+              <i class="fa-solid fa-angle-right"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
     </div>
 
-    <div class="container footer py-6 py-lg-10 d-flex flex-column flex-lg-row justify-content-between">
-	<div class="d-flex flex-lg-column justify-content-between mb-6 mb-lg-0">
-		<h1 class="navbar-brand">
-			<a href="./index.html">
-				<img
-					class="d-none d-lg-block"
-					src="/project-code/assets/logo-a3c8a1c6.svg"
-					alt="C0DE logo" />
-				<img
-					class="d-block d-lg-none"
-					src="/project-code/assets/logo-sm-9ed0e1e0.svg"
-					alt="C0DE logo" />
-			</a>
-		</h1>
-		<div class="d-flex column-gap-3">
-			<button class="btn btn-outlined-circle" type="button">
-				<div class="d-flex">
-					<i class="fa-brands fa-facebook-f"></i>
-				</div>
-			</button>
-			<button class="btn btn-outlined-circle" type="button">
-				<div class="d-flex">
-					<i class="fa-brands fa-instagram"></i>
-				</div>
-			</button>
-			<button class="btn btn-outlined-circle" type="button">
-				<div class="d-flex">
-					<i class="fa-brands fa-linkedin-in"></i>
-				</div>
-			</button>
-		</div>
-	</div>
-	<div class="d-flex gap-10 gap-lg-15">
-		<div>
-			<h4 class="footer-cate-title">學生上課</h4>
-			<ul class="footer-cate-list">
-				<li><a href="###">熱門教師</a></li>
-				<li><a href="###">搜尋教師</a></li>
-				<li><a href="###">教師分類</a></li>
-				<li><a href="###">立即體驗</a></li>
-				<li><a href="###">學生好評</a></li>
-			</ul>
-		</div>
-		<div>
-			<h4 class="footer-cate-title">成為教師</h4>
-			<ul class="footer-cate-list">
-				<li><a href="###">申請成為教師</a></li>
-				<li><a href="###">教師儀表板</a></li>
-			</ul>
-		</div>
-		<div>
-			<h4 class="footer-cate-title">關於C0DE</h4>
-			<ul class="footer-cate-list">
-				<li><a href="###">關於我們</a></li>
-				<li><a href="###">聯絡我們</a></li>
-				<li><a href="###">平台常見問題</a></li>
-			</ul>
-		</div>
-	</div>
+    <div
+  class="container footer py-6 py-lg-10 d-flex flex-column flex-lg-row justify-content-between bg-white"
+>
+  <div
+    class="d-flex flex-lg-column justify-content-between mb-6 mb-lg-0 flex-wrap"
+  >
+    <h1 class="navbar-brand">
+      <a href="./index.html">
+        <img
+          class="d-none d-lg-block"
+          src="/project-code/assets/logo-a3c8a1c6.svg"
+          alt="C0DE logo"
+        />
+        <img
+          class="d-block d-lg-none"
+          src="/project-code/assets/logo-sm-9ed0e1e0.svg"
+          alt="C0DE logo"
+        />
+      </a>
+    </h1>
+    <div class="d-flex column-gap-3">
+      <button class="btn btn-outlined-circle" type="button">
+        <div class="d-flex">
+          <i class="fa-brands fa-facebook-f"></i>
+        </div>
+      </button>
+      <button class="btn btn-outlined-circle" type="button">
+        <div class="d-flex">
+          <i class="fa-brands fa-instagram"></i>
+        </div>
+      </button>
+      <button class="btn btn-outlined-circle" type="button">
+        <div class="d-flex">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </div>
+      </button>
+    </div>
+  </div>
+  <div class="d-flex gap-10 gap-lg-15">
+    <div>
+      <h4 class="footer-cate-title">學生上課</h4>
+      <ul class="footer-cate-list">
+        <li><a href="###">熱門教師</a></li>
+        <li><a href="###">搜尋教師</a></li>
+        <li><a href="###">教師分類</a></li>
+        <li><a href="###">立即體驗</a></li>
+        <li><a href="###">學生好評</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="footer-cate-title">成為教師</h4>
+      <ul class="footer-cate-list">
+        <li><a href="###">申請成為教師</a></li>
+        <li><a href="###">教師儀表板</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="footer-cate-title">關於C0DE</h4>
+      <ul class="footer-cate-list">
+        <li><a href="###">關於我們</a></li>
+        <li><a href="###">聯絡我們</a></li>
+        <li><a href="###">平台常見問題</a></li>
+      </ul>
+    </div>
+  </div>
 </div>
 <div class="bg-secondary2 text-white fs-tiny text-center py-3">
-	<div class="container">
-		<p>Copyright © 2023 C0DE, All Rights Reserved</p>
-	</div>
+  <div class="container">
+    <p>Copyright © 2023 C0DE, All Rights Reserved</p>
+  </div>
 </div>
     
+    <script>
+      //filter-bar 在 sticky 時添加陰影，且加上margin
+      let filterBar = document.querySelector("#js-filter-bar");
+      let stickyMargin = document.querySelector("#js-sticky-mt");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY < 418) {
+          filterBar.style.boxShadow = "";
+          stickyMargin.style.marginTop = "";
+        } else {
+          filterBar.style.boxShadow = "0 10px 6px -6px rgba(0, 0, 0, 0.15)";
+          stickyMargin.style.marginTop = "68px";
+        }
+      });
+      
+      // 為#collapseFilter元素在螢幕寬度小於992px添加.show
+      window.addEventListener('resize', function() {
+      // 取得當前螢幕寬度
+      const screenWidth = window.innerWidth || document.documentElement.clientWidth;
+
+      if (screenWidth < 1200) {
+        document.getElementById('collapseFilter').classList.add('show');
+      } 
+      });
+    </script>
   </body>
 </html>
