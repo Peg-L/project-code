@@ -79,23 +79,23 @@
                 <h2 class="fs-5 mb-4">授課時間</h2>
                 <div class="rounded shadow p-md-12 mb-md-12 p-6 mb-10">
                     <!-- data -->
-                    <div class="d-flex align-items-center gap-2 mb-md-2">
-                        <button type="button" class="btn border-light shadow d-flex align-items-center">
+                    <div class="d-flex align-items-center justify-content-around mb-4">
+                        <button type="button" class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 btn-week">
                         <span class="material-symbols-outlined">
                         chevron_left
                         </span></button>
-                    <button type="button" class="btn border-light shadow d-flex align-items-center">
+                        <p class=""> 2023/08/20 ~ 26</p>
+                        <button type="button" class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 btn-week">
                         <span class="material-symbols-outlined">
                         navigate_next
                         </span></button>
-                    <p> 2023/08/20 ~ 26</p>
                     </div>
                     <!-- calendar -->
-                    <ul class="calendar d-flex gap-3">
+                    <ul class="calendar d-flex gap-3 justify-content-around flex-lg-nowrap flex-wrap">
                         <li class="calendar-list">
                             <p class="text-center">日</p>
                             <ul class="calendar-time">
-                                <li><a href="">08:00</a></li>
+                                <li class=""><a href="" class=" text-primary ">08:00</a></li>
                                 <li><a href="">08:30</a></li>
                                 <li><a href="">09:00</a></li>
                                 <li><a href="">09:30</a></li>
@@ -104,23 +104,68 @@
                         </li>
                         <li class="calendar-list">
                             <p class="text-center">一</p>
+                            <ul class="calendar-time">
+                                <li class=""><a href="" class=" text-primary ">08:00</a></li>
+                                <li><a href="">08:30</a></li>
+                                <li><a href="">09:00</a></li>
+                                <li><a href="">09:30</a></li>
+                                <li><a href="">10:00</a></li>
+                            </ul>
                         </li>
                         <li class="calendar-list">
                             <p class="text-center">二</p>
+                            <ul class="calendar-time">
+                                <li class=""><a href="" class=" text-primary ">08:00</a></li>
+                                <li><a href="">08:30</a></li>
+                                <li><a href="">09:00</a></li>
+                                <li><a href="">09:30</a></li>
+                                <li><a href="">10:00</a></li>
+                            </ul>
                         </li>
                         <li class="calendar-list">
                             <p class="text-center">三</p>
+                            <ul class="calendar-time">
+                                <li class=""><a href="" class=" text-primary ">08:00</a></li>
+                                <li><a href="">08:30</a></li>
+                                <li><a href="">09:00</a></li>
+                                <li><a href="">09:30</a></li>
+                                <li><a href="">10:00</a></li>
+                            </ul>
                         </li>
                         <li class="calendar-list">
                             <p class="text-center">四</p>
+                            <ul class="calendar-time">
+                                <li class=""><a href="" class=" text-primary ">08:00</a></li>
+                                <li><a href="">08:30</a></li>
+                                <li><a href="">09:00</a></li>
+                                <li><a href="" class=" text-primary ">09:30</a></li>
+                                <li><a href="" class=" text-primary ">10:00</a></li>
+                            </ul>
                         </li>
                         <li class="calendar-list">
                             <p class="text-center">五</p>
+                            <ul class="calendar-time">
+                                <li class=""><a href="" class=" text-primary ">08:00</a></li>
+                                <li><a href="">08:30</a></li>
+                                <li><a href="">09:00</a></li>
+                                <li><a href="">09:30</a></li>
+                                <li><a href="">10:00</a></li>
+                                <li><a href="">10:30</a></li>
+                                <li><a href="" class=" text-primary fw-bold">11:00</a></li>
+                                <li><a href="" class=" text-primary fw-bold">11:30</a></li>
+                            </ul>
                         </li>
                         <li class="calendar-list">
                             <p class="text-center">六</p>
+                            <ul class="calendar-time">
+                                <li class="border border-2 border-primary fw-bold"><a href="" class=" text-primary ">08:00</a></li>
+                                <li><a href="">08:30</a></li>
+                                <li><a href="">09:00</a></li>
+                                <li><a href="">09:30</a></li>
+                                <li><a href="">10:00</a></li>
+                            </ul>
                         </li>
-                        <button type="button" class="btn btn-calendar text-secondary2" data-bs-toggle="collapse" data-bs-target="#collapseToDate" aria-expanded="false" aria-controls="collapseToDate">
+                        <button type="button" class="btn btn-calendar text-secondary2" data-bs-toggle="modal" data-bs-target="#courseTime">
                             顯示全部時間
                         </button>
                     </ul>
@@ -218,7 +263,7 @@
                     </li>
                 </ul>
                 <div class="d-flex justify-content-center">
-                    <button type="button" class="btn text-secondary2">
+                    <button type="button" class="btn text-secondary2" data-bs-toggle="modal" data-bs-target="#courseTalk">
                         查看所有評論(10)
                     </button>
                 </div>
@@ -361,6 +406,273 @@
                 </div>
             </div>
         </div>
+    </div>
+    <!-- 顯示全部時間 -->
+    <div class="modal fade" id="courseTime" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                    <div class="modal-content rounded-0">
+                        <div class="modal-header justify-content-center border-0">
+                        <h5 class="modal-title" id="exampleModalLabel">教師授課時間</h5>
+                        </div>
+                        <div class="modal-body">
+                            <div class="d-flex align-items-center justify-content-around mb-4">
+                                <button type="button" class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 btn-week">
+                                <span class="material-symbols-outlined">
+                                chevron_left
+                                </span></button>
+                                <p class=""> 2023/08/20 ~ 26</p>
+                                <button type="button" class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 btn-week">
+                                <span class="material-symbols-outlined">
+                                navigate_next
+                                </span></button>
+                            </div>
+                            <!-- calendar -->
+                            <ul class="calendar d-flex gap-3 justify-content-around flex-lg-nowrap flex-wrap">
+                                <li class="calendar-list">
+                                    <p class="text-center">日</p>
+                                    <ul class="calendar-time">
+                                        <li class=""><a href="" class=" text-primary ">08:00</a></li>
+                                        <li><a href="">08:30</a></li>
+                                        <li><a href="">09:00</a></li>
+                                        <li><a href="">09:30</a></li>
+                                        <li><a href="">10:00</a></li>
+                                    </ul>
+                                </li>
+                                <li class="calendar-list">
+                                    <p class="text-center">一</p>
+                                    <ul class="calendar-time">
+                                        <li class=""><a href="" class=" text-primary ">08:00</a></li>
+                                        <li><a href="">08:30</a></li>
+                                        <li><a href="">09:00</a></li>
+                                        <li><a href="">09:30</a></li>
+                                        <li><a href="">10:00</a></li>
+                                    </ul>
+                                </li>
+                                <li class="calendar-list">
+                                    <p class="text-center">二</p>
+                                    <ul class="calendar-time">
+                                        <li class=""><a href="" class=" text-primary ">08:00</a></li>
+                                        <li><a href="">08:30</a></li>
+                                        <li><a href="">09:00</a></li>
+                                        <li><a href="">09:30</a></li>
+                                        <li><a href="">10:00</a></li>
+                                    </ul>
+                                </li>
+                                <li class="calendar-list">
+                                    <p class="text-center">三</p>
+                                    <ul class="calendar-time">
+                                        <li class=""><a href="" class=" text-primary ">08:00</a></li>
+                                        <li><a href="">08:30</a></li>
+                                        <li><a href="">09:00</a></li>
+                                        <li><a href="">09:30</a></li>
+                                        <li><a href="">10:00</a></li>
+                                    </ul>
+                                </li>
+                                <li class="calendar-list">
+                                    <p class="text-center">四</p>
+                                    <ul class="calendar-time">
+                                        <li class=""><a href="" class=" text-primary ">08:00</a></li>
+                                        <li><a href="">08:30</a></li>
+                                        <li><a href="">09:00</a></li>
+                                        <li><a href="" class=" text-primary ">09:30</a></li>
+                                        <li><a href="" class=" text-primary ">10:00</a></li>
+                                    </ul>
+                                </li>
+                                <li class="calendar-list">
+                                    <p class="text-center">五</p>
+                                    <ul class="calendar-time">
+                                        <li class=""><a href="" class=" text-primary ">08:00</a></li>
+                                        <li><a href="">08:30</a></li>
+                                        <li><a href="">09:00</a></li>
+                                        <li><a href="">09:30</a></li>
+                                        <li><a href="">10:00</a></li>
+                                        <li><a href="">10:30</a></li>
+                                        <li><a href="" class=" text-primary fw-bold">11:00</a></li>
+                                        <li><a href="" class=" text-primary fw-bold">11:30</a></li>
+                                        <li><a href="" class=" text-primary fw-bold">12:00</a></li>
+                                        <li><a href="">12:30</a></li>
+                                        <li><a href="">13:00</a></li>
+                                        <li><a href="">13:30</a></li>
+                                        <li><a href="">14:00</a></li>
+                                    </ul>
+                                </li>
+                                <li class="calendar-list">
+                                    <p class="text-center">六</p>
+                                    <ul class="calendar-time">
+                                        <li class="border border-2 border-primary fw-bold"><a href="" class=" text-primary ">08:00</a></li>
+                                        <li><a href="">08:30</a></li>
+                                        <li><a href="">09:00</a></li>
+                                        <li><a href="">09:30</a></li>
+                                        <li><a href="">10:00</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="modal-footer border-0">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                    </div>
+    </div>
+    
+    <!-- 課程評價 -->
+    <div class="modal fade" id="courseTalk" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content rounded-0">
+                <div class="modal-header flex-column justify-content-center border-0">
+                <h5 class="modal-title mb-2" id="exampleModalLabel">課程學員評價</h5>
+                <div class="d-flex align-items-center justify-content-around gap-3 mb-4">
+                    <button type="button" class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 px-lg-10 btn-week">
+                    1星</button>
+                    <button type="button" class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 px-lg-10 btn-week">
+                    2星
+                    </button>
+                    <button type="button" class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 px-lg-10 btn-week">
+                    3星
+                    </button>
+                    <button type="button" class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 px-lg-10 btn-week">
+                    4星
+                    </button>
+                    <button type="button" class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 px-lg-10 btn-week">
+                    5星
+                    </button>
+                </div>
+                </div>
+                <div class="modal-body">
+                    
+                    <!-- calendar -->
+                    <ul class="card-evaluate">
+                        <li class="card-evaluate-content mb-md-5">
+                            這個平台是我轉職成功的關鍵！老師專業且耐心，從零開始教我寫程式，培養了我的切版能力。擁有作品集和個人網站，面試中展示了我的巨大優勢，學習 9 個月後找到工作~
+                        </li>
+                        <li class="card-evaluate-person flex-md-row flex-row-reverse">
+                            <img src="../assets/images/Ellipse 1.svg" alt="">
+                            <div class="d-flex flex-column">
+                                <div class="text-primary d-flex align-items-center">
+                                    <img src="../assets/images/star.svg" alt="star">
+                                    <img src="../assets/images/star.svg" alt="star">
+                                    <img src="../assets/images/star.svg" alt="star">
+                                    <img src="../assets/images/star.svg" alt="star">
+                                    <img src="../assets/images/star.svg" alt="star">
+                                </div>
+                                <div class="align-bottom">
+                                    <p class="card-evaluate-name">貓咪<span class="ms-1 card-evaluate-title">學生</span></p>
+                                </div>
+                            </div>
+                            
+                        </li>
+                    </ul>
+                    <ul class="card-evaluate">
+                        <li class="card-evaluate-content mb-md-5">
+                            這個平台是我轉職成功的關鍵！老師專業且耐心，從零開始教我寫程式，培養了我的切版能力。擁有作品集和個人網站，面試中展示了我的巨大優勢，學習 9 個月後找到工作~
+                        </li>
+                        <li class="card-evaluate-person flex-md-row flex-row-reverse">
+                            <img src="../assets/images/Ellipse 1.svg" alt="">
+                            <div class="d-flex flex-column">
+                                <div class="text-primary d-flex align-items-center">
+                                    <img src="../assets/images/star.svg" alt="star">
+                                    <img src="../assets/images/star.svg" alt="star">
+                                    <img src="../assets/images/star.svg" alt="star">
+                                    <img src="../assets/images/star.svg" alt="star">
+                                    <img src="../assets/images/star.svg" alt="star">
+                                </div>
+                                <div class="align-bottom">
+                                    <p class="card-evaluate-name">貓咪<span class="ms-1 card-evaluate-title">學生</span></p>
+                                </div>
+                            </div>
+                            
+                        </li>
+                    </ul>
+                    <ul class="card-evaluate">
+                        <li class="card-evaluate-content mb-md-5">
+                            這個平台是我轉職成功的關鍵！老師專業且耐心，從零開始教我寫程式，培養了我的切版能力。擁有作品集和個人網站，面試中展示了我的巨大優勢，學習 9 個月後找到工作~
+                        </li>
+                        <li class="card-evaluate-person flex-md-row flex-row-reverse">
+                            <img src="../assets/images/Ellipse 1.svg" alt="">
+                            <div class="d-flex flex-column">
+                                <div class="text-primary d-flex align-items-center">
+                                    <img src="../assets/images/star.svg" alt="star">
+                                    <img src="../assets/images/star.svg" alt="star">
+                                    <img src="../assets/images/star.svg" alt="star">
+                                    <img src="../assets/images/star.svg" alt="star">
+                                    <img src="../assets/images/star.svg" alt="star">
+                                </div>
+                                <div class="align-bottom">
+                                    <p class="card-evaluate-name">貓咪<span class="ms-1 card-evaluate-title">學生</span></p>
+                                </div>
+                            </div>
+                            
+                        </li>
+                    </ul>
+                    <ul class="card-evaluate">
+                        <li class="card-evaluate-content mb-md-5">
+                            這個平台是我轉職成功的關鍵！老師專業且耐心，從零開始教我寫程式，培養了我的切版能力。擁有作品集和個人網站，面試中展示了我的巨大優勢，學習 9 個月後找到工作~
+                        </li>
+                        <li class="card-evaluate-person flex-md-row flex-row-reverse">
+                            <img src="../assets/images/Ellipse 1.svg" alt="">
+                            <div class="d-flex flex-column">
+                                <div class="text-primary d-flex align-items-center">
+                                    <img src="../assets/images/star.svg" alt="star">
+                                    <img src="../assets/images/star.svg" alt="star">
+                                    <img src="../assets/images/star.svg" alt="star">
+                                    <img src="../assets/images/star.svg" alt="star">
+                                    <img src="../assets/images/star.svg" alt="star">
+                                </div>
+                                <div class="align-bottom">
+                                    <p class="card-evaluate-name">貓咪<span class="ms-1 card-evaluate-title">學生</span></p>
+                                </div>
+                            </div>
+                            
+                        </li>
+                    </ul>
+                    <ul class="card-evaluate">
+                        <li class="card-evaluate-content mb-md-5">
+                            這個平台是我轉職成功的關鍵！老師專業且耐心，從零開始教我寫程式，培養了我的切版能力。擁有作品集和個人網站，面試中展示了我的巨大優勢，學習 9 個月後找到工作~
+                        </li>
+                        <li class="card-evaluate-person flex-md-row flex-row-reverse">
+                            <img src="../assets/images/Ellipse 1.svg" alt="">
+                            <div class="d-flex flex-column">
+                                <div class="text-primary d-flex align-items-center">
+                                    <img src="../assets/images/star.svg" alt="star">
+                                    <img src="../assets/images/star.svg" alt="star">
+                                    <img src="../assets/images/star.svg" alt="star">
+                                    <img src="../assets/images/star.svg" alt="star">
+                                    <img src="../assets/images/star.svg" alt="star">
+                                </div>
+                                <div class="align-bottom">
+                                    <p class="card-evaluate-name">貓咪<span class="ms-1 card-evaluate-title">學生</span></p>
+                                </div>
+                            </div>
+                            
+                        </li>
+                    </ul>
+                    <ul class="card-evaluate">
+                        <li class="card-evaluate-content mb-md-5">
+                            這個平台是我轉職成功的關鍵！老師專業且耐心，從零開始教我寫程式，培養了我的切版能力。擁有作品集和個人網站，面試中展示了我的巨大優勢，學習 9 個月後找到工作~
+                        </li>
+                        <li class="card-evaluate-person flex-md-row flex-row-reverse">
+                            <img src="../assets/images/Ellipse 1.svg" alt="">
+                            <div class="d-flex flex-column">
+                                <div class="text-primary d-flex align-items-center">
+                                    <img src="../assets/images/star.svg" alt="star">
+                                    <img src="../assets/images/star.svg" alt="star">
+                                    <img src="../assets/images/star.svg" alt="star">
+                                    <img src="../assets/images/star.svg" alt="star">
+                                    <img src="../assets/images/star.svg" alt="star">
+                                </div>
+                                <div class="align-bottom">
+                                    <p class="card-evaluate-name">貓咪<span class="ms-1 card-evaluate-title">學生</span></p>
+                                </div>
+                            </div>
+                            
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer border-0">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+            </div>
     </div>
     <%- include('./layout/footer'); -%>
     <script type="module" src="../main.js"></script>
