@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/js-plugin-circliful-master/dist/main.css">
     <title>Document</title>
-  <script type="module" crossorigin src="/project-code/assets/header-f5aa8e02.js"></script>
-  <link rel="stylesheet" href="/project-code/assets/header-0ecfa17e.css">
+  <script type="module" crossorigin src="/project-code/assets/index-e7acb855.js"></script>
+  <link rel="stylesheet" href="/project-code/assets/index-0ecfa17e.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-white">
@@ -141,7 +141,7 @@
           <a
             class="nav-link d-block d-lg-none"
             aria-current="page"
-            href="#"
+            href="###"
             data-bs-toggle="offcanvas"
             data-bs-target="#message-list"
             aria-controls="#message-list"
@@ -172,6 +172,213 @@
     </div>
   </div>
 </nav>
+
+<!-- message -->
+<div
+  class="offcanvas offcanvas-end message"
+  tabindex="-1"
+  id="message-list"
+  aria-labelledby="offcanvasRightLabel"
+>
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasRightLabel">訊息</h5>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    ></button>
+  </div>
+  <div class="input-group p-4 pt-0 border-bottom border-gray-200">
+    <input
+      type="text"
+      class="form-control border border-gray-200"
+      placeholder="搜尋教師姓名"
+      aria-label="search keywords"
+      aria-describedby="button-addon2"
+    />
+    <button
+      class="btn btn-secondary2 btn-search border border-secondary2"
+      type="button"
+      id="button-addon2"
+    >
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+  </div>
+  <ul class="offcanvas-body p-0 d-flex flex-column">
+    <li class="message-item">
+      <a
+        href="###"
+        class="d-block px-4 py-3"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#message-mike"
+        aria-controls="message-mike"
+      >
+        <div class="d-flex gap-3">
+          <img
+            style="width: 60px; height: 60px"
+            src="/project-code/assets/mike-e8622f4e.png"
+            alt="mike"
+          />
+          <div class="d-flex flex-column justify-content-between truncate">
+            <div class="d-flex justify-content-between">
+              <h4 class="fs-6">麥克先生</h4>
+              <span>3 天前</span>
+            </div>
+            <p class="text-truncate">
+              感謝你預約我的體驗課，在上課前請幫我填寫
+            </p>
+          </div>
+        </div>
+      </a>
+    </li>
+    <li class="message-item">
+      <a href="###" class="d-block px-4 py-3">
+        <div class="d-flex gap-3">
+          <img
+            style="width: 60px; height: 60px"
+            src="/project-code/assets/arong-bdd97516.png"
+            alt="mike"
+          />
+          <div class="d-flex flex-column justify-content-between truncate">
+            <div class="d-flex justify-content-between">
+              <h4 class="fs-6">Aaron</h4>
+              <span>4 天前</span>
+            </div>
+            <p class="text-truncate">
+              恭喜你上完 10 堂 JavaScript線上教學，順利
+            </p>
+          </div>
+        </div>
+      </a>
+    </li>
+    <li class="message-item">
+      <a href="###" class="d-block px-4 py-3">
+        <div class="d-flex gap-3">
+          <img
+            style="width: 60px; height: 60px"
+            src="/project-code/assets/alice-ec7da41c.png"
+            alt="mike"
+          />
+          <div class="d-flex flex-column justify-content-between truncate">
+            <div class="d-flex justify-content-between">
+              <h4 class="fs-6">Python 專家艾莉絲</h4>
+              <span>5 天前</span>
+            </div>
+            <p class="text-truncate">
+              嗨，我是艾莉絲，有 8 年 Python 教學經驗，
+            </p>
+          </div>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<div
+  class="offcanvas offcanvas-end"
+  tabindex="-1"
+  id="message-mike"
+  aria-labelledby="message"
+>
+  <div class="offcanvas-header border-bottom border-gray-200">
+    <div class="d-flex align-items-center">
+      <button
+        type="button"
+        class="btn btn-back"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#message-list"
+        aria-controls="#message-list"
+      >
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <img
+        class="me-3"
+        style="width: 50px; height: 50px"
+        src="/project-code/assets/mike-e8622f4e.png"
+        alt="mike"
+      />
+      <h5 class="offcanvas-title" id="offcanvasRightLabel">馬克先生</h5>
+    </div>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    ></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="d-flex flex-column gap-6">
+      <li class="dialog d-flex me-10">
+        <img
+          class="me-3"
+          style="width: 40px; height: 40px"
+          src="/project-code/assets/mike-e8622f4e.png"
+          alt="mike"
+        />
+        <div>
+          <p class="fs-6 bg-gray-100 p-3 mb-1 rounded-2">hello</p>
+          <p class="fs-7 text-gray-200">12天前</p>
+        </div>
+      </li>
+      <li class="dialog d-flex me-10">
+        <img
+          class="me-3"
+          style="width: 40px; height: 40px"
+          src="/project-code/assets/mike-e8622f4e.png"
+          alt="mike"
+        />
+        <div>
+          <p class="fs-6 bg-gray-100 p-3 mb-1 rounded-2">
+            嗨，我是麥克先生😀 不是麥克雞塊喔xDD 我的課會帶你一起探索 JavaScript
+            更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...等
+          </p>
+          <p class="fs-7 text-gray-200">12天前</p>
+        </div>
+      </li>
+      <li class="dialog d-flex me-10">
+        <img
+          class="me-3"
+          style="width: 40px; height: 40px"
+          src="/project-code/assets/mike-e8622f4e.png"
+          alt="mike"
+        />
+        <div>
+          <p class="fs-6 bg-gray-100 p-3 mb-1 rounded-2">
+            歡迎預約時間上課 體驗課有優惠喔~ 可以先體驗，再決定要不要買很多堂
+            有問題都可以直接詢問 👾
+          </p>
+          <p class="fs-7 text-gray-200">12天前</p>
+        </div>
+      </li>
+      <li class="dialog d-flex justify-content-end ms-13">
+        <div class="d-flex flex-column align-items-end">
+          <p class="fs-6 bg-gray-100 p-3 mb-1 rounded-2">
+            謝謝麥克老師！我看完介紹後已經手刀買了10堂課拉~ 期待第一次上課😆
+          </p>
+          <p class="fs-7 text-gray-200">10天前</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="editor"></div>
+</div>
+
+<script>
+  ClassicEditor.create(document.querySelector("#editor"), {
+    placeholder: "說些什麼...",
+    toolbar: ["uploadImage"],
+    link: {
+      addTargetToExternalLinks: true,
+    },
+  })
+    .then((res) => {
+      console.log("success");
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+</script>
     <div class="container mt-md-8 mt-10">
         <div class="row">
             <div class="col-12 col-md-7 mb-md-0 mb-10">
