@@ -14,8 +14,8 @@
       href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
     />
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
-    <script type="module" crossorigin src="/project-code/assets/index-4653d7f9.js"></script>
-    <link rel="stylesheet" href="/project-code/assets/index-764f287e.css">
+    <script type="module" crossorigin src="/project-code/assets/header-f5aa8e02.js"></script>
+    <link rel="stylesheet" href="/project-code/assets/header-0ecfa17e.css">
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-white">
@@ -159,18 +159,24 @@
         </li>
       </ul>
 
-      <!-- 透過加上/刪除 isLogin 來切換登入狀態 -->
-      <div
-        class="d-flex flex-column flex-lg-row row-gap-2 mt-6 mt-lg-0 isLogin"
-      >
-        <button type="button" class="btn btn-member btn-secondary2">
+      <div class="d-flex flex-column flex-lg-row row-gap-2 mt-6 mt-lg-0">
+        <a
+          href="./account.html"
+          type="button"
+          class="btn btn-member btn-secondary2"
+        >
           會員中心
-        </button>
-
-        <button type="button" class="btn btn-register btn-secondary2">
+        </a>
+        <a
+          href="./register.html"
+          type="button"
+          class="btn btn-register btn-secondary2"
+        >
           註冊
-        </button>
-        <button type="button" class="btn btn-login fw-medium">登入</button>
+        </a>
+        <a href="./login.html" type="button" class="btn btn-login fw-medium"
+          >登入</a
+        >
       </div>
     </div>
   </div>
