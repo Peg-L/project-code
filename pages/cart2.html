@@ -13,7 +13,6 @@
       rel="stylesheet"
       href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
     />
-    <link rel="stylesheet" href="/resources/demos/style.css" />
   </head>
   <body>
     <%- include('./layout/header'); -%>
@@ -45,81 +44,6 @@
         <!-- card -->
         <ul class="d-flex flex-column gap-5 mb-6">
           <!-- card1 -->
-          <li class="shadow rounded-2 p-4 pb-md-4 pt-md-6 px-md-8 mb-1 mb-md-2">
-            <h3 class="fs-5 fs-md-4 fw-bold mb-4 mb-md-6 text-secondary2">
-              一起打造你的前端職涯
-            </h3>
-            <div class="row justify-content-between">
-              <!-- 左 -->
-              <div class="col-4 col-sm-3 d-flex flex-column align-items-start">
-                <div class="text-center">
-                  <div class="">
-                    <div>
-                      <img
-                        class="img-fluid rounded-circle mb-2"
-                        src="../assets/images/Rectangle 7.png"
-                        alt="teacher"
-                        width="90px"
-                        height="90px"
-                      />
-                    </div>
-                    <h5 class="fs-7 fs-md-6 mb-2">麥克先生</h5>
-                  </div>
-                  <ul class="">
-                    <li class="fs-sm fs-sm-7" title="已購買但尚未預約">
-                      未預約：<span class="text-secondary2">1</span> 堂
-                    </li>
-                    <li class="fs-sm fs-sm-7" title="已預約但老師尚未確認">
-                      請求中：<span class="text-secondary2">2</span> 堂
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <!-- 右 -->
-              <div class="col-8 col-sm-9 d-flex flex-column">
-                <p class="fs-7 fs-md-6 text-primary mb-4">
-                  請先選取日期再預約時間
-                  <span class="fw-bold">(至少預約一堂)</span>：
-                </p>
-                <form
-                  class="d-flex flex-wrap align-items-center column-gap-8 mb-3 mb-md-5"
-                  action="#"
-                  method="post"
-                >
-                  <p class="fw-bold mb-1">第 1 堂 (50 分鐘)</p>
-                  <div class="d-flex gap-2">
-                    <input
-                      class="form-control border-primary cursor-pointer fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4 jq-appointmentDate"
-                      type="text"
-                      name="appointmentDate1-1"
-                      id="appointmentDate1-1"
-                      placeholder="日期"
-                      style="max-width: 150px"
-                      required
-                    />
-                    <select
-                      class="form-select border-primary fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4"
-                      name="appointmentTime1-1"
-                      id="appointment1-1"
-                      style="max-width: 140px"
-                      required
-                    >
-                      <option value="" selected>時間</option>
-                      <option value="AM 9:00">AM 9:00</option>
-                      <option value="AM 10:00">AM 10:00</option>
-                      <option value="PM 16:00">AM 16:00</option>
-                    </select>
-                  </div>
-                </form>
-                <div class="d-flex justify-content-end gap-4 mt-auto">
-                  <p class="fs-sm fs-md-7">剩餘 1 堂</p>
-                  <p class="fs-sm fs-md-7">2024/1/1 到期</p>
-                </div>
-              </div>
-            </div>
-          </li>
-
-          <!-- card2 -->
           <li class="shadow rounded-2 p-4 pb-md-4 pt-md-6 px-md-8 mb-1 mb-md-2">
             <h3 class="fs-5 fs-md-4 fw-bold mb-4 mb-md-6 text-secondary2">
               從零開始成為切版大師
@@ -219,7 +143,82 @@
                 </form>
                 <div class="d-flex justify-content-end gap-4 mt-auto">
                   <p class="fs-sm fs-md-7">剩餘 1 堂</p>
-                  <p class="fs-sm fs-md-7">2024/1/1 到期</p>
+                  <p class="fs-sm fs-md-7">2024/2/1 到期</p>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- card2 -->
+          <li class="shadow rounded-2 p-4 pb-md-4 pt-md-6 px-md-8 mb-1 mb-md-2">
+            <h3 class="fs-5 fs-md-4 fw-bold mb-4 mb-md-6 text-secondary2">
+              Python 全攻略
+            </h3>
+            <div class="row justify-content-between">
+              <!-- 左 -->
+              <div class="col-4 col-sm-3 d-flex flex-column align-items-start">
+                <div class="text-center">
+                  <div class="">
+                    <div>
+                      <img
+                        class="img-fluid rounded-circle mb-2"
+                        src="../assets/images/Rectangle 9.png"
+                        alt="teacher"
+                        width="90px"
+                        height="90px"
+                      />
+                    </div>
+                    <h5 class="fs-7 fs-md-6 mb-2">艾莉絲</h5>
+                  </div>
+                  <ul class="">
+                    <li class="fs-sm fs-sm-7" title="已購買但尚未預約">
+                      未預約：<span class="text-secondary2">1</span> 堂
+                    </li>
+                    <li class="fs-sm fs-sm-7" title="已預約但老師尚未確認">
+                      請求中：<span class="text-secondary2">1</span> 堂
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!-- 右 -->
+              <div class="col-8 col-sm-9 d-flex flex-column">
+                <p class="fs-7 fs-md-6 text-primary mb-4">
+                  請先選取日期再預約時間
+                  <span class="fw-bold">(至少預約一堂)</span>：
+                </p>
+                <form
+                  class="d-flex flex-wrap align-items-center column-gap-8 mb-3 mb-md-5"
+                  action="#"
+                  method="post"
+                >
+                  <p class="fw-bold mb-1">第 1 堂 (50 分鐘)</p>
+                  <div class="d-flex gap-2">
+                    <input
+                      class="form-control border-primary cursor-pointer fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4 jq-appointmentDate"
+                      type="text"
+                      name="appointmentDate1-1"
+                      id="appointmentDate1-1"
+                      placeholder="日期"
+                      style="max-width: 150px"
+                      required
+                    />
+                    <select
+                      class="form-select border-primary fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4"
+                      name="appointmentTime1-1"
+                      id="appointment1-1"
+                      style="max-width: 140px"
+                      required
+                    >
+                      <option value="" selected>時間</option>
+                      <option value="AM 9:00">AM 9:00</option>
+                      <option value="AM 10:00">AM 10:00</option>
+                      <option value="PM 16:00">AM 16:00</option>
+                    </select>
+                  </div>
+                </form>
+                <div class="d-flex justify-content-end gap-4 mt-auto">
+                  <p class="fs-sm fs-md-7">剩餘 1 堂</p>
+                  <p class="fs-sm fs-md-7">2024/2/1 到期</p>
                 </div>
               </div>
             </div>
@@ -243,7 +242,14 @@
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script>
       $(function () {
-        $(".jq-appointmentDate").datepicker();
+        $(".jq-appointmentDate").datepicker({
+          minDate: 0,
+          maxDate: "+1M +10D",
+          dateDefault: {
+            dateFormat: "yy-mm-dd",
+            regional: "zh-TW",
+          },
+        });
       });
     </script>
   </body>

@@ -48,7 +48,7 @@
                 一起打造你的前端職涯
               </h3>
               <div class="row justify-content-between">
-                <!-- 左 -->
+                <!-- 老師區塊 -->
                 <div
                   class="col-4 col-sm-3 d-flex flex-column align-items-start"
                 >
@@ -65,62 +65,69 @@
                     <h5 class="fs-7 fs-md-6">麥克先生</h5>
                   </div>
                 </div>
-                <!-- 右 -->
+
                 <div class="col-8 col-sm-9">
-                  <form
-                    class="d-flex flex-wrap align-items-center column-gap-8 row-gap-3 mb-3 mb-md-5"
-                    action="#"
-                  >
-                    <div>
-                      <label class="form-label" for="hour1"
-                        >單堂時長 (分鐘)</label
-                      >
-                      <select
-                        class="form-select border-primary fw-bold py-1 py-sm-2"
-                        name="hour1"
-                        id="hour1"
-                        style="max-width: 120px"
-                      >
-                        <option value="20">20</option>
-                        <option value="50" selected>50</option>
-                      </select>
+                  <!-- 堂數 -->
+                  <form class="mb-3 mb-md-5" action="#">
+                    <div
+                      class="d-flex flex-wrap align-items-center column-gap-8 row-gap-3"
+                    >
+                      <label for="hour1"
+                        >單堂時長 (分鐘)
+                        <select
+                          class="form-select border-primary fw-bold mt-2 py-1 py-sm-2"
+                          name="hour1"
+                          id="hour1"
+                          style="max-width: 150px"
+                        >
+                          <option value="20">20</option>
+                          <option value="50">50</option>
+                          <option value="20、50" selected>20、50</option>
+                        </select>
+                      </label>
+
+                      <label for="count1"
+                        >堂數 (堂)
+                        <div class="input-group w-fit-content mt-2">
+                          <button
+                            type="button"
+                            class="btn btn-outline-primary rounded-start-2 border-1 py-0 fw-bold fs-4"
+                            style="width: 45px"
+                          >
+                            -
+                          </button>
+                          <input
+                            class="form-control border-primary fw-bold text-center py-1 py-sm-2"
+                            type="text"
+                            name="count"
+                            id="count1"
+                            value="2"
+                            inputmode="numeric"
+                            pattern="[0-9]"
+                            style="width: 60px"
+                          />
+                          <button
+                            type="button"
+                            class="btn btn-outline-primary rounded-end-2 border-1 py-0 fw-bold fs-4"
+                            style="width: 45px"
+                          >
+                            +
+                          </button>
+                        </div>
+                      </label>
                     </div>
-                    <label for="count1"
-                      >堂數 (堂)
-                      <div class="input-group w-fit-content mt-2">
-                        <button
-                          type="button"
-                          class="btn btn-outline-primary rounded-start-2 border-1 py-0 fw-bold fs-4"
-                          style="width: 45px"
-                        >
-                          -
-                        </button>
-                        <input
-                          class="form-control border-primary fw-bold text-center py-1 py-sm-2"
-                          type="text"
-                          name="count"
-                          id="count1"
-                          value="1"
-                          inputmode="numeric"
-                          pattern="[0-9]"
-                          style="width: 60px"
-                        />
-                        <button
-                          type="button"
-                          class="btn btn-outline-primary rounded-end-2 border-1 py-0 fw-bold fs-4"
-                          style="width: 45px"
-                        >
-                          +
-                        </button>
-                      </div>
-                    </label>
+                    <div id="hourHelpBlock" class="form-text">
+                      20 分鐘課程僅限於第一堂
+                    </div>
                   </form>
-                  <div class="d-flex justify-content-between mb-2">
+
+                  <!-- 價格 -->
+                  <div class="d-flex justify-content-between mb-3">
                     <div class="d-flex gap-3">
                       <h4 class="fs-5 fs-md-4 fw-bold text-deleted">
-                        NT$ 1,800
+                        NT$ 3,200
                       </h4>
-                      <h4 class="fs-5 fs-md-4 fw-bold">NT$ 600</h4>
+                      <h4 class="fs-5 fs-md-4 fw-bold">NT$ 2,200</h4>
                     </div>
                   </div>
                 </div>
@@ -136,15 +143,121 @@
               <p>
                 已套用 <span class="fw-bold text-secondary2">體驗價</span
                 ><i class="fa-solid fa-arrow-right mx-1"></i
-                ><span class="fw-bold text-primary">折價 1,200 元</span>
+                ><span class="fw-bold text-primary">折價 1,000 元</span>
               </p>
             </div>
+          </li>
+          <!-- card2 -->
+          <li>
+            <div
+              class="shadow rounded-2 p-4 pb-md-4 pt-md-6 px-md-8 mb-1 mb-md-2"
+            >
+              <h3 class="fs-5 fs-md-4 fw-bold mb-4 mb-md-6 text-secondary2">
+                Python 全攻略
+              </h3>
+              <div class="row justify-content-between">
+                <!-- 老師區塊 -->
+                <div
+                  class="col-4 col-sm-3 d-flex flex-column align-items-start"
+                >
+                  <div class="text-center">
+                    <div>
+                      <img
+                        class="img-fluid rounded-circle mb-2"
+                        src="../assets/images/Rectangle 9.png"
+                        alt="teacher"
+                        width="90px"
+                        height="90px"
+                      />
+                    </div>
+                    <h5 class="fs-7 fs-md-6">艾莉絲</h5>
+                  </div>
+                </div>
+
+                <div class="col-8 col-sm-9">
+                  <!-- 堂數 -->
+                  <form class="mb-3 mb-md-5" action="#">
+                    <div
+                      class="d-flex flex-wrap align-items-center column-gap-8 row-gap-3"
+                    >
+                      <label for="hour2"
+                        >單堂時長 (分鐘)
+                        <select
+                          class="form-select border-primary fw-bold mt-2 py-1 py-sm-2"
+                          name="hour2"
+                          id="hour2"
+                          style="max-width: 150px"
+                        >
+                          <option value="20">20</option>
+                          <option value="50" selected>50</option>
+                          <option value="20、50">20、50</option>
+                        </select>
+                      </label>
+
+                      <label for="count2"
+                        >堂數 (堂)
+                        <div class="input-group w-fit-content mt-2">
+                          <button
+                            type="button"
+                            class="btn btn-outline-primary rounded-start-2 border-1 py-0 fw-bold fs-4"
+                            style="width: 45px"
+                          >
+                            -
+                          </button>
+                          <input
+                            class="form-control border-primary fw-bold text-center py-1 py-sm-2"
+                            type="text"
+                            name="count"
+                            id="count2"
+                            value="1"
+                            inputmode="numeric"
+                            pattern="[0-9]"
+                            style="width: 60px"
+                          />
+                          <button
+                            type="button"
+                            class="btn btn-outline-primary rounded-end-2 border-1 py-0 fw-bold fs-4"
+                            style="width: 45px"
+                          >
+                            +
+                          </button>
+                        </div>
+                      </label>
+                    </div>
+                    <div id="hourHelpBlock" class="form-text">
+                      20 分鐘課程僅限於第一堂
+                    </div>
+                  </form>
+
+                  <!-- 價格 -->
+                  <div class="d-flex justify-content-between mb-3">
+                    <div class="d-flex gap-3">
+                      <h4 class="fs-5 fs-md-4 fw-bold">NT$ 1,800</h4>
+                      <!-- <h4 class="fs-5 fs-md-4 fw-bold">NT$ 600</h4> -->
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-end gap-4">
+                  <p class="fs-sm fs-md-7">2024/2/1 到期</p>
+                  <a class="text-decoration-underline" href="#">下次再買</a>
+                  <a class="text-decoration-underline" href="#">刪除</a>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="d-flex align-items-center">
+              <button type="button" class="btn btn-close fs-sm"></button>
+              <p>
+                已套用 <span class="fw-bold text-secondary2">體驗價</span
+                ><i class="fa-solid fa-arrow-right mx-1"></i
+                ><span class="fw-bold text-primary">折價 1,200 元</span>
+              </p>
+            </div> -->
           </li>
         </ul>
 
         <!--========================
-            =       優惠券 價格         =
-            =========================-->
+        =       優惠券 價格         =
+        =========================-->
         <hr class="border-secondary border-3" />
         <div
           class="d-flex flex-column flex-sm-row justify-content-between mb-5 gap-4"
@@ -155,7 +268,7 @@
               <p>
                 已套用 <span class="fw-bold text-secondary2">全課程 9 折</span
                 ><i class="fa-solid fa-arrow-right mx-1"></i
-                ><span class="fw-bold text-primary">折價 60 元</span>
+                ><span class="fw-bold text-primary">折價 360 元</span>
               </p>
             </div>
             <form class="mb-1" action="#">
@@ -187,24 +300,24 @@
             <thead>
               <tr>
                 <th scope="row" colspan="2" class="fs-7 fs-md-6 fw-bold">
-                  NT 1,800
+                  NT$ 5,000
                 </th>
               </tr>
             </thead>
             <tbody class="fs-sm fs-md-7 border-bottom border-dark">
               <tr>
                 <th class="pe-4 fw-normal" scope="row">課程優惠</th>
-                <td>- NT 1,200</td>
+                <td>- NT$ 1,000</td>
               </tr>
               <tr class="boder-bottom boder-1">
                 <th class="pe-4 fw-normal" scope="row">全站折扣</th>
-                <td>- NT 60</td>
+                <td>- NT$ 360</td>
               </tr>
             </tbody>
             <tfoot>
               <tr>
                 <th scope="row" colspan="2" class="fs-5 fs-md-4 fw-bold pb-0">
-                  NT 560
+                  NT$ 3,640
                 </th>
               </tr>
             </tfoot>
@@ -413,7 +526,7 @@
                   <li class="list-disc">繳費期限：2023-02-07 23:59:59</li>
                 </ul>
                 <a
-                  href="cart3.html"
+                  href="cart2.html"
                   class="btn btn-secondary2 rounded-2 align-self-end"
                   >下一步</a
                 >
