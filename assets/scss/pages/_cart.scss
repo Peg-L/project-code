@@ -37,3 +37,10 @@
       height: 52px;
     }
   }
+
+.text-deleted {
+  text-decoration-color: $danger;
+  text-decoration-line: line-through;
+  text-decoration-thickness: 3px;
+  color: $gray-600;
+}

@@ -1,0 +1,40 @@
+.ui-datepicker {
+  &.ui-widget {
+    border: 2px solid $primary;
+    border-radius: 6px;
+  }
+  .ui-widget-header {
+    background-color: $primary;
+    color: $white;
+    border-width: 0;
+
+    .ui-state-hover {
+      transition: all 0.2s;
+      border-width: 0;
+      background: transparent;
+      transform: scale(1.1);
+    }
+    .ui-datepicker-prev,
+    .ui-datepicker-next {
+      cursor: pointer;
+    }
+    .ui-icon {
+      filter: brightness(5);
+    }
+  }
+
+  .ui-state-default {
+    background-color: #fff;
+    text-align: center;
+    border-width: 0;
+    border-radius: 3px;
+  }
+  .ui-state-highlight {
+    background: $secondary;
+    color: $secondary2;
+  }
+  .ui-state-active {
+    background: $secondary2;
+    color: $white;
+  }
+}

@@ -1,20 +1,8 @@
 //text
-.text-nowrap {
-  white-space: nowrap;
-}
-.text-justify {
-  text-align: justify;
-}
-.line-ellipsis {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.underline {
-  text-decoration: underline;
-}
 
-.list-disc {
+//bootstrap的text-truncate和自訂的line-ellipsis相同，所以把他都改成text-truncate了
+
+.list-check {
   position: relative;
   padding-left: 20px;
   @include media-breakpoint-up(md) {
@@ -30,8 +18,18 @@
     display: inline-block;
     top: 0px;
     left: 0px;
-
   }
+}
+
+.list-disc {
+  list-style-type: disc;
+}
+.list-number {
+  list-style-type: decimal;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 //img
@@ -40,45 +38,34 @@
 }
 
 //寬度、高度
-.h-200{
+.h-200 {
   height: 200px;
 }
 
-.fix-min-area-90{
-  width: 90px;
-  min-width: 90px;
-  height: 90px;
-  min-height: 90px;
+.w-fit-content {
+  width: fit-content;
 }
-.fix-min-w-100{
+
+.fix-min-w-100 {
   width: 100px;
   min-width: 100px;
 }
 @include media-breakpoint-up(md) {
-  .h-md-300{
+  .h-md-300 {
     height: 300px;
   }
-  .fix-min-w-md-150{
+  .fix-min-w-md-150 {
     width: 150px;
     min-width: 150px;
   }
-  .fix-min-w-md-200{
+  .fix-min-w-md-200 {
     width: 200px;
     min-width: 200px;
   }
-  .fix-min-area-md-100{
-    width: 100px;
-    min-width: 100px;
-    height: 100px;
-    min-height: 100px;
-  }
-}  
+}
 @include media-breakpoint-up(lg) {
-  .fix-min-w-lg-250{
+  .fix-min-w-lg-250 {
     width: 250px;
     min-width: 250px;
   }
-} 
-
-
-
+}

@@ -145,7 +145,7 @@
         </div>
         <button type="button" class="btn-text">查看更多</button>
       </div>
-      <div class="swiper mySwiper container">
+      <div class="swiper recommendSwiper container">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <div class="teacher-card">
@@ -437,9 +437,9 @@
         >
           <i class="fa-solid fa-arrow-left"></i>
         </button>
-        <div class="swiper-pagination-custom"></div>
+        <div class="reviewSwiper-pagination-custom"></div>
         <button
-          class="btn btn-link swiper-button-next-custom d-none d-sm-block"
+          class="btn btn-link reviewSwiper-button-next d-none d-sm-block"
           type="button"
           disabled
         >
@@ -831,11 +831,9 @@
       </div>
     </div>
 
-    <!-- message -->
-    <%- include("./layout/message.ejs") -%>
-
     <!-- footer -->
     <%- include("./layout/footer.ejs") -%>
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
     <script type="module" src="../main.js"></script>

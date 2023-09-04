@@ -130,7 +130,7 @@
           <a
             class="nav-link d-block d-lg-none"
             aria-current="page"
-            href="#"
+            href="###"
             data-bs-toggle="offcanvas"
             data-bs-target="#message-list"
             aria-controls="#message-list"
@@ -139,19 +139,34 @@
         </li>
       </ul>
 
-      <!-- 透過加上/刪除 isLogin 來切換登入狀態 -->
-      <div
-        class="d-flex flex-column flex-lg-row row-gap-2 mt-6 mt-lg-0 isLogin"
-      >
-        <button type="button" class="btn btn-member btn-secondary2">
+      <div class="d-flex flex-column flex-lg-row row-gap-2 mt-6 mt-lg-0">
+        <a
+          href="./cart.html"
+          type="button"
+          class="btn btn-outline-secondary2 border-0"
+          ><i class="fa-solid fa-cart-shopping"></i
+        ></a>
+        <a
+          href="./account.html"
+          type="button"
+          class="btn btn-member btn-secondary2"
+        >
           會員中心
-        </button>
-
-        <button type="button" class="btn btn-register btn-secondary2">
+        </a>
+        <a
+          href="./register.html"
+          type="button"
+          class="btn btn-register btn-secondary2"
+        >
           註冊
-        </button>
-        <button type="button" class="btn btn-login fw-medium">登入</button>
+        </a>
+        <a href="./login.html" type="button" class="btn btn-login fw-medium"
+          >登入</a
+        >
       </div>
     </div>
   </div>
 </nav>
+
+<!-- message -->
+<%- include("./layout/message.ejs") -%>

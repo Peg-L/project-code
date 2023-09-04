@@ -1,9 +1,9 @@
-var swiper = new Swiper(".mySwiper", {
+var swiper = new Swiper(".recommendSwiper", {
   slidesPerView: 1,
   spaceBetween: 24,
   loop: true,
   pagination: {
-    el: ".swiper-pagination-custom",
+    el: ".reviewSwiper-pagination-custom",
     clickable: true,
     dynamicBullets: true,
     dynamicMainBullets: 5,
@@ -13,8 +13,8 @@ var swiper = new Swiper(".mySwiper", {
       slidesPerView: 2,
       spaceBetween: 16,
       navigation: {
-        nextEl: ".swiper-button-next-custom",
-        prevEl: ".swiper-button-prev-custom",
+        nextEl: ".reviewSwiper-button-next",
+        prevEl: ".reviewSwiper-button-prev",
       },
       pagination: {
         dynamicMainBullets: 3,
@@ -24,8 +24,8 @@ var swiper = new Swiper(".mySwiper", {
       slidesPerView: 3,
       spaceBetween: 24,
       navigation: {
-        nextEl: ".swiper-button-next-custom",
-        prevEl: ".swiper-button-prev-custom",
+        nextEl: ".reviewSwiper-button-next",
+        prevEl: ".reviewSwiper-button-prev",
       },
       pagination: {
         dynamicMainBullets: 3,

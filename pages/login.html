@@ -86,13 +86,15 @@
               </div>
               <div><a href="###">忘記密碼?</a></div>
             </div>
-            <button
+            <a
+              href="./index.html"
               type="button"
+              id="login-btn"
               class="btn btn-secondary2 rounded-1 fs-5 w-100 py-3 mb-4"
             >
               <i class="fa-solid fa-user me-3"></i>
               登入會員
-            </button>
+            </a>
           </form>
         </div>
       </div>
@@ -103,7 +105,14 @@
 
     <!-- footer -->
     <%- include("./layout/footer.ejs") -%>
+    <script>
+      const loginBtn = document.querySelector("#login-btn");
 
+      loginBtn.addEventListener("click", function () {
+        sessionStorage.setItem("isLogin", "1");
+        checkLogin();
+      });
+    </script>
     <script type="module" src="../main.js"></script>
   </body>
 </html>
