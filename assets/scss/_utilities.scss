@@ -213,6 +213,7 @@ $utilities: map-merge(
     // scss-docs-start utils-sizing
     "width":
       (
+        responsive: true,
         property: width,
         class: w,
         values: (
