@@ -90,13 +90,13 @@
   }
 }
 
-.swiper-button-next:after,
-.swiper-rtl .swiper-button-prev:after {
+.reviewSwiper-button-next:after,
+.swiper-rtl .reviewSwiper-button-prev:after {
   content: "";
 }
 
-.swiper-button-prev:after,
-.swiper-rtl .swiper-button-next:after {
+.reviewSwiper-button-prev:after,
+.swiper-rtl .reviewSwiper-button-next:after {
   content: "";
 }
 
@@ -106,13 +106,13 @@
   align-items: center;
 }
 
-.swiper-button-next,
-.swiper-rtl .swiper-button-prev {
+.reviewSwiper-button-next,
+.swiper-rtl .reviewSwiper-button-prev {
   display: flex;
 }
 
-.swiper-button-prev,
-.swiper-rtl .swiper-button-next {
+.reviewSwiper-button-prev,
+.swiper-rtl .reviewSwiper-button-next {
   display: flex;
 }
 

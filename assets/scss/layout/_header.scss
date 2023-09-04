@@ -152,15 +152,8 @@
   display: none;
 }
 
-.isLogin {
-  .btn-member {
-    display: block;
-  }
-
-  .btn-register,
-  .btn-login {
-    display: none;
-  }
+.hover-text-primary:hover {
+  color: $primary;
 }
 
 .footer-cate-title {
