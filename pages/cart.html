@@ -1,83 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>購物車 | C0DE</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>C0DE | 讓你從 0 到 Expert</title>
     <link
-    rel="shortcut icon"
-    href="../assets/images/favicon.ico"
-    type="image/x-icon"
-  />
-</head>
-<body>
+      rel="shortcut icon"
+      href="../assets/images/favicon.ico"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
     <%- include('./layout/header'); -%>
     <!--========================
     =        step bar          =
     =========================-->
     <div class="container-sm">
-        <div class="row justify-content-center mb-6 mb-md-12">
-            <div class="col-sm-10 col-md-8 col-lg-6">
-                <ul
-                    class="stepbar list-unstyled d-flex justify-content-between mt-2 mt-md-7 mb-8 mb-md-13"
-                >
-                    <li class="d-flex flex-column align-items-center">
-                    <div class="stepbar-item ready mb-1 mb-md-2">1</div>
-                    <p class="fw-bold">確認付款</p>
-                    </li>
-                    <li class="d-flex flex-column align-items-center">
-                    <div class="stepbar-item mb-1 mb-md-2">2</div>
-                    <p class="fw-bold">預約時段</p>
-                    </li>
-                    <li class="d-flex flex-column align-items-center">
-                    <div class="stepbar-item mb-1 mb-md-2">3</div>
-                    <p class="fw-bold">課程明細</p>
-                    </li>
-                </ul>
-                <!--========================
+      <div class="row justify-content-center mb-6 mb-md-12">
+        <div class="col-sm-10 col-md-8 col-lg-6">
+          <ul
+            class="stepbar list-unstyled d-flex justify-content-between mt-2 mt-md-7 mb-8 mb-md-13"
+          >
+            <li class="d-flex flex-column align-items-center">
+              <div class="stepbar-item ready mb-1 mb-md-2">1</div>
+              <p class="fw-bold">確認付款</p>
+            </li>
+            <li class="d-flex flex-column align-items-center">
+              <div class="stepbar-item mb-1 mb-md-2">2</div>
+              <p class="fw-bold">預約時段</p>
+            </li>
+            <li class="d-flex flex-column align-items-center">
+              <div class="stepbar-item mb-1 mb-md-2">3</div>
+              <p class="fw-bold">課程明細</p>
+            </li>
+          </ul>
+          <!--========================
                 =           card           =
                 =========================-->
-                <h2 class="fs-5 fs-md-4">訂單資訊</h2>
-                <!-- card1 -->
-                <div class="card">
-                    <div class="row g-6">
-                        <!-- 左 -->
-                        <div class="col-3 align-items-center">
-                            <img class="rounded-circle" src="../assets/images/Rectangle 7.png" alt="teacher" width="90px"
-                            height="90px">
-                            <h3 class="fs-4">麥克先生</h3>
-
-                        </div>
-                        <!-- 中 -->
-                        <div class="col-6">
-                            <form action="">
-                                <label for="course1">課程</label><br>
-                                <input 
-                                class="form-control"
-                                type="text" name="course1" id="course1" value="一起打造你的前端職涯" readonly>
-                                <div class="d-flex">
-                                    <div class="w-50">
-                                        <label for="hour1">單堂時數</label><br>
-                                        <select class="form-select" name="hour1" id="hour1">
-                                            <option value="20">20 分鐘</option>
-                                            <option value="50" selected>50 分鐘</option>       
-                                        </select>
-                                    </div>
-                                    <div class="w-50">
-                                        <label for="count1">堂數</label><br>
-                                        <input class="form-control" type="text" name="hour1" id="hour1" value="1 堂" readonly>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <!-- 右 -->
+          <h2 class="fs-5 fs-md-4">訂單資訊</h2>
+          <!-- card1 -->
+          <div class="card">
+            <div class="row g-6">
+              <!-- 左 -->
+              <div class="col-3 align-items-center">
+                <img
+                  class="rounded-circle"
+                  src="../assets/images/Rectangle 7.png"
+                  alt="teacher"
+                  width="90px"
+                  height="90px"
+                />
+                <h3 class="fs-4">麥克先生</h3>
+              </div>
+              <!-- 中 -->
+              <div class="col-6">
+                <form action="">
+                  <label for="course1">課程</label><br />
+                  <input
+                    class="form-control"
+                    type="text"
+                    name="course1"
+                    id="course1"
+                    value="一起打造你的前端職涯"
+                    readonly
+                  />
+                  <div class="d-flex">
+                    <div class="w-50">
+                      <label for="hour1">單堂時數</label><br />
+                      <select class="form-select" name="hour1" id="hour1">
+                        <option value="20">20 分鐘</option>
+                        <option value="50" selected>50 分鐘</option>
+                      </select>
                     </div>
-                </div>
+                    <div class="w-50">
+                      <label for="count1">堂數</label><br />
+                      <input
+                        class="form-control"
+                        type="text"
+                        name="hour1"
+                        id="hour1"
+                        value="1 堂"
+                        readonly
+                      />
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <!-- 右 -->
             </div>
+          </div>
         </div>
+      </div>
     </div>
-    
+
     <%- include('./layout/footer'); -%>
     <script type="module" src="../main.js"></script>
-</body>
+  </body>
 </html>
