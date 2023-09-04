@@ -1,154 +1,154 @@
-.bg-account{
-    background-image: url('../../../assets/images/background.jpg');
-    height: 148px;
-    background-size: cover;
-    position: relative;
+.bg-account {
+  background-image: url("../../../assets/images/background.jpg");
+  height: 148px;
+  background-size: cover;
+  position: relative;
 }
-.user-img{
-    position: absolute;
-    border-radius: 50%;
-    border: 4px solid #fff;
-    box-shadow: 0 4px 8px 0 rgba(7,17,27,.1);
-    width: 140px;
-    height: 140px;
-    bottom:-24px;
+.user-img {
+  position: absolute;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  box-shadow: 0 4px 8px 0 rgba(7, 17, 27, 0.1);
+  width: 140px;
+  height: 140px;
+  bottom: -24px;
 }
-.book-card{
-    padding: 8px 16px;
-    border:1px solid $gray-100;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap:16px;
-    img{
-        width: 70px;
-        height: 70px;
-    }
+.book-card {
+  padding: 8px 16px;
+  border: 1px solid $gray-100;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  img {
+    width: 70px;
+    height: 70px;
+  }
 }
-.book-card.active{
-    background: $secondary;
+.book-card.active {
+  background: $secondary;
 }
 .wrapper {
-    width: 100%;
-    background: #fff;
-    border-radius: 10px;
-    -webkit-box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  width: 100%;
+  background: #fff;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
 }
 .wrapper .calendar-header {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    padding: 25px 30px 10px;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    background: $secondary;
-    border-radius: 10px 10px 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 25px 30px 10px;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  background: $secondary;
+  border-radius: 10px 10px 0 0;
 }
 .calendar-header .icons {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 .calendar-header .icons span {
-    height: 38px;
-    width: 38px;
-    margin: 0 1px;
-    cursor: pointer;
-    color: #878787;
-    text-align: center;
-    font-size: 1.9rem;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    border-radius: 50%;
+  height: 38px;
+  width: 38px;
+  margin: 0 1px;
+  cursor: pointer;
+  color: #878787;
+  text-align: center;
+  font-size: 1.9rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border-radius: 50%;
 }
 .icons span:last-child {
-    margin-right: -10px;
+  margin-right: -10px;
 }
 .calendar-header .icons span:hover {
-    background: #f2f2f2;
+  background: #f2f2f2;
 }
 .calendar-header .current-date {
-    font-size: 1.45rem;
-    font-weight: 500;
+  font-size: 1.45rem;
+  font-weight: 500;
 }
 .book-calendar {
-    padding: 20px;
+  padding: 20px;
 }
 .book-calendar ul {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    list-style: none;
-    text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  list-style: none;
+  text-align: center;
 }
 .book-calendar .days {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 .book-calendar li {
-    color: #333;
-    width: calc(100% / 7);
-    font-size: 1.07rem;
+  color: #333;
+  width: calc(100% / 7);
+  font-size: 1.07rem;
 }
 .book-calendar .weeks li {
-    font-weight: 500;
-    cursor: default;
+  font-weight: 500;
+  cursor: default;
 }
 .book-calendar .days li {
-    z-index: 1;
-    cursor: pointer;
-    position: relative;
-    margin-top: 30px;
+  z-index: 1;
+  cursor: pointer;
+  position: relative;
+  margin-top: 30px;
 }
 .days li.inactive {
-    color: #aaa;
+  color: #aaa;
 }
 .days li.active {
-    color: #fff;
+  color: #fff;
 }
 .days li::before {
-    position: absolute;
-    content: "";
-    left: 50%;
-    top: 50%;
-    height: 40px;
-    width: 40px;
-    z-index: -1;
-    border-radius: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+  position: absolute;
+  content: "";
+  left: 50%;
+  top: 50%;
+  height: 40px;
+  width: 40px;
+  z-index: -1;
+  border-radius: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 .days li.active::before {
-    background: #1e90ff;
+  background: #1e90ff;
 }
 .days li:not(.active):hover::before {
-    background: #f2f2f2;
+  background: #f2f2f2;
 }
-.btn-time{
-    padding: 8px 32px;
-    border: 1px solid $gray-200;
-    margin-bottom: 8px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    &:hover{
-        background: $secondary;
-    }
-}
-.btn-time.active{
+.btn-time {
+  padding: 8px 32px;
+  border: 1px solid $gray-200;
+  margin-bottom: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover {
     background: $secondary;
+  }
 }
-.btn-time.disable{
-    background: $gray-200;
-    cursor: not-allowed;
+.btn-time.active {
+  background: $secondary;
+}
+.btn-time.disable {
+  background: $gray-200;
+  cursor: not-allowed;
 }

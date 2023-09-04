@@ -1,320 +1,599 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <%- include('./layout/header'); -%>
     <div class="bg-account">
-        <div class="container h-100 d-flex align-items-center">
-            <img src="../assets/images/Ellipse 1 (2).svg" alt="" class="user-img">
-            <div class="ps-41">
-                <h2 class="fs-4 fw-bold mb-1">貓咪</h2>
-                <p class="">前端工程師</p>
-            </div>
+      <div class="container h-100 d-flex align-items-center">
+        <img src="../assets/images/Ellipse 1 (2).svg" alt="" class="user-img" />
+        <div class="ps-41">
+          <h2 class="fs-4 fw-bold mb-1">貓咪</h2>
+          <p class="">前端工程師</p>
         </div>
+      </div>
     </div>
     <div class="container py-10">
-        <!-- 頁籤 -->
-        <nav class="mb-10">
-            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-              <!-- 我的課表 (Schedule) -->
-              <button class="nav-link active" id="nav-schedule-tab" data-bs-toggle="tab" data-bs-target="#nav-schedule" type="button" role="tab" aria-controls="nav-schedule" aria-selected="true">我的課表</button>
-              <!-- 預約課程 (Booked Courses) -->
-              <button class="nav-link" id="nav-courses-tab" data-bs-toggle="tab" data-bs-target="#nav-courses" type="button" role="tab" aria-controls="nav-courses" aria-selected="false">預約課程</button>
-              <!-- 課程管理 (Course Management) -->
-              <button class="nav-link" id="nav-course-management-tab" data-bs-toggle="tab" data-bs-target="#nav-course-management" type="button" role="tab" aria-controls="nav-course-management" aria-selected="false">課程管理</button>
-              
-              <!-- 我的評價 (My Reviews)-->
-              <!-- 我的優惠券 (My Coupons)-->
-              <!-- 帳號設定 (Account Settings)-->
-              <!-- 我的關注 (My Followings)-->  
-            </div>
-        </nav>
-        <!-- 分頁內容 -->
-        <div class="tab-content" id="nav-tabContent">
-            <!-- 我的課表 (Schedule) -->
-            <div class="tab-pane fade show active" id="nav-schedule" role="tabpanel" aria-labelledby="nav-schedule-tab">
-                <div class="row">
-                    <div class="col-md-2 col-12">
-                        <h3 class="mb-4">學習紀錄</h3>
-                        <ul class="d-flex flex-column gap-4 mb-10">
-                            <li class="fs-5">上課總時數:<span class="text-secondary2 fw-bold"> 35.5 </span>小時</li>
-                            <li class="fs-5">上課頻率:<span class="text-secondary2 fw-bold"> 8 </span>次/月</li>
-                        </ul>
-                        <h3 class="mb-4">上課狀態</h3>
-                        <ul class="d-flex flex-column gap-4">
-                            <li class="fs-5">預約數:<span class="text-secondary2 fw-bold"> 0 </span></li>
-                            <li class="fs-5">未預約:<span class="text-secondary2 fw-bold"> 0 </span></li>
-                            <li class="fs-5">已完成:<span class="text-secondary2 fw-bold"> 8 </span></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-9 offset-md-1 col-12">
-                        <!-- data -->
-                        <div class="d-flex flex-column align-items-center">
-                            <div class="d-flex align-items-center gap-2 mb-5">
-                                <button type="button" class="btn border-light shadow d-flex align-items-center">
-                                <span class="material-symbols-outlined">
-                                chevron_left
-                                </span></button>
-                            <button type="button" class="btn border-light shadow d-flex align-items-center">
-                                <span class="material-symbols-outlined">
-                                navigate_next
-                                </span></button>
-                            <p> 2023/08/20 ~ 26</p>
-                            </div>
-                            <!-- calendar -->
-                            <ul class="calendar d-flex gap-3">
-                                <li class="calendar-list">
-                                    <p class="text-center">日</p>
-                                    <ul class="calendar-time">
-                                        <li><a href="">08:00</a></li>
-                                        <li><a href="">08:30</a></li>
-                                        <li><a href="">09:00</a></li>
-                                        <li><a href="">09:30</a></li>
-                                        <li><a href="">10:00</a></li>
-                                    </ul>
-                                </li>
-                                <li class="calendar-list">
-                                    <p class="text-center">一</p>
-                                </li>
-                                <li class="calendar-list">
-                                    <p class="text-center">二</p>
-                                </li>
-                                <li class="calendar-list">
-                                    <p class="text-center">三</p>
-                                </li>
-                                <li class="calendar-list">
-                                    <p class="text-center">四</p>
-                                </li>
-                                <li class="calendar-list">
-                                    <p class="text-center">五</p>
-                                </li>
-                                <li class="calendar-list">
-                                    <p class="text-center">六</p>
-                                </li>
-                                
-                            </ul>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-            <!-- 預約課程 (Booked Courses) -->
-            <div class="tab-pane fade" id="nav-courses" role="tabpanel" aria-labelledby="nav-courses-tab">
-                <div class="row">
-                    <div class="col-12 col-md-4  offset-md-1">
-                        <h3 class="mb-4">瀏覽教師可預約時間</h3>
-                        <ul class="d-flex flex-column g-0">
-                            <li class="book-card active">
-                                <img src="../assets/images/Rectangle 7.png" alt="">
-                                <div class="d-flex flex-column">
-                                    <h4>Arron</h4>
-                                    <p>1堂體驗課</p>
-                                    <div class="d-flex gap-2">
-                                        <p>未預約:  1</p>
-                                        <p>請求中:  0</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="book-card">
-                                <img src="../assets/images/Rectangle 8.png" alt="">
-                                <div class="d-flex flex-column">
-                                    <h4>貓咪</h4>
-                                    <p>1堂體驗課</p>
-                                    <div class="d-flex gap-2">
-                                        <p>未預約:  1</p>
-                                        <p>請求中:  0</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="book-card">
-                                <img src="../assets/images/Rectangle 9.png" alt="">
-                                <div class="d-flex flex-column">
-                                    <h4>JaYu</h4>
-                                    <p>1堂體驗課</p>
-                                    <div class="d-flex gap-2">
-                                        <p>未預約:  1</p>
-                                        <p>請求中:  0</p>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-12 col-md-5 offset-md-1">
-                        <!-- calendar -->
-                        <div class="wrapper mb-10">
-                            <header class="calendar-header">
-                              <p class="current-date"></p>
-                              <div class="icons">
-                                <span id="prev">
-                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
-                                    <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
-                                  </svg> 
-                                </span>
-                                
-                                <span id="next">
-                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
-                                    <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
-                                  </svg>
-                                </span>
-                               </div>
-                            </header>
-                             
-                            <div class="book-calendar">
-                              <ul class="weeks">
-                                <li>日</li>
-                                <li>一</li>
-                                <li>二</li>
-                                <li>三</li>
-                                <li>四</li>
-                                <li>五</li>
-                                <li>六</li>
-                              </ul>
-                              <ul class="days"></ul>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="col-md-10 offset-md-1 col-12 mt-10 mb-10">
-                            <ul class="d-flex justify-content-between gap-2">
-                                <!-- 凌晨 -->
-                                <li class="d-flex flex-column align-items-center">
-                                    <h4 class="mb-4">凌晨</h4>
-                                    <ul>
-                                        <li class="btn-time active">
-                                            08:00
-                                        </li>
-                                        <li class="btn-time">
-                                            00:30
-                                        </li>
-                                        <li class="btn-time">
-                                            01:00
-                                        </li>
-                                    </ul>
-                                </li>
-                                <!-- 早上 -->
-                                <li class="d-flex flex-column align-items-center">
-                                    <h4 class="mb-4">早上</h4>
-                                    <ul>
-                                        <li class="btn-time">
-                                            12:00
-                                        </li>
-                                        <li class="btn-time">
-                                            12:30
-                                        </li>                                
-                                    </ul>
-                                </li>
-                                <!-- 晚上 -->
-                                <li class="d-flex flex-column align-items-center">
-                                    <h4 class="mb-4">晚上</h4>
-                                    <ul>
-                                        <li class="btn-time disable">
-                                            22:00
-                                        </li>
-                                        <li class="btn-time disable">
-                                            22:30
-                                        </li>
-                                        <li class="btn-time">
-                                            23:00
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>                                                        
-                        </div>
-                        <div class="d-flex flex-row-reverse">
-                            <button type="button" class="btn btn-primary text-white">課時確認</button>
-                        </div>
-                        <div class="col-md-10 offset-md-1 col-12 mt-10 mb-10">
-                            <div class="border p-4">
-                                <ul class="d-flex flex-column gap-1 mb-0">
-                                    <li>1. 選擇預約課程</li>
-                                    <li>2. 選擇您的預約老師</li>
-                                    <li>3. 選擇您的上課日期（空心為老師有開課的時間）</li>
-                                    <li>4. 灰色：當日老師已經被學生預約的時間</li>
-                                    <li>5. 空心：當日可預約上課的時間</li>
-                                    <li>6. 實心：當日您預約的上課時間</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- 課程管理 (Course Management) -->
-            <div class="tab-pane fade" id="nav-course-management" role="tabpanel" aria-labelledby="nav-course-management-tab">
-                <ul>
-                    <li class="course-card shadow">
-                        <!--  老師區塊 -->
-                        <div class="d-flex flex-grow-1 p-3 p-sm-4 align-items-center">
-                          <div class="course-card-header me-4">
-                            <a href="#" class="text-center">
-                              <!-- 圖 -->
-                              <div class="mb-2">
-                                <img class="avatar" src="../assets/images/Rectangle 7.png" alt="teacher">
-                              </div>
-                              <!-- 姓名、職稱 -->
-                              <h3 class="fs-7 fs-md-6 text-secondary2 mb-1">麥克先生</h3>
-                              <p>未預約:  0</p>
-                              <p>請求中:  1</p>
-                            </a>
-                            <!-- link -->
-                          </div>
-                          <!--  課程區塊 -->
-                          <div class="flex-grow-1 px-8">
-                              <!-- 課程名稱 -->
-                              <div class="d-flex flex-md-row flex-column justify-content-md-between mb-md-0 mb-2">
-                                <h2 class="fs-6 fs-sm-5 fs-md-4 text-truncate mb-2">
-                                    從零開始成為切版大師
-                                </h2>
-                                <p>剩餘0堂</p>
-                              </div>
-                              <!-- 課程介紹 -->
-                              <div class="d-flex flex-md-row flex-column justify-content-md-between  mb-2 mb-md-4">
-                                <p class="fs-sm fs-sm-7 fs-md-6 text-justify mb-md-0 mb-4">
-                                    體驗20分鐘 x <span class="text-primary">1堂</span>
-                                </p>
-                                <div class="d-flex flex-md-row flex-column gap-2">
-                                    <select class="form-select border border-light" style="width: 150px;" disabled>
-                                        <option selected>2023/8/26</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </select>
-                                    <select class="form-select border border-light" style="width: 150px;" disabled>
-                                        <option selected>AM 09:00</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </select>
-                                    <button type="button" class="btn text-primary">修改</button>
-                                </div>
-                             </div>
-                          </div>
-                        </div>
-                        <!--  按鈕區塊 -->
-                        <div class="course-card-footer justify-content-center gap-2 gap-sm-6">
-                          <!-- 購買按鈕 -->
-                          <button type="button" class="btn btn-secondary2 w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4">
-                            即將上課
-                          </button>
-                          <a href="#" type="button" class="btn btn-white w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4">
-                            取消預約
-                          </a>
-                        </div>
-                    </li>
-                    <li></li>
-                    <li></li>
-                </ul>
-            </div>
-            <!-- 我的評價 (My Reviews)-->
-            <!-- 我的優惠券 (My Coupons)-->
-            <!-- 帳號設定 (Account Settings)-->
-            <!-- 我的關注 (My Followings)-->
+      <!-- 頁籤 -->
+      <nav class="mb-10">
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <!-- 我的課表 (Schedule) -->
+          <button
+            class="nav-link active"
+            id="nav-schedule-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#nav-schedule"
+            type="button"
+            role="tab"
+            aria-controls="nav-schedule"
+            aria-selected="true"
+          >
+            我的課表
+          </button>
+          <!-- 預約課程 (Booked Courses) -->
+          <button
+            class="nav-link"
+            id="nav-courses-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#nav-courses"
+            type="button"
+            role="tab"
+            aria-controls="nav-courses"
+            aria-selected="false"
+          >
+            預約課程
+          </button>
+          <!-- 課程管理 (Course Management) -->
+          <button
+            class="nav-link"
+            id="nav-course-management-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#nav-course-management"
+            type="button"
+            role="tab"
+            aria-controls="nav-course-management"
+            aria-selected="false"
+          >
+            課程管理
+          </button>
+
+          <!-- 我的評價 (My Reviews)-->
+          <!-- 我的優惠券 (My Coupons)-->
+          <button
+            class="nav-link"
+            id="nav-my-coupons-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#nav-my-coupons"
+            type="button"
+            role="tab"
+            aria-controls="nav-my-coupons"
+            aria-selected="false"
+          >
+            我的優惠券
+          </button>
+          <!-- 帳號設定 (Account Settings)-->
+          <!-- 我的關注 (My Followings)-->
         </div>
+      </nav>
+      <!-- 分頁內容 -->
+      <div class="tab-content" id="nav-tabContent">
+        <!-- 我的課表 (Schedule) -->
+        <div
+          class="tab-pane fade show active"
+          id="nav-schedule"
+          role="tabpanel"
+          aria-labelledby="nav-schedule-tab"
+        >
+          <div class="row">
+            <div class="col-md-2 col-12">
+              <h3 class="mb-4">學習紀錄</h3>
+              <ul class="d-flex flex-column gap-4 mb-10">
+                <li class="fs-5">
+                  上課總時數:<span class="text-secondary2 fw-bold"> 35.5 </span
+                  >小時
+                </li>
+                <li class="fs-5">
+                  上課頻率:<span class="text-secondary2 fw-bold"> 8 </span>次/月
+                </li>
+              </ul>
+              <h3 class="mb-4">上課狀態</h3>
+              <ul class="d-flex flex-column gap-4">
+                <li class="fs-5">
+                  預約數:<span class="text-secondary2 fw-bold"> 0 </span>
+                </li>
+                <li class="fs-5">
+                  未預約:<span class="text-secondary2 fw-bold"> 0 </span>
+                </li>
+                <li class="fs-5">
+                  已完成:<span class="text-secondary2 fw-bold"> 8 </span>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-9 offset-md-1 col-12">
+              <!-- data -->
+              <div class="d-flex flex-column align-items-center">
+                <div class="d-flex align-items-center gap-2 mb-5">
+                  <button
+                    type="button"
+                    class="btn border-light shadow d-flex align-items-center"
+                  >
+                    <span class="material-symbols-outlined">
+                      chevron_left
+                    </span>
+                  </button>
+                  <button
+                    type="button"
+                    class="btn border-light shadow d-flex align-items-center"
+                  >
+                    <span class="material-symbols-outlined">
+                      navigate_next
+                    </span>
+                  </button>
+                  <p>2023/08/20 ~ 26</p>
+                </div>
+                <!-- calendar -->
+                <ul class="calendar d-flex gap-3">
+                  <li class="calendar-list">
+                    <p class="text-center">日</p>
+                    <ul class="calendar-time">
+                      <li><a href="">08:00</a></li>
+                      <li><a href="">08:30</a></li>
+                      <li><a href="">09:00</a></li>
+                      <li><a href="">09:30</a></li>
+                      <li><a href="">10:00</a></li>
+                    </ul>
+                  </li>
+                  <li class="calendar-list">
+                    <p class="text-center">一</p>
+                  </li>
+                  <li class="calendar-list">
+                    <p class="text-center">二</p>
+                  </li>
+                  <li class="calendar-list">
+                    <p class="text-center">三</p>
+                  </li>
+                  <li class="calendar-list">
+                    <p class="text-center">四</p>
+                  </li>
+                  <li class="calendar-list">
+                    <p class="text-center">五</p>
+                  </li>
+                  <li class="calendar-list">
+                    <p class="text-center">六</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 預約課程 (Booked Courses) -->
+        <div
+          class="tab-pane fade"
+          id="nav-courses"
+          role="tabpanel"
+          aria-labelledby="nav-courses-tab"
+        >
+          <div class="row">
+            <div class="col-12 col-md-4 offset-md-1">
+              <h3 class="mb-4">瀏覽教師可預約時間</h3>
+              <ul class="d-flex flex-column g-0">
+                <li class="book-card active">
+                  <img src="../assets/images/Rectangle 7.png" alt="" />
+                  <div class="d-flex flex-column">
+                    <h4>Arron</h4>
+                    <p>1堂體驗課</p>
+                    <div class="d-flex gap-2">
+                      <p>未預約: 1</p>
+                      <p>請求中: 0</p>
+                    </div>
+                  </div>
+                </li>
+                <li class="book-card">
+                  <img src="../assets/images/Rectangle 8.png" alt="" />
+                  <div class="d-flex flex-column">
+                    <h4>貓咪</h4>
+                    <p>1堂體驗課</p>
+                    <div class="d-flex gap-2">
+                      <p>未預約: 1</p>
+                      <p>請求中: 0</p>
+                    </div>
+                  </div>
+                </li>
+                <li class="book-card">
+                  <img src="../assets/images/Rectangle 9.png" alt="" />
+                  <div class="d-flex flex-column">
+                    <h4>JaYu</h4>
+                    <p>1堂體驗課</p>
+                    <div class="d-flex gap-2">
+                      <p>未預約: 1</p>
+                      <p>請求中: 0</p>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="col-12 col-md-5 offset-md-1">
+              <!-- calendar -->
+              <div class="wrapper mb-10">
+                <header class="calendar-header">
+                  <p class="current-date"></p>
+                  <div class="icons">
+                    <span id="prev">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-caret-left-fill"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"
+                        />
+                      </svg>
+                    </span>
+
+                    <span id="next">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-caret-right-fill"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </header>
+
+                <div class="book-calendar">
+                  <ul class="weeks">
+                    <li>日</li>
+                    <li>一</li>
+                    <li>二</li>
+                    <li>三</li>
+                    <li>四</li>
+                    <li>五</li>
+                    <li>六</li>
+                  </ul>
+                  <ul class="days"></ul>
+                </div>
+              </div>
+              <hr />
+              <div class="col-md-10 offset-md-1 col-12 mt-10 mb-10">
+                <ul class="d-flex justify-content-between gap-2">
+                  <!-- 凌晨 -->
+                  <li class="d-flex flex-column align-items-center">
+                    <h4 class="mb-4">凌晨</h4>
+                    <ul>
+                      <li class="btn-time active">08:00</li>
+                      <li class="btn-time">00:30</li>
+                      <li class="btn-time">01:00</li>
+                    </ul>
+                  </li>
+                  <!-- 早上 -->
+                  <li class="d-flex flex-column align-items-center">
+                    <h4 class="mb-4">早上</h4>
+                    <ul>
+                      <li class="btn-time">12:00</li>
+                      <li class="btn-time">12:30</li>
+                    </ul>
+                  </li>
+                  <!-- 晚上 -->
+                  <li class="d-flex flex-column align-items-center">
+                    <h4 class="mb-4">晚上</h4>
+                    <ul>
+                      <li class="btn-time disable">22:00</li>
+                      <li class="btn-time disable">22:30</li>
+                      <li class="btn-time">23:00</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="d-flex flex-row-reverse">
+                <button type="button" class="btn btn-primary text-white">
+                  課時確認
+                </button>
+              </div>
+              <div class="col-md-10 offset-md-1 col-12 mt-10 mb-10">
+                <div class="border p-4">
+                  <ul class="d-flex flex-column gap-1 mb-0">
+                    <li>1. 選擇預約課程</li>
+                    <li>2. 選擇您的預約老師</li>
+                    <li>3. 選擇您的上課日期（空心為老師有開課的時間）</li>
+                    <li>4. 灰色：當日老師已經被學生預約的時間</li>
+                    <li>5. 空心：當日可預約上課的時間</li>
+                    <li>6. 實心：當日您預約的上課時間</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 課程管理 (Course Management) -->
+        <div
+          class="tab-pane fade"
+          id="nav-course-management"
+          role="tabpanel"
+          aria-labelledby="nav-course-management-tab"
+        >
+          <ul>
+            <li class="course-card shadow">
+              <!--  老師區塊 -->
+              <div class="d-flex flex-grow-1 p-3 p-sm-4 align-items-center">
+                <div class="course-card-header me-4">
+                  <a href="#" class="text-center">
+                    <!-- 圖 -->
+                    <div class="mb-2">
+                      <img
+                        class="avatar"
+                        src="../assets/images/Rectangle 7.png"
+                        alt="teacher"
+                      />
+                    </div>
+                    <!-- 姓名、職稱 -->
+                    <h3 class="fs-7 fs-md-6 text-secondary2 mb-1">麥克先生</h3>
+                    <p>未預約: 0</p>
+                    <p>請求中: 1</p>
+                  </a>
+                  <!-- link -->
+                </div>
+                <!--  課程區塊 -->
+                <div class="flex-grow-1 px-8">
+                  <!-- 課程名稱 -->
+                  <div
+                    class="d-flex flex-md-row flex-column justify-content-md-between mb-md-0 mb-2"
+                  >
+                    <h2 class="fs-6 fs-sm-5 fs-md-4 text-truncate mb-2">
+                      從零開始成為切版大師
+                    </h2>
+                    <p>剩餘0堂</p>
+                  </div>
+                  <!-- 課程介紹 -->
+                  <div
+                    class="d-flex flex-md-row flex-column justify-content-md-between mb-2 mb-md-4"
+                  >
+                    <p class="fs-sm fs-sm-7 fs-md-6 text-justify mb-md-0 mb-4">
+                      體驗20分鐘 x <span class="text-primary">1堂</span>
+                    </p>
+                    <div class="d-flex flex-md-row flex-column gap-2">
+                      <select
+                        class="form-select border border-light"
+                        style="width: 150px"
+                        disabled
+                      >
+                        <option selected>2023/8/26</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                      <select
+                        class="form-select border border-light"
+                        style="width: 150px"
+                        disabled
+                      >
+                        <option selected>AM 09:00</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                      <button type="button" class="btn text-primary">
+                        修改
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--  按鈕區塊 -->
+              <div
+                class="course-card-footer justify-content-center gap-2 gap-sm-6"
+              >
+                <!-- 購買按鈕 -->
+                <button
+                  type="button"
+                  class="btn btn-secondary2 w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
+                >
+                  即將上課
+                </button>
+                <a
+                  href="#"
+                  type="button"
+                  class="btn btn-white w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
+                >
+                  取消預約
+                </a>
+              </div>
+            </li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+        <!-- 我的評價 (My Reviews)-->
+        <!-- 我的優惠券 (My Coupons)-->
+        <div
+          class="tab-pane fade"
+          id="nav-my-coupons"
+          role="tabpanel"
+          aria-labelledby="nav-my-coupons-tab"
+        >
+          <!-- 優惠券 -->
+          <ul class="row row-cols-1 row-cols-lg-2 g-6">
+            <!-- 優惠券1 -->
+            <li class="col drop-shadow">
+              <div class="card border-x-wave h-100">
+                <div class="row g-0 h-100">
+                  <div class="col-3 d-flex align-items-center bg-gray-300 p-4">
+                    <img
+                      src="../assets/images/Rectangle 7.png"
+                      class="img-fluid w-100 rounded-circle img-thumbnail border-0"
+                      alt="logo"
+                      style="text-shadow: black 0.1em 0.1em 0.2em"
+                    />
+                  </div>
+                  <div class="col-6">
+                    <div class="card-body h-100 d-flex flex-column">
+                      <h5 class="card-title fs-7 fs-sm-5 mb-2 mb-sm-4">
+                        體驗價 - 從零開始成為切版大師
+                      </h5>
+                      <p class="card-text fs-sm fs-sm-7 mb-3 flex-grow-1">
+                        20 分鐘體驗課特價 $ 600
+                      </p>
+                      <p class="card-text">
+                        <small
+                          class="text-body-secondary d-flex align-items-center"
+                          ><span class="material-symbols-outlined me-1">
+                            update </span
+                          >2023.07.25 失效</small
+                        >
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-3 d-flex align-items-center pe-4">
+                    <a
+                      href="course_introduction.html"
+                      class="btn btn-secondary2 px-1 px-sm-4 w-100"
+                      >馬上使用</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </li>
+            <!-- 優惠券2 -->
+            <li class="col drop-shadow">
+              <div class="card border-x-wave h-100">
+                <div class="row g-0 h-100">
+                  <div class="col-3 d-flex align-items-center bg-primary p-4">
+                    <img
+                      src="../assets/images/logo-img.svg"
+                      class="img-fluid w-100 rounded-circle img-thumbnail border-0"
+                      alt="logo"
+                      style="text-shadow: black 0.1em 0.1em 0.2em"
+                    />
+                  </div>
+                  <div class="col-6">
+                    <div class="card-body h-100 d-flex flex-column">
+                      <h5 class="card-title fs-7 fs-sm-5 mb-2 mb-sm-4">
+                        課程 9.2 折
+                      </h5>
+                      <p class="card-text fs-sm fs-sm-7 mb-3 flex-grow-1">
+                        低消 $ 2,000 ，最高折抵 $ 5000
+                      </p>
+                      <p class="card-text">
+                        <small
+                          class="text-body-secondary d-flex align-items-center"
+                          ><span class="material-symbols-outlined me-1">
+                            update </span
+                          >2023.07.25 失效</small
+                        >
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-3 d-flex align-items-center pe-4">
+                    <a
+                      href="course.html"
+                      class="btn btn-secondary2 px-1 px-sm-4 w-100"
+                      >馬上使用</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </li>
+            <!-- 優惠券3 -->
+            <li class="col drop-shadow">
+              <div class="card border-x-wave h-100">
+                <div class="row g-0 h-100">
+                  <div class="col-3 d-flex align-items-center bg-gray-300 p-4">
+                    <img
+                      src="../assets/images/Rectangle 9.png"
+                      class="img-fluid w-100 rounded-circle img-thumbnail border-0"
+                      alt="logo"
+                      style="text-shadow: black 0.1em 0.1em 0.2em"
+                    />
+                  </div>
+                  <div class="col-6">
+                    <div class="card-body h-100 d-flex flex-column">
+                      <h5 class="card-title fs-7 fs-sm-5 mb-2 mb-sm-4">
+                        體驗價 - Python 全攻略
+                      </h5>
+                      <p class="card-text fs-sm fs-sm-7 mb-3 flex-grow-1">
+                        20 分鐘體驗課特價 $ 700
+                      </p>
+                      <p class="card-text">
+                        <small
+                          class="text-body-secondary d-flex align-items-center"
+                          ><span class="material-symbols-outlined me-1">
+                            update </span
+                          >2023.07.25 失效</small
+                        >
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-3 d-flex align-items-center pe-4">
+                    <a
+                      href="course_introduction.html"
+                      class="btn btn-secondary2 px-1 px-sm-4 w-100"
+                      >馬上使用</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </li>
+            <!-- 優惠券4 -->
+            <li class="col drop-shadow">
+              <div class="card border-x-wave h-100">
+                <div class="row g-0 h-100">
+                  <div class="col-3 d-flex align-items-center bg-primary p-4">
+                    <img
+                      src="../assets/images/logo-img.svg"
+                      class="img-fluid w-100 rounded-circle img-thumbnail border-0"
+                      alt="logo"
+                      style="text-shadow: black 0.1em 0.1em 0.2em"
+                    />
+                  </div>
+                  <div class="col-6">
+                    <div class="card-body h-100 d-flex flex-column">
+                      <h5 class="card-title fs-7 fs-sm-5 mb-2 mb-sm-4">
+                        課程 8.0 折
+                      </h5>
+                      <p class="card-text fs-sm fs-sm-7 mb-3 flex-grow-1">
+                        低消 $ 2,000 ，最高折抵 $ 4,000
+                      </p>
+                      <p class="card-text">
+                        <small
+                          class="text-body-secondary d-flex align-items-center"
+                          ><span class="material-symbols-outlined me-1">
+                            update </span
+                          >2023.07.25 失效</small
+                        >
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-3 d-flex align-items-center pe-4">
+                    <a
+                      href="course.html"
+                      class="btn btn-secondary2 px-1 px-sm-4 w-100"
+                      >馬上使用</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 帳號設定 (Account Settings)-->
+        <!-- 我的關注 (My Followings)-->
+      </div>
     </div>
     <%- include('./layout/footer'); -%>
     <script type="module" src="../main.js"></script>
     <script src="../assets/js/calendar.js"></script>
-</body>
+  </body>
 </html>
