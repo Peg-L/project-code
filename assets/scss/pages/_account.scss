@@ -1,5 +1,5 @@
 .bg-account{
-    background-image: url('../../../assets/images/background.jpg');
+    background-image: url(/project-code/assets/images/bg-gray-dot.jpg);
     height: 148px;
     background-size: cover;
     position: relative;
@@ -151,4 +151,10 @@
 .btn-time.disable{
     background: $gray-200;
     cursor: not-allowed;
+}
+.show{
+    display: block !important;
+}
+.hidden{
+    display: none !important;
 }

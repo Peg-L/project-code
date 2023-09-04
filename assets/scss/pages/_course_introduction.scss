@@ -150,7 +150,7 @@
     &::before{
         content:"";
         position: absolute;
-        background-image: url("../../../assets/images/”.svg");
+        background-image: url(/project-code/assets/images/”.svg);
         background-repeat: no-repeat;
         background-size: cover;
         width: 40px;
@@ -160,7 +160,7 @@
     }
 }
 .bg-custom{
-    background-image: url('../../../assets/images/background.jpg');
+    background-image: url(/project-code/assets/images/bg-gray-dot.jpg);
     height: 600px;
     background-size: cover;
 }

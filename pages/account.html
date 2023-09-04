@@ -107,28 +107,20 @@
             </div>
             <div class="col-md-9 offset-md-1 col-12">
               <!-- data -->
-              <div class="d-flex flex-column align-items-center">
-                <div class="d-flex align-items-center gap-2 mb-5">
-                  <button
-                    type="button"
-                    class="btn border-light shadow d-flex align-items-center"
-                  >
-                    <span class="material-symbols-outlined">
-                      chevron_left
-                    </span>
-                  </button>
-                  <button
-                    type="button"
-                    class="btn border-light shadow d-flex align-items-center"
-                  >
-                    <span class="material-symbols-outlined">
-                      navigate_next
-                    </span>
-                  </button>
-                  <p>2023/08/20 ~ 26</p>
-                </div>
+              <div class="d-flex flex-column align-items-center justify-content-center">
+                <div class="d-flex align-items-center justify-content-around mb-4 gap-4">
+                  <button type="button" class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 btn-week">
+                  <span class="material-symbols-outlined">
+                  chevron_left
+                  </span></button>
+                  <p class="">2023/08/20 ~ 26</p>
+                  <button type="button" class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 btn-week">
+                  <span class="material-symbols-outlined">
+                  navigate_next
+                  </span></button>
+              </div>
                 <!-- calendar -->
-                <ul class="calendar d-flex gap-3">
+                <ul class="calendar d-flex justify-content-center gap-3">
                   <li class="calendar-list">
                     <p class="text-center">日</p>
                     <ul class="calendar-time">
@@ -317,7 +309,7 @@
           role="tabpanel"
           aria-labelledby="nav-course-management-tab"
         >
-          <ul>
+          <ul class="d-flex flex-column gap-4">
             <li class="course-card shadow">
               <!--  老師區塊 -->
               <div class="d-flex flex-grow-1 p-3 p-sm-4 align-items-center">
@@ -360,6 +352,7 @@
                       <select
                         class="form-select border border-light"
                         style="width: 150px"
+                        id="date"
                         disabled
                       >
                         <option selected>2023/8/26</option>
@@ -370,6 +363,7 @@
                       <select
                         class="form-select border border-light"
                         style="width: 150px"
+                        id="time"
                         disabled
                       >
                         <option selected>AM 09:00</option>
@@ -377,7 +371,12 @@
                         <option value="2">Two</option>
                         <option value="3">Three</option>
                       </select>
-                      <button type="button" class="btn text-primary">
+                      <button type="button" class="btn text-primary" 
+                      data-bs-toggle="collapse" 
+                      data-bs-target="#save0"
+                      aria-expanded="false" 
+                      aria-controls="save0" 
+                      id="change">
                         修改
                       </button>
                     </div>
@@ -385,15 +384,13 @@
                 </div>
               </div>
               <!--  按鈕區塊 -->
-              <div
-                class="course-card-footer justify-content-center gap-2 gap-sm-6"
-              >
+              <div class="course-card-footer d-flex flex-lg-row justify-content-center gap-2 gap-sm-6 p-4  bg-secondary" id="btnBlock">
                 <!-- 購買按鈕 -->
                 <button
                   type="button"
                   class="btn btn-secondary2 w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
-                >
-                  即將上課
+                disabled>
+                  等待確認中
                 </button>
                 <a
                   href="#"
@@ -403,9 +400,142 @@
                   取消預約
                 </a>
               </div>
+              <div class="collapse course-card-footer p-4 bg-secondary" id="save0">
+                <a
+                  href="#"
+                  type="button"
+                  class="btn btn-white w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
+                  data-bs-toggle="collapse" 
+                  data-bs-target="#save0"
+                  aria-expanded="false" 
+                  aria-controls="save0"
+                  id="saveBtn">
+                  儲存
+                </a>
+              </div>
             </li>
-            <li></li>
-            <li></li>
+            <li class="course-card shadow">
+              <!--  老師區塊 -->
+              <div class="d-flex flex-grow-1 p-3 p-sm-4 align-items-center">
+                <div class="course-card-header me-4">
+                  <a href="#" class="text-center">
+                    <!-- 圖 -->
+                    <div class="mb-2">
+                      <img class="avatar" src="../assets/images/Rectangle 8.png" alt="teacher">
+                    </div>
+                    <!-- 姓名、職稱 -->
+                    <h3 class="fs-7 fs-md-6 text-secondary2 mb-1">榮哥</h3>
+                    <p>未預約: 0</p>
+                    <p>請求中: 1</p>
+                  </a>
+                  <!-- link -->
+                </div>
+                <!--  課程區塊 -->
+                <div class="flex-grow-1 px-8">
+                  <!-- 課程名稱 -->
+                  <div class="d-flex flex-md-row flex-column justify-content-md-between mb-md-0 mb-2">
+                    <h2 class="fs-6 fs-sm-5 fs-md-4 line-ellipsis mb-2">
+                      一起打造你的前端職涯
+                    </h2>
+                    <p>剩餘0堂</p>
+                  </div>
+                  <!-- 課程介紹 -->
+                  <div class="d-flex flex-md-row flex-column justify-content-md-between mb-2 mb-md-4">
+                    <p class="fs-sm fs-sm-7 fs-md-6 text-justify mb-md-0 mb-4">
+                      體驗20分鐘 x <span class="text-primary">1堂</span>
+                    </p>
+                    <div class="d-flex flex-md-row flex-column gap-2">
+                      <select class="form-select border border-light" style="width: 150px" id="date" disabled>
+                        <option selected="">2023/8/26</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                      <select class="form-select border border-light" style="width: 150px" id="time" disabled>
+                        <option selected="">AM 09:00</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                      <button type="button" class="btn text-primary" id="change">
+                        修改
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--  按鈕區塊 -->
+              <div class="course-card-footer d-flex flex-lg-row justify-content-center gap-2 gap-sm-6 p-4  bg-secondary" id="btnBlock">
+                <!-- 購買按鈕 -->
+                <button type="button" class="btn btn-secondary2 w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4">
+                  即將上課
+                </button>
+                <a href="#" type="button" class="btn btn-white w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4">
+                  取消預約
+                </a>
+              </div>
+            </li>
+            <li class="course-card shadow">
+              <!--  老師區塊 -->
+              <div class="d-flex flex-grow-1 p-3 p-sm-4 align-items-center">
+                <div class="course-card-header me-4">
+                  <a href="#" class="text-center">
+                    <!-- 圖 -->
+                    <div class="mb-2">
+                      <img class="avatar" src="../assets/images/Rectangle 9.png" alt="teacher">
+                    </div>
+                    <!-- 姓名、職稱 -->
+                    <h3 class="fs-7 fs-md-6 text-secondary2 mb-1">艾莉絲</h3>
+                    <p>未預約: 0</p>
+                    <p>請求中: 1</p>
+                  </a>
+                  <!-- link -->
+                </div>
+                <!--  課程區塊 -->
+                <div class="flex-grow-1 px-8">
+                  <!-- 課程名稱 -->
+                  <div class="d-flex flex-md-row flex-column justify-content-md-between mb-md-0 mb-2">
+                    <h2 class="fs-6 fs-sm-5 fs-md-4 line-ellipsis mb-2">
+                      Python 全攻略
+                    </h2>
+                    <p>剩餘0堂</p>
+                  </div>
+                  <!-- 課程介紹 -->
+                  <div class="d-flex flex-md-row flex-column justify-content-md-between mb-2 mb-md-4">
+                    <p class="fs-sm fs-sm-7 fs-md-6 text-justify mb-md-0 mb-4">
+                      體驗20分鐘 x <span class="text-primary">1堂</span>
+                    </p>
+                    <div class="d-flex flex-md-row flex-column gap-2">
+                      <select class="form-select border border-light" style="width: 150px" id="date" disabled>
+                        <option selected="">2023/8/26</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                      <select class="form-select border border-light" style="width: 150px" id="time" disabled>
+                        <option selected="">AM 09:00</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                      <button type="button" class="btn text-primary" id="change">
+                        修改
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--  按鈕區塊 -->
+              <div class="course-card-footer d-flex flex-lg-row justify-content-center gap-2 gap-sm-6 p-4 bg-secondary" id="btnBlock">
+                <!-- 購買按鈕 -->
+                <button type="button" class="btn btn-secondary2 w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4">
+                  即將上課
+                </button>
+                <a href="#" type="button" class="btn btn-white w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4">
+                  取消預約
+                </a>
+              </div>
+            </li>
           </ul>
         </div>
         <!-- 我的評價 (My Reviews)-->
@@ -417,5 +547,6 @@
     <%- include('./layout/footer'); -%>
     <script type="module" src="../main.js"></script>
     <script src="../assets/js/calendar.js"></script>
+    <script src="../assets/js/account.js"></script>
   </body>
 </html>
