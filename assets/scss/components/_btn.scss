@@ -88,3 +88,19 @@
     color: $primary !important;
   }
 }
+
+.btn-outline-primary{
+  border: 2px solid $primary;
+  background-color: $white ;
+  transition: all 0.3s;
+  &.show, &:hover, &:active, &:focus-visible{
+    background-color: $white !important;
+    border-color: $secondary2 !important;
+    color: $secondary2 !important;
+  }
+  &:disabled{
+    background-color: $white !important;
+    border-color: $gray-300 !important;
+    color: $gray-300 !important;
+  }
+}

@@ -37,7 +37,7 @@
 .calendar-list{
     display: flex;
     flex-direction: column;
-    width: 14%;
+    width: 10%;
     gap:8px;
     padding-top: 8px;
     border-top: 4px solid $primary;
@@ -75,6 +75,31 @@
         }
         
     }
+}
+@media (max-width:769px){
+    .calendar-time{
+        li{
+            &:hover{
+                &::before{
+                    display: none;
+                }
+            }
+        }
+    }
+    
+}
+@media (max-width:375px){
+    .calendar-time{
+        li{
+            &:hover{
+                outline: 0;
+            }
+        }
+        a{
+            font-size: 8px;
+        }
+    }
+    
 }
 .circle .circle-text{
     font-size: 16px;
