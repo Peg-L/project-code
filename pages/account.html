@@ -81,6 +81,18 @@
           </button>
           <!-- 帳號設定 (Account Settings)-->
           <!-- 我的關注 (My Followings)-->
+          <button
+            class="nav-link"
+            id="nav-my-following-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#nav-my-following"
+            type="button"
+            role="tab"
+            aria-controls="nav-my-following"
+            aria-selected="false"
+          >
+            我的關注
+          </button>
         </div>
       </nav>
       <!-- 分頁內容 -->
@@ -595,6 +607,133 @@
 
         <!-- 帳號設定 (Account Settings)-->
         <!-- 我的關注 (My Followings)-->
+        <div
+          class="tab-pane fade"
+          id="nav-my-following"
+          role="tabpanel"
+          aria-labelledby="nav-my-following-tab"
+        >
+          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-6">
+            <div class="col">
+              <div class="teacher-card position-relative">
+                <button
+                  type="button"
+                  class="btn p-3 text-center align-self-start position-absolute top-0 end-0"
+                >
+                  <i
+                    class="fa-regular fa-heart fs-4 text-primary hover-bold"
+                  ></i>
+                </button>
+                <div class="teacher-card-profile">
+                  <div class="teacher-card-content">
+                    <h3 class="teacher-card-title">JavaScript 大師</h3>
+                    <p class="teacher-card-name">麥克先生</p>
+                    <ul class="teacher-card-object">
+                      <!-- 評價 -->
+                      <li class="teacher-card-evaluate">5.0</li>
+                      <!-- 時數 -->
+                      <li class="teacher-card-hours">50分鐘</li>
+                    </ul>
+                    <p class="teacher-card-price">NT$<span>800</span></p>
+                  </div>
+                  <div class="teacher-card-img">
+                    <img
+                      src="../assets/images/Rectangle 7.png"
+                      alt=""
+                      class=""
+                    />
+                  </div>
+                </div>
+                <p class="teacher-card-text">
+                  一起探索 JavaScript
+                  更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...
+                </p>
+                <button type="button" class="btn btn-secondary2 w-100 mb-3">
+                  立即上課
+                </button>
+                <a type="button" class="btn teacher-card-btn">查看介紹</a>
+              </div>
+            </div>
+            <div class="col">
+              <div class="teacher-card position-relative">
+                <button
+                  type="button"
+                  class="btn p-3 text-center align-self-start position-absolute top-0 end-0"
+                >
+                  <i
+                    class="fa-regular fa-heart fs-4 text-primary hover-bold"
+                  ></i>
+                </button>
+                <div class="teacher-card-profile">
+                  <div class="teacher-card-content">
+                    <h3 class="teacher-card-title">一起打造你的前端職涯</h3>
+                    <p class="teacher-card-name">Peggy 阿榮</p>
+                    <ul class="teacher-card-object">
+                      <!-- 評價 -->
+                      <li class="teacher-card-evaluate">5.0</li>
+                      <!-- 時數 -->
+                      <li class="teacher-card-hours">50分鐘</li>
+                    </ul>
+                    <p class="teacher-card-price">NT$<span>750</span></p>
+                  </div>
+                  <div class="teacher-card-img">
+                    <img
+                      src="../assets/images/Rectangle 8.png"
+                      alt=""
+                      class=""
+                    />
+                  </div>
+                </div>
+                <p class="teacher-card-text">
+                  我是一名資深前端工程師，擁有豐富的業界經驗。透過和我的諮詢幫助你擬定成功的職業規劃
+                </p>
+                <button type="button" class="btn btn-secondary2 w-100 mb-3">
+                  立即上課
+                </button>
+                <a type="button" class="btn teacher-card-btn">查看介紹</a>
+              </div>
+            </div>
+            <div class="col">
+              <div class="teacher-card position-relative">
+                <button
+                  type="button"
+                  class="btn p-3 text-center align-self-start position-absolute top-0 end-0"
+                >
+                  <i
+                    class="fa-regular fa-heart fs-4 text-primary hover-bold"
+                  ></i>
+                </button>
+                <div class="teacher-card-profile">
+                  <div class="teacher-card-content">
+                    <h3 class="teacher-card-title">Python 全攻略</h3>
+                    <p class="teacher-card-name">Python 專家艾莉絲</p>
+                    <ul class="teacher-card-object">
+                      <!-- 評價 -->
+                      <li class="teacher-card-evaluate">5.0</li>
+                      <!-- 時數 -->
+                      <li class="teacher-card-hours">50分鐘</li>
+                    </ul>
+                    <p class="teacher-card-price">NT$<span>1000</span></p>
+                  </div>
+                  <div class="teacher-card-img">
+                    <img
+                      src="../assets/images/Rectangle 9.png"
+                      alt=""
+                      class=""
+                    />
+                  </div>
+                </div>
+                <p class="teacher-card-text">
+                  沒有公版講義，也不用花錢買書。我會根據你的程度客製化屬於你的課程…
+                </p>
+                <button type="button" class="btn btn-secondary2 w-100 mb-3">
+                  立即上課
+                </button>
+                <a type="button" class="btn teacher-card-btn">查看介紹</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <%- include('./layout/footer'); -%>
