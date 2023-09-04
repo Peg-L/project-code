@@ -38,65 +38,116 @@
             <!-- 我的課表 (Schedule) -->
             <div class="tab-pane fade show active" id="nav-schedule" role="tabpanel" aria-labelledby="nav-schedule-tab">
                 <div class="row">
-                    <div class="col-md-2 col-12">
-                        <h3 class="mb-4">學習紀錄</h3>
-                        <ul class="d-flex flex-column gap-4 mb-10">
-                            <li class="fs-5">上課總時數:<span class="text-secondary2 fw-bold"> 35.5 </span>小時</li>
-                            <li class="fs-5">上課頻率:<span class="text-secondary2 fw-bold"> 8 </span>次/月</li>
-                        </ul>
-                        <h3 class="mb-4">上課狀態</h3>
-                        <ul class="d-flex flex-column gap-4">
-                            <li class="fs-5">預約數:<span class="text-secondary2 fw-bold"> 0 </span></li>
-                            <li class="fs-5">未預約:<span class="text-secondary2 fw-bold"> 0 </span></li>
-                            <li class="fs-5">已完成:<span class="text-secondary2 fw-bold"> 8 </span></li>
-                        </ul>
+                    <div class="col-lg-2 col-12 mb-4 mb-lg-0">
+                        <div class="row">
+                            <div class="col-6 col-lg-12 text-lg-start text-center">
+                                <h3 class="mb-4">學習紀錄</h3>
+                                <ul class="d-flex flex-column gap-4 mb-10">
+                                    <li class="fs-5">上課總時數:<span class="text-secondary2 fw-bold"> 35.5 </span>小時</li>
+                                    <li class="fs-5">上課頻率:<span class="text-secondary2 fw-bold"> 8 </span>次/月</li>
+                                </ul>
+                            </div>
+                            <div class="col-6 col-lg-12 text-lg-start text-center">
+                                <h3 class="mb-4">上課狀態</h3>
+                                <ul class="d-flex flex-column gap-4">
+                                    <li class="fs-5">預約數:<span class="text-secondary2 fw-bold"> 0 </span></li>
+                                    <li class="fs-5">未預約:<span class="text-secondary2 fw-bold"> 0 </span></li>
+                                    <li class="fs-5">已完成:<span class="text-secondary2 fw-bold"> 8 </span></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-9 offset-md-1 col-12">
+                    <div class="col-lg-9 offset-lg-1 col-12">
                         <!-- data -->
                         <div class="d-flex flex-column align-items-center">
-                            <div class="d-flex align-items-center gap-2 mb-5">
-                                <button type="button" class="btn border-light shadow d-flex align-items-center">
-                                <span class="material-symbols-outlined">
-                                chevron_left
-                                </span></button>
-                            <button type="button" class="btn border-light shadow d-flex align-items-center">
-                                <span class="material-symbols-outlined">
-                                navigate_next
-                                </span></button>
-                            <p> 2023/08/20 ~ 26</p>
-                            </div>
-                            <!-- calendar -->
-                            <ul class="calendar d-flex gap-3">
-                                <li class="calendar-list">
-                                    <p class="text-center">日</p>
-                                    <ul class="calendar-time">
-                                        <li><a href="">08:00</a></li>
-                                        <li><a href="">08:30</a></li>
-                                        <li><a href="">09:00</a></li>
-                                        <li><a href="">09:30</a></li>
-                                        <li><a href="">10:00</a></li>
-                                    </ul>
-                                </li>
-                                <li class="calendar-list">
-                                    <p class="text-center">一</p>
-                                </li>
-                                <li class="calendar-list">
-                                    <p class="text-center">二</p>
-                                </li>
-                                <li class="calendar-list">
-                                    <p class="text-center">三</p>
-                                </li>
-                                <li class="calendar-list">
-                                    <p class="text-center">四</p>
-                                </li>
-                                <li class="calendar-list">
-                                    <p class="text-center">五</p>
-                                </li>
-                                <li class="calendar-list">
-                                    <p class="text-center">六</p>
-                                </li>
-                                
+                            <!-- data -->
+                    <div class="d-flex align-items-center gap-4 justify-content-around mb-4">
+                        <button type="button" class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 btn-week">
+                        <span class="material-symbols-outlined">
+                        chevron_left
+                        </span></button>
+                        <p class=""> 2023/08/20 ~ 26</p>
+                        <button type="button" class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 btn-week">
+                        <span class="material-symbols-outlined">
+                        navigate_next
+                        </span></button>
+                    </div>
+                    <!-- calendar -->
+                    <ul class="calendar d-flex gap-1 justify-content-between flex-lg-nowrap flex-wrap">
+                        <li class="calendar-list">
+                            <p class="text-center">日</p>
+                            <ul class="calendar-time">
+                                <li class=""><a href="" class=" text-primary ">08:00</a></li>
+                                <li><a href="">08:30</a></li>
+                                <li><a href="">09:00</a></li>
+                                <li><a href="">09:30</a></li>
+                                <li><a href="">10:00</a></li>
                             </ul>
+                        </li>
+                        <li class="calendar-list">
+                            <p class="text-center">一</p>
+                            <ul class="calendar-time">
+                                <li class=""><a href="" class=" text-primary ">08:00</a></li>
+                                <li><a href="">08:30</a></li>
+                                <li><a href="">09:00</a></li>
+                                <li><a href="">09:30</a></li>
+                                <li><a href="">10:00</a></li>
+                            </ul>
+                        </li>
+                        <li class="calendar-list">
+                            <p class="text-center">二</p>
+                            <ul class="calendar-time">
+                                <li class=""><a href="" class=" text-primary ">08:00</a></li>
+                                <li><a href="">08:30</a></li>
+                                <li><a href="">09:00</a></li>
+                                <li><a href="">09:30</a></li>
+                                <li><a href="">10:00</a></li>
+                            </ul>
+                        </li>
+                        <li class="calendar-list">
+                            <p class="text-center">三</p>
+                            <ul class="calendar-time">
+                                <li class=""><a href="" class=" text-primary ">08:00</a></li>
+                                <li><a href="">08:30</a></li>
+                                <li><a href="">09:00</a></li>
+                                <li><a href="">09:30</a></li>
+                                <li><a href="">10:00</a></li>
+                            </ul>
+                        </li>
+                        <li class="calendar-list">
+                            <p class="text-center">四</p>
+                            <ul class="calendar-time">
+                                <li class=""><a href="" class=" text-primary ">08:00</a></li>
+                                <li><a href="">08:30</a></li>
+                                <li><a href="">09:00</a></li>
+                                <li><a href="" class=" text-primary ">09:30</a></li>
+                                <li><a href="" class=" text-primary ">10:00</a></li>
+                            </ul>
+                        </li>
+                        <li class="calendar-list">
+                            <p class="text-center">五</p>
+                            <ul class="calendar-time">
+                                <li class=""><a href="" class=" text-primary ">08:00</a></li>
+                                <li><a href="">08:30</a></li>
+                                <li><a href="">09:00</a></li>
+                                <li><a href="">09:30</a></li>
+                                <li><a href="">10:00</a></li>
+                                <li><a href="">10:30</a></li>
+                                <li><a href="" class=" text-primary fw-bold">11:00</a></li>
+                                <li><a href="" class=" text-primary fw-bold">11:30</a></li>
+                            </ul>
+                        </li>
+                        <li class="calendar-list">
+                            <p class="text-center">六</p>
+                            <ul class="calendar-time">
+                                <li class=""><a href="" class=" text-primary ">08:00</a></li>
+                                <li><a href="">08:30</a></li>
+                                <li><a href="">09:00</a></li>
+                                <li><a href="">09:30</a></li>
+                                <li><a href="">10:00</a></li>
+                            </ul>
+                        </li>   
+                    </ul>
                         </div>
                         
                     </div>
@@ -105,7 +156,7 @@
             <!-- 預約課程 (Booked Courses) -->
             <div class="tab-pane fade" id="nav-courses" role="tabpanel" aria-labelledby="nav-courses-tab">
                 <div class="row">
-                    <div class="col-12 col-md-4  offset-md-1">
+                    <div class="col-12 col-lg-4  offset-lg-1">
                         <h3 class="mb-4">瀏覽教師可預約時間</h3>
                         <ul class="d-flex flex-column g-0">
                             <li class="book-card active">
@@ -143,7 +194,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="col-12 col-md-5 offset-md-1">
+                    <div class="col-12 col-lg-5 offset-lg-1">
                         <!-- calendar -->
                         <div class="wrapper mb-10">
                             <header class="calendar-header">
@@ -177,8 +228,8 @@
                             </div>
                         </div>
                         <hr>
-                        <div class="col-md-10 offset-md-1 col-12 mt-10 mb-10">
-                            <ul class="d-flex justify-content-between gap-2">
+                        <div class="col-lg-10 offset-lg-1 col-12 mt-10 mb-10">
+                            <ul class="d-flex justify-content-lg-between justify-content-center gap-lg-0 gap-4">
                                 <!-- 凌晨 -->
                                 <li class="d-flex flex-column align-items-center">
                                     <h4 class="mb-4">凌晨</h4>
@@ -226,7 +277,7 @@
                         <div class="d-flex flex-row-reverse">
                             <button type="button" class="btn btn-primary text-white">課時確認</button>
                         </div>
-                        <div class="col-md-10 offset-md-1 col-12 mt-10 mb-10">
+                        <div class="col-lg-10 offset-lg-1 col-12 mt-10 mb-10">
                             <div class="border p-4">
                                 <ul class="d-flex flex-column gap-1 mb-0">
                                     <li>1. 選擇預約課程</li>
@@ -246,35 +297,48 @@
                 <ul>
                     <li class="course-card shadow">
                         <!--  老師區塊 -->
-                        <div class="d-flex flex-grow-1 p-3 p-sm-4 align-items-center">
-                          <div class="course-card-header me-4">
+                        <div class="d-flex flex-grow-1 flex-lg-row flex-column p-3 p-sm-4 align-items-center">
+                          <div class="course-card-header me-lg-4 me-0 mb-4">
                             <a href="#" class="text-center">
                               <!-- 圖 -->
                               <div class="mb-2">
                                 <img class="avatar" src="../assets/images/Rectangle 7.png" alt="teacher">
                               </div>
                               <!-- 姓名、職稱 -->
-                              <h3 class="fs-7 fs-md-6 text-secondary2 mb-1">麥克先生</h3>
-                              <p>未預約:  0</p>
-                              <p>請求中:  1</p>
+                              <h3 class="fs-7 fs-lg-6 text-secondary2 mb-1">麥克先生</h3>
+                              <div class="d-flex flex-lg-column flex-row gap-lg-0 gap-2">
+                                <p>未預約:  0</p>
+                                <p>請求中:  1</p>
+                             </div>
+                              
                             </a>
                             <!-- link -->
                           </div>
                           <!--  課程區塊 -->
-                          <div class="flex-grow-1 px-8">
+                          <div class="flex-grow-1 px-lg-8">
                               <!-- 課程名稱 -->
                               <div class="d-flex flex-md-row flex-column justify-content-md-between mb-md-0 mb-2">
                                 <h2 class="fs-6 fs-sm-5 fs-md-4 text-truncate mb-2">
                                     從零開始成為切版大師
                                 </h2>
                                 <p>剩餘0堂</p>
+                                <!-- 購買按鈕 -->
+                                <div class="d-flex">
+                                    <button type="button" class="btn btn-secondary2  fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4">
+                                        即將上課
+                                      </button>
+                                      <a href="#" type="button" class="btn btn-white fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4">
+                                        取消預約
+                                      </a>
+                                </div>
+                          
                               </div>
                               <!-- 課程介紹 -->
-                              <div class="d-flex flex-md-row flex-column justify-content-md-between  mb-2 mb-md-4">
-                                <p class="fs-sm fs-sm-7 fs-md-6 text-justify mb-md-0 mb-4">
+                              <div class="d-flex flex-lg-row flex-column align-items-center justify-content-lg-between">
+                                <p class="fs-sm fs-sm-7 fs-lg-6 text-justify">
                                     體驗20分鐘 x <span class="text-primary">1堂</span>
                                 </p>
-                                <div class="d-flex flex-md-row flex-column gap-2">
+                                <div class="d-flex flex-lg-row flex-column gap-2">
                                     <select class="form-select border border-light" style="width: 150px;" disabled>
                                         <option selected>2023/8/26</option>
                                         <option value="1">One</option>
@@ -291,16 +355,6 @@
                                 </div>
                              </div>
                           </div>
-                        </div>
-                        <!--  按鈕區塊 -->
-                        <div class="course-card-footer justify-content-center gap-2 gap-sm-6">
-                          <!-- 購買按鈕 -->
-                          <button type="button" class="btn btn-secondary2 w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4">
-                            即將上課
-                          </button>
-                          <a href="#" type="button" class="btn btn-white w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4">
-                            取消預約
-                          </a>
                         </div>
                     </li>
                     <li></li>
