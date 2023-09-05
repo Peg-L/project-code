@@ -64,8 +64,20 @@
           >
             課程管理
           </button>
-
           <!-- 我的評價 (My Reviews)-->
+          <button
+            class="nav-link"
+            id="nav-course-review-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#nav-course-review"
+            type="button"
+            role="tab"
+            aria-controls="nav-course-review"
+            aria-selected="true"
+          >
+            我的評價
+          </button>
+
           <!-- 我的優惠券 (My Coupons)-->
           <button
             class="nav-link"
@@ -131,18 +143,30 @@
             </div>
             <div class="col-md-9 offset-md-1 col-12">
               <!-- data -->
-              <div class="d-flex flex-column align-items-center justify-content-center">
-                <div class="d-flex align-items-center justify-content-around mb-4 gap-4">
-                  <button type="button" class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 btn-week">
-                  <span class="material-symbols-outlined">
-                  chevron_left
-                  </span></button>
+              <div
+                class="d-flex flex-column align-items-center justify-content-center"
+              >
+                <div
+                  class="d-flex align-items-center justify-content-around mb-4 gap-4"
+                >
+                  <button
+                    type="button"
+                    class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 btn-week"
+                  >
+                    <span class="material-symbols-outlined">
+                      chevron_left
+                    </span>
+                  </button>
                   <p class="">2023/08/20 ~ 26</p>
-                  <button type="button" class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 btn-week">
-                  <span class="material-symbols-outlined">
-                  navigate_next
-                  </span></button>
-              </div>
+                  <button
+                    type="button"
+                    class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 btn-week"
+                  >
+                    <span class="material-symbols-outlined">
+                      navigate_next
+                    </span>
+                  </button>
+                </div>
                 <!-- calendar -->
                 <ul class="calendar d-flex justify-content-center gap-3">
                   <li class="calendar-list">
@@ -395,12 +419,15 @@
                         <option value="2">Two</option>
                         <option value="3">Three</option>
                       </select>
-                      <button type="button" class="btn text-primary" 
-                      data-bs-toggle="collapse" 
-                      data-bs-target="#save0"
-                      aria-expanded="false" 
-                      aria-controls="save0" 
-                      id="change">
+                      <button
+                        type="button"
+                        class="btn text-primary"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#save0"
+                        aria-expanded="false"
+                        aria-controls="save0"
+                        id="change"
+                      >
                         修改
                       </button>
                     </div>
@@ -408,12 +435,16 @@
                 </div>
               </div>
               <!--  按鈕區塊 -->
-              <div class="course-card-footer d-flex flex-lg-row justify-content-center gap-2 gap-sm-6 p-4  bg-secondary" id="btnBlock">
+              <div
+                class="course-card-footer d-flex flex-lg-row justify-content-center gap-2 gap-sm-6 p-4 bg-secondary"
+                id="btnBlock"
+              >
                 <!-- 購買按鈕 -->
                 <button
                   type="button"
                   class="btn btn-secondary2 w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
-                disabled>
+                  disabled
+                >
                   等待確認中
                 </button>
                 <a
@@ -424,16 +455,20 @@
                   取消預約
                 </a>
               </div>
-              <div class="collapse course-card-footer p-4 bg-secondary" id="save0">
+              <div
+                class="collapse course-card-footer p-4 bg-secondary"
+                id="save0"
+              >
                 <a
                   href="#"
                   type="button"
                   class="btn btn-white w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
-                  data-bs-toggle="collapse" 
+                  data-bs-toggle="collapse"
                   data-bs-target="#save0"
-                  aria-expanded="false" 
+                  aria-expanded="false"
                   aria-controls="save0"
-                  id="saveBtn">
+                  id="saveBtn"
+                >
                   儲存
                 </a>
               </div>
@@ -445,7 +480,11 @@
                   <a href="#" class="text-center">
                     <!-- 圖 -->
                     <div class="mb-2">
-                      <img class="avatar" src="../assets/images/Rectangle 8.png" alt="teacher">
+                      <img
+                        class="avatar"
+                        src="../assets/images/Rectangle 8.png"
+                        alt="teacher"
+                      />
                     </div>
                     <!-- 姓名、職稱 -->
                     <h3 class="fs-7 fs-md-6 text-secondary2 mb-1">榮哥</h3>
@@ -457,31 +496,49 @@
                 <!--  課程區塊 -->
                 <div class="flex-grow-1 px-8">
                   <!-- 課程名稱 -->
-                  <div class="d-flex flex-md-row flex-column justify-content-md-between mb-md-0 mb-2">
+                  <div
+                    class="d-flex flex-md-row flex-column justify-content-md-between mb-md-0 mb-2"
+                  >
                     <h2 class="fs-6 fs-sm-5 fs-md-4 line-ellipsis mb-2">
                       一起打造你的前端職涯
                     </h2>
                     <p>剩餘0堂</p>
                   </div>
                   <!-- 課程介紹 -->
-                  <div class="d-flex flex-md-row flex-column justify-content-md-between mb-2 mb-md-4">
+                  <div
+                    class="d-flex flex-md-row flex-column justify-content-md-between mb-2 mb-md-4"
+                  >
                     <p class="fs-sm fs-sm-7 fs-md-6 text-justify mb-md-0 mb-4">
                       體驗20分鐘 x <span class="text-primary">1堂</span>
                     </p>
                     <div class="d-flex flex-md-row flex-column gap-2">
-                      <select class="form-select border border-light" style="width: 150px" id="date" disabled>
+                      <select
+                        class="form-select border border-light"
+                        style="width: 150px"
+                        id="date"
+                        disabled
+                      >
                         <option selected="">2023/8/26</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
                       </select>
-                      <select class="form-select border border-light" style="width: 150px" id="time" disabled>
+                      <select
+                        class="form-select border border-light"
+                        style="width: 150px"
+                        id="time"
+                        disabled
+                      >
                         <option selected="">AM 09:00</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
                       </select>
-                      <button type="button" class="btn text-primary" id="change">
+                      <button
+                        type="button"
+                        class="btn text-primary"
+                        id="change"
+                      >
                         修改
                       </button>
                     </div>
@@ -489,12 +546,22 @@
                 </div>
               </div>
               <!--  按鈕區塊 -->
-              <div class="course-card-footer d-flex flex-lg-row justify-content-center gap-2 gap-sm-6 p-4  bg-secondary" id="btnBlock">
+              <div
+                class="course-card-footer d-flex flex-lg-row justify-content-center gap-2 gap-sm-6 p-4 bg-secondary"
+                id="btnBlock"
+              >
                 <!-- 購買按鈕 -->
-                <button type="button" class="btn btn-secondary2 w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4">
+                <button
+                  type="button"
+                  class="btn btn-secondary2 w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
+                >
                   即將上課
                 </button>
-                <a href="#" type="button" class="btn btn-white w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4">
+                <a
+                  href="#"
+                  type="button"
+                  class="btn btn-white w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
+                >
                   取消預約
                 </a>
               </div>
@@ -506,7 +573,11 @@
                   <a href="#" class="text-center">
                     <!-- 圖 -->
                     <div class="mb-2">
-                      <img class="avatar" src="../assets/images/Rectangle 9.png" alt="teacher">
+                      <img
+                        class="avatar"
+                        src="../assets/images/Rectangle 9.png"
+                        alt="teacher"
+                      />
                     </div>
                     <!-- 姓名、職稱 -->
                     <h3 class="fs-7 fs-md-6 text-secondary2 mb-1">艾莉絲</h3>
@@ -518,31 +589,49 @@
                 <!--  課程區塊 -->
                 <div class="flex-grow-1 px-8">
                   <!-- 課程名稱 -->
-                  <div class="d-flex flex-md-row flex-column justify-content-md-between mb-md-0 mb-2">
+                  <div
+                    class="d-flex flex-md-row flex-column justify-content-md-between mb-md-0 mb-2"
+                  >
                     <h2 class="fs-6 fs-sm-5 fs-md-4 line-ellipsis mb-2">
                       Python 全攻略
                     </h2>
                     <p>剩餘0堂</p>
                   </div>
                   <!-- 課程介紹 -->
-                  <div class="d-flex flex-md-row flex-column justify-content-md-between mb-2 mb-md-4">
+                  <div
+                    class="d-flex flex-md-row flex-column justify-content-md-between mb-2 mb-md-4"
+                  >
                     <p class="fs-sm fs-sm-7 fs-md-6 text-justify mb-md-0 mb-4">
                       體驗20分鐘 x <span class="text-primary">1堂</span>
                     </p>
                     <div class="d-flex flex-md-row flex-column gap-2">
-                      <select class="form-select border border-light" style="width: 150px" id="date" disabled>
+                      <select
+                        class="form-select border border-light"
+                        style="width: 150px"
+                        id="date"
+                        disabled
+                      >
                         <option selected="">2023/8/26</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
                       </select>
-                      <select class="form-select border border-light" style="width: 150px" id="time" disabled>
+                      <select
+                        class="form-select border border-light"
+                        style="width: 150px"
+                        id="time"
+                        disabled
+                      >
                         <option selected="">AM 09:00</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
                       </select>
-                      <button type="button" class="btn text-primary" id="change">
+                      <button
+                        type="button"
+                        class="btn text-primary"
+                        id="change"
+                      >
                         修改
                       </button>
                     </div>
@@ -550,12 +639,22 @@
                 </div>
               </div>
               <!--  按鈕區塊 -->
-              <div class="course-card-footer d-flex flex-lg-row justify-content-center gap-2 gap-sm-6 p-4 bg-secondary" id="btnBlock">
+              <div
+                class="course-card-footer d-flex flex-lg-row justify-content-center gap-2 gap-sm-6 p-4 bg-secondary"
+                id="btnBlock"
+              >
                 <!-- 購買按鈕 -->
-                <button type="button" class="btn btn-secondary2 w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4">
+                <button
+                  type="button"
+                  class="btn btn-secondary2 w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
+                >
                   即將上課
                 </button>
-                <a href="#" type="button" class="btn btn-white w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4">
+                <a
+                  href="#"
+                  type="button"
+                  class="btn btn-white w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
+                >
                   取消預約
                 </a>
               </div>
@@ -563,6 +662,338 @@
           </ul>
         </div>
         <!-- 我的評價 (My Reviews)-->
+        <div class="tab-pane fade show container" id="nav-course-review">
+          <div class="row shadow p-3 p-md-4 d-flex">
+            <div class="col-12 col-md-4 d-flex align-items-center">
+              <div class="text-center">
+                <img
+                  class="mb-2 mb-md-3"
+                  style="width: 70px"
+                  src="../assets/images/teacher/arong.png"
+                  alt="Aaron"
+                />
+                <h3 class="fs-7 fs-md-6 text-secondary2">Aaron</h3>
+              </div>
+              <div class="p-3 p-md-4">
+                <h2 class="fs-7 fs-sm-6 fs-md-5 mb-3 mb-md-4">
+                  JavaScript 線上教學
+                </h2>
+                <div class="d-lg-flex">
+                  <p class="me-4">50分鐘</p>
+                  <p>2023/5/17</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-8">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex">
+                  <p>評分：</p>
+                  <ul class="d-flex gap-1 text-primary mb-0">
+                    <li><i class="fa-solid fa-star"></i></li>
+                    <li><i class="fa-solid fa-star"></i></li>
+                    <li><i class="fa-solid fa-star"></i></li>
+                    <li><i class="fa-solid fa-star"></i></li>
+                    <li><i class="fa-solid fa-star"></i></li>
+                  </ul>
+                </div>
+                <button
+                  type="button"
+                  class="btn p-2"
+                  data-bs-toggle="modal"
+                  data-bs-target="#editModal1"
+                >
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <!-- Modal -->
+                <div
+                  class="modal fade"
+                  id="editModal1"
+                  tabindex="-1"
+                  aria-labelledby="editModal1"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header border-gray-200">
+                        <h1 class="modal-title fs-5" id="editModal1Label">
+                          <span class="me-3">JavaScript 線上教學</span
+                          ><span class="fs-7">麥克先生</span>
+                        </h1>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="d-flex">
+                          <p>評分：</p>
+                          <ul class="d-flex gap-1 text-primary mb-0">
+                            <li><i class="fa-solid fa-star"></i></li>
+                            <li><i class="fa-solid fa-star"></i></li>
+                            <li><i class="fa-solid fa-star"></i></li>
+                            <li><i class="fa-solid fa-star"></i></li>
+                            <li><i class="fa-solid fa-star"></i></li>
+                          </ul>
+                        </div>
+                        <p class="my-3">2023/5/17</p>
+                        <textarea
+                          style="height: 150px"
+                          class="form-control border-gray-200"
+                          placeholder="Leave a comment here"
+                          id="floatingTextarea"
+                        >
+我是一個程式新手，今天是第一次上課，老師從基礎語法開始教學，概念講解非常清楚，也有實用的範例。老師上課風趣幽默、有耐心，像我這樣的新手也可以輕鬆學會程式思維。就算是第一次上課，老師也帶我做出一個簡單的小功能，超有成就感！非常感謝 Aaron 老師，我給這次課程五顆星的最高評價，強烈推薦給所有想學習實用 JavaScript 的初學者!</textarea
+                        >
+                      </div>
+                      <div class="modal-footer border-gray-200">
+                        <button
+                          type="button"
+                          class="btn btn-white"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        >
+                          取消
+                        </button>
+                        <button type="button" class="btn btn-secondary2">
+                          儲存
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p>2023/5/17</p>
+              <p class="truncate-lines-2 truncate-md-lines-3">
+                我是一個程式新手，今天是第一次上課，老師從基礎語法開始教學，概念講解非常清楚，也有實用的範例。老師上課風趣幽默、有耐心，像我這樣的新手也可以輕鬆學會程式思維。就算是第一次上課，老師也帶我做出一個簡單的小功能，超有成就感！非常感謝
+                Aaron
+                老師，我給這次課程五顆星的最高評價，強烈推薦給所有想學習實用
+                JavaScript 的初學者!
+              </p>
+            </div>
+          </div>
+          <div class="row shadow p-3 p-md-4 d-flex mt-3 mt-md-4">
+            <div class="col-12 col-md-4 d-flex align-items-center">
+              <div class="text-center">
+                <img
+                  class="mb-2 mb-md-3"
+                  style="width: 70px"
+                  src="../assets/images/teacher/arong.png"
+                  alt="Aaron"
+                />
+                <h3 class="fs-7 fs-md-6 text-secondary2">Aaron</h3>
+              </div>
+              <div class="p-4">
+                <h2 class="fs-7 fs-sm-6 fs-md-5 mb-3 mb-md-4">
+                  JavaScript 線上教學
+                </h2>
+                <div class="d-lg-flex">
+                  <p class="me-4">50分鐘</p>
+                  <p>2023/5/17</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-8">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex">
+                  <p>評分：</p>
+                  <ul class="d-flex gap-1 text-primary mb-0">
+                    <li><i class="fa-solid fa-star"></i></li>
+                    <li><i class="fa-solid fa-star"></i></li>
+                    <li><i class="fa-solid fa-star"></i></li>
+                    <li><i class="fa-solid fa-star"></i></li>
+                    <li><i class="fa-solid fa-star"></i></li>
+                  </ul>
+                </div>
+                <button
+                  type="button"
+                  class="btn p-2"
+                  data-bs-toggle="modal"
+                  data-bs-target="#editModal2"
+                >
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <!-- Modal -->
+                <div
+                  class="modal fade"
+                  id="editModal2"
+                  tabindex="-1"
+                  aria-labelledby="editModal2"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header border-gray-200">
+                        <h1 class="modal-title fs-5" id="editModal2Label">
+                          <span class="me-3">JavaScript 線上教學</span
+                          ><span class="fs-7">麥克先生</span>
+                        </h1>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="d-flex">
+                          <p>評分：</p>
+                          <ul class="d-flex gap-1 text-primary mb-0">
+                            <li><i class="fa-solid fa-star"></i></li>
+                            <li><i class="fa-solid fa-star"></i></li>
+                            <li><i class="fa-solid fa-star"></i></li>
+                            <li><i class="fa-solid fa-star"></i></li>
+                            <li><i class="fa-solid fa-star"></i></li>
+                          </ul>
+                        </div>
+                        <p class="my-3">2023/5/17</p>
+                        <textarea
+                          style="height: 150px"
+                          class="form-control border-gray-200"
+                          placeholder="Leave a comment here"
+                          id="floatingTextarea"
+                        >
+我是一個程式新手，今天是第一次上課，老師從基礎語法開始教學，概念講解非常清楚，也有實用的範例。老師上課風趣幽默、有耐心，像我這樣的新手也可以輕鬆學會程式思維。就算是第一次上課，老師也帶我做出一個簡單的小功能，超有成就感！非常感謝 Aaron 老師，我給這次課程五顆星的最高評價，強烈推薦給所有想學習實用 JavaScript 的初學者!</textarea
+                        >
+                      </div>
+                      <div class="modal-footer border-gray-200">
+                        <button
+                          type="button"
+                          class="btn btn-white"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        >
+                          取消
+                        </button>
+                        <button type="button" class="btn btn-secondary2">
+                          儲存
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p>2023/5/17</p>
+              <p class="truncate-lines-2 truncate-md-lines-3">
+                我是一個程式新手，今天是第一次上課，老師從基礎語法開始教學，概念講解非常清楚，也有實用的範例。老師上課風趣幽默、有耐心，像我這樣的新手也可以輕鬆學會程式思維。就算是第一次上課，老師也帶我做出一個簡單的小功能，超有成就感！非常感謝
+                Aaron
+                老師，我給這次課程五顆星的最高評價，強烈推薦給所有想學習實用
+                JavaScript 的初學者!
+              </p>
+            </div>
+          </div>
+          <div class="row shadow p-3 p-md-4 d-flex mt-3 mt-md-4">
+            <div class="col-12 col-md-4 d-flex align-items-center">
+              <div class="text-center">
+                <img
+                  class="mb-2 mb-md-3"
+                  style="width: 70px"
+                  src="../assets/images/teacher/arong.png"
+                  alt="Aaron"
+                />
+                <h3 class="fs-7 fs-md-6 text-secondary2">Aaron</h3>
+              </div>
+              <div class="p-4">
+                <h2 class="fs-7 fs-sm-6 fs-md-5 mb-3 mb-md-4">
+                  JavaScript 線上教學
+                </h2>
+                <div class="d-lg-flex">
+                  <p class="me-4">50分鐘</p>
+                  <p>2023/5/17</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-8">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex">
+                  <p>評分：</p>
+                  <ul class="d-flex gap-1 text-primary mb-0">
+                    <li><i class="fa-solid fa-star"></i></li>
+                    <li><i class="fa-solid fa-star"></i></li>
+                    <li><i class="fa-solid fa-star"></i></li>
+                    <li><i class="fa-solid fa-star"></i></li>
+                    <li><i class="fa-solid fa-star"></i></li>
+                  </ul>
+                </div>
+                <button
+                  type="button"
+                  class="btn p-2"
+                  data-bs-toggle="modal"
+                  data-bs-target="#editModal3"
+                >
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <!-- Modal -->
+                <div
+                  class="modal fade"
+                  id="editModal3"
+                  tabindex="-1"
+                  aria-labelledby="editModal3"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header border-gray-200">
+                        <h1 class="modal-title fs-5" id="editModal3Label">
+                          <span class="me-3">JavaScript 線上教學</span
+                          ><span class="fs-7">麥克先生</span>
+                        </h1>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="d-flex">
+                          <p>評分：</p>
+                          <ul class="d-flex gap-1 text-primary mb-0">
+                            <li><i class="fa-solid fa-star"></i></li>
+                            <li><i class="fa-solid fa-star"></i></li>
+                            <li><i class="fa-solid fa-star"></i></li>
+                            <li><i class="fa-solid fa-star"></i></li>
+                            <li><i class="fa-solid fa-star"></i></li>
+                          </ul>
+                        </div>
+                        <p class="my-3">2023/5/17</p>
+                        <textarea
+                          style="height: 150px"
+                          class="form-control border-gray-200"
+                          placeholder="Leave a comment here"
+                          id="floatingTextarea"
+                        >
+我是一個程式新手，今天是第一次上課，老師從基礎語法開始教學，概念講解非常清楚，也有實用的範例。老師上課風趣幽默、有耐心，像我這樣的新手也可以輕鬆學會程式思維。就算是第一次上課，老師也帶我做出一個簡單的小功能，超有成就感！非常感謝 Aaron 老師，我給這次課程五顆星的最高評價，強烈推薦給所有想學習實用 JavaScript 的初學者!</textarea
+                        >
+                      </div>
+                      <div class="modal-footer border-gray-200">
+                        <button
+                          type="button"
+                          class="btn btn-white"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        >
+                          取消
+                        </button>
+                        <button type="button" class="btn btn-secondary2">
+                          儲存
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p>2023/5/17</p>
+              <p class="truncate-lines-2 truncate-md-lines-3">
+                我是一個程式新手，今天是第一次上課，老師從基礎語法開始教學，概念講解非常清楚，也有實用的範例。老師上課風趣幽默、有耐心，像我這樣的新手也可以輕鬆學會程式思維。就算是第一次上課，老師也帶我做出一個簡單的小功能，超有成就感！非常感謝
+                Aaron
+                老師，我給這次課程五顆星的最高評價，強烈推薦給所有想學習實用
+                JavaScript 的初學者!
+              </p>
+            </div>
+          </div>
+        </div>
         <!-- 我的優惠券 (My Coupons)-->
         <div
           class="tab-pane fade"
