@@ -9,6 +9,10 @@
       href="../assets/images/favicon.ico"
       type="image/x-icon"
     />
+    <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
+    />
   </head>
   <body>
     <%- include('./layout/header'); -%>
@@ -683,6 +687,7 @@
                               id="phoneNum"
                               name="phoneNum"
                               placeholder="例：0912 345 678"
+                              value="0987654321"
                               aria-label="行動電話"
                               required
                             />
@@ -729,12 +734,12 @@
                 </div>
               </li>
 
-              <!-- 設置信箱 -->
+              <!-- 驗證信箱 -->
               <li class="card shadow p-6 mb-8">
                 <div class="d-flex justify-content-between align-items-center">
                   <div>
-                    <h3 class="status-alert fs-5 mb-3">設置信箱</h3>
-                    <p>設置後可用電子信箱 + 密碼登入</p>
+                    <h3 class="status-alert fs-5 mb-3">驗證信箱</h3>
+                    <p>保護你的帳戶，一步驗證你的信箱</p>
                   </div>
                   <button
                     type="button"
@@ -742,11 +747,11 @@
                     data-bs-toggle="modal"
                     data-bs-target="#accountMailModal"
                   >
-                    操作
+                    驗證
                   </button>
                 </div>
 
-                <!-- 設置信箱Modal -->
+                <!-- 驗證信箱Modal -->
                 <div
                   class="modal fade"
                   id="accountMailModal"
@@ -760,7 +765,7 @@
                     <div class="modal-content">
                       <div class="modal-header border-gray-200">
                         <h1 class="modal-title fs-4" id="accountMailModalLabel">
-                          設置信箱
+                          驗證信箱
                         </h1>
                         <button
                           type="button"
@@ -781,6 +786,7 @@
                               id="email"
                               name="email"
                               placeholder="例：a123@mail.com"
+                              value="b456@mail.com"
                               aria-label="電子信箱"
                               required
                             />
@@ -838,7 +844,7 @@
                     data-bs-toggle="modal"
                     data-bs-target="#accountBasicModal"
                   >
-                    操作
+                    修改
                   </button>
                 </div>
 
@@ -871,7 +877,7 @@
 
                       <div class="modal-body py-6">
                         <form
-                          class="row"
+                          class="row g-4"
                           action="URL"
                           method="post"
                           id="accountBasicForm"
@@ -887,6 +893,7 @@
                               id="firstName"
                               name="firstName"
                               placeholder="例：曉華"
+                              value="咪"
                               aria-label="名字"
                               required
                             />
@@ -900,6 +907,7 @@
                               id="lastName"
                               name="lastName"
                               placeholder="例：陳"
+                              value="貓"
                               aria-label="姓"
                               required
                             />
@@ -909,14 +917,14 @@
                             <br />
                             <select
                               type="text"
-                              class="form-control fs-6 border-primary"
+                              class="form-select fs-6 border-primary"
                               id="gender"
                               name="gender"
                               aria-label="gender"
                               required
                             >
                               <option value=""></option>
-                              <option value="男">男</option>
+                              <option value="男" selected>男</option>
                               <option value="女">女</option>
                               <option value="其他">其他</option>
                             </select>
@@ -927,10 +935,12 @@
                             >
                             <br />
                             <input
-                              class="form-control fs-6 border-primary jq-appointmentDate"
+                              class="form-control fs-6 border-primary cursor-pointer jq-birthday"
                               type="text"
                               name="birthday"
                               id="birthday"
+                              placeholder="請選擇日期"
+                              autocomplete="off"
                             />
                           </div>
 
@@ -942,11 +952,10 @@
                             <input
                               type="text"
                               class="form-control fs-6 border-primary"
-                              id="location"
+                              id="address"
                               name="location"
-                              placeholder="例："
+                              placeholder="例：台北市中山區南京東路25巷2-1號"
                               aria-label="居住地"
-                              required
                             />
                           </div>
                         </form>
@@ -957,14 +966,14 @@
                           class="btn btn-secondary2 px-6"
                           form="accountBasicForm"
                         >
-                          送出
+                          儲存
                         </button>
                         <button
                           type="button"
                           class="btn btn-white"
                           data-bs-dismiss="modal"
                         >
-                          關閉
+                          取消
                         </button>
                       </div>
                     </div>
@@ -990,9 +999,7 @@
                   type="button"
                   class="btn p-3 text-center align-self-start position-absolute top-0 end-0"
                 >
-                  <i
-                    class="fa-regular fa-heart fs-4 text-primary hover-bold"
-                  ></i>
+                  <i class="fa-regular fa-heart fs-4 text-primary fw-bold"></i>
                 </button>
                 <div class="teacher-card-profile">
                   <div class="teacher-card-content">
@@ -1031,9 +1038,7 @@
                   type="button"
                   class="btn p-3 text-center align-self-start position-absolute top-0 end-0"
                 >
-                  <i
-                    class="fa-regular fa-heart fs-4 text-primary hover-bold"
-                  ></i>
+                  <i class="fa-regular fa-heart fs-4 text-primary fw-bold"></i>
                 </button>
                 <div class="teacher-card-profile">
                   <div class="teacher-card-content">
@@ -1071,9 +1076,7 @@
                   type="button"
                   class="btn p-3 text-center align-self-start position-absolute top-0 end-0"
                 >
-                  <i
-                    class="fa-regular fa-heart fs-4 text-primary hover-bold"
-                  ></i>
+                  <i class="fa-regular fa-heart fs-4 text-primary fw-bold"></i>
                 </button>
                 <div class="teacher-card-profile">
                   <div class="teacher-card-content">
@@ -1111,9 +1114,7 @@
                   type="button"
                   class="btn p-3 text-center align-self-start position-absolute top-0 end-0"
                 >
-                  <i
-                    class="fa-regular fa-heart fs-4 text-primary hover-bold"
-                  ></i>
+                  <i class="fa-regular fa-heart fs-4 text-primary fw-bold"></i>
                 </button>
                 <div class="teacher-card-profile">
                   <div class="teacher-card-content">
@@ -1152,9 +1153,7 @@
                   type="button"
                   class="btn p-3 text-center align-self-start position-absolute top-0 end-0"
                 >
-                  <i
-                    class="fa-regular fa-heart fs-4 text-primary hover-bold"
-                  ></i>
+                  <i class="fa-regular fa-heart fs-4 text-primary fw-bold"></i>
                 </button>
                 <div class="teacher-card-profile">
                   <div class="teacher-card-content">
@@ -1192,9 +1191,7 @@
                   type="button"
                   class="btn p-3 text-center align-self-start position-absolute top-0 end-0"
                 >
-                  <i
-                    class="fa-regular fa-heart fs-4 text-primary hover-bold"
-                  ></i>
+                  <i class="fa-regular fa-heart fs-4 text-primary fw-bold"></i>
                 </button>
                 <div class="teacher-card-profile">
                   <div class="teacher-card-content">
@@ -1250,6 +1247,11 @@
       </div>
     </div>
     <%- include('./layout/footer'); -%>
+    <!-- jquery-ui -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/i18n/jquery-ui-i18n.min.js"></script>
+    <!--  -->
     <script type="module" src="../main.js"></script>
     <script src="../assets/js/calendar.js"></script>
   </body>
