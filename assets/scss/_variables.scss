@@ -444,14 +444,20 @@ $spacers: (
   13: $spacer * 3.5,
   // 60px
   15: $spacer * 3.75,
+  // 62px
+  16: $spacer * 3.875,
   // 68px
   17: $spacer * 4.25,
   // 72px
   18: $spacer * 4.5,
+  // 78px
+  19: $spacer * 4.875,
   // 80px
   20: $spacer * 5,
   // 88px
   22: $spacer * 5.5,
+  // 120
+  30: $spacer * 7.5,
   // 128px
   32: $spacer * 8,
   41: $spacer * 10.25,
@@ -961,7 +967,7 @@ $input-focus-bg: $white; //$input-bg !default;
 $input-focus-border-color: $gray-200; //tint-color($component-active-bg, 50%) !default;
 $input-focus-color: $input-color !default;
 $input-focus-width: 1px; //$input-btn-focus-width !default;
-$input-focus-box-shadow: 0 0 0 0.15rem rgba($secondary2, 0.5); //$input-btn-focus-box-shadow !default;
+$input-focus-box-shadow: none; //$input-btn-focus-box-shadow !default;
 
 $input-placeholder-color: var(--#{$prefix}secondary-color) !default;
 $input-plaintext-color: var(--#{$prefix}body-color) !default;

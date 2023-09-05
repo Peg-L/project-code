@@ -250,26 +250,18 @@
 // - 藏寶圖
 .treasure {
   width: 276px;
-  display: block;
-  position: relative;
 
   @include media-breakpoint-up(md) {
+    width: 350px;
+  }
+
+  @include media-breakpoint-up(lg) {
     width: 478px;
-    left: -94px;
   }
 }
 
 // - 教師分類
 .cate-item {
-  width: calc((100% - 8px) / 2);
-
-  @include media-breakpoint-up(sm) {
-    width: calc((100% - 48px) / 3);
-  }
-  @include media-breakpoint-up(lg) {
-    width: calc((100% - 72px) / 4);
-  }
-
   a {
     padding: 28px 12px;
     display: flex;
