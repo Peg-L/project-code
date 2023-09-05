@@ -80,6 +80,18 @@
             我的優惠券
           </button>
           <!-- 帳號設定 (Account Settings)-->
+          <button
+            class="nav-link"
+            id="nav-account-settings-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#nav-account-settings"
+            type="button"
+            role="tab"
+            aria-controls="nav-account-settings"
+            aria-selected="false"
+          >
+            帳號設定
+          </button>
           <!-- 我的關注 (My Followings)-->
           <button
             class="nav-link"
@@ -606,6 +618,362 @@
         </div>
 
         <!-- 帳號設定 (Account Settings)-->
+        <div
+          class="tab-pane fade"
+          id="nav-account-settings"
+          role="tabpanel"
+          aria-labelledby="nav-account-settings-tab"
+        >
+          <div class="row">
+            <ul class="col-md-8 col-lg-6 mx-auto">
+              <!-- 綁定手機 -->
+              <li class="card shadow p-6 mb-8">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <h3 class="status-check fs-5 mb-3">綁定手機</h3>
+                    <p>當前已綁定 09****5678</p>
+                  </div>
+                  <button
+                    type="button"
+                    class="btn btn-secondary2 px-6"
+                    data-bs-toggle="modal"
+                    data-bs-target="#accountPhoneModal"
+                  >
+                    操作
+                  </button>
+                </div>
+
+                <!-- 綁定手機Modal -->
+                <div
+                  class="modal fade"
+                  id="accountPhoneModal"
+                  data-bs-backdrop="static"
+                  data-bs-keyboard="false"
+                  tabindex="-1"
+                  aria-labelledby="accountPhoneModalLabel"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                      <div class="modal-header border-gray-200">
+                        <h1
+                          class="modal-title fs-4"
+                          id="accountPhoneModalLabel"
+                        >
+                          手機驗證
+                        </h1>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+
+                      <div class="modal-body py-6">
+                        <form action="URL" method="post" id="accountPhoneForm">
+                          <label class="form-label" for="phoneNum"
+                            >電話號碼</label
+                          >
+                          <br />
+                          <div class="input-group mb-4">
+                            <input
+                              type="tel"
+                              class="form-control fs-6 border-primary"
+                              id="phoneNum"
+                              name="phoneNum"
+                              placeholder="例：0912 345 678"
+                              aria-label="行動電話"
+                              required
+                            />
+                            <button
+                              class="btn btn-outline-secondary2 fs-6 rounded-end-2"
+                              type="button"
+                            >
+                              發送驗證碼
+                            </button>
+                          </div>
+                          <label class="form-label" for="phoneNum "
+                            >簡訊驗證碼</label
+                          >
+                          <br />
+                          <input
+                            type="text"
+                            class="form-control fs-6 border-primary w-50"
+                            placeholder="例：123456"
+                            required
+                          />
+                          <p class="status-alert form-text fs-7">
+                            驗證失敗，請重新輸入
+                          </p>
+                        </form>
+                      </div>
+                      <div class="modal-footer border-gray-200">
+                        <button
+                          type="submit"
+                          class="btn btn-secondary2 px-6"
+                          form="accountPhoneForm"
+                        >
+                          送出
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-white"
+                          data-bs-dismiss="modal"
+                        >
+                          關閉
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <!-- 設置信箱 -->
+              <li class="card shadow p-6 mb-8">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <h3 class="status-alert fs-5 mb-3">設置信箱</h3>
+                    <p>設置後可用電子信箱 + 密碼登入</p>
+                  </div>
+                  <button
+                    type="button"
+                    class="btn btn-secondary2 px-6"
+                    data-bs-toggle="modal"
+                    data-bs-target="#accountMailModal"
+                  >
+                    操作
+                  </button>
+                </div>
+
+                <!-- 設置信箱Modal -->
+                <div
+                  class="modal fade"
+                  id="accountMailModal"
+                  data-bs-backdrop="static"
+                  data-bs-keyboard="false"
+                  tabindex="-1"
+                  aria-labelledby="accountMailModalLabel"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                      <div class="modal-header border-gray-200">
+                        <h1 class="modal-title fs-4" id="accountMailModalLabel">
+                          設置信箱
+                        </h1>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+
+                      <div class="modal-body py-6">
+                        <form action="URL" method="post" id="accountMailForm">
+                          <label class="form-label" for="email">電子信箱</label>
+                          <br />
+                          <div class="input-group mb-4">
+                            <input
+                              type="email"
+                              class="form-control fs-6 border-primary"
+                              id="email"
+                              name="email"
+                              placeholder="例：a123@mail.com"
+                              aria-label="電子信箱"
+                              required
+                            />
+                            <button
+                              class="btn btn-outline-secondary2 fs-6 rounded-end-2"
+                              type="button"
+                            >
+                              發送驗證信
+                            </button>
+                          </div>
+                          <label class="form-label" for="email">驗證碼</label>
+                          <br />
+                          <input
+                            type="text"
+                            class="form-control fs-6 border-primary w-50"
+                            placeholder="例：123456"
+                            required
+                          />
+                          <p class="status-alert form-text fs-7">
+                            驗證失敗，請重新輸入
+                          </p>
+                        </form>
+                      </div>
+                      <div class="modal-footer border-gray-200">
+                        <button
+                          type="submit"
+                          class="btn btn-secondary2 px-6"
+                          form="accountMailForm"
+                        >
+                          送出
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-white"
+                          data-bs-dismiss="modal"
+                        >
+                          關閉
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <!-- 個人資料 -->
+              <li class="card shadow p-6 mb-8">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <h3 class="status-alert fs-5 mb-3">個人資料</h3>
+                    <p>完整的資料信息，將大大提升後續找回帳號的效率</p>
+                  </div>
+                  <button
+                    type="button"
+                    class="btn btn-secondary2 px-6"
+                    data-bs-toggle="modal"
+                    data-bs-target="#accountBasicModal"
+                  >
+                    操作
+                  </button>
+                </div>
+
+                <!-- 個人資料Modal -->
+                <div
+                  class="modal fade"
+                  id="accountBasicModal"
+                  data-bs-backdrop="static"
+                  data-bs-keyboard="false"
+                  tabindex="-1"
+                  aria-labelledby="accountBasicModalLabel"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                      <div class="modal-header border-gray-200">
+                        <h1
+                          class="modal-title fs-4"
+                          id="accountBasicModalLabel"
+                        >
+                          個人資料
+                        </h1>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+
+                      <div class="modal-body py-6">
+                        <form
+                          class="row"
+                          action="URL"
+                          method="post"
+                          id="accountBasicForm"
+                        >
+                          <div class="col-6">
+                            <label class="form-label" for="firstName"
+                              >名字</label
+                            >
+                            <br />
+                            <input
+                              type="text"
+                              class="form-control fs-6 border-primary"
+                              id="firstName"
+                              name="firstName"
+                              placeholder="例：曉華"
+                              aria-label="名字"
+                              required
+                            />
+                          </div>
+                          <div class="col-6">
+                            <label class="form-label" for="firstName">姓</label>
+                            <br />
+                            <input
+                              type="text"
+                              class="form-control fs-6 border-primary"
+                              id="lastName"
+                              name="lastName"
+                              placeholder="例：陳"
+                              aria-label="姓"
+                              required
+                            />
+                          </div>
+                          <div class="col-6">
+                            <label class="form-label" for="gender">性別</label>
+                            <br />
+                            <select
+                              type="text"
+                              class="form-control fs-6 border-primary"
+                              id="gender"
+                              name="gender"
+                              aria-label="gender"
+                              required
+                            >
+                              <option value=""></option>
+                              <option value="男">男</option>
+                              <option value="女">女</option>
+                              <option value="其他">其他</option>
+                            </select>
+                          </div>
+                          <div class="col-6">
+                            <label class="form-label" for="birthday"
+                              >生日</label
+                            >
+                            <br />
+                            <input
+                              class="form-control fs-6 border-primary jq-appointmentDate"
+                              type="text"
+                              name="birthday"
+                              id="birthday"
+                            />
+                          </div>
+
+                          <div class="col-12">
+                            <label class="form-label" for="location"
+                              >居住地</label
+                            >
+                            <br />
+                            <input
+                              type="text"
+                              class="form-control fs-6 border-primary"
+                              id="location"
+                              name="location"
+                              placeholder="例："
+                              aria-label="居住地"
+                              required
+                            />
+                          </div>
+                        </form>
+                      </div>
+                      <div class="modal-footer border-gray-200">
+                        <button
+                          type="submit"
+                          class="btn btn-secondary2 px-6"
+                          form="accountBasicForm"
+                        >
+                          送出
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-white"
+                          data-bs-dismiss="modal"
+                        >
+                          關閉
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
         <!-- 我的關注 (My Followings)-->
         <div
           class="tab-pane fade"
