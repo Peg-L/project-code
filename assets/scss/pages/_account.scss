@@ -1,32 +1,32 @@
-.bg-account {
-  background-image: url("../../../assets/images/background.jpg");
-  height: 148px;
-  background-size: cover;
-  position: relative;
+.bg-account{
+    background-image: url(/project-code/assets/images/bg-gray-dot.jpg);
+    height: 148px;
+    background-size: cover;
+    position: relative;
 }
-.user-img {
-  position: absolute;
-  border-radius: 50%;
-  border: 4px solid #fff;
-  box-shadow: 0 4px 8px 0 rgba(7, 17, 27, 0.1);
-  width: 140px;
-  height: 140px;
-  bottom: -24px;
+.user-img{
+    position: absolute;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 8px 0 rgba(7,17,27,.1);
+    width: 140px;
+    height: 140px;
+    bottom:-24px;
 }
-.book-card {
-  padding: 8px 16px;
-  border: 1px solid $gray-100;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  img {
-    width: 70px;
-    height: 70px;
-  }
+.book-card{
+    padding: 8px 16px;
+    border:1px solid $gray-100;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap:16px;
+    img{
+        width: 70px;
+        height: 70px;
+    }
 }
-.book-card.active {
-  background: $secondary;
+.book-card.active{
+    background: $secondary;
 }
 .wrapper {
   width: 100%;
@@ -151,4 +151,10 @@
 .btn-time.disable {
   background: $gray-200;
   cursor: not-allowed;
+}
+.show{
+    display: block !important;
+}
+.hidden{
+    display: none !important;
 }
