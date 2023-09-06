@@ -10,8 +10,12 @@ var bannerSwiper = new Swiper(".bannerSwiper", {
 
 var recommendSwiper = new Swiper(".recommendSwiper", {
   slidesPerView: 1,
-  spaceBetween: 24,
+  spaceBetween: 16,
   loop: true,
+  navigation: {
+    nextEl: ".recommendSwiper-button-next",
+    prevEl: ".recommendSwiper-button-prev",
+  },
   pagination: {
     el: ".recommendSwiper-pagination",
     clickable: true,
@@ -19,13 +23,9 @@ var recommendSwiper = new Swiper(".recommendSwiper", {
     dynamicMainBullets: 5,
   },
   breakpoints: {
-    576: {
+    768: {
       slidesPerView: 2,
-      spaceBetween: 16,
-      navigation: {
-        nextEl: ".recommendSwiper-button-next",
-        prevEl: ".recommendSwiper-button-prev",
-      },
+      spaceBetween: 20,
       pagination: {
         dynamicMainBullets: 3,
       },
@@ -33,10 +33,6 @@ var recommendSwiper = new Swiper(".recommendSwiper", {
     992: {
       slidesPerView: 3,
       spaceBetween: 24,
-      navigation: {
-        nextEl: ".recommendSwiper-button-next",
-        prevEl: ".recommendSwiper-button-prev",
-      },
       pagination: {
         dynamicMainBullets: 3,
       },
