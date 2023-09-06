@@ -1,4 +1,14 @@
-var swiper = new Swiper(".recommendSwiper", {
+var bannerSwiper = new Swiper(".bannerSwiper", {
+  slidesPerView: 1,
+  loop: true,
+  // autoplay: true,
+  pagination: {
+    el: ".bannerSwiper-pagination",
+    clickable: true,
+  },
+});
+
+var recommendSwiper = new Swiper(".recommendSwiper", {
   slidesPerView: 1,
   spaceBetween: 24,
   loop: true,
