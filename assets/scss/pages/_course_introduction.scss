@@ -53,7 +53,7 @@
             outline:2px solid $primary;
             font-weight: bold;
             transition: font-weight 0.2s;
-            a{
+            a,button{
                 color: $primary;
                 transition: color 0.2s;
             }
@@ -95,7 +95,7 @@
                 outline: 0;
             }
         }
-        a{
+        a,button{
             font-size: 8px;
         }
     }
