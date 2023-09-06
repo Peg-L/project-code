@@ -90,17 +90,18 @@
                     <input
                       class="form-control border-primary cursor-pointer fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4 jq-appointmentDate"
                       type="text"
-                      name="appointmentDate2-1"
-                      id="appointmentDate2-1"
+                      name="appointmentDate1-1"
+                      id="appointmentDate1-1"
                       placeholder="日期"
                       style="max-width: 150px"
-                      value="09/20/2023"
+                      value="2023/09/20"
+                      autocomplete="off"
                       required
                     />
                     <select
                       class="form-select border-primary fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4"
-                      name="appointmentTime2-1"
-                      id="appointmentTime2-1"
+                      name="appointmentTime1-1"
+                      id="appointmentTime1-1"
                       style="max-width: 140px"
                       required
                     >
@@ -121,16 +122,17 @@
                     <input
                       class="form-control border-primary cursor-pointer fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4 jq-appointmentDate"
                       type="text"
-                      name="appointmentDate2-1"
-                      id="appointmentDate2-1"
+                      name="appointmentDate1-2"
+                      id="appointmentDate1-2"
                       placeholder="日期"
                       style="max-width: 150px"
+                      autocomplete="off"
                       required
                     />
                     <select
                       class="form-select border-primary fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4"
-                      name="appointmentTime2-1"
-                      id="appointmentTime2-1"
+                      name="appointmentTime1-2"
+                      id="appointmentTime1-2"
                       style="max-width: 140px"
                       required
                     >
@@ -196,10 +198,11 @@
                     <input
                       class="form-control border-primary cursor-pointer fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4 jq-appointmentDate"
                       type="text"
-                      name="appointmentDate1-1"
-                      id="appointmentDate1-1"
+                      name="appointmentDate2-1"
+                      id="appointmentDate2-1"
                       placeholder="日期"
                       style="max-width: 150px"
+                      autocomplete="off"
                       required
                     />
                     <select
@@ -237,20 +240,11 @@
     </div>
 
     <%- include('./layout/footer'); -%>
-    <script type="module" src="../main.js"></script>
+    <!-- jquery-ui -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <script>
-      $(function () {
-        $(".jq-appointmentDate").datepicker({
-          minDate: 0,
-          maxDate: "+1M +10D",
-          dateDefault: {
-            dateFormat: "yy-mm-dd",
-            regional: "zh-TW",
-          },
-        });
-      });
-    </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/i18n/jquery-ui-i18n.min.js"></script>
+    <!--  -->
+    <script type="module" src="../main.js"></script>
   </body>
 </html>

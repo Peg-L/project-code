@@ -1,13 +1,42 @@
-.number-arrow-none{
-    /* Chrome, Safari, Edge, Opera */
-    &::-webkit-outer-spin-button,
-    &::-webkit-inner-spin-button {
+.number-arrow-none {
+  /* Chrome, Safari, Edge, Opera */
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
-    }
+  }
 
-    /* Firefox */
-    &[type=number] {
+  /* Firefox */
+  &[type="number"] {
     appearance: textfield;
-    }
+  }
+}
+
+.status-check {
+  position: relative;
+  padding-left: calc(1em + 12px);
+  &::after {
+    position: absolute;
+    font-family: "Material Symbols Outlined";
+    content: "check_circle";
+    font-size: calc(1em + 4px);
+    color: $success;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0px;
+  }
+}
+.status-alert {
+  position: relative;
+  padding-left: calc(1em + 12px);
+  &::after {
+    position: absolute;
+    font-family: "Material Symbols Outlined";
+    content: "error";
+    font-size: calc(1em + 4px);
+    color: $danger;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0px;
+  }
 }
