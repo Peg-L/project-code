@@ -28,6 +28,14 @@
   list-style-type: decimal;
 }
 
+.line-clamp-4 {
+  //4行以上省略
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
