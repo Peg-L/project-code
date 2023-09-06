@@ -18,14 +18,13 @@
   <body>
     <%- include("./layout/header.ejs") -%>
     <!-- banner -->
-    <div class="bg-gray-100">
-      <div class="banner-md">
-        <div id="carouselBanner" class="container carousel carousel-dark slide">
-          <div class="carousel-inner">
-            <div
-              class="carousel-item banner-sm banner-1 active flex-column justify-content-end align-items-start justify-content-md-center"
-              data-bs-interval="6000"
-            >
+    <div class="bg-gray-400">
+      <div class="swiper bannerSwiper mx-3 mx-md-5 position-relative">
+        <div class="swiper-wrapper">
+          <div
+            class="swiper-slide d-flex flex-column align-items-start justify-content-end justify-content-md-center rounded-3 banner-img banner-img1 pb-4 pb-md-0"
+          >
+            <div class="container">
               <h3
                 class="badge-title badge-title-lg bg-primary text-white mb-2 mb-md-3"
               >
@@ -49,16 +48,17 @@
                 </button>
               </div>
             </div>
-            <div
-              class="carousel-item banner-sm banner-2 flex-column justify-content-end align-items-start justify-content-md-center"
-              data-bs-interval="3000"
-            >
+          </div>
+          <div
+            class="swiper-slide d-flex flex-column align-items-start justify-content-center rounded-3 banner-img banner-img2"
+          >
+            <div class="container">
               <h3
                 class="badge-title badge-title-lg bg-primary text-white mb-2 mb-md-3"
               >
                 嚴格篩選機制
               </h3>
-              <h2 class="banner-title">教師均通過內部審核</h2>
+              <h2 class="banner-title">通過三道審核關卡</h2>
               <div class="input-group">
                 <input
                   type="text"
@@ -76,16 +76,17 @@
                 </button>
               </div>
             </div>
-            <div
-              class="carousel-item banner-sm banner-3 flex-column justify-content-end align-items-start justify-content-md-center"
-              data-bs-interval="0"
-            >
+          </div>
+          <div
+            class="swiper-slide d-flex flex-column align-items-start justify-content-center rounded-3 banner-img banner-img3"
+          >
+            <div class="container">
               <h3
                 class="badge-title badge-title-lg bg-primary text-white mb-2 mb-md-3"
               >
                 擊退畢業焦慮
               </h3>
-              <h2 class="banner-title">任選教師，買10堂課送5堂</h2>
+              <h2 class="banner-title">畢業快樂，買 10 送 5</h2>
               <div class="input-group">
                 <input
                   type="text"
@@ -104,29 +105,10 @@
               </div>
             </div>
           </div>
-          <div class="carousel-indicators">
-            <button
-              type="button"
-              data-bs-target="#carouselBanner"
-              data-bs-slide-to="0"
-              class="active"
-              aria-current="true"
-              aria-label="Slide 1"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselBanner"
-              data-bs-slide-to="1"
-              aria-label="Slide 2"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselBanner"
-              data-bs-slide-to="2"
-              aria-label="Slide 3"
-            ></button>
-          </div>
         </div>
+        <div
+          class="bannerSwiper-pagination d-flex justify-content-center z-1"
+        ></div>
       </div>
     </div>
 

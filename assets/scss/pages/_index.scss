@@ -1,37 +1,22 @@
 // banner
-.banner-sm {
-  border-radius: 12px;
+.banner-img {
   height: 300px;
-  padding: 16px;
-
-  background: url("../images/banner.svg") no-repeat center / cover;
-
-  & > * {
-    display: none;
-  }
-
-  &.active {
-    display: flex;
-
-    & > * {
-      display: flex;
-    }
-  }
 
   @include media-breakpoint-up(md) {
-    background: none;
     height: 640px;
   }
 }
 
-@include media-breakpoint-up(md) {
-  .banner-md {
-    background: url("../images/banner.svg") no-repeat center / cover;
-    display: block;
-    height: 640px;
-    margin: 0 20px;
-    border-radius: 20px;
-  }
+.banner-img1 {
+  background: url("../images/banner.svg") no-repeat center / cover;
+}
+
+.banner-img2 {
+  background: url("../images/banner2.jpg") no-repeat center / cover;
+}
+
+.banner-img3 {
+  background: url("../images/banner3.jpg") no-repeat center / cover;
 }
 
 .banner-title {
@@ -46,40 +31,75 @@
   }
 }
 
-.carousel-indicators {
-  position: relative;
-  margin: 20px 0 0 0;
-  gap: 16px;
-
-  @include media-breakpoint-up(md) {
-    gap: 24px;
-    top: -60px;
-  }
-
-  & [data-bs-target] {
-    display: block;
-    background-color: $gray-200;
+.bannerSwiper-pagination {
+  margin-top: 20px;
+  span {
     width: 6px;
     height: 6px;
-    border: none;
-    border-radius: 50%;
-    margin: 0;
+    --swiper-pagination-bullet-horizontal-gap: 8px;
+  }
+  .swiper-pagination-bullet {
+    background-color: $gray-300;
+  }
 
-    &.active {
-      background-color: $primary;
-    }
+  .swiper-pagination-bullet-active {
+    background-color: $primary;
+  }
 
-    @include media-breakpoint-up(md) {
-      background-color: rgba($white, 0.3);
+  @include media-breakpoint-up(md) {
+    position: absolute;
+    --swiper-pagination-bottom: 40px;
+
+    span {
       width: 8px;
       height: 8px;
+      --swiper-pagination-bullet-horizontal-gap: 12px;
+    }
 
-      &.active {
-        background-color: $white;
-      }
+    .swiper-pagination-bullet {
+      background-color: rgba($white, 0.9);
+    }
+
+    .swiper-pagination-bullet-active {
+      background-color: $white;
     }
   }
 }
+
+// .carousel-indicators {
+//   position: relative;
+//   margin: 20px 0 0 0;
+//   gap: 16px;
+
+//   @include media-breakpoint-up(md) {
+//     gap: 24px;
+//     top: -60px;
+//   }
+
+//   & [data-bs-target] {
+//     display: block;
+//     background-color: $gray-200;
+//     width: 6px;
+//     height: 6px;
+//     border: none;
+//     border-radius: 50%;
+//     margin: 0;
+
+//     &.active {
+//       background-color: $primary;
+//     }
+
+//     @include media-breakpoint-up(md) {
+//       background-color: rgba($white, 0.3);
+//       width: 8px;
+//       height: 8px;
+
+//       &.active {
+//         background-color: $white;
+//       }
+//     }
+//   }
+// }
 
 // 推薦教師
 .bg-gray-dot {
