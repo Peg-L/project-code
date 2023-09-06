@@ -15,78 +15,522 @@
     <!--========================
     =        step bar          =
     =========================-->
-    <div class="container-sm">
-      <div class="row justify-content-center mb-6 mb-md-12">
-        <div class="col-sm-10 col-md-8 col-lg-6">
-          <ul
-            class="stepbar list-unstyled d-flex justify-content-between mt-2 mt-md-7 mb-8 mb-md-13"
-          >
-            <li class="d-flex flex-column align-items-center">
-              <div class="stepbar-item ready mb-1 mb-md-2">1</div>
-              <p class="fw-bold">確認付款</p>
-            </li>
-            <li class="d-flex flex-column align-items-center">
-              <div class="stepbar-item mb-1 mb-md-2">2</div>
-              <p class="fw-bold">預約時段</p>
-            </li>
-            <li class="d-flex flex-column align-items-center">
-              <div class="stepbar-item mb-1 mb-md-2">3</div>
-              <p class="fw-bold">課程明細</p>
-            </li>
-          </ul>
-          <!--========================
-                =           card           =
-                =========================-->
-          <h2 class="fs-5 fs-md-4">訂單資訊</h2>
+    <div class="container-sm mb-10 mb-md-15">
+      <div class="col-md-10 col-lg-7 mx-auto">
+        <ul
+          class="stepbar list-unstyled d-flex justify-content-between mt-2 mt-md-7 mb-8 mb-md-13"
+        >
+          <li class="d-flex flex-column align-items-center">
+            <div class="stepbar-item ready mb-1 mb-md-2">1</div>
+            <p class="fw-bold">確認付款</p>
+          </li>
+          <li class="d-flex flex-column align-items-center">
+            <div class="stepbar-item mb-1 mb-md-2">2</div>
+            <p class="fw-bold">預約時段</p>
+          </li>
+          <li class="d-flex flex-column align-items-center">
+            <div class="stepbar-item mb-1 mb-md-2">3</div>
+            <p class="fw-bold">課程明細</p>
+          </li>
+        </ul>
+        <!--========================
+            =           card           =
+            =========================-->
+        <h2 class="fs-4 fs-md-3 mb-6 mb-md-8">訂單資訊</h2>
+        <!-- card -->
+        <ul class="list-unstyle d-flex flex-column gap-5 mb-3">
           <!-- card1 -->
-          <div class="card">
-            <div class="row g-6">
-              <!-- 左 -->
-              <div class="col-3 align-items-center">
-                <img
-                  class="rounded-circle"
-                  src="../assets/images/Rectangle 7.png"
-                  alt="teacher"
-                  width="90px"
-                  height="90px"
-                />
-                <h3 class="fs-4">麥克先生</h3>
-              </div>
-              <!-- 中 -->
-              <div class="col-6">
-                <form action="">
-                  <label for="course1">課程</label><br />
-                  <input
-                    class="form-control"
-                    type="text"
-                    name="course1"
-                    id="course1"
-                    value="一起打造你的前端職涯"
-                    readonly
-                  />
-                  <div class="d-flex">
-                    <div class="w-50">
-                      <label for="hour1">單堂時數</label><br />
-                      <select class="form-select" name="hour1" id="hour1">
-                        <option value="20">20 分鐘</option>
-                        <option value="50" selected>50 分鐘</option>
-                      </select>
-                    </div>
-                    <div class="w-50">
-                      <label for="count1">堂數</label><br />
-                      <input
-                        class="form-control"
-                        type="text"
-                        name="hour1"
-                        id="hour1"
-                        value="1 堂"
-                        readonly
+          <li>
+            <div
+              class="shadow rounded-2 p-4 pb-md-4 pt-md-6 px-md-8 mb-1 mb-md-2"
+            >
+              <h3 class="fs-5 fs-md-4 fw-bold mb-4 mb-md-6 text-secondary2">
+                一起打造你的前端職涯
+              </h3>
+              <div class="row justify-content-between">
+                <!-- 老師區塊 -->
+                <div
+                  class="col-4 col-sm-3 d-flex flex-column align-items-start"
+                >
+                  <div class="text-center">
+                    <div>
+                      <img
+                        class="img-fluid rounded-circle mb-2"
+                        src="../assets/images/Rectangle 7.png"
+                        alt="teacher"
+                        width="90px"
+                        height="90px"
                       />
                     </div>
+                    <h5 class="fs-7 fs-md-6">麥克先生</h5>
                   </div>
-                </form>
+                </div>
+
+                <div class="col-8 col-sm-9">
+                  <!-- 堂數 -->
+                  <form class="mb-3 mb-md-5" action="#">
+                    <div
+                      class="d-flex flex-wrap align-items-center column-gap-8 row-gap-3"
+                    >
+                      <label for="hour1"
+                        >單堂時長 (分鐘)
+                        <select
+                          class="form-select border-primary fw-bold mt-2 py-1 py-sm-2"
+                          name="hour1"
+                          id="hour1"
+                          style="max-width: 150px"
+                        >
+                          <option value="20">20</option>
+                          <option value="50">50</option>
+                          <option value="20、50" selected>20、50</option>
+                        </select>
+                      </label>
+
+                      <label for="count1"
+                        >堂數 (堂)
+                        <div class="input-group w-fit-content mt-2">
+                          <button
+                            type="button"
+                            class="btn btn-outline-primary rounded-start-2 border-1 py-0 fw-bold fs-4"
+                            style="width: 45px"
+                          >
+                            -
+                          </button>
+                          <input
+                            class="form-control border-primary fw-bold text-center py-1 py-sm-2"
+                            type="text"
+                            name="count"
+                            id="count1"
+                            value="2"
+                            inputmode="numeric"
+                            pattern="[0-9]"
+                            style="width: 60px"
+                          />
+                          <button
+                            type="button"
+                            class="btn btn-outline-primary rounded-end-2 border-1 py-0 fw-bold fs-4"
+                            style="width: 45px"
+                          >
+                            +
+                          </button>
+                        </div>
+                      </label>
+                    </div>
+                    <div id="hourHelpBlock" class="form-text">
+                      20 分鐘課程僅限於第一堂
+                    </div>
+                  </form>
+
+                  <!-- 價格 -->
+                  <div class="d-flex justify-content-between mb-3">
+                    <div class="d-flex gap-3">
+                      <h4 class="fs-5 fs-md-4 fw-bold text-deleted">
+                        NT$ 3,200
+                      </h4>
+                      <h4 class="fs-5 fs-md-4 fw-bold">NT$ 2,200</h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-end gap-4">
+                  <p class="fs-sm fs-md-7">2024/1/1 到期</p>
+                  <a class="text-decoration-underline" href="#">下次再買</a>
+                  <a class="text-decoration-underline" href="#">刪除</a>
+                </div>
               </div>
-              <!-- 右 -->
+            </div>
+            <div class="d-flex align-items-center">
+              <button type="button" class="btn btn-close fs-sm"></button>
+              <p>
+                已套用 <span class="fw-bold text-secondary2">體驗價</span
+                ><i class="fa-solid fa-arrow-right mx-1"></i
+                ><span class="fw-bold text-primary">折價 1,000 元</span>
+              </p>
+            </div>
+          </li>
+          <!-- card2 -->
+          <li>
+            <div
+              class="shadow rounded-2 p-4 pb-md-4 pt-md-6 px-md-8 mb-1 mb-md-2"
+            >
+              <h3 class="fs-5 fs-md-4 fw-bold mb-4 mb-md-6 text-secondary2">
+                Python 全攻略
+              </h3>
+              <div class="row justify-content-between">
+                <!-- 老師區塊 -->
+                <div
+                  class="col-4 col-sm-3 d-flex flex-column align-items-start"
+                >
+                  <div class="text-center">
+                    <div>
+                      <img
+                        class="img-fluid rounded-circle mb-2"
+                        src="../assets/images/Rectangle 9.png"
+                        alt="teacher"
+                        width="90px"
+                        height="90px"
+                      />
+                    </div>
+                    <h5 class="fs-7 fs-md-6">艾莉絲</h5>
+                  </div>
+                </div>
+
+                <div class="col-8 col-sm-9">
+                  <!-- 堂數 -->
+                  <form class="mb-3 mb-md-5" action="#">
+                    <div
+                      class="d-flex flex-wrap align-items-center column-gap-8 row-gap-3"
+                    >
+                      <label for="hour2"
+                        >單堂時長 (分鐘)
+                        <select
+                          class="form-select border-primary fw-bold mt-2 py-1 py-sm-2"
+                          name="hour2"
+                          id="hour2"
+                          style="max-width: 150px"
+                        >
+                          <option value="20">20</option>
+                          <option value="50" selected>50</option>
+                          <option value="20、50">20、50</option>
+                        </select>
+                      </label>
+
+                      <label for="count2"
+                        >堂數 (堂)
+                        <div class="input-group w-fit-content mt-2">
+                          <button
+                            type="button"
+                            class="btn btn-outline-primary rounded-start-2 border-1 py-0 fw-bold fs-4"
+                            style="width: 45px"
+                          >
+                            -
+                          </button>
+                          <input
+                            class="form-control border-primary fw-bold text-center py-1 py-sm-2"
+                            type="text"
+                            name="count"
+                            id="count2"
+                            value="1"
+                            inputmode="numeric"
+                            pattern="[0-9]"
+                            style="width: 60px"
+                          />
+                          <button
+                            type="button"
+                            class="btn btn-outline-primary rounded-end-2 border-1 py-0 fw-bold fs-4"
+                            style="width: 45px"
+                          >
+                            +
+                          </button>
+                        </div>
+                      </label>
+                    </div>
+                    <div id="hourHelpBlock" class="form-text">
+                      20 分鐘課程僅限於第一堂
+                    </div>
+                  </form>
+
+                  <!-- 價格 -->
+                  <div class="d-flex justify-content-between mb-3">
+                    <div class="d-flex gap-3">
+                      <h4 class="fs-5 fs-md-4 fw-bold">NT$ 1,800</h4>
+                      <!-- <h4 class="fs-5 fs-md-4 fw-bold">NT$ 600</h4> -->
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-end gap-4">
+                  <p class="fs-sm fs-md-7">2024/2/1 到期</p>
+                  <a class="text-decoration-underline" href="#">下次再買</a>
+                  <a class="text-decoration-underline" href="#">刪除</a>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="d-flex align-items-center">
+              <button type="button" class="btn btn-close fs-sm"></button>
+              <p>
+                已套用 <span class="fw-bold text-secondary2">體驗價</span
+                ><i class="fa-solid fa-arrow-right mx-1"></i
+                ><span class="fw-bold text-primary">折價 1,200 元</span>
+              </p>
+            </div> -->
+          </li>
+        </ul>
+
+        <!--========================
+        =       優惠券 價格         =
+        =========================-->
+        <hr class="border-secondary border-3" />
+        <div
+          class="d-flex flex-column flex-sm-row justify-content-between mb-5 gap-4"
+        >
+          <div class="d-flex flex-column justify-content-between">
+            <div class="d-flex align-items-center mb-4">
+              <button type="button" class="btn btn-close fs-sm"></button>
+              <p>
+                已套用 <span class="fw-bold text-secondary2">全課程 9 折</span
+                ><i class="fa-solid fa-arrow-right mx-1"></i
+                ><span class="fw-bold text-primary">折價 360 元</span>
+              </p>
+            </div>
+            <form class="mb-1" action="#">
+              <label class="form-label" for="coupon">優惠券</label>
+              <div class="input-group">
+                <input
+                  class="form-control border-primary"
+                  list="couponOption"
+                  id="coupon"
+                  placeholder="請輸入優惠券"
+                />
+                <datalist id="couponOption">
+                  <option value=""></option>
+                  <option value="全課程 9 折">全課程 9 折</option>
+                  <option value="LEARNING">
+                    體驗價 - 一起打造你的前端職涯
+                  </option>
+                </datalist>
+                <button type="submit" class="btn btn-secondary2 rounded-end-2">
+                  使用
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <table
+            class="w-fit-content table table-sm table-borderless text-end align-self-end mb-0"
+          >
+            <thead>
+              <tr>
+                <th scope="row" colspan="2" class="fs-7 fs-md-6 fw-bold">
+                  NT$ 5,000
+                </th>
+              </tr>
+            </thead>
+            <tbody class="fs-sm fs-md-7 border-bottom border-dark">
+              <tr>
+                <th class="pe-4 fw-normal" scope="row">課程優惠</th>
+                <td>- NT$ 1,000</td>
+              </tr>
+              <tr class="boder-bottom boder-1">
+                <th class="pe-4 fw-normal" scope="row">全站折扣</th>
+                <td>- NT$ 360</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th scope="row" colspan="2" class="fs-5 fs-md-4 fw-bold pb-0">
+                  NT$ 3,640
+                </th>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <hr class="border-secondary border-3" />
+        <!--========================
+            =        付款方式          =
+            =========================-->
+        <h2 class="fs-4 fs-md-3 mb-6 mb-md-8">付款方式</h2>
+        <div>
+          <!-- tabs -->
+          <ul class="nav nav-pills gap-6 mb-3" id="payWay" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link border border-primary border-2"
+                id="creditCard-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#creditCard"
+                type="button"
+                role="tab"
+                aria-controls="creditCard"
+                aria-selected="true"
+              >
+                信用卡
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link border border-primary border-2"
+                id="store-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#store"
+                type="button"
+                role="tab"
+                aria-controls="store"
+                aria-selected="false"
+              >
+                超商代繳
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link border border-primary border-2"
+                id="atm-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#atm"
+                type="button"
+                role="tab"
+                aria-controls="atm"
+                aria-selected="false"
+              >
+                ATM 轉帳
+              </button>
+            </li>
+          </ul>
+          <!-- 內容-->
+          <div class="tab-content p-4" id="payWayContent">
+            <!-- 信用卡 -->
+            <div
+              class="tab-pane fade"
+              id="creditCard"
+              role="tabpanel"
+              aria-labelledby="creditCard-tab"
+              tabindex="0"
+            >
+              <!-- 分期 -->
+              <ul class="mb-4">
+                <li class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="creditCardPayWay"
+                    id="creditCardAll"
+                  />
+                  <label class="form-check-label" for="creditCardAll">
+                    一次付清
+                  </label>
+                </li>
+                <li class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="creditCardPayWay"
+                    id="creditCardPayWayThree"
+                    checked
+                  />
+                  <label class="form-check-label" for="creditCardPayWayThree">
+                    分 3 期 0 利率<span
+                      class="text-decoration-underline"
+                      title="A銀行、B銀行、C銀行、D銀行、E銀行"
+                      >(20家銀行)</span
+                    >
+                  </label>
+                </li>
+                <li class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="creditCardPayWay"
+                    id="creditCardPayWaySix"
+                    checked
+                  />
+                  <label class="form-check-label" for="creditCardPayWaySix">
+                    分 6 期 0 利率<span
+                      class="text-decoration-underline"
+                      title="A銀行、B銀行、C銀行、D銀行、E銀行"
+                      >(20家銀行)</span
+                    >
+                  </label>
+                </li>
+              </ul>
+              <!-- 信用卡資料 -->
+              <form class="row g-4" action="cart2.html" method="post">
+                <div class="col-12 col-md-6">
+                  <label class="form-label" for="creditCardId"
+                    >信用卡帳號</label
+                  >
+                  <input
+                    class="form-control border-primary py-1 py-sm-2"
+                    type="text"
+                    name="creditCardId"
+                    id="creditCardId"
+                    inputmode="numeric"
+                    pattern="[0-9]{16}"
+                    placeholder="16碼"
+                    required
+                  />
+                </div>
+
+                <div class="col-6 col-md-3">
+                  <label class="form-label" for="csc">安全碼</label>
+                  <input
+                    class="form-control border-primary py-1 py-sm-2"
+                    type="text"
+                    name="csc"
+                    id="csc"
+                    inputmode="numeric"
+                    placeholder="CVC"
+                    pattern="[0-9]{3}"
+                    required
+                  />
+                </div>
+
+                <div class="col-6 col-md-3 mb-4 mb-md-6">
+                  <label class="form-label" for="creditDate">有效日期</label>
+                  <input
+                    class="form-control border-primary py-1 py-sm-2"
+                    type="text"
+                    name="creditDate"
+                    id="creditDate"
+                    inputmode="numeric"
+                    placeholder="MMYY"
+                    pattern="[0-9]{4}"
+                    required
+                  />
+                </div>
+
+                <div class="col-12 text-end">
+                  <button type="submit" class="btn btn-secondary2 rounded-2">
+                    下一步
+                  </button>
+                </div>
+              </form>
+            </div>
+            <!-- 超商代繳 -->
+            <div
+              class="tab-pane fade"
+              id="store"
+              role="tabpanel"
+              aria-labelledby="store-tab"
+              tabindex="0"
+            >
+              <div class="d-flex flex-column">
+                <ul class="ms-6 mb-4 mb-md-6">
+                  <li class="list-disc text-justify">
+                    確認送出交易後您將取得超商繳費代碼，您可至全台
+                    [7-11、全家、OK超商、萊爾富] 店內之多媒體機台
+                    (ibon、FamiPort、OK-go、Life-ET)
+                    上列印繳費單至超商櫃台以現金繳費。
+                  </li>
+                  <li class="list-disc">繳費期限：2023-02-07 23:59:59</li>
+                </ul>
+                <a
+                  href="cart2.html"
+                  class="btn btn-secondary2 rounded-2 align-self-end"
+                  >下一步</a
+                >
+              </div>
+            </div>
+            <!-- ATM 轉帳 -->
+            <div
+              class="tab-pane fade"
+              id="atm"
+              role="tabpanel"
+              aria-labelledby="atm-tab"
+              tabindex="0"
+            >
+              <div class="d-flex flex-column">
+                <ul class="ms-6 mb-4 mb-md-6">
+                  <li class="list-disc text-justify">
+                    您可以使用任一台灣金融機構所發行之金融卡來進行 ATM
+                    轉帳，若持有 台新銀行 所發行之金融卡，則可享有轉帳免手續費。
+                  </li>
+                  <li class="list-disc">繳費期限：2023-02-07 23:59:59</li>
+                </ul>
+                <a
+                  href="cart2.html"
+                  class="btn btn-secondary2 rounded-2 align-self-end"
+                  >下一步</a
+                >
+              </div>
             </div>
           </div>
         </div>
