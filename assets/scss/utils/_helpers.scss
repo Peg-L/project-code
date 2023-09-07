@@ -65,34 +65,52 @@
 }
 
 //寬度、高度
-.h-200 {
+.h-200px {
   height: 200px;
 }
 
-.w-fit-content {
+.w-fit {
   width: fit-content;
 }
 
-.fix-min-w-100 {
+.w-45px {
+  width: 45px;
+}
+.w-100px {
   width: 100px;
+}
+.w-150px {
+  width: 150px;
+}
+.w-300px {
+  width: 300px;
+}
+
+.min-w-100px {
   min-width: 100px;
 }
 @include media-breakpoint-up(md) {
-  .h-md-300 {
+  .h-md-300px {
     height: 300px;
   }
-  .fix-min-w-md-150 {
-    width: 150px;
+  .min-w-md-150px {
     min-width: 150px;
   }
-  .fix-min-w-md-200 {
-    width: 200px;
+  .w-md-150px {
+    width: 150px;
+  }
+  .min-w-md-200px {
     min-width: 200px;
+  }
+  .w-md-200px {
+    width: 200px;
   }
 }
 @include media-breakpoint-up(lg) {
-  .fix-min-w-lg-250 {
-    width: 250px;
+  .min-w-lg-250px {
     min-width: 250px;
+  }
+  .w-lg-250px {
+    width: 250px;
   }
 }
