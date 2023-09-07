@@ -75,74 +75,84 @@
                 </div>
               </div>
               <!-- 右 -->
-              <div class="col-8 col-sm-9 d-flex flex-column">
+              <div class="col-8 col-sm-9">
                 <p class="fs-7 fs-md-6 text-primary mb-4">
                   請先選取日期再預約時間
                   <span class="fw-bold">(至少預約一堂)</span>：
                 </p>
-                <form
-                  class="d-flex flex-wrap align-items-center column-gap-8 mb-3 mb-md-5"
-                  action="#"
-                  method="post"
-                >
-                  <p class="fw-bold mb-1">第 1 堂 (20 分鐘)</p>
-                  <div class="d-flex gap-2">
-                    <input
-                      class="form-control border-primary cursor-pointer fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4 jq-appointmentDate"
-                      type="text"
-                      name="appointmentDate1-1"
-                      id="appointmentDate1-1"
-                      placeholder="日期"
-                      style="max-width: 150px"
-                      value="2023/09/20"
-                      autocomplete="off"
-                      required
-                    />
-                    <select
-                      class="form-select border-primary fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4"
-                      name="appointmentTime1-1"
-                      id="appointmentTime1-1"
-                      style="max-width: 140px"
-                      required
+                <ul>
+                  <li>
+                    <form
+                      class="d-flex flex-wrap align-items-center column-gap-4 row-gap-2 mb-3 mb-md-5"
+                      action="#"
+                      method="post"
                     >
-                      <option value="">時間</option>
-                      <option value="AM 9:00" selected>AM 9:00</option>
-                      <option value="AM 10:00">AM 10:00</option>
-                      <option value="PM 16:00">AM 16:00</option>
-                    </select>
-                  </div>
-                </form>
-                <form
-                  class="d-flex flex-wrap align-items-center column-gap-8 mb-3 mb-md-5"
-                  action="#"
-                  method="post"
-                >
-                  <p class="fw-bold mb-1">第 2 堂 (50 分鐘)</p>
-                  <div class="d-flex gap-2">
-                    <input
-                      class="form-control border-primary cursor-pointer fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4 jq-appointmentDate"
-                      type="text"
-                      name="appointmentDate1-2"
-                      id="appointmentDate1-2"
-                      placeholder="日期"
-                      style="max-width: 150px"
-                      autocomplete="off"
-                      required
-                    />
-                    <select
-                      class="form-select border-primary fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4"
-                      name="appointmentTime1-2"
-                      id="appointmentTime1-2"
-                      style="max-width: 140px"
-                      required
+                      <p class="fw-bold" style="width: 145px">
+                        第 1 堂 (20 分鐘)
+                      </p>
+                      <div class="d-flex gap-2">
+                        <input
+                          class="form-control border-primary cursor-pointer fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4 jq-appointmentDate"
+                          type="text"
+                          name="appointmentDate1-1"
+                          id="appointmentDate1-1"
+                          placeholder="日期"
+                          style="max-width: 150px"
+                          value="2023/09/20"
+                          autocomplete="off"
+                          required
+                        />
+                        <select
+                          class="form-select border-primary fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4"
+                          name="appointmentTime1-1"
+                          id="appointmentTime1-1"
+                          style="max-width: 140px"
+                          required
+                        >
+                          <option value="">時間</option>
+                          <option value="AM 9:00" selected>AM 9:00</option>
+                          <option value="AM 10:00">AM 10:00</option>
+                          <option value="PM 16:00">AM 16:00</option>
+                        </select>
+                      </div>
+                    </form>
+                  </li>
+                  <li>
+                    <form
+                      class="d-flex flex-wrap align-items-center column-gap-4 row-gap-2 mb-3 mb-md-5"
+                      action="#"
+                      method="post"
                     >
-                      <option value="" selected>時間</option>
-                      <option value="AM 9:00">AM 9:00</option>
-                      <option value="AM 10:00">AM 10:00</option>
-                      <option value="PM 16:00">AM 16:00</option>
-                    </select>
-                  </div>
-                </form>
+                      <p class="fw-bold" style="width: 145px">
+                        第 2 堂 (50 分鐘)
+                      </p>
+                      <div class="d-flex gap-2">
+                        <input
+                          class="form-control border-primary cursor-pointer fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4 jq-appointmentDate"
+                          type="text"
+                          name="appointmentDate1-2"
+                          id="appointmentDate1-2"
+                          placeholder="日期"
+                          style="max-width: 150px"
+                          autocomplete="off"
+                          required
+                        />
+                        <select
+                          class="form-select border-primary fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4"
+                          name="appointmentTime1-2"
+                          id="appointmentTime1-2"
+                          style="max-width: 140px"
+                          required
+                        >
+                          <option value="" selected>時間</option>
+                          <option value="AM 9:00">AM 9:00</option>
+                          <option value="AM 10:00">AM 10:00</option>
+                          <option value="PM 16:00">AM 16:00</option>
+                        </select>
+                      </div>
+                    </form>
+                  </li>
+                </ul>
                 <div class="d-flex justify-content-end gap-4 mt-auto">
                   <p class="fs-sm fs-md-7">剩餘 1 堂</p>
                   <p class="fs-sm fs-md-7">2024/2/1 到期</p>
@@ -188,37 +198,43 @@
                   請先選取日期再預約時間
                   <span class="fw-bold">(至少預約一堂)</span>：
                 </p>
-                <form
-                  class="d-flex flex-wrap align-items-center column-gap-8 mb-3 mb-md-5"
-                  action="#"
-                  method="post"
-                >
-                  <p class="fw-bold mb-1">第 1 堂 (50 分鐘)</p>
-                  <div class="d-flex gap-2">
-                    <input
-                      class="form-control border-primary cursor-pointer fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4 jq-appointmentDate"
-                      type="text"
-                      name="appointmentDate2-1"
-                      id="appointmentDate2-1"
-                      placeholder="日期"
-                      style="max-width: 150px"
-                      autocomplete="off"
-                      required
-                    />
-                    <select
-                      class="form-select border-primary fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4"
-                      name="appointmentTime1-1"
-                      id="appointment1-1"
-                      style="max-width: 140px"
-                      required
+                <ul>
+                  <li>
+                    <form
+                      class="d-flex flex-wrap align-items-center column-gap-4 row-gap-2 mb-3 mb-md-5"
+                      action="#"
+                      method="post"
                     >
-                      <option value="" selected>時間</option>
-                      <option value="AM 9:00">AM 9:00</option>
-                      <option value="AM 10:00">AM 10:00</option>
-                      <option value="PM 16:00">AM 16:00</option>
-                    </select>
-                  </div>
-                </form>
+                      <p class="fw-bold" style="width: 145px">
+                        第 1 堂 (50 分鐘)
+                      </p>
+                      <div class="d-flex gap-2">
+                        <input
+                          class="form-control border-primary cursor-pointer fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4 jq-appointmentDate"
+                          type="text"
+                          name="appointmentDate1-2"
+                          id="appointmentDate1-2"
+                          placeholder="日期"
+                          style="max-width: 150px"
+                          autocomplete="off"
+                          required
+                        />
+                        <select
+                          class="form-select border-primary fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4"
+                          name="appointmentTime1-2"
+                          id="appointmentTime1-2"
+                          style="max-width: 140px"
+                          required
+                        >
+                          <option value="" selected>時間</option>
+                          <option value="AM 9:00">AM 9:00</option>
+                          <option value="AM 10:00">AM 10:00</option>
+                          <option value="PM 16:00">AM 16:00</option>
+                        </select>
+                      </div>
+                    </form>
+                  </li>
+                </ul>
                 <div class="d-flex justify-content-end gap-4 mt-auto">
                   <p class="fs-sm fs-md-7">剩餘 1 堂</p>
                   <p class="fs-sm fs-md-7">2024/2/1 到期</p>
