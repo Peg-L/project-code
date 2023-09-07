@@ -122,20 +122,18 @@
     position: absolute;
     background-image: url("../images/chevron-down.svg");
   }
+
+  &:not(.collapsed)::after {
+    background-image: url("../images/chevron-down.svg");
+  }
 }
 
 @include media-breakpoint-up(lg) {
   .navbar-nav {
-    .accordion-button::after {
+    .accordion-button::after,
+    .accordion-button:not(.collapsed)::after {
       display: none;
     }
-  }
-}
-
-.accordion-button:not(.collapsed)::after {
-  background-image: url("../images/chevron-down.svg");
-  @include media-breakpoint-up(lg) {
-    display: none;
   }
 }
 
