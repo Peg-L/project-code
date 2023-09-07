@@ -81,12 +81,10 @@
   overflow-x: clip;
 }
 
-.recommendSwiper-btns {
-  .swiper-horizontal
-    > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
-  .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
-    transform: translateX(0);
-  }
+.swiper-horizontal
+  > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
+.swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+  transform: translateX(0);
 }
 
 // 探索地圖 category
@@ -266,48 +264,6 @@
     li:first-child {
       margin-bottom: 4px;
     }
-  }
-}
-
-// review 學生好評
-.reviewSwiper-button-next:after,
-.swiper-rtl .reviewSwiper-button-prev:after {
-  content: "";
-}
-
-.reviewSwiper-button-prev:after,
-.swiper-rtl .reviewSwiper-button-next:after {
-  content: "";
-}
-
-// .swiper-btns {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// }
-
-.reviewSwiper-button-next,
-.swiper-rtl .reviewSwiper-button-prev {
-  display: flex;
-}
-
-.reviewSwiper-button-prev,
-.swiper-rtl .reviewSwiper-button-next {
-  display: flex;
-}
-
-// .swiper-horizontal
-//   > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
-// .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
-//   transform: none;
-// }
-
-.reviews {
-  &.swiper-horizontal
-    > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
-  .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
-    display: flex;
-    justify-content: center;
   }
 }
 

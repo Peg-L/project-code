@@ -1,7 +1,11 @@
 var bannerSwiper = new Swiper(".bannerSwiper", {
   slidesPerView: 1,
   loop: true,
-  autoplay: true,
+  autoplay: {
+    delay: 5000,
+    pauseOnMouseEnter: true,
+    disableOnInteraction: false,
+  },
   pagination: {
     el: ".bannerSwiper-pagination",
     clickable: true,
