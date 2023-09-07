@@ -13,6 +13,7 @@
       rel="stylesheet"
       href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
     />
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
   </head>
   <body>
     <%- include('./layout/header'); -%>
@@ -188,11 +189,56 @@
                   <li class="calendar-list">
                     <p class="text-center">日</p>
                     <ul class="calendar-time2">
-                      <li><button type="button" class="bg-white border-0 w-100 p-0" data-bs-toggle="modal" data-bs-target="#calendarModal">08:00</button></li>
-                      <li><button type="button" class="bg-white border-0 w-100 p-0" data-bs-toggle="modal" data-bs-target="#calendarModal">08:30</button></li>
-                      <li><button type="button" class="bg-white border-0 w-100 p-0" data-bs-toggle="modal" data-bs-target="#calendarModal">09:00</button></li>
-                      <li><button type="button" class="bg-white border-0 w-100 p-0" data-bs-toggle="modal" data-bs-target="#calendarModal">09:30</button></li>
-                      <li><button type="button" class="bg-white border-0 w-100 p-0" data-bs-toggle="modal" data-bs-target="#calendarModal">09:30</button></li>
+                      <li>
+                        <button
+                          type="button"
+                          class="bg-white border-0 w-100 p-0"
+                          data-bs-toggle="modal"
+                          data-bs-target="#calendarModal"
+                        >
+                          08:00
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          type="button"
+                          class="bg-white border-0 w-100 p-0"
+                          data-bs-toggle="modal"
+                          data-bs-target="#calendarModal"
+                        >
+                          08:30
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          type="button"
+                          class="bg-white border-0 w-100 p-0"
+                          data-bs-toggle="modal"
+                          data-bs-target="#calendarModal"
+                        >
+                          09:00
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          type="button"
+                          class="bg-white border-0 w-100 p-0"
+                          data-bs-toggle="modal"
+                          data-bs-target="#calendarModal"
+                        >
+                          09:30
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          type="button"
+                          class="bg-white border-0 w-100 p-0"
+                          data-bs-toggle="modal"
+                          data-bs-target="#calendarModal"
+                        >
+                          09:30
+                        </button>
+                      </li>
                     </ul>
                   </li>
                   <li class="calendar-list">
@@ -218,43 +264,91 @@
             </div>
           </div>
           <!-- calendar modal -->
-          <div class="modal fade" id="calendarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div
+            class="modal fade"
+            id="calendarModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
             <div class="modal-dialog modal-lg">
-              <div class="modal-content  rounded-0">
+              <div class="modal-content rounded-0">
                 <div class="modal-header border-0">
                   <h5 class="modal-title" id="exampleModalLabel">課程紀錄</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
                 </div>
                 <div class="modal-body">
-                  <div class="d-flex justify-content-between flex-md-row flex-column align-items-center mb-8 gap-2">
-                    <img class="" style="width: 70px" src="../assets/images/teacher/arong.png" alt="Aaron">
-                    <div class="d-flex flex-column justify-content-between  align-items-center">
+                  <div
+                    class="d-flex justify-content-between flex-md-row flex-column align-items-center mb-8 gap-2"
+                  >
+                    <img
+                      class=""
+                      style="width: 70px"
+                      src="../assets/images/teacher/arong.png"
+                      alt="Aaron"
+                    />
+                    <div
+                      class="d-flex flex-column justify-content-between align-items-center"
+                    >
                       <p>教師</p>
                       <p class="fw-bold">Arron</p>
                     </div>
-                    <div class="d-flex flex-column justify-content-between align-items-center">
+                    <div
+                      class="d-flex flex-column justify-content-between align-items-center"
+                    >
                       <p>課程項目</p>
                       <p class="fw-bold">JavaScript</p>
                     </div>
-                    <div class="d-flex flex-column justify-content-between align-items-center">
+                    <div
+                      class="d-flex flex-column justify-content-between align-items-center"
+                    >
                       <p>上課時間</p>
                       <p class="fw-bold">2023/07/21(週一) 11:00-11:30</p>
                     </div>
-                    <button type="button" class="btn btn-secondary2 text-white"  data-bs-toggle="offcanvas" data-bs-target="#message-mike" aria-controls="message-mike"  data-bs-dismiss="modal">聯絡老師</button>
+                    <button
+                      type="button"
+                      class="btn btn-secondary2 text-white"
+                      data-bs-toggle="offcanvas"
+                      data-bs-target="#message-mike"
+                      aria-controls="message-mike"
+                      data-bs-dismiss="modal"
+                    >
+                      聯絡老師
+                    </button>
                   </div>
-                  <div class="d-flex pb-4 mb-4 border-bottom border-light border-2">
+                  <div
+                    class="d-flex pb-4 mb-4 border-bottom border-light border-2"
+                  >
                     <p>課程狀態: <span class="text-secondary2">已預約</span></p>
                   </div>
                   <div class="border p-4">
                     <p class="fw-bold">注意事項</p>
-                    <p>老師確認後才算是預約完成，如預約成功會傳送預約完成通知信，在此期間請注意老師訊息。</p>
-                    <p>課程將使用ZOOM進行視訊教學，並全程錄影，上課前10分鐘即可點選進入教室，系統會自動開啟 ZOOM，電腦、平板、手機皆可上課。</p>
+                    <p>
+                      老師確認後才算是預約完成，如預約成功會傳送預約完成通知信，在此期間請注意老師訊息。
+                    </p>
+                    <p>
+                      課程將使用ZOOM進行視訊教學，並全程錄影，上課前10分鐘即可點選進入教室，系統會自動開啟
+                      ZOOM，電腦、平板、手機皆可上課。
+                    </p>
                     <p>如欲取消課程或更改時間，須在開課前 12 小時完成動作。</p>
                   </div>
                 </div>
                 <div class="modal-footer border-0">
-                  <button type="button" class="btn btn-secondary2">即將上課</button>
-                  <button type="button" class="btn btn-gray-200" data-bs-dismiss="modal">取消預約</button>
+                  <button type="button" class="btn btn-secondary2">
+                    即將上課
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-gray-200"
+                    data-bs-dismiss="modal"
+                  >
+                    取消預約
+                  </button>
                 </div>
               </div>
             </div>
@@ -389,7 +483,12 @@
                 </ul>
               </div>
               <div class="d-flex flex-row-reverse">
-                <button type="button" class="btn btn-primary text-white"  data-bs-toggle="modal" data-bs-target="#bookedModal">
+                <button
+                  type="button"
+                  class="btn btn-primary text-white"
+                  data-bs-toggle="modal"
+                  data-bs-target="#bookedModal"
+                >
                   課時確認
                 </button>
               </div>
@@ -406,12 +505,22 @@
                 </div>
               </div>
             </div>
-            <div class="modal fade" id="bookedModal" tabindex="-1" aria-hidden="true">
+            <div
+              class="modal fade"
+              id="bookedModal"
+              tabindex="-1"
+              aria-hidden="true"
+            >
               <div class="modal-dialog modal-lg">
-                <div class="modal-content  rounded-0">
+                <div class="modal-content rounded-0">
                   <div class="modal-header border-0">
                     <h5 class="modal-title" id="exampleModalLabel">確認課時</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
                   </div>
                   <div class="modal-body">
                     <p class="mb-2 fw-bold">選擇您想要學習的課程內容</p>
@@ -423,29 +532,67 @@
                       <li class="btn-time">學習建議</li>
                     </ul>
                   </div>
-                  <div class="modal-footer border-0 justify-content-between align-items-center">
+                  <div
+                    class="modal-footer border-0 justify-content-between align-items-center"
+                  >
                     <div class="d-flex flex-column">
                       <p>每堂能選一樣內容</p>
-                      <p>課程時間: <span class="text-secondary2 fw-bold">30分鐘</span></p>
-                      <p>預約時間: <span class="text-secondary2 fw-bold">2023/07/23 (日) 00:00 - 00:30</span></p>
+                      <p>
+                        課程時間:
+                        <span class="text-secondary2 fw-bold">30分鐘</span>
+                      </p>
+                      <p>
+                        預約時間:
+                        <span class="text-secondary2 fw-bold"
+                          >2023/07/23 (日) 00:00 - 00:30</span
+                        >
+                      </p>
                     </div>
-                    <button type="button" class="btn btn-secondary2" data-bs-toggle="modal" data-bs-target="#bookedModal2">確認</button>
+                    <button
+                      type="button"
+                      class="btn btn-secondary2"
+                      data-bs-toggle="modal"
+                      data-bs-target="#bookedModal2"
+                    >
+                      確認
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="modal fade" id="bookedModal2" tabindex="-1" aria-hidden="true">
+            <div
+              class="modal fade"
+              id="bookedModal2"
+              tabindex="-1"
+              aria-hidden="true"
+            >
               <div class="modal-dialog">
-                <div class="modal-content  rounded-0">
+                <div class="modal-content rounded-0">
                   <div class="modal-header border-0">
                     <h5 class="modal-title" id="exampleModalLabel">等待確認</h5>
                   </div>
                   <div class="modal-body">
-                    <p class="mb-2">已發送預約給教師, 需等待教師需等待教師進行確認, 如教師拒絕或是未在24小時內確認, 系統將系統將自動歸還自動歸還課堂數給您</p>
+                    <p class="mb-2">
+                      已發送預約給教師, 需等待教師需等待教師進行確認,
+                      如教師拒絕或是未在24小時內確認,
+                      系統將系統將自動歸還自動歸還課堂數給您
+                    </p>
                   </div>
                   <div class="modal-footer border-0 align-items-center">
-                    <button type="button" class="btn btn-gray-200" data-bs-dismiss="modal">繼續預約</button>
-                    <button type="button" class="btn btn-secondary2" data-bs-dismiss="modal">進行確認</button>
+                    <button
+                      type="button"
+                      class="btn btn-gray-200"
+                      data-bs-dismiss="modal"
+                    >
+                      繼續預約
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-secondary2"
+                      data-bs-dismiss="modal"
+                    >
+                      進行確認
+                    </button>
                   </div>
                 </div>
               </div>
@@ -765,8 +912,15 @@
           <div class="border p-4">
             <ul class="d-flex p-0 flex-column gap-2">
               <li>注意事項</li>
-              <li>1. 老師確認後才算是預約完成，如預約成功會傳送預約完成通知信，在此期間請注意老師訊息。</li>
-              <li>2. 課程將使用ZOOM進行視訊教學，並全程錄影，上課前10分鐘即可點選進入教室，系統會自動開啟 ZOOM，電腦、平板、手機皆可上課。</li>
+              <li>
+                1.
+                老師確認後才算是預約完成，如預約成功會傳送預約完成通知信，在此期間請注意老師訊息。
+              </li>
+              <li>
+                2.
+                課程將使用ZOOM進行視訊教學，並全程錄影，上課前10分鐘即可點選進入教室，系統會自動開啟
+                ZOOM，電腦、平板、手機皆可上課。
+              </li>
               <li>3. 如欲取消課程或更改時間，須在開課前 12 小時完成動作。</li>
             </ul>
           </div>

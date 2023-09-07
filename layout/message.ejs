@@ -187,19 +187,3 @@
   </div>
   <div id="editor"></div>
 </div>
-
-<script>
-  ClassicEditor.create(document.querySelector("#editor"), {
-    placeholder: "說些什麼...",
-    toolbar: ["uploadImage"],
-    link: {
-      addTargetToExternalLinks: true,
-    },
-  })
-    .then((res) => {
-      console.log("success");
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-</script>
