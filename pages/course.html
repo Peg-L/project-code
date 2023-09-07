@@ -9,13 +9,14 @@
       href="../assets/images/favicon.ico"
       type="image/x-icon"
     />
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
   </head>
   <body>
     <%- include('./layout/header'); -%>
     <!--========================
     =          banner          =
     =========================-->
-    <div class="container-fluid">
+    <div class="container-fluid mt-16 mt-md-19">
       <div
         class="rounded-3 d-flex mb-8 mb-md-13 h-200px h-md-300px"
         style="
@@ -3425,6 +3426,8 @@
     </div>
 
     <%- include('./layout/footer'); -%>
+    <!-- backtotop -->
+    <%- include("./layout/backtotop.ejs") -%>
     <script type="module" src="../main.js"></script>
     <script>
       //filter-bar 在 sticky 時添加陰影，且加上margin

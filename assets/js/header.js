@@ -24,3 +24,15 @@ function checkLogin() {
 }
 
 checkLogin();
+
+// 聯絡老師
+ClassicEditor.create(document.querySelector("#editor"), {
+  placeholder: "說些什麼...",
+  toolbar: ["uploadImage"],
+})
+  .then((res) => {
+    console.log("success");
+  })
+  .catch((error) => {
+    console.log(error);
+  });

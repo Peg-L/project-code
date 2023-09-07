@@ -3,6 +3,7 @@
   font-weight: bold;
   content: "瀏覽更多 ＋";
 }
+
 //展開時
 .collapse.show + .readMore::after {
   content: "瀏覽更少 －";

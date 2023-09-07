@@ -15,7 +15,7 @@
     />
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
   </head>
-  <body>
+  <body class="position-relative">
     <%- include("./layout/header.ejs") -%>
     <!-- banner -->
     <div class="bg-gray-400">
@@ -126,7 +126,11 @@
           </h3>
           <h2 class="block-title">熱門教師推薦</h2>
         </div>
-        <a href="./course.html" type="button" class="btn btn-text pe-2">
+        <a
+          href="./course.html"
+          type="button"
+          class="btn btn-text pe-2 fw-medium"
+        >
           查看更多
         </a>
       </div>
@@ -393,7 +397,7 @@
           >
             <i class="fa-solid fa-arrow-left"></i>
           </button>
-          <div class="recommendSwiper-pagination text-center"></div>
+          <div class="recommendSwiper-pagination"></div>
           <button
             class="btn btn-link recommendSwiper-button-next d-none d-sm-block"
             type="button"
@@ -430,7 +434,7 @@
           <ul class="col-12 col-md-8 mb-md-0">
             <div class="row g-3 g-sm-4 g-md-6">
               <li class="col-6 col-sm-4 col-lg-3 cate-item">
-                <a class="h-100" href="###">
+                <a class="h-100" href="./course.html">
                   <h4>前端</h4>
                   <img
                     src="../assets/images/category/frontend.svg"
@@ -439,13 +443,13 @@
                 </a>
               </li>
               <li class="col-6 col-sm-4 col-lg-3 cate-item">
-                <a class="h-100" href="###">
+                <a class="h-100" href="./course.html">
                   <h4>後端</h4>
                   <img src="../assets/images/category/backend.svg" alt="後端" />
                 </a>
               </li>
               <li class="col-6 col-sm-4 col-lg-3 cate-item">
-                <a class="h-100" href="###">
+                <a class="h-100" href="./course.html">
                   <h4>資料庫</h4>
                   <img
                     src="../assets/images/category/database.svg"
@@ -454,7 +458,7 @@
                 </a>
               </li>
               <li class="col-6 col-sm-4 col-lg-3 cate-item">
-                <a class="h-100" href="###">
+                <a class="h-100" href="./course.html">
                   <h4>資安</h4>
                   <img
                     src="../assets/images/category/security.svg"
@@ -463,7 +467,7 @@
                 </a>
               </li>
               <li class="col-6 col-sm-4 col-lg-3 cate-item">
-                <a class="h-100" href="###">
+                <a class="h-100" href="./course.html">
                   <h4>產品測試</h4>
                   <img
                     src="../assets/images/category/testing.svg"
@@ -472,7 +476,7 @@
                 </a>
               </li>
               <li class="col-6 col-sm-4 col-lg-3 cate-item">
-                <a class="h-100" href="###">
+                <a class="h-100" href="./course.html">
                   <h4>UI / UX</h4>
                   <img
                     src="../assets/images/category/UI-UX.svg"
@@ -481,7 +485,7 @@
                 </a>
               </li>
               <li class="col-6 col-sm-4 col-lg-3 cate-item">
-                <a class="h-100" href="###">
+                <a class="h-100" href="./course.html">
                   <h4>開發維運</h4>
                   <img
                     src="../assets/images/category/DevOps.svg"
@@ -490,7 +494,7 @@
                 </a>
               </li>
               <li class="col-6 col-sm-4 col-lg-3 cate-item">
-                <a class="h-100" href="###">
+                <a class="h-100" href="./course.html">
                   <h4>行動應用</h4>
                   <img
                     src="../assets/images/category/mobile.svg"
@@ -499,13 +503,13 @@
                 </a>
               </li>
               <li class="col-6 col-sm-4 col-lg-3 cate-item">
-                <a class="h-100" href="###">
+                <a class="h-100" href="./course.html">
                   <h4>AI</h4>
                   <img src="../assets/images/category/AI.svg" alt="AI" />
                 </a>
               </li>
               <li class="col-6 col-sm-4 col-lg-3 cate-item">
-                <a class="h-100" href="###">
+                <a class="h-100" href="./course.html">
                   <h4>遊戲開發</h4>
                   <img
                     src="../assets/images/category/game.svg"
@@ -514,7 +518,7 @@
                 </a>
               </li>
               <li class="col-6 col-sm-4 col-lg-3 cate-item">
-                <a class="h-100" href="###">
+                <a class="h-100" href="./course.html">
                   <h4>程式入門</h4>
                   <img
                     src="../assets/images/category/basic.svg"
@@ -523,7 +527,7 @@
                 </a>
               </li>
               <li class="col-6 col-sm-4 col-lg-3 cate-item">
-                <a class="h-100" href="###">
+                <a class="h-100" href="./course.html">
                   <h4>職涯</h4>
                   <img src="../assets/images/category/career.svg" alt="職涯" />
                 </a>
@@ -775,15 +779,17 @@
                 </div>
               </div>
             </div>
-            <div class="reviews swiper-btns mt-5 mt-md-7">
+            <div
+              class="reviewsSwiper-btns d-flex justify-content-center align-items-center mt-5 mt-md-7"
+            >
               <button
-                class="btn btn-link reviewsSwiper-button-next-custom d-none d-sm-block"
+                class="btn btn-link reviewsSwiper-button-prev-custom d-none d-sm-block"
                 type="button"
                 disabled
               >
                 <i class="fa-solid fa-arrow-left"></i>
               </button>
-              <div class="reviewsSwiper-pagination-custom"></div>
+              <div class="reviewsSwiper-pagination-custom text-center"></div>
               <button
                 class="btn btn-link reviewsSwiper-button-next-custom d-none d-sm-block"
                 type="button"
@@ -793,6 +799,8 @@
               </button>
             </div>
           </div>
+
+          <!-- review 標題 -->
           <div
             class="col-md-6 col-lg-4 order-1 order-md-2 d-flex flex-column justify-content-between align-items-start pt-10 pt-md-20 pb-md-32 thumb-up-img"
           >
@@ -807,9 +815,13 @@
               <h2 class="block-title mb-md-3">學生好評</h2>
               <p class="fs-6 fw-medium d-none d-md-block">五星課程推薦</p>
             </div>
-            <button type="button" class="btn-text mb-3 mb-md-0 fw-medium">
+            <a
+              href="./course.html"
+              type="button"
+              class="btn btn-text pe-2 fw-medium"
+            >
               了解課程
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -818,7 +830,11 @@
     <!-- footer -->
     <%- include("./layout/footer.ejs") -%>
 
+    <!-- backtotop -->
+    <%- include("./layout/backtotop.ejs") -%>
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
 
     <script type="module" src="../main.js"></script>
   </body>

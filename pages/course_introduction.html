@@ -10,6 +10,7 @@
     href="../assets/images/favicon.ico"
     type="image/x-icon"
     />
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
 </head>
 <body>
     <%- include('./layout/header'); -%>
@@ -321,10 +322,9 @@
     </div>
     <div class="bg-custom mt-lg-8">
         <div class="container py-lg-20 py-10">
-            <h3 class="badge-title badge-title-sm bg-secondary text-primary mb-4">Recommend</h3>
             <div class="d-flex justify-content-between mb-lg-10 mb-5">
-                <h2 class="fw-bold align-bottom">熱門教師推薦</h2>
-                <button type="button" class="btn-text fw-bold align-self-end py-0">查看更多</button>
+                <h2 class="fs-5 fw-medium align-bottom">熱門教師推薦</h2>
+                <button type="button" class="btn-text fw-medium align-self-end py-0">查看更多</button>
             </div>
             <div class="row g-6">
                 <div class="col-12 col-lg-4">
@@ -680,6 +680,8 @@
             </div>
     </div>
     <%- include('./layout/footer'); -%>
+    <!-- backtotop -->
+    <%- include("./layout/backtotop.ejs") -%>
     <script type="module" src="../main.js"></script>
     <script src="../assets/js-plugin-circliful-master/dist/circliful.js"></script>
     <script>
