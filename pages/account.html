@@ -287,8 +287,7 @@
                     class="d-flex justify-content-between flex-md-row flex-column align-items-center mb-8 gap-2"
                   >
                     <img
-                      class=""
-                      style="width: 70px"
+                      class="w-75px"
                       src="../assets/images/teacher/arong.png"
                       alt="Aaron"
                     />
@@ -308,7 +307,11 @@
                       class="d-flex flex-column justify-content-between align-items-center"
                     >
                       <p>上課時間</p>
-                      <p class="fw-bold">2023/07/21(週一) 11:00-11:30</p>
+                      <p class="fw-bold">
+                        <time datetime="2023-07-21T11:00"
+                          >2023/07/21(週一) 11:00</time
+                        >-<time datetime="2023-07-21T11:00">11:30</time>
+                      </p>
                     </div>
                     <button
                       type="button"
@@ -544,7 +547,10 @@
                       <p>
                         預約時間:
                         <span class="text-secondary2 fw-bold"
-                          >2023/07/23 (日) 00:00 - 00:30</span
+                          ><time datetime="2023-07-23T00:00"
+                            >2023/07/23 (日) 00:00</time
+                          >
+                          - <time datetime="2023-07-23T00:30">00:30</time></span
                         >
                       </p>
                     </div>
@@ -646,28 +652,31 @@
                       體驗20分鐘 x <span class="text-primary">1堂</span>
                     </p>
                     <div class="d-flex flex-md-row flex-column gap-2">
-                      <select
-                        class="form-select border border-light"
-                        style="width: 150px"
-                        id="date"
-                        disabled
-                      >
-                        <option selected>2023/8/26</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                      </select>
-                      <select
-                        class="form-select border border-light"
-                        style="width: 150px"
-                        id="time"
-                        disabled
-                      >
-                        <option selected>AM 09:00</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                      </select>
+                      <div class="w-150px">
+                        <select
+                          class="form-select border border-light"
+                          id="date"
+                          disabled
+                        >
+                          <option selected>2023/8/26</option>
+                          <option value="1">One</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </select>
+                      </div>
+
+                      <div class="w-150px">
+                        <select
+                          class="form-select border border-light"
+                          id="time"
+                          disabled
+                        >
+                          <option selected>AM 09:00</option>
+                          <option value="1">One</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </select>
+                      </div>
                       <button
                         type="button"
                         class="btn text-primary"
@@ -761,28 +770,30 @@
                       體驗20分鐘 x <span class="text-primary">1堂</span>
                     </p>
                     <div class="d-flex flex-md-row flex-column gap-2">
-                      <select
-                        class="form-select border border-light"
-                        style="width: 150px"
-                        id="date"
-                        disabled
-                      >
-                        <option selected="">2023/8/26</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                      </select>
-                      <select
-                        class="form-select border border-light"
-                        style="width: 150px"
-                        id="time"
-                        disabled
-                      >
-                        <option selected="">AM 09:00</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                      </select>
+                      <div class="w-150px">
+                        <select
+                          class="form-select border border-light"
+                          id="date"
+                          disabled
+                        >
+                          <option selected="">2023/8/26</option>
+                          <option value="1">One</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </select>
+                      </div>
+                      <div class="w-150px">
+                        <select
+                          class="form-select border border-light"
+                          id="time"
+                          disabled
+                        >
+                          <option selected="">AM 09:00</option>
+                          <option value="1">One</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </select>
+                      </div>
                       <button
                         type="button"
                         class="btn text-primary"
@@ -854,28 +865,30 @@
                       體驗20分鐘 x <span class="text-primary">1堂</span>
                     </p>
                     <div class="d-flex flex-md-row flex-column gap-2">
-                      <select
-                        class="form-select border border-light"
-                        style="width: 150px"
-                        id="date"
-                        disabled
-                      >
-                        <option selected="">2023/8/26</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                      </select>
-                      <select
-                        class="form-select border border-light"
-                        style="width: 150px"
-                        id="time"
-                        disabled
-                      >
-                        <option selected="">AM 09:00</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                      </select>
+                      <div class="w-150px">
+                        <select
+                          class="form-select border border-light"
+                          id="date"
+                          disabled
+                        >
+                          <option selected="">2023/8/26</option>
+                          <option value="1">One</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </select>
+                      </div>
+                      <div class="w-150">
+                        <select
+                          class="form-select border border-light"
+                          id="time"
+                          disabled
+                        >
+                          <option selected="">AM 09:00</option>
+                          <option value="1">One</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </select>
+                      </div>
                       <button
                         type="button"
                         class="btn text-primary"
@@ -931,8 +944,7 @@
             <div class="col-12 col-md-4 d-flex align-items-center">
               <div class="text-center">
                 <img
-                  class="mb-2 mb-md-3"
-                  style="width: 70px"
+                  class="mb-2 mb-md-3 w-70px"
                   src="../assets/images/teacher/arong.png"
                   alt="Aaron"
                 />
@@ -944,7 +956,7 @@
                 </h2>
                 <div class="d-lg-flex">
                   <p class="me-4">50分鐘</p>
-                  <p>2023/5/17</p>
+                  <p><time datetime="2023-5-17">2023/5/17</time></p>
                 </div>
               </div>
             </div>
@@ -1001,10 +1013,11 @@
                             <li><i class="fa-solid fa-star"></i></li>
                           </ul>
                         </div>
-                        <p class="my-3">2023/5/17</p>
+                        <p class="my-3">
+                          <time datetime="2023-05-17">2023/5/17</time>
+                        </p>
                         <textarea
-                          style="height: 150px"
-                          class="form-control border-gray-200"
+                          class="form-control border-gray-200 h-150px"
                           placeholder="Leave a comment here"
                           id="floatingTextarea"
                         >
@@ -1028,7 +1041,7 @@
                   </div>
                 </div>
               </div>
-              <p>2023/5/17</p>
+              <p><time datetime="2023-05-17">2023/5/17</time></p>
               <p class="truncate-lines-2 truncate-md-lines-3">
                 我是一個程式新手，今天是第一次上課，老師從基礎語法開始教學，概念講解非常清楚，也有實用的範例。老師上課風趣幽默、有耐心，像我這樣的新手也可以輕鬆學會程式思維。就算是第一次上課，老師也帶我做出一個簡單的小功能，超有成就感！非常感謝
                 Aaron
@@ -1041,8 +1054,7 @@
             <div class="col-12 col-md-4 d-flex align-items-center">
               <div class="text-center">
                 <img
-                  class="mb-2 mb-md-3"
-                  style="width: 70px"
+                  class="mb-2 mb-md-3 w-70px"
                   src="../assets/images/teacher/arong.png"
                   alt="Aaron"
                 />
@@ -1054,7 +1066,7 @@
                 </h2>
                 <div class="d-lg-flex">
                   <p class="me-4">50分鐘</p>
-                  <p>2023/5/17</p>
+                  <p><time datetime="2023-05-17">2023/5/17</time></p>
                 </div>
               </div>
             </div>
@@ -1111,10 +1123,11 @@
                             <li><i class="fa-solid fa-star"></i></li>
                           </ul>
                         </div>
-                        <p class="my-3">2023/5/17</p>
+                        <p class="my-3">
+                          <time datetime="2023-05-17">2023/5/17</time>
+                        </p>
                         <textarea
-                          style="height: 150px"
-                          class="form-control border-gray-200"
+                          class="form-control border-gray-200 h-150px"
                           placeholder="Leave a comment here"
                           id="floatingTextarea"
                         >
@@ -1138,7 +1151,7 @@
                   </div>
                 </div>
               </div>
-              <p>2023/5/17</p>
+              <p><time datetime="2023-05-17">2023/5/17</time></p>
               <p class="truncate-lines-2 truncate-md-lines-3">
                 我是一個程式新手，今天是第一次上課，老師從基礎語法開始教學，概念講解非常清楚，也有實用的範例。老師上課風趣幽默、有耐心，像我這樣的新手也可以輕鬆學會程式思維。就算是第一次上課，老師也帶我做出一個簡單的小功能，超有成就感！非常感謝
                 Aaron
@@ -1151,8 +1164,7 @@
             <div class="col-12 col-md-4 d-flex align-items-center">
               <div class="text-center">
                 <img
-                  class="mb-2 mb-md-3"
-                  style="width: 70px"
+                  class="mb-2 mb-md-3 w-70px"
                   src="../assets/images/teacher/arong.png"
                   alt="Aaron"
                 />
@@ -1164,7 +1176,7 @@
                 </h2>
                 <div class="d-lg-flex">
                   <p class="me-4">50分鐘</p>
-                  <p>2023/5/17</p>
+                  <p><time datetime="2023-05-17">2023/5/17</time></p>
                 </div>
               </div>
             </div>
@@ -1221,10 +1233,11 @@
                             <li><i class="fa-solid fa-star"></i></li>
                           </ul>
                         </div>
-                        <p class="my-3">2023/5/17</p>
+                        <p class="my-3">
+                          <time datetime="2023-05-17">2023/5/17</time>
+                        </p>
                         <textarea
-                          style="height: 150px"
-                          class="form-control border-gray-200"
+                          class="form-control border-gray-200 h-150px"
                           placeholder="Leave a comment here"
                           id="floatingTextarea"
                         >
@@ -1276,7 +1289,6 @@
                       src="../assets/images/Rectangle 7.png"
                       class="img-fluid w-100 rounded-circle img-thumbnail border-0"
                       alt="logo"
-                      style="text-shadow: black 0.1em 0.1em 0.2em"
                     />
                   </div>
                   <div class="col-6">
@@ -1292,7 +1304,8 @@
                           class="text-body-secondary d-flex align-items-center"
                           ><span class="material-symbols-outlined me-1">
                             update </span
-                          >2023.07.25 失效</small
+                          ><time datetime="2023-07-25">2023/07/25</time>
+                          失效</small
                         >
                       </p>
                     </div>
@@ -1316,7 +1329,6 @@
                       src="../assets/images/logo-img.svg"
                       class="img-fluid w-100 rounded-circle img-thumbnail border-0"
                       alt="logo"
-                      style="text-shadow: black 0.1em 0.1em 0.2em"
                     />
                   </div>
                   <div class="col-6">
@@ -1332,7 +1344,8 @@
                           class="text-body-secondary d-flex align-items-center"
                           ><span class="material-symbols-outlined me-1">
                             update </span
-                          >2023.07.25 失效</small
+                          ><time datetime="2023-07-25">2023/07/25</time>
+                          失效</small
                         >
                       </p>
                     </div>
@@ -1356,7 +1369,6 @@
                       src="../assets/images/Rectangle 9.png"
                       class="img-fluid w-100 rounded-circle img-thumbnail border-0"
                       alt="logo"
-                      style="text-shadow: black 0.1em 0.1em 0.2em"
                     />
                   </div>
                   <div class="col-6">
@@ -1372,7 +1384,8 @@
                           class="text-body-secondary d-flex align-items-center"
                           ><span class="material-symbols-outlined me-1">
                             update </span
-                          >2023.07.25 失效</small
+                          ><time datetime="2023-07-25">2023/07/25</time>
+                          失效</small
                         >
                       </p>
                     </div>
@@ -1396,7 +1409,6 @@
                       src="../assets/images/logo-img.svg"
                       class="img-fluid w-100 rounded-circle img-thumbnail border-0"
                       alt="logo"
-                      style="text-shadow: black 0.1em 0.1em 0.2em"
                     />
                   </div>
                   <div class="col-6">
@@ -1412,7 +1424,8 @@
                           class="text-body-secondary d-flex align-items-center"
                           ><span class="material-symbols-outlined me-1">
                             update </span
-                          >2023.07.25 失效</small
+                          ><time datetime="2023-07-25">2023/07/25</time>
+                          失效</small
                         >
                       </p>
                     </div>
