@@ -1,36 +1,21 @@
 // banner
-.banner-sm {
-  border-radius: 12px;
+.banner-img {
   height: 300px;
-  padding: 16px;
-
-  background: url("../images/banner.svg") no-repeat center / cover;
-
-  & > * {
-    display: none;
-  }
-
-  &.active {
-    display: flex;
-
-    & > * {
-      display: flex;
-    }
-  }
 
   @include media-breakpoint-up(md) {
-    background: none;
     height: 640px;
   }
-}
 
-@include media-breakpoint-up(md) {
-  .banner-md {
+  &-1 {
     background: url("../images/banner.svg") no-repeat center / cover;
-    display: block;
-    height: 640px;
-    margin: 0 20px;
-    border-radius: 20px;
+  }
+
+  &-2 {
+    background: url("../images/banner2.jpg") no-repeat center / cover;
+  }
+
+  &-3 {
+    background: url("../images/banner3.jpg") no-repeat center / cover;
   }
 }
 
@@ -46,42 +31,43 @@
   }
 }
 
-.carousel-indicators {
-  position: relative;
-  margin: 20px 0 0 0;
-  gap: 16px;
+.bannerSwiper-pagination {
+  margin-top: 20px;
 
-  @include media-breakpoint-up(md) {
-    gap: 24px;
-    top: -60px;
-  }
-
-  & [data-bs-target] {
-    display: block;
-    background-color: $gray-200;
+  span {
     width: 6px;
     height: 6px;
-    border: none;
-    border-radius: 50%;
-    margin: 0;
+    --swiper-pagination-bullet-horizontal-gap: 8px;
+  }
+  .swiper-pagination-bullet {
+    background-color: $gray-300;
+  }
 
-    &.active {
-      background-color: $primary;
-    }
+  .swiper-pagination-bullet-active {
+    background-color: $primary;
+  }
 
-    @include media-breakpoint-up(md) {
-      background-color: rgba($white, 0.3);
+  @include media-breakpoint-up(md) {
+    position: absolute;
+    --swiper-pagination-bottom: 40px;
+
+    span {
       width: 8px;
       height: 8px;
+      --swiper-pagination-bullet-horizontal-gap: 12px;
+    }
 
-      &.active {
-        background-color: $white;
-      }
+    .swiper-pagination-bullet {
+      background-color: rgba($white, 0.9);
+    }
+
+    .swiper-pagination-bullet-active {
+      background-color: $white;
     }
   }
 }
 
-// 推薦教師
+// recommend 熱門推薦
 .bg-gray-dot {
   background: url("../images/bg-gray-dot-sm.png") no-repeat center / cover;
 
@@ -90,133 +76,19 @@
   }
 }
 
-.reviewSwiper-button-next:after,
-.swiper-rtl .reviewSwiper-button-prev:after {
-  content: "";
-}
-
-.reviewSwiper-button-prev:after,
-.swiper-rtl .reviewSwiper-button-next:after {
-  content: "";
-}
-
-.swiper-btns {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.reviewSwiper-button-next,
-.swiper-rtl .reviewSwiper-button-prev {
-  display: flex;
-}
-
-.reviewSwiper-button-prev,
-.swiper-rtl .reviewSwiper-button-next {
-  display: flex;
+.recommendSwiper {
+  overflow-y: visible;
+  overflow-x: clip;
 }
 
 .swiper-horizontal
   > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
 .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
-  transform: none;
-}
-
-.reviews {
-  &.swiper-horizontal
-    > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
-  .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
-    display: flex;
-    justify-content: center;
-  }
-}
-
-// why us
-.whyus-list {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  row-gap: 28px;
-  margin-bottom: 0;
-
-  @include media-breakpoint-up(md) {
-    flex-direction: row;
-    column-gap: 80px;
-  }
-
-  .whyus-item {
-    display: block;
-    width: 200px;
-    height: 200px;
-    position: relative;
-
-    @include media-breakpoint-up(md) {
-      width: 264px;
-      height: 264px;
-    }
-
-    &.best-platform {
-      background: url("../images/whyus/best-platform.svg") no-repeat center /
-        cover;
-    }
-
-    &.discount {
-      background: url("../images/whyus/discount.svg") no-repeat center / cover;
-    }
-
-    &.evaluation {
-      background: url("../images/whyus/evaluation.svg") no-repeat center / cover;
-    }
-
-    &.flexible {
-      background: url("../images/whyus/flexible.svg") no-repeat center / cover;
-    }
-  }
-
-  .badge-title {
-    font-size: 16px;
-    padding: 8px 12px;
-    position: relative;
-    top: 12px;
-    left: -12px;
-
-    @include media-breakpoint-up(md) {
-      font-size: 20px;
-      padding: 12px 16px;
-      top: 16px;
-      left: -16px;
-    }
-
-    &::after {
-      content: url("../images/whyus/triangle.svg");
-      display: inline;
-      position: absolute;
-      left: 0;
-      top: 30px;
-
-      @include media-breakpoint-up(md) {
-        content: url("../images/whyus/triangle-lg.svg");
-        top: 42px;
-      }
-    }
-  }
-
-  .whyus-info {
-    position: absolute;
-    bottom: 12px;
-    left: 12px;
-    color: $white;
-
-    li:first-child {
-      margin-bottom: 4px;
-    }
-  }
+  transform: translateX(0);
 }
 
 // 探索地圖 category
-// - 背景圖
+// cate - 背景圖
 .category {
   background: url("../images/category/category-bgMask-sm.png") no-repeat center /
     cover;
@@ -227,7 +99,7 @@
   }
 }
 
-//  - 去除 category 標題多餘藍色點點
+// cate - 去除 category 標題多餘藍色點點
 .category {
   .block-title:first-of-type {
     &::after {
@@ -236,7 +108,7 @@
   }
 }
 
-// - 漸層標題
+// cate - 漸層標題
 .title-highlight {
   background: var(
     --linear,
@@ -247,7 +119,7 @@
   -webkit-text-fill-color: transparent; // 使文本透明，以露出背景
 }
 
-// - 藏寶圖
+// cate - 藏寶圖
 .treasure {
   width: 276px;
 
@@ -260,7 +132,7 @@
   }
 }
 
-// - 教師分類
+// cate - 教師分類
 .cate-item {
   a {
     padding: 28px 12px;
@@ -309,6 +181,92 @@
   }
 }
 
+// why us 選擇我們
+.whyus-list {
+  // display: flex;
+  // flex-direction: column;
+  // flex-wrap: wrap;
+  // align-items: center;
+  // justify-content: center;
+  // row-gap: 28px;
+  // margin-bottom: 0;
+
+  @include media-breakpoint-up(md) {
+    // flex-direction: row;
+    // column-gap: 80px;
+  }
+
+  .whyus-item {
+    display: block;
+    position: relative;
+    width: 200px;
+    height: 200px;
+
+    @include media-breakpoint-up(md) {
+      width: 264px;
+      height: 264px;
+    }
+
+    &.best-platform {
+      background: url("../images/whyus/best-platform.svg") no-repeat center /
+        cover;
+    }
+
+    &.discount {
+      background: url("../images/whyus/discount.svg") no-repeat center / cover;
+    }
+
+    &.evaluation {
+      background: url("../images/whyus/evaluation.svg") no-repeat center / cover;
+    }
+
+    &.flexible {
+      background: url("../images/whyus/flexible.svg") no-repeat center / cover;
+    }
+  }
+
+  .badge-title {
+    font-size: 16px;
+    padding: 8px 12px;
+    position: relative;
+    top: 12px;
+    left: -12px;
+
+    @include media-breakpoint-up(md) {
+      font-size: 20px;
+      padding: 12px 16px;
+      top: 16px;
+      left: -16px;
+    }
+
+    &::after {
+      content: url("../images/whyus/triangle.svg");
+      // display: inline;
+      width: 16px;
+      height: 10px;
+      position: absolute;
+      left: 0;
+      bottom: 1px;
+
+      @include media-breakpoint-up(md) {
+        content: url("../images/whyus/triangle-lg.svg");
+        bottom: 2px;
+      }
+    }
+  }
+
+  .whyus-info {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    color: $white;
+
+    li:first-child {
+      margin-bottom: 4px;
+    }
+  }
+}
+
 .thumb-up-img {
   position: relative;
   background: url("../images/bg-thumbs-up-img-sm.png") no-repeat left / cover;
@@ -327,12 +285,5 @@
       content: url("../images/bg-thumbs-up-img.png");
       left: 30%;
     }
-  }
-}
-
-.reviews {
-  .teacher-card {
-    border-radius: 20px 20px 0px 20px;
-    box-shadow: 0px 4px 30px 0px rgba(150, 150, 150, 0.2);
   }
 }

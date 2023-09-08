@@ -1,7 +1,25 @@
-var swiper = new Swiper(".recommendSwiper", {
+var bannerSwiper = new Swiper(".bannerSwiper", {
   slidesPerView: 1,
-  spaceBetween: 24,
   loop: true,
+  autoplay: {
+    delay: 5000,
+    pauseOnMouseEnter: true,
+    disableOnInteraction: false,
+  },
+  pagination: {
+    el: ".bannerSwiper-pagination",
+    clickable: true,
+  },
+});
+
+var recommendSwiper = new Swiper(".recommendSwiper", {
+  slidesPerView: 1,
+  spaceBetween: 16,
+  loop: true,
+  navigation: {
+    nextEl: ".recommendSwiper-button-next",
+    prevEl: ".recommendSwiper-button-prev",
+  },
   pagination: {
     el: ".recommendSwiper-pagination",
     clickable: true,
@@ -9,13 +27,9 @@ var swiper = new Swiper(".recommendSwiper", {
     dynamicMainBullets: 5,
   },
   breakpoints: {
-    576: {
+    768: {
       slidesPerView: 2,
-      spaceBetween: 16,
-      navigation: {
-        nextEl: ".recommendSwiper-button-next",
-        prevEl: ".recommendSwiper-button-prev",
-      },
+      spaceBetween: 20,
       pagination: {
         dynamicMainBullets: 3,
       },
@@ -23,10 +37,6 @@ var swiper = new Swiper(".recommendSwiper", {
     992: {
       slidesPerView: 3,
       spaceBetween: 24,
-      navigation: {
-        nextEl: ".recommendSwiper-button-next",
-        prevEl: ".recommendSwiper-button-prev",
-      },
       pagination: {
         dynamicMainBullets: 3,
       },

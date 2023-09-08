@@ -15,17 +15,16 @@
     />
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
   </head>
-  <body>
+  <body class="position-relative">
     <%- include("./layout/header.ejs") -%>
     <!-- banner -->
-    <div class="bg-gray-100">
-      <div class="banner-md">
-        <div id="carouselBanner" class="container carousel carousel-dark slide">
-          <div class="carousel-inner">
-            <div
-              class="carousel-item banner-sm banner-1 active flex-column justify-content-end align-items-start justify-content-md-center"
-              data-bs-interval="6000"
-            >
+    <div class="bg-gray-400">
+      <div class="swiper bannerSwiper mx-3 mx-md-5 position-relative">
+        <div class="swiper-wrapper">
+          <div
+            class="swiper-slide d-flex flex-column align-items-start justify-content-end justify-content-md-center rounded-3 banner-img banner-img-1 pb-4 pb-md-0"
+          >
+            <div class="container">
               <h3
                 class="badge-title badge-title-lg bg-primary text-white mb-2 mb-md-3"
               >
@@ -49,16 +48,17 @@
                 </button>
               </div>
             </div>
-            <div
-              class="carousel-item banner-sm banner-2 flex-column justify-content-end align-items-start justify-content-md-center"
-              data-bs-interval="3000"
-            >
+          </div>
+          <div
+            class="swiper-slide d-flex flex-column align-items-start justify-content-end justify-content-md-center rounded-3 banner-img banner-img-2 pb-4 pb-md-0"
+          >
+            <div class="container">
               <h3
                 class="badge-title badge-title-lg bg-primary text-white mb-2 mb-md-3"
               >
                 嚴格篩選機制
               </h3>
-              <h2 class="banner-title">教師均通過內部審核</h2>
+              <h2 class="banner-title">教師三道關卡審核</h2>
               <div class="input-group">
                 <input
                   type="text"
@@ -76,16 +76,17 @@
                 </button>
               </div>
             </div>
-            <div
-              class="carousel-item banner-sm banner-3 flex-column justify-content-end align-items-start justify-content-md-center"
-              data-bs-interval="0"
-            >
+          </div>
+          <div
+            class="swiper-slide d-flex flex-column align-items-start justify-content-end justify-content-md-center rounded-3 banner-img banner-img-3 pb-4 pb-md-0"
+          >
+            <div class="container">
               <h3
                 class="badge-title badge-title-lg bg-primary text-white mb-2 mb-md-3"
               >
                 擊退畢業焦慮
               </h3>
-              <h2 class="banner-title">任選教師，買10堂課送5堂</h2>
+              <h2 class="banner-title">畢業快樂，買 10 送 5</h2>
               <div class="input-group">
                 <input
                   type="text"
@@ -104,34 +105,16 @@
               </div>
             </div>
           </div>
-          <div class="carousel-indicators">
-            <button
-              type="button"
-              data-bs-target="#carouselBanner"
-              data-bs-slide-to="0"
-              class="active"
-              aria-current="true"
-              aria-label="Slide 1"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselBanner"
-              data-bs-slide-to="1"
-              aria-label="Slide 2"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselBanner"
-              data-bs-slide-to="2"
-              aria-label="Slide 3"
-            ></button>
-          </div>
         </div>
+        <div
+          class="bannerSwiper-pagination d-flex justify-content-center z-1"
+        ></div>
       </div>
     </div>
 
     <!-- 熱門教師推薦 recommend -->
     <div class="bg-gray-dot py-10 pt-md-20 pb-md-17">
+      <!-- recommend 標題 -->
       <div
         class="container d-flex justify-content-between align-items-end mb-5 mb-md-10"
       >
@@ -143,391 +126,286 @@
           </h3>
           <h2 class="block-title">熱門教師推薦</h2>
         </div>
-        <a href="./course.html" type="button" class="btn btn-text pe-2">
+        <a
+          href="./course.html"
+          type="button"
+          class="btn btn-text pe-2 fw-medium"
+        >
           查看更多
         </a>
       </div>
-      <div class="swiper recommendSwiper container">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <div class="teacher-card">
-              <div class="teacher-card-profile">
-                <div class="teacher-card-content">
-                  <h3 class="teacher-card-title">JavaScript 大師</h3>
-                  <p class="teacher-card-name">麥克先生</p>
-                  <ul class="teacher-card-object">
-                    <!-- 評價 -->
-                    <li class="teacher-card-evaluate">5.0</li>
-                    <!-- 時數 -->
-                    <li class="teacher-card-hours">50分鐘</li>
-                  </ul>
-                  <p class="teacher-card-price">NT$<span>800</span></p>
+      <!-- 輪播 -->
+      <div class="container">
+        <div class="swiper recommendSwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="teacher-card">
+                <div class="teacher-card-profile">
+                  <div class="teacher-card-content">
+                    <h3 class="teacher-card-title">1</h3>
+                    <p class="teacher-card-name">麥克先生</p>
+                    <ul class="teacher-card-object">
+                      <!-- 評價 -->
+                      <li class="teacher-card-evaluate">5.0</li>
+                      <!-- 時數 -->
+                      <li class="teacher-card-hours">50分鐘</li>
+                    </ul>
+                    <p class="teacher-card-price">NT$<span>800</span></p>
+                  </div>
+                  <div class="teacher-card-img">
+                    <img
+                      src="../assets/images/Rectangle 7.png"
+                      alt=""
+                      class=""
+                    />
+                  </div>
                 </div>
-                <div class="teacher-card-img">
-                  <img src="../assets/images/Rectangle 7.png" alt="" class="" />
-                </div>
+                <p class="teacher-card-text">
+                  一起探索 JavaScript
+                  更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...
+                </p>
+                <a
+                  href="./cart.html"
+                  type="button"
+                  class="btn btn-secondary2 w-100 mb-3"
+                >
+                  立即上課
+                </a>
+                <a
+                  href="./course_introduction.html"
+                  type="button"
+                  class="btn teacher-card-btn"
+                  >查看介紹</a
+                >
               </div>
-              <p class="teacher-card-text">
-                一起探索 JavaScript
-                更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...
-              </p>
-              <a
-                href="./cart.html"
-                type="button"
-                class="btn btn-secondary2 w-100 mb-3"
-              >
-                立即上課
-              </a>
-              <a
-                href="./course_introduction.html"
-                type="button"
-                class="btn teacher-card-btn"
-                >查看介紹</a
-              >
             </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="teacher-card">
-              <div class="teacher-card-profile">
-                <div class="teacher-card-content">
-                  <h3 class="teacher-card-title">JavaScript 大師</h3>
-                  <p class="teacher-card-name">麥克先生</p>
-                  <ul class="teacher-card-object">
-                    <!-- 評價 -->
-                    <li class="teacher-card-evaluate">5.0</li>
-                    <!-- 時數 -->
-                    <li class="teacher-card-hours">50分鐘</li>
-                  </ul>
-                  <p class="teacher-card-price">NT$<span>800</span></p>
+            <div class="swiper-slide">
+              <div class="teacher-card">
+                <div class="teacher-card-profile">
+                  <div class="teacher-card-content">
+                    <h3 class="teacher-card-title">2</h3>
+                    <p class="teacher-card-name">麥克先生</p>
+                    <ul class="teacher-card-object">
+                      <!-- 評價 -->
+                      <li class="teacher-card-evaluate">5.0</li>
+                      <!-- 時數 -->
+                      <li class="teacher-card-hours">50分鐘</li>
+                    </ul>
+                    <p class="teacher-card-price">NT$<span>800</span></p>
+                  </div>
+                  <div class="teacher-card-img">
+                    <img
+                      src="../assets/images/Rectangle 8.png"
+                      alt=""
+                      class=""
+                    />
+                  </div>
                 </div>
-                <div class="teacher-card-img">
-                  <img src="../assets/images/Rectangle 7.png" alt="" class="" />
-                </div>
+                <p class="teacher-card-text">
+                  一起探索 JavaScript
+                  更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...
+                </p>
+                <a
+                  href="./cart.html"
+                  type="button"
+                  class="btn btn-secondary2 w-100 mb-3"
+                >
+                  立即上課
+                </a>
+                <a
+                  href="./course_introduction.html"
+                  type="button"
+                  class="btn teacher-card-btn"
+                  >查看介紹</a
+                >
               </div>
-              <p class="teacher-card-text">
-                一起探索 JavaScript
-                更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...
-              </p>
-              <a
-                href="./cart.html"
-                type="button"
-                class="btn btn-secondary2 w-100 mb-3"
-              >
-                立即上課
-              </a>
-              <a
-                href="./course_introduction.html"
-                type="button"
-                class="btn teacher-card-btn"
-                >查看介紹</a
-              >
             </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="teacher-card">
-              <div class="teacher-card-profile">
-                <div class="teacher-card-content">
-                  <h3 class="teacher-card-title">JavaScript 大師</h3>
-                  <p class="teacher-card-name">麥克先生</p>
-                  <ul class="teacher-card-object">
-                    <!-- 評價 -->
-                    <li class="teacher-card-evaluate">5.0</li>
-                    <!-- 時數 -->
-                    <li class="teacher-card-hours">50分鐘</li>
-                  </ul>
-                  <p class="teacher-card-price">NT$<span>800</span></p>
+            <div class="swiper-slide">
+              <div class="teacher-card">
+                <div class="teacher-card-profile">
+                  <div class="teacher-card-content">
+                    <h3 class="teacher-card-title">3</h3>
+                    <p class="teacher-card-name">麥克先生</p>
+                    <ul class="teacher-card-object">
+                      <!-- 評價 -->
+                      <li class="teacher-card-evaluate">5.0</li>
+                      <!-- 時數 -->
+                      <li class="teacher-card-hours">50分鐘</li>
+                    </ul>
+                    <p class="teacher-card-price">NT$<span>800</span></p>
+                  </div>
+                  <div class="teacher-card-img">
+                    <img
+                      src="../assets/images/Rectangle 9.png"
+                      alt=""
+                      class=""
+                    />
+                  </div>
                 </div>
-                <div class="teacher-card-img">
-                  <img src="../assets/images/Rectangle 7.png" alt="" class="" />
-                </div>
+                <p class="teacher-card-text">
+                  一起探索 JavaScript
+                  更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...
+                </p>
+                <a
+                  href="./cart.html"
+                  type="button"
+                  class="btn btn-secondary2 w-100 mb-3"
+                >
+                  立即上課
+                </a>
+                <a
+                  href="./course_introduction.html"
+                  type="button"
+                  class="btn teacher-card-btn"
+                  >查看介紹</a
+                >
               </div>
-              <p class="teacher-card-text">
-                一起探索 JavaScript
-                更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...
-              </p>
-              <a
-                href="./cart.html"
-                type="button"
-                class="btn btn-secondary2 w-100 mb-3"
-              >
-                立即上課
-              </a>
-              <a
-                href="./course_introduction.html"
-                type="button"
-                class="btn teacher-card-btn"
-                >查看介紹</a
-              >
             </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="teacher-card">
-              <div class="teacher-card-profile">
-                <div class="teacher-card-content">
-                  <h3 class="teacher-card-title">JavaScript 大師</h3>
-                  <p class="teacher-card-name">麥克先生</p>
-                  <ul class="teacher-card-object">
-                    <!-- 評價 -->
-                    <li class="teacher-card-evaluate">5.0</li>
-                    <!-- 時數 -->
-                    <li class="teacher-card-hours">50分鐘</li>
-                  </ul>
-                  <p class="teacher-card-price">NT$<span>800</span></p>
+            <div class="swiper-slide">
+              <div class="teacher-card">
+                <div class="teacher-card-profile">
+                  <div class="teacher-card-content">
+                    <h3 class="teacher-card-title">4</h3>
+                    <p class="teacher-card-name">麥克先生</p>
+                    <ul class="teacher-card-object">
+                      <!-- 評價 -->
+                      <li class="teacher-card-evaluate">5.0</li>
+                      <!-- 時數 -->
+                      <li class="teacher-card-hours">50分鐘</li>
+                    </ul>
+                    <p class="teacher-card-price">NT$<span>800</span></p>
+                  </div>
+                  <div class="teacher-card-img">
+                    <img
+                      src="../assets/images/Rectangle 7.png"
+                      alt=""
+                      class=""
+                    />
+                  </div>
                 </div>
-                <div class="teacher-card-img">
-                  <img src="../assets/images/Rectangle 7.png" alt="" class="" />
-                </div>
+                <p class="teacher-card-text">
+                  一起探索 JavaScript
+                  更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...
+                </p>
+                <a
+                  href="./cart.html"
+                  type="button"
+                  class="btn btn-secondary2 w-100 mb-3"
+                >
+                  立即上課
+                </a>
+                <a
+                  href="./course_introduction.html"
+                  type="button"
+                  class="btn teacher-card-btn"
+                  >查看介紹</a
+                >
               </div>
-              <p class="teacher-card-text">
-                一起探索 JavaScript
-                更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...
-              </p>
-              <a
-                href="./cart.html"
-                type="button"
-                class="btn btn-secondary2 w-100 mb-3"
-              >
-                立即上課
-              </a>
-              <a
-                href="./course_introduction.html"
-                type="button"
-                class="btn teacher-card-btn"
-                >查看介紹</a
-              >
             </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="teacher-card">
-              <div class="teacher-card-profile">
-                <div class="teacher-card-content">
-                  <h3 class="teacher-card-title">JavaScript 大師</h3>
-                  <p class="teacher-card-name">麥克先生</p>
-                  <ul class="teacher-card-object">
-                    <!-- 評價 -->
-                    <li class="teacher-card-evaluate">5.0</li>
-                    <!-- 時數 -->
-                    <li class="teacher-card-hours">50分鐘</li>
-                  </ul>
-                  <p class="teacher-card-price">NT$<span>800</span></p>
+            <div class="swiper-slide">
+              <div class="teacher-card">
+                <div class="teacher-card-profile">
+                  <div class="teacher-card-content">
+                    <h3 class="teacher-card-title">5</h3>
+                    <p class="teacher-card-name">麥克先生</p>
+                    <ul class="teacher-card-object">
+                      <!-- 評價 -->
+                      <li class="teacher-card-evaluate">5.0</li>
+                      <!-- 時數 -->
+                      <li class="teacher-card-hours">50分鐘</li>
+                    </ul>
+                    <p class="teacher-card-price">NT$<span>800</span></p>
+                  </div>
+                  <div class="teacher-card-img">
+                    <img
+                      src="../assets/images/Rectangle 8.png"
+                      alt=""
+                      class=""
+                    />
+                  </div>
                 </div>
-                <div class="teacher-card-img">
-                  <img src="../assets/images/Rectangle 7.png" alt="" class="" />
-                </div>
+                <p class="teacher-card-text">
+                  一起探索 JavaScript
+                  更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...
+                </p>
+                <a
+                  href="./cart.html"
+                  type="button"
+                  class="btn btn-secondary2 w-100 mb-3"
+                >
+                  立即上課
+                </a>
+                <a
+                  href="./course_introduction.html"
+                  type="button"
+                  class="btn teacher-card-btn"
+                  >查看介紹</a
+                >
               </div>
-              <p class="teacher-card-text">
-                一起探索 JavaScript
-                更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...
-              </p>
-              <a
-                href="./cart.html"
-                type="button"
-                class="btn btn-secondary2 w-100 mb-3"
-              >
-                立即上課
-              </a>
-              <a
-                href="./course_introduction.html"
-                type="button"
-                class="btn teacher-card-btn"
-                >查看介紹</a
-              >
             </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="teacher-card">
-              <div class="teacher-card-profile">
-                <div class="teacher-card-content">
-                  <h3 class="teacher-card-title">JavaScript 大師</h3>
-                  <p class="teacher-card-name">麥克先生</p>
-                  <ul class="teacher-card-object">
-                    <!-- 評價 -->
-                    <li class="teacher-card-evaluate">5.0</li>
-                    <!-- 時數 -->
-                    <li class="teacher-card-hours">50分鐘</li>
-                  </ul>
-                  <p class="teacher-card-price">NT$<span>800</span></p>
+            <div class="swiper-slide">
+              <div class="teacher-card">
+                <div class="teacher-card-profile">
+                  <div class="teacher-card-content">
+                    <h3 class="teacher-card-title">6</h3>
+                    <p class="teacher-card-name">麥克先生</p>
+                    <ul class="teacher-card-object">
+                      <!-- 評價 -->
+                      <li class="teacher-card-evaluate">5.0</li>
+                      <!-- 時數 -->
+                      <li class="teacher-card-hours">50分鐘</li>
+                    </ul>
+                    <p class="teacher-card-price">NT$<span>800</span></p>
+                  </div>
+                  <div class="teacher-card-img">
+                    <img
+                      src="../assets/images/Rectangle 8.png"
+                      alt=""
+                      class=""
+                    />
+                  </div>
                 </div>
-                <div class="teacher-card-img">
-                  <img src="../assets/images/Rectangle 7.png" alt="" class="" />
-                </div>
+                <p class="teacher-card-text">
+                  一起探索 JavaScript
+                  更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...
+                </p>
+                <a
+                  href="./cart.html"
+                  type="button"
+                  class="btn btn-secondary2 w-100 mb-3"
+                >
+                  立即上課
+                </a>
+                <a
+                  href="./course_introduction.html"
+                  type="button"
+                  class="btn teacher-card-btn"
+                  >查看介紹</a
+                >
               </div>
-              <p class="teacher-card-text">
-                一起探索 JavaScript
-                更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...
-              </p>
-              <a
-                href="./cart.html"
-                type="button"
-                class="btn btn-secondary2 w-100 mb-3"
-              >
-                立即上課
-              </a>
-              <a
-                href="./course_introduction.html"
-                type="button"
-                class="btn teacher-card-btn"
-                >查看介紹</a
-              >
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="teacher-card">
-              <div class="teacher-card-profile">
-                <div class="teacher-card-content">
-                  <h3 class="teacher-card-title">JavaScript 大師</h3>
-                  <p class="teacher-card-name">麥克先生</p>
-                  <ul class="teacher-card-object">
-                    <!-- 評價 -->
-                    <li class="teacher-card-evaluate">5.0</li>
-                    <!-- 時數 -->
-                    <li class="teacher-card-hours">50分鐘</li>
-                  </ul>
-                  <p class="teacher-card-price">NT$<span>800</span></p>
-                </div>
-                <div class="teacher-card-img">
-                  <img src="../assets/images/Rectangle 7.png" alt="" class="" />
-                </div>
-              </div>
-              <p class="teacher-card-text">
-                一起探索 JavaScript
-                更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...
-              </p>
-              <a
-                href="./cart.html"
-                type="button"
-                class="btn btn-secondary2 w-100 mb-3"
-              >
-                立即上課
-              </a>
-              <a
-                href="./course_introduction.html"
-                type="button"
-                class="btn teacher-card-btn"
-                >查看介紹</a
-              >
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="teacher-card">
-              <div class="teacher-card-profile">
-                <div class="teacher-card-content">
-                  <h3 class="teacher-card-title">JavaScript 大師</h3>
-                  <p class="teacher-card-name">麥克先生</p>
-                  <ul class="teacher-card-object">
-                    <!-- 評價 -->
-                    <li class="teacher-card-evaluate">5.0</li>
-                    <!-- 時數 -->
-                    <li class="teacher-card-hours">50分鐘</li>
-                  </ul>
-                  <p class="teacher-card-price">NT$<span>800</span></p>
-                </div>
-                <div class="teacher-card-img">
-                  <img src="../assets/images/Rectangle 7.png" alt="" class="" />
-                </div>
-              </div>
-              <p class="teacher-card-text">
-                一起探索 JavaScript
-                更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...
-              </p>
-              <a
-                href="./cart.html"
-                type="button"
-                class="btn btn-secondary2 w-100 mb-3"
-              >
-                立即上課
-              </a>
-              <a
-                href="./course_introduction.html"
-                type="button"
-                class="btn teacher-card-btn"
-                >查看介紹</a
-              >
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="teacher-card">
-              <div class="teacher-card-profile">
-                <div class="teacher-card-content">
-                  <h3 class="teacher-card-title">JavaScript 大師</h3>
-                  <p class="teacher-card-name">麥克先生</p>
-                  <ul class="teacher-card-object">
-                    <!-- 評價 -->
-                    <li class="teacher-card-evaluate">5.0</li>
-                    <!-- 時數 -->
-                    <li class="teacher-card-hours">50分鐘</li>
-                  </ul>
-                  <p class="teacher-card-price">NT$<span>800</span></p>
-                </div>
-                <div class="teacher-card-img">
-                  <img src="../assets/images/Rectangle 7.png" alt="" class="" />
-                </div>
-              </div>
-              <p class="teacher-card-text">
-                一起探索 JavaScript
-                更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...
-              </p>
-              <a
-                href="./cart.html"
-                type="button"
-                class="btn btn-secondary2 w-100 mb-3"
-              >
-                立即上課
-              </a>
-              <a
-                href="./course_introduction.html"
-                type="button"
-                class="btn teacher-card-btn"
-                >查看介紹</a
-              >
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="teacher-card">
-              <div class="teacher-card-profile">
-                <div class="teacher-card-content">
-                  <h3 class="teacher-card-title">JavaScript 大師</h3>
-                  <p class="teacher-card-name">麥克先生</p>
-                  <ul class="teacher-card-object">
-                    <!-- 評價 -->
-                    <li class="teacher-card-evaluate">5.0</li>
-                    <!-- 時數 -->
-                    <li class="teacher-card-hours">50分鐘</li>
-                  </ul>
-                  <p class="teacher-card-price">NT$<span>800</span></p>
-                </div>
-                <div class="teacher-card-img">
-                  <img src="../assets/images/Rectangle 7.png" alt="" class="" />
-                </div>
-              </div>
-              <p class="teacher-card-text">
-                一起探索 JavaScript
-                更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...
-              </p>
-              <button type="button" class="btn btn-secondary2 w-100 mb-3">
-                立即上課
-              </button>
-              <a type="button" class="btn teacher-card-btn">查看介紹</a>
             </div>
           </div>
         </div>
-      </div>
-      <div class="swiper-btns container mt-5 mt-md-7">
-        <button
-          class="btn btn-link recommendSwiper-button-prev d-none d-sm-block"
-          type="button"
-          disabled
+        <!-- 輪播按鈕 -->
+        <div
+          class="recommendSwiper-btns d-flex justify-content-center align-items-center mt-5 mt-md-7"
         >
-          <i class="fa-solid fa-arrow-left"></i>
-        </button>
-        <div class="recommendSwiper-pagination"></div>
-        <button
-          class="btn btn-link recommendSwiper-button-next d-none d-sm-block"
-          type="button"
-          disabled
-        >
-          <i class="fa-solid fa-arrow-right"></i>
-        </button>
+          <button
+            class="btn btn-link recommendSwiper-button-prev d-none d-sm-block"
+            type="button"
+            disabled
+          >
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+          <div class="recommendSwiper-pagination"></div>
+          <button
+            class="btn btn-link recommendSwiper-button-next d-none d-sm-block"
+            type="button"
+            disabled
+          >
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
       </div>
     </div>
 
@@ -556,7 +434,7 @@
           <ul class="col-12 col-md-8 mb-md-0">
             <div class="row g-3 g-sm-4 g-md-6">
               <li class="col-6 col-sm-4 col-lg-3 cate-item">
-                <a class="h-100" href="###">
+                <a class="h-100" href="./course.html">
                   <h4>前端</h4>
                   <img
                     src="../assets/images/category/frontend.svg"
@@ -565,13 +443,13 @@
                 </a>
               </li>
               <li class="col-6 col-sm-4 col-lg-3 cate-item">
-                <a class="h-100" href="###">
+                <a class="h-100" href="./course.html">
                   <h4>後端</h4>
                   <img src="../assets/images/category/backend.svg" alt="後端" />
                 </a>
               </li>
               <li class="col-6 col-sm-4 col-lg-3 cate-item">
-                <a class="h-100" href="###">
+                <a class="h-100" href="./course.html">
                   <h4>資料庫</h4>
                   <img
                     src="../assets/images/category/database.svg"
@@ -580,7 +458,7 @@
                 </a>
               </li>
               <li class="col-6 col-sm-4 col-lg-3 cate-item">
-                <a class="h-100" href="###">
+                <a class="h-100" href="./course.html">
                   <h4>資安</h4>
                   <img
                     src="../assets/images/category/security.svg"
@@ -589,7 +467,7 @@
                 </a>
               </li>
               <li class="col-6 col-sm-4 col-lg-3 cate-item">
-                <a class="h-100" href="###">
+                <a class="h-100" href="./course.html">
                   <h4>產品測試</h4>
                   <img
                     src="../assets/images/category/testing.svg"
@@ -598,7 +476,7 @@
                 </a>
               </li>
               <li class="col-6 col-sm-4 col-lg-3 cate-item">
-                <a class="h-100" href="###">
+                <a class="h-100" href="./course.html">
                   <h4>UI / UX</h4>
                   <img
                     src="../assets/images/category/UI-UX.svg"
@@ -607,7 +485,7 @@
                 </a>
               </li>
               <li class="col-6 col-sm-4 col-lg-3 cate-item">
-                <a class="h-100" href="###">
+                <a class="h-100" href="./course.html">
                   <h4>開發維運</h4>
                   <img
                     src="../assets/images/category/DevOps.svg"
@@ -616,7 +494,7 @@
                 </a>
               </li>
               <li class="col-6 col-sm-4 col-lg-3 cate-item">
-                <a class="h-100" href="###">
+                <a class="h-100" href="./course.html">
                   <h4>行動應用</h4>
                   <img
                     src="../assets/images/category/mobile.svg"
@@ -625,13 +503,13 @@
                 </a>
               </li>
               <li class="col-6 col-sm-4 col-lg-3 cate-item">
-                <a class="h-100" href="###">
+                <a class="h-100" href="./course.html">
                   <h4>AI</h4>
                   <img src="../assets/images/category/AI.svg" alt="AI" />
                 </a>
               </li>
               <li class="col-6 col-sm-4 col-lg-3 cate-item">
-                <a class="h-100" href="###">
+                <a class="h-100" href="./course.html">
                   <h4>遊戲開發</h4>
                   <img
                     src="../assets/images/category/game.svg"
@@ -640,7 +518,7 @@
                 </a>
               </li>
               <li class="col-6 col-sm-4 col-lg-3 cate-item">
-                <a class="h-100" href="###">
+                <a class="h-100" href="./course.html">
                   <h4>程式入門</h4>
                   <img
                     src="../assets/images/category/basic.svg"
@@ -649,7 +527,7 @@
                 </a>
               </li>
               <li class="col-6 col-sm-4 col-lg-3 cate-item">
-                <a class="h-100" href="###">
+                <a class="h-100" href="./course.html">
                   <h4>職涯</h4>
                   <img src="../assets/images/category/career.svg" alt="職涯" />
                 </a>
@@ -666,53 +544,63 @@
     </div>
 
     <!-- 為什麼選擇我們 why us  -->
-    <div class="container py-10 pt-md-20 pb-md-17">
-      <div class="whyus d-flex flex-column align-items-center">
-        <h3
-          class="badge-title badge-title-sm bg-secondary text-primary mb-2 mb-md-4"
+    <div class="py-10 py-md-20">
+      <div class="container whyus">
+        <!-- 標題 -->
+        <div class="d-flex flex-column align-items-center">
+          <h3
+            class="badge-title badge-title-sm bg-secondary text-primary mb-2 mb-md-4"
+          >
+            Why Us ?
+          </h3>
+          <h2 class="block-title mb-5 mb-md-10">為什麼要選擇我們</h2>
+        </div>
+        <!-- 卡片 -->
+        <div
+          class="whyus-list d-flex gap-7 row-gap-sm-10 column-gap-sm-16 column-gap-lg-20 flex-wrap justify-content-center"
         >
-          Why Us ?
-        </h3>
-        <h2 class="block-title mb-5 mb-md-10">為什麼要選擇我們</h2>
+          <div
+            class="d-flex gap-7 row-gap-sm-10 column-gap-sm-16 column-gap-lg-20 flex-wrap justify-content-center"
+          >
+            <div class="whyus-item best-platform">
+              <div class="badge-title bg-primary text-white">
+                最佳程式家教平台
+              </div>
+              <ul class="whyus-info">
+                <li>學生五星好評推薦</li>
+                <li>教師上課首選</li>
+              </ul>
+            </div>
+            <div class="whyus-item discount">
+              <div class="badge-title bg-primary text-white">體驗課優惠</div>
+              <ul class="whyus-info">
+                <li>找到最適合的教師</li>
+                <li>不花冤枉錢</li>
+              </ul>
+            </div>
+          </div>
+          <div
+            class="d-flex gap-7 row-gap-sm-10 column-gap-sm-16 column-gap-lg-20 flex-wrap justify-content-center"
+          >
+            <div class="whyus-item evaluation">
+              <div class="badge-title bg-primary text-white">嚴格篩選機制</div>
+              <ul class="whyus-info">
+                <li>試教審核後成為教師</li>
+                <li>定期考核</li>
+              </ul>
+            </div>
 
-        <ul class="whyus-list">
-          <li class="whyus-item best-platform">
-            <div class="badge-title bg-primary text-white">
-              最佳程式家教平台
+            <div class="whyus-item flexible">
+              <div class="badge-title bg-primary text-white">
+                上課時間地點彈性
+              </div>
+              <ul class="whyus-info">
+                <li>安排自己有空的時間</li>
+                <li>有電腦就能上課</li>
+              </ul>
             </div>
-            <ul class="whyus-info">
-              <li>學生五星好評推薦</li>
-              <li>教師上課首選</li>
-            </ul>
-          </li>
-          <li class="whyus-item discount">
-            <div class="badge-title bg-primary text-white">
-              最佳程式家教平台
-            </div>
-            <ul class="whyus-info">
-              <li>學生五星好評推薦</li>
-              <li>教師上課首選</li>
-            </ul>
-          </li>
-          <li class="whyus-item evaluation">
-            <div class="badge-title bg-primary text-white">
-              最佳程式家教平台
-            </div>
-            <ul class="whyus-info">
-              <li>學生五星好評推薦</li>
-              <li>教師上課首選</li>
-            </ul>
-          </li>
-          <li class="whyus-item flexible">
-            <div class="badge-title bg-primary text-white">
-              最佳程式家教平台
-            </div>
-            <ul class="whyus-info">
-              <li>學生五星好評推薦</li>
-              <li>教師上課首選</li>
-            </ul>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -891,15 +779,17 @@
                 </div>
               </div>
             </div>
-            <div class="reviews swiper-btns mt-5 mt-md-7">
+            <div
+              class="reviewsSwiper-btns d-flex justify-content-center align-items-center mt-5 mt-md-7"
+            >
               <button
-                class="btn btn-link reviewsSwiper-button-next-custom d-none d-sm-block"
+                class="btn btn-link reviewsSwiper-button-prev-custom d-none d-sm-block"
                 type="button"
                 disabled
               >
                 <i class="fa-solid fa-arrow-left"></i>
               </button>
-              <div class="reviewsSwiper-pagination-custom"></div>
+              <div class="reviewsSwiper-pagination-custom text-center"></div>
               <button
                 class="btn btn-link reviewsSwiper-button-next-custom d-none d-sm-block"
                 type="button"
@@ -909,6 +799,8 @@
               </button>
             </div>
           </div>
+
+          <!-- review 標題 -->
           <div
             class="col-md-6 col-lg-4 order-1 order-md-2 d-flex flex-column justify-content-between align-items-start pt-10 pt-md-20 pb-md-32 thumb-up-img"
           >
@@ -923,9 +815,13 @@
               <h2 class="block-title mb-md-3">學生好評</h2>
               <p class="fs-6 fw-medium d-none d-md-block">五星課程推薦</p>
             </div>
-            <button type="button" class="btn-text mb-3 mb-md-0 fw-medium">
+            <a
+              href="./course.html"
+              type="button"
+              class="btn btn-text pe-2 fw-medium"
+            >
               了解課程
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -934,7 +830,11 @@
     <!-- footer -->
     <%- include("./layout/footer.ejs") -%>
 
+    <!-- backtotop -->
+    <%- include("./layout/backtotop.ejs") -%>
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
 
     <script type="module" src="../main.js"></script>
   </body>
