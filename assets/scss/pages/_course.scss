@@ -1,8 +1,8 @@
 .filter-sidebar-sticky {
   @include media-breakpoint-up(xl) {
     position: sticky;
-    top: 68px;
-    height: calc(100vh - 68px);
+    top: 78px;
+    height: calc(100vh - 78px);
     overflow-y: auto;
   }
   &.show {

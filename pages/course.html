@@ -3436,14 +3436,17 @@
       //filter-bar 在 sticky 時添加陰影，且加上margin
       let filterBar = document.querySelector("#js-filter-bar");
       let stickyMargin = document.querySelector("#js-sticky-mt");
+      const navbar = document.querySelector(".navbar");
 
       window.addEventListener("scroll", () => {
         if (window.scrollY < 418) {
           filterBar.style.boxShadow = "";
           stickyMargin.style.marginTop = "";
+          navbar.style.display = "block";
         } else {
           filterBar.style.boxShadow = "0 10px 6px -6px rgba(0, 0, 0, 0.15)";
-          stickyMargin.style.marginTop = "68px";
+          stickyMargin.style.marginTop = "78px";
+          navbar.style.display = "none";
         }
       });
 

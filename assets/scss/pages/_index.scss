@@ -287,3 +287,14 @@
     }
   }
 }
+
+// scrollbar 樣式修改
+body {
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: $gray-200;
+  }
+}
