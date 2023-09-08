@@ -13,12 +13,13 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
     />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
   </head>
   <body class="position-relative">
-    <%- include("./layout/header.ejs") -%>
+    <%- include("./layout/header.ejs", {page: "index"}) -%>
     <!-- banner -->
-    <div class="bg-gray-400">
+    <div class="bg-gray-400 mt-16 mt-md-19">
       <div class="swiper bannerSwiper mx-3 mx-md-5 position-relative">
         <div class="swiper-wrapper">
           <div
@@ -117,6 +118,7 @@
       <!-- recommend 標題 -->
       <div
         class="container d-flex justify-content-between align-items-end mb-5 mb-md-10"
+        data-aos="fade-up"
       >
         <div class="d-flex flex-column align-items-start">
           <h3
@@ -135,7 +137,7 @@
         </a>
       </div>
       <!-- 輪播 -->
-      <div class="container">
+      <div class="container" data-aos="fade-up">
         <div class="swiper recommendSwiper">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
@@ -410,12 +412,17 @@
     </div>
 
     <!-- 探索地圖 category  -->
-    <div class="bg-secondary category">
-      <div class="container">
+    <div class="bg-secondary position-relative overflow-hidden category">
+      <div class="cate-animation-top position-absolute"></div>
+      <div class="cate-animation-bottom position-absolute"></div>
+      <div class="container position-relative z-2">
         <div
           class="row d-flex justify-content-between align-items-center column-gap-10 pt-10 pb-5 pt-md-20 pb-md-18"
         >
-          <div class="col-12 col-md-3 d-flex flex-column align-items-start">
+          <div
+            class="col-12 col-md-3 d-flex flex-column align-items-start"
+            data-aos="fade-right"
+          >
             <h3
               class="badge-title badge-title-sm bg-primary text-white mb-2 mb-md-4"
             >
@@ -562,7 +569,13 @@
           <div
             class="d-flex gap-7 row-gap-sm-10 column-gap-sm-16 column-gap-lg-20 flex-wrap justify-content-center"
           >
-            <div class="whyus-item best-platform">
+            <div
+              class="whyus-item best-platform"
+              data-aos="zoom-out"
+              data-aos-easing="ease-in-cubic
+"
+              data-aos-duration="600"
+            >
               <div class="badge-title bg-primary text-white">
                 最佳程式家教平台
               </div>
@@ -571,7 +584,13 @@
                 <li>教師上課首選</li>
               </ul>
             </div>
-            <div class="whyus-item discount">
+            <div
+              class="whyus-item discount"
+              data-aos="zoom-out"
+              data-aos-easing="ease-in-cubic
+"
+              data-aos-duration="600"
+            >
               <div class="badge-title bg-primary text-white">體驗課優惠</div>
               <ul class="whyus-info">
                 <li>找到最適合的教師</li>
@@ -582,7 +601,13 @@
           <div
             class="d-flex gap-7 row-gap-sm-10 column-gap-sm-16 column-gap-lg-20 flex-wrap justify-content-center"
           >
-            <div class="whyus-item evaluation">
+            <div
+              class="whyus-item evaluation"
+              data-aos="zoom-out"
+              data-aos-easing="ease-in-cubic
+"
+              data-aos-duration="600"
+            >
               <div class="badge-title bg-primary text-white">嚴格篩選機制</div>
               <ul class="whyus-info">
                 <li>試教審核後成為教師</li>
@@ -590,7 +615,13 @@
               </ul>
             </div>
 
-            <div class="whyus-item flexible">
+            <div
+              class="whyus-item flexible"
+              data-aos="zoom-out"
+              data-aos-easing="ease-in-cubic
+"
+              data-aos-duration="600"
+            >
               <div class="badge-title bg-primary text-white">
                 上課時間地點彈性
               </div>
@@ -783,6 +814,7 @@
           <!-- review 標題 -->
           <div
             class="col-md-6 col-lg-4 order-1 order-md-2 d-flex flex-column justify-content-between align-items-start pt-10 pt-md-20 pb-md-32 thumb-up-img"
+            data-aos="fade-left"
           >
             <div
               class="d-flex flex-column align-items-start justify-content-between mb-22 mb-md-0"
@@ -815,7 +847,33 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
 
+      // You can also pass an optional settings object
+      // below listed default settings
+      AOS.init({
+        // Global settings:
+        disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+        startEvent: "DOMContentLoaded", // name of the event dispatched on the document, that AOS should initialize on
+        initClassName: "aos-init", // class applied after initialization
+        animatedClassName: "aos-animate", // class applied on animation
+        useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+        disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+        debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+        throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+        // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+        offset: 120, // offset (in px) from the original trigger point
+        delay: 0, // values from 0 to 3000, with step 50ms
+        duration: 700, // values from 0 to 3000, with step 50ms
+        easing: "ease", // default easing for AOS animations
+        once: false, // whether animation should happen only once - while scrolling down
+        mirror: false, // whether elements should animate out while scrolling past them
+        anchorPlacement: "top-bottom", // defines which position of the element regarding to window should trigger the animation
+      });
+    </script>
     <script type="module" src="../main.js"></script>
   </body>
 </html>
