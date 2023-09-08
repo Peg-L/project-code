@@ -76,10 +76,9 @@
                       <label for="hour1"
                         >單堂時長 (分鐘)
                         <select
-                          class="form-select border-primary fw-bold mt-2 py-1 py-sm-2"
+                          class="form-select border-primary fw-bold mt-2 py-1 py-sm-2 w-150px"
                           name="hour1"
                           id="hour1"
-                          style="max-width: 150px"
                         >
                           <option value="20">20</option>
                           <option value="50">50</option>
@@ -87,13 +86,12 @@
                         </select>
                       </label>
 
-                      <label for="count1"
+                      <label class="w-150px" for="count1"
                         >堂數 (堂)
-                        <div class="input-group w-fit-content mt-2">
+                        <div class="input-group w-fit mt-2">
                           <button
                             type="button"
-                            class="btn btn-outline-primary rounded-start-2 border-1 py-0 fw-bold fs-4"
-                            style="width: 45px"
+                            class="btn btn-outline-primary rounded-start-2 border-1 py-0 fw-bold fs-4 w-45px"
                           >
                             -
                           </button>
@@ -105,12 +103,10 @@
                             value="2"
                             inputmode="numeric"
                             pattern="[0-9]"
-                            style="width: 60px"
                           />
                           <button
                             type="button"
-                            class="btn btn-outline-primary rounded-end-2 border-1 py-0 fw-bold fs-4"
-                            style="width: 45px"
+                            class="btn btn-outline-primary rounded-end-2 border-1 py-0 fw-bold fs-4 w-45px"
                           >
                             +
                           </button>
@@ -133,7 +129,7 @@
                   </div>
                 </div>
                 <div class="d-flex justify-content-end gap-4">
-                  <p class="fs-sm fs-md-7">2024/1/1 到期</p>
+                  <p class="fs-sm fs-md-7"><time datetime="2024-01-01"> 到期</p>
                   <a class="text-decoration-underline" href="#">下次再買</a>
                   <a class="text-decoration-underline" href="#">刪除</a>
                 </div>
@@ -184,10 +180,9 @@
                       <label for="hour2"
                         >單堂時長 (分鐘)
                         <select
-                          class="form-select border-primary fw-bold mt-2 py-1 py-sm-2"
+                          class="form-select border-primary fw-bold mt-2 py-1 py-sm-2 w-150px"
                           name="hour2"
                           id="hour2"
-                          style="max-width: 150px"
                         >
                           <option value="20">20</option>
                           <option value="50" selected>50</option>
@@ -195,13 +190,12 @@
                         </select>
                       </label>
 
-                      <label for="count2"
+                      <label class="w-150px" for="count2"
                         >堂數 (堂)
-                        <div class="input-group w-fit-content mt-2">
+                        <div class="input-group w-fit mt-2">
                           <button
                             type="button"
-                            class="btn btn-outline-primary rounded-start-2 border-1 py-0 fw-bold fs-4"
-                            style="width: 45px"
+                            class="btn btn-outline-primary rounded-start-2 border-1 py-0 fw-bold fs-4 w-45px"
                           >
                             -
                           </button>
@@ -213,12 +207,10 @@
                             value="1"
                             inputmode="numeric"
                             pattern="[0-9]"
-                            style="width: 60px"
                           />
                           <button
                             type="button"
-                            class="btn btn-outline-primary rounded-end-2 border-1 py-0 fw-bold fs-4"
-                            style="width: 45px"
+                            class="btn btn-outline-primary rounded-end-2 border-1 py-0 fw-bold fs-4 w-45px"
                           >
                             +
                           </button>
@@ -234,12 +226,11 @@
                   <div class="d-flex justify-content-between mb-3">
                     <div class="d-flex gap-3">
                       <h4 class="fs-5 fs-md-4 fw-bold">NT$ 1,800</h4>
-                      <!-- <h4 class="fs-5 fs-md-4 fw-bold">NT$ 600</h4> -->
                     </div>
                   </div>
                 </div>
                 <div class="d-flex justify-content-end gap-4">
-                  <p class="fs-sm fs-md-7">2024/2/1 到期</p>
+                  <p class="fs-sm fs-md-7"><time>2024/2/1</time> 到期</p>
                   <a class="text-decoration-underline" href="#">下次再買</a>
                   <a class="text-decoration-underline" href="#">刪除</a>
                 </div>
@@ -296,7 +287,7 @@
           </div>
 
           <table
-            class="w-fit-content table table-sm table-borderless text-end align-self-end mb-0"
+            class="w-fit table table-sm table-borderless text-end align-self-end mb-0"
           >
             <thead>
               <tr>
