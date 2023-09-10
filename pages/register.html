@@ -20,13 +20,12 @@
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
   </head>
   <body>
-    <%- include("./layout/header.ejs") -%>
-    <div class="container py-5 py-md-10">
+    <%- include("./layout/header.ejs",{page: "register"}) -%>
+    <div class="container py-5 py-md-10 mt-16 mt-md-19">
       <div class="row d-flex justify-content-center">
         <div class="col-12 d-flex flex-column align-items-center">
           <img
-            class="mb-2 mb-md-3"
-            style="width: 40px"
+            class="mb-2 mb-md-3 w-40px"
             src="../assets/images/logo-img.svg"
             alt="logo"
           />
@@ -135,8 +134,7 @@
               <div>
                 <div class="text-center">
                   <img
-                    class="mb-2 mb-md-3"
-                    style="width: 40px"
+                    class="mb-2 mb-md-3 w-40px"
                     src="../assets/images/logo-img.svg"
                     alt="logo"
                   />

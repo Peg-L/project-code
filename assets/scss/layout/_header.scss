@@ -1,3 +1,8 @@
+.navbar {
+  box-shadow: 0 0.2rem 1rem rgba($dark, 0.15),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.15);
+}
+
 // 漢堡選單
 .navbar-toggler {
   width: 40px;
@@ -93,6 +98,10 @@
       background-color: $primary;
     }
   }
+}
+
+.blue-dot {
+  color: $primary;
 }
 
 .accordion-body {

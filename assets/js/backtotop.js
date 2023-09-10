@@ -15,7 +15,15 @@ function scrollFunction() {
   }
 }
 
+const backtotopBtns = document.querySelectorAll(".backtotopBtn");
+
 // 點擊後跳轉到最上面
-$(".backtotopBtn").on("click", function () {
-  $("html").animate({ scrollTop: 0 }, 1000);
+backtotopBtns.forEach((backtotopBtn) => {
+  backtotopBtn.addEventListener("click", function () {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  });
 });

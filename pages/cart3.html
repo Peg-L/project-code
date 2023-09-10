@@ -12,11 +12,11 @@
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
   </head>
   <body>
-    <%- include('./layout/header'); -%>
+    <%- include('./layout/header',{page: "cart3"}); -%>
     <!--========================
     =        step bar          =
     =========================-->
-    <div class="container-sm mb-10 mb-md-15">
+    <div class="container-sm mt-18 mt-md-22 mb-10 mb-md-15">
       <div class="col-md-10 col-lg-7 mx-auto">
         <ul
           class="stepbar list-unstyled d-flex justify-content-between mt-2 mt-md-7 mb-8 mb-md-13"
@@ -63,13 +63,19 @@
               <tbody class="fs-sm fs-md-7">
                 <tr>
                   <th scope="row" class="fw-bold mb-1">第 1 堂 (20 分鐘)</th>
-                  <td>2023/09/20 (三)</td>
-                  <td>AM 09:00 - AM 09:20</td>
+                  <td><time datetime="2023-09-20">2023/09/20</time> (三)</td>
+                  <td>
+                    <time datetime="2023-09-20T9:00">AM 09:00</time> -
+                    <time datetime="2023-09-20T9:20">AM 09:20</time>
+                  </td>
                 </tr>
                 <tr>
                   <th scope="row" class="fw-bold mb-1">第 2 堂 (50 分鐘)</th>
-                  <td>2023/09/24 (日)</td>
-                  <td>AM 09:00 - AM 09:50</td>
+                  <td><time datetime="2023-09-24">2023/09/24</time> (日)</td>
+                  <td>
+                    <time datetime="2023-09-24T9:00">AM 09:00</time> -
+                    <time datetime="2023-09-24T9:00">AM 09:50</time>
+                  </td>
                 </tr>
                 <tr>
                   <th scope="row" class="fw-bold mb-1">第 3 堂 (50 分鐘)</th>
@@ -85,13 +91,25 @@
                       <li class="list-disc">
                         目前已預約 2 堂 ，尚有 1 堂未預約
                       </li>
-                      <li class="list-disc">2024/1/1 到期</li>
+                      <li class="list-disc">
+                        <time datetime="2024-01-01">2024/1/1</time>" 到期
+                      </li>
                     </ul>
                   </td>
                 </tr>
               </tfoot>
             </table>
-            <button type="button" class="btn btn-secondary2 w-50">
+            <button
+              type="button"
+              class="btn btn-secondary2 w-50"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#message-mike"
+              aria-controls="message-mike"
+              aria-current="page"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#message-list"
+              aria-controls="#message-list"
+            >
               聯絡老師
             </button>
           </li>
@@ -118,13 +136,19 @@
               <tbody class="fs-sm fs-md-7">
                 <tr>
                   <th scope="row" class="fw-bold mb-1">第 1 堂 (50 分鐘)</th>
-                  <td>2023/02/02 (四)</td>
-                  <td>AM 09:00 - AM 09:50</td>
+                  <td><time datetime="2023-10-02">2023/10/02</time> (四)</td>
+                  <td>
+                    <time datetime="2023-10-02T09:00">AM 09:00</time> -
+                    <time datetime="2023-10-02T09:50">AM 09:50</time>
+                  </td>
                 </tr>
                 <tr>
                   <th scope="row" class="fw-bold mb-1">第 2 堂 (50 分鐘)</th>
-                  <td>2023/02/05 (日)</td>
-                  <td>AM 09:00 - AM 09:50</td>
+                  <td><time datetime="2023-10-05">2023/10/05</time> (日)</td>
+                  <td>
+                    <time datetime="2023-10-05T09:00">AM 09:00</time> -
+                    <time datetime="2023-10-05T09:50">AM 09:50</time>
+                  </td>
                 </tr>
                 <tr>
                   <th scope="row" class="fw-bold mb-1">第 3 堂 (50 分鐘)</th>
@@ -175,13 +199,22 @@
                       <li class="list-disc">
                         目前已預約 2 堂 ，尚有 8 堂未預約
                       </li>
-                      <li class="list-disc">2024/2/1 到期</li>
+                      <li class="list-disc">
+                        <time datetime="2024-02-01">2024/2/1</time> 到期
+                      </li>
                     </ul>
                   </td>
                 </tr>
               </tfoot>
             </table>
-            <button type="button" class="btn btn-secondary2 w-50">
+            <button
+              type="button"
+              class="btn btn-secondary2 w-50"
+              aria-current="page"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#message-list"
+              aria-controls="#message-list"
+            >
               聯絡老師
             </button>
           </li>
@@ -196,10 +229,11 @@
               老師確認後才算是預約完成，如預約成功會傳送預約完成通知信，在此期間請注意老師訊息。
             </li>
             <li class="list-number">
-              尚未預約的課程請注意須在到期日 23:59 前完成預約。
+              尚未預約的課程請注意須在到期日 <time>23:59</time> 前完成預約。
             </li>
             <li class="list-number">
-              課程將使用ZOOM進行視訊教學，並全程錄影，上課前10分鐘即可點選進入教室，系統會自動開啟
+              課程將使用 ZOOM 進行視訊教學，並全程錄影，上課前 10
+              分鐘即可點選進入教室，系統會自動開啟
               ZOOM，電腦、平板、手機皆可上課。
             </li>
             <li class="list-number">
@@ -210,10 +244,9 @@
         <!--========================
         =          按鈕            =
         =========================-->
-        <div class="d-flex justify-content-between">
-          <a href="./cart2.html" class="btn btn-secondary2 rounded-2">上一步</a>
+        <div class="d-flex justify-content-end">
           <a href="./course.html" class="btn btn-secondary2 rounded-2"
-            >確認明細</a
+            >繼續選課</a
           >
         </div>
       </div>

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-white">
+<nav class="navbar navbar-expand-lg bg-white fixed-top">
   <div class="container">
     <h1 class="navbar-brand">
       <a href="./index.html">
@@ -38,7 +38,7 @@
       >
         <li class="nav-item">
           <a
-            class="nav-link pc d-none d-lg-block"
+            class="nav-link pc d-none d-lg-block <%= page === 'course' ? 'blue-dot' : '' %>"
             aria-current="page"
             href="./course.html"
             >課程分類</a
@@ -128,7 +128,7 @@
             聯絡老師
           </button>
           <button
-            class="nav-link d-block d-lg-none"
+            class="nav-link d-block d-lg-none mx-auto"
             aria-current="page"
             data-bs-toggle="offcanvas"
             data-bs-target="#message-list"

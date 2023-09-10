@@ -16,11 +16,11 @@
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
   </head>
   <body>
-    <%- include('./layout/header'); -%>
+    <%- include('./layout/header',{page: "cart2"}); -%>
     <!--========================
     =        step bar          =
     =========================-->
-    <div class="container-sm mb-10 mb-md-15">
+    <div class="container-sm mt-18 mt-md-22 mb-10 mb-md-15">
       <div class="col-md-10 col-lg-7 mx-auto">
         <ul
           class="stepbar list-unstyled d-flex justify-content-between mt-2 mt-md-7 mb-8 mb-md-13"
@@ -84,21 +84,18 @@
                 <ul>
                   <li>
                     <form
-                      class="d-flex flex-wrap align-items-center column-gap-4 row-gap-2 mb-3 mb-md-5"
+                      class="d-flex flex-wrap align-items-center column-gap-3 row-gap-2 mb-3 mb-md-5"
                       action="#"
                       method="post"
                     >
-                      <p class="fw-bold" style="width: 145px">
-                        第 1 堂 (20 分鐘)
-                      </p>
-                      <div class="d-flex gap-2">
+                      <p class="fw-bold w-150px">第 1 堂 (20 分鐘)</p>
+                      <div class="d-flex gap-2 w-300px">
                         <input
                           class="form-control border-primary cursor-pointer fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4 jq-appointmentDate"
                           type="text"
                           name="appointmentDate1-1"
                           id="appointmentDate1-1"
                           placeholder="日期"
-                          style="max-width: 150px"
                           value="2023/09/20"
                           autocomplete="off"
                           required
@@ -107,7 +104,6 @@
                           class="form-select border-primary fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4"
                           name="appointmentTime1-1"
                           id="appointmentTime1-1"
-                          style="max-width: 140px"
                           required
                         >
                           <option value="">時間</option>
@@ -120,21 +116,18 @@
                   </li>
                   <li>
                     <form
-                      class="d-flex flex-wrap align-items-center column-gap-4 row-gap-2 mb-3 mb-md-5"
+                      class="d-flex flex-wrap align-items-center column-gap-3 row-gap-2 mb-3 mb-md-5"
                       action="#"
                       method="post"
                     >
-                      <p class="fw-bold" style="width: 145px">
-                        第 2 堂 (50 分鐘)
-                      </p>
-                      <div class="d-flex gap-2">
+                      <p class="fw-bold w-150px">第 2 堂 (50 分鐘)</p>
+                      <div class="d-flex gap-2 w-300px">
                         <input
                           class="form-control border-primary cursor-pointer fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4 jq-appointmentDate"
                           type="text"
                           name="appointmentDate1-2"
                           id="appointmentDate1-2"
                           placeholder="日期"
-                          style="max-width: 150px"
                           autocomplete="off"
                           required
                         />
@@ -142,7 +135,6 @@
                           class="form-select border-primary fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4"
                           name="appointmentTime1-2"
                           id="appointmentTime1-2"
-                          style="max-width: 140px"
                           required
                         >
                           <option value="" selected>時間</option>
@@ -156,7 +148,9 @@
                 </ul>
                 <div class="d-flex justify-content-end gap-4 mt-auto">
                   <p class="fs-sm fs-md-7">剩餘 1 堂</p>
-                  <p class="fs-sm fs-md-7">2024/2/1 到期</p>
+                  <p class="fs-sm fs-md-7">
+                    <time datetime="2024-02-01">2024/2/1</time> 到期
+                  </p>
                 </div>
               </div>
             </div>
@@ -202,21 +196,18 @@
                 <ul>
                   <li>
                     <form
-                      class="d-flex flex-wrap align-items-center column-gap-4 row-gap-2 mb-3 mb-md-5"
+                      class="d-flex flex-wrap align-items-center column-gap-3 row-gap-2 mb-3 mb-md-5"
                       action="#"
                       method="post"
                     >
-                      <p class="fw-bold" style="width: 145px">
-                        第 1 堂 (50 分鐘)
-                      </p>
-                      <div class="d-flex gap-2">
+                      <p class="fw-bold w-150px">第 1 堂 (50 分鐘)</p>
+                      <div class="d-flex gap-2 w-300px">
                         <input
                           class="form-control border-primary cursor-pointer fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4 jq-appointmentDate"
                           type="text"
                           name="appointmentDate1-2"
                           id="appointmentDate1-2"
                           placeholder="日期"
-                          style="max-width: 150px"
                           autocomplete="off"
                           required
                         />
@@ -224,7 +215,6 @@
                           class="form-select border-primary fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4"
                           name="appointmentTime1-2"
                           id="appointmentTime1-2"
-                          style="max-width: 140px"
                           required
                         >
                           <option value="" selected>時間</option>
@@ -238,7 +228,9 @@
                 </ul>
                 <div class="d-flex justify-content-end gap-4 mt-auto">
                   <p class="fs-sm fs-md-7">剩餘 1 堂</p>
-                  <p class="fs-sm fs-md-7">2024/2/1 到期</p>
+                  <p class="fs-sm fs-md-7">
+                    <time datetime="2024-02-01">2024/2/1</time> 到期
+                  </p>
                 </div>
               </div>
             </div>
@@ -265,5 +257,6 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/i18n/jquery-ui-i18n.min.js"></script>
     <!--  -->
     <script type="module" src="../main.js"></script>
+    <script src="../assets/js/datepicker.js"></script>
   </body>
 </html>
