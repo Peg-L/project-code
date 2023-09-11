@@ -13,12 +13,13 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
     />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
-    <script type="module" crossorigin src="/project-code/assets/index-5d4c6516.js"></script>
-    <link rel="stylesheet" href="/project-code/assets/index-6e883fb7.css">
+    <script type="module" crossorigin src="/project-code/assets/index-0feeafe4.js"></script>
+    <link rel="stylesheet" href="/project-code/assets/index-a7b5fca3.css">
   </head>
-  <body>
-    <nav class="navbar navbar-expand-lg bg-white">
+  <body class="position-relative">
+    <nav class="navbar navbar-expand-lg bg-white fixed-top">
   <div class="container">
     <h1 class="navbar-brand">
       <a href="./index.html">
@@ -58,7 +59,7 @@
       >
         <li class="nav-item">
           <a
-            class="nav-link pc d-none d-lg-block"
+            class="nav-link pc d-none d-lg-block "
             aria-current="page"
             href="./course.html"
             >課程分類</a
@@ -86,18 +87,18 @@
                 data-bs-parent="#accordionFlush"
               >
                 <ul class="accordion-body text-center">
-                  <li><a href="###">前端</a></li>
-                  <li><a href="###">後端</a></li>
-                  <li><a href="###">資料庫</a></li>
-                  <li><a href="###">資安</a></li>
-                  <li><a href="###">產品測試</a></li>
-                  <li><a href="###">UI / UX</a></li>
-                  <li><a href="###">開發維運</a></li>
-                  <li><a href="###">行動應用</a></li>
-                  <li><a href="###">AI</a></li>
-                  <li><a href="###">遊戲開發</a></li>
-                  <li><a href="###">程式入門</a></li>
-                  <li><a href="###">職涯</a></li>
+                  <li><a href="./course.html">前端</a></li>
+                  <li><a href="./course.html">後端</a></li>
+                  <li><a href="./course.html">資料庫</a></li>
+                  <li><a href="./course.html">資安</a></li>
+                  <li><a href="./course.html">產品測試</a></li>
+                  <li><a href="./course.html">UI / UX</a></li>
+                  <li><a href="./course.html">開發維運</a></li>
+                  <li><a href="./course.html">行動應用</a></li>
+                  <li><a href="./course.html">AI</a></li>
+                  <li><a href="./course.html">遊戲開發</a></li>
+                  <li><a href="./course.html">程式入門</a></li>
+                  <li><a href="./course.html">職涯</a></li>
                 </ul>
               </div>
             </div>
@@ -138,24 +139,24 @@
           </div>
         </li>
         <li class="nav-item">
-          <a
+          <button
             class="nav-link pc d-none d-lg-block"
             aria-current="page"
-            href="#"
             data-bs-toggle="offcanvas"
             data-bs-target="#message-list"
             aria-controls="#message-list"
-            >聯絡老師</a
           >
-          <a
-            class="nav-link d-block d-lg-none"
+            聯絡老師
+          </button>
+          <button
+            class="nav-link d-block d-lg-none mx-auto"
             aria-current="page"
-            href="###"
             data-bs-toggle="offcanvas"
             data-bs-target="#message-list"
             aria-controls="#message-list"
-            >聯絡老師</a
           >
+            聯絡老師
+          </button>
         </li>
       </ul>
 
@@ -232,7 +233,7 @@
         <div class="d-flex gap-3">
           <img
             style="width: 60px; height: 60px"
-            src="/project-code/assets/mike-e8622f4e.png"
+            src="../assets/images/teacher/mike.png"
             alt="mike"
           />
           <div class="d-flex flex-column justify-content-between truncate">
@@ -252,7 +253,7 @@
         <div class="d-flex gap-3">
           <img
             style="width: 60px; height: 60px"
-            src="/project-code/assets/arong-bdd97516.png"
+            src="../assets/images/teacher/arong.png"
             alt="mike"
           />
           <div class="d-flex flex-column justify-content-between truncate">
@@ -310,10 +311,10 @@
       <img
         class="me-3"
         style="width: 50px; height: 50px"
-        src="/project-code/assets/mike-e8622f4e.png"
+        src="../assets/images/teacher/mike.png"
         alt="mike"
       />
-      <h5 class="offcanvas-title" id="offcanvasRightLabel">馬克先生</h5>
+      <h5 class="offcanvas-title" id="offcanvasRightLabel">麥克先生</h5>
     </div>
     <button
       type="button"
@@ -322,13 +323,13 @@
       aria-label="Close"
     ></button>
   </div>
-  <div class="offcanvas-body">
+  <div class="offcanvas-body" style="height: calc(100% - 177px)">
     <ul class="d-flex flex-column gap-6">
-      <li class="dialog d-flex me-10">
+      <li class="d-flex me-10">
         <img
           class="me-3"
           style="width: 40px; height: 40px"
-          src="/project-code/assets/mike-e8622f4e.png"
+          src="../assets/images/teacher/mike.png"
           alt="mike"
         />
         <div>
@@ -336,11 +337,11 @@
           <p class="fs-7 text-gray-200">12天前</p>
         </div>
       </li>
-      <li class="dialog d-flex me-10">
+      <li class="d-flex me-10">
         <img
           class="me-3"
           style="width: 40px; height: 40px"
-          src="/project-code/assets/mike-e8622f4e.png"
+          src="../assets/images/teacher/mike.png"
           alt="mike"
         />
         <div>
@@ -351,11 +352,11 @@
           <p class="fs-7 text-gray-200">12天前</p>
         </div>
       </li>
-      <li class="dialog d-flex me-10">
+      <li class="d-flex me-10">
         <img
           class="me-3"
           style="width: 40px; height: 40px"
-          src="/project-code/assets/mike-e8622f4e.png"
+          src="../assets/images/teacher/mike.png"
           alt="mike"
         />
         <div>
@@ -366,7 +367,7 @@
           <p class="fs-7 text-gray-200">12天前</p>
         </div>
       </li>
-      <li class="dialog d-flex justify-content-end ms-13">
+      <li class="d-flex justify-content-end ms-13">
         <div class="d-flex flex-column align-items-end">
           <p class="fs-6 bg-gray-100 p-3 mb-1 rounded-2">
             謝謝麥克老師！我看完介紹後已經手刀買了10堂課拉~ 期待第一次上課😆
@@ -378,31 +379,14 @@
   </div>
   <div id="editor"></div>
 </div>
-
-<script>
-  ClassicEditor.create(document.querySelector("#editor"), {
-    placeholder: "說些什麼...",
-    toolbar: ["uploadImage"],
-    link: {
-      addTargetToExternalLinks: true,
-    },
-  })
-    .then((res) => {
-      console.log("success");
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-</script>
     <!-- banner -->
-    <div class="bg-gray-100">
-      <div class="banner-md">
-        <div id="carouselBanner" class="container carousel carousel-dark slide">
-          <div class="carousel-inner">
-            <div
-              class="carousel-item banner-sm banner-1 active flex-column justify-content-end align-items-start justify-content-md-center"
-              data-bs-interval="6000"
-            >
+    <div class="bg-gray-400 mt-16 mt-md-19">
+      <div class="swiper bannerSwiper mx-3 mx-md-5 position-relative">
+        <div class="swiper-wrapper">
+          <div
+            class="swiper-slide d-flex flex-column align-items-start justify-content-end justify-content-md-center rounded-3 banner-img banner-img-1 pb-4 pb-md-0"
+          >
+            <div class="container">
               <h3
                 class="badge-title badge-title-lg bg-primary text-white mb-2 mb-md-3"
               >
@@ -426,16 +410,17 @@
                 </button>
               </div>
             </div>
-            <div
-              class="carousel-item banner-sm banner-2 flex-column justify-content-end align-items-start justify-content-md-center"
-              data-bs-interval="3000"
-            >
+          </div>
+          <div
+            class="swiper-slide d-flex flex-column align-items-start justify-content-end justify-content-md-center rounded-3 banner-img banner-img-2 pb-4 pb-md-0"
+          >
+            <div class="container">
               <h3
                 class="badge-title badge-title-lg bg-primary text-white mb-2 mb-md-3"
               >
                 嚴格篩選機制
               </h3>
-              <h2 class="banner-title">教師均通過內部審核</h2>
+              <h2 class="banner-title">教師三道關卡審核</h2>
               <div class="input-group">
                 <input
                   type="text"
@@ -453,16 +438,17 @@
                 </button>
               </div>
             </div>
-            <div
-              class="carousel-item banner-sm banner-3 flex-column justify-content-end align-items-start justify-content-md-center"
-              data-bs-interval="0"
-            >
+          </div>
+          <div
+            class="swiper-slide d-flex flex-column align-items-start justify-content-end justify-content-md-center rounded-3 banner-img banner-img-3 pb-4 pb-md-0"
+          >
+            <div class="container">
               <h3
                 class="badge-title badge-title-lg bg-primary text-white mb-2 mb-md-3"
               >
                 擊退畢業焦慮
               </h3>
-              <h2 class="banner-title">任選教師，買10堂課送5堂</h2>
+              <h2 class="banner-title">畢業快樂，買 10 送 5</h2>
               <div class="input-group">
                 <input
                   type="text"
@@ -481,36 +467,19 @@
               </div>
             </div>
           </div>
-          <div class="carousel-indicators">
-            <button
-              type="button"
-              data-bs-target="#carouselBanner"
-              data-bs-slide-to="0"
-              class="active"
-              aria-current="true"
-              aria-label="Slide 1"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselBanner"
-              data-bs-slide-to="1"
-              aria-label="Slide 2"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselBanner"
-              data-bs-slide-to="2"
-              aria-label="Slide 3"
-            ></button>
-          </div>
         </div>
+        <div
+          class="bannerSwiper-pagination d-flex justify-content-center z-1"
+        ></div>
       </div>
     </div>
 
     <!-- 熱門教師推薦 recommend -->
     <div class="bg-gray-dot py-10 pt-md-20 pb-md-17">
+      <!-- recommend 標題 -->
       <div
         class="container d-flex justify-content-between align-items-end mb-5 mb-md-10"
+        data-aos="fade-up"
       >
         <div class="d-flex flex-column align-items-start">
           <h3
@@ -520,318 +489,307 @@
           </h3>
           <h2 class="block-title">熱門教師推薦</h2>
         </div>
-        <button type="button" class="btn-text">查看更多</button>
+        <a
+          href="./course.html"
+          type="button"
+          class="btn btn-text pe-2 fw-medium"
+        >
+          查看更多
+        </a>
       </div>
-      <div class="swiper mySwiper container">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <div class="teacher-card">
-              <div class="teacher-card-profile">
-                <div class="teacher-card-content">
-                  <h3 class="teacher-card-title">JavaScript 大師</h3>
-                  <p class="teacher-card-name">麥克先生</p>
-                  <ul class="teacher-card-object">
-                    <!-- 評價 -->
-                    <li class="teacher-card-evaluate">5.0</li>
-                    <!-- 時數 -->
-                    <li class="teacher-card-hours">50分鐘</li>
-                  </ul>
-                  <p class="teacher-card-price">NT$<span>800</span></p>
+      <!-- 輪播 -->
+      <div class="container" data-aos="fade-up">
+        <div class="swiper recommendSwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="teacher-card">
+                <div class="teacher-card-profile">
+                  <div class="teacher-card-content">
+                    <h3 class="teacher-card-title">從零開始成為切版大師</h3>
+                    <p class="teacher-card-name">麥克先生</p>
+                    <ul class="teacher-card-object">
+                      <!-- 評價 -->
+                      <li class="teacher-card-evaluate">4.8</li>
+                      <!-- 時數 -->
+                      <li class="teacher-card-hours">50分鐘</li>
+                    </ul>
+                    <p class="teacher-card-price">NT$<span>1,100</span></p>
+                  </div>
+                  <div class="teacher-card-img">
+                    <img
+                      src="/project-code/assets/Rectangle 7-ab3dd5b8.png"
+                      alt=""
+                      class=""
+                    />
+                  </div>
                 </div>
-                <div class="teacher-card-img">
-                  <img src="/project-code/assets/Rectangle 7-ab3dd5b8.png" alt="" class="" />
-                </div>
+                <p class="teacher-card-text">
+                  帶領零基礎的平民老百姓，從最基礎的 HTML
+                  語法出發，使用最淺顯易懂的語言與生活隨處可見的例子，輕鬆進入網頁架設的世界，手把手教你做出完整的網頁作品。
+                </p>
+                <a
+                  href="./cart.html"
+                  type="button"
+                  class="btn btn-secondary2 w-100 mb-3"
+                >
+                  立即上課
+                </a>
+                <a
+                  href="./course_intro.html"
+                  type="button"
+                  class="btn teacher-card-btn"
+                  >查看介紹</a
+                >
               </div>
-              <p class="teacher-card-text">
-                一起探索 JavaScript
-                更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...
-              </p>
-              <button type="button" class="btn btn-secondary2 w-100 mb-3">
-                立即上課
-              </button>
-              <a type="button" class="btn teacher-card-btn">查看介紹</a>
             </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="teacher-card">
-              <div class="teacher-card-profile">
-                <div class="teacher-card-content">
-                  <h3 class="teacher-card-title">JavaScript 大師</h3>
-                  <p class="teacher-card-name">麥克先生</p>
-                  <ul class="teacher-card-object">
-                    <!-- 評價 -->
-                    <li class="teacher-card-evaluate">5.0</li>
-                    <!-- 時數 -->
-                    <li class="teacher-card-hours">50分鐘</li>
-                  </ul>
-                  <p class="teacher-card-price">NT$<span>800</span></p>
+            <div class="swiper-slide">
+              <div class="teacher-card">
+                <div class="teacher-card-profile">
+                  <div class="teacher-card-content">
+                    <h3 class="teacher-card-title">一起打造你的前端職涯</h3>
+                    <p class="teacher-card-name">榮哥</p>
+                    <ul class="teacher-card-object">
+                      <!-- 評價 -->
+                      <li class="teacher-card-evaluate">4.8</li>
+                      <!-- 時數 -->
+                      <li class="teacher-card-hours">50分鐘</li>
+                    </ul>
+                    <p class="teacher-card-price">NT$<span>1,000</span></p>
+                  </div>
+                  <div class="teacher-card-img">
+                    <img
+                      src="/project-code/assets/Rectangle 8-2a3cf305.png"
+                      alt=""
+                      class=""
+                    />
+                  </div>
                 </div>
-                <div class="teacher-card-img">
-                  <img src="/project-code/assets/Rectangle 7-ab3dd5b8.png" alt="" class="" />
-                </div>
+                <p class="teacher-card-text">
+                  協助你定位自己的前端職涯，並提供實用的指導和建議，以確保你能夠在競爭激烈的市場中脫穎而出。
+                </p>
+                <a
+                  href="./cart.html"
+                  type="button"
+                  class="btn btn-secondary2 w-100 mb-3"
+                >
+                  立即上課
+                </a>
+                <a
+                  href="./course_intro.html"
+                  type="button"
+                  class="btn teacher-card-btn"
+                  >查看介紹</a
+                >
               </div>
-              <p class="teacher-card-text">
-                一起探索 JavaScript
-                更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...
-              </p>
-              <button type="button" class="btn btn-secondary2 w-100 mb-3">
-                立即上課
-              </button>
-              <a type="button" class="btn teacher-card-btn">查看介紹</a>
             </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="teacher-card">
-              <div class="teacher-card-profile">
-                <div class="teacher-card-content">
-                  <h3 class="teacher-card-title">JavaScript 大師</h3>
-                  <p class="teacher-card-name">麥克先生</p>
-                  <ul class="teacher-card-object">
-                    <!-- 評價 -->
-                    <li class="teacher-card-evaluate">5.0</li>
-                    <!-- 時數 -->
-                    <li class="teacher-card-hours">50分鐘</li>
-                  </ul>
-                  <p class="teacher-card-price">NT$<span>800</span></p>
+            <div class="swiper-slide">
+              <div class="teacher-card">
+                <div class="teacher-card-profile">
+                  <div class="teacher-card-content">
+                    <h3 class="teacher-card-title">Python 全攻略</h3>
+                    <p class="teacher-card-name">艾莉絲</p>
+                    <ul class="teacher-card-object">
+                      <!-- 評價 -->
+                      <li class="teacher-card-evaluate">5.0</li>
+                      <!-- 時數 -->
+                      <li class="teacher-card-hours">50分鐘</li>
+                    </ul>
+                    <p class="teacher-card-price">NT$<span>1,000</span></p>
+                  </div>
+                  <div class="teacher-card-img">
+                    <img
+                      src="/project-code/assets/Rectangle 9-7f0cfb4e.png"
+                      alt=""
+                      class=""
+                    />
+                  </div>
                 </div>
-                <div class="teacher-card-img">
-                  <img src="/project-code/assets/Rectangle 7-ab3dd5b8.png" alt="" class="" />
-                </div>
+                <p class="teacher-card-text">
+                  嗨，我是艾莉絲，有 8 年的 Python 開發經歷和 3
+                  年的教學經驗。我的專業有軟體開發、數據分析、人工智慧等各個
+                  Python
+                  相關領域，能和你分享非常專業且豐富的知識和實際案例，協助您建立紮實的
+                  Python
+                  基礎，無論你是初學者還是資深工程師，我都可以協助你找到適合自己的學習路徑。我將帶領學生深入探索
+                  Python 的各個層面，從基礎知識到高級應用，讓你具備全面的 Python
+                  技能，以應對不同領域的挑戰。
+                </p>
+                <a
+                  href="./cart.html"
+                  type="button"
+                  class="btn btn-secondary2 w-100 mb-3"
+                >
+                  立即上課
+                </a>
+                <a
+                  href="./course_intro.html"
+                  type="button"
+                  class="btn teacher-card-btn"
+                  >查看介紹</a
+                >
               </div>
-              <p class="teacher-card-text">
-                一起探索 JavaScript
-                更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...
-              </p>
-              <button type="button" class="btn btn-secondary2 w-100 mb-3">
-                立即上課
-              </button>
-              <a type="button" class="btn teacher-card-btn">查看介紹</a>
             </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="teacher-card">
-              <div class="teacher-card-profile">
-                <div class="teacher-card-content">
-                  <h3 class="teacher-card-title">JavaScript 大師</h3>
-                  <p class="teacher-card-name">麥克先生</p>
-                  <ul class="teacher-card-object">
-                    <!-- 評價 -->
-                    <li class="teacher-card-evaluate">5.0</li>
-                    <!-- 時數 -->
-                    <li class="teacher-card-hours">50分鐘</li>
-                  </ul>
-                  <p class="teacher-card-price">NT$<span>800</span></p>
+            <div class="swiper-slide">
+              <div class="teacher-card">
+                <div class="teacher-card-profile">
+                  <div class="teacher-card-content">
+                    <h3 class="teacher-card-title">JavaScript 大師</h3>
+                    <p class="teacher-card-name">麥克先生</p>
+                    <ul class="teacher-card-object">
+                      <!-- 評價 -->
+                      <li class="teacher-card-evaluate">4.8</li>
+                      <!-- 時數 -->
+                      <li class="teacher-card-hours">50分鐘</li>
+                    </ul>
+                    <p class="teacher-card-price">NT$<span>1,200</span></p>
+                  </div>
+                  <div class="teacher-card-img">
+                    <img
+                      src="/project-code/assets/mike-bb4027ef.jpg"
+                      alt=""
+                      class=""
+                    />
+                  </div>
                 </div>
-                <div class="teacher-card-img">
-                  <img src="/project-code/assets/Rectangle 7-ab3dd5b8.png" alt="" class="" />
-                </div>
+                <p class="teacher-card-text">
+                  實戰應用為主，理論為輔，深入淺出好吸收，馬上學，馬上用！Facebook
+                  聊天機器人、Chrome
+                  Extensions、開放資料、即時聊天室、對戰遊戲，多個願望一次滿足！
+                </p>
+                <a
+                  href="./cart.html"
+                  type="button"
+                  class="btn btn-secondary2 w-100 mb-3"
+                >
+                  立即上課
+                </a>
+                <a
+                  href="./course_intro.html"
+                  type="button"
+                  class="btn teacher-card-btn"
+                  >查看介紹</a
+                >
               </div>
-              <p class="teacher-card-text">
-                一起探索 JavaScript
-                更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...
-              </p>
-              <button type="button" class="btn btn-secondary2 w-100 mb-3">
-                立即上課
-              </button>
-              <a type="button" class="btn teacher-card-btn">查看介紹</a>
             </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="teacher-card">
-              <div class="teacher-card-profile">
-                <div class="teacher-card-content">
-                  <h3 class="teacher-card-title">JavaScript 大師</h3>
-                  <p class="teacher-card-name">麥克先生</p>
-                  <ul class="teacher-card-object">
-                    <!-- 評價 -->
-                    <li class="teacher-card-evaluate">5.0</li>
-                    <!-- 時數 -->
-                    <li class="teacher-card-hours">50分鐘</li>
-                  </ul>
-                  <p class="teacher-card-price">NT$<span>800</span></p>
+            <div class="swiper-slide">
+              <div class="teacher-card">
+                <div class="teacher-card-profile">
+                  <div class="teacher-card-content">
+                    <h3 class="teacher-card-title">資料庫設計與管理</h3>
+                    <p class="teacher-card-name">Ken</p>
+                    <ul class="teacher-card-object">
+                      <!-- 評價 -->
+                      <li class="teacher-card-evaluate">5.0</li>
+                      <!-- 時數 -->
+                      <li class="teacher-card-hours">50分鐘</li>
+                    </ul>
+                    <p class="teacher-card-price">NT$<span>1,300</span></p>
+                  </div>
+                  <div class="teacher-card-img">
+                    <img
+                      src="/project-code/assets/ken-2ab3c579.jpg"
+                      alt=""
+                      class=""
+                    />
+                  </div>
                 </div>
-                <div class="teacher-card-img">
-                  <img src="/project-code/assets/Rectangle 7-ab3dd5b8.png" alt="" class="" />
-                </div>
+                <p class="teacher-card-text">
+                  我是 Ken
+                  老師，在外商和台積電任職工程師多年，有豐富的資料庫設計經驗，熟悉正規化、索引策略、查詢優化、資料庫管理系統（DBMS）的選擇，以及資料安全等專業知識。無論你是初學者還是希望深化資料庫設計技能。我的目標是讓你在資料庫設計領域感到自信，並能夠在軟體系統開發時，成功應用所學的知識。
+                </p>
+                <a
+                  href="./cart.html"
+                  type="button"
+                  class="btn btn-secondary2 w-100 mb-3"
+                >
+                  立即上課
+                </a>
+                <a
+                  href="./course_intro.html"
+                  type="button"
+                  class="btn teacher-card-btn"
+                  >查看介紹</a
+                >
               </div>
-              <p class="teacher-card-text">
-                一起探索 JavaScript
-                更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...
-              </p>
-              <button type="button" class="btn btn-secondary2 w-100 mb-3">
-                立即上課
-              </button>
-              <a type="button" class="btn teacher-card-btn">查看介紹</a>
             </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="teacher-card">
-              <div class="teacher-card-profile">
-                <div class="teacher-card-content">
-                  <h3 class="teacher-card-title">JavaScript 大師</h3>
-                  <p class="teacher-card-name">麥克先生</p>
-                  <ul class="teacher-card-object">
-                    <!-- 評價 -->
-                    <li class="teacher-card-evaluate">5.0</li>
-                    <!-- 時數 -->
-                    <li class="teacher-card-hours">50分鐘</li>
-                  </ul>
-                  <p class="teacher-card-price">NT$<span>800</span></p>
+            <div class="swiper-slide">
+              <div class="teacher-card">
+                <div class="teacher-card-profile">
+                  <div class="teacher-card-content">
+                    <h3 class="teacher-card-title">6</h3>
+                    <p class="teacher-card-name">麥克先生</p>
+                    <ul class="teacher-card-object">
+                      <!-- 評價 -->
+                      <li class="teacher-card-evaluate">5.0</li>
+                      <!-- 時數 -->
+                      <li class="teacher-card-hours">50分鐘</li>
+                    </ul>
+                    <p class="teacher-card-price">NT$<span>800</span></p>
+                  </div>
+                  <div class="teacher-card-img">
+                    <img
+                      src="/project-code/assets/Rectangle 8-2a3cf305.png"
+                      alt=""
+                      class=""
+                    />
+                  </div>
                 </div>
-                <div class="teacher-card-img">
-                  <img src="/project-code/assets/Rectangle 7-ab3dd5b8.png" alt="" class="" />
-                </div>
+                <p class="teacher-card-text">
+                  一起探索 JavaScript
+                  更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...
+                </p>
+                <a
+                  href="./cart.html"
+                  type="button"
+                  class="btn btn-secondary2 w-100 mb-3"
+                >
+                  立即上課
+                </a>
+                <a
+                  href="./course_intro.html"
+                  type="button"
+                  class="btn teacher-card-btn"
+                  >查看介紹</a
+                >
               </div>
-              <p class="teacher-card-text">
-                一起探索 JavaScript
-                更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...
-              </p>
-              <button type="button" class="btn btn-secondary2 w-100 mb-3">
-                立即上課
-              </button>
-              <a type="button" class="btn teacher-card-btn">查看介紹</a>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="teacher-card">
-              <div class="teacher-card-profile">
-                <div class="teacher-card-content">
-                  <h3 class="teacher-card-title">JavaScript 大師</h3>
-                  <p class="teacher-card-name">麥克先生</p>
-                  <ul class="teacher-card-object">
-                    <!-- 評價 -->
-                    <li class="teacher-card-evaluate">5.0</li>
-                    <!-- 時數 -->
-                    <li class="teacher-card-hours">50分鐘</li>
-                  </ul>
-                  <p class="teacher-card-price">NT$<span>800</span></p>
-                </div>
-                <div class="teacher-card-img">
-                  <img src="/project-code/assets/Rectangle 7-ab3dd5b8.png" alt="" class="" />
-                </div>
-              </div>
-              <p class="teacher-card-text">
-                一起探索 JavaScript
-                更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...
-              </p>
-              <button type="button" class="btn btn-secondary2 w-100 mb-3">
-                立即上課
-              </button>
-              <a type="button" class="btn teacher-card-btn">查看介紹</a>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="teacher-card">
-              <div class="teacher-card-profile">
-                <div class="teacher-card-content">
-                  <h3 class="teacher-card-title">JavaScript 大師</h3>
-                  <p class="teacher-card-name">麥克先生</p>
-                  <ul class="teacher-card-object">
-                    <!-- 評價 -->
-                    <li class="teacher-card-evaluate">5.0</li>
-                    <!-- 時數 -->
-                    <li class="teacher-card-hours">50分鐘</li>
-                  </ul>
-                  <p class="teacher-card-price">NT$<span>800</span></p>
-                </div>
-                <div class="teacher-card-img">
-                  <img src="/project-code/assets/Rectangle 7-ab3dd5b8.png" alt="" class="" />
-                </div>
-              </div>
-              <p class="teacher-card-text">
-                一起探索 JavaScript
-                更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...
-              </p>
-              <button type="button" class="btn btn-secondary2 w-100 mb-3">
-                立即上課
-              </button>
-              <a type="button" class="btn teacher-card-btn">查看介紹</a>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="teacher-card">
-              <div class="teacher-card-profile">
-                <div class="teacher-card-content">
-                  <h3 class="teacher-card-title">JavaScript 大師</h3>
-                  <p class="teacher-card-name">麥克先生</p>
-                  <ul class="teacher-card-object">
-                    <!-- 評價 -->
-                    <li class="teacher-card-evaluate">5.0</li>
-                    <!-- 時數 -->
-                    <li class="teacher-card-hours">50分鐘</li>
-                  </ul>
-                  <p class="teacher-card-price">NT$<span>800</span></p>
-                </div>
-                <div class="teacher-card-img">
-                  <img src="/project-code/assets/Rectangle 7-ab3dd5b8.png" alt="" class="" />
-                </div>
-              </div>
-              <p class="teacher-card-text">
-                一起探索 JavaScript
-                更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...
-              </p>
-              <button type="button" class="btn btn-secondary2 w-100 mb-3">
-                立即上課
-              </button>
-              <a type="button" class="btn teacher-card-btn">查看介紹</a>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="teacher-card">
-              <div class="teacher-card-profile">
-                <div class="teacher-card-content">
-                  <h3 class="teacher-card-title">JavaScript 大師</h3>
-                  <p class="teacher-card-name">麥克先生</p>
-                  <ul class="teacher-card-object">
-                    <!-- 評價 -->
-                    <li class="teacher-card-evaluate">5.0</li>
-                    <!-- 時數 -->
-                    <li class="teacher-card-hours">50分鐘</li>
-                  </ul>
-                  <p class="teacher-card-price">NT$<span>800</span></p>
-                </div>
-                <div class="teacher-card-img">
-                  <img src="/project-code/assets/Rectangle 7-ab3dd5b8.png" alt="" class="" />
-                </div>
-              </div>
-              <p class="teacher-card-text">
-                一起探索 JavaScript
-                更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...
-              </p>
-              <button type="button" class="btn btn-secondary2 w-100 mb-3">
-                立即上課
-              </button>
-              <a type="button" class="btn teacher-card-btn">查看介紹</a>
             </div>
           </div>
         </div>
-      </div>
-      <div class="swiper-btns container mt-5 mt-md-7">
-        <button
-          class="btn btn-link swiper-button-prev-custom d-none d-sm-block"
-          type="button"
-          disabled
+        <!-- 輪播按鈕 -->
+        <div
+          class="recommendSwiper-btns d-flex justify-content-center align-items-center mt-5 mt-md-7"
         >
-          <i class="fa-solid fa-arrow-left"></i>
-        </button>
-        <div class="swiper-pagination-custom"></div>
-        <button
-          class="btn btn-link swiper-button-next-custom d-none d-sm-block"
-          type="button"
-          disabled
-        >
-          <i class="fa-solid fa-arrow-right"></i>
-        </button>
+          <button
+            class="btn btn-link recommendSwiper-button-prev d-none d-sm-block"
+            type="button"
+            disabled
+          >
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+          <div class="recommendSwiper-pagination"></div>
+          <button
+            class="btn btn-link recommendSwiper-button-next d-none d-sm-block"
+            type="button"
+            disabled
+          >
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
       </div>
     </div>
 
     <!-- 探索地圖 category  -->
-    <div class="bg-secondary category">
-      <div class="container">
+    <div class="bg-secondary position-relative overflow-hidden category">
+      <div class="cate-animation-top position-absolute"></div>
+      <div class="cate-animation-bottom position-absolute"></div>
+      <div class="container position-relative z-2">
         <div
-          class="row d-flex justify-content-between align-items-center pt-10 pb-5 pt-md-20 pb-md-18"
+          class="row d-flex justify-content-between align-items-center column-gap-10 pt-10 pb-5 pt-md-20 pb-md-18"
         >
-          <div class="col-md-4 d-flex flex-column align-items-start">
+          <div
+            class="col-12 col-md-3 d-flex flex-column align-items-start"
+            data-aos="fade-right"
+          >
             <h3
               class="badge-title badge-title-sm bg-primary text-white mb-2 mb-md-4"
             >
@@ -842,96 +800,113 @@
               找尋<span class="title-highlight">領域寶藏</span>
             </h2>
             <img
-              class="treasure d-none d-md-block"
+              class="treasure d-none d-md-block align-self-center"
               src="/project-code/assets/treasure-418b7d15.png"
               alt="藏寶圖"
             />
           </div>
-          <ul class="col-md-8 d-flex flex-wrap gap-2 gap-sm-4 gap-md-6 mb-5">
-            <li class="cate-item">
-              <a href="###">
-                <h4>前端</h4>
-                <img src="/project-code/assets/frontend-4134f215.svg" alt="前端" />
-              </a>
-            </li>
-            <li class="cate-item">
-              <a href="###">
-                <h4>後端</h4>
-                <img src="/project-code/assets/backend-6df6e72c.svg" alt="後端" />
-              </a>
-            </li>
-            <li class="cate-item">
-              <a href="###">
-                <h4>資料庫</h4>
-                <img
-                  src="/project-code/assets/database-18cac984.svg"
-                  alt="資料庫"
-                />
-              </a>
-            </li>
-            <li class="cate-item">
-              <a href="###">
-                <h4>資安</h4>
-                <img src="/project-code/assets/security-9e7e4b0b.svg" alt="資安" />
-              </a>
-            </li>
-            <li class="cate-item">
-              <a href="###">
-                <h4>產品測試</h4>
-                <img
-                  src="/project-code/assets/testing-94ffe118.svg"
-                  alt="產品測試"
-                />
-              </a>
-            </li>
-            <li class="cate-item">
-              <a href="###">
-                <h4>UI / UX</h4>
-                <img src="/project-code/assets/UI-UX-b15c7273.svg" alt="UI / UX" />
-              </a>
-            </li>
-            <li class="cate-item">
-              <a href="###">
-                <h4>開發維運</h4>
-                <img
-                  src="/project-code/assets/DevOps-adceebe7.svg"
-                  alt="開發維運"
-                />
-              </a>
-            </li>
-            <li class="cate-item">
-              <a href="###">
-                <h4>行動應用</h4>
-                <img
-                  src="/project-code/assets/mobile-6d6099f3.svg"
-                  alt="行動應用"
-                />
-              </a>
-            </li>
-            <li class="cate-item">
-              <a href="###">
-                <h4>AI</h4>
-                <img src="/project-code/assets/AI-f960d585.svg" alt="AI" />
-              </a>
-            </li>
-            <li class="cate-item">
-              <a href="###">
-                <h4>遊戲開發</h4>
-                <img src="/project-code/assets/game-6cf1b467.svg" alt="遊戲開發" />
-              </a>
-            </li>
-            <li class="cate-item">
-              <a href="###">
-                <h4>程式入門</h4>
-                <img src="/project-code/assets/basic-a112429a.svg" alt="程式入門" />
-              </a>
-            </li>
-            <li class="cate-item">
-              <a href="###">
-                <h4>職涯</h4>
-                <img src="/project-code/assets/career-94d9ad84.svg" alt="職涯" />
-              </a>
-            </li>
+          <ul class="col-12 col-md-8 mb-md-0">
+            <div class="row g-3 g-sm-4 g-md-6">
+              <li class="col-6 col-sm-4 col-lg-3 cate-item">
+                <a class="h-100" href="./course.html">
+                  <h4>前端</h4>
+                  <img
+                    src="/project-code/assets/frontend-4134f215.svg"
+                    alt="前端"
+                  />
+                </a>
+              </li>
+              <li class="col-6 col-sm-4 col-lg-3 cate-item">
+                <a class="h-100" href="./course.html">
+                  <h4>後端</h4>
+                  <img src="/project-code/assets/backend-6df6e72c.svg" alt="後端" />
+                </a>
+              </li>
+              <li class="col-6 col-sm-4 col-lg-3 cate-item">
+                <a class="h-100" href="./course.html">
+                  <h4>資料庫</h4>
+                  <img
+                    src="/project-code/assets/database-18cac984.svg"
+                    alt="資料庫"
+                  />
+                </a>
+              </li>
+              <li class="col-6 col-sm-4 col-lg-3 cate-item">
+                <a class="h-100" href="./course.html">
+                  <h4>資安</h4>
+                  <img
+                    src="/project-code/assets/security-9e7e4b0b.svg"
+                    alt="資安"
+                  />
+                </a>
+              </li>
+              <li class="col-6 col-sm-4 col-lg-3 cate-item">
+                <a class="h-100" href="./course.html">
+                  <h4>產品測試</h4>
+                  <img
+                    src="/project-code/assets/testing-94ffe118.svg"
+                    alt="產品測試"
+                  />
+                </a>
+              </li>
+              <li class="col-6 col-sm-4 col-lg-3 cate-item">
+                <a class="h-100" href="./course.html">
+                  <h4>UI / UX</h4>
+                  <img
+                    src="/project-code/assets/UI-UX-b15c7273.svg"
+                    alt="UI / UX"
+                  />
+                </a>
+              </li>
+              <li class="col-6 col-sm-4 col-lg-3 cate-item">
+                <a class="h-100" href="./course.html">
+                  <h4>開發維運</h4>
+                  <img
+                    src="/project-code/assets/DevOps-adceebe7.svg"
+                    alt="開發維運"
+                  />
+                </a>
+              </li>
+              <li class="col-6 col-sm-4 col-lg-3 cate-item">
+                <a class="h-100" href="./course.html">
+                  <h4>行動應用</h4>
+                  <img
+                    src="/project-code/assets/mobile-6d6099f3.svg"
+                    alt="行動應用"
+                  />
+                </a>
+              </li>
+              <li class="col-6 col-sm-4 col-lg-3 cate-item">
+                <a class="h-100" href="./course.html">
+                  <h4>AI</h4>
+                  <img src="/project-code/assets/AI-f960d585.svg" alt="AI" />
+                </a>
+              </li>
+              <li class="col-6 col-sm-4 col-lg-3 cate-item">
+                <a class="h-100" href="./course.html">
+                  <h4>遊戲開發</h4>
+                  <img
+                    src="/project-code/assets/game-6cf1b467.svg"
+                    alt="遊戲開發"
+                  />
+                </a>
+              </li>
+              <li class="col-6 col-sm-4 col-lg-3 cate-item">
+                <a class="h-100" href="./course.html">
+                  <h4>程式入門</h4>
+                  <img
+                    src="/project-code/assets/basic-a112429a.svg"
+                    alt="程式入門"
+                  />
+                </a>
+              </li>
+              <li class="col-6 col-sm-4 col-lg-3 cate-item">
+                <a class="h-100" href="./course.html">
+                  <h4>職涯</h4>
+                  <img src="/project-code/assets/career-94d9ad84.svg" alt="職涯" />
+                </a>
+              </li>
+            </div>
           </ul>
           <img
             class="treasure d-block d-md-none mx-auto"
@@ -943,53 +918,87 @@
     </div>
 
     <!-- 為什麼選擇我們 why us  -->
-    <div class="container py-10 pt-md-20 pb-md-17">
-      <div class="whyus d-flex flex-column align-items-center">
-        <h3
-          class="badge-title badge-title-sm bg-secondary text-primary mb-2 mb-md-4"
+    <div class="py-10 py-md-20">
+      <div class="container whyus">
+        <!-- 標題 -->
+        <div class="d-flex flex-column align-items-center">
+          <h3
+            class="badge-title badge-title-sm bg-secondary text-primary mb-2 mb-md-4"
+          >
+            Why Us ?
+          </h3>
+          <h2 class="block-title mb-5 mb-md-10">為什麼要選擇我們</h2>
+        </div>
+        <!-- 卡片 -->
+        <div
+          class="whyus-list d-flex gap-7 row-gap-sm-10 column-gap-sm-16 column-gap-lg-20 flex-wrap justify-content-center"
         >
-          Why Us ?
-        </h3>
-        <h2 class="block-title mb-5 mb-md-10">為什麼要選擇我們</h2>
+          <div
+            class="d-flex gap-7 row-gap-sm-10 column-gap-sm-16 column-gap-lg-20 flex-wrap justify-content-center"
+          >
+            <div
+              class="whyus-item best-platform"
+              data-aos="zoom-out"
+              data-aos-easing="ease-in-cubic
+"
+              data-aos-duration="600"
+            >
+              <div class="badge-title bg-primary text-white">
+                最佳程式家教平台
+              </div>
+              <ul class="whyus-info">
+                <li>學生五星好評推薦</li>
+                <li>教師上課首選</li>
+              </ul>
+            </div>
+            <div
+              class="whyus-item discount"
+              data-aos="zoom-out"
+              data-aos-easing="ease-in-cubic
+"
+              data-aos-duration="600"
+            >
+              <div class="badge-title bg-primary text-white">體驗課優惠</div>
+              <ul class="whyus-info">
+                <li>找到最適合的教師</li>
+                <li>不花冤枉錢</li>
+              </ul>
+            </div>
+          </div>
+          <div
+            class="d-flex gap-7 row-gap-sm-10 column-gap-sm-16 column-gap-lg-20 flex-wrap justify-content-center"
+          >
+            <div
+              class="whyus-item evaluation"
+              data-aos="zoom-out"
+              data-aos-easing="ease-in-cubic
+"
+              data-aos-duration="600"
+            >
+              <div class="badge-title bg-primary text-white">嚴格篩選機制</div>
+              <ul class="whyus-info">
+                <li>試教審核後成為教師</li>
+                <li>定期考核</li>
+              </ul>
+            </div>
 
-        <ul class="whyus-list">
-          <li class="whyus-item best-platform">
-            <div class="badge-title bg-primary text-white">
-              最佳程式家教平台
+            <div
+              class="whyus-item flexible"
+              data-aos="zoom-out"
+              data-aos-easing="ease-in-cubic
+"
+              data-aos-duration="600"
+            >
+              <div class="badge-title bg-primary text-white">
+                上課時間地點彈性
+              </div>
+              <ul class="whyus-info">
+                <li>安排自己有空的時間</li>
+                <li>有電腦就能上課</li>
+              </ul>
             </div>
-            <ul class="whyus-info">
-              <li>學生五星好評推薦</li>
-              <li>教師上課首選</li>
-            </ul>
-          </li>
-          <li class="whyus-item discount">
-            <div class="badge-title bg-primary text-white">
-              最佳程式家教平台
-            </div>
-            <ul class="whyus-info">
-              <li>學生五星好評推薦</li>
-              <li>教師上課首選</li>
-            </ul>
-          </li>
-          <li class="whyus-item evaluation">
-            <div class="badge-title bg-primary text-white">
-              最佳程式家教平台
-            </div>
-            <ul class="whyus-info">
-              <li>學生五星好評推薦</li>
-              <li>教師上課首選</li>
-            </ul>
-          </li>
-          <li class="whyus-item flexible">
-            <div class="badge-title bg-primary text-white">
-              最佳程式家教平台
-            </div>
-            <ul class="whyus-info">
-              <li>學生五星好評推薦</li>
-              <li>教師上課首選</li>
-            </ul>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -1007,12 +1016,12 @@
                 >
                   <div class="d-flex justify-content-between flex-column gap-4">
                     <img
-                      style="width: 40px; height: 40px"
+                      class="w-40px h-40px"
                       src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAANmSURBVHgB7ZjdUdtAEMf/d7IJJHyYCuLwkvCRwVQQuwLTQUwHpAJIB6aCmApCKkCpIGSCk8kTUAECJ8MMYB27h2wkWyfpZM3w4t+LNBJe/W93b28XYMqU50WYXvy4VJVZB01foKr/0IcnJE5WF8R35ORPT31QPmpKojKwiRkcrc2JC2QVSMKqZQdf6LYe+wuFc/rV/saiOISFsL7CvtEm4MoyWnFCIwL//lObd3249LSCFAR9cH1JfE77u+6V2lNCi0tFKuyuLYmDyHcGN9pzEscIQpqFNJGB51zY0QpHRw5uKKx7NuIY9gyLML3v++jAnvbvG/UaYYG8IejSQg6C3BpDC7dccEDFv8cuwgJnS9hEfupxXiTv1pAXhVbgtEeBvkrfFEn0ge2xb0xms1Iuo8k3EgUgzOUjP+oxAlqg7OMnJoC8VY15doEJEIFNLXB1WXDxPUF+xsJJ9fSILh7yIkICGUegjQLZWhaeKMDmUODqvDikXOqgQG7vcUA2z5EDFXg/sknWF8UO8q36PO4he5Hyu0Ffs04fysFxgczGgvhENayhvUl5qT3AVz5PTR8SZi9xfm8siS1HokU2jkI2XSmfCvIoKrBpbLfiOL1SZ7GnA3mdFwZLuBjTEXsZ967kYPvdK/Etcx3kZsJ0dJWkdUOgmXFgPMdn5GO0MgssJxi7uUWuJlbFnEAMpcLJStAbZj9JDE0B5ypvBliiI2JoUGRoo5aQgdNr9ZEu1bh3NBJk7qzD6PbOwAvnKWVSN0lSI8u7kUrTG1iS1MhyRHS5C0gNsZ5PTH2dYy4TJnjBpkaWFzxXjqZSokCeJ2DoVPRKqQzATlyFovHVtGCaGtsrI4OTSBJnGnaCldZXEsZFgzhOlfhGlgo31dLG6OOSwRCLM4aPNsaOpbhq4LlavDZacCl+R0cEBmNnBwntOh95tFIXGeleqyb1hp2EUdZLisZQIIf0zqeQJuxrFre+kD4LM3qxPtqKc9hs0yPPJqbKkwdF8lTHB/vafHSozkDd9ILDSkfk9tt5kdjND3exNAv0uLuxFac/bGrd6CjjsKaJiwgM/inkjhhyX5ZRe2+Rc2Hu7sHp4I3YbNPzhs0mG8IVno41RYl91v2vmiiAbk/tsc3Tnjr+1VN1TEpRwgZw2SpE2JQpz8QDlMBFQUZ/zl8AAAAASUVORK5CYII="
                       alt="逗號"
                     />
                     <p>
-                      這個平台是我轉職成功的關鍵！老師專業且耐心，從零開始教我寫程式，培養了我的切版能力。擁有作品集和個人網站，面試中展示了我的巨大優勢，學習
+                      麥克老師是我轉職成功的關鍵！他非常專業且有耐心，從零開始教我寫程式，培養了我的切版能力。擁有作品集和個人網站，面試中展示了我的巨大優勢，學習
                       9 個月後找到工作~
                     </p>
                   </div>
@@ -1030,13 +1039,8 @@
                       </p>
                     </div>
                     <img
-                      style="
-                        width: 60px;
-                        height: 60px;
-                        object-fit: cover;
-                        border-radius: 50%;
-                      "
-                      src="/project-code/assets/cat-708044de.jpg"
+                      class="object-fit-cover rounded-circle w-60px h-60px"
+                      src="/project-code/assets/cat-19a9e4cd.jpg"
                       alt="貓咪"
                     />
                   </div>
@@ -1048,7 +1052,7 @@
                 >
                   <div class="d-flex justify-content-between flex-column gap-4">
                     <img
-                      style="width: 40px; height: 40px"
+                      class="w-40px h-40px"
                       src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAANmSURBVHgB7ZjdUdtAEMf/d7IJJHyYCuLwkvCRwVQQuwLTQUwHpAJIB6aCmApCKkCpIGSCk8kTUAECJ8MMYB27h2wkWyfpZM3w4t+LNBJe/W93b28XYMqU50WYXvy4VJVZB01foKr/0IcnJE5WF8R35ORPT31QPmpKojKwiRkcrc2JC2QVSMKqZQdf6LYe+wuFc/rV/saiOISFsL7CvtEm4MoyWnFCIwL//lObd3249LSCFAR9cH1JfE77u+6V2lNCi0tFKuyuLYmDyHcGN9pzEscIQpqFNJGB51zY0QpHRw5uKKx7NuIY9gyLML3v++jAnvbvG/UaYYG8IejSQg6C3BpDC7dccEDFv8cuwgJnS9hEfupxXiTv1pAXhVbgtEeBvkrfFEn0ge2xb0xms1Iuo8k3EgUgzOUjP+oxAlqg7OMnJoC8VY15doEJEIFNLXB1WXDxPUF+xsJJ9fSILh7yIkICGUegjQLZWhaeKMDmUODqvDikXOqgQG7vcUA2z5EDFXg/sknWF8UO8q36PO4he5Hyu0Ffs04fysFxgczGgvhENayhvUl5qT3AVz5PTR8SZi9xfm8siS1HokU2jkI2XSmfCvIoKrBpbLfiOL1SZ7GnA3mdFwZLuBjTEXsZ967kYPvdK/Etcx3kZsJ0dJWkdUOgmXFgPMdn5GO0MgssJxi7uUWuJlbFnEAMpcLJStAbZj9JDE0B5ypvBliiI2JoUGRoo5aQgdNr9ZEu1bh3NBJk7qzD6PbOwAvnKWVSN0lSI8u7kUrTG1iS1MhyRHS5C0gNsZ5PTH2dYy4TJnjBpkaWFzxXjqZSokCeJ2DoVPRKqQzATlyFovHVtGCaGtsrI4OTSBJnGnaCldZXEsZFgzhOlfhGlgo31dLG6OOSwRCLM4aPNsaOpbhq4LlavDZacCl+R0cEBmNnBwntOh95tFIXGeleqyb1hp2EUdZLisZQIIf0zqeQJuxrFre+kD4LM3qxPtqKc9hs0yPPJqbKkwdF8lTHB/vafHSozkDd9ILDSkfk9tt5kdjND3exNAv0uLuxFac/bGrd6CjjsKaJiwgM/inkjhhyX5ZRe2+Rc2Hu7sHp4I3YbNPzhs0mG8IVno41RYl91v2vmiiAbk/tsc3Tnjr+1VN1TEpRwgZw2SpE2JQpz8QDlMBFQUZ/zl8AAAAASUVORK5CYII="
                       alt="逗號"
                     />
@@ -1072,13 +1076,8 @@
                       </p>
                     </div>
                     <img
-                      style="
-                        width: 60px;
-                        height: 60px;
-                        border-radius: 50%;
-                        object-fit: cover;
-                      "
-                      src="/project-code/assets/wei-b1126bdc.png"
+                      class="object-fit-cover rounded-circle w-60px h-60px"
+                      src="/project-code/assets/wei-f8a64f12.png"
                       alt="貓咪"
                     />
                   </div>
@@ -1090,7 +1089,7 @@
                 >
                   <div class="d-flex justify-content-between flex-column gap-4">
                     <img
-                      style="width: 40px; height: 40px"
+                      class="w-40px h-40px"
                       src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAANmSURBVHgB7ZjdUdtAEMf/d7IJJHyYCuLwkvCRwVQQuwLTQUwHpAJIB6aCmApCKkCpIGSCk8kTUAECJ8MMYB27h2wkWyfpZM3w4t+LNBJe/W93b28XYMqU50WYXvy4VJVZB01foKr/0IcnJE5WF8R35ORPT31QPmpKojKwiRkcrc2JC2QVSMKqZQdf6LYe+wuFc/rV/saiOISFsL7CvtEm4MoyWnFCIwL//lObd3249LSCFAR9cH1JfE77u+6V2lNCi0tFKuyuLYmDyHcGN9pzEscIQpqFNJGB51zY0QpHRw5uKKx7NuIY9gyLML3v++jAnvbvG/UaYYG8IejSQg6C3BpDC7dccEDFv8cuwgJnS9hEfupxXiTv1pAXhVbgtEeBvkrfFEn0ge2xb0xms1Iuo8k3EgUgzOUjP+oxAlqg7OMnJoC8VY15doEJEIFNLXB1WXDxPUF+xsJJ9fSILh7yIkICGUegjQLZWhaeKMDmUODqvDikXOqgQG7vcUA2z5EDFXg/sknWF8UO8q36PO4he5Hyu0Ffs04fysFxgczGgvhENayhvUl5qT3AVz5PTR8SZi9xfm8siS1HokU2jkI2XSmfCvIoKrBpbLfiOL1SZ7GnA3mdFwZLuBjTEXsZ967kYPvdK/Etcx3kZsJ0dJWkdUOgmXFgPMdn5GO0MgssJxi7uUWuJlbFnEAMpcLJStAbZj9JDE0B5ypvBliiI2JoUGRoo5aQgdNr9ZEu1bh3NBJk7qzD6PbOwAvnKWVSN0lSI8u7kUrTG1iS1MhyRHS5C0gNsZ5PTH2dYy4TJnjBpkaWFzxXjqZSokCeJ2DoVPRKqQzATlyFovHVtGCaGtsrI4OTSBJnGnaCldZXEsZFgzhOlfhGlgo31dLG6OOSwRCLM4aPNsaOpbhq4LlavDZacCl+R0cEBmNnBwntOh95tFIXGeleqyb1hp2EUdZLisZQIIf0zqeQJuxrFre+kD4LM3qxPtqKc9hs0yPPJqbKkwdF8lTHB/vafHSozkDd9ILDSkfk9tt5kdjND3exNAv0uLuxFac/bGrd6CjjsKaJiwgM/inkjhhyX5ZRe2+Rc2Hu7sHp4I3YbNPzhs0mG8IVno41RYl91v2vmiiAbk/tsc3Tnjr+1VN1TEpRwgZw2SpE2JQpz8QDlMBFQUZ/zl8AAAAASUVORK5CYII="
                       alt="逗號"
                     />
@@ -1113,13 +1112,8 @@
                       </p>
                     </div>
                     <img
-                      style="
-                        width: 60px;
-                        height: 60px;
-                        object-fit: cover;
-                        border-radius: 50%;
-                      "
-                      src="/project-code/assets/cat-708044de.jpg"
+                      class="object-fit-cover rounded-circle w-60px h-60px"
+                      src="/project-code/assets/cat-19a9e4cd.jpg"
                       alt="貓咪"
                     />
                   </div>
@@ -1131,7 +1125,7 @@
                 >
                   <div class="d-flex justify-content-between flex-column gap-4">
                     <img
-                      style="width: 40px; height: 40px"
+                      class="w-40px h-40px"
                       src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAANmSURBVHgB7ZjdUdtAEMf/d7IJJHyYCuLwkvCRwVQQuwLTQUwHpAJIB6aCmApCKkCpIGSCk8kTUAECJ8MMYB27h2wkWyfpZM3w4t+LNBJe/W93b28XYMqU50WYXvy4VJVZB01foKr/0IcnJE5WF8R35ORPT31QPmpKojKwiRkcrc2JC2QVSMKqZQdf6LYe+wuFc/rV/saiOISFsL7CvtEm4MoyWnFCIwL//lObd3249LSCFAR9cH1JfE77u+6V2lNCi0tFKuyuLYmDyHcGN9pzEscIQpqFNJGB51zY0QpHRw5uKKx7NuIY9gyLML3v++jAnvbvG/UaYYG8IejSQg6C3BpDC7dccEDFv8cuwgJnS9hEfupxXiTv1pAXhVbgtEeBvkrfFEn0ge2xb0xms1Iuo8k3EgUgzOUjP+oxAlqg7OMnJoC8VY15doEJEIFNLXB1WXDxPUF+xsJJ9fSILh7yIkICGUegjQLZWhaeKMDmUODqvDikXOqgQG7vcUA2z5EDFXg/sknWF8UO8q36PO4he5Hyu0Ffs04fysFxgczGgvhENayhvUl5qT3AVz5PTR8SZi9xfm8siS1HokU2jkI2XSmfCvIoKrBpbLfiOL1SZ7GnA3mdFwZLuBjTEXsZ967kYPvdK/Etcx3kZsJ0dJWkdUOgmXFgPMdn5GO0MgssJxi7uUWuJlbFnEAMpcLJStAbZj9JDE0B5ypvBliiI2JoUGRoo5aQgdNr9ZEu1bh3NBJk7qzD6PbOwAvnKWVSN0lSI8u7kUrTG1iS1MhyRHS5C0gNsZ5PTH2dYy4TJnjBpkaWFzxXjqZSokCeJ2DoVPRKqQzATlyFovHVtGCaGtsrI4OTSBJnGnaCldZXEsZFgzhOlfhGlgo31dLG6OOSwRCLM4aPNsaOpbhq4LlavDZacCl+R0cEBmNnBwntOh95tFIXGeleqyb1hp2EUdZLisZQIIf0zqeQJuxrFre+kD4LM3qxPtqKc9hs0yPPJqbKkwdF8lTHB/vafHSozkDd9ILDSkfk9tt5kdjND3exNAv0uLuxFac/bGrd6CjjsKaJiwgM/inkjhhyX5ZRe2+Rc2Hu7sHp4I3YbNPzhs0mG8IVno41RYl91v2vmiiAbk/tsc3Tnjr+1VN1TEpRwgZw2SpE2JQpz8QDlMBFQUZ/zl8AAAAASUVORK5CYII="
                       alt="逗號"
                     />
@@ -1155,28 +1149,25 @@
                       </p>
                     </div>
                     <img
-                      style="
-                        width: 60px;
-                        height: 60px;
-                        border-radius: 50%;
-                        object-fit: cover;
-                      "
-                      src="/project-code/assets/wei-b1126bdc.png"
+                      class="object-fit-cover rounded-circle w-60px h-60px"
+                      src="/project-code/assets/wei-f8a64f12.png"
                       alt="貓咪"
                     />
                   </div>
                 </div>
               </div>
             </div>
-            <div class="reviews swiper-btns mt-5 mt-md-7">
+            <div
+              class="reviewsSwiper-btns d-flex justify-content-center align-items-center mt-5 mt-md-7"
+            >
               <button
-                class="btn btn-link reviewsSwiper-button-next-custom d-none d-sm-block"
+                class="btn btn-link reviewsSwiper-button-prev-custom d-none d-sm-block"
                 type="button"
                 disabled
               >
                 <i class="fa-solid fa-arrow-left"></i>
               </button>
-              <div class="reviewsSwiper-pagination-custom"></div>
+              <div class="reviewsSwiper-pagination-custom text-center"></div>
               <button
                 class="btn btn-link reviewsSwiper-button-next-custom d-none d-sm-block"
                 type="button"
@@ -1186,8 +1177,11 @@
               </button>
             </div>
           </div>
+
+          <!-- review 標題 -->
           <div
             class="col-md-6 col-lg-4 order-1 order-md-2 d-flex flex-column justify-content-between align-items-start pt-10 pt-md-20 pb-md-32 thumb-up-img"
+            data-aos="fade-left"
           >
             <div
               class="d-flex flex-column align-items-start justify-content-between mb-22 mb-md-0"
@@ -1200,9 +1194,13 @@
               <h2 class="block-title mb-md-3">學生好評</h2>
               <p class="fs-6 fw-medium d-none d-md-block">五星課程推薦</p>
             </div>
-            <button type="button" class="btn-text mb-3 mb-md-0 fw-medium">
+            <a
+              href="./course.html"
+              type="button"
+              class="btn btn-text pe-2 fw-medium"
+            >
               了解課程
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -1270,7 +1268,7 @@
       <ul class="footer-cate-list">
         <li><a href="###">關於我們</a></li>
         <li><a href="###">聯絡我們</a></li>
-        <li><a href="###">平台常見問題</a></li>
+        <li><a href="###">常見問題</a></li>
       </ul>
     </div>
   </div>
@@ -1280,8 +1278,44 @@
     <p>Copyright © 2023 C0DE, All Rights Reserved</p>
   </div>
 </div>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
+    <!-- backtotop -->
+    <button
+  type="button"
+  class="rounded-circle text-light border-0 backtotopBtn z-1"
+>
+  <p class="fs-tiny">TOP</p>
+</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+
+      // You can also pass an optional settings object
+      // below listed default settings
+      AOS.init({
+        // Global settings:
+        disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+        startEvent: "DOMContentLoaded", // name of the event dispatched on the document, that AOS should initialize on
+        initClassName: "aos-init", // class applied after initialization
+        animatedClassName: "aos-animate", // class applied on animation
+        useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+        disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+        debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+        throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+        // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+        offset: 120, // offset (in px) from the original trigger point
+        delay: 0, // values from 0 to 3000, with step 50ms
+        duration: 700, // values from 0 to 3000, with step 50ms
+        easing: "ease", // default easing for AOS animations
+        once: false, // whether animation should happen only once - while scrolling down
+        mirror: false, // whether elements should animate out while scrolling past them
+        anchorPlacement: "top-bottom", // defines which position of the element regarding to window should trigger the animation
+      });
+    </script>
     
   </body>
 </html>
