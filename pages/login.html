@@ -32,7 +32,10 @@
           />
           <h1 class="fs-3 mb-2 mb-md-4">會員登入</h1>
 
-          <form class="col-12 col-sm-10 col-md-8 col-lg-5">
+          <form
+            class="col-12 col-sm-10 col-md-8 col-lg-5 needs-validation"
+            novalidate
+          >
             <button
               type="button"
               class="btn btn-outline-secondary2 rounded-1 fs-5 w-100 py-3 mb-2 mb-md-4"
@@ -47,6 +50,8 @@
                 class="form-control"
                 id="floatingInput"
                 placeholder="name@example.com"
+                pattern="[a-zA-Z0-9]{7,}"
+                required
               />
               <label for="floatingInput">Email</label>
             </div>
