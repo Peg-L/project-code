@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('./layout/header', {page: "faq"}); -%>
+    <div class="container-fluid mt-16 mt-md-19">
+        <div class="rounded-3 d-flex mb-8 mb-md-13 h-200px h-md-300px" style="
+            background: url('../assets/images/banner2.jpg') no-repeat center / cover;
+          ">
+          <div class="container my-auto">
+            <h3 class="badge-title badge-title-lg bg-primary text-white mb-2 mb-md-3">
+              F&Q
+            </h3>
+            <h2 class="fw-bold text-white fs-3 fs-md-2 mb-4 mb-md-6">
+              常見問答
+            </h2>
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="問題關鍵字搜尋..." aria-label="search keywords" aria-describedby="button-addon2">
+              <button class="btn btn-secondary2 btn-search z-0" type="button" id="button-addon2">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="container">
+        <!--   頁籤  -->
+        <ul class="nav justify-content-center mb-8" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+            <button class="nav-link faq-nav active" id="student-tab" data-bs-toggle="tab" data-bs-target="#student" type="button" role="tab" aria-controls="student" aria-selected="true">我是學生</button>
+            </li>
+            <li class="nav-item" role="presentation">
+            <button class="nav-link faq-nav" id="teacher-tab" data-bs-toggle="tab" data-bs-target="#teacher" type="button" role="tab" aria-controls="teacher" aria-selected="false">我是老師</button>
+            </li>
+        </ul>
+            <!-- 問答內容-學生 -->
+        <div class="row tab-pane fade d-none show active" id="student" role="tabpanel" aria-labelledby="student-tab">
+            <div class="col-12 col-md-8 offset-md-2 mb-16">
+                <button class="btn rounded-0 w-100 border border-1 border-gray-200 fw-bold bg-secondary text-start fs-3 d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1" id="largeFold">
+                    付款問題 <i class="fa-solid fa-chevron-down arrow"></i>
+                </button>
+                <div class="collapse" id="collapse1">
+                    <button class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#shop-problem" aria-expanded="false" aria-controls="shop-problem" id="littleFold">
+                        <div class="d-flex justify-content-between align-items-center"><p>如何購買課堂?</p><i class="fa-solid fa-plus plus"></i></div>
+                        <div class="collapse fs-7 mt-4" id="shop-problem">
+                            <ul class="p-0">
+                                <li><p>如果您希望購買課程，請按照以下步驟進行：</p></li>
+                                <li><p>1.在課程頁面上瀏覽並挑選教師，可以點擊「課程介紹」來了解他們，選擇最適合幫助您實現學習目標的教師後，點擊「立即預約」的按鈕。</p></li>
+                                <li><p>2.選擇您想購買的課堂時數和數量。</p></li>
+                                <li><p>3.若您有優惠券，勾選使用。每次結帳限使用一張優惠券。（請注意：優惠券只能使用一次，一旦申請退款，優惠券將無法退還。）</p></li>
+                                <li><p>4.選擇結帳方式，並確認購物明細。</p></li>
+                                <li><p>5.成功付款後，您即可立即預約課程。如果您暫時還沒有安排好課程時間，也可以稍後再進行預約。（上課 1天前，仍可更改課程時間）</p></li>
+                            </ul>
+                        </div>
+                    </button>
+                    <button class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#refund" aria-expanded="false" aria-controls="refund" id="littleFold">
+                        <div class="d-flex justify-content-between align-items-center"><p>如何查看退款要求的狀態？</p><i class="fa-solid fa-plus plus"></i></div>
+                        <div class="collapse fs-7 mt-4" id="refund">
+                            <ul class="p-0">
+                                <li><p>如果您希望查看退款要求，請按照以下步驟進行：</p></li>
+                                <li><p>1.請前往「個人設定」並登入您的帳號</p></li>
+                                <li><p>2.選擇「查看要求狀態」。如果沒有看到「查看要求狀態」，代表您沒有任何待處理的退款要求。</p></li>
+                                <li><p>3.若要查看狀態，請點一下「待處理」。</p></li>
+                            </ul>
+                        </div>
+                    </button>
+                    <button class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#history" aria-expanded="false" aria-controls="history" id="littleFold">
+                        <div class="d-flex justify-content-between align-items-center"><p>我如何查看交易紀錄、消費明細、發票？</p><i class="fa-solid fa-plus plus"></i></div>
+                        <div class="collapse fs-7 mt-4" id="history">
+                            <ul class="p-0">
+                                <li><p>如果需要查看消費紀錄，請按照以下步驟進行：</p></li>
+                                <li><p>1.請前往「個人設定」並登入您的帳號</p></li>
+                                <li><p>2.點選 「消費明細｜退換課程」進入查看</p></li>
+                                <li><p>3.該頁面中，您能清楚查看過去的每一筆交易紀錄。</p></li>
+                            </ul>
+                        </div>
+                    </button>
+                </div> 
+            </div>
+            <div class="col-12 col-md-8 offset-md-2 mb-16">
+                <button class="btn rounded-0 w-100 border border-1 border-gray-200 fw-bold bg-secondary text-start fs-3 d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2" id="largeFold">
+                    平台功能 <i class="fa-solid fa-chevron-down arrow"></i>
+                </button>
+                <div class="collapse" id="collapse2">
+                    <button class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#howToUse" aria-expanded="false" aria-controls="howToUse"  id="littleFold">
+                        <div class="d-flex justify-content-between align-items-center"><p>如何開始使用C0DE？</p><i class="fa-solid fa-plus plus"></i></div>
+                        <div class="collapse fs-7 mt-4" id="howToUse">
+                            <ul class="p-0">
+                                <li><p>為了讓您在 C0DE 有最好的體驗，我們建議您使用  Google Chrome 瀏覽器。</p></li>
+                                <li><p>開始使用 C0DE，請採取以下步驟：</p></li>
+                                <li><p>1.點擊右上角的「註冊」按鈕。</p></li>
+                                <li><p>2.您可選擇用 Facebook、Google 帳號註冊，或使用電子信箱...等不同方式註冊。</p></li>
+                                <li><p>3.成功註冊後，您需要選擇身處的時區，因為所有課程都是按照您的時區顯示。</p></li>
+                                <li><p>4.選擇時區後，基於網絡安全之因素，我們需要確認您的電話號碼及電子信箱，以確保用戶的真實身份。</p></li>
+                                <li><p>5.確認電子信箱後，您就可以在 C0DE 購買教師的課程和上課囉！</p></li>
+                            </ul>
+                        </div>
+                    </button>
+                    <button class="btn rounded-0 w-100 border border-1 border-gray-200 border-gray-200 text-start fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#reminderTime" aria-expanded="false" aria-controls="reminderTime"  id="littleFold">
+                        <div class="d-flex justify-content-between align-items-center"><p>如何連結『線上行事曆』提醒上課時間?（Google、Mac 行事曆）</p><i class="fa-solid fa-plus plus"></i></div>
+                        <div class="collapse fs-7 mt-4" id="reminderTime">
+                            <ul class="p-0">
+                                <li><p>如果您希望連結線上行事曆，請按照以下步驟進行：</p></li>
+                                <li><p>1.點此進入您的『帳號設定』頁面。</p></li>
+                                <li><p>2.將頁面下滑至「連接行事曆」區塊，點選 『複製URL』。</p></li>
+                                <li><p>3.進入您的『加入日曆網址』頁面</p></li>
+                                <li><p>4. 將剛剛複製的網址貼上至 「日曆網址」，並點選 「新增日曆」。</p></li>
+                            </ul>
+                        </div>
+                    </button>
+                    <button class="btn rounded-0 w-100 border border-1 border-gray-200 border-gray-200 text-start fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#appraise" aria-expanded="false" aria-controls="appraise"  id="littleFold">
+                        <div class="d-flex justify-content-between align-items-center"><p>如何為已完成的課程留下/ 更改評價？</p><i class="fa-solid fa-plus plus"></i></div>
+                        <div class="collapse fs-7 mt-4" id="appraise">
+                            <ul class="p-0">
+                                <li><p>如果您尚未對已完成的課程進行評分，請進行評分！您的老師將非常感激您的反饋。
+
+                                    您可以在課堂完成後的7天內留下評價或更改評價。</p></li>
+                                <li><p>1.從您的日曆中點擊已完成的課程。</p></li>
+                                <li><p>2.從日曆中點擊該課程，然後點擊【給予評價】，給予評分及填寫內容（1星表示最差的體驗，5星表示最好的體驗），您還可以選擇一些最能描述該老師的標籤。ㄒ</p></li>
+                                <li><p>3.添加任何有關與該老師的體驗評論。您可以選擇是否希望帳號名稱顯示在老師的個人資料頁面上或保持匿名。</p></li>
+                                <li><p>4.點擊【送出】。您將進入已完成頁面，您可以預訂下一堂課或給老師發訊息。</p></li>
+                            </ul>
+                        </div>
+                    </button>
+                </div> 
+            </div>
+            <div class="col-12 col-md-8 offset-md-2">
+                <button class="btn rounded-0 w-100 border border-1 border-gray-200 fw-bold bg-secondary text-start fs-3 d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3" id="largeFold">
+                    課程問題 <i class="fa-solid fa-chevron-down arrow"></i>
+                </button>
+                <div class="collapse" id="collapse3">
+                    <button class="btn rounded-0 w-100 border border-1 border-gray-200  text-start fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#classReservations" aria-expanded="false" aria-controls="classReservations"  id="littleFold">
+                        
+                        <div class="d-flex justify-content-between align-items-center"><p>如何課程預約?</p><i class="fa-solid fa-plus plus"></i></div>
+                        <div class="collapse fs-7 mt-4" id="classReservations">
+                            <ul class="p-0">
+                                <li><p>如果您希望購買課程，請按照以下步驟進行：</p></li>
+                                <li><p>1.進入官網首頁 ，在「新手操作指南」下方會有「你的課程」；點擊「預約課堂」。</p></li>
+                                <li><p>2.你會看到一個老師開放的時間表，綠色的時間是老師可供預約上課的時間，選擇合適的時段，然後點擊「確認預約」按鈕，即完成預約。</p></li>
+                                <li><p>3.在您確認預約時段後，系統會立即通知老師確認課程時間。老師須在指定時間內確認，課程才會生效；當老師確認後，您亦會馬上收到通知。</p></li>
+                                <li><p>4.您可以點選「查看」按鈕，確認課程預約狀態。若您想聯絡老師，可點擊「聯絡老師」按鈕，預先和老師溝通。</p></li>
+                                <li><p>5.尚未確認之課堂，會出現在「你的課程」，你可以隨時瀏覽課堂狀態。</p></li>
+                                <li><p>6.已確認之課堂，會出現在「你的課程」，點擊課堂會顯示課堂狀態為「已預約」。</p></li>
+                            </ul>
+                        </div>
+                    </button>
+                    <button class="btn rounded-0 w-100 border border-1 border-gray-200  text-start fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#return" aria-expanded="false" aria-controls="return"  id="littleFold">
+                        
+                        <div class="d-flex justify-content-between align-items-center"><p>如何申請退課?</p><i class="fa-solid fa-plus plus"></i></div>
+                        <div class="collapse fs-7 mt-4" id="return">
+                            <ul class="p-0">
+                                <li><p>重要提示：若您欲「取消預約」課堂，須提前至少 12 小時通知您的教師。</p></li>
+                                <li><p>1.請至首頁上面點選瀏覽課程，並點選頁面上欲重新預約之課程。</p></li>
+                                <li><p>2.見彈出視窗，點選「取消預約」。</p></li>
+                                <li><p>3.請填寫您不便出席之原因，並詢問教師方便上課的時間。</p></li>
+                                <li><p>4.成功取消後，課程將會回到未預約之課堂數中，您就可以重新預約課時囉！</p></li>
+                            </ul>
+                        </div>
+                    </button>
+                    <button class="btn rounded-0 w-100 border border-1 border-gray-200  text-start fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#classQuestions" aria-expanded="false" aria-controls="classQuestions"  id="littleFold">
+                        <div class="d-flex justify-content-between align-items-center"><p>課程有問題</p><i class="fa-solid fa-plus plus"></i></div>
+                        <div class="collapse fs-7 mt-4" id="classQuestions">
+                            <ul class="p-0">
+                                <li><p>有時，您或您的教師／學生可能會因突發狀況而導致課程無法正常進行到最後。
+                                    為幫助您解決這個問題，可以在事件發生後按照下列步驟執行：</p></li>
+                                <li><p>1.見彈出視窗，點選「回報問題」。</p></li>
+                                <li><p>2.最後，在接收到您所回報的問題後，教師會選擇退費（AT 幣）或是退還課堂。若您同意老師的處理方式，可點選「同意解決方式」；若不滿意，則可聯繫客服人員尋求協助。</p></li>
+                            </ul>
+                        </div>
+                    </button>
+                </div> 
+            </div>
+        </div>
+            <!-- 問答內容-老師 -->
+        <div class="row tab-pane fade d-none" id="teacher" role="tabpanel" aria-labelledby="teacher-tab">
+            <div class="col-12 col-md-8 offset-md-2 mb-16">
+                <button class="btn rounded-0 w-100 border border-1 border-gray-200 fw-bold bg-secondary text-start fs-3 d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1" id="largeFold">
+                    付款問題 <i class="fa-solid fa-chevron-down arrow"></i>
+                </button>
+                <div class="collapse" id="collapse1">
+                    <button class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#shop-problem" aria-expanded="false" aria-controls="shop-problem" id="littleFold">
+                        <div class="d-flex justify-content-between align-items-center"><p>如何購買課堂?</p><i class="fa-solid fa-plus plus"></i></div>
+                        <div class="collapse fs-7 mt-4" id="shop-problem">
+                            <ul class="p-0">
+                                <li><p>如果您希望購買課程，請按照以下步驟進行：</p></li>
+                                <li><p>1.在課程頁面上瀏覽並挑選教師，可以點擊「課程介紹」來了解他們，選擇最適合幫助您實現學習目標的教師後，點擊「立即預約」的按鈕。</p></li>
+                                <li><p>2.選擇您想購買的課堂時數和數量。</p></li>
+                                <li><p>3.若您有優惠券，勾選使用。每次結帳限使用一張優惠券。（請注意：優惠券只能使用一次，一旦申請退款，優惠券將無法退還。）</p></li>
+                                <li><p>4.選擇結帳方式，並確認購物明細。</p></li>
+                                <li><p>5.成功付款後，您即可立即預約課程。如果您暫時還沒有安排好課程時間，也可以稍後再進行預約。（上課 1天前，仍可更改課程時間）</p></li>
+                            </ul>
+                        </div>
+                    </button>
+                    <button class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#refund" aria-expanded="false" aria-controls="refund" id="littleFold">
+                        <div class="d-flex justify-content-between align-items-center"><p>如何查看退款要求的狀態？</p><i class="fa-solid fa-plus plus"></i></div>
+                        <div class="collapse fs-7 mt-4" id="refund">
+                            <ul class="p-0">
+                                <li><p>如果您希望查看退款要求，請按照以下步驟進行：</p></li>
+                                <li><p>1.請前往「個人設定」並登入您的帳號</p></li>
+                                <li><p>2.選擇「查看要求狀態」。如果沒有看到「查看要求狀態」，代表您沒有任何待處理的退款要求。</p></li>
+                                <li><p>3.若要查看狀態，請點一下「待處理」。</p></li>
+                            </ul>
+                        </div>
+                    </button>
+                    <button class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#history" aria-expanded="false" aria-controls="history" id="littleFold">
+                        <div class="d-flex justify-content-between align-items-center"><p>我如何查看交易紀錄、消費明細、發票？</p><i class="fa-solid fa-plus plus"></i></div>
+                        <div class="collapse fs-7 mt-4" id="history">
+                            <ul class="p-0">
+                                <li><p>如果需要查看消費紀錄，請按照以下步驟進行：</p></li>
+                                <li><p>1.請前往「個人設定」並登入您的帳號</p></li>
+                                <li><p>2.點選 「消費明細｜退換課程」進入查看</p></li>
+                                <li><p>3.該頁面中，您能清楚查看過去的每一筆交易紀錄。</p></li>
+                            </ul>
+                        </div>
+                    </button>
+                </div> 
+            </div>
+            <div class="col-12 col-md-8 offset-md-2 mb-16">
+                <button class="btn rounded-0 w-100 border border-1 border-gray-200 fw-bold bg-secondary text-start fs-3 d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2" id="largeFold">
+                    平台功能 <i class="fa-solid fa-chevron-down arrow"></i>
+                </button>
+                <div class="collapse" id="collapse2">
+                    <button class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#howToUse" aria-expanded="false" aria-controls="howToUse"  id="littleFold">
+                        <div class="d-flex justify-content-between align-items-center"><p>如何開始使用C0DE？</p><i class="fa-solid fa-plus plus"></i></div>
+                        <div class="collapse fs-7 mt-4" id="howToUse">
+                            <ul class="p-0">
+                                <li><p>如果您希望購買課程，請按照以下步驟進行：</p></li>
+                                <li><p>1.在課程頁面上瀏覽並挑選教師，可以點擊「課程介紹」來了解他們，選擇最適合幫助您實現學習目標的教師後，點擊「立即預約」的按鈕。</p></li>
+                                <li><p>2.選擇您想購買的課堂時數和數量。</p></li>
+                                <li><p>3.若您有優惠券，勾選使用。每次結帳限使用一張優惠券。（請注意：優惠券只能使用一次，一旦申請退款，優惠券將無法退還。）</p></li>
+                                <li><p>4.選擇結帳方式，並確認購物明細。</p></li>
+                                <li><p>5.成功付款後，您即可立即預約課程。如果您暫時還沒有安排好課程時間，也可以稍後再進行預約。（上課 1天前，仍可更改課程時間）</p></li>
+                            </ul>
+                        </div>
+                    </button>
+                    <button class="btn rounded-0 w-100 border border-1 border-gray-200 border-gray-200 text-start fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#reminderTime" aria-expanded="false" aria-controls="reminderTime"  id="littleFold">
+                        <div class="d-flex justify-content-between align-items-center"><p>如何連結『線上行事曆』提醒上課時間?（Google、Mac 行事曆）</p><i class="fa-solid fa-plus plus"></i></div>
+                        <div class="collapse fs-7 mt-4" id="reminderTime">
+                            <ul class="p-0">
+                                <li><p>如果您希望查看退款要求，請按照以下步驟進行：</p></li>
+                                <li><p>1.請前往「個人設定」並登入您的帳號</p></li>
+                                <li><p>2.選擇「查看要求狀態」。如果沒有看到「查看要求狀態」，代表您沒有任何待處理的退款要求。</p></li>
+                                <li><p>3.若要查看狀態，請點一下「待處理」。</p></li>
+                            </ul>
+                        </div>
+                    </button>
+                    <button class="btn rounded-0 w-100 border border-1 border-gray-200 border-gray-200 text-start fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#appraise" aria-expanded="false" aria-controls="appraise"  id="littleFold">
+                        <div class="d-flex justify-content-between align-items-center"><p>如何為已完成的課程留下/ 更改評價？</p><i class="fa-solid fa-plus plus"></i></div>
+                        <div class="collapse fs-7 mt-4" id="appraise">
+                            <ul class="p-0">
+                                <li><p>如果需要查看消費紀錄，請按照以下步驟進行：</p></li>
+                                <li><p>1.請前往「個人設定」並登入您的帳號</p></li>
+                                <li><p>2.點選 「消費明細｜退換課程」進入查看</p></li>
+                                <li><p>3.該頁面中，您能清楚查看過去的每一筆交易紀錄。</p></li>
+                            </ul>
+                        </div>
+                    </button>
+                </div> 
+            </div>
+            <div class="col-12 col-md-8 offset-md-2">
+                <button class="btn rounded-0 w-100 border border-1 border-gray-200 fw-bold bg-secondary text-start fs-3 d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3" id="largeFold">
+                    課程問題 <i class="fa-solid fa-chevron-down arrow"></i>
+                </button>
+                <div class="collapse" id="collapse3">
+                    <button class="btn rounded-0 w-100 border border-1 border-gray-200  text-start fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#classReservations" aria-expanded="false" aria-controls="classReservations"  id="littleFold">
+                        
+                        <div class="d-flex justify-content-between align-items-center"><p>如何課程預約?</p><i class="fa-solid fa-plus plus"></i></div>
+                        <div class="collapse fs-7 mt-4" id="classReservations">
+                            <ul class="p-0">
+                                <li><p>如果您希望購買課程，請按照以下步驟進行：</p></li>
+                                <li><p>1.在課程頁面上瀏覽並挑選教師，可以點擊「課程介紹」來了解他們，選擇最適合幫助您實現學習目標的教師後，點擊「立即預約」的按鈕。</p></li>
+                                <li><p>2.選擇您想購買的課堂時數和數量。</p></li>
+                                <li><p>3.若您有優惠券，勾選使用。每次結帳限使用一張優惠券。（請注意：優惠券只能使用一次，一旦申請退款，優惠券將無法退還。）</p></li>
+                                <li><p>4.選擇結帳方式，並確認購物明細。</p></li>
+                                <li><p>5.成功付款後，您即可立即預約課程。如果您暫時還沒有安排好課程時間，也可以稍後再進行預約。（上課 1天前，仍可更改課程時間）</p></li>
+                            </ul>
+                        </div>
+                    </button>
+                    <button class="btn rounded-0 w-100 border border-1 border-gray-200  text-start fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#return" aria-expanded="false" aria-controls="return"  id="littleFold">
+                        
+                        <div class="d-flex justify-content-between align-items-center"><p>如何申請退課?</p><i class="fa-solid fa-plus plus"></i></div>
+                        <div class="collapse fs-7 mt-4" id="return">
+                            <ul class="p-0">
+                                <li><p>如果您希望查看退款要求，請按照以下步驟進行：</p></li>
+                                <li><p>1.請前往「個人設定」並登入您的帳號</p></li>
+                                <li><p>2.選擇「查看要求狀態」。如果沒有看到「查看要求狀態」，代表您沒有任何待處理的退款要求。</p></li>
+                                <li><p>3.若要查看狀態，請點一下「待處理」。</p></li>
+                            </ul>
+                        </div>
+                    </button>
+                    <button class="btn rounded-0 w-100 border border-1 border-gray-200  text-start fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#classQuestions" aria-expanded="false" aria-controls="classQuestions"  id="littleFold">
+                        <div class="d-flex justify-content-between align-items-center"><p>課程有問題</p><i class="fa-solid fa-plus plus"></i></div>
+                        <div class="collapse fs-7 mt-4" id="classQuestions">
+                            <ul class="p-0">
+                                <li><p>如果需要查看消費紀錄，請按照以下步驟進行：</p></li>
+                                <li><p>1.請前往「個人設定」並登入您的帳號</p></li>
+                                <li><p>2.點選 「消費明細｜退換課程」進入查看</p></li>
+                                <li><p>3.該頁面中，您能清楚查看過去的每一筆交易紀錄。</p></li>
+                            </ul>
+                        </div>
+                    </button>
+                </div> 
+            </div>
+        </div>
+    </div>
+    <!-- <div class="card card-body rounded-0">
+                        Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                    </div> -->
+    <%- include('./layout/footer'); -%>
+
+    <!-- backtotop -->
+    <%- include("./layout/backtotop.ejs") -%>
+
+    <!-- jquery-ui -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/i18n/jquery-ui-i18n.min.js"></script>
+    <!--  -->
+    <script type="module" src="../main.js"></script>
+    <script src="../assets/js/calendar.js"></script>
+    <script src="../assets/js/account.js"></script>
+    <script src="../assets/js/datepicker.js"></script>
+    <script src="../assets/js/fold.js"></script>
+</body>
+</html>
