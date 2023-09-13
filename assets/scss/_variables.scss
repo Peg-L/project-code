@@ -958,8 +958,11 @@ $input-disabled-bg: var(--#{$prefix}secondary-bg) !default;
 $input-disabled-border-color: null !default;
 
 $input-color: var(--#{$prefix}body-color) !default;
-$input-border-color: $white; //var(--#{$prefix}border-color) !default;
-$input-border-width: $input-btn-border-width !default;
+$input-border-color: rgba(
+  $gray-300,
+  0.5
+); //var(--#{$prefix}border-color) !default;
+$input-border-width: 2px; //$input-btn-border-width !default;
 $input-box-shadow: $box-shadow-inset !default;
 
 $input-border-radius: var(--#{$prefix}border-radius) !default;

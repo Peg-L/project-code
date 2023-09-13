@@ -38,7 +38,7 @@
       >
         <li class="nav-item">
           <a
-            class="nav-link pc d-none d-lg-block <%= page === 'course' ? 'blue-dot' : '' %>"
+            class="nav-link pc d-none d-lg-block <%= page === 'course' || page === 'course-intro' ? 'menu-active' : '' %>"
             aria-current="page"
             href="./course.html"
             >課程分類</a
@@ -50,7 +50,7 @@
             <div class="accordion-item">
               <h2 class="accordion-header">
                 <button
-                  class="accordion-button collapsed nav-link"
+                  class="accordion-button collapsed nav-link <%= page === 'course' || page === 'course-intro' ? 'menu-active' : '' %>"
                   type="button"
                   data-bs-toggle="collapse"
                   data-bs-target="#category"
@@ -84,7 +84,10 @@
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link pc d-none d-lg-block" aria-current="page" href="#"
+          <a
+            class="nav-link pc d-none d-lg-block <%= page === 'faq' ? 'menu-active' : '' %>"
+            aria-current="page"
+            href="./faq.html"
             >常見問題</a
           >
           <div
@@ -94,7 +97,7 @@
             <div class="accordion-item">
               <h2 class="accordion-header">
                 <button
-                  class="accordion-button collapsed nav-link"
+                  class="accordion-button collapsed nav-link <%= page === 'faq' ? 'menu-active' : '' %>"
                   type="button"
                   data-bs-toggle="collapse"
                   data-bs-target="#faq"
@@ -110,8 +113,8 @@
                 data-bs-parent="#accordionFlush"
               >
                 <ul class="accordion-body text-center">
-                  <li><a href="###">學生常見問答</a></li>
-                  <li><a href="###">老師常見問答</a></li>
+                  <li><a href="./faq.html">學生常見問答</a></li>
+                  <li><a href="./faq.html">老師常見問答</a></li>
                 </ul>
               </div>
             </div>

@@ -1,4 +1,4 @@
-console.log("header 頁面開始");
+const loginBtn = document.querySelector("#login-btn");
 
 let navbarMemberBtns = document.querySelectorAll(".btn-member");
 let navbarLoginBtns = document.querySelectorAll(".btn-login");
@@ -8,7 +8,6 @@ let isLogin = sessionStorage.getItem("isLogin");
 
 function checkLogin() {
   if (isLogin === "1") {
-    // alert("判斷成功");
     navbarMemberBtns.forEach(function (navbarMemberBtn) {
       navbarMemberBtn.style.display = "block";
     });
