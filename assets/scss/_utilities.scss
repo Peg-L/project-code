@@ -231,6 +231,7 @@ $utilities: map-merge(
           100px: 100px,
           120px: 120px,
           150px: 150px,
+          200px: 200px,
           250px: 250px,
           300px: 300px,
         ),
@@ -264,9 +265,10 @@ $utilities: map-merge(
       property: min-width,
       class: min-w,
       values: (
-        100: 100px,
-        150: 150px,
-        200: 200px,
+        100px: 100px,
+        150px: 150px,
+        200px: 200px,
+        250px: 250px,
       ),
     ),
     "height": (
