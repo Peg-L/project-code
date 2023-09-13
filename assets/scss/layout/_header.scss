@@ -174,3 +174,16 @@
   flex-direction: column;
   gap: 8px;
 }
+
+.hasProducts {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    right: 10px;
+    width: 8px;
+    height: 8px;
+    background-color: $primary;
+    border-radius: 50%;
+  }
+}
