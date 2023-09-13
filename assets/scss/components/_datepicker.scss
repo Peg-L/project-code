@@ -1,3 +1,9 @@
+input.hasDatepicker {
+  @include media-breakpoint-up(sm) {
+    background: url("../images/calendar.svg") no-repeat transparent;
+    background-position: right 12px center;
+  }
+}
 .ui-datepicker {
   &.ui-widget {
     border: 2px solid $primary;
