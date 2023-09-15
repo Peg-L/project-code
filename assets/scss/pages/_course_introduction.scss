@@ -74,25 +74,90 @@
         transition: all 0.5s;
       }
     }
-  }
 }
-@media (max-width: 769px) {
-  .calendar-time {
-    li {
-      &:hover {
-        &::before {
-          display: none;
-        }
-      }
+.calendar{
+    width: 100%;
+}
+.calendar-list{
+    display: flex;
+    flex-direction: column;
+    width: 10%;
+    gap:8px;
+    padding-top: 8px;
+    border-top: 4px solid $primary;
+}
+
+.calendar-time{
+    display: flex;
+    flex-direction: column;
+    gap:4px;
+    .ready-booking{
+        text-align: center;
+        position: relative;
+            &:hover{
+                outline:2px solid $primary;
+                font-weight: bold;
+                transition: font-weight 0.2s;
+                a,button{
+                    color: $primary;
+                    transition: color 0.2s;
+                }
+                &::before {
+                    position: absolute;
+                    vertical-align: middle;
+                    content: "已預約";
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                    height: 35px;
+                    top:-40px;
+                    right:0;
+                    background-color: black;
+                    color: #fff;
+                    transition: all 0.5s;
+                }
+            }
     }
-  }
+    li{
+        text-align: center;
+        position: relative;
+        &:hover{
+            outline:2px solid $primary;
+            font-weight: bold;
+            transition: font-weight 0.2s;
+            a,button{
+                color: $primary;
+                transition: color 0.2s;
+            }
+            &::before {
+                position: absolute;
+                vertical-align: middle;
+                content: "預約課程";
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 35px;
+                top:-40px;
+                right:0;
+                background-color: black;
+                color: #fff;
+                transition: all 0.5s;
+            }
+        }
+    }
 }
-@media (max-width: 375px) {
-  .calendar-time {
-    li {
-      &:hover {
-        outline: 0;
-      }
+
+@media (max-width:769px){
+    .calendar-time{
+        li{
+            &:hover{
+                &::before{
+                    display: none;
+                }
+            }
+        }
     }
     a,
     button {
