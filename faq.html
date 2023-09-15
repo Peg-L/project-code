@@ -9,7 +9,8 @@
       href="/project-code/assets/favicon-ee1e2dda.ico"
       type="image/x-icon"
     />
-    <script type="module" crossorigin src="/project-code/assets/index-7c0bcf9f.js"></script>
+    <script type="module" crossorigin src="/project-code/assets/faq-ad2da9b4.js"></script>
+    <link rel="modulepreload" crossorigin href="/project-code/assets/index-7c0bcf9f.js">
     <link rel="stylesheet" href="/project-code/assets/index-1cf7cdda.css">
   </head>
   <body>
@@ -382,318 +383,851 @@
   </div>
   <div id="editor"></div>
 </div>
-    
+
     <div class="container-fluid mt-16 mt-md-19">
-      <div class="rounded-3 d-flex mb-8 mb-md-13 h-200px h-md-300px" style="
-          background: url('/project-code/assets/banner2-7afcc09d.jpg') no-repeat center / cover;
-        ">
+      <div
+        class="rounded-3 d-flex mb-8 mb-md-13 h-200px h-md-300px"
+        style="
+          background: url('/project-code/assets/banner2-7afcc09d.jpg') no-repeat center /
+            cover;
+        "
+      >
         <div class="container my-auto">
-          <h3 class="badge-title badge-title-lg bg-primary text-white mb-2 mb-md-3">
+          <h3
+            class="badge-title badge-title-lg bg-primary text-white mb-2 mb-md-3"
+          >
             F&Q
           </h3>
-          <h2 class="fw-bold text-white fs-3 fs-md-2 mb-4 mb-md-6">
-            常見問答
-          </h2>
+          <h2 class="fw-bold text-white fs-3 fs-md-2 mb-4 mb-md-6">常見問答</h2>
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="問題關鍵字搜尋..." aria-label="search keywords" aria-describedby="button-addon2">
-            <button class="btn btn-secondary2 btn-search z-0" type="button" id="button-addon2">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="問題關鍵字搜尋..."
+              aria-label="search keywords"
+              aria-describedby="button-addon2"
+            />
+            <button
+              class="btn btn-secondary2 btn-search z-0"
+              type="button"
+              id="button-addon2"
+            >
               <i class="fa-solid fa-magnifying-glass"></i>
             </button>
           </div>
         </div>
       </div>
-  </div>
-  <div class="container">
+    </div>
+    <div class="container">
       <!--   頁籤  -->
       <ul class="nav justify-content-center mb-8" id="myTab" role="tablist">
-          <li class="nav-item" role="presentation">
-          <button class="nav-link faq-nav active" id="student-tab" data-bs-toggle="tab" data-bs-target="#student" type="button" role="tab" aria-controls="student" aria-selected="true">我是學生</button>
-          </li>
-          <li class="nav-item" role="presentation">
-          <button class="nav-link faq-nav" id="teacher-tab" data-bs-toggle="tab" data-bs-target="#teacher" type="button" role="tab" aria-controls="teacher" aria-selected="false">我是老師</button>
-          </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link faq-nav active"
+            id="student-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#student"
+            type="button"
+            role="tab"
+            aria-controls="student"
+            aria-selected="true"
+          >
+            我是學生
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link faq-nav"
+            id="teacher-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#teacher"
+            type="button"
+            role="tab"
+            aria-controls="teacher"
+            aria-selected="false"
+          >
+            我是老師
+          </button>
+        </li>
       </ul>
-          <!-- 問答內容-學生 -->
-      <div class="row tab-pane fade d-none show active" id="student" role="tabpanel" aria-labelledby="student-tab">
-          <div class="col-12 col-md-8 offset-md-2 mb-16">
-              <button class="btn rounded-0 w-100 border border-1 border-gray-200 fw-bold bg-secondary text-start fs-3 d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1" id="largeFold">
-                  付款問題 <i class="fa-solid fa-chevron-down arrow"></i>
-              </button>
-              <div class="collapse show" id="collapse1">
-                  <button class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#shop-problem" aria-expanded="false" aria-controls="shop-problem" id="littleFold">
-                      <div class="d-flex justify-content-between align-items-center"><p>如何購買課堂?</p><i class="fa-solid fa-plus plus"></i></div>
-                      <div class="collapse fs-7 mt-4" id="shop-problem">
-                          <ul class="p-0">
-                              <li><p>如果您希望購買課程，請按照以下步驟進行：</p></li>
-                              <li><p>1.在課程頁面上瀏覽並挑選教師，可以點擊「課程介紹」來了解他們，選擇最適合幫助您實現學習目標的教師後，點擊「立即預約」的按鈕。</p></li>
-                              <li><p>2.選擇您想購買的課堂時數和數量。</p></li>
-                              <li><p>3.若您有優惠券，勾選使用。每次結帳限使用一張優惠券。（請注意：優惠券只能使用一次，一旦申請退款，優惠券將無法退還。）</p></li>
-                              <li><p>4.選擇結帳方式，並確認購物明細。</p></li>
-                              <li><p>5.成功付款後，您即可立即預約課程。如果您暫時還沒有安排好課程時間，也可以稍後再進行預約。（上課 1天前，仍可更改課程時間）</p></li>
-                          </ul>
-                      </div>
-                  </button>
-                  <button class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#refund" aria-expanded="false" aria-controls="refund" id="littleFold">
-                      <div class="d-flex justify-content-between align-items-center"><p>如何查看退款要求的狀態？</p><i class="fa-solid fa-plus plus"></i></div>
-                      <div class="collapse fs-7 mt-4" id="refund">
-                          <ul class="p-0">
-                              <li><p>如果您希望查看退款要求，請按照以下步驟進行：</p></li>
-                              <li><p>1.請前往「個人設定」並登入您的帳號</p></li>
-                              <li><p>2.選擇「查看要求狀態」。如果沒有看到「查看要求狀態」，代表您沒有任何待處理的退款要求。</p></li>
-                              <li><p>3.若要查看狀態，請點一下「待處理」。</p></li>
-                          </ul>
-                      </div>
-                  </button>
-                  <button class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#history" aria-expanded="false" aria-controls="history" id="littleFold">
-                      <div class="d-flex justify-content-between align-items-center"><p>我如何查看交易紀錄、消費明細、發票？</p><i class="fa-solid fa-plus plus"></i></div>
-                      <div class="collapse fs-7 mt-4" id="history">
-                          <ul class="p-0">
-                              <li><p>如果需要查看消費紀錄，請按照以下步驟進行：</p></li>
-                              <li><p>1.請前往「個人設定」並登入您的帳號</p></li>
-                              <li><p>2.點選 「消費明細｜退換課程」進入查看</p></li>
-                              <li><p>3.該頁面中，您能清楚查看過去的每一筆交易紀錄。</p></li>
-                          </ul>
-                      </div>
-                  </button>
-              </div> 
+      <!-- 問答內容-學生 -->
+      <div
+        class="row tab-pane fade d-none show active"
+        id="student"
+        role="tabpanel"
+        aria-labelledby="student-tab"
+      >
+        <div class="col-12 col-md-8 offset-md-2 mb-16">
+          <button
+            class="btn rounded-0 w-100 border border-1 border-gray-200 fw-bold bg-secondary text-start fs-3 d-flex justify-content-between align-items-center"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapse1"
+            aria-expanded="false"
+            aria-controls="collapse1"
+            id="largeFold"
+          >
+            付款問題 <i class="fa-solid fa-chevron-down arrow"></i>
+          </button>
+          <div class="collapse show" id="collapse1">
+            <button
+              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#shop-problem"
+              aria-expanded="false"
+              aria-controls="shop-problem"
+              id="littleFold"
+            >
+              <div class="d-flex justify-content-between align-items-center">
+                <p>如何購買課堂?</p>
+                <i class="fa-solid fa-plus plus"></i>
+              </div>
+              <div class="collapse fs-7 mt-4" id="shop-problem">
+                <ul class="p-0">
+                  <li><p>如果您希望購買課程，請按照以下步驟進行：</p></li>
+                  <li>
+                    <p>
+                      1.在課程頁面上瀏覽並挑選教師，可以點擊「課程介紹」來了解他們，選擇最適合幫助您實現學習目標的教師後，點擊「立即預約」的按鈕。
+                    </p>
+                  </li>
+                  <li><p>2.選擇您想購買的課堂時數和數量。</p></li>
+                  <li>
+                    <p>
+                      3.若您有優惠券，勾選使用。每次結帳限使用一張優惠券。（請注意：優惠券只能使用一次，一旦申請退款，優惠券將無法退還。）
+                    </p>
+                  </li>
+                  <li><p>4.選擇結帳方式，並確認購物明細。</p></li>
+                  <li>
+                    <p>
+                      5.成功付款後，您即可立即預約課程。如果您暫時還沒有安排好課程時間，也可以稍後再進行預約。（上課
+                      1天前，仍可更改課程時間）
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </button>
+            <button
+              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#refund"
+              aria-expanded="false"
+              aria-controls="refund"
+              id="littleFold"
+            >
+              <div class="d-flex justify-content-between align-items-center">
+                <p>如何查看退款要求的狀態？</p>
+                <i class="fa-solid fa-plus plus"></i>
+              </div>
+              <div class="collapse fs-7 mt-4" id="refund">
+                <ul class="p-0">
+                  <li><p>如果您希望查看退款要求，請按照以下步驟進行：</p></li>
+                  <li><p>1.請前往「個人設定」並登入您的帳號</p></li>
+                  <li>
+                    <p>
+                      2.選擇「查看要求狀態」。如果沒有看到「查看要求狀態」，代表您沒有任何待處理的退款要求。
+                    </p>
+                  </li>
+                  <li><p>3.若要查看狀態，請點一下「待處理」。</p></li>
+                </ul>
+              </div>
+            </button>
+            <button
+              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#history"
+              aria-expanded="false"
+              aria-controls="history"
+              id="littleFold"
+            >
+              <div class="d-flex justify-content-between align-items-center">
+                <p>我如何查看交易紀錄、消費明細、發票？</p>
+                <i class="fa-solid fa-plus plus"></i>
+              </div>
+              <div class="collapse fs-7 mt-4" id="history">
+                <ul class="p-0">
+                  <li><p>如果需要查看消費紀錄，請按照以下步驟進行：</p></li>
+                  <li><p>1.請前往「個人設定」並登入您的帳號</p></li>
+                  <li><p>2.點選 「消費明細｜退換課程」進入查看</p></li>
+                  <li><p>3.該頁面中，您能清楚查看過去的每一筆交易紀錄。</p></li>
+                </ul>
+              </div>
+            </button>
           </div>
-          <div class="col-12 col-md-8 offset-md-2 mb-16">
-              <button class="btn rounded-0 w-100 border border-1 border-gray-200 fw-bold bg-secondary text-start fs-3 d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2" id="largeFold">
-                  平台功能 <i class="fa-solid fa-chevron-down arrow"></i>
-              </button>
-              <div class="collapse show" id="collapse2">
-                  <button class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#howToUse" aria-expanded="false" aria-controls="howToUse"  id="littleFold">
-                      <div class="d-flex justify-content-between align-items-center"><p>如何開始使用C0DE？</p><i class="fa-solid fa-plus plus"></i></div>
-                      <div class="collapse fs-7 mt-4" id="howToUse">
-                          <ul class="p-0">
-                              <li><p>為了讓您在 C0DE 有最好的體驗，我們建議您使用  Google Chrome 瀏覽器。</p></li>
-                              <li><p>開始使用 C0DE，請採取以下步驟：</p></li>
-                              <li><p>1.點擊右上角的「註冊」按鈕。</p></li>
-                              <li><p>2.您可選擇用 Facebook、Google 帳號註冊，或使用電子信箱...等不同方式註冊。</p></li>
-                              <li><p>3.成功註冊後，您需要選擇身處的時區，因為所有課程都是按照您的時區顯示。</p></li>
-                              <li><p>4.選擇時區後，基於網絡安全之因素，我們需要確認您的電話號碼及電子信箱，以確保用戶的真實身份。</p></li>
-                              <li><p>5.確認電子信箱後，您就可以在 C0DE 購買教師的課程和上課囉！</p></li>
-                          </ul>
-                      </div>
-                  </button>
-                  <button class="btn rounded-0 w-100 border border-1 border-gray-200 border-gray-200 text-start fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#reminderTime" aria-expanded="false" aria-controls="reminderTime"  id="littleFold">
-                      <div class="d-flex justify-content-between align-items-center"><p>如何連結『線上行事曆』提醒上課時間?（Google、Mac 行事曆）</p><i class="fa-solid fa-plus plus"></i></div>
-                      <div class="collapse fs-7 mt-4" id="reminderTime">
-                          <ul class="p-0">
-                              <li><p>如果您希望連結線上行事曆，請按照以下步驟進行：</p></li>
-                              <li><p>1.點此進入您的『帳號設定』頁面。</p></li>
-                              <li><p>2.將頁面下滑至「連接行事曆」區塊，點選 『複製URL』。</p></li>
-                              <li><p>3.進入您的『加入日曆網址』頁面</p></li>
-                              <li><p>4. 將剛剛複製的網址貼上至 「日曆網址」，並點選 「新增日曆」。</p></li>
-                          </ul>
-                      </div>
-                  </button>
-                  <button class="btn rounded-0 w-100 border border-1 border-gray-200 border-gray-200 text-start fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#appraise" aria-expanded="false" aria-controls="appraise"  id="littleFold">
-                      <div class="d-flex justify-content-between align-items-center"><p>如何為已完成的課程留下/ 更改評價？</p><i class="fa-solid fa-plus plus"></i></div>
-                      <div class="collapse fs-7 mt-4" id="appraise">
-                          <ul class="p-0">
-                              <li><p>如果您尚未對已完成的課程進行評分，請進行評分！您的老師將非常感激您的反饋。
-
-                                  您可以在課堂完成後的7天內留下評價或更改評價。</p></li>
-                              <li><p>1.從您的日曆中點擊已完成的課程。</p></li>
-                              <li><p>2.從日曆中點擊該課程，然後點擊【給予評價】，給予評分及填寫內容（1星表示最差的體驗，5星表示最好的體驗），您還可以選擇一些最能描述該老師的標籤。ㄒ</p></li>
-                              <li><p>3.添加任何有關與該老師的體驗評論。您可以選擇是否希望帳號名稱顯示在老師的個人資料頁面上或保持匿名。</p></li>
-                              <li><p>4.點擊【送出】。您將進入已完成頁面，您可以預訂下一堂課或給老師發訊息。</p></li>
-                          </ul>
-                      </div>
-                  </button>
-              </div> 
+        </div>
+        <div class="col-12 col-md-8 offset-md-2 mb-16">
+          <button
+            class="btn rounded-0 w-100 border border-1 border-gray-200 fw-bold bg-secondary text-start fs-3 d-flex justify-content-between align-items-center"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapse2"
+            aria-expanded="false"
+            aria-controls="collapse2"
+            id="largeFold"
+          >
+            平台功能 <i class="fa-solid fa-chevron-down arrow"></i>
+          </button>
+          <div class="collapse show" id="collapse2">
+            <button
+              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#howToUse"
+              aria-expanded="false"
+              aria-controls="howToUse"
+              id="littleFold"
+            >
+              <div class="d-flex justify-content-between align-items-center">
+                <p>如何開始使用C0DE？</p>
+                <i class="fa-solid fa-plus plus"></i>
+              </div>
+              <div class="collapse fs-7 mt-4" id="howToUse">
+                <ul class="p-0">
+                  <li>
+                    <p>
+                      為了讓您在 C0DE 有最好的體驗，我們建議您使用 Google Chrome
+                      瀏覽器。
+                    </p>
+                  </li>
+                  <li><p>開始使用 C0DE，請採取以下步驟：</p></li>
+                  <li><p>1.點擊右上角的「註冊」按鈕。</p></li>
+                  <li>
+                    <p>
+                      2.您可選擇用 Facebook、Google
+                      帳號註冊，或使用電子信箱...等不同方式註冊。
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      3.成功註冊後，您需要選擇身處的時區，因為所有課程都是按照您的時區顯示。
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      4.選擇時區後，基於網絡安全之因素，我們需要確認您的電話號碼及電子信箱，以確保用戶的真實身份。
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      5.確認電子信箱後，您就可以在 C0DE 購買教師的課程和上課囉！
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </button>
+            <button
+              class="btn rounded-0 w-100 border border-1 border-gray-200 border-gray-200 text-start fs-5"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#reminderTime"
+              aria-expanded="false"
+              aria-controls="reminderTime"
+              id="littleFold"
+            >
+              <div class="d-flex justify-content-between align-items-center">
+                <p>如何連結『線上行事曆』提醒上課時間?（Google、Mac 行事曆）</p>
+                <i class="fa-solid fa-plus plus"></i>
+              </div>
+              <div class="collapse fs-7 mt-4" id="reminderTime">
+                <ul class="p-0">
+                  <li><p>如果您希望連結線上行事曆，請按照以下步驟進行：</p></li>
+                  <li><p>1.點此進入您的『帳號設定』頁面。</p></li>
+                  <li>
+                    <p>2.將頁面下滑至「連接行事曆」區塊，點選 『複製URL』。</p>
+                  </li>
+                  <li><p>3.進入您的『加入日曆網址』頁面</p></li>
+                  <li>
+                    <p>
+                      4. 將剛剛複製的網址貼上至 「日曆網址」，並點選
+                      「新增日曆」。
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </button>
+            <button
+              class="btn rounded-0 w-100 border border-1 border-gray-200 border-gray-200 text-start fs-5"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#appraise"
+              aria-expanded="false"
+              aria-controls="appraise"
+              id="littleFold"
+            >
+              <div class="d-flex justify-content-between align-items-center">
+                <p>如何為已完成的課程留下/ 更改評價？</p>
+                <i class="fa-solid fa-plus plus"></i>
+              </div>
+              <div class="collapse fs-7 mt-4" id="appraise">
+                <ul class="p-0">
+                  <li>
+                    <p>
+                      如果您尚未對已完成的課程進行評分，請進行評分！您的老師將非常感激您的反饋。
+                      您可以在課堂完成後的7天內留下評價或更改評價。
+                    </p>
+                  </li>
+                  <li><p>1.從您的日曆中點擊已完成的課程。</p></li>
+                  <li>
+                    <p>
+                      2.從日曆中點擊該課程，然後點擊【給予評價】，給予評分及填寫內容（1星表示最差的體驗，5星表示最好的體驗），您還可以選擇一些最能描述該老師的標籤。ㄒ
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      3.添加任何有關與該老師的體驗評論。您可以選擇是否希望帳號名稱顯示在老師的個人資料頁面上或保持匿名。
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      4.點擊【送出】。您將進入已完成頁面，您可以預訂下一堂課或給老師發訊息。
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </button>
           </div>
-          <div class="col-12 col-md-8 offset-md-2">
-              <button class="btn rounded-0 w-100 border border-1 border-gray-200 fw-bold bg-secondary text-start fs-3 d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3" id="largeFold">
-                  課程問題 <i class="fa-solid fa-chevron-down arrow"></i>
-              </button>
-              <div class="collapse show" id="collapse3">
-                  <button class="btn rounded-0 w-100 border border-1 border-gray-200  text-start fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#classReservations" aria-expanded="false" aria-controls="classReservations"  id="littleFold">
-                      
-                      <div class="d-flex justify-content-between align-items-center"><p>如何課程預約?</p><i class="fa-solid fa-plus plus"></i></div>
-                      <div class="collapse fs-7 mt-4" id="classReservations">
-                          <ul class="p-0">
-                              <li><p>如果您希望購買課程，請按照以下步驟進行：</p></li>
-                              <li><p>1.進入官網首頁 ，在「新手操作指南」下方會有「你的課程」；點擊「預約課堂」。</p></li>
-                              <li><p>2.你會看到一個老師開放的時間表，綠色的時間是老師可供預約上課的時間，選擇合適的時段，然後點擊「確認預約」按鈕，即完成預約。</p></li>
-                              <li><p>3.在您確認預約時段後，系統會立即通知老師確認課程時間。老師須在指定時間內確認，課程才會生效；當老師確認後，您亦會馬上收到通知。</p></li>
-                              <li><p>4.您可以點選「查看」按鈕，確認課程預約狀態。若您想聯絡老師，可點擊「聯絡老師」按鈕，預先和老師溝通。</p></li>
-                              <li><p>5.尚未確認之課堂，會出現在「你的課程」，你可以隨時瀏覽課堂狀態。</p></li>
-                              <li><p>6.已確認之課堂，會出現在「你的課程」，點擊課堂會顯示課堂狀態為「已預約」。</p></li>
-                          </ul>
-                      </div>
-                  </button>
-                  <button class="btn rounded-0 w-100 border border-1 border-gray-200  text-start fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#return" aria-expanded="false" aria-controls="return"  id="littleFold">
-                      
-                      <div class="d-flex justify-content-between align-items-center"><p>如何申請退課?</p><i class="fa-solid fa-plus plus"></i></div>
-                      <div class="collapse fs-7 mt-4" id="return">
-                          <ul class="p-0">
-                              <li><p>重要提示：若您欲「取消預約」課堂，須提前至少 12 小時通知您的教師。</p></li>
-                              <li><p>1.請至首頁上面點選瀏覽課程，並點選頁面上欲重新預約之課程。</p></li>
-                              <li><p>2.見彈出視窗，點選「取消預約」。</p></li>
-                              <li><p>3.請填寫您不便出席之原因，並詢問教師方便上課的時間。</p></li>
-                              <li><p>4.成功取消後，課程將會回到未預約之課堂數中，您就可以重新預約課時囉！</p></li>
-                          </ul>
-                      </div>
-                  </button>
-                  <button class="btn rounded-0 w-100 border border-1 border-gray-200  text-start fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#classQuestions" aria-expanded="false" aria-controls="classQuestions"  id="littleFold">
-                      <div class="d-flex justify-content-between align-items-center"><p>課程有問題</p><i class="fa-solid fa-plus plus"></i></div>
-                      <div class="collapse fs-7 mt-4" id="classQuestions">
-                          <ul class="p-0">
-                              <li><p>有時，您或您的教師／學生可能會因突發狀況而導致課程無法正常進行到最後。
-                                  為幫助您解決這個問題，可以在事件發生後按照下列步驟執行：</p></li>
-                              <li><p>1.見彈出視窗，點選「回報問題」。</p></li>
-                              <li><p>2.最後，在接收到您所回報的問題後，教師會選擇退費（AT 幣）或是退還課堂。若您同意老師的處理方式，可點選「同意解決方式」；若不滿意，則可聯繫客服人員尋求協助。</p></li>
-                          </ul>
-                      </div>
-                  </button>
-              </div> 
+        </div>
+        <div class="col-12 col-md-8 offset-md-2">
+          <button
+            class="btn rounded-0 w-100 border border-1 border-gray-200 fw-bold bg-secondary text-start fs-3 d-flex justify-content-between align-items-center"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapse3"
+            aria-expanded="false"
+            aria-controls="collapse3"
+            id="largeFold"
+          >
+            課程問題 <i class="fa-solid fa-chevron-down arrow"></i>
+          </button>
+          <div class="collapse show" id="collapse3">
+            <button
+              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#classReservations"
+              aria-expanded="false"
+              aria-controls="classReservations"
+              id="littleFold"
+            >
+              <div class="d-flex justify-content-between align-items-center">
+                <p>如何課程預約?</p>
+                <i class="fa-solid fa-plus plus"></i>
+              </div>
+              <div class="collapse fs-7 mt-4" id="classReservations">
+                <ul class="p-0">
+                  <li><p>如果您希望購買課程，請按照以下步驟進行：</p></li>
+                  <li>
+                    <p>
+                      1.進入官網首頁
+                      ，在「新手操作指南」下方會有「你的課程」；點擊「預約課堂」。
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      2.你會看到一個老師開放的時間表，綠色的時間是老師可供預約上課的時間，選擇合適的時段，然後點擊「確認預約」按鈕，即完成預約。
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      3.在您確認預約時段後，系統會立即通知老師確認課程時間。老師須在指定時間內確認，課程才會生效；當老師確認後，您亦會馬上收到通知。
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      4.您可以點選「查看」按鈕，確認課程預約狀態。若您想聯絡老師，可點擊「聯絡老師」按鈕，預先和老師溝通。
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      5.尚未確認之課堂，會出現在「你的課程」，你可以隨時瀏覽課堂狀態。
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      6.已確認之課堂，會出現在「你的課程」，點擊課堂會顯示課堂狀態為「已預約」。
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </button>
+            <button
+              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#return"
+              aria-expanded="false"
+              aria-controls="return"
+              id="littleFold"
+            >
+              <div class="d-flex justify-content-between align-items-center">
+                <p>如何申請退課?</p>
+                <i class="fa-solid fa-plus plus"></i>
+              </div>
+              <div class="collapse fs-7 mt-4" id="return">
+                <ul class="p-0">
+                  <li>
+                    <p>
+                      重要提示：若您欲「取消預約」課堂，須提前至少 12
+                      小時通知您的教師。
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      1.請至首頁上面點選瀏覽課程，並點選頁面上欲重新預約之課程。
+                    </p>
+                  </li>
+                  <li><p>2.見彈出視窗，點選「取消預約」。</p></li>
+                  <li>
+                    <p>3.請填寫您不便出席之原因，並詢問教師方便上課的時間。</p>
+                  </li>
+                  <li>
+                    <p>
+                      4.成功取消後，課程將會回到未預約之課堂數中，您就可以重新預約課時囉！
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </button>
+            <button
+              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#classQuestions"
+              aria-expanded="false"
+              aria-controls="classQuestions"
+              id="littleFold"
+            >
+              <div class="d-flex justify-content-between align-items-center">
+                <p>課程有問題</p>
+                <i class="fa-solid fa-plus plus"></i>
+              </div>
+              <div class="collapse fs-7 mt-4" id="classQuestions">
+                <ul class="p-0">
+                  <li>
+                    <p>
+                      有時，您或您的教師／學生可能會因突發狀況而導致課程無法正常進行到最後。
+                      為幫助您解決這個問題，可以在事件發生後按照下列步驟執行：
+                    </p>
+                  </li>
+                  <li><p>1.見彈出視窗，點選「回報問題」。</p></li>
+                  <li>
+                    <p>
+                      2.最後，在接收到您所回報的問題後，教師會選擇退費（AT
+                      幣）或是退還課堂。若您同意老師的處理方式，可點選「同意解決方式」；若不滿意，則可聯繫客服人員尋求協助。
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </button>
           </div>
+        </div>
       </div>
-          <!-- 問答內容-老師 -->
-      <div class="row tab-pane fade d-none" id="teacher" role="tabpanel" aria-labelledby="teacher-tab">
-          <div class="col-12 col-md-8 offset-md-2 mb-16">
-              <button class="btn rounded-0 w-100 border border-1 border-gray-200 fw-bold bg-secondary text-start fs-3 d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="true" aria-controls="collapse4" id="largeFold">
-                  帳號設定 <i class="fa-solid fa-chevron-down arrow"></i>
-              </button>
-              <div class="collapse show" id="collapse4">
-                  <button class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#accountSettings" aria-expanded="false" aria-controls="accountSettings" id="littleFold">
-                      <div class="d-flex justify-content-between align-items-center"><p>如何更新個人資料?</p><i class="fa-solid fa-plus plus"></i></div>
-                      <div class="collapse fs-7 mt-4" id="accountSettings">
-                          <ul class="p-0">
-                              <li><p>您可以隨時更新您的個人資料以確保它們是最新的。請按照以下步驟進行：</p></li>
-                              <li><p>1.登入帳戶：首先，登入您的學生帳戶。</p></li>
-                              <li><p>2.轉至個人資料：在用戶面板或帳戶設置中，找到一個名為「個人資料」或類似的選項，點擊它。</p></li>
-                              <li><p>3.編輯資料：在個人資料頁面上，您可以編輯您的姓名、聯絡資訊、學校/大學等。請確保您的資料是最新的。</p></li>
-                              <li><p>4.儲存更改：完成編輯後，不要忘記儲存更改。您的個人資料現在已經更新了！</p></li>
-                          </ul>
-                      </div>
-                  </button>
-                  <button class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#applyForACourse" aria-expanded="false" aria-controls="applyForACourse" id="littleFold">
-                      <div class="d-flex justify-content-between align-items-center"><p>如何申請課程？</p><i class="fa-solid fa-plus plus"></i></div>
-                      <div class="collapse fs-7 mt-4" id="applyForACourse">
-                          <ul class="p-0">
-                              <li><p>如果您希望參加課程，請按照以下步驟進行：</p></li>
-                              <li><p>1.登入帳戶：首先，登入您的學生帳戶。如果您還沒有帳戶，請註冊一個。</p></li>
-                              <li><p>2.尋找課程：在主頁上，您可以瀏覽各種課程。使用搜索功能或瀏覽不同類別的課程來找到您感興趣的選擇。</p></li>
-                              <li><p>3.選擇課程：點擊您想參加的課程，查看詳細資訊。</p></li>
-                              <li><p>4.預約：在課程詳細資訊頁面上，您應該能夠找到一個「預約」或類似的按鈕。點擊它，然後選擇適合您的時間。</p></li>
-                              <li><p>5.確認預約：檢查您的訂單，然後確認預約。您將收到確認通知，並在預約的時間上課。</p></li>
-                          </ul>
-                      </div>
-                  </button>
-                  <button class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#accountIssues" aria-expanded="false" aria-controls="accountIssues" id="littleFold">
-                      <div class="d-flex justify-content-between align-items-center"><p>我遇到了帳號相關的問題，該怎麼辦？</p><i class="fa-solid fa-plus plus"></i></div>
-                      <div class="collapse fs-7 mt-4" id="accountIssues">
-                          <ul class="p-0">
-                              <li><p>如果您遇到任何與您的帳戶有關的問題，請按照以下步驟處理：</p></li>
-                              <li><p>1.聯繫客戶支援：如果您遇到登入問題、無法訪問您的帳戶或其他類似的問題，請隨時聯繫我們的客戶支援團隊。他們將竭盡所能協助您解決問題。</p></li>
-                              <li><p>2.更新密碼：如果您忘記了密碼，您可以使用「忘記密碼」選項來重設密碼。</p></li>
-                              <li><p>3.雙重驗證：為了帳戶的安全，您可以啟用雙重驗證功能，以增強帳戶的保護性。</p></li>
-                          </ul>
-                      </div>
-                  </button>
-              </div> 
+      <!-- 問答內容-老師 -->
+      <div
+        class="row tab-pane fade d-none"
+        id="teacher"
+        role="tabpanel"
+        aria-labelledby="teacher-tab"
+      >
+        <div class="col-12 col-md-8 offset-md-2 mb-16">
+          <button
+            class="btn rounded-0 w-100 border border-1 border-gray-200 fw-bold bg-secondary text-start fs-3 d-flex justify-content-between align-items-center"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapse4"
+            aria-expanded="true"
+            aria-controls="collapse4"
+            id="largeFold"
+          >
+            帳號設定 <i class="fa-solid fa-chevron-down arrow"></i>
+          </button>
+          <div class="collapse show" id="collapse4">
+            <button
+              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#accountSettings"
+              aria-expanded="false"
+              aria-controls="accountSettings"
+              id="littleFold"
+            >
+              <div class="d-flex justify-content-between align-items-center">
+                <p>如何更新個人資料?</p>
+                <i class="fa-solid fa-plus plus"></i>
+              </div>
+              <div class="collapse fs-7 mt-4" id="accountSettings">
+                <ul class="p-0">
+                  <li>
+                    <p>
+                      您可以隨時更新您的個人資料以確保它們是最新的。請按照以下步驟進行：
+                    </p>
+                  </li>
+                  <li><p>1.登入帳戶：首先，登入您的學生帳戶。</p></li>
+                  <li>
+                    <p>
+                      2.轉至個人資料：在用戶面板或帳戶設置中，找到一個名為「個人資料」或類似的選項，點擊它。
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      3.編輯資料：在個人資料頁面上，您可以編輯您的姓名、聯絡資訊、學校/大學等。請確保您的資料是最新的。
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      4.儲存更改：完成編輯後，不要忘記儲存更改。您的個人資料現在已經更新了！
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </button>
+            <button
+              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#applyForACourse"
+              aria-expanded="false"
+              aria-controls="applyForACourse"
+              id="littleFold"
+            >
+              <div class="d-flex justify-content-between align-items-center">
+                <p>如何申請課程？</p>
+                <i class="fa-solid fa-plus plus"></i>
+              </div>
+              <div class="collapse fs-7 mt-4" id="applyForACourse">
+                <ul class="p-0">
+                  <li><p>如果您希望參加課程，請按照以下步驟進行：</p></li>
+                  <li>
+                    <p>
+                      1.登入帳戶：首先，登入您的學生帳戶。如果您還沒有帳戶，請註冊一個。
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      2.尋找課程：在主頁上，您可以瀏覽各種課程。使用搜索功能或瀏覽不同類別的課程來找到您感興趣的選擇。
+                    </p>
+                  </li>
+                  <li><p>3.選擇課程：點擊您想參加的課程，查看詳細資訊。</p></li>
+                  <li>
+                    <p>
+                      4.預約：在課程詳細資訊頁面上，您應該能夠找到一個「預約」或類似的按鈕。點擊它，然後選擇適合您的時間。
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      5.確認預約：檢查您的訂單，然後確認預約。您將收到確認通知，並在預約的時間上課。
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </button>
+            <button
+              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#accountIssues"
+              aria-expanded="false"
+              aria-controls="accountIssues"
+              id="littleFold"
+            >
+              <div class="d-flex justify-content-between align-items-center">
+                <p>我遇到了帳號相關的問題，該怎麼辦？</p>
+                <i class="fa-solid fa-plus plus"></i>
+              </div>
+              <div class="collapse fs-7 mt-4" id="accountIssues">
+                <ul class="p-0">
+                  <li>
+                    <p>
+                      如果您遇到任何與您的帳戶有關的問題，請按照以下步驟處理：
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      1.聯繫客戶支援：如果您遇到登入問題、無法訪問您的帳戶或其他類似的問題，請隨時聯繫我們的客戶支援團隊。他們將竭盡所能協助您解決問題。
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      2.更新密碼：如果您忘記了密碼，您可以使用「忘記密碼」選項來重設密碼。
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      3.雙重驗證：為了帳戶的安全，您可以啟用雙重驗證功能，以增強帳戶的保護性。
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </button>
           </div>
-          <div class="col-12 col-md-8 offset-md-2 mb-16">
-              <button class="btn rounded-0 w-100 border border-1 border-gray-200 fw-bold bg-secondary text-start fs-3 d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5" id="largeFold">
-                  薪資相關 <i class="fa-solid fa-chevron-down arrow"></i>
-              </button>
-              <div class="collapse show" id="collapse5">
-                  <button class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#howToUse1" aria-expanded="false" aria-controls="howToUse1"  id="littleFold">
-                      <div class="d-flex justify-content-between align-items-center"><p>如何開始使用C0DE？</p><i class="fa-solid fa-plus plus"></i></div>
-                      <div class="collapse fs-7 mt-4" id="howToUse1">
-                          <ul class="p-0">
-                              <li><p>薪水支付通常由平台進行管理。請按照以下步驟執行：</p></li>
-                              <li><p>1.選擇課程：首先，選擇您想參加的課程，然後預約。</p></li>
-                              <li><p>2.選擇付款方式：在預約過程中，您將有機會選擇付款方式，如信用卡、PayPal 或其他支援的方式。</p></li>
-                              <li><p>3.完成預約：在確認訂單後，您的付款將被處理。</p></li>
-                          </ul>
-                      </div>
-                  </button>
-                  <button class="btn rounded-0 w-100 border border-1 border-gray-200 border-gray-200 text-start fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#collectionMethod" aria-expanded="false" aria-controls="collectionMethod"  id="littleFold">
-                      <div class="d-flex justify-content-between align-items-center"><p>如何設定我的收帳方式？</p><i class="fa-solid fa-plus plus"></i></div>
-                      <div class="collapse fs-7 mt-4" id="collectionMethod">
-                          <ul class="p-0">
-                              <li><p>要設定您的收帳方式，請按照以下步驟進行：</p></li>
-                              <li><p>1.登入帳戶：首先，登入您的學生帳戶。</p></li>
-                              <li><p>2.轉至付款設定：在用戶面板或帳戶設置中，找到一個名為「付款設定」或類似的選項，點擊它。</p></li>
-                              <li><p>3.選擇收帳方式：在付款設定頁面上，您應該能夠看到不同的收帳方式選項，如銀行轉帳、PayPal 等。選擇您喜歡的方式。</p></li>
-                              <li><p>4.提供必要信息：根據您選擇的收帳方式，提供相關的信息，例如銀行帳號或PayPal 帳號。</p></li>
-                              <li><p>5.完成設定：完成所有必要的步驟，確保您的付款方式設定成功。</p></li>
-                          </ul>
-                      </div>
-                  </button>
-                  <button class="btn rounded-0 w-100 border border-1 border-gray-200 border-gray-200 text-start fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#commentOnChanges" aria-expanded="false" aria-controls="commentOnChanges"  id="littleFold">
-                      <div class="d-flex justify-content-between align-items-center"><p>如何為已完成的課程留下/ 更改評價？</p><i class="fa-solid fa-plus plus"></i></div>
-                      <div class="collapse fs-7 mt-4" id="commentOnChanges">
-                          <ul class="p-0">
-                              <li><p>如果需要查看消費紀錄，請按照以下步驟進行：</p></li>
-                              <li><p>1.請前往「個人設定」並登入您的帳號</p></li>
-                              <li><p>2.點選 「消費明細｜退換課程」進入查看</p></li>
-                              <li><p>3.該頁面中，您能清楚查看過去的每一筆交易紀錄。</p></li>
-                          </ul>
-                      </div>
-                  </button>
-              </div> 
+        </div>
+        <div class="col-12 col-md-8 offset-md-2 mb-16">
+          <button
+            class="btn rounded-0 w-100 border border-1 border-gray-200 fw-bold bg-secondary text-start fs-3 d-flex justify-content-between align-items-center"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapse5"
+            aria-expanded="false"
+            aria-controls="collapse5"
+            id="largeFold"
+          >
+            薪資相關 <i class="fa-solid fa-chevron-down arrow"></i>
+          </button>
+          <div class="collapse show" id="collapse5">
+            <button
+              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#howToUse1"
+              aria-expanded="false"
+              aria-controls="howToUse1"
+              id="littleFold"
+            >
+              <div class="d-flex justify-content-between align-items-center">
+                <p>如何開始使用C0DE？</p>
+                <i class="fa-solid fa-plus plus"></i>
+              </div>
+              <div class="collapse fs-7 mt-4" id="howToUse1">
+                <ul class="p-0">
+                  <li>
+                    <p>薪水支付通常由平台進行管理。請按照以下步驟執行：</p>
+                  </li>
+                  <li>
+                    <p>1.選擇課程：首先，選擇您想參加的課程，然後預約。</p>
+                  </li>
+                  <li>
+                    <p>
+                      2.選擇付款方式：在預約過程中，您將有機會選擇付款方式，如信用卡、PayPal
+                      或其他支援的方式。
+                    </p>
+                  </li>
+                  <li><p>3.完成預約：在確認訂單後，您的付款將被處理。</p></li>
+                </ul>
+              </div>
+            </button>
+            <button
+              class="btn rounded-0 w-100 border border-1 border-gray-200 border-gray-200 text-start fs-5"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collectionMethod"
+              aria-expanded="false"
+              aria-controls="collectionMethod"
+              id="littleFold"
+            >
+              <div class="d-flex justify-content-between align-items-center">
+                <p>如何設定我的收帳方式？</p>
+                <i class="fa-solid fa-plus plus"></i>
+              </div>
+              <div class="collapse fs-7 mt-4" id="collectionMethod">
+                <ul class="p-0">
+                  <li><p>要設定您的收帳方式，請按照以下步驟進行：</p></li>
+                  <li><p>1.登入帳戶：首先，登入您的學生帳戶。</p></li>
+                  <li>
+                    <p>
+                      2.轉至付款設定：在用戶面板或帳戶設置中，找到一個名為「付款設定」或類似的選項，點擊它。
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      3.選擇收帳方式：在付款設定頁面上，您應該能夠看到不同的收帳方式選項，如銀行轉帳、PayPal
+                      等。選擇您喜歡的方式。
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      4.提供必要信息：根據您選擇的收帳方式，提供相關的信息，例如銀行帳號或PayPal
+                      帳號。
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      5.完成設定：完成所有必要的步驟，確保您的付款方式設定成功。
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </button>
+            <button
+              class="btn rounded-0 w-100 border border-1 border-gray-200 border-gray-200 text-start fs-5"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#commentOnChanges"
+              aria-expanded="false"
+              aria-controls="commentOnChanges"
+              id="littleFold"
+            >
+              <div class="d-flex justify-content-between align-items-center">
+                <p>如何為已完成的課程留下/ 更改評價？</p>
+                <i class="fa-solid fa-plus plus"></i>
+              </div>
+              <div class="collapse fs-7 mt-4" id="commentOnChanges">
+                <ul class="p-0">
+                  <li><p>如果需要查看消費紀錄，請按照以下步驟進行：</p></li>
+                  <li><p>1.請前往「個人設定」並登入您的帳號</p></li>
+                  <li><p>2.點選 「消費明細｜退換課程」進入查看</p></li>
+                  <li><p>3.該頁面中，您能清楚查看過去的每一筆交易紀錄。</p></li>
+                </ul>
+              </div>
+            </button>
           </div>
-          <div class="col-12 col-md-8 offset-md-2">
-              <button class="btn rounded-0 w-100 border border-1 border-gray-200 fw-bold bg-secondary text-start fs-3 d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6" id="largeFold">
-                  平台功能 <i class="fa-solid fa-chevron-down arrow"></i>
-              </button>
-              <div class="collapse show" id="collapse6">
-                  <button class="btn rounded-0 w-100 border border-1 border-gray-200  text-start fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#coupons" aria-expanded="false" aria-controls="coupons"  id="littleFold">
-                      
-                      <div class="d-flex justify-content-between align-items-center"><p>我如何為學生贈送優惠卷？</p><i class="fa-solid fa-plus plus"></i></div>
-                      <div class="collapse fs-7 mt-4" id="coupons">
-                          <ul class="p-0">
-                              <li><p>贈送優惠卷是一種鼓勵學生參加您的課程的方式。請按照以下步驟進行：</p></li>
-                              <li><p>1.登入帳戶：首先，登入您的老師帳戶。</p></li>
-                              <li><p>2.導航到優惠卷設定：在用戶面板或帳戶設置中，找到一個名為「優惠卷」或類似的選項，點擊它。</p></li>
-                              <li><p>3.創建優惠卷：您可以選擇創建新的優惠卷或管理現有的優惠卷。選擇創建新的優惠卷。</p></li>
-                              <li><p>4.設定優惠卷內容：填寫優惠卷的詳細信息，包括折扣金額、使用條件、有效期等。</p></li>
-                              <li><p>5.指定學生：在設定優惠卷時，您可以選擇要發送給的學生。您可以選擇單個學生或一組學生。</p></li>
-                              <li><p>6.發送優惠卷：完成優惠卷的設定後，點擊「發送」或類似的按鈕，優惠卷將發送給選定的學生。</p></li>
-                          </ul>
-                      </div>
-                  </button>
-                  <button class="btn rounded-0 w-100 border border-1 border-gray-200  text-start fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#sale" aria-expanded="false" aria-controls="sale"  id="littleFold">
-                      
-                      <div class="d-flex justify-content-between align-items-center"><p>我想為學生提供特定課程的價格報價，該怎麼做？</p><i class="fa-solid fa-plus plus"></i></div>
-                      <div class="collapse fs-7 mt-4" id="sale">
-                          <ul class="p-0">
-                              <li><p>您可以設定客製化課程報價以滿足學生的需求。請按照以下步驟進行：</p></li>
-                              <li><p>1.登入帳戶：首先，登入您的老師帳戶。</p></li>
-                              <li><p>2.導航到課程設定：在用戶面板或帳戶設置中，找到一個名為「課程設定」或類似的選項，點擊它。</p></li>
-                              <li><p>3.創建客製化報價：選擇要設定價格的特定課程。然後，您可以設定價格、折扣、課程時長和其他相關細節。</p></li>
-                              <li><p>4.指定學生：您可以選擇將客製化報價發送給特定學生或適用於所有學生。指定學生時，請提供他們的帳戶信息。</p></li>
-                              <li><p>5.發送報價：完成價格設定後，點擊「發送」或類似的按鈕，報價將發送給選定的學生。</p></li>
-                          </ul>
-                      </div>
-                  </button>
-                  <button class="btn rounded-0 w-100 border border-1 border-gray-200  text-start fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#chat" aria-expanded="false" aria-controls="chat"  id="littleFold">
-                      <div class="d-flex justify-content-between align-items-center"><p>我想與學生進行即時溝通，該怎麼使用聊天機器人？</p><i class="fa-solid fa-plus plus"></i></div>
-                      <div class="collapse fs-7 mt-4" id="chat">
-                          <ul class="p-0">
-                              <li><p>使用聊天機器人來與學生溝通是一種有效的方式。請按照以下步驟進行：</p></li>
-                              <li><p>1.登入帳戶：首先，登入您的老師帳戶。</p></li>
-                              <li><p>2.打開聊天機器人：在用戶面板或課程管理頁面中，找到一個名為「聊天機器人」或類似的選項，點擊它。
-                              </p></li>
-                              <li><p>3.選擇學生：您可以選擇要與之聊天的學生，或者開始一個新的對話。
-                              </p></li>
-                              <li><p>4.發送訊息：在聊天機器人界面中，您可以輸入您想發送的訊息，然後按下「發送」。您的訊息將即時傳送給學生。
-                              </p></li>
-                              <li><p>5.接收回應：一旦學生回應您的訊息，您將在聊天機器人中收到他們的回應。這樣，您可以輕鬆進行對話。
-                              </p></li>
-                          </ul>
-                      </div>
-                  </button>
-              </div> 
+        </div>
+        <div class="col-12 col-md-8 offset-md-2">
+          <button
+            class="btn rounded-0 w-100 border border-1 border-gray-200 fw-bold bg-secondary text-start fs-3 d-flex justify-content-between align-items-center"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapse6"
+            aria-expanded="false"
+            aria-controls="collapse6"
+            id="largeFold"
+          >
+            平台功能 <i class="fa-solid fa-chevron-down arrow"></i>
+          </button>
+          <div class="collapse show" id="collapse6">
+            <button
+              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#coupons"
+              aria-expanded="false"
+              aria-controls="coupons"
+              id="littleFold"
+            >
+              <div class="d-flex justify-content-between align-items-center">
+                <p>我如何為學生贈送優惠卷？</p>
+                <i class="fa-solid fa-plus plus"></i>
+              </div>
+              <div class="collapse fs-7 mt-4" id="coupons">
+                <ul class="p-0">
+                  <li>
+                    <p>
+                      贈送優惠卷是一種鼓勵學生參加您的課程的方式。請按照以下步驟進行：
+                    </p>
+                  </li>
+                  <li><p>1.登入帳戶：首先，登入您的老師帳戶。</p></li>
+                  <li>
+                    <p>
+                      2.導航到優惠卷設定：在用戶面板或帳戶設置中，找到一個名為「優惠卷」或類似的選項，點擊它。
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      3.創建優惠卷：您可以選擇創建新的優惠卷或管理現有的優惠卷。選擇創建新的優惠卷。
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      4.設定優惠卷內容：填寫優惠卷的詳細信息，包括折扣金額、使用條件、有效期等。
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      5.指定學生：在設定優惠卷時，您可以選擇要發送給的學生。您可以選擇單個學生或一組學生。
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      6.發送優惠卷：完成優惠卷的設定後，點擊「發送」或類似的按鈕，優惠卷將發送給選定的學生。
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </button>
+            <button
+              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#sale"
+              aria-expanded="false"
+              aria-controls="sale"
+              id="littleFold"
+            >
+              <div class="d-flex justify-content-between align-items-center">
+                <p>我想為學生提供特定課程的價格報價，該怎麼做？</p>
+                <i class="fa-solid fa-plus plus"></i>
+              </div>
+              <div class="collapse fs-7 mt-4" id="sale">
+                <ul class="p-0">
+                  <li>
+                    <p>
+                      您可以設定客製化課程報價以滿足學生的需求。請按照以下步驟進行：
+                    </p>
+                  </li>
+                  <li><p>1.登入帳戶：首先，登入您的老師帳戶。</p></li>
+                  <li>
+                    <p>
+                      2.導航到課程設定：在用戶面板或帳戶設置中，找到一個名為「課程設定」或類似的選項，點擊它。
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      3.創建客製化報價：選擇要設定價格的特定課程。然後，您可以設定價格、折扣、課程時長和其他相關細節。
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      4.指定學生：您可以選擇將客製化報價發送給特定學生或適用於所有學生。指定學生時，請提供他們的帳戶信息。
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      5.發送報價：完成價格設定後，點擊「發送」或類似的按鈕，報價將發送給選定的學生。
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </button>
+            <button
+              class="btn rounded-0 w-100 border border-1 border-gray-200 text-start fs-5"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#chat"
+              aria-expanded="false"
+              aria-controls="chat"
+              id="littleFold"
+            >
+              <div class="d-flex justify-content-between align-items-center">
+                <p>我想與學生進行即時溝通，該怎麼使用聊天機器人？</p>
+                <i class="fa-solid fa-plus plus"></i>
+              </div>
+              <div class="collapse fs-7 mt-4" id="chat">
+                <ul class="p-0">
+                  <li>
+                    <p>
+                      使用聊天機器人來與學生溝通是一種有效的方式。請按照以下步驟進行：
+                    </p>
+                  </li>
+                  <li><p>1.登入帳戶：首先，登入您的老師帳戶。</p></li>
+                  <li>
+                    <p>
+                      2.打開聊天機器人：在用戶面板或課程管理頁面中，找到一個名為「聊天機器人」或類似的選項，點擊它。
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      3.選擇學生：您可以選擇要與之聊天的學生，或者開始一個新的對話。
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      4.發送訊息：在聊天機器人界面中，您可以輸入您想發送的訊息，然後按下「發送」。您的訊息將即時傳送給學生。
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      5.接收回應：一旦學生回應您的訊息，您將在聊天機器人中收到他們的回應。這樣，您可以輕鬆進行對話。
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </button>
           </div>
+        </div>
       </div>
-  </div>
-  <!-- <div class="card card-body rounded-0">
+    </div>
+    <!-- <div class="card card-body rounded-0">
                       Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
                   </div> -->
     <div
@@ -795,10 +1329,10 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/i18n/jquery-ui-i18n.min.js"></script>
     <!--  -->
     
-    <script src="../assets/js/calendar.js"></script>
-    <script src="../assets/js/account.js"></script>
-    <script src="../assets/js/datepicker.js"></script>
-    <script src="../assets/js/fold.js"></script>
+    
+    
+    
+    
 
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
   </body>
