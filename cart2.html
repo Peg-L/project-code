@@ -458,7 +458,7 @@
                       action="#"
                       method="post"
                     >
-                      <p class="fw-bold w-150px">第 1 堂 (20 分鐘)</p>
+                      <p class="fw-bold w-150px">第 1 堂 (50 分鐘)</p>
                       <div class="d-flex gap-2 w-300px">
                         <input
                           class="form-control border-primary cursor-pointer fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4 jq-appointmentDate"
@@ -568,7 +568,7 @@
                       action="#"
                       method="post"
                     >
-                      <p class="fw-bold w-150px">第 1 堂 (20 分鐘)</p>
+                      <p class="fw-bold w-150px">第 1 堂 (50 分鐘)</p>
                       <div class="d-flex gap-2 w-300px">
                         <input
                           class="form-control border-primary cursor-pointer fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4 jq-appointmentDate"
@@ -770,9 +770,20 @@
     <!-- jquery-ui -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/i18n/jquery-ui-i18n.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/i18n/jquery-ui-i18n.min.js"></script>
     <!--  -->
     
-    <script src="../assets/js/datepicker.js"></script>
+
+    <!-- datepicker -->
+    <script>
+      $.datepicker.setDefaults($.datepicker.regional["zh-TW"]);
+      $(function () {
+        $(".jq-appointmentDate").datepicker({
+          minDate: 0,
+          maxDate: "+1M +10D",
+          formatDate: "yy-mm-dd",
+        });
+      });
+    </script>
   </body>
 </html>
