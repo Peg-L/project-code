@@ -915,7 +915,7 @@
                           required
                         />
                       </div>
-                      <div class="w-150">
+                      <div class="w-150px">
                         <select
                           class="form-select border border-light"
                           id="time"
@@ -2239,11 +2239,133 @@
     <!-- jquery-ui -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/i18n/jquery-ui-i18n.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/i18n/jquery-ui-i18n.min.js"></script>
     <!--  -->
     <script type="module" src="../main.js"></script>
-    <script src="../assets/js/calendar.js"></script>
-    <script src="../assets/js/account.js"></script>
-    <script src="../assets/js/datepicker.js"></script>
+
+    <!-- calender -->
+    <script>
+      const daysTag = document.querySelector(".days");
+      const currentDate = document.querySelector(".current-date");
+      const prevNextIcon = document.querySelectorAll(".icons span");
+
+      let currYear = new Date().getFullYear();
+      let currMonth = new Date().getMonth();
+
+      const months = [
+        "一月",
+        "二月",
+        "三月",
+        "四月",
+        "五月",
+        "六月",
+        "七月",
+        "八月",
+        "九月",
+        "十月",
+        "十一月",
+        "十二月",
+      ];
+
+      const renderCalendar = () => {
+        const date = new Date(currYear, currMonth, 1);
+        let firstDayofMonth = date.getDay();
+        let lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate();
+        let lastDayofMonth = new Date(
+          currYear,
+          currMonth,
+          lastDateofMonth
+        ).getDay();
+        let lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate();
+
+        let liTag = "";
+
+        for (let i = firstDayofMonth; i > 0; i--) {
+          liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
+        }
+
+        for (let i = 1; i <= lastDateofMonth; i++) {
+          let isToday =
+            i === new Date().getDate() &&
+            currMonth === new Date().getMonth() &&
+            currYear === new Date().getFullYear()
+              ? "active"
+              : "";
+          liTag += `<li class="${isToday}">${i}</li>`;
+        }
+
+        for (let i = lastDayofMonth; i < 6; i++) {
+          liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`;
+        }
+
+        currentDate.innerText = `${months[currMonth]} ${currYear}`;
+        daysTag.innerHTML = liTag;
+      };
+
+      renderCalendar();
+
+      prevNextIcon.forEach((icon) => {
+        icon.addEventListener("click", () => {
+          currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
+
+          if (currMonth < 0 || currMonth > 11) {
+            currYear = icon.id === "prev" ? currYear - 1 : currYear + 1;
+            currMonth = currMonth < 0 ? 11 : 0;
+          }
+
+          renderCalendar();
+        });
+      });
+    </script>
+
+    <!-- account -->
+    <script>
+      //抓取按鈕
+      const changeBtn = document.querySelectorAll("#change");
+      const saveBtn = document.querySelectorAll("#saveBtn");
+      //抓取區塊
+      const btnBlock = document.querySelectorAll("#btnBlock");
+      //抓取時間欄
+      const date = document.querySelectorAll("#date");
+      const time = document.querySelectorAll("#time");
+
+      console.log(changeBtn);
+
+      //click觸發修改事件
+      changeBtn.forEach((item, index) => {
+        item.addEventListener("click", (e) => {
+          date[index].toggleAttribute("disabled");
+          time[index].toggleAttribute("disabled");
+          btnBlock[index].classList.toggle("hidden");
+          item.toggleAttribute("disabled");
+        });
+      });
+      saveBtn.forEach((item, index) => {
+        item.addEventListener("click", (e) => {
+          date[index].toggleAttribute("disabled");
+          time[index].toggleAttribute("disabled");
+          btnBlock[index].classList.toggle("hidden");
+          changeBtn[index].toggleAttribute("disabled");
+        });
+      });
+    </script>
+
+    <!-- datepicker -->
+    <script>
+      $.datepicker.setDefaults($.datepicker.regional["zh-TW"]);
+      $(function () {
+        $(".jq-appointmentDate").datepicker({
+          minDate: 0,
+          maxDate: "+1M +10D",
+          formatDate: "yy-mm-dd",
+        });
+      });
+      $(function () {
+        $(".jq-birthday").datepicker({
+          changeMonth: true,
+          changeYear: true,
+        });
+      });
+    </script>
   </body>
 </html>
