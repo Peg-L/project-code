@@ -14,8 +14,8 @@
       href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
     />
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
-    <script type="module" crossorigin src="/project-code/assets/index-3757c659.js"></script>
-    <link rel="stylesheet" href="/project-code/assets/index-4ea3ab2b.css">
+    <script type="module" crossorigin src="/project-code/assets/index-7c0bcf9f.js"></script>
+    <link rel="stylesheet" href="/project-code/assets/index-1cf7cdda.css">
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-white fixed-top">
@@ -790,14 +790,14 @@
               <div class="wrapper mb-10">
                 <header class="calendar-header">
                   <p class="current-date"></p>
-                  <div class="icons">
+                  <div class="icons align-items-center">
                     <span id="prev">
-                      <svg
+                        <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
                         height="16"
                         fill="currentColor"
-                        class="bi bi-caret-left-fill"
+                        class=""
                         viewBox="0 0 16 16"
                       >
                         <path
@@ -1021,7 +1021,7 @@
                   <div
                     class="d-flex flex-md-row flex-column justify-content-md-between mb-md-0 mb-2"
                   >
-                    <h2 class="fs-6 fs-sm-5 fs-md-4 text-truncate mb-2">
+                    <h2 class="fs-6 fs-sm-5 fs-md-4 line-ellipsis mb-2">
                       從零開始成為切版大師
                     </h2>
                     <p>剩餘0堂</p>
@@ -1177,9 +1177,13 @@
                         </select>
                       </div>
                       <button
-                        type="button"
-                        class="btn text-primary"
-                        id="change"
+                      type="button"
+                      class="btn text-primary"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#save1"
+                      aria-expanded="false"
+                      aria-controls="save1"
+                      id="change"
                       >
                         修改
                       </button>
@@ -1207,6 +1211,23 @@
                   class="btn btn-white w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
                 >
                   取消預約
+                </a>
+              </div>
+              <div
+                class="collapse course-card-footer p-4 bg-secondary"
+                id="save1"
+              >
+                <a
+                  href="#"
+                  type="button"
+                  class="btn btn-white w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#save1"
+                  aria-expanded="false"
+                  aria-controls="save1"
+                  id="saveBtn"
+                >
+                  儲存
                 </a>
               </div>
             </li>
@@ -1274,9 +1295,13 @@
                         </select>
                       </div>
                       <button
-                        type="button"
-                        class="btn text-primary"
-                        id="change"
+                      type="button"
+                      class="btn text-primary"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#save2"
+                      aria-expanded="false"
+                      aria-controls="save2"
+                      id="change"
                       >
                         修改
                       </button>
@@ -1304,6 +1329,23 @@
                   class="btn btn-white w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
                 >
                   取消預約
+                </a>
+              </div>
+              <div
+                class="collapse course-card-footer p-4 bg-secondary"
+                id="save2"
+              >
+                <a
+                  href="#"
+                  type="button"
+                  class="btn btn-white w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#save2"
+                  aria-expanded="false"
+                  aria-controls="save2"
+                  id="saveBtn"
+                >
+                  儲存
                 </a>
               </div>
             </li>
