@@ -28,12 +28,27 @@
   list-style-type: decimal;
 }
 
-.line-clamp-4 {
-  //4行以上省略
+.truncate-lines-2 {
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+@include media-breakpoint-up(md) {
+  .truncate-md-lines-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .truncate-md-lines-4 {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 }
 
 .cursor-pointer {
@@ -43,23 +58,4 @@
 //img
 .img-gray {
   filter: grayscale(100%);
-}
-
-// border & shadow
-// https://css-generators.com/wavy-shapes/
-.border-x-wave {
-  --mask: radial-gradient(4.04px at 4.6px 50%, #000 99%, #0000 101%) 0
-      calc(50% - 8px) / 51% 16px repeat-y,
-    radial-gradient(4.04px at -0.6px 50%, #0000 99%, #000 101%) 4px 50% /
-      calc(51% - 4px) 16px repeat-y,
-    radial-gradient(4.04px at calc(100% - 4.6px) 50%, #000 99%, #0000 101%) 100%
-      calc(50% - 8px) / 51% 16px repeat-y,
-    radial-gradient(4.04px at calc(100% + 0.6px) 50%, #0000 99%, #000 101%)
-      calc(100% - 4px) 50% / calc(51% - 4px) 16px repeat-y;
-  -webkit-mask: var(--mask);
-  mask: var(--mask);
-}
-.drop-shadow {
-  -webkit-filter: drop-shadow(0 0.1rem 0.2rem rgba(0, 0, 0, 0.3));
-  filter: drop-shadow(0 0.1rem 0.2rem rgba(0, 0, 0, 0.3));
 }

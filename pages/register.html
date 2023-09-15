@@ -30,89 +30,91 @@
             alt="logo"
           />
           <h1 class="fs-3 mb-2 mb-md-4">會員註冊</h1>
-          <div class="col-12 col-sm-10 col-md-8 col-lg-5">
-            <form>
-              <button
-                type="button"
-                class="btn btn-outline-secondary2 rounded-1 fs-5 w-100 py-3 mb-2 mb-md-4"
+
+          <form
+            id="registerForm"
+            class="col-12 col-sm-10 col-md-8 col-lg-5 needs-validation"
+            novalidate
+          >
+            <button
+              type="button"
+              class="btn btn-outline-secondary2 rounded-1 fs-5 w-100 py-3 mb-2 mb-md-4"
+            >
+              <i class="fa-brands fa-google me-3"></i>使用 Google 註冊
+            </button>
+            <div class="form-floating mb-2 mb-md-4">
+              <input
+                type="email"
+                class="form-control rounded-1"
+                id="floatingInput"
+                placeholder="name@example.com"
+                pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$
+                "
+                required
+              />
+              <label for="floatingInput">Email</label>
+            </div>
+            <div class="form-floating mb-2 mb-md-4">
+              <input
+                type="text"
+                class="form-control rounded-1"
+                id="floatingName"
+                placeholder="Username"
+                required
+              />
+              <label for="floatingName">姓名</label>
+            </div>
+            <div class="form-floating d-flex align-items-center">
+              <input
+                type="password"
+                class="form-control rounded-1"
+                id="floatingPassword"
+                pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$"
+                placeholder="Password"
+                required
+              />
+              <!-- <i class="bi bi-eye-slash-fill position-absolute end-0 p-4"></i> -->
+              <label for="floatingPassword">密碼</label>
+            </div>
+            <div id="passwordHelpBlock" class="form-text ms-2 mb-2 mb-md-4">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-exclamation-circle me-1"
+                viewBox="0 0 16 16"
               >
-                <i class="fa-brands fa-google me-3"></i>使用 Google 註冊
-              </button>
-              <div
-                class="form-floating border border-gray-300 rounded-1 mb-2 mb-md-4"
-              >
-                <input
-                  type="email"
-                  class="form-control"
-                  id="floatingInput"
-                  placeholder="name@example.com"
+                <path
+                  d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
                 />
-                <label for="floatingInput">Email</label>
-              </div>
-              <div
-                class="form-floating border border-gray-300 rounded-1 mb-2 mb-md-4"
-              >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="floatingInputGroup1"
-                  placeholder="Username"
+                <path
+                  d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"
                 />
-                <label for="floatingInputGroup1">姓名</label>
-              </div>
-              <div
-                class="form-floating border border-gray-300 rounded-1 d-flex align-items-center"
-              >
-                <input
-                  type="password"
-                  class="form-control visibility-icon"
-                  id="floatingPassword"
-                  placeholder="Password"
-                />
-                <i class="bi bi-eye-slash-fill position-absolute end-0 p-4"></i>
-                <label for="floatingPassword">密碼</label>
-              </div>
-              <div id="passwordHelpBlock" class="form-text ms-2 mb-2 mb-md-4">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-exclamation-circle me-1"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
-                  />
-                  <path
-                    d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"
-                  />
-                </svg>
-                大小寫英文和數字混合
-              </div>
-              <div
-                class="form-floating border border-gray-300 rounded-1 d-flex align-items-center mb-2 mb-md-4"
-              >
-                <input
-                  type="password"
-                  class="form-control visibility-icon"
-                  id="floatingPassword"
-                  placeholder="Password"
-                />
-                <i class="bi bi-eye-slash-fill position-absolute end-0 p-4"></i>
-                <label for="floatingPassword">確認密碼</label>
-              </div>
-              <button
-                type="button"
-                class="btn btn-secondary2 rounded-1 fs-5 w-100 py-3 mb-4"
-                data-bs-toggle="modal"
-                data-bs-target="#loginSuccess"
-              >
-                <i class="fa-solid fa-user me-3"></i>
-                加入會員
-              </button>
-            </form>
-          </div>
+              </svg>
+              大於8個字元，包含數字、大寫和小寫字母
+            </div>
+            <div class="form-floating d-flex align-items-center mb-2 mb-md-4">
+              <input
+                type="password"
+                class="form-control rounded-1"
+                id="floatingPassword"
+                placeholder="Password"
+                required
+              />
+              <!-- <i class="bi bi-eye-slash-fill position-absolute end-0 p-4"></i> -->
+              <label for="floatingPassword">確認密碼</label>
+            </div>
+            <button
+              id="registerBtn"
+              type="submit"
+              class="btn btn-secondary2 rounded-1 fs-5 w-100 py-3 mb-4"
+              ds-
+            >
+              <i class="fa-solid fa-user me-3"></i>
+              加入會員
+            </button>
+          </form>
         </div>
       </div>
     </div>
@@ -120,9 +122,9 @@
     <!-- login Success Modal-->
     <div
       class="modal fade"
-      id="loginSuccess"
+      id="registerSuccess"
       tabindex="-1"
-      aria-labelledby="loginSuccess"
+      aria-labelledby="registerSuccess"
       aria-hidden="true"
     >
       <div class="modal-dialog modal-dialog-centered">
@@ -180,8 +182,10 @@
 
     <!-- footer -->
     <%- include("./layout/footer.ejs") -%>
+
     <!-- backtotop -->
     <%- include("./layout/backtotop.ejs") -%>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"></script>
     <script type="module" src="../main.js"></script>
   </body>
 </html>
