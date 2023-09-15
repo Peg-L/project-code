@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/js-plugin-circliful-master/dist/main.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="../assets/js-plugin-circliful-master/dist/main.css"
+    />
     <title>C0DE | 讓你從 0 到 Expert</title>
     <link
-    rel="shortcut icon"
-    href="/project-code/assets/favicon-ee1e2dda.ico"
-    type="image/x-icon"
+      rel="shortcut icon"
+      href="/project-code/assets/favicon-ee1e2dda.ico"
+      type="image/x-icon"
     />
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
-  <script type="module" crossorigin src="/project-code/assets/index-3ac15f25.js"></script>
-  <link rel="stylesheet" href="/project-code/assets/index-7097ee61.css">
-</head>
-<body>
+    <script type="module" crossorigin src="/project-code/assets/index-ac7146c9.js"></script>
+    <link rel="stylesheet" href="/project-code/assets/index-5f6e8dd5.css">
+  </head>
+  <body>
     <nav class="navbar navbar-expand-lg bg-white fixed-top">
   <div class="container">
     <h1 class="navbar-brand">
@@ -31,7 +34,13 @@
         />
       </a>
     </h1>
-    <div>
+    <div class="d-flex">
+      <a
+        class="d-lg-none btn btn-outline-secondary2 border-0 hasProducts"
+        href="./cart.html"
+        type="button"
+        ><i class="fa-solid fa-cart-shopping"></i
+      ></a>
       <input type="checkbox" id="menu-toggle" />
       <label
         for="menu-toggle"
@@ -55,7 +64,7 @@
       >
         <li class="nav-item">
           <a
-            class="nav-link pc d-none d-lg-block "
+            class="nav-link pc d-none d-lg-block menu-active"
             aria-current="page"
             href="./course.html"
             >課程分類</a
@@ -67,7 +76,7 @@
             <div class="accordion-item">
               <h2 class="accordion-header">
                 <button
-                  class="accordion-button collapsed nav-link"
+                  class="accordion-button collapsed nav-link menu-active"
                   type="button"
                   data-bs-toggle="collapse"
                   data-bs-target="#category"
@@ -101,7 +110,10 @@
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link pc d-none d-lg-block" aria-current="page" href="#"
+          <a
+            class="nav-link pc d-none d-lg-block "
+            aria-current="page"
+            href="./faq.html"
             >常見問題</a
           >
           <div
@@ -111,7 +123,7 @@
             <div class="accordion-item">
               <h2 class="accordion-header">
                 <button
-                  class="accordion-button collapsed nav-link"
+                  class="accordion-button collapsed nav-link "
                   type="button"
                   data-bs-toggle="collapse"
                   data-bs-target="#faq"
@@ -127,8 +139,8 @@
                 data-bs-parent="#accordionFlush"
               >
                 <ul class="accordion-body text-center">
-                  <li><a href="###">學生常見問答</a></li>
-                  <li><a href="###">老師常見問答</a></li>
+                  <li><a href="./faq.html">學生常見問答</a></li>
+                  <li><a href="./faq.html">老師常見問答</a></li>
                 </ul>
               </div>
             </div>
@@ -158,9 +170,9 @@
 
       <div class="d-flex flex-column flex-lg-row row-gap-2 mt-6 mt-lg-0">
         <a
+          class="d-none d-lg-block btn btn-outline-secondary2 border-0 hasProducts"
           href="./cart.html"
           type="button"
-          class="btn btn-outline-secondary2 border-0"
           ><i class="fa-solid fa-cart-shopping"></i
         ></a>
         <a
@@ -229,7 +241,7 @@
         <div class="d-flex gap-3">
           <img
             style="width: 60px; height: 60px"
-            src="../assets/images/teacher/mike.png"
+            src="/project-code/assets/mike-3c4b76a2.png"
             alt="mike"
           />
           <div class="d-flex flex-column justify-content-between truncate">
@@ -249,16 +261,16 @@
         <div class="d-flex gap-3">
           <img
             style="width: 60px; height: 60px"
-            src="../assets/images/teacher/arong.png"
+            src="/project-code/assets/arong-b7b838fb.png"
             alt="mike"
           />
           <div class="d-flex flex-column justify-content-between truncate">
             <div class="d-flex justify-content-between">
-              <h4 class="fs-6">Aaron</h4>
+              <h4 class="fs-6">榮哥</h4>
               <span>4 天前</span>
             </div>
             <p class="text-truncate">
-              恭喜你上完 10 堂 JavaScript線上教學，順利
+              謝謝你預約「一起打造你的前端職涯」課程，這是上課內容大綱的檔案連結，可以提前思考有什麼相關的問題想詢問，期待禮拜五見囉
             </p>
           </div>
         </div>
@@ -269,12 +281,12 @@
         <div class="d-flex gap-3">
           <img
             style="width: 60px; height: 60px"
-            src="/project-code/assets/alice-ec7da41c.png"
+            src="/project-code/assets/alice-26beb67d.png"
             alt="mike"
           />
           <div class="d-flex flex-column justify-content-between truncate">
             <div class="d-flex justify-content-between">
-              <h4 class="fs-6">Python 專家艾莉絲</h4>
+              <h4 class="fs-6">艾莉絲</h4>
               <span>5 天前</span>
             </div>
             <p class="text-truncate">
@@ -307,7 +319,7 @@
       <img
         class="me-3"
         style="width: 50px; height: 50px"
-        src="../assets/images/teacher/mike.png"
+        src="/project-code/assets/mike-3c4b76a2.png"
         alt="mike"
       />
       <h5 class="offcanvas-title" id="offcanvasRightLabel">麥克先生</h5>
@@ -325,7 +337,7 @@
         <img
           class="me-3"
           style="width: 40px; height: 40px"
-          src="../assets/images/teacher/mike.png"
+          src="/project-code/assets/mike-3c4b76a2.png"
           alt="mike"
         />
         <div>
@@ -337,7 +349,7 @@
         <img
           class="me-3"
           style="width: 40px; height: 40px"
-          src="../assets/images/teacher/mike.png"
+          src="/project-code/assets/mike-3c4b76a2.png"
           alt="mike"
         />
         <div>
@@ -352,7 +364,7 @@
         <img
           class="me-3"
           style="width: 40px; height: 40px"
-          src="../assets/images/teacher/mike.png"
+          src="/project-code/assets/mike-3c4b76a2.png"
           alt="mike"
         />
         <div>
@@ -376,696 +388,874 @@
   <div id="editor"></div>
 </div>
     <div class="container mt-16 mt-md-19 mt-lg-27">
-        <div class="row">
-            <div class="col-12 col-lg-7 mb-lg-0 mb-10">
-                <!-- 1 -->
-                <div class="rounded shadow p-lg-12 mb-lg-12 p-6 mb-10">
-                    <div class="d-flex flex-lg-row flex-column">
-                        <div class="d-flex flex-column align-items-center me-lg-12 mb-lg-0 mb-5">
-                            <img class="mb-lg-2" src="/project-code/assets/Rectangle 7-ab3dd5b8.png" alt="" width="100" height="100">
-                            <p class="fs-6 fw-bold text-secondary2">麥克先生</p>
-                        </div>
-                        <div class="">
-                            <h4 class="teacher-card-title mb-2">從零開始成為切版大師</h3>
-                            <p class="mb-2 text-secondary2">前端語言</p>
-                            <p>帶領零基礎的平民老百姓，從最基礎的 HTML 語法出發，使用最淺顯易懂的語言與生活隨處可見的例子，輕鬆進入網頁架設的世界，手把手教你做出完整的網頁作品。</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- 2 -->
-                <h2 class="fs-5 mb-4">老師介紹</h2>
-                <div class="rounded shadow p-lg-12 mb-lg-12 p-6 mb-10">
-                    <div class="d-flex flex-lg-row flex-column pb-lg-8 mb-lg-8 mb-6 border-bottom">
-                        <div class="d-flex flex-column mb-lg-0 mb-4 me-lg-8">
-                            <p class="d-flex mb-4 align-items-lg-center">
-                                <span class="text-primary material-symbols-outlined d-block me-1">
-                                school
-                                </span>
-                                <span class="text-gray-300 me-2">學歷</span>國立中央大學 資訊工程 <br class="d-lg-none d-block">碩士 畢業
-                            </p>
-                            <p class=" d-flex align-items-lg-center">
-                                <span class="text-primary material-symbols-outlined d-block me-1">
-                                business_center
-                                </span>
-                                <span class="text-gray-300 text-c1  me-2">經歷</span>2020.08 - 迄今 上市企業 前端工程師
-                            </p>
-                        </div>
-                        <div class="d-flex flex-column">
-                            <p class="d-flex mb-4 align-items-center">
-                                <span class="text-primary  material-symbols-outlined d-block me-1">
-                                translate
-                                </span>
-                                <span class="text-gray-300 me-2">語言</span>中文/英文
-                            </p>
-                            <p class="d-flex mb-lg-0 mb-6 align-items-center">
-                                <span class="text-primary material-symbols-outlined d-block me-1">
-                                military_tech
-                                </span>
-                                <span class="text-gray-300 me-2">等級</span>入門
-                            </p>
-                        </div>
-                    </div>
-                    <p class="mb-8">目前任職於上市企業資深前端工程師，總年資 8 年，興趣是幫助他人學習程式語言，我相信，透過清楚的講解與示範，任何人都可以學好怎麼寫程式與電腦科學中的複雜概念。</p>
-                    <p>你可以在我的課程中累積作品，我重視知識分享和實作練習並行，帶你一步一步完成作品，提前做面試準備。重視每個學生的差異並量身定制指導，根據你的背景和目標，提供最適合你的建議，讓你進步更快速。一個人走的快，一群人走得遠，請善用學生專屬社群，在這個社群中與其他學生多多互相學習和交流。</p>
-                </div>
-                <!-- 3 -->
-                <h2 class="fs-5 mb-4">課程簡介</h2>
-                <div class="rounded shadow p-lg-12 mb-lg-12 p-6 mb-10">
-                        <h3 class="title-line ps-4 fs-6 mb-4 position-relative">這堂課你將會學到：</h3>
-                        <ul class="d-flex flex-column mb-8 ps-2">
-                            <li class="list-decorate ps-4 position-relative">網頁設計，基礎知識</li>
-                            <li class="list-decorate ps-4 position-relative">HTML 語法，概念實作能力</li>
-                            <li class="list-decorate ps-4 position-relative">CSS , Javascript 概念與知識</li>
-                            <li class="list-decorate ps-4 position-relative">能做出一個基礎的HTML 網頁</li>
-                        </ul>
-                        <h3 class="title-line ps-4 fs-6 mb-lg-4 mb-8 position-relative">什麼是 HTML，為什麼要打造網頁，就一定要先學它？</h3>
-                        <p class="mb-4">HTML元素是構建網站的基石。HTML允許嵌入圖像與物件，並且可以用於建立互動式表單，它被用來結構化資訊——例如標題、段落和列表等等，也可用來在一定程度上描述文件的外觀和語意。</p>
-                        <p class="">當你掌握了HTML，就可以開始規劃並建置你想要的網頁內容 !</p>
-                </div>
-                <!-- 4 -->
-                <h2 class="fs-5 mb-4">授課時間</h2>
-                <div class="mb-lg-12 mb-10">
-                    <!-- data -->
-                    <div class="d-flex align-items-center justify-content-around mb-4">
-                        <button type="button" class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 btn-week">
-                        <span class="material-symbols-outlined">
-                        chevron_left
-                        </span></button>
-                        <p class=""> 2023/08/20 ~ 26</p>
-                        <button type="button" class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 btn-week">
-                        <span class="material-symbols-outlined">
-                        navigate_next
-                        </span></button>
-                    </div>
-                    <!-- calendar -->
-                    <ul class="calendar d-flex gap-1 justify-content-between flex-lg-nowrap flex-wrap">
-                        <li class="calendar-list">
-                            <p class="text-center">日</p>
-                            <ul class="calendar-time">
-                                <li class=""><a href="" class=" text-primary ">08:00</a></li>
-                                <li><a href="">08:30</a></li>
-                                <li><a href="">09:00</a></li>
-                                <li><a href="">09:30</a></li>
-                                <li><a href="">10:00</a></li>
-                            </ul>
-                        </li>
-                        <li class="calendar-list">
-                            <p class="text-center">一</p>
-                            <ul class="calendar-time">
-                                <li class=""><a href="" class=" text-primary ">08:00</a></li>
-                                <li><a href="">08:30</a></li>
-                                <li><a href="">09:00</a></li>
-                                <li><a href="">09:30</a></li>
-                                <li><a href="">10:00</a></li>
-                            </ul>
-                        </li>
-                        <li class="calendar-list">
-                            <p class="text-center">二</p>
-                            <ul class="calendar-time">
-                                <li class=""><a href="" class=" text-primary ">08:00</a></li>
-                                <li><a href="">08:30</a></li>
-                                <li><a href="">09:00</a></li>
-                                <li><a href="">09:30</a></li>
-                                <li><a href="">10:00</a></li>
-                            </ul>
-                        </li>
-                        <li class="calendar-list">
-                            <p class="text-center">三</p>
-                            <ul class="calendar-time">
-                                <li class=""><a href="" class=" text-primary ">08:00</a></li>
-                                <li><a href="">08:30</a></li>
-                                <li><a href="">09:00</a></li>
-                                <li><a href="">09:30</a></li>
-                                <li><a href="">10:00</a></li>
-                            </ul>
-                        </li>
-                        <li class="calendar-list">
-                            <p class="text-center">四</p>
-                            <ul class="calendar-time">
-                                <li class=""><a href="" class=" text-primary ">08:00</a></li>
-                                <li><a href="">08:30</a></li>
-                                <li><a href="">09:00</a></li>
-                                <li><a href="" class=" text-primary ">09:30</a></li>
-                                <li><a href="" class=" text-primary ">10:00</a></li>
-                            </ul>
-                        </li>
-                        <li class="calendar-list">
-                            <p class="text-center">五</p>
-                            <ul class="calendar-time">
-                                <li class=""><a href="" class=" text-primary ">08:00</a></li>
-                                <li><a href="">08:30</a></li>
-                                <li><a href="">09:00</a></li>
-                                <li><a href="">09:30</a></li>
-                                <li><a href="">10:00</a></li>
-                                <li><a href="">10:30</a></li>
-                                <li><a href="" class=" text-primary fw-bold">11:00</a></li>
-                                <li><a href="" class=" text-primary fw-bold">11:30</a></li>
-                            </ul>
-                        </li>
-                        <li class="calendar-list">
-                            <p class="text-center">六</p>
-                            <ul class="calendar-time">
-                                <li class=""><a href="" class=" text-primary ">08:00</a></li>
-                                <li><a href="">08:30</a></li>
-                                <li><a href="">09:00</a></li>
-                                <li><a href="">09:30</a></li>
-                                <li><a href="">10:00</a></li>
-                            </ul>
-                        </li>
-                            <button type="button" class="btn mx-auto btn-calendar text-secondary2" data-bs-toggle="modal" data-bs-target="#courseTime">
-                                顯示全部時間
-                            </button>
-                    </ul>
-                    
-                </div>
-                <!-- 5 -->
-                <h2 class="fs-5 mb-4">教師表現數據</h2>
-                <div class="rounded shadow p-lg-12 mb-lg-12 p-6 mb-10">
-                        <ul class="row g-4">
-                            <li class="col-lg-4 col-12 d-flex justify-content-center">
-                                <div class="circle" id="circle1" style=" height: 200px;"></div>
-                            </li>
-                            <li class="col-lg-4 col-12  d-flex justify-content-center">
-                                <div class="circle" id="circle2" style=" height: 200px;"></div>
-                            </li>
-                            <li class="col-lg-4 col-12  d-flex justify-content-center">
-                                <div class="circle" id="circle3" style="height: 200px;"></div>
-                            </li>
-                        </ul>
-                </div>
-                <!-- 6 -->
-                <div class="d-flex">
-                    <h2 class="fs-5 mb-lg-4 me-2">課程評價</h2>
-                    <ul class="d-flex align-items-center">
-                        <li class="star">
-                            <span class="material-symbols-outlined">
-                            star
-                            </span>
-                        </li>
-                        <li class="star">
-                            <span class="material-symbols-outlined">
-                            star
-                            </span>
-                        </li>
-                        <li class="star">
-                            <span class="material-symbols-outlined">
-                            star
-                            </span>
-                        </li>
-                        <li class="star">
-                            <span class="material-symbols-outlined">
-                            star
-                            </span>
-                        </li>
-                        <li class="star">
-                            <span class="material-symbols-outlined">
-                            star_half
-                            </span>
-                        </li>
-                        <li class="star">
-                            4.9/5
-                        </li>
-                    </ul>
-                </div>
-                <ul class="card-evaluate">
-                    <li class="card-evaluate-content mb-lg-5">
-                        麥克老師是我轉職成功的關鍵！他非常專業且有耐心，從零開始教我寫程式，培養了我的切版能力。擁有作品集和個人網站，面試中展示了我的巨大優勢，學習 9 個月後找到工作~
-                    </li>
-                    <li class="card-evaluate-person flex-lg-row flex-row-reverse">
-                        <img src="/project-code/assets/Ellipse 1-3b755c1a.svg" alt="">
-                        <div class="d-flex flex-column">
-                            <div class="text-primary d-flex align-items-center">
-                                <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                            </div>
-                            <div class="align-bottom">
-                                <p class="card-evaluate-name">Cookie<span class="ms-1 card-evaluate-title">學生</span></p>
-                            </div>
-                        </div>
-                        
-                    </li>
-                </ul>
-                <ul class="card-evaluate">
-                    <li class="card-evaluate-content mb-lg-5">
-                        最好的學習方法是理論搭配實作，老師會提供設計稿或是範例版型，讓我可以透過實作加深學習印象，並找到還不了解的問題點，深入每次上課的學習。</li>
-                    <li class="card-evaluate-person flex-lg-row flex-row-reverse">
-                        <img src="/project-code/assets/wei-f8a64f12.png" alt="學生">
-                        <div class="d-flex flex-column">
-                            <div class="text-primary d-flex align-items-center">
-                                <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                            </div>
-                            <div class="align-bottom">
-                                <p class="card-evaluate-name">小偉<span class="ms-1 card-evaluate-title">前端工程師</span></p>
-                            </div>
-                        </div>
-                        
-                    </li>
-                </ul>
-                <div class="d-flex justify-content-center">
-                    <button type="button" class="btn text-secondary2" data-bs-toggle="modal" data-bs-target="#courseTalk">
-                        查看所有評論(10)
-                    </button>
-                </div>
+      <div class="row">
+        <div class="col-12 col-lg-7 mb-lg-0 mb-10">
+          <!-- 1 -->
+          <div class="rounded shadow p-lg-12 mb-lg-12 p-6 mb-10">
+            <div class="d-flex flex-lg-row flex-column">
+              <div
+                class="d-flex flex-column align-items-center me-lg-12 mb-lg-0 mb-5"
+              >
+                <img
+                  class="mb-lg-2"
+                  src="/project-code/assets/Rectangle 7-ab3dd5b8.png"
+                  alt=""
+                  width="100"
+                  height="100"
+                />
+                <p class="fs-6 fw-bold text-secondary2">麥克先生</p>
+              </div>
+              <div class="">
+                <h2 class="teacher-card-title mb-2">從零開始成為切版大師</h2>
+                <p class="mb-2 text-secondary2">前端語言</p>
+                <p>
+                  帶領零基礎的平民老百姓，從最基礎的 HTML
+                  語法出發，使用最淺顯易懂的語言與生活隨處可見的例子，輕鬆進入網頁架設的世界，手把手教你做出完整的網頁作品。
+                </p>
+              </div>
             </div>
-            <div class="col-12 col-lg-4 offset-lg-1">
-                <div class="view-move">
-                    <h2 class="fs-5 mb-4">一對一教學</h2>
-                    <div class="rounded shadow p-lg-12 mb-lg-12 p-6 mb-10">
-                        <ul class="d-flex flex-column gap-">
-                            <li class="py-4 d-flex justify-content-between align-items-center border-bottom border-gray-200">
-                                <div>
-                                    <p class="fs-4 fw-bold">NT$1100</p>
-                                    <p class="">1堂50分鐘</p>
-                                </div>
-                                <button type="button" class="btn btn-text">立即預約</button>
-                            </li>
-                            <li class="py-4 d-flex justify-content-between align-items-center border-bottom border-gray-200">
-                                <div>
-                                    <p class="fs-4 fw-bold">NT$1000</p>
-                                    <p class="">3堂50分鐘</p>
-                                </div>
-                                <button type="button" class="btn btn-text">立即預約</button>
-                            </li>
-                            <li class="py-4 d-flex justify-content-between align-items-center border-bottom border-gray-200">
-                                <div>
-                                    <p class="fs-4 fw-bold">NT$900</p>
-                                    <p class="">10堂50分鐘</p>
-                                </div>
-                                <button type="button" class="btn btn-text">立即預約</button>
-                            </li>
-                            <li class="py-4 d-flex justify-content-between align-items-center border-bottom border-gray-200">
-                                <div>
-                                    <p class="fs-4 fw-bold">NT$800</p>
-                                    <p class="">20堂50分鐘</p>
-                                </div>
-                                <button type="button" class="btn btn-text">立即預約</button>
-                            </li>
-                            <li class="py-4 d-flex justify-content-between align-items-center">
-                                <div>
-                                    <p class="fs-4 fw-bold">洽談報價</p>
-                                    <p class="">客製化課程/專案製作</p>
-                                </div>
-                                <button type="button" class="btn btn-text">立即洽談</button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+          </div>
+          <!-- 2 -->
+          <h2 class="fs-5 mb-4">老師介紹</h2>
+          <div class="rounded shadow p-lg-12 mb-lg-12 p-6 mb-10">
+            <div
+              class="d-flex flex-lg-row flex-column pb-lg-8 mb-lg-8 mb-6 border-bottom"
+            >
+              <div class="d-flex flex-column mb-lg-0 mb-4 me-lg-8">
+                <p class="d-flex mb-4 align-items-lg-center">
+                  <span
+                    class="text-primary material-symbols-outlined d-block me-1"
+                  >
+                    school
+                  </span>
+                  <span class="text-gray-300 me-2">學歷</span>國立中央大學
+                  資訊工程 <br class="d-lg-none d-block" />碩士 畢業
+                </p>
+                <p class="d-flex align-items-lg-center">
+                  <span
+                    class="text-primary material-symbols-outlined d-block me-1"
+                  >
+                    business_center
+                  </span>
+                  <span class="text-gray-300 text-c1 me-2">經歷</span>2020.08 -
+                  迄今 上市企業 前端工程師
+                </p>
+              </div>
+              <div class="d-flex flex-column">
+                <p class="d-flex mb-4 align-items-center">
+                  <span
+                    class="text-primary material-symbols-outlined d-block me-1"
+                  >
+                    translate
+                  </span>
+                  <span class="text-gray-300 me-2">語言</span>中文/英文
+                </p>
+                <p class="d-flex mb-lg-0 mb-6 align-items-center">
+                  <span
+                    class="text-primary material-symbols-outlined d-block me-1"
+                  >
+                    military_tech
+                  </span>
+                  <span class="text-gray-300 me-2">等級</span>入門
+                </p>
+              </div>
             </div>
-        </div>               
+            <p class="mb-8">
+              目前任職於上市企業資深前端工程師，總年資 8
+              年，興趣是幫助他人學習程式語言，我相信，透過清楚的講解與示範，任何人都可以學好怎麼寫程式與電腦科學中的複雜概念。
+            </p>
+            <p>
+              你可以在我的課程中累積作品，我重視知識分享和實作練習並行，帶你一步一步完成作品，提前做面試準備。重視每個學生的差異並量身定制指導，根據你的背景和目標，提供最適合你的建議，讓你進步更快速。一個人走的快，一群人走得遠，請善用學生專屬社群，在這個社群中與其他學生多多互相學習和交流。
+            </p>
+          </div>
+          <!-- 3 -->
+          <h2 class="fs-5 mb-4">課程簡介</h2>
+          <div class="rounded shadow p-lg-12 mb-lg-12 p-6 mb-10">
+            <h3 class="title-line ps-4 fs-6 mb-4 position-relative">
+              這堂課你將會學到：
+            </h3>
+            <ul class="d-flex flex-column mb-8 ps-2">
+              <li class="list-decorate ps-4 position-relative">
+                網頁設計，基礎知識
+              </li>
+              <li class="list-decorate ps-4 position-relative">
+                HTML 語法，概念實作能力
+              </li>
+              <li class="list-decorate ps-4 position-relative">
+                CSS , Javascript 概念與知識
+              </li>
+              <li class="list-decorate ps-4 position-relative">
+                能做出一個基礎的HTML 網頁
+              </li>
+            </ul>
+            <h3 class="title-line ps-4 fs-6 mb-lg-4 mb-8 position-relative">
+              什麼是 HTML，為什麼要打造網頁，就一定要先學它？
+            </h3>
+            <p class="mb-4">
+              HTML元素是構建網站的基石。HTML允許嵌入圖像與物件，並且可以用於建立互動式表單，它被用來結構化資訊——例如標題、段落和列表等等，也可用來在一定程度上描述文件的外觀和語意。
+            </p>
+            <p class="">
+              當你掌握了HTML，就可以開始規劃並建置你想要的網頁內容 !
+            </p>
+          </div>
+          <!-- 4 -->
+          <h2 class="fs-5 mb-4">授課時間</h2>
+          <div class="mb-lg-12 mb-10">
+            <!-- data -->
+            <div class="d-flex align-items-center justify-content-around mb-4">
+              <button
+                type="button"
+                class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 btn-week"
+              >
+                <span class="material-symbols-outlined"> chevron_left </span>
+              </button>
+              <p class="">2023/08/20 ~ 26</p>
+              <button
+                type="button"
+                class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 btn-week"
+              >
+                <span class="material-symbols-outlined"> navigate_next </span>
+              </button>
+            </div>
+            <!-- calendar -->
+            <ul
+              class="calendar d-flex gap-1 justify-content-between flex-lg-nowrap flex-wrap"
+            >
+              <li class="calendar-list">
+                <p class="text-center">日</p>
+                <ul class="calendar-time">
+                  <li class=""><a href="" class="text-primary">08:00</a></li>
+                  <li><a href="">08:30</a></li>
+                  <li><a href="">09:00</a></li>
+                  <li><a href="">09:30</a></li>
+                  <li><a href="">10:00</a></li>
+                </ul>
+              </li>
+              <li class="calendar-list">
+                <p class="text-center">一</p>
+                <ul class="calendar-time">
+                  <li class=""><a href="" class="text-primary">08:00</a></li>
+                  <li><a href="">08:30</a></li>
+                  <li><a href="">09:00</a></li>
+                  <li><a href="">09:30</a></li>
+                  <li><a href="">10:00</a></li>
+                </ul>
+              </li>
+              <li class="calendar-list">
+                <p class="text-center">二</p>
+                <ul class="calendar-time">
+                  <li class=""><a href="" class="text-primary">08:00</a></li>
+                  <li><a href="">08:30</a></li>
+                  <li><a href="">09:00</a></li>
+                  <li><a href="">09:30</a></li>
+                  <li><a href="">10:00</a></li>
+                </ul>
+              </li>
+              <li class="calendar-list">
+                <p class="text-center">三</p>
+                <ul class="calendar-time">
+                  <li class=""><a href="" class="text-primary">08:00</a></li>
+                  <li><a href="">08:30</a></li>
+                  <li><a href="">09:00</a></li>
+                  <li><a href="">09:30</a></li>
+                  <li><a href="">10:00</a></li>
+                </ul>
+              </li>
+              <li class="calendar-list">
+                <p class="text-center">四</p>
+                <ul class="calendar-time">
+                  <li class=""><a href="" class="text-primary">08:00</a></li>
+                  <li><a href="">08:30</a></li>
+                  <li><a href="">09:00</a></li>
+                  <li><a href="" class="text-primary">09:30</a></li>
+                  <li><a href="" class="text-primary">10:00</a></li>
+                </ul>
+              </li>
+              <li class="calendar-list">
+                <p class="text-center">五</p>
+                <ul class="calendar-time">
+                  <li class=""><a href="" class="text-primary">08:00</a></li>
+                  <li><a href="">08:30</a></li>
+                  <li><a href="">09:00</a></li>
+                  <li><a href="">09:30</a></li>
+                  <li><a href="">10:00</a></li>
+                  <li><a href="">10:30</a></li>
+                  <li><a href="" class="text-primary fw-bold">11:00</a></li>
+                  <li><a href="" class="text-primary fw-bold">11:30</a></li>
+                </ul>
+              </li>
+              <li class="calendar-list">
+                <p class="text-center">六</p>
+                <ul class="calendar-time">
+                  <li class=""><a href="" class="text-primary">08:00</a></li>
+                  <li><a href="">08:30</a></li>
+                  <li><a href="">09:00</a></li>
+                  <li><a href="">09:30</a></li>
+                  <li><a href="">10:00</a></li>
+                </ul>
+              </li>
+              <button
+                type="button"
+                class="btn mx-auto btn-calendar text-secondary2"
+                data-bs-toggle="modal"
+                data-bs-target="#courseTime"
+              >
+                顯示全部時間
+              </button>
+            </ul>
+          </div>
+          <!-- 5 -->
+          <h2 class="fs-5 mb-4">教師表現數據</h2>
+          <div class="rounded shadow p-lg-12 mb-lg-12 p-6 mb-10">
+            <ul class="row g-4">
+              <li class="col-lg-4 col-12 d-flex justify-content-center">
+                <div class="circle" id="circle1" style="height: 200px"></div>
+              </li>
+              <li class="col-lg-4 col-12 d-flex justify-content-center">
+                <div class="circle" id="circle2" style="height: 200px"></div>
+              </li>
+              <li class="col-lg-4 col-12 d-flex justify-content-center">
+                <div class="circle" id="circle3" style="height: 200px"></div>
+              </li>
+            </ul>
+          </div>
+          <!-- 6 -->
+          <div class="d-flex">
+            <h2 class="fs-5 mb-lg-4 me-2">課程評價</h2>
+            <ul class="d-flex align-items-center">
+              <li class="star">
+                <span class="material-symbols-outlined"> star </span>
+              </li>
+              <li class="star">
+                <span class="material-symbols-outlined"> star </span>
+              </li>
+              <li class="star">
+                <span class="material-symbols-outlined"> star </span>
+              </li>
+              <li class="star">
+                <span class="material-symbols-outlined"> star </span>
+              </li>
+              <li class="star">
+                <span class="material-symbols-outlined"> star_half </span>
+              </li>
+              <li class="star">4.9/5</li>
+            </ul>
+          </div>
+          <ul class="card-evaluate">
+            <li class="card-evaluate-content mb-lg-5">
+              麥克老師是我轉職成功的關鍵！他非常專業且有耐心，從零開始教我寫程式，培養了我的切版能力。擁有作品集和個人網站，面試中展示了我的巨大優勢，學習
+              9 個月後找到工作~
+            </li>
+            <li class="card-evaluate-person flex-lg-row flex-row-reverse">
+              <img src="/project-code/assets/Ellipse 1-3b755c1a.svg" alt="" />
+              <div class="d-flex flex-column">
+                <div class="text-primary d-flex align-items-center">
+                  <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                  <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                  <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                  <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                  <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                </div>
+                <div class="align-bottom">
+                  <p class="card-evaluate-name">
+                    Cookie<span class="ms-1 card-evaluate-title">學生</span>
+                  </p>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <ul class="card-evaluate">
+            <li class="card-evaluate-content mb-lg-5">
+              最好的學習方法是理論搭配實作，老師會提供設計稿或是範例版型，讓我可以透過實作加深學習印象，並找到還不了解的問題點，深入每次上課的學習。
+            </li>
+            <li class="card-evaluate-person flex-lg-row flex-row-reverse">
+              <img src="/project-code/assets/wei-f8a64f12.png" alt="學生" />
+              <div class="d-flex flex-column">
+                <div class="text-primary d-flex align-items-center">
+                  <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                  <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                  <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                  <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                  <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                </div>
+                <div class="align-bottom">
+                  <p class="card-evaluate-name">
+                    小偉<span class="ms-1 card-evaluate-title">前端工程師</span>
+                  </p>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <div class="d-flex justify-content-center">
+            <button
+              type="button"
+              class="btn text-secondary2"
+              data-bs-toggle="modal"
+              data-bs-target="#courseTalk"
+            >
+              查看所有評論(10)
+            </button>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4 offset-lg-1">
+          <div class="view-move">
+            <h2 class="fs-5 mb-4">一對一教學</h2>
+            <div class="rounded shadow p-lg-12 mb-lg-12 p-6 mb-10">
+              <ul class="d-flex flex-column gap-">
+                <li
+                  class="py-4 d-flex justify-content-between align-items-center border-bottom border-gray-200"
+                >
+                  <div>
+                    <p class="fs-4 fw-bold">NT$1100</p>
+                    <p class="">1堂50分鐘</p>
+                  </div>
+                  <a href="./cart.html" type="button" class="btn btn-text"
+                    >立即預約</a
+                  >
+                </li>
+                <li
+                  class="py-4 d-flex justify-content-between align-items-center border-bottom border-gray-200"
+                >
+                  <div>
+                    <p class="fs-4 fw-bold">NT$1000</p>
+                    <p class="">3堂50分鐘</p>
+                  </div>
+                  <a href="./cart.html" type="button" class="btn btn-text"
+                    >立即預約</a
+                  >
+                </li>
+                <li
+                  class="py-4 d-flex justify-content-between align-items-center border-bottom border-gray-200"
+                >
+                  <div>
+                    <p class="fs-4 fw-bold">NT$900</p>
+                    <p class="">10堂50分鐘</p>
+                  </div>
+                  <a href="./cart.html" type="button" class="btn btn-text"
+                    >立即預約</a
+                  >
+                </li>
+                <li
+                  class="py-4 d-flex justify-content-between align-items-center border-bottom border-gray-200"
+                >
+                  <div>
+                    <p class="fs-4 fw-bold">NT$800</p>
+                    <p class="">20堂50分鐘</p>
+                  </div>
+                  <a href="./cart.html" type="button" class="btn btn-text"
+                    >立即預約</a
+                  >
+                </li>
+                <li
+                  class="py-4 d-flex justify-content-between align-items-center"
+                >
+                  <div>
+                    <p class="fs-4 fw-bold">洽談報價</p>
+                    <p class="">客製化課程/專案製作</p>
+                  </div>
+                  <button
+                    type="button"
+                    class="btn btn-text"
+                    aria-current="page"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#message-list"
+                    aria-controls="#message-list"
+                  >
+                    立即洽談
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="bg-custom mt-lg-8">
-        <div class="container py-lg-20 py-10">
-            <div class="d-flex justify-content-between mb-lg-10 mb-5">
-                <h2 class="fs-5 fw-medium align-bottom">熱門教師推薦</h2>
-                <a href="./course.html" type="button" class="btn btn-text fw-medium align-self-end py-0 pe-2">查看更多</a>
-            </div>
-            <div class="row g-6">
-                <div class="col-12 col-lg-4">
-                    <div class="teacher-card">
-                        <div class="teacher-card-profile">
-                            <div class="teacher-card-content">
-                                <h3 class="teacher-card-title">一起打造你的前端職涯
-                                </h3>
-                                <p class="teacher-card-name">榮哥</p>
-                                <ul class="teacher-card-object">
-                                    <!-- 評價 -->
-                                    <li class="teacher-card-evaluate">5.0</li>
-                                    <!-- 時數 -->
-                                    <li class="teacher-card-hours">50分鐘</li>
-                                </ul>
-                                <p class="teacher-card-price">NT$<span>1,000</span></p>
-                            </div>
-                            <div class="teacher-card-img">
-                                <img src="/project-code/assets/Rectangle 8-2a3cf305.png" alt="" class="">
-                            </div>
-                        </div>
-                        <p class="teacher-card-text">
-                            協助你定位自己的前端職涯，並提供實用的指導和建議，以確保你能夠在競爭激烈的市場中脫穎而出。
-                        </p>
-                        <a href="./cart.html" type="button" class="btn btn-secondary2 w-100 mb-3">
-                            立即上課
-                        </a>
-                        <a href="./course_intro.html" type="button" class="btn teacher-card-btn">查看介紹</a>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-4 d-lg-block d-none">
-                    <div class="teacher-card">
-                        <div class="teacher-card-profile">
-                            <div class="teacher-card-content">
-                                <h3 class="teacher-card-title">Python 全攻略
-                                </h3>
-                                <p class="teacher-card-name">艾莉絲</p>
-                                <ul class="teacher-card-object">
-                                    <!-- 評價 -->
-                                    <li class="teacher-card-evaluate">5.0</li>
-                                    <!-- 時數 -->
-                                    <li class="teacher-card-hours">50分鐘</li>
-                                </ul>
-                                <p class="teacher-card-price">NT$<span>1,000</span></p>
-                            </div>
-                            <div class="teacher-card-img">
-                                <img src="/project-code/assets/Rectangle 9-7f0cfb4e.png" alt="" class="">
-                            </div>
-                        </div>
-                        <p class="teacher-card-text">嗨，我是艾莉絲，有 8 年的 Python 開發經歷和 3
-                    年的教學經驗。我的專業有軟體開發、數據分析、人工智慧等各個
-                    Python
-                    相關領域，能和你分享非常專業且豐富的知識和實際案例，協助您建立紮實的
-                    Python
-                    基礎，無論你是初學者還是資深工程師，我都可以協助你找到適合自己的學習路徑。我將帶領學生深入探索
-                    Python 的各個層面，從基礎知識到高級應用，讓你具備全面的
-                    Python 技能，以應對不同領域的挑戰。</p>
-                        <a href="./cart.html" type="button" class="btn btn-secondary2 w-100 mb-3">
-                            立即上課
-                        </a>
-                        <a href="./course_intro.html" type="button" class="btn teacher-card-btn">查看介紹</a>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-4 d-lg-block d-none">
-                    <div class="teacher-card">
-                        <div class="teacher-card-profile">
-                            <div class="teacher-card-content">
-                                <h3 class="teacher-card-title">JavaScript 大師
-                                </h3>
-                                <p class="teacher-card-name">麥克先生</p>
-                                <ul class="teacher-card-object">
-                                    <!-- 評價 -->
-                                    <li class="teacher-card-evaluate">5.0</li>
-                                    <!-- 時數 -->
-                                    <li class="teacher-card-hours">50分鐘</li>
-                                </ul>
-                                <p class="teacher-card-price">NT$<span>1,200</span></p>
-                            </div>
-                            <div class="teacher-card-img">
-                                <img src="/project-code/assets/Rectangle 7-ab3dd5b8.png" alt="" class="">
-                            </div>
-                        </div>
-                        <p class="teacher-card-text">實戰應用為主，理論為輔，深入淺出好吸收，馬上學，馬上用！Facebook 聊天機器人、Chrome Extensions、開放資料、即時聊天室、對戰遊戲，多個願望一次滿足！
-                        </p>
-                        <a href="./cart.html" type="button" class="btn btn-secondary2 w-100 mb-3">
-                            立即上課
-                        </a>
-                        <a href="./course_intro.html" type="button" class="btn teacher-card-btn">查看介紹</a>
-                    </div>
-                </div>
-            </div>
+      <div class="container py-lg-20 py-10">
+        <div class="d-flex justify-content-between mb-lg-10 mb-5">
+          <h2 class="fs-5 fw-medium align-bottom">熱門教師推薦</h2>
+          <a
+            href="./course.html"
+            type="button"
+            class="btn btn-text fw-medium align-self-end py-0 pe-2"
+            >查看更多</a
+          >
         </div>
+        <div class="row g-6">
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="teacher-card h-100">
+              <div class="teacher-card-profile">
+                <div class="teacher-card-content">
+                  <h3 class="teacher-card-title">從零開始成為切版大師</h3>
+                  <p class="teacher-card-name">麥克先生</p>
+                  <ul class="teacher-card-object">
+                    <!-- 評價 -->
+                    <li class="teacher-card-evaluate">4.8</li>
+                    <!-- 時數 -->
+                    <li class="teacher-card-hours">50分鐘</li>
+                  </ul>
+                  <p class="teacher-card-price">NT$<span>1,100</span></p>
+                </div>
+                <div class="teacher-card-img">
+                  <img
+                    src="/project-code/assets/Rectangle 7-ab3dd5b8.png"
+                    alt="老師"
+                    class="w-100px w-sm-120px"
+                  />
+                </div>
+              </div>
+              <p class="teacher-card-text">
+                帶領零基礎的平民老百姓，從最基礎的 HTML
+                語法出發，使用最淺顯易懂的語言與生活隨處可見的例子，輕鬆進入網頁架設的世界，手把手教你做出完整的網頁作品。
+              </p>
+              <a
+                href="./cart.html"
+                type="button"
+                class="btn btn-secondary2 w-100 mb-3"
+              >
+                立即上課
+              </a>
+              <a
+                href="./course_intro.html"
+                type="button"
+                class="btn teacher-card-btn"
+                >查看介紹</a
+              >
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4 d-none d-lg-block">
+            <div class="teacher-card h-100">
+              <div class="teacher-card-profile">
+                <div class="teacher-card-content">
+                  <h3 class="teacher-card-title">一起打造你的前端職涯</h3>
+                  <p class="teacher-card-name">榮哥</p>
+                  <ul class="teacher-card-object">
+                    <!-- 評價 -->
+                    <li class="teacher-card-evaluate">4.8</li>
+                    <!-- 時數 -->
+                    <li class="teacher-card-hours">50分鐘</li>
+                  </ul>
+                  <p class="teacher-card-price">NT$<span>1,000</span></p>
+                </div>
+                <div class="teacher-card-img">
+                  <img
+                    src="/project-code/assets/Rectangle 8-2a3cf305.png"
+                    alt="老師"
+                    class="w-100px w-sm-120px"
+                  />
+                </div>
+              </div>
+              <p class="teacher-card-text">
+                協助你定位自己的前端職涯，並提供實用的指導和建議，以確保你能夠在競爭激烈的市場中脫穎而出。
+              </p>
+              <a
+                href="./cart.html"
+                type="button"
+                class="btn btn-secondary2 w-100 mb-3"
+              >
+                立即上課
+              </a>
+              <a
+                href="./course_intro.html"
+                type="button"
+                class="btn teacher-card-btn"
+                >查看介紹</a
+              >
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4 d-none d-md-block">
+            <div class="teacher-card h-100">
+              <div class="teacher-card-profile">
+                <div class="teacher-card-content">
+                  <h3 class="teacher-card-title">Python 全攻略</h3>
+                  <p class="teacher-card-name">艾莉絲</p>
+                  <ul class="teacher-card-object">
+                    <!-- 評價 -->
+                    <li class="teacher-card-evaluate">5.0</li>
+                    <!-- 時數 -->
+                    <li class="teacher-card-hours">50分鐘</li>
+                  </ul>
+                  <p class="teacher-card-price">NT$<span>1,000</span></p>
+                </div>
+                <div class="teacher-card-img">
+                  <img
+                    src="/project-code/assets/Rectangle 9-7f0cfb4e.png"
+                    alt="老師"
+                    class="w-100px w-sm-120px"
+                  />
+                </div>
+              </div>
+              <p class="teacher-card-text">
+                嗨，我是艾莉絲，有 8 年的 Python 開發經歷和 3
+                年的教學經驗。我的專業有軟體開發、數據分析、人工智慧等各個
+                Python
+                相關領域，能和你分享非常專業且豐富的知識和實際案例，協助您建立紮實的
+                Python
+                基礎，無論你是初學者還是資深工程師，我都可以協助你找到適合自己的學習路徑。我將帶領學生深入探索
+                Python 的各個層面，從基礎知識到高級應用，讓你具備全面的 Python
+                技能，以應對不同領域的挑戰。
+              </p>
+              <a
+                href="./cart.html"
+                type="button"
+                class="btn btn-secondary2 w-100 mb-3"
+              >
+                立即上課
+              </a>
+              <a
+                href="./course_intro.html"
+                type="button"
+                class="btn teacher-card-btn"
+                >查看介紹</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- 顯示全部時間 -->
     <div class="modal fade" id="courseTime" tabindex="-1" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                    <div class="modal-content rounded-0">
-                        <div class="modal-header justify-content-center border-0">
-                        <h5 class="modal-title" id="exampleModalLabel">教師授課時間</h5>
-                        </div>
-                        <div class="modal-body">
-                            <div class="d-flex align-items-center justify-content-around mb-4">
-                                <button type="button" class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 btn-week">
-                                <span class="material-symbols-outlined">
-                                chevron_left
-                                </span></button>
-                                <p class=""> 2023/08/20 ~ 26</p>
-                                <button type="button" class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 btn-week">
-                                <span class="material-symbols-outlined">
-                                navigate_next
-                                </span></button>
-                            </div>
-                            <!-- calendar -->
-                            <ul class="calendar d-flex gap-3 justify-content-around flex-lg-nowrap flex-wrap">
-                                <li class="calendar-list">
-                                    <p class="text-center">日</p>
-                                    <ul class="calendar-time">
-                                        <li class=""><a href="" class=" text-primary ">08:00</a></li>
-                                        <li><a href="">08:30</a></li>
-                                        <li><a href="">09:00</a></li>
-                                        <li><a href="">09:30</a></li>
-                                        <li><a href="">10:00</a></li>
-                                    </ul>
-                                </li>
-                                <li class="calendar-list">
-                                    <p class="text-center">一</p>
-                                    <ul class="calendar-time">
-                                        <li class=""><a href="" class=" text-primary ">08:00</a></li>
-                                        <li><a href="">08:30</a></li>
-                                        <li><a href="">09:00</a></li>
-                                        <li><a href="">09:30</a></li>
-                                        <li><a href="">10:00</a></li>
-                                    </ul>
-                                </li>
-                                <li class="calendar-list">
-                                    <p class="text-center">二</p>
-                                    <ul class="calendar-time">
-                                        <li class=""><a href="" class=" text-primary ">08:00</a></li>
-                                        <li><a href="">08:30</a></li>
-                                        <li><a href="">09:00</a></li>
-                                        <li><a href="">09:30</a></li>
-                                        <li><a href="">10:00</a></li>
-                                    </ul>
-                                </li>
-                                <li class="calendar-list">
-                                    <p class="text-center">三</p>
-                                    <ul class="calendar-time">
-                                        <li class=""><a href="" class=" text-primary ">08:00</a></li>
-                                        <li><a href="">08:30</a></li>
-                                        <li><a href="">09:00</a></li>
-                                        <li><a href="">09:30</a></li>
-                                        <li><a href="">10:00</a></li>
-                                    </ul>
-                                </li>
-                                <li class="calendar-list">
-                                    <p class="text-center">四</p>
-                                    <ul class="calendar-time">
-                                        <li class=""><a href="" class=" text-primary ">08:00</a></li>
-                                        <li><a href="">08:30</a></li>
-                                        <li><a href="">09:00</a></li>
-                                        <li><a href="" class=" text-primary ">09:30</a></li>
-                                        <li><a href="" class=" text-primary ">10:00</a></li>
-                                    </ul>
-                                </li>
-                                <li class="calendar-list">
-                                    <p class="text-center">五</p>
-                                    <ul class="calendar-time">
-                                        <li class=""><a href="" class=" text-primary ">08:00</a></li>
-                                        <li><a href="">08:30</a></li>
-                                        <li><a href="">09:00</a></li>
-                                        <li><a href="">09:30</a></li>
-                                        <li><a href="">10:00</a></li>
-                                        <li><a href="">10:30</a></li>
-                                        <li><a href="" class=" text-primary fw-bold">11:00</a></li>
-                                        <li><a href="" class=" text-primary fw-bold">11:30</a></li>
-                                        <li><a href="" class=" text-primary fw-bold">12:00</a></li>
-                                        <li><a href="">12:30</a></li>
-                                        <li><a href="">13:00</a></li>
-                                        <li><a href="">13:30</a></li>
-                                        <li><a href="">14:00</a></li>
-                                    </ul>
-                                </li>
-                                <li class="calendar-list">
-                                    <p class="text-center">六</p>
-                                    <ul class="calendar-time">
-                                        <li class="border border-2 border-primary fw-bold"><a href="" class=" text-primary ">08:00</a></li>
-                                        <li><a href="">08:30</a></li>
-                                        <li><a href="">09:00</a></li>
-                                        <li><a href="">09:30</a></li>
-                                        <li><a href="">10:00</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="modal-footer border-0">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                    </div>
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content rounded-0">
+          <div class="modal-header justify-content-center border-0">
+            <h5 class="modal-title" id="exampleModalLabel">教師授課時間</h5>
+          </div>
+          <div class="modal-body">
+            <div class="d-flex align-items-center justify-content-around mb-4">
+              <button
+                type="button"
+                class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 btn-week"
+              >
+                <span class="material-symbols-outlined"> chevron_left </span>
+              </button>
+              <p class="">2023/08/20 ~ 26</p>
+              <button
+                type="button"
+                class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 btn-week"
+              >
+                <span class="material-symbols-outlined"> navigate_next </span>
+              </button>
+            </div>
+            <!-- calendar -->
+            <ul
+              class="calendar d-flex gap-3 justify-content-around flex-lg-nowrap flex-wrap"
+            >
+              <li class="calendar-list">
+                <p class="text-center">日</p>
+                <ul class="calendar-time">
+                  <li class=""><a href="" class="text-primary">08:00</a></li>
+                  <li><a href="">08:30</a></li>
+                  <li><a href="">09:00</a></li>
+                  <li><a href="">09:30</a></li>
+                  <li><a href="">10:00</a></li>
+                </ul>
+              </li>
+              <li class="calendar-list">
+                <p class="text-center">一</p>
+                <ul class="calendar-time">
+                  <li class=""><a href="" class="text-primary">08:00</a></li>
+                  <li><a href="">08:30</a></li>
+                  <li><a href="">09:00</a></li>
+                  <li><a href="">09:30</a></li>
+                  <li><a href="">10:00</a></li>
+                </ul>
+              </li>
+              <li class="calendar-list">
+                <p class="text-center">二</p>
+                <ul class="calendar-time">
+                  <li class=""><a href="" class="text-primary">08:00</a></li>
+                  <li><a href="">08:30</a></li>
+                  <li><a href="">09:00</a></li>
+                  <li><a href="">09:30</a></li>
+                  <li><a href="">10:00</a></li>
+                </ul>
+              </li>
+              <li class="calendar-list">
+                <p class="text-center">三</p>
+                <ul class="calendar-time">
+                  <li class=""><a href="" class="text-primary">08:00</a></li>
+                  <li><a href="">08:30</a></li>
+                  <li><a href="">09:00</a></li>
+                  <li><a href="">09:30</a></li>
+                  <li><a href="">10:00</a></li>
+                </ul>
+              </li>
+              <li class="calendar-list">
+                <p class="text-center">四</p>
+                <ul class="calendar-time">
+                  <li class=""><a href="" class="text-primary">08:00</a></li>
+                  <li><a href="">08:30</a></li>
+                  <li><a href="">09:00</a></li>
+                  <li><a href="" class="text-primary">09:30</a></li>
+                  <li><a href="" class="text-primary">10:00</a></li>
+                </ul>
+              </li>
+              <li class="calendar-list">
+                <p class="text-center">五</p>
+                <ul class="calendar-time">
+                  <li class=""><a href="" class="text-primary">08:00</a></li>
+                  <li><a href="">08:30</a></li>
+                  <li><a href="">09:00</a></li>
+                  <li><a href="">09:30</a></li>
+                  <li><a href="">10:00</a></li>
+                  <li><a href="">10:30</a></li>
+                  <li><a href="" class="text-primary fw-bold">11:00</a></li>
+                  <li><a href="" class="text-primary fw-bold">11:30</a></li>
+                  <li><a href="" class="text-primary fw-bold">12:00</a></li>
+                  <li><a href="">12:30</a></li>
+                  <li><a href="">13:00</a></li>
+                  <li><a href="">13:30</a></li>
+                  <li><a href="">14:00</a></li>
+                </ul>
+              </li>
+              <li class="calendar-list">
+                <p class="text-center">六</p>
+                <ul class="calendar-time">
+                  <li class="border border-2 border-primary fw-bold">
+                    <a href="" class="text-primary">08:00</a>
+                  </li>
+                  <li><a href="">08:30</a></li>
+                  <li><a href="">09:00</a></li>
+                  <li><a href="">09:30</a></li>
+                  <li><a href="">10:00</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="modal-footer border-0">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-    
+
     <!-- 課程評價 -->
     <div class="modal fade" id="courseTalk" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-scrollable">
-            <div class="modal-content rounded-0">
-                <div class="modal-header flex-column justify-content-center border-0">
-                <h5 class="modal-title mb-2" id="exampleModalLabel">課程學員評價</h5>
-                <div class="d-flex align-items-center justify-content-around gap-3 mb-4">
-                    <button type="button" class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 px-lg-10 btn-week">
-                    1星</button>
-                    <button type="button" class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 px-lg-10 btn-week">
-                    2星
-                    </button>
-                    <button type="button" class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 px-lg-10 btn-week">
-                    3星
-                    </button>
-                    <button type="button" class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 px-lg-10 btn-week">
-                    4星
-                    </button>
-                    <button type="button" class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 px-lg-10 btn-week">
-                    5星
-                    </button>
+      <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content rounded-0">
+          <div class="modal-header flex-column justify-content-center border-0">
+            <h5 class="modal-title mb-2" id="exampleModalLabel">
+              課程學員評價
+            </h5>
+            <div
+              class="d-flex align-items-center justify-content-around gap-3 mb-4"
+            >
+              <button
+                type="button"
+                class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 px-lg-10 btn-week"
+              >
+                1星
+              </button>
+              <button
+                type="button"
+                class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 px-lg-10 btn-week"
+              >
+                2星
+              </button>
+              <button
+                type="button"
+                class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 px-lg-10 btn-week"
+              >
+                3星
+              </button>
+              <button
+                type="button"
+                class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 px-lg-10 btn-week"
+              >
+                4星
+              </button>
+              <button
+                type="button"
+                class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 px-lg-10 btn-week"
+              >
+                5星
+              </button>
+            </div>
+          </div>
+          <div class="modal-body">
+            <!-- calendar -->
+            <ul class="card-evaluate">
+              <li class="card-evaluate-content mb-lg-5">
+                麥克老師是我轉職成功的關鍵！他非常專業且有耐心，從零開始教我寫程式，培養了我的切版能力。擁有作品集和個人網站，面試中展示了我的巨大優勢，學習
+                9 個月後找到工作~
+              </li>
+              <li class="card-evaluate-person flex-lg-row flex-row-reverse">
+                <img src="/project-code/assets/Ellipse 1-3b755c1a.svg" alt="" />
+                <div class="d-flex flex-column">
+                  <div class="text-primary d-flex align-items-center">
+                    <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                    <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                    <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                    <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                    <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                  </div>
+                  <div class="align-bottom">
+                    <p class="card-evaluate-name">
+                      Cookie<span class="ms-1 card-evaluate-title">學生</span>
+                    </p>
+                  </div>
                 </div>
+              </li>
+            </ul>
+            <ul class="card-evaluate">
+              <li class="card-evaluate-content mb-lg-5">
+                最好的學習方法是理論搭配實作，老師會提供設計稿或是範例版型，讓我可以透過實作加深學習印象，並找到還不了解的問題點，深入每次上課的學習。
+              </li>
+              <li class="card-evaluate-person flex-lg-row flex-row-reverse">
+                <img src="/project-code/assets/wei-f8a64f12.png" alt="學生" />
+                <div class="d-flex flex-column">
+                  <div class="text-primary d-flex align-items-center">
+                    <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                    <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                    <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                    <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                    <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                  </div>
+                  <div class="align-bottom">
+                    <p class="card-evaluate-name">
+                      小偉<span class="ms-1 card-evaluate-title"
+                        >前端工程師</span
+                      >
+                    </p>
+                  </div>
                 </div>
-                <div class="modal-body">
-                    
-                    <!-- calendar -->
-                    <ul class="card-evaluate">
-                        <li class="card-evaluate-content mb-lg-5">
-                            麥克老師是我轉職成功的關鍵！他非常專業且有耐心，從零開始教我寫程式，培養了我的切版能力。擁有作品集和個人網站，面試中展示了我的巨大優勢，學習 9 個月後找到工作~
-                        </li>
-                        <li class="card-evaluate-person flex-lg-row flex-row-reverse">
-                            <img src="/project-code/assets/Ellipse 1-3b755c1a.svg" alt="">
-                            <div class="d-flex flex-column">
-                                <div class="text-primary d-flex align-items-center">
-                                    <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                    <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                    <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                    <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                    <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                </div>
-                                <div class="align-bottom">
-                                    <p class="card-evaluate-name">Cookie<span class="ms-1 card-evaluate-title">學生</span></p>
-                                </div>
-                            </div>
-                            
-                        </li>
-                    </ul>
-                    <ul class="card-evaluate">
-                        <li class="card-evaluate-content mb-lg-5">
-                            最好的學習方法是理論搭配實作，老師會提供設計稿或是範例版型，讓我可以透過實作加深學習印象，並找到還不了解的問題點，深入每次上課的學習。
-
-                        </li>
-                        <li class="card-evaluate-person flex-lg-row flex-row-reverse">
-                            <img src="/project-code/assets/wei-f8a64f12.png" alt="學生">
-                            <div class="d-flex flex-column">
-                                <div class="text-primary d-flex align-items-center">
-                                    <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                    <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                    <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                    <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                    <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                </div>
-                                <div class="align-bottom">
-                                    <p class="card-evaluate-name">小偉<span class="ms-1 card-evaluate-title">前端工程師</span></p>
-                                </div>
-                            </div>
-                            
-                        </li>
-                    </ul>
-                    <ul class="card-evaluate">
-                        <li class="card-evaluate-content mb-lg-5">
-                            第一次看到家教也有學生專屬群組，而且不管買幾堂課都可以加入，每天群組有滿滿的討論，而且風氣很好，這裡沒有笨問題，只怕你不問。看別人問的問題，自己也會吸收到很多知識。
-                        </li>
-                        <li class="card-evaluate-person flex-lg-row flex-row-reverse">
-                            <img src="/project-code/assets/lily-bbd897f2.png" alt="學生">
-                            <div class="d-flex flex-column">
-                                <div class="text-primary d-flex align-items-center">
-                                    <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                    <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                    <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                    <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                    <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                </div>
-                                <div class="align-bottom">
-                                    <p class="card-evaluate-name">Lily<span class="ms-1 card-evaluate-title">學生</span></p>
-                                </div>
-                            </div>
-                            
-                        </li>
-                    </ul>
-                    <ul class="card-evaluate">
-                        <li class="card-evaluate-content mb-lg-5">
-                            如果你是像我一樣容易怠惰、對自己太好的人，想要有人監督，很適合找麥克先生，可以和老師討論，請老師給你壓力和進度，促使你前進。
-                        </li>
-                        <li class="card-evaluate-person flex-lg-row flex-row-reverse">
-                            <img src="/project-code/assets/bear-a75d81d2.png" alt="學生">
-                            <div class="d-flex flex-column">
-                                <div class="text-primary d-flex align-items-center">
-                                    <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                    <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                    <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                    <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                    <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                </div>
-                                <div class="align-bottom">
-                                    <p class="card-evaluate-name">懶懶熊<span class="ms-1 card-evaluate-title">待業</span></p>
-                                </div>
-                            </div>
-                            
-                        </li>
-                    </ul>
-                    <ul class="card-evaluate">
-                        <li class="card-evaluate-content mb-lg-5">
+              </li>
+            </ul>
+            <ul class="card-evaluate">
+              <li class="card-evaluate-content mb-lg-5">
+                第一次看到家教也有學生專屬群組，而且不管買幾堂課都可以加入，每天群組有滿滿的討論，而且風氣很好，這裡沒有笨問題，只怕你不問。看別人問的問題，自己也會吸收到很多知識。
+              </li>
+              <li class="card-evaluate-person flex-lg-row flex-row-reverse">
+                <img src="/project-code/assets/lily-bbd897f2.png" alt="學生" />
+                <div class="d-flex flex-column">
+                  <div class="text-primary d-flex align-items-center">
+                    <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                    <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                    <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                    <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                    <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                  </div>
+                  <div class="align-bottom">
+                    <p class="card-evaluate-name">
+                      Lily<span class="ms-1 card-evaluate-title">學生</span>
+                    </p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <ul class="card-evaluate">
+              <li class="card-evaluate-content mb-lg-5">
+                如果你是像我一樣容易怠惰、對自己太好的人，想要有人監督，很適合找麥克先生，可以和老師討論，請老師給你壓力和進度，促使你前進。
+              </li>
+              <li class="card-evaluate-person flex-lg-row flex-row-reverse">
+                <img src="/project-code/assets/bear-a75d81d2.png" alt="學生" />
+                <div class="d-flex flex-column">
+                  <div class="text-primary d-flex align-items-center">
+                    <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                    <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                    <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                    <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                    <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                  </div>
+                  <div class="align-bottom">
+                    <p class="card-evaluate-name">
+                      懶懶熊<span class="ms-1 card-evaluate-title">待業</span>
+                    </p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <ul class="card-evaluate">
+              <li class="card-evaluate-content mb-lg-5">
                 自從開始找麥克先生上課後，我的切版能力進步非常多，對於一些觀念跟盲點，也都釐清了！！！而且老師還教我做筆記的技巧，讓我的學習速度也好了很多。最近做出的作品，連其他朋友都稱讚很棒，太開心了，謝謝老師～～
-                        </li>
-                        <li class="card-evaluate-person flex-lg-row flex-row-reverse">
-                            <img src="/project-code/assets/mi-6953ce41.png" alt="學生">
-                            <div class="d-flex flex-column">
-                                <div class="text-primary d-flex align-items-center">
-                                    <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                    <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                    <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                    <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                    <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                </div>
-                                <div class="align-bottom">
-                                    <p class="card-evaluate-name">米兒<span class="ms-1 card-evaluate-title">學生</span></p>
-                                </div>
-                            </div>
-                            
-                        </li>
-                    </ul>
-                    <ul class="card-evaluate">
-                        <li class="card-evaluate-content mb-lg-5">
-                            最近剛開始上家教課程，之前都是上影音課，沒有互動，現在的模式就能透過一問一答讓我更好吸收，還多了很多切版的練習機會，讓我切版技巧進步了，還有專屬社群其他同學分享自己過去開發的經驗，超讚 der
-                        </li>
-                        <li class="card-evaluate-person flex-lg-row flex-row-reverse">
-                            <img src="/project-code/assets/chen-1ed1e03d.png" alt="學生">
-                            <div class="d-flex flex-column">
-                                <div class="text-primary d-flex align-items-center">
-                                    <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                    <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                    <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                    <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                    <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                </div>
-                                <div class="align-bottom">
-                                    <p class="card-evaluate-name">CHEN<span class="ms-1 card-evaluate-title">服務業</span></p>
-                                </div>
-                            </div>
-                            
-                        </li>
-                    </ul>
-                    <ul class="card-evaluate">
-                        <li class="card-evaluate-content mb-lg-5">
-                            剛入職幾個月的菜鳥前端工程師，覺得切版速度太慢了，想磨練這部分，知道更多撇步。麥克老師建議我直接做 side project，從實作中練習。進行的過程中，老師做為指導教練的角色，會在上課的 50 分鐘安排進度跟回答我遇到的問題點，提出還有哪些地方可以改善，根據我的程度給予適切的方向，需要的資源，老師會不吝嗇全部丟給你！沒有在藏招的！！我愛老師
-                        </li>
-                        <li class="card-evaluate-person flex-lg-row flex-row-reverse">
-                            <img src="/project-code/assets/andrew-e21acfb3.png" alt="學生">
-                            <div class="d-flex flex-column">
-                                <div class="text-primary d-flex align-items-center">
-                                    <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                    <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                    <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                    <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                    <img src="/project-code/assets/star-0547ea17.svg" alt="star">
-                                </div>
-                                <div class="align-bottom">
-                                    <p class="card-evaluate-name">Andrew<span class="ms-1 card-evaluate-title">前端工程師</span></p>
-                                </div>
-                            </div>
-                            
-                        </li>
-                    </ul>
+              </li>
+              <li class="card-evaluate-person flex-lg-row flex-row-reverse">
+                <img src="/project-code/assets/mi-6953ce41.png" alt="學生" />
+                <div class="d-flex flex-column">
+                  <div class="text-primary d-flex align-items-center">
+                    <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                    <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                    <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                    <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                    <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                  </div>
+                  <div class="align-bottom">
+                    <p class="card-evaluate-name">
+                      米兒<span class="ms-1 card-evaluate-title">學生</span>
+                    </p>
+                  </div>
                 </div>
-                <div class="modal-footer border-0">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </li>
+            </ul>
+            <ul class="card-evaluate">
+              <li class="card-evaluate-content mb-lg-5">
+                最近剛開始上家教課程，之前都是上影音課，沒有互動，現在的模式就能透過一問一答讓我更好吸收，還多了很多切版的練習機會，讓我切版技巧進步了，還有專屬社群其他同學分享自己過去開發的經驗，超讚
+                der
+              </li>
+              <li class="card-evaluate-person flex-lg-row flex-row-reverse">
+                <img src="/project-code/assets/chen-1ed1e03d.png" alt="學生" />
+                <div class="d-flex flex-column">
+                  <div class="text-primary d-flex align-items-center">
+                    <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                    <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                    <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                    <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                    <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                  </div>
+                  <div class="align-bottom">
+                    <p class="card-evaluate-name">
+                      CHEN<span class="ms-1 card-evaluate-title">服務業</span>
+                    </p>
+                  </div>
                 </div>
-            </div>
-            </div>
+              </li>
+            </ul>
+            <ul class="card-evaluate">
+              <li class="card-evaluate-content mb-lg-5">
+                剛入職幾個月的菜鳥前端工程師，覺得切版速度太慢了，想磨練這部分，知道更多撇步。麥克老師建議我直接做
+                side
+                project，從實作中練習。進行的過程中，老師做為指導教練的角色，會在上課的
+                50
+                分鐘安排進度跟回答我遇到的問題點，提出還有哪些地方可以改善，根據我的程度給予適切的方向，需要的資源，老師會不吝嗇全部丟給你！沒有在藏招的！！我愛老師
+              </li>
+              <li class="card-evaluate-person flex-lg-row flex-row-reverse">
+                <img src="/project-code/assets/andrew-e21acfb3.png" alt="學生" />
+                <div class="d-flex flex-column">
+                  <div class="text-primary d-flex align-items-center">
+                    <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                    <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                    <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                    <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                    <img src="/project-code/assets/star-0547ea17.svg" alt="star" />
+                  </div>
+                  <div class="align-bottom">
+                    <p class="card-evaluate-name">
+                      Andrew<span class="ms-1 card-evaluate-title"
+                        >前端工程師</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="modal-footer border-0">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
     <div
   class="container footer py-6 py-lg-10 d-flex flex-column flex-lg-row justify-content-between bg-white"
@@ -1088,21 +1278,36 @@
       </a>
     </h1>
     <div class="d-flex column-gap-3">
-      <button class="btn btn-outlined-circle" type="button">
+      <a
+        href="https://www.facebook.com/"
+        class="btn btn-outlined-circle"
+        type="button"
+        target="_blank"
+      >
         <div class="d-flex">
           <i class="fa-brands fa-facebook-f"></i>
         </div>
-      </button>
-      <button class="btn btn-outlined-circle" type="button">
+      </a>
+      <a
+        href="https://www.instagram.com/"
+        target="_blank"
+        class="btn btn-outlined-circle"
+        type="button"
+      >
         <div class="d-flex">
           <i class="fa-brands fa-instagram"></i>
         </div>
-      </button>
-      <button class="btn btn-outlined-circle" type="button">
+      </a>
+      <a
+        href="https://www.linkedin.com/"
+        target="_blank"
+        class="btn btn-outlined-circle"
+        type="button"
+      >
         <div class="d-flex">
           <i class="fa-brands fa-linkedin-in"></i>
         </div>
-      </button>
+      </a>
     </div>
   </div>
   <div class="d-flex gap-10 gap-lg-15">
@@ -1110,9 +1315,7 @@
       <h4 class="footer-cate-title">學生上課</h4>
       <ul class="footer-cate-list">
         <li><a href="###">熱門教師</a></li>
-        <li><a href="###">搜尋教師</a></li>
-        <li><a href="###">教師分類</a></li>
-        <li><a href="###">立即體驗</a></li>
+        <li><a href="./course.html">課程分類</a></li>
         <li><a href="###">學生好評</a></li>
       </ul>
     </div>
@@ -1128,7 +1331,7 @@
       <ul class="footer-cate-list">
         <li><a href="###">關於我們</a></li>
         <li><a href="###">聯絡我們</a></li>
-        <li><a href="###">常見問題</a></li>
+        <li><a href="./faq.html">常見問題</a></li>
       </ul>
     </div>
   </div>
@@ -1148,33 +1351,30 @@
     
     <script src="../assets/js-plugin-circliful-master/dist/circliful.js"></script>
     <script>
-        circliful.newCircle({
+      circliful.newCircle({
         percent: 85,
-        id: 'circle1',
-        type: 'simple',
-        text: '滿意度',
+        id: "circle1",
+        type: "simple",
+        text: "滿意度",
         backgroundCircleWidth: 10,
         foregroundCircleWidth: 15,
-        });
-        circliful.newCircle({
+      });
+      circliful.newCircle({
         percent: 90,
-        id: 'circle2',
-        type: 'simple',
-        text: '出席率',
+        id: "circle2",
+        type: "simple",
+        text: "出席率",
         backgroundCircleWidth: 10,
         foregroundCircleWidth: 15,
-        });
-        circliful.newCircle({
+      });
+      circliful.newCircle({
         percent: 100,
-        id: 'circle3',
-        type: 'simple',
-        text: '回覆率',
+        id: "circle3",
+        type: "simple",
+        text: "回覆率",
         backgroundCircleWidth: 10,
         foregroundCircleWidth: 15,
-        });
+      });
     </script>
-</body>
+  </body>
 </html>
-
-
-
