@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/js-plugin-circliful-master/dist/main.css">
+    <link rel="stylesheet" href="../assets/scss/components/jquery.circliful.css">
     <title>C0DE | 讓你從 0 到 Expert</title>
     <link
     rel="shortcut icon"
@@ -82,7 +82,7 @@
                         <p class="">當你掌握了HTML，就可以開始規劃並建置你想要的網頁內容 !</p>
                 </div>
                 <!-- 4 -->
-                <h2 class="fs-5 mb-4">授課時間</h2>
+                <h2 class="fs-5 mb-4">教師授課時間</h2>
                 <div class="mb-lg-12 mb-10">
                     <!-- data -->
                     <div class="d-flex align-items-center justify-content-around mb-4">
@@ -101,7 +101,7 @@
                         <li class="calendar-list">
                             <p class="text-center">日</p>
                             <ul class="calendar-time">
-                                <li class=""><a href="" class=" text-primary ">08:00</a></li>
+                                <li class="ready-booking"><a href="" class=" text-primary">08:00</a></li>
                                 <li><a href="">08:30</a></li>
                                 <li><a href="">09:00</a></li>
                                 <li><a href="">09:30</a></li>
@@ -111,7 +111,7 @@
                         <li class="calendar-list">
                             <p class="text-center">一</p>
                             <ul class="calendar-time">
-                                <li class=""><a href="" class=" text-primary ">08:00</a></li>
+                                <li class="ready-booking"><a href="" class=" text-primary ">08:00</a></li>
                                 <li><a href="">08:30</a></li>
                                 <li><a href="">09:00</a></li>
                                 <li><a href="">09:30</a></li>
@@ -121,7 +121,7 @@
                         <li class="calendar-list">
                             <p class="text-center">二</p>
                             <ul class="calendar-time">
-                                <li class=""><a href="" class=" text-primary ">08:00</a></li>
+                                <li class="ready-booking"><a href="" class=" text-primary ">08:00</a></li>
                                 <li><a href="">08:30</a></li>
                                 <li><a href="">09:00</a></li>
                                 <li><a href="">09:30</a></li>
@@ -131,7 +131,7 @@
                         <li class="calendar-list">
                             <p class="text-center">三</p>
                             <ul class="calendar-time">
-                                <li class=""><a href="" class=" text-primary ">08:00</a></li>
+                                <li class="ready-booking"><a href="" class=" text-primary ">08:00</a></li>
                                 <li><a href="">08:30</a></li>
                                 <li><a href="">09:00</a></li>
                                 <li><a href="">09:30</a></li>
@@ -141,30 +141,30 @@
                         <li class="calendar-list">
                             <p class="text-center">四</p>
                             <ul class="calendar-time">
-                                <li class=""><a href="" class=" text-primary ">08:00</a></li>
+                                <li class="ready-booking"><a href="" class=" text-primary ">08:00</a></li>
                                 <li><a href="">08:30</a></li>
                                 <li><a href="">09:00</a></li>
-                                <li><a href="" class=" text-primary ">09:30</a></li>
-                                <li><a href="" class=" text-primary ">10:00</a></li>
+                                <li class="ready-booking"><a href="" class="text-primary">09:30</a></li>
+                                <li class="ready-booking"><a href="" class="text-primary">10:00</a></li>
                             </ul>
                         </li>
                         <li class="calendar-list">
                             <p class="text-center">五</p>
                             <ul class="calendar-time">
-                                <li class=""><a href="" class=" text-primary ">08:00</a></li>
+                                <li class="ready-booking"><a href="" class=" text-primary ">08:00</a></li>
                                 <li><a href="">08:30</a></li>
                                 <li><a href="">09:00</a></li>
                                 <li><a href="">09:30</a></li>
                                 <li><a href="">10:00</a></li>
                                 <li><a href="">10:30</a></li>
-                                <li><a href="" class=" text-primary fw-bold">11:00</a></li>
-                                <li><a href="" class=" text-primary fw-bold">11:30</a></li>
+                                <li class="ready-booking"><a href="" class=" text-primary">11:00</a></li>
+                                <li class="ready-booking"><a href="" class=" text-primary">11:30</a></li>
                             </ul>
                         </li>
                         <li class="calendar-list">
                             <p class="text-center">六</p>
                             <ul class="calendar-time">
-                                <li class=""><a href="" class=" text-primary ">08:00</a></li>
+                                <li class="ready-booking"><a href="" class=" text-primary ">08:00</a></li>
                                 <li><a href="">08:30</a></li>
                                 <li><a href="">09:00</a></li>
                                 <li><a href="">09:30</a></li>
@@ -182,14 +182,58 @@
                 <div class="rounded shadow p-lg-12 mb-lg-12 p-6 mb-10">
                         <ul class="row g-4">
                             <li class="col-lg-4 col-12 d-flex justify-content-center">
-                                <div class="circle" id="circle1" style=" height: 200px;"></div>
+                                <div id="myStat"
+                                data-dimension="200"
+                                data-text="98%"
+                                data-info="滿意度"
+                                data-width="10"
+                                data-fontsize="32"
+                                data-percent="98"
+                                data-fgcolor="#01a3e8"
+                                data-bgcolor="#eee"
+                                data-fill="#ddd"
+                                data-total="200"
+                                data-part="98"
+                                data-icon="long-arrow-up"
+                                data-icon-size="28"
+                                data-icon-color="#fff" >
+                                </div>
                             </li>
                             <li class="col-lg-4 col-12  d-flex justify-content-center">
-                                <div class="circle" id="circle2" style=" height: 200px;"></div>
+                                <div id="myStat1"
+                                data-dimension="200"
+                                data-text="90%"
+                                data-info="出席率"
+                                data-width="10"
+                                data-fontsize="32"
+                                data-percent="90"
+                                data-fgcolor="#01a3e8"
+                                data-bgcolor="#eee"
+                                data-fill="#ddd"
+                                data-total="200"
+                                data-part="90"
+                                data-icon="long-arrow-up"
+                                data-icon-size="28"
+                                data-icon-color="#fff" >
+                                </div>
                             </li>
                             <li class="col-lg-4 col-12  d-flex justify-content-center">
-                                <div class="circle" id="circle3" style="
-                                     height: 200px;"></div>
+                                <div id="myStat2"
+                                data-dimension="200"
+                                data-text="80%"
+                                data-info="回覆率"
+                                data-width="10"
+                                data-fontsize="32"
+                                data-percent="80"
+                                data-fgcolor="#01a3e8"
+                                data-bgcolor="#eee"
+                                data-fill="#ddd"
+                                data-total="200"
+                                data-part="80"
+                                data-icon="long-arrow-up"
+                                data-icon-size="28"
+                                data-icon-color="#fff" >
+                                </div>
                             </li>
                         </ul>
                 </div>
@@ -302,7 +346,7 @@
                             </li>
                             <li class="py-4 d-flex justify-content-between align-items-center border-bottom border-gray-200">
                                 <div>
-                                    <p class="fs-4 fw-bold">NT$90</p>
+                                    <p class="fs-4 fw-bold">NT$900</p>
                                     <p class="">20堂50分鐘</p>
                                 </div>
                                 <button type="button" class="btn btn-text">立即預約</button>
@@ -436,7 +480,7 @@
                                 <li class="calendar-list">
                                     <p class="text-center">日</p>
                                     <ul class="calendar-time">
-                                        <li class=""><a href="" class=" text-primary ">08:00</a></li>
+                                        <li class="ready-booking"><a href="" class=" text-primary ">08:00</a></li>
                                         <li><a href="">08:30</a></li>
                                         <li><a href="">09:00</a></li>
                                         <li><a href="">09:30</a></li>
@@ -446,7 +490,7 @@
                                 <li class="calendar-list">
                                     <p class="text-center">一</p>
                                     <ul class="calendar-time">
-                                        <li class=""><a href="" class=" text-primary ">08:00</a></li>
+                                        <li class="ready-booking"><a href="" class=" text-primary ">08:00</a></li>
                                         <li><a href="">08:30</a></li>
                                         <li><a href="">09:00</a></li>
                                         <li><a href="">09:30</a></li>
@@ -456,7 +500,7 @@
                                 <li class="calendar-list">
                                     <p class="text-center">二</p>
                                     <ul class="calendar-time">
-                                        <li class=""><a href="" class=" text-primary ">08:00</a></li>
+                                        <li class="ready-booking"><a href="" class=" text-primary ">08:00</a></li>
                                         <li><a href="">08:30</a></li>
                                         <li><a href="">09:00</a></li>
                                         <li><a href="">09:30</a></li>
@@ -466,7 +510,7 @@
                                 <li class="calendar-list">
                                     <p class="text-center">三</p>
                                     <ul class="calendar-time">
-                                        <li class=""><a href="" class=" text-primary ">08:00</a></li>
+                                        <li class="ready-booking"><a href="" class=" text-primary ">08:00</a></li>
                                         <li><a href="">08:30</a></li>
                                         <li><a href="">09:00</a></li>
                                         <li><a href="">09:30</a></li>
@@ -476,25 +520,25 @@
                                 <li class="calendar-list">
                                     <p class="text-center">四</p>
                                     <ul class="calendar-time">
-                                        <li class=""><a href="" class=" text-primary ">08:00</a></li>
+                                        <li class="ready-booking"><a href="" class=" text-primary ">08:00</a></li>
                                         <li><a href="">08:30</a></li>
                                         <li><a href="">09:00</a></li>
-                                        <li><a href="" class=" text-primary ">09:30</a></li>
-                                        <li><a href="" class=" text-primary ">10:00</a></li>
+                                        <li class="ready-booking"><a href="" class=" text-primary ">09:30</a></li>
+                                        <li class="ready-booking"><a href="" class=" text-primary ">10:00</a></li>
                                     </ul>
                                 </li>
                                 <li class="calendar-list">
                                     <p class="text-center">五</p>
                                     <ul class="calendar-time">
-                                        <li class=""><a href="" class=" text-primary ">08:00</a></li>
+                                        <li class="ready-booking"><a href="" class=" text-primary ">08:00</a></li>
                                         <li><a href="">08:30</a></li>
                                         <li><a href="">09:00</a></li>
                                         <li><a href="">09:30</a></li>
                                         <li><a href="">10:00</a></li>
                                         <li><a href="">10:30</a></li>
-                                        <li><a href="" class=" text-primary fw-bold">11:00</a></li>
-                                        <li><a href="" class=" text-primary fw-bold">11:30</a></li>
-                                        <li><a href="" class=" text-primary fw-bold">12:00</a></li>
+                                        <li class="ready-booking"><a href="" class=" text-primary">11:00</a></li>
+                                        <li class="ready-booking"><a href="" class=" text-primary">11:30</a></li>
+                                        <li class="ready-booking"><a href="" class=" text-primary ">12:00</a></li>
                                         <li><a href="">12:30</a></li>
                                         <li><a href="">13:00</a></li>
                                         <li><a href="">13:30</a></li>
@@ -504,7 +548,7 @@
                                 <li class="calendar-list">
                                     <p class="text-center">六</p>
                                     <ul class="calendar-time">
-                                        <li class="border border-2 border-primary fw-bold"><a href="" class=" text-primary ">08:00</a></li>
+                                        <li class="ready-booking"><a href="" class=" text-primary ">08:00</a></li>
                                         <li><a href="">08:30</a></li>
                                         <li><a href="">09:00</a></li>
                                         <li><a href="">09:30</a></li>
@@ -683,31 +727,13 @@
     <!-- backtotop -->
     <%- include("./layout/backtotop.ejs") -%>
     <script type="module" src="../main.js"></script>
-    <script src="../assets/js-plugin-circliful-master/dist/circliful.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script type="module" src="../assets/js/jquery.circliful.js"></script>
     <script>
-        circliful.newCircle({
-        percent: 85,
-        id: 'circle1',
-        type: 'simple',
-        text: '滿意度',
-        backgroundCircleWidth: 10,
-        foregroundCircleWidth: 15,
-        });
-        circliful.newCircle({
-        percent: 90,
-        id: 'circle2',
-        type: 'simple',
-        text: '出席率',
-        backgroundCircleWidth: 10,
-        foregroundCircleWidth: 15,
-        });
-        circliful.newCircle({
-        percent: 100,
-        id: 'circle3',
-        type: 'simple',
-        text: '回覆率',
-        backgroundCircleWidth: 10,
-        foregroundCircleWidth: 15,
+        $(document).ready(function() {
+            $('#myStat').circliful();
+            $('#myStat1').circliful();
+            $('#myStat2').circliful();
         });
     </script>
 </body>
