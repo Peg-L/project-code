@@ -56,10 +56,7 @@
     =      filter button       =
     =========================-->
     <div id="js-sticky-mt">
-      <div
-        class="position-sticky z-1031 top-0 bg-white py-3"
-        id="js-filter-bar"
-      >
+      <div class="position-sticky top-0 bg-white py-3" id="js-filter-bar">
         <div class="container">
           <div class="d-flex justify-content-between align-items-center">
             <p class="fs-7 fs-md-6">共 12 個結果</p>
@@ -2580,14 +2577,29 @@
       const navbar = document.querySelector(".navbar");
 
       window.addEventListener("scroll", () => {
-        if (window.scrollY < 418) {
+        let scrollThreshold;
+
+        if (window.innerWidth < 375) {
+          // 手機板時
+          scrollThreshold = 120;
+        } else if (window.innerWidth < 768) {
+          // 平板時
+          scrollThreshold = 300;
+        } else {
+          // 桌機以上時
+          scrollThreshold = 418;
+        }
+
+        if (window.scrollY < scrollThreshold) {
           filterBar.style.boxShadow = "";
           stickyMargin.style.marginTop = "";
           navbar.style.display = "block";
+          filterBar.classList.remove("z-1031");
         } else {
           filterBar.style.boxShadow = "0 10px 6px -6px rgba(0, 0, 0, 0.15)";
           stickyMargin.style.marginTop = "78px";
           navbar.style.display = "none";
+          filterBar.classList.add("z-1031");
         }
       });
 
