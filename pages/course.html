@@ -56,10 +56,9 @@
     =      filter button       =
     =========================-->
     <div id="js-sticky-mt">
-      <div class="position-sticky top-0 bg-white py-3" id="js-filter-bar">
+      <div class="position-sticky top-0 bg-white py-3 z-3" id="js-filter-bar">
         <div class="container">
           <div class="d-flex justify-content-between align-items-center">
-            <p class="fs-7 fs-md-6">共 12 個結果</p>
             <div class="d-flex gap-4">
               <!-- collapse 按鈕 -->
               <button
@@ -101,6 +100,7 @@
                 </ul>
               </div>
             </div>
+            <p class="fs-7 fs-md-6">共 12 個結果</p>
           </div>
         </div>
       </div>
@@ -110,6 +110,982 @@
       =========================-->
       <div class="container">
         <div class="d-flex">
+          <!-- filter list (mobile:offcanvas desktop:collapse) -->
+          <div
+            class="collapse collapse-horizontal show filter-sidebar-sticky"
+            id="collapseFilter"
+          >
+            <div
+              class="offcanvas-xl offcanvas-start"
+              tabindex="-1"
+              id="offcanvasFilter"
+              aria-labelledby="offcanvasFilterTitle"
+            >
+              <div class="offcanvas-header">
+                <h5 class="offcanvas-title fs-4" id="offcanvasFilterTitle">
+                  篩選列表
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="offcanvas"
+                  data-bs-target="#offcanvasFilter"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div
+                class="offcanvas-body flex-column pt-xl-4"
+                style="height: calc(100% - 64px)"
+              >
+                <!-- 1. 評等 -->
+                <div class="border-bottom border-2 border-secondary pb-4 mb-4">
+                  <!-- 評等標題 -->
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <h5 class="fs-5 text-nowrap fw-bold">評等</h5>
+                    <button
+                      class="btn btn-link fs-7 text-nowrap text-decoration-underline"
+                      type="button"
+                    >
+                      清除篩選條件
+                    </button>
+                  </div>
+                  <!-- 評等內容 -->
+                  <ul class="mb-0 ms-4 ms-md-5">
+                    <!-- star 5 -->
+                    <li class="form-check mb-1">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="filterStar"
+                        id="filterStar5"
+                      />
+                      <label
+                        class="form-check-label d-flex text-nowrap"
+                        for="filterStar5"
+                      >
+                        <div class="me-1">
+                          <img src="../assets/images/star.svg" alt="star" />
+                          <img
+                            class=""
+                            src="../assets/images/star.svg"
+                            alt="star"
+                          />
+                          <img
+                            class=""
+                            src="../assets/images/star.svg"
+                            alt="star"
+                          />
+                          <img
+                            class=""
+                            src="../assets/images/star.svg"
+                            alt="star"
+                          />
+                          <img
+                            class=""
+                            src="../assets/images/star.svg"
+                            alt="star"
+                          />
+                        </div>
+                        <p class="fs-7">5 顆星 (5 筆)</p>
+                      </label>
+                    </li>
+                    <!-- star 4 -->
+                    <li class="form-check mb-1">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="filterStar"
+                        id="filterStar4"
+                        checked
+                      />
+                      <label
+                        class="form-check-label d-flex text-nowrap"
+                        for="filterStar4"
+                      >
+                        <div class="me-1">
+                          <img src="../assets/images/star.svg" alt="star" />
+                          <img
+                            class=""
+                            src="../assets/images/star.svg"
+                            alt="star"
+                          />
+                          <img
+                            class=""
+                            src="../assets/images/star.svg"
+                            alt="star"
+                          />
+                          <img
+                            class=""
+                            src="../assets/images/star.svg"
+                            alt="star"
+                          />
+                          <img
+                            class="img-gray"
+                            src="../assets/images/star.svg"
+                            alt="star"
+                          />
+                        </div>
+                        <p class="fs-7">4 顆星以上 (10 筆)</p>
+                      </label>
+                    </li>
+                    <!-- star 3 -->
+                    <li class="form-check mb-1">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="filterStar"
+                        id="filterStar3"
+                        checked
+                      />
+                      <label
+                        class="form-check-label d-flex text-nowrap"
+                        for="filterStar3"
+                      >
+                        <div class="me-1">
+                          <img src="../assets/images/star.svg" alt="star" />
+                          <img
+                            class=""
+                            src="../assets/images/star.svg"
+                            alt="star"
+                          />
+                          <img
+                            class=""
+                            src="../assets/images/star.svg"
+                            alt="star"
+                          />
+                          <img
+                            class="img-gray"
+                            src="../assets/images/star.svg"
+                            alt="star"
+                          />
+                          <img
+                            class="img-gray"
+                            src="../assets/images/star.svg"
+                            alt="star"
+                          />
+                        </div>
+                        <p class="fs-7">3 顆星以上 (15 筆)</p>
+                      </label>
+                    </li>
+                    <!-- star 2 -->
+                    <li class="form-check mb-1">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="filterStar"
+                        id="filterStar2"
+                        checked
+                      />
+                      <label
+                        class="form-check-label d-flex text-nowrap"
+                        for="filterStar2"
+                      >
+                        <div class="me-1">
+                          <img src="../assets/images/star.svg" alt="star" />
+                          <img
+                            class=""
+                            src="../assets/images/star.svg"
+                            alt="star"
+                          />
+                          <img
+                            class="img-gray"
+                            src="../assets/images/star.svg"
+                            alt="star"
+                          />
+                          <img
+                            class="img-gray"
+                            src="../assets/images/star.svg"
+                            alt="star"
+                          />
+                          <img
+                            class="img-gray"
+                            src="../assets/images/star.svg"
+                            alt="star"
+                          />
+                        </div>
+                        <p class="fs-7">2 顆星以上 (16 筆)</p>
+                      </label>
+                    </li>
+                    <!-- star 1 -->
+                    <li class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="filterStar"
+                        id="filterStar1"
+                        checked
+                      />
+                      <label
+                        class="form-check-label d-flex text-nowrap"
+                        for="filterStar1"
+                      >
+                        <div class="me-1">
+                          <img src="../assets/images/star.svg" alt="star" />
+                          <img
+                            class="img-fluid img-gray"
+                            src="../assets/images/star.svg"
+                            alt="star"
+                          />
+                          <img
+                            class="img-gray"
+                            src="../assets/images/star.svg"
+                            alt="star"
+                          />
+                          <img
+                            class="img-gray"
+                            src="../assets/images/star.svg"
+                            alt="star"
+                          />
+                          <img
+                            class="img-gray"
+                            src="../assets/images/star.svg"
+                            alt="star"
+                          />
+                        </div>
+                        <p class="fs-7">1 顆星以上 (16 筆)</p>
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+                <!-- 2. 價格 -->
+                <div class="border-bottom border-2 border-secondary pb-4 mb-4">
+                  <!-- 價格標題 -->
+                  <h5 class="fs-5 text-nowrap fw-bold mb-3">價格(NT$)</h5>
+                  <!-- 價格內容 -->
+                  <div class="ms-4 ms-md-5">
+                    <div class="d-flex align-items-center">
+                      <input
+                        class="form-control form-control-sm number-arrow-none text-center border fs-7"
+                        type="number"
+                        min="0"
+                        name="minPrice"
+                        id="minPrice"
+                        placeholder="最小值"
+                      />
+                      <span class="mx-1">-</span>
+                      <input
+                        class="form-control form-control-sm number-arrow-none text-center border fs-7"
+                        type="number"
+                        min="1"
+                        name="maxPrice"
+                        id="maxPrice"
+                        placeholder="最大值"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion accordion-flush" id="accordionFilter">
+                  <!-- 3. 前端  -->
+                  <div
+                    class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4"
+                  >
+                    <h2 class="accordion-header d-flex">
+                      <label
+                        class="fs-5 fw-bold text-nowrap d-flex align-items-center"
+                        for="frontend"
+                      >
+                        <input type="checkbox" name="frontend" id="frontend" />
+                        <span>前端</span>
+                      </label>
+                      <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseFrontend"
+                        aria-expanded="false"
+                        aria-controls="collapseFrontend"
+                      ></button>
+                    </h2>
+                    <div
+                      id="collapseFrontend"
+                      class="accordion-collapse collapse"
+                      data-bs-parent="#accordionFilter"
+                    >
+                      <ul class="accordion-body mb-0 ms-4 ms-md-5">
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="html">
+                            <input type="checkbox" name="html" id="html" />
+                            <span>HTML (10)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="css">
+                            <input type="checkbox" name="css" id="css" />
+                            <span>CSS (10)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="scss">
+                            <input type="checkbox" name="scss" id="scss" />
+                            <span>SCSS (10)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="bootstrap">
+                            <input
+                              type="checkbox"
+                              name="bootstrap"
+                              id="bootstrap"
+                            />
+                            <span>Bootstrap (10)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="tailwind">
+                            <input
+                              type="checkbox"
+                              name="tailwind"
+                              id="tailwind"
+                            />
+                            <span>Tailwind (10)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="javascript">
+                            <input
+                              type="checkbox"
+                              name="javascript"
+                              id="javascript"
+                            />
+                            <span>Javascript (10)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="vueJs">
+                            <input type="checkbox" name="vueJs" id="vueJs" />
+                            <span>Vue.js (10)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="react">
+                            <input type="checkbox" name="react" id="react" />
+                            <span>React (10)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="angular">
+                            <input
+                              type="checkbox"
+                              name="angular"
+                              id="angular"
+                            />
+                            <span>Angular (10)</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- 4. 後端  -->
+                  <div
+                    class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4"
+                  >
+                    <h2 class="accordion-header d-flex">
+                      <label
+                        class="fs-5 fw-bold text-nowrap d-flex align-items-center"
+                        for="backend"
+                      >
+                        <input type="checkbox" name="backend" id="backend" />
+                        <span>後端</span>
+                      </label>
+                      <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseBackend"
+                        aria-expanded="false"
+                        aria-controls="collapseBackend"
+                      ></button>
+                    </h2>
+                    <div
+                      id="collapseBackend"
+                      class="accordion-collapse collapse"
+                      data-bs-parent="#accordionFilter"
+                    >
+                      <ul class="accordion-body mb-0 ms-4 ms-md-5">
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="HTML">
+                            <input type="checkbox" name="java" id="java" />
+                            <span>Java (10)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="python">
+                            <input type="checkbox" name="python" id="python" />
+                            <span>Python (10)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="cSharp">
+                            <input type="checkbox" name="cSharp" id="cSharp" />
+                            <span>C# (10)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="ruby">
+                            <input type="checkbox" name="ruby" id="ruby" />
+                            <span>Ruby (10)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="nodeJs">
+                            <input type="checkbox" name="nodeJs" id="nodeJs" />
+                            <span>Node.js (5)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="php">
+                            <input type="checkbox" name="php" id="php" />
+                            <span>PHP (10)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="cPlusPlus">
+                            <input
+                              type="checkbox"
+                              name="cPlusPlus"
+                              id="cPlusPlus"
+                            />
+                            <span> C++ (8)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="React">
+                            <input type="checkbox" name="React" id="React" />
+                            <span>React (10)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="c">
+                            <input type="checkbox" name="c" id="c" />
+                            <span>C (6)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="go">
+                            <input type="checkbox" name="go" id="go" />
+                            <span>Go (3)</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- 5. 資料庫  -->
+                  <div
+                    class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4"
+                  >
+                    <h2 class="accordion-header d-flex">
+                      <label
+                        class="fs-5 fw-bold text-nowrap d-flex align-items-center"
+                        for="database"
+                      >
+                        <input type="checkbox" name="database" id="database" />
+                        <span>資料庫</span>
+                      </label>
+                      <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseDatabase"
+                        aria-expanded="false"
+                        aria-controls="collapseDatabase"
+                      ></button>
+                    </h2>
+                    <div
+                      id="collapseDatabase"
+                      class="accordion-collapse collapse"
+                      data-bs-parent="#accordionFilter"
+                    >
+                      <ul class="accordion-body mb-0 ms-4 ms-md-5">
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="sql">
+                            <input type="checkbox" name="sql" id="sql" />
+                            <span>SQL (10)</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- 6. 行動應用  -->
+                  <div
+                    class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4"
+                  >
+                    <h2 class="accordion-header d-flex">
+                      <label
+                        class="fs-5 fw-bold text-nowrap d-flex align-items-center"
+                        for="app"
+                      >
+                        <input type="checkbox" name="app" id="app" />
+                        <span>行動應用</span>
+                      </label>
+                      <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseApp"
+                        aria-expanded="false"
+                        aria-controls="collapseApp"
+                      ></button>
+                    </h2>
+                    <div
+                      id="collapseApp"
+                      class="accordion-collapse collapse"
+                      data-bs-parent="#accordionFilter"
+                    >
+                      <ul class="accordion-body mb-0 ms-4 ms-md-5">
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="android">
+                            <input
+                              type="checkbox"
+                              name="android"
+                              id="android"
+                            />
+                            <span>Android 開發 (10)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="ios">
+                            <input type="checkbox" name="ios" id="ios" />
+                            <span>iOS 開發 (10)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="googleFlutter">
+                            <input
+                              type="checkbox"
+                              name="googleFlutter"
+                              id="googleFlutter"
+                            />
+                            <span>Google Flutter (10)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="swift">
+                            <input type="checkbox" name="swift" id="swift" />
+                            <span>Swift (10)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="reactNative">
+                            <input
+                              type="checkbox"
+                              name="reactNative"
+                              id="reactNative"
+                            />
+                            <span>React Native (8)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="swiftUI">
+                            <input
+                              type="checkbox"
+                              name="swiftUI"
+                              id="swiftUI"
+                            />
+                            <span>SwiftUI (8)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="ionic">
+                            <input type="checkbox" name="ionic" id="ionic" />
+                            <span> Ionic (8)</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- 7. 開發維運  -->
+                  <div
+                    class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4"
+                  >
+                    <h2 class="accordion-header d-flex">
+                      <label
+                        class="fs-5 fw-bold text-nowrap d-flex align-items-center"
+                        for="devOps"
+                      >
+                        <input type="checkbox" name="devOps" id="devOps" />
+                        <span>開發維運</span>
+                      </label>
+                      <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseDevOps"
+                        aria-expanded="false"
+                        aria-controls="collapseDevOps"
+                      ></button>
+                    </h2>
+                    <div
+                      id="collapseDevOps"
+                      class="accordion-collapse collapse"
+                      data-bs-parent="#accordionFilter"
+                    >
+                      <ul class="accordion-body mb-0 ms-4 ms-md-5">
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="aws">
+                            <input type="checkbox" name="aws" id="aws" />
+                            <span>AWS (10)</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- 8. 產品測試  -->
+                  <div
+                    class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4"
+                  >
+                    <h2 class="accordion-header d-flex">
+                      <label
+                        class="fs-5 fw-bold text-nowrap d-flex align-items-center"
+                        for="productTesting"
+                      >
+                        <input
+                          type="checkbox"
+                          name="productTesting"
+                          id="productTesting"
+                        />
+                        <span>產品測試</span>
+                      </label>
+                      <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseProductTesting"
+                        aria-expanded="false"
+                        aria-controls="collapseProductTesting"
+                      ></button>
+                    </h2>
+                    <div
+                      id="collapseProductTesting"
+                      class="accordion-collapse collapse"
+                      data-bs-parent="#accordionFilter"
+                    >
+                      <ul class="accordion-body mb-0 ms-4 ms-md-5">
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="scrum">
+                            <input type="checkbox" name="scrum" id="scrum" />
+                            <span>Scrum (10)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label
+                            class="fs-7 text-nowrap"
+                            for="productManagement"
+                          >
+                            <input
+                              type="checkbox"
+                              name="productManagement"
+                              id="productManagement"
+                            />
+                            <span>Product Management (10)</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- 9. UI/UX  -->
+                  <div
+                    class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4"
+                  >
+                    <h2 class="accordion-header d-flex">
+                      <label
+                        class="fs-5 fw-bold text-nowrap d-flex align-items-center"
+                        for="uiUX"
+                      >
+                        <input type="checkbox" name="uiUX" id="uiUX" />
+                        <span>UI/UX</span>
+                      </label>
+                      <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseUiUX"
+                        aria-expanded="false"
+                        aria-controls="collapseUiUX"
+                      ></button>
+                    </h2>
+                    <div
+                      id="collapseUiUX"
+                      class="accordion-collapse collapse"
+                      data-bs-parent="#accordionFilter"
+                    >
+                      <ul class="accordion-body mb-0 ms-4 ms-md-5">
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="figma">
+                            <input type="checkbox" name="figma" id="figma" />
+                            <span>Figma (10)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="adobeXd">
+                            <input
+                              type="checkbox"
+                              name="adobeXd"
+                              id="adobeXd"
+                            />
+                            <span>Adobe XD (10)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="photoshop">
+                            <input
+                              type="checkbox"
+                              name="photoshop"
+                              id="photoshop"
+                            />
+                            <span>Photoshop (10)</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- 10. 資安  -->
+                  <div
+                    class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4"
+                  >
+                    <h2 class="accordion-header d-flex">
+                      <label
+                        class="fs-5 fw-bold text-nowrap d-flex align-items-center"
+                        for="informationSecurity"
+                      >
+                        <input
+                          type="checkbox"
+                          name="informationSecurity"
+                          id="informationSecurity"
+                        />
+                        <span>資安</span>
+                      </label>
+                      <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseInformationSecurity"
+                        aria-expanded="false"
+                        aria-controls="collapseInformationSecurity"
+                      ></button>
+                    </h2>
+                    <div
+                      id="collapseInformationSecurity"
+                      class="accordion-collapse collapse"
+                      data-bs-parent="#accordionFilter"
+                    >
+                      <ul class="accordion-body mb-0 ms-4 ms-md-5">
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="EthicalHacking">
+                            <input
+                              type="checkbox"
+                              name="EthicalHacking"
+                              id="EthicalHacking"
+                            />
+                            <span>Ethical Hacking (10)</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- 11. AI -->
+                  <div
+                    class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4"
+                  >
+                    <h2 class="accordion-header d-flex">
+                      <label
+                        class="fs-5 fw-bold text-nowrap d-flex align-items-center"
+                        for="ai"
+                      >
+                        <input type="checkbox" name="ai" id="ai" />
+                        <span>AI</span>
+                      </label>
+                      <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseAi"
+                        aria-expanded="false"
+                        aria-controls="collapseAi"
+                      ></button>
+                    </h2>
+                    <div
+                      id="collapseAi"
+                      class="accordion-collapse collapse"
+                      data-bs-parent="#accordionFilter"
+                    >
+                      <ul class="accordion-body mb-0 ms-4 ms-md-5">
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="chatGpt">
+                            <input
+                              type="checkbox"
+                              name="chatGpt"
+                              id="chatGpt"
+                            />
+                            <span>chatGPT (10)</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- 12. 遊戲開發 -->
+                  <div
+                    class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4"
+                  >
+                    <h2 class="accordion-header d-flex">
+                      <label
+                        class="fs-5 fw-bold text-nowrap d-flex align-items-center"
+                        for="gameDevelopment"
+                      >
+                        <input
+                          type="checkbox"
+                          name="gameDevelopment"
+                          id="gameDevelopment"
+                        />
+                        <span>遊戲開發</span>
+                      </label>
+                      <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseGameDevelopment"
+                        aria-expanded="false"
+                        aria-controls="collapseGameDevelopment"
+                      ></button>
+                    </h2>
+                    <div
+                      id="collapseGameDevelopment"
+                      class="accordion-collapse collapse"
+                      data-bs-parent="#accordionFilter"
+                    >
+                      <ul class="accordion-body mb-0 ms-4 ms-md-5">
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="unity">
+                            <input type="checkbox" name="unity" id="unity" />
+                            <span>Unity (10)</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- 13. 程度 -->
+                  <div
+                    class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4"
+                  >
+                    <h2 class="accordion-header d-flex">
+                      <label
+                        class="fs-5 fw-bold text-nowrap d-flex align-items-center"
+                        for="level"
+                      >
+                        <input type="checkbox" name="level" id="level" />
+                        <span>程度</span>
+                      </label>
+                      <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseLevel"
+                        aria-expanded="false"
+                        aria-controls="collapseLevel"
+                      ></button>
+                    </h2>
+                    <div
+                      id="collapseLevel"
+                      class="accordion-collapse collapse"
+                      data-bs-parent="#accordionFilter"
+                    >
+                      <ul class="accordion-body mb-0 ms-4 ms-md-5">
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="beginner">
+                            <input
+                              type="checkbox"
+                              name="beginner"
+                              id="beginner"
+                            />
+                            <span>入門 (10)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="advanced">
+                            <input
+                              type="checkbox"
+                              name="advanced"
+                              id="advanced"
+                            />
+                            <span>進階 (10)</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- 14. 職涯-->
+                  <div
+                    class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4"
+                  >
+                    <h2 class="accordion-header d-flex">
+                      <label
+                        class="fs-5 fw-bold text-nowrap d-flex align-items-center"
+                        for="career"
+                      >
+                        <input type="checkbox" name="career" id="career" />
+                        <span>職涯</span>
+                      </label>
+                      <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseCareer"
+                        aria-expanded="false"
+                        aria-controls="collapseCareer"
+                      ></button>
+                    </h2>
+                    <div
+                      id="collapseCareer"
+                      class="accordion-collapse collapse"
+                      data-bs-parent="#accordionFilter"
+                    >
+                      <ul class="accordion-body mb-0 ms-4 ms-md-5">
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="correction">
+                            <input
+                              type="checkbox"
+                              name="correction"
+                              id="correction"
+                            />
+                            <span>作品修改 (3)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="resume">
+                            <input type="checkbox" name="resume" id="resume" />
+                            <span>履歷 (3)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="interview">
+                            <input
+                              type="checkbox"
+                              name="interview"
+                              id="interview"
+                            />
+                            <span>面試 (3)</span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="consult">
+                            <input
+                              type="checkbox"
+                              name="consult"
+                              id="consult"
+                            />
+                            <span>諮詢 (1)</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!-- card -->
           <div class="d-flex flex-column mx-auto gap-8 gap-md-10">
             <!-- card1 -->
@@ -1565,981 +2541,6 @@
               </div>
             </div>
           </div>
-          <!-- filter list (mobile:offcanvas desktop:collapse) -->
-          <div
-            class="collapse collapse-horizontal show filter-sidebar-sticky"
-            id="collapseFilter"
-          >
-            <div
-              class="offcanvas-xl offcanvas-end"
-              tabindex="-1"
-              id="offcanvasFilter"
-              aria-labelledby="offcanvasFilterTitle"
-            >
-              <div class="offcanvas-header">
-                <h5 class="offcanvas-title fs-4" id="offcanvasFilterTitle">
-                  篩選列表
-                </h5>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="offcanvas"
-                  data-bs-target="#offcanvasFilter"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div
-                class="offcanvas-body flex-column pt-xl-4"
-                style="height: calc(100% - 64px)"
-              >
-                <!-- 1. 評等 -->
-                <div class="border-bottom border-2 border-secondary pb-4 mb-4">
-                  <!-- 評等標題 -->
-                  <div
-                    class="d-flex justify-content-between align-items-center"
-                  >
-                    <h5 class="fs-5 text-nowrap fw-bold">評等</h5>
-                    <button
-                      class="btn btn-link fs-7 text-nowrap text-decoration-underline"
-                      type="button"
-                    >
-                      清除篩選條件
-                    </button>
-                  </div>
-                  <!-- 評等內容 -->
-                  <ul class="mb-0 ms-4 ms-md-5">
-                    <!-- star 5 -->
-                    <li class="form-check mb-1">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="filterStar"
-                        id="filterStar5"
-                      />
-                      <label
-                        class="form-check-label d-flex text-nowrap"
-                        for="filterStar5"
-                      >
-                        <div class="me-1">
-                          <img src="../assets/images/star.svg" alt="star" />
-                          <img
-                            class=""
-                            src="../assets/images/star.svg"
-                            alt="star"
-                          />
-                          <img
-                            class="d"
-                            src="../assets/images/star.svg"
-                            alt="star"
-                          />
-                          <img
-                            class=""
-                            src="../assets/images/star.svg"
-                            alt="star"
-                          />
-                          <img
-                            class=""
-                            src="../assets/images/star.svg"
-                            alt="star"
-                          />
-                        </div>
-                        <p class="fs-7">5 顆星 (5 筆)</p>
-                      </label>
-                    </li>
-                    <!-- star 4 -->
-                    <li class="form-check mb-1">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="filterStar"
-                        id="filterStar4"
-                        checked
-                      />
-                      <label
-                        class="form-check-label d-flex text-nowrap"
-                        for="filterStar4"
-                      >
-                        <div class="me-1">
-                          <img src="../assets/images/star.svg" alt="star" />
-                          <img
-                            class=""
-                            src="../assets/images/star.svg"
-                            alt="star"
-                          />
-                          <img
-                            class=""
-                            src="../assets/images/star.svg"
-                            alt="star"
-                          />
-                          <img
-                            class=""
-                            src="../assets/images/star.svg"
-                            alt="star"
-                          />
-                          <img
-                            class="img-gray"
-                            src="../assets/images/star.svg"
-                            alt="star"
-                          />
-                        </div>
-                        <p class="fs-7">4 顆星以上 (10 筆)</p>
-                      </label>
-                    </li>
-                    <!-- star 3 -->
-                    <li class="form-check mb-1">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="filterStar"
-                        id="filterStar4"
-                        checked
-                      />
-                      <label
-                        class="form-check-label d-flex text-nowrap"
-                        for="filterStar4"
-                      >
-                        <div class="me-1">
-                          <img src="../assets/images/star.svg" alt="star" />
-                          <img
-                            class=""
-                            src="../assets/images/star.svg"
-                            alt="star"
-                          />
-                          <img
-                            class=""
-                            src="../assets/images/star.svg"
-                            alt="star"
-                          />
-                          <img
-                            class="img-gray"
-                            src="../assets/images/star.svg"
-                            alt="star"
-                          />
-                          <img
-                            class="img-gray"
-                            src="../assets/images/star.svg"
-                            alt="star"
-                          />
-                        </div>
-                        <p class="fs-7">3 顆星以上 (15 筆)</p>
-                      </label>
-                    </li>
-                    <!-- star 2 -->
-                    <li class="form-check mb-1">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="filterStar"
-                        id="filterStar4"
-                        checked
-                      />
-                      <label
-                        class="form-check-label d-flex text-nowrap"
-                        for="filterStar4"
-                      >
-                        <div class="me-1">
-                          <img src="../assets/images/star.svg" alt="star" />
-                          <img
-                            class=""
-                            src="../assets/images/star.svg"
-                            alt="star"
-                          />
-                          <img
-                            class="img-gray"
-                            src="../assets/images/star.svg"
-                            alt="star"
-                          />
-                          <img
-                            class="img-gray"
-                            src="../assets/images/star.svg"
-                            alt="star"
-                          />
-                          <img
-                            class="img-gray"
-                            src="../assets/images/star.svg"
-                            alt="star"
-                          />
-                        </div>
-                        <p class="fs-7">2 顆星以上 (16 筆)</p>
-                      </label>
-                    </li>
-                    <!-- star 1 -->
-                    <li class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="filterStar"
-                        id="filterStar4"
-                        checked
-                      />
-                      <label
-                        class="form-check-label d-flex text-nowrap"
-                        for="filterStar4"
-                      >
-                        <div class="me-1">
-                          <img src="../assets/images/star.svg" alt="star" />
-                          <img
-                            class="img-fluid img-gray"
-                            src="../assets/images/star.svg"
-                            alt="star"
-                          />
-                          <img
-                            class="img-gray"
-                            src="../assets/images/star.svg"
-                            alt="star"
-                          />
-                          <img
-                            class="img-gray"
-                            src="../assets/images/star.svg"
-                            alt="star"
-                          />
-                          <img
-                            class="img-gray"
-                            src="../assets/images/star.svg"
-                            alt="star"
-                          />
-                        </div>
-                        <p class="fs-7">1 顆星以上 (16 筆)</p>
-                      </label>
-                    </li>
-                  </ul>
-                </div>
-                <!-- 2. 價格 -->
-                <div class="border-bottom border-2 border-secondary pb-4 mb-4">
-                  <!-- 價格標題 -->
-                  <h5 class="fs-5 text-nowrap fw-bold mb-3">價格(NT$)</h5>
-                  <!-- 價格內容 -->
-                  <div class="ms-4 ms-md-5">
-                    <div class="d-flex align-items-center">
-                      <input
-                        class="form-control form-control-sm number-arrow-none text-center border fs-7"
-                        type="number"
-                        min="0"
-                        name="minPrice"
-                        id="minPrice"
-                        placeholder="最小值"
-                      />
-                      <span class="mx-1">-</span>
-                      <input
-                        class="form-control form-control-sm number-arrow-none text-center border fs-7"
-                        type="number"
-                        min="1"
-                        name="maxPrice"
-                        id="maxPrice"
-                        placeholder="最大值"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div class="accordion accordion-flush" id="accordionFilter">
-                  <!-- 3. 前端  -->
-                  <div
-                    class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4"
-                  >
-                    <h2 class="accordion-header d-flex">
-                      <label
-                        class="fs-5 fw-bold text-nowrap d-flex align-items-center"
-                        for="frontend"
-                      >
-                        <input type="checkbox" name="frontend" id="frontend" />
-                        <span>前端</span>
-                      </label>
-                      <button
-                        class="accordion-button collapsed"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseFrontend"
-                        aria-expanded="false"
-                        aria-controls="collapseFrontend"
-                      ></button>
-                    </h2>
-                    <div
-                      id="collapseFrontend"
-                      class="accordion-collapse collapse"
-                      data-bs-parent="#accordionFilter"
-                    >
-                      <ul class="accordion-body mb-0 ms-4 ms-md-5">
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="html">
-                            <input type="checkbox" name="html" id="html" />
-                            <span>HTML (10)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="css">
-                            <input type="checkbox" name="css" id="css" />
-                            <span>CSS (10)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="scss">
-                            <input type="checkbox" name="scss" id="scss" />
-                            <span>SCSS (10)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="bootstrap">
-                            <input
-                              type="checkbox"
-                              name="bootstrap"
-                              id="bootstrap"
-                            />
-                            <span>Bootstrap (10)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="tailwind">
-                            <input
-                              type="checkbox"
-                              name="tailwind"
-                              id="tailwind"
-                            />
-                            <span>Tailwind (10)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="javascript">
-                            <input
-                              type="checkbox"
-                              name="javascript"
-                              id="javascript"
-                            />
-                            <span>Javascript (10)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="vueJs">
-                            <input type="checkbox" name="vueJs" id="vueJs" />
-                            <span>Vue.js (10)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="react">
-                            <input type="checkbox" name="react" id="react" />
-                            <span>React (10)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="angular">
-                            <input
-                              type="checkbox"
-                              name="angular"
-                              id="angular"
-                            />
-                            <span>Angular (10)</span>
-                          </label>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <!-- 4. 後端  -->
-                  <div
-                    class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4"
-                  >
-                    <h2 class="accordion-header d-flex">
-                      <label
-                        class="fs-5 fw-bold text-nowrap d-flex align-items-center"
-                        for="backend"
-                      >
-                        <input type="checkbox" name="backend" id="backend" />
-                        <span>後端</span>
-                      </label>
-                      <button
-                        class="accordion-button collapsed"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseBackend"
-                        aria-expanded="false"
-                        aria-controls="collapseBackend"
-                      ></button>
-                    </h2>
-                    <div
-                      id="collapseBackend"
-                      class="accordion-collapse collapse"
-                      data-bs-parent="#accordionFilter"
-                    >
-                      <ul class="accordion-body mb-0 ms-4 ms-md-5">
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="HTML">
-                            <input type="checkbox" name="java" id="java" />
-                            <span>Java (10)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="python">
-                            <input type="checkbox" name="python" id="python" />
-                            <span>Python (10)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="cSharp">
-                            <input type="checkbox" name="cSharp" id="cSharp" />
-                            <span>C# (10)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="ruby">
-                            <input type="checkbox" name="ruby" id="ruby" />
-                            <span>Ruby (10)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="nodeJs">
-                            <input type="checkbox" name="nodeJs" id="nodeJs" />
-                            <span>Node.js (5)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="php">
-                            <input type="checkbox" name="php" id="php" />
-                            <span>PHP (10)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="cPlusPlus">
-                            <input
-                              type="checkbox"
-                              name="cPlusPlus"
-                              id="cPlusPlus"
-                            />
-                            <span> C++ (8)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="React">
-                            <input type="checkbox" name="React" id="React" />
-                            <span>React (10)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="c">
-                            <input type="checkbox" name="c" id="c" />
-                            <span>C (6)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="go">
-                            <input type="checkbox" name="go" id="go" />
-                            <span>Go (3)</span>
-                          </label>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <!-- 5. 資料庫  -->
-                  <div
-                    class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4"
-                  >
-                    <h2 class="accordion-header d-flex">
-                      <label
-                        class="fs-5 fw-bold text-nowrap d-flex align-items-center"
-                        for="database"
-                      >
-                        <input type="checkbox" name="database" id="database" />
-                        <span>資料庫</span>
-                      </label>
-                      <button
-                        class="accordion-button collapsed"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseDatabase"
-                        aria-expanded="false"
-                        aria-controls="collapseDatabase"
-                      ></button>
-                    </h2>
-                    <div
-                      id="collapseDatabase"
-                      class="accordion-collapse collapse"
-                      data-bs-parent="#accordionFilter"
-                    >
-                      <ul class="accordion-body mb-0 ms-4 ms-md-5">
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="sql">
-                            <input type="checkbox" name="sql" id="sql" />
-                            <span>SQL (10)</span>
-                          </label>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <!-- 6. 行動應用  -->
-                  <div
-                    class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4"
-                  >
-                    <h2 class="accordion-header d-flex">
-                      <label
-                        class="fs-5 fw-bold text-nowrap d-flex align-items-center"
-                        for="app"
-                      >
-                        <input type="checkbox" name="app" id="app" />
-                        <span>行動應用</span>
-                      </label>
-                      <button
-                        class="accordion-button collapsed"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseApp"
-                        aria-expanded="false"
-                        aria-controls="collapseApp"
-                      ></button>
-                    </h2>
-                    <div
-                      id="collapseApp"
-                      class="accordion-collapse collapse"
-                      data-bs-parent="#accordionFilter"
-                    >
-                      <ul class="accordion-body mb-0 ms-4 ms-md-5">
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="android">
-                            <input
-                              type="checkbox"
-                              name="android"
-                              id="android"
-                            />
-                            <span>Android 開發 (10)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="ios">
-                            <input type="checkbox" name="ios" id="ios" />
-                            <span>iOS 開發 (10)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="googleFlutter">
-                            <input
-                              type="checkbox"
-                              name="googleFlutter"
-                              id="googleFlutter"
-                            />
-                            <span>Google Flutter (10)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="swift">
-                            <input type="checkbox" name="swift" id="swift" />
-                            <span>Swift (10)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="reactNative">
-                            <input
-                              type="checkbox"
-                              name="reactNative"
-                              id="reactNative"
-                            />
-                            <span>React Native (8)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="swiftUI">
-                            <input
-                              type="checkbox"
-                              name="swiftUI"
-                              id="swiftUI"
-                            />
-                            <span>SwiftUI (8)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="ionic">
-                            <input type="checkbox" name="ionic" id="ionic" />
-                            <span> Ionic (8)</span>
-                          </label>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <!-- 7. 開發維運  -->
-                  <div
-                    class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4"
-                  >
-                    <h2 class="accordion-header d-flex">
-                      <label
-                        class="fs-5 fw-bold text-nowrap d-flex align-items-center"
-                        for="devOps"
-                      >
-                        <input type="checkbox" name="devOps" id="devOps" />
-                        <span>開發維運</span>
-                      </label>
-                      <button
-                        class="accordion-button collapsed"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseDevOps"
-                        aria-expanded="false"
-                        aria-controls="collapseDevOps"
-                      ></button>
-                    </h2>
-                    <div
-                      id="collapseDevOps"
-                      class="accordion-collapse collapse"
-                      data-bs-parent="#accordionFilter"
-                    >
-                      <ul class="accordion-body mb-0 ms-4 ms-md-5">
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="aws">
-                            <input type="checkbox" name="aws" id="aws" />
-                            <span>AWS (10)</span>
-                          </label>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <!-- 8. 產品測試  -->
-                  <div
-                    class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4"
-                  >
-                    <h2 class="accordion-header d-flex">
-                      <label
-                        class="fs-5 fw-bold text-nowrap d-flex align-items-center"
-                        for="productTesting"
-                      >
-                        <input
-                          type="checkbox"
-                          name="productTesting"
-                          id="productTesting"
-                        />
-                        <span>產品測試</span>
-                      </label>
-                      <button
-                        class="accordion-button collapsed"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseProductTesting"
-                        aria-expanded="false"
-                        aria-controls="collapseProductTesting"
-                      ></button>
-                    </h2>
-                    <div
-                      id="collapseProductTesting"
-                      class="accordion-collapse collapse"
-                      data-bs-parent="#accordionFilter"
-                    >
-                      <ul class="accordion-body mb-0 ms-4 ms-md-5">
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="scrum">
-                            <input type="checkbox" name="scrum" id="scrum" />
-                            <span>Scrum (10)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label
-                            class="fs-7 text-nowrap"
-                            for="productManagement"
-                          >
-                            <input
-                              type="checkbox"
-                              name="productManagement"
-                              id="productManagement"
-                            />
-                            <span>Product Management (10)</span>
-                          </label>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <!-- 9. UI/UX  -->
-                  <div
-                    class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4"
-                  >
-                    <h2 class="accordion-header d-flex">
-                      <label
-                        class="fs-5 fw-bold text-nowrap d-flex align-items-center"
-                        for="uiUX"
-                      >
-                        <input type="checkbox" name="uiUX" id="uiUX" />
-                        <span>UI/UX</span>
-                      </label>
-                      <button
-                        class="accordion-button collapsed"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseUiUX"
-                        aria-expanded="false"
-                        aria-controls="collapseUiUX"
-                      ></button>
-                    </h2>
-                    <div
-                      id="collapseUiUX"
-                      class="accordion-collapse collapse"
-                      data-bs-parent="#accordionFilter"
-                    >
-                      <ul class="accordion-body mb-0 ms-4 ms-md-5">
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="figma">
-                            <input type="checkbox" name="figma" id="figma" />
-                            <span>Figma (10)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="adobeXd">
-                            <input
-                              type="checkbox"
-                              name="adobeXd"
-                              id="adobeXd"
-                            />
-                            <span>Adobe XD (10)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="photoshop">
-                            <input
-                              type="checkbox"
-                              name="photoshop"
-                              id="photoshop"
-                            />
-                            <span>Photoshop (10)</span>
-                          </label>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <!-- 10. 資安  -->
-                  <div
-                    class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4"
-                  >
-                    <h2 class="accordion-header d-flex">
-                      <label
-                        class="fs-5 fw-bold text-nowrap d-flex align-items-center"
-                        for="informationSecurity"
-                      >
-                        <input
-                          type="checkbox"
-                          name="informationSecurity"
-                          id="informationSecurity"
-                        />
-                        <span>資安</span>
-                      </label>
-                      <button
-                        class="accordion-button collapsed"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseInformationSecurity"
-                        aria-expanded="false"
-                        aria-controls="collapseInformationSecurity"
-                      ></button>
-                    </h2>
-                    <div
-                      id="collapseInformationSecurity"
-                      class="accordion-collapse collapse"
-                      data-bs-parent="#accordionFilter"
-                    >
-                      <ul class="accordion-body mb-0 ms-4 ms-md-5">
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="EthicalHacking">
-                            <input
-                              type="checkbox"
-                              name="EthicalHacking"
-                              id="EthicalHacking"
-                            />
-                            <span>Ethical Hacking (10)</span>
-                          </label>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <!-- 11. AI -->
-                  <div
-                    class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4"
-                  >
-                    <h2 class="accordion-header d-flex">
-                      <label
-                        class="fs-5 fw-bold text-nowrap d-flex align-items-center"
-                        for="ai"
-                      >
-                        <input type="checkbox" name="ai" id="ai" />
-                        <span>AI</span>
-                      </label>
-                      <button
-                        class="accordion-button collapsed"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseAi"
-                        aria-expanded="false"
-                        aria-controls="collapseAi"
-                      ></button>
-                    </h2>
-                    <div
-                      id="collapseAi"
-                      class="accordion-collapse collapse"
-                      data-bs-parent="#accordionFilter"
-                    >
-                      <ul class="accordion-body mb-0 ms-4 ms-md-5">
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="chatGpt">
-                            <input
-                              type="checkbox"
-                              name="chatGpt"
-                              id="chatGpt"
-                            />
-                            <span>chatGPT (10)</span>
-                          </label>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <!-- 12. 遊戲開發 -->
-                  <div
-                    class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4"
-                  >
-                    <h2 class="accordion-header d-flex">
-                      <label
-                        class="fs-5 fw-bold text-nowrap d-flex align-items-center"
-                        for="gameDevelopment"
-                      >
-                        <input
-                          type="checkbox"
-                          name="gameDevelopment"
-                          id="gameDevelopment"
-                        />
-                        <span>遊戲開發</span>
-                      </label>
-                      <button
-                        class="accordion-button collapsed"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseGameDevelopment"
-                        aria-expanded="false"
-                        aria-controls="collapseGameDevelopment"
-                      ></button>
-                    </h2>
-                    <div
-                      id="collapseGameDevelopment"
-                      class="accordion-collapse collapse"
-                      data-bs-parent="#accordionFilter"
-                    >
-                      <ul class="accordion-body mb-0 ms-4 ms-md-5">
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="unity">
-                            <input type="checkbox" name="unity" id="unity" />
-                            <span>Unity (10)</span>
-                          </label>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <!-- 13. 程度 -->
-                  <div
-                    class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4"
-                  >
-                    <h2 class="accordion-header d-flex">
-                      <label
-                        class="fs-5 fw-bold text-nowrap d-flex align-items-center"
-                        for="level"
-                      >
-                        <input type="checkbox" name="level" id="level" />
-                        <span>程度</span>
-                      </label>
-                      <button
-                        class="accordion-button collapsed"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseLevel"
-                        aria-expanded="false"
-                        aria-controls="collapseLevel"
-                      ></button>
-                    </h2>
-                    <div
-                      id="collapseLevel"
-                      class="accordion-collapse collapse"
-                      data-bs-parent="#accordionFilter"
-                    >
-                      <ul class="accordion-body mb-0 ms-4 ms-md-5">
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="beginner">
-                            <input
-                              type="checkbox"
-                              name="beginner"
-                              id="beginner"
-                            />
-                            <span>入門 (10)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="advanced">
-                            <input
-                              type="checkbox"
-                              name="advanced"
-                              id="advanced"
-                            />
-                            <span>進階 (10)</span>
-                          </label>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <!-- 14. 職涯-->
-                  <div
-                    class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4"
-                  >
-                    <h2 class="accordion-header d-flex">
-                      <label
-                        class="fs-5 fw-bold text-nowrap d-flex align-items-center"
-                        for="career"
-                      >
-                        <input type="checkbox" name="career" id="career" />
-                        <span>職涯</span>
-                      </label>
-                      <button
-                        class="accordion-button collapsed"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseCareer"
-                        aria-expanded="false"
-                        aria-controls="collapseCareer"
-                      ></button>
-                    </h2>
-                    <div
-                      id="collapseCareer"
-                      class="accordion-collapse collapse"
-                      data-bs-parent="#accordionFilter"
-                    >
-                      <ul class="accordion-body mb-0 ms-4 ms-md-5">
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="correction">
-                            <input
-                              type="checkbox"
-                              name="correction"
-                              id="correction"
-                            />
-                            <span>作品修改 (3)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="resume">
-                            <input type="checkbox" name="resume" id="resume" />
-                            <span>履歷 (3)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="interview">
-                            <input
-                              type="checkbox"
-                              name="interview"
-                              id="interview"
-                            />
-                            <span>面試 (3)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="consult">
-                            <input
-                              type="checkbox"
-                              name="consult"
-                              id="consult"
-                            />
-                            <span>諮詢 (1)</span>
-                          </label>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
       <!--========================
@@ -2594,12 +2595,10 @@
           filterBar.style.boxShadow = "";
           stickyMargin.style.marginTop = "";
           navbar.style.display = "block";
-          filterBar.classList.remove("z-1031");
         } else {
           filterBar.style.boxShadow = "0 10px 6px -6px rgba(0, 0, 0, 0.15)";
           stickyMargin.style.marginTop = "78px";
           navbar.style.display = "none";
-          filterBar.classList.add("z-1031");
         }
       });
 

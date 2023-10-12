@@ -488,13 +488,88 @@
                     (ibon、FamiPort、OK-go、Life-ET)
                     上列印繳費單至超商櫃台以現金繳費。
                   </li>
-                  <li class="list-disc">繳費期限：2023-02-07 23:59:59</li>
+                  <li class="list-disc">須於五日內完成繳款</li>
                 </ul>
-                <a
-                  href="cart2.html"
+                <!-- Button trigger modal -->
+                <button
+                  type="button"
                   class="btn btn-secondary2 rounded-2 align-self-end"
-                  >下一步</a
+                  data-bs-toggle="modal"
+                  data-bs-target="#storeInfo"
                 >
+                  確認付款
+                </button>
+
+                <!-- Modal -->
+                <div
+                  class="modal fade"
+                  id="storeInfo"
+                  data-bs-backdrop="static"
+                  data-bs-keyboard="false"
+                  tabindex="-1"
+                  aria-labelledby="storeInfoLabel"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="atmInfoLabel">
+                          超商代繳資訊
+                        </h1>
+                      </div>
+                      <div class="modal-body fs-7 fs-md-6">
+                        <ul class="p-4 mb-4 mb-md-6 bg-secondary">
+                          <li>
+                            繳款代碼：<span class="text-secondary2">
+                              TEST1234567890
+                            </span>
+                          </li>
+                          <li>
+                            (請記錄繳款代碼，至 7-11、全家、OK 超商、萊爾富
+                            店內之多媒體機台上列印繳費)
+                          </li>
+                          <li>
+                            繳款金額：<span class="text-secondary2"
+                              >NT$ 1,359</span
+                            >
+                          </li>
+                          <li>
+                            繳費期限：<span class="text-secondary2"
+                              >2023-02-07 23:59:59</span
+                            >
+                          </li>
+                        </ul>
+                        <ul class="ms-6 mb-4 mb-md-6">
+                          <li class="list-disc">
+                            按下確認後即可進行預約課程，請注意若預約上課前
+                            <span class="text-secondary2"> 24 小時</span
+                            >未完成繳款會<span class="text-secondary2"
+                              >取消預約</span
+                            >！
+                          </li>
+                          <li class="list-disc">
+                            繳款資訊將寄至您的 email，日後若有需要可至 email
+                            查看。
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="modal-footer">
+                        <a
+                          href="cart2.html"
+                          class="btn btn-secondary2 rounded-2"
+                          >確認繳款資訊
+                        </a>
+                        <button
+                          type="button"
+                          class="btn btn-secondary rounded-2"
+                          data-bs-dismiss="modal"
+                        >
+                          取消
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <!-- ATM 轉帳 -->
@@ -509,15 +584,90 @@
                 <ul class="ms-6 mb-4 mb-md-6">
                   <li class="list-disc text-justify">
                     您可以使用任一台灣金融機構所發行之金融卡來進行 ATM
-                    轉帳，若持有 台新銀行 所發行之金融卡，則可享有轉帳免手續費。
+                    轉帳，若持有 台灣銀行 所發行之金融卡，則可享有轉帳免手續費。
                   </li>
-                  <li class="list-disc">繳費期限：2023-02-07 23:59:59</li>
+                  <li class="list-disc">須於五日內完成繳款</li>
                 </ul>
-                <a
-                  href="cart2.html"
+                <!-- Button trigger modal -->
+                <button
+                  type="button"
                   class="btn btn-secondary2 rounded-2 align-self-end"
-                  >下一步</a
+                  data-bs-toggle="modal"
+                  data-bs-target="#atmInfo"
                 >
+                  確認付款
+                </button>
+
+                <!-- Modal -->
+                <div
+                  class="modal fade"
+                  id="atmInfo"
+                  data-bs-backdrop="static"
+                  data-bs-keyboard="false"
+                  tabindex="-1"
+                  aria-labelledby="atmInfoLabel"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="atmInfoLabel">
+                          ATM 轉帳資訊
+                        </h1>
+                      </div>
+                      <div class="modal-body fs-7 fs-md-6">
+                        <ul class="p-4 mb-4 mb-md-6 bg-secondary">
+                          <li>
+                            銀行代號：<span class="text-secondary2">004</span>
+                            台灣銀行
+                          </li>
+                          <li>
+                            轉帳帳號：<span class="text-secondary2"
+                              >1234 1234 1234 1234</span
+                            >
+                          </li>
+                          <li>
+                            轉帳金額：<span class="text-secondary2"
+                              >NT$ 1,359</span
+                            >
+                          </li>
+                          <li>
+                            繳費期限：<span class="text-secondary2"
+                              >2023-02-07 23:59:59</span
+                            >
+                          </li>
+                        </ul>
+                        <ul class="ms-6 mb-4 mb-md-6">
+                          <li class="list-disc">
+                            按下確認後即可進行預約課程，請注意若預約上課前
+                            <span class="text-secondary2"> 24 小時</span
+                            >未完成繳款會<span class="text-secondary2"
+                              >取消預約</span
+                            >！
+                          </li>
+                          <li class="list-disc">
+                            繳款資訊將寄至您的 email，日後若有需要可至 email
+                            查看。
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="modal-footer">
+                        <a
+                          href="cart2.html"
+                          class="btn btn-secondary2 rounded-2"
+                          >確認繳款資訊
+                        </a>
+                        <button
+                          type="button"
+                          class="btn btn-secondary rounded-2"
+                          data-bs-dismiss="modal"
+                        >
+                          取消
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

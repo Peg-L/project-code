@@ -8,11 +8,8 @@
   &.show {
     @include media-breakpoint-up(xl) {
       min-width: 380px;
-      padding: 0 20px 0 60px;
+      margin: 0 40px 0 20px;
+      padding-right: 20px;
     }
   }
-}
-
-.z-1031 {
-  z-index: 1031;
 }
