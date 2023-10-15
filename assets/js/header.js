@@ -1,10 +1,10 @@
-const loginBtn = document.querySelector("#login-btn");
+const loginBtn = document.querySelector("#loginButton");
 
 let navbarMemberBtns = document.querySelectorAll(".btn-member");
 let navbarLoginBtns = document.querySelectorAll(".btn-login");
 let navbarRegisterBtns = document.querySelectorAll(".btn-register");
 
-let isLogin = sessionStorage.getItem("isLogin");
+let isLogin = localStorage.getItem("isLogin");
 
 function checkLogin() {
   if (isLogin === "1") {

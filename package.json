@@ -15,12 +15,15 @@
   "devDependencies": {
     "ejs": "^3.1.9",
     "eslint": "^8.7.0",
+    "json-server": "^0.17.4",
+    "json-server-auth": "^2.1.0",
     "prettier": "^2.5.1",
     "vite": "^4.2.0",
     "vite-plugin-ejs": "^1.6.4"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
+    "axios": "^1.5.1",
     "bootstrap": "^5.3.1",
     "bootstrap-icons": "^1.10.5",
     "gh-pages": "^5.0.0",
