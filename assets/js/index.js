@@ -1,18 +1,37 @@
-var bannerSwiper = new Swiper(".bannerSwiper", {
+import axios from "axios";
+
+let bannerSwiper = new Swiper(".bannerSwiper", {
   slidesPerView: 1,
   loop: true,
-  autoplay: {
-    delay: 5000,
-    pauseOnMouseEnter: true,
-    disableOnInteraction: false,
-  },
+  // autoplay: {
+  //   delay: 5000,
+  //   pauseOnMouseEnter: true,
+  //   disableOnInteraction: false,
+  // },
   pagination: {
     el: ".bannerSwiper-pagination",
     clickable: true,
   },
 });
 
-var recommendSwiper = new Swiper(".recommendSwiper", {
+// 取得 banner 搜尋框的值
+const bannerInputs = document.querySelectorAll(".banner-input")
+let bannerInputValue;
+
+bannerInputs.forEach((bannerInput) => {
+  bannerInput.addEventListener("input", function(){
+    bannerInputValue = bannerInput.value;
+  })
+})
+
+const bannerSearchBtns = document.querySelectorAll(".banner-btn-search")
+bannerSearchBtns.forEach((bannerSearchBtn)=>{
+  bannerSearchBtn.addEventListener("click", function(){
+    apiUrl = `${api}/courses??q=${bannerInputValue}`;
+  })
+})
+
+let recommendSwiper = new Swiper(".recommendSwiper", {
   slidesPerView: 1,
   spaceBetween: 16,
   loop: true,
@@ -44,7 +63,7 @@ var recommendSwiper = new Swiper(".recommendSwiper", {
   },
 });
 
-var reviewsSwiper = new Swiper(".reviewsSwiper", {
+let reviewsSwiper = new Swiper(".reviewsSwiper", {
   slidesPerView: 1,
   spaceBetween: 16,
   loop: true,
