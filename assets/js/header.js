@@ -1,6 +1,8 @@
 const loginBtn = document.querySelector("#loginButton");
 
 let navbarMemberBtns = document.querySelectorAll(".btn-member");
+let navbarLogoutBtns = document.querySelectorAll(".btn-logout");
+
 let navbarLoginBtns = document.querySelectorAll(".btn-login");
 let navbarRegisterBtns = document.querySelectorAll(".btn-register");
 
@@ -11,11 +13,13 @@ function checkLogin() {
     navbarMemberBtns.forEach(function (navbarMemberBtn) {
       navbarMemberBtn.style.display = "block";
     });
+    navbarLogoutBtns.forEach(function (navbarLogoutBtn) {
+      navbarLogoutBtn.style.display = "block";
+    });
 
     navbarLoginBtns.forEach(function (navbarLoginBtn) {
       navbarLoginBtn.style.display = "none";
     });
-
     navbarRegisterBtns.forEach(function (navbarRegisterBtn) {
       navbarRegisterBtn.style.display = "none";
     });
@@ -35,3 +39,11 @@ ClassicEditor.create(document.querySelector("#editor"), {
   .catch((error) => {
     console.log(error);
   });
+
+
+// 登出
+navbarLogoutBtns.forEach(function (navbarLogoutBtn) {
+  navbarLogoutBtn.addEventListener("click", function (){
+    localStorage.setItem("isLogin", "0");
+  })
+});
