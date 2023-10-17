@@ -1471,13 +1471,11 @@
       
       // 首頁搜尋跳轉
       const indexSearchInput = localStorage.getItem("indexSearchInput");
-      console.log(indexSearchInput);
-      
       if (indexSearchInput) {
         data.q = indexSearchInput;
         getData(data);
       }
-
+      
       // 取得 banner 搜尋框的值
       const courseSearchInput = document.querySelector(".course-search-input")
       

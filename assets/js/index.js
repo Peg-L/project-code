@@ -22,21 +22,25 @@ const bannerSearchBtns = document.querySelectorAll(".banner-btn-search")
 // 取得 所有搜尋框的值
 const bannerInputs = document.querySelectorAll(".banner-input")
 
-// 監聽搜尋按鈕
-bannerSearchBtns.forEach((bannerSearchBtn)=>{
-  bannerSearchBtn.addEventListener("click", () => {
-    //- 點擊後將 搜尋內容 放入 localStorage
-    localStorage.setItem("indexSearchInput", bannerInputValue)  
-
-    //- 跳轉 course.html
-    location.href = "./course.html";
-  })
-})
 
 // 取得 搜尋內容
 bannerInputs.forEach((bannerInput) => {
   bannerInput.addEventListener("input", ()=> {
-    bannerInputValue = bannerInput.value
+    bannerInputValue = bannerInput.value;
+
+    // 監聽搜尋按鈕
+    bannerSearchBtns.forEach((bannerSearchBtn)=>{
+      bannerSearchBtn.addEventListener("click", () => {
+        //- 點擊按鈕後將 搜尋內容 放入 localStorage
+        localStorage.setItem("indexSearchInput", bannerInputValue) 
+
+        // 清空首頁搜尋框
+        bannerInput.value = "";
+
+        //- 跳轉 course.html
+        location.href = "./course.html";
+      })
+    })
   })
   }
 )
