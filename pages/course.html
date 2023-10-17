@@ -35,13 +35,13 @@
           <div class="input-group">
             <input
               type="text"
-              class="form-control border-light"
+              class="form-control border-light course-search-input"
               placeholder="今天想學什麼..."
               aria-label="search keywords"
               aria-describedby="button-addon2"
             />
             <button
-              class="btn btn-secondary2 btn-search z-0"
+              class="btn btn-secondary2 btn-search z-0 course-search-button"
               type="button"
               id="button-addon2"
             >
@@ -1166,7 +1166,7 @@
     </script>
     <!-- 卡片 -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script>
+    <script  type="module">
       const courseList = document.querySelector("#courseList");
       const api = "https://project-code-json-k0ti.onrender.com";
       const data = {
@@ -1176,13 +1176,14 @@
         limit: 10,
         like: "",
         operators: "",
+        q: ""
       };
       let courseData = [];
       const dateReg = /^(\d{4}-\d{2}-\d{2}).*/;
       const separatorReg = /\B(?=(?:\d{3})+(?!\d))/g;
 
-      const getData = async ({ page, limit }) => {
-        const apiUrl = `${api}/courses?_expand=teacher&_page=${page}`;
+      const getData = async ({ page, limit,q }) => {
+        const apiUrl = `${api}/courses?_expand=teacher&_page=${page}&q=${q}`;
         try {
           const res = await axios.get(apiUrl);
           courseData = res.data;
@@ -1467,6 +1468,33 @@
         });
         courseList.innerHTML = courseHtml;
       };
+      
+      // 首頁搜尋跳轉
+      const indexSearchInput = localStorage.getItem("indexSearchInput");
+      console.log(indexSearchInput);
+      
+      if (indexSearchInput) {
+        data.q = indexSearchInput;
+        getData(data);
+      }
+
+      // 取得 banner 搜尋框的值
+      const courseSearchInput = document.querySelector(".course-search-input")
+      
+      let courseSearchInputValue;
+
+      courseSearchInput.addEventListener("input", function(){
+        courseSearchInputValue = courseSearchInput.value;
+      });
+
+      const courseSearchButton = document.querySelector(".course-search-button");
+      
+      courseSearchButton.addEventListener("click", function(data){
+        data.q = courseSearchInputValue;
+        getData(data)
+      })
+
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   </body>
 </html>

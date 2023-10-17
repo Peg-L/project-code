@@ -14,22 +14,32 @@ let bannerSwiper = new Swiper(".bannerSwiper", {
   },
 });
 
-// 取得 banner 搜尋框的值
-const bannerInputs = document.querySelectorAll(".banner-input")
 let bannerInputValue;
 
-bannerInputs.forEach((bannerInput) => {
-  bannerInput.addEventListener("input", function(){
-    bannerInputValue = bannerInput.value;
+// 取得 所有搜尋按鈕
+const bannerSearchBtns = document.querySelectorAll(".banner-btn-search")
+
+// 取得 所有搜尋框的值
+const bannerInputs = document.querySelectorAll(".banner-input")
+
+// 監聽搜尋按鈕
+bannerSearchBtns.forEach((bannerSearchBtn)=>{
+  bannerSearchBtn.addEventListener("click", () => {
+    //- 點擊後將 搜尋內容 放入 localStorage
+    localStorage.setItem("indexSearchInput", bannerInputValue)  
+
+    //- 跳轉 course.html
+    location.href = "./course.html";
   })
 })
 
-const bannerSearchBtns = document.querySelectorAll(".banner-btn-search")
-bannerSearchBtns.forEach((bannerSearchBtn)=>{
-  bannerSearchBtn.addEventListener("click", function(){
-    apiUrl = `${api}/courses??q=${bannerInputValue}`;
+// 取得 搜尋內容
+bannerInputs.forEach((bannerInput) => {
+  bannerInput.addEventListener("input", ()=> {
+    bannerInputValue = bannerInput.value
   })
-})
+  }
+)
 
 let recommendSwiper = new Swiper(".recommendSwiper", {
   slidesPerView: 1,
