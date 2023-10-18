@@ -1,3 +1,10 @@
+const queryParams = new URLSearchParams(window.location.search);
+const courseId = queryParams.get('course_id'); //抓取課程ID
+const _url = "http://localhost:3000"; // 修改處
+let data = [];
+
+
+
 //第一部分參數
 const teacherImg = document.querySelector('#teacherImg');
 const teacherName = document.querySelector('#teacher_name');
@@ -10,14 +17,14 @@ const teacher_experience = document.querySelector('#teacher_experience');
 const language = document.querySelector('#language');
 const level = document.querySelector('#level');
 const intro = document.querySelector('#intro');
-//第三部分參數
+//第三部分參數 
+//第四部分參數
+
+const left = document.querySelector('#PreviousWeek');
+const right = document.querySelector('#NextWeek');
 
 
-const list = document.querySelector('.list');
-const queryParams = new URLSearchParams(window.location.search);
-const courseId = queryParams.get('course_id'); //抓取課程ID
-const _url = "http://localhost:3000"; // 修改處
-let data = [];
+//資料取得完畢並且初始化
 function init(){
     axios.get(`${_url}/courses/${courseId.toString()}?_expand=teacher`)
     .then(function(response){
@@ -35,13 +42,42 @@ function init(){
         level.textContent = data.level;
         intro.textContent = data.teacher.intro;
         //section3
-        //section4
-
-
+        //section4(calendar)
+        updateData();
     })
 }
+function updateData() {
+    const daysDate = document.querySelectorAll('.calendar-time');
+    daysDate.forEach(item => {
+        let dataNum = item.getAttribute('data-num');
+        let matchData = findMatchData(dataNum);
+        let str = '';
+        if (matchData) {
+            matchData.time.forEach(date => {
+                str += `<li><a href=''>${date}</a></li>`
+            })
+            item.innerHTML = str;
+        }
+    });
+
+    function findMatchData(dataNum) {
+        return data.teacher.openTime.find(item => item.date === dataNum);
+    }
+}
+
 // 預設載入初始化環境
 init();
+
+left.addEventListener('click',()=>{
+    updateData();
+})
+right.addEventListener('click',()=>{
+    updateData();
+})
+
+
+
+
 
 
 // // 新增待辦功能
