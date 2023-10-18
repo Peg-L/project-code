@@ -1196,16 +1196,19 @@
           }
           // 上面用 forEach 時，courseData[0]的comment有user，但courseData[0].comment卻沒有user
           // 可能因為 forEach 是同步的，不會等待就繼續下一個迴圈，導致出錯? for...of 在處理迴圈時每個迴圈都會等待完成再進入下一個
-          console.log("courseData", courseData);
+          console.log("getData courseData", courseData);
           renderCourses();
-        } catch (error) {
-          console.log("course", error);
+        } 
+        catch (error) {
+          console.log("courseError", error);
         }
       };
+
       getData(data);
 
       const renderCourses = () => {
         let courseHtml = "";
+        
         courseData.forEach((item) => {
           courseHtml += `
             <li class="card flex-row flex-wrap flex-md-nowrap shadow">
@@ -1474,6 +1477,7 @@
       if (indexSearchInput) {
         data.q = indexSearchInput;
         getData(data);
+        localStorage.setItem("indexSearchInput", "")
       }
       
       // 取得 banner 搜尋框的值
@@ -1488,8 +1492,10 @@
       const courseSearchButton = document.querySelector(".course-search-button");
       
       courseSearchButton.addEventListener("click", function(data){
+        courseSearchInput.value = "";
         data.q = courseSearchInputValue;
         getData(data)
+        data.q = "";
       })
 
     </script>
