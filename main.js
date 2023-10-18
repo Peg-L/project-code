@@ -6,6 +6,7 @@ import "./assets/js/header";
 import "./assets/js/config";
 import "./assets/js/login"
 import "./assets/js/register";
+import "./assets/js/faq";
 
 import "./assets/js/backtotop";
 import "./assets/js/index";
