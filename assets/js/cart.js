@@ -68,17 +68,17 @@ function CalculateToTalSum() {
             CourseDiscountPrice += Discount * Count;
         }
     });
-    //獲取網頁上原價的物件
-    var OriginalPriceObject = $("#OriginalPrice");
-    //將原價顯示在上面
-    OriginalPriceObject.text(OriginalTotalPrice);
-    //獲取課程優惠的價格
-    //var CourseDiscountPrice = parseInt($("#CourseDiscount").text().replace(",", ""));
-    //獲取全站優惠的價格
-    var WebDiscountPrice = parseInt($("#WebDiscount").text().replace(",", ""));
-    //總金額為原價-課程優惠-全站優惠
-    var TotalPrice = OriginalTotalPrice - CourseDiscountPrice - WebDiscountPrice;
-    //獲取並將總額顯示在上面
-    var CourseDiscountPriceText = $("#CourseDiscount").text(CourseDiscountPrice);
-    var TotalPriceText = $("#TotalPrice").text(TotalPrice);
+   //獲取網頁上原價的物件
+   var OriginalPriceObject = $("#OriginalPrice");
+   //將原價顯示在上面
+   OriginalPriceObject.text(OriginalTotalPrice);
+   //獲取課程優惠的價格
+   //var CourseDiscountPrice = parseInt($("#CourseDiscount").text().replace(",", ""));
+   //獲取全站優惠的價格
+   var WebDiscountPrice = parseInt($("#WebDiscount").text().replace(",", ""));
+   //總金額為原價-課程優惠-全站優惠
+   var TotalPrice = OriginalTotalPrice - CourseDiscountPrice - WebDiscountPrice;
+   //獲取並將總額顯示在上面
+   var CourseDiscountPriceText = $("#CourseDiscount").text(CourseDiscountPrice);
+   var TotalPriceText = $("#TotalPrice").text(TotalPrice);
 }
