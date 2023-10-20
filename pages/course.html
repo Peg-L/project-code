@@ -655,7 +655,7 @@
                               value="Node.js"
                             />
                             <span
-                              >Node.js<span data-category="NodeJs"></span
+                              >Node.js<span data-category="Node.js"></span
                             ></span>
                           </label>
                         </li>
@@ -791,11 +791,11 @@
                               type="checkbox"
                               name="Android"
                               id="mobileAppAndroid"
-                              value="Android開發"
+                              value="Android 開發"
                             />
                             <span
                               >Android 開發<span
-                                data-category="Android開發"
+                                data-category="Android 開發"
                               ></span
                             ></span>
                           </label>
@@ -1166,13 +1166,13 @@
                         <li class="mb-2">
                           <label
                             class="fs-7 text-nowrap"
-                            for="databaseEthicalHacker"
+                            for="securityEthicalHacker"
                           >
                             <input
                               class="js-category"
                               type="checkbox"
                               name="EthicalHacker"
-                              id="databaseEthicalHacker"
+                              id="securityEthicalHacker"
                               value="道德駭客"
                             />
                             <span
@@ -1183,13 +1183,13 @@
                         <li class="mb-2">
                           <label
                             class="fs-7 text-nowrap"
-                            for="databaseReverseEngineering"
+                            for="securityReverseEngineering"
                           >
                             <input
                               class="js-category"
                               type="checkbox"
                               name="ReverseEngineering"
-                              id="databaseReverseEngineering"
+                              id="securityReverseEngineering"
                               value="逆向工程"
                             />
                             <span
@@ -1242,10 +1242,12 @@
                               type="checkbox"
                               name="gameDevelopmentAI"
                               id="AIGameDevelopmentAI"
-                              value="遊戲開發AI"
+                              value="遊戲開發 AI"
                             />
                             <span
-                              >遊戲開發AI<span data-category="遊戲開發AI"></span
+                              >遊戲開發 AI<span
+                                data-category="遊戲開發 AI"
+                              ></span
                             ></span>
                           </label>
                         </li>
@@ -1417,11 +1419,9 @@
                               type="checkbox"
                               name="resume"
                               id="careerResume"
-                              value="resume"
+                              value="履歷"
                             />
-                            <span
-                              >履歷<span data-category="resume"></span
-                            ></span>
+                            <span>履歷<span data-category="履歷"></span></span>
                           </label>
                         </li>
                         <li class="mb-2">
@@ -2038,8 +2038,11 @@
         for (let i = 0; i < categoriesNum.length; i++) {
           let dataCategory = categoriesNum[i].dataset.category;
           categoryNumData[dataCategory] = 0;
+          if (categoryNumData[dataCategory] === NaN) {
+            console.log("篩選項目有打錯，出現NaN");
+          }
         }
-
+        console.log(categoryNumData);
         allCourses.forEach((course) => {
           /* 計算各評等筆數 */
           const rate = Math.floor(parseFloat(course.rate));
@@ -2056,6 +2059,7 @@
 
           categoryNumData[course.level]++;
         });
+        console.log(categoryNumData);
 
         /* 將各評等筆數寫入HTML */
         for (let i = 0; i < ratingLength; i++) {
@@ -2115,10 +2119,17 @@
         }
       });
 
+      const isEnglish = (value) => {
+        return /[a-zA-Z]/.test(value);
+      };
+
       /* 課程分類篩選功能 */
       const handleCategoryFilters = ({ checked, value }) => {
-        const apiFilter = `&categories_like=${value}`;
-        const apiLevel = `&level_like=${value}`;
+        let apiFilter;
+        let apiLevel = `&level_like=${value}`;
+        isEnglish(value)
+          ? (apiFilter = `&categories_like=\\b${value}\\b`) //BUG：目前C會找到C#
+          : (apiFilter = `&categories_like=${value}`); //value是中文時，加正則表達式會找不到
 
         if (checked) {
           //避免按全選時重複選取
@@ -2145,7 +2156,6 @@
         if (maxPrice.value) {
           data.price_lte = maxPrice.value;
         }
-        console.log(minPrice.value);
         getData(data);
         countSelectedFilters();
       });
@@ -2156,7 +2166,7 @@
         maxPrice.value = "";
         filterRatings[0].checked = true;
         const checkboxes = document.querySelectorAll(
-          ".js-selectAll .js-category"
+          ".js-selectAll, .js-category"
         );
         checkboxes.forEach((checkbox) => (checkbox.checked = false));
         data = {
