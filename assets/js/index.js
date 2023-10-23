@@ -45,15 +45,13 @@ bannerInputs.forEach((bannerInput) => {
   }
 )
 
-
-
 // 熱門教師 API
 axios.get(`${_url}/courses?_expand=teacher`).then(res=>{
-  let popularNum = 0;
   let courses = res.data;
   
   // 篩選出是熱門課程
   let popularCourses = courses.filter(course=> course.badges.includes("熱門"));
+  console.log(popularCourses);
   
   // 取出前 6 項
   let popularCourses6th = popularCourses.slice(0, 7);
@@ -138,3 +136,86 @@ let recommendSwiper = new Swiper(".recommendSwiper", {
     },
   },
 });
+
+
+// 課程分類
+// let courseTopic  = "資安"
+// axios.get(`${_url}/courses?topics=${courseTopic}`).then(res=>{
+//   let courses = res.data;
+//   console.log(`${courseTopic}`,courses);
+// })
+
+
+// 學生好評
+var reviewsSwiper = new Swiper(".reviewsSwiper", {
+  slidesPerView: 1,
+  spaceBetween: 16,
+  pagination: {
+    el: ".reviewsSwiper-pagination-custom",
+    clickable: true,
+    dynamicBullets: true,
+    dynamicMainBullets: 5,
+  },
+  breakpoints: {
+    992: {
+      slidesPerView: 2,
+      spaceBetween: 24,
+      navigation: {
+        nextEl: ".reviewsSwiper-button-next-custom",
+        prevEl: ".reviewsSwiper-button-prev-custom",
+      },
+      pagination: {
+        dynamicMainBullets: 3,
+      },
+    },
+  },
+});
+
+axios.get(`${_url}/comments?_expand=user`).then((res)=> {
+  console.log("Comments",res.data);
+
+  const reviewsSwiper = document.querySelector(".reviews-swiper");
+
+  let commentsCard = "";
+  res.data.forEach(comment=>{
+    commentsCard += `<div class="swiper-slide">
+    <div
+      class="teacher-card d-flex flex-column justify-content-between gap-10 h-100"
+    >
+      <div class="d-flex justify-content-between flex-column gap-4">
+        <img
+          class="w-40px h-40px"
+          src="../assets/images/comma.png"
+          alt="逗號"
+        />
+        <p>
+          ${comment.content}
+        </p>
+      </div>
+      <div class="d-flex">
+        <div class="d-flex flex-column gap-1 me-3 ms-auto">
+          <ul class="d-flex gap-1 text-primary mb-0">
+            <li><i class="fa-solid fa-star"></i></li>
+            <li><i class="fa-solid fa-star"></i></li>
+            <li><i class="fa-solid fa-star"></i></li>
+            <li><i class="fa-solid fa-star"></i></li>
+            <li><i class="fa-solid fa-star"></i></li>
+          </ul>
+          <p class="fs-6">
+            Cookie<span class="ms-1 fs-tiny text-gray-300"
+              >${comment.user.role}</span
+            >
+          </p>
+        </div>
+        <img
+          class="object-fit-cover rounded-circle w-60px h-60px"
+          src="${comment.user.avatar}"
+          alt="${comment.user.name}"
+        />
+      </div>
+    </div>
+  </div>`
+  })
+
+  reviewsSwiper.innerHTML = commentsCard;
+})

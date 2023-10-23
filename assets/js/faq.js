@@ -1,8 +1,6 @@
 // 資料 渲染 分開
 const faqSearchButton = document.querySelector(".faq-search-btn");
 
-
-
 faqSearchButton.addEventListener("click", ()=>{
   const faqSearchInput = document.querySelector(".faq-search-input");
 
