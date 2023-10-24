@@ -1,3 +1,5 @@
+import axios from "axios";
+
 //抓取按鈕
 const changeBtn = document.querySelectorAll('#change');
 const saveBtn = document.querySelectorAll('#saveBtn')
@@ -27,3 +29,12 @@ saveBtn.forEach((item,index)=>{
         changeBtn[index].toggleAttribute("disabled");
     })
 })
+
+
+// 我的關注
+// 記得修改 html // class="tab-pane fade show active"
+
+// CRUD 增加 讀取 更新 刪除
+
+
+
