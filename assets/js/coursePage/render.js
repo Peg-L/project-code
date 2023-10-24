@@ -1,12 +1,26 @@
-import { currentPageCourses, isLoading } from "./api.js";
+import { currentPageCourses, isLoading, data, lastPage } from "./api.js";
+import { pagination } from "./pagination.js";
 
 const courseList = document.querySelector("#courseList");
 // 日期、數字三位一點規則
 const dateReg = /^(\d{4}-\d{2}-\d{2}).*/;
 const separatorReg = /\B(?=(?:\d{3})+(?!\d))/g;
 
+function inputDisable() {
+  const inputs = document.querySelectorAll("input");
+  if (isLoading) {
+    inputs.forEach((input) => {
+      input.disabled = true;
+    });
+  } else {
+    inputs.forEach((input) => {
+      input.disabled = false;
+    });
+  }
+}
+
 /*** 渲染課程 ***/
-const renderCourses = () => {
+function renderCourses() {
   let courseHtml = "";
   /* loading動畫 */
   isLoading
@@ -132,7 +146,9 @@ const renderCourses = () => {
                   <img src="../assets/images/star.svg" alt="star" />
                   <span class="fw-bold fs-sm fs-md-7 ms-1">${item.rate}</span>
                   ・
-                  <span class="fs-sm fs-md-7 me-2">28 個評論</span>
+                  <span class="fs-sm fs-md-7 me-2">${
+                    item.commentNum
+                  } 個評論</span>
                 </a>
                 <p class="text-gray-300">| ${item.level}</p>
               </div>
@@ -286,6 +302,40 @@ const renderCourses = () => {
         </p>
       </div>`);
   courseList.innerHTML = courseHtml;
-};
+}
 
-export { renderCourses };
+/*** 渲染 Pagination ***/
+function renderPagination() {
+  /* 頁數 */
+  const pageNum = [...Array(lastPage)].map((_, index) => {
+    return `<li class="page-item ${
+      data.page === index + 1 ? "active" : ""
+    }" aria-current="page">
+  <a class="page-link" href="#" data-page="${index + 1}">${index + 1}</a>
+</li>`;
+  });
+
+  /* 上一頁 */
+  const pagePrev = `<li class="page-item ${data.page === 1 ? "disabled" : ""} ">
+  <a
+    class="page-link"
+    href="#"
+    aria-label="Previous" data-page="prev"
+  >
+    <i class="fa-solid fa-angle-left" ></i>
+  </a>
+</li>`;
+
+  /* 下一頁 */
+  const pageNext = `<li class="page-item ${
+    data.page === lastPage ? "disabled" : ""
+  }">
+<a class="page-link" href="#" aria-label="Next" data-page="next">
+  <i class="fa-solid fa-angle-right"></i>
+</a>
+</li>`;
+
+  pagination.innerHTML = pagePrev + pageNum.join("") + pageNext;
+}
+
+export { inputDisable, renderCourses, renderPagination };

@@ -25,3 +25,5 @@ courseSearchButton.addEventListener("click", function (data) {
   getCoursesData(data);
   data.q = "";
 });
+
+export {};
