@@ -12,8 +12,12 @@ sortByList.addEventListener("click", (e) => {
     // 確保和上次選的不同
     if (data.sort !== order) {
       data.sort = order;
-      getCoursesData(data);
       sortByBtn.innerHTML = `排序依據：${e.target.textContent}`;
+
+      //回到第一頁
+      data.page = 1;
+      //呼叫 api
+      getCoursesData(data);
     }
   }
 });

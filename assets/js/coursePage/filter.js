@@ -3,7 +3,6 @@ import {
   maxPriceDefault,
   data,
   getCoursesData,
-  isLoading,
 } from "./api.js";
 
 //選取 控制篩選收合按鈕的數字 (collapse、offcanvas各一)
@@ -43,6 +42,8 @@ function handleRatingFilter(rate) {
     filterStar1: 1,
   }[rate];
 
+  //回到第一頁
+  data.page = 1;
   //呼叫 api
   getCoursesData(data);
   // 計算篩選幾項
@@ -59,6 +60,10 @@ minPrice.addEventListener("blur", () => {
     // data.price_gte 不是初始值時才呼叫api
     if (data.price_gte !== minPriceDefault) {
       data.price_gte = minPriceDefault;
+
+      //回到第一頁
+      data.page = 1;
+      //呼叫 api
       getCoursesData(data);
       // 計算篩選幾項
       countSelectedFilters();
@@ -69,6 +74,10 @@ minPrice.addEventListener("blur", () => {
     // 輸入的數值不是上次輸入的值時
     if (priceInputValue !== data.price_gte) {
       data.price_gte = priceInputValue;
+
+      //回到第一頁
+      data.page = 1;
+      //呼叫 api
       getCoursesData(data);
       // 計算篩選幾項
       countSelectedFilters();
@@ -85,6 +94,10 @@ maxPrice.addEventListener("blur", () => {
     // data.price_lte 不是初始值時才呼叫api
     if (data.price_lte !== maxPriceDefault) {
       data.price_lte = maxPriceDefault;
+
+      //回到第一頁
+      data.page = 1;
+      //呼叫 api
       getCoursesData(data);
       // 計算篩選幾項
       countSelectedFilters();
@@ -95,6 +108,10 @@ maxPrice.addEventListener("blur", () => {
     // 輸入的數值不是上次輸入的值時
     if (priceInputValue !== data.price_lte) {
       data.price_lte = priceInputValue;
+
+      //回到第一頁
+      data.page = 1;
+      //呼叫 api
       getCoursesData(data);
       // 計算篩選幾項
       countSelectedFilters();
@@ -124,6 +141,8 @@ accordionFilter.addEventListener("change", (e) => {
         handleCategoryFilters(checkbox);
       });
 
+      // 回到第一頁
+      data.page = 1;
       //呼叫 api
       getCoursesData(data);
       // 計算篩選幾項
@@ -131,10 +150,22 @@ accordionFilter.addEventListener("change", (e) => {
     } else {
       console.log(`${target.name}內沒有checkbox`);
     }
-    // 當target是課程分類小項checkbox
+    /* 當target是課程分類小項checkbox */
   } else if ((target.type = "checkbox")) {
+    // 更新父層 checkbox 狀態
+    const parentCheckbox = target
+      .closest(".accordion-item")
+      .querySelector(".js-selectAll");
+    const relatedCheckboxes = target
+      .closest(".accordion-body")
+      .querySelectorAll(".js-category");
+    updateParentCheckbox(parentCheckbox, relatedCheckboxes);
+
+    // 執行篩選
     handleCategoryFilters(target);
 
+    //回到第一頁
+    data.page = 1;
     //呼叫 api
     getCoursesData(data);
     // 計算篩選幾項
@@ -171,6 +202,16 @@ function handleCategoryFilters({ checked, value }) {
       .filter((item) => item !== apiFilter && item !== apiLevel)
       .join("");
   }
+}
+
+/* 更新父層 checkbox 狀態 function */
+function updateParentCheckbox(parentCheckbox, relatedCheckboxes) {
+  // 要先把 NodeList 轉成 array 才能用 every()
+  const relatedCheckboxesArray = [...relatedCheckboxes];
+  // 父層 checkbox 打勾狀態 用 是否全部小項都有打勾 決定
+  parentCheckbox.checked = relatedCheckboxesArray.every(
+    (checkbox) => checkbox.checked
+  );
 }
 
 /*** 計算使用幾個篩選項目 ***/
@@ -297,10 +338,12 @@ function zeroSelectedFilters() {
 //   if (maxPrice.value) {
 //     data.price_lte = maxPrice.value;
 //   }
-//   // 呼叫api
-//   getCoursesData(data);
-//   // 計算篩選幾項
-//   countSelectedFilters();
+// //回到第一頁
+// data.page = 1;
+// //呼叫 api
+// getCoursesData(data);
+// // 計算篩選幾項
+// countSelectedFilters();
 // });
 
 export { handleFilterNum };

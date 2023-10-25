@@ -21,6 +21,7 @@ function inputDisable() {
 
 /*** 渲染課程 ***/
 function renderCourses() {
+  toCoursesTop();
   let courseHtml = "";
   /* loading動畫 */
   isLoading
@@ -336,6 +337,14 @@ function renderPagination() {
 </li>`;
 
   pagination.innerHTML = pagePrev + pageNum.join("") + pageNext;
+}
+
+function toCoursesTop() {
+  window.scrollTo({
+    top: 350,
+    left: 0,
+    behavior: "smooth",
+  });
 }
 
 export { inputDisable, renderCourses, renderPagination };
