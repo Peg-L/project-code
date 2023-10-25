@@ -35,13 +35,13 @@
           <div class="input-group">
             <input
               type="text"
-              class="form-control border-light"
+              class="form-control border-light course-search-input"
               placeholder="今天想學什麼..."
               aria-label="search keywords"
               aria-describedby="button-addon2"
             />
             <button
-              class="btn btn-secondary2 btn-search z-0"
+              class="btn btn-secondary2 btn-search z-0 course-search-button"
               type="button"
               id="button-addon2"
             >
@@ -69,7 +69,7 @@
                 aria-expanded="false"
                 aria-controls="collapseFilter"
               >
-                篩選 (3)
+                篩選列表 (<span class="js-selectedFiltersNum">0</span>)
               </button>
 
               <!-- offcanvas 按鈕 -->
@@ -80,7 +80,7 @@
                 data-bs-target="#offcanvasFilter"
                 aria-controls="offcanvasFilter"
               >
-                篩選 (3)
+                篩選列表 (<span class="js-selectedFiltersNum">0</span>)
               </button>
 
               <!-- 排序按鈕 -->
@@ -100,7 +100,7 @@
                 </ul>
               </div>
             </div>
-            <p class="fs-7 fs-md-6">共 12 個結果</p>
+            <p class="fs-7 fs-md-6 js-totalSearchNum"></p>
           </div>
         </div>
       </div>
@@ -143,9 +143,9 @@
                   <div
                     class="d-flex justify-content-between align-items-center"
                   >
-                    <h5 class="fs-5 text-nowrap fw-bold">評等</h5>
+                    <h5 class="fs-5 text-nowrap fw-bold">課程評等</h5>
                     <button
-                      class="btn btn-link fs-7 text-nowrap text-decoration-underline"
+                      class="btn btn-link fs-7 text-nowrap text-decoration-underline js-delFilterBtn"
                       type="button"
                     >
                       清除篩選條件
@@ -153,6 +153,21 @@
                   </div>
                   <!-- 評等內容 -->
                   <ul class="mb-0 ms-4 ms-md-5">
+                    <li class="form-check mb-1">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="filterStar"
+                        id="allStar"
+                        checked
+                      />
+                      <label
+                        class="form-check-label d-flex text-nowrap"
+                        for="allStar"
+                      >
+                        <p class="fs-7">全部</p>
+                      </label>
+                    </li>
                     <!-- star 5 -->
                     <li class="form-check mb-1">
                       <input
@@ -188,7 +203,9 @@
                             alt="star"
                           />
                         </div>
-                        <p class="fs-7">5 顆星 (5 筆)</p>
+                        <p class="fs-7">
+                          5 顆星 <span class="js-filterRatingNum"></span>
+                        </p>
                       </label>
                     </li>
                     <!-- star 4 -->
@@ -198,7 +215,6 @@
                         type="radio"
                         name="filterStar"
                         id="filterStar4"
-                        checked
                       />
                       <label
                         class="form-check-label d-flex text-nowrap"
@@ -206,28 +222,19 @@
                       >
                         <div class="me-1">
                           <img src="../assets/images/star.svg" alt="star" />
-                          <img
-                            class=""
-                            src="../assets/images/star.svg"
-                            alt="star"
-                          />
-                          <img
-                            class=""
-                            src="../assets/images/star.svg"
-                            alt="star"
-                          />
-                          <img
-                            class=""
-                            src="../assets/images/star.svg"
-                            alt="star"
-                          />
+                          <img src="../assets/images/star.svg" alt="star" />
+                          <img src="../assets/images/star.svg" alt="star" />
+                          <img src="../assets/images/star.svg" alt="star" />
                           <img
                             class="img-gray"
                             src="../assets/images/star.svg"
                             alt="star"
                           />
                         </div>
-                        <p class="fs-7">4 顆星以上 (10 筆)</p>
+                        <p class="fs-7">
+                          4 顆星以上
+                          <span class="js-filterRatingNum"></span>
+                        </p>
                       </label>
                     </li>
                     <!-- star 3 -->
@@ -237,7 +244,6 @@
                         type="radio"
                         name="filterStar"
                         id="filterStar3"
-                        checked
                       />
                       <label
                         class="form-check-label d-flex text-nowrap"
@@ -245,16 +251,8 @@
                       >
                         <div class="me-1">
                           <img src="../assets/images/star.svg" alt="star" />
-                          <img
-                            class=""
-                            src="../assets/images/star.svg"
-                            alt="star"
-                          />
-                          <img
-                            class=""
-                            src="../assets/images/star.svg"
-                            alt="star"
-                          />
+                          <img src="../assets/images/star.svg" alt="star" />
+                          <img src="../assets/images/star.svg" alt="star" />
                           <img
                             class="img-gray"
                             src="../assets/images/star.svg"
@@ -266,7 +264,10 @@
                             alt="star"
                           />
                         </div>
-                        <p class="fs-7">3 顆星以上 (15 筆)</p>
+                        <p class="fs-7">
+                          3 顆星以上
+                          <span class="js-filterRatingNum"></span>
+                        </p>
                       </label>
                     </li>
                     <!-- star 2 -->
@@ -276,7 +277,6 @@
                         type="radio"
                         name="filterStar"
                         id="filterStar2"
-                        checked
                       />
                       <label
                         class="form-check-label d-flex text-nowrap"
@@ -284,11 +284,7 @@
                       >
                         <div class="me-1">
                           <img src="../assets/images/star.svg" alt="star" />
-                          <img
-                            class=""
-                            src="../assets/images/star.svg"
-                            alt="star"
-                          />
+                          <img src="../assets/images/star.svg" alt="star" />
                           <img
                             class="img-gray"
                             src="../assets/images/star.svg"
@@ -305,7 +301,10 @@
                             alt="star"
                           />
                         </div>
-                        <p class="fs-7">2 顆星以上 (16 筆)</p>
+                        <p class="fs-7">
+                          2 顆星以上
+                          <span class="js-filterRatingNum"></span>
+                        </p>
                       </label>
                     </li>
                     <!-- star 1 -->
@@ -315,7 +314,6 @@
                         type="radio"
                         name="filterStar"
                         id="filterStar1"
-                        checked
                       />
                       <label
                         class="form-check-label d-flex text-nowrap"
@@ -344,7 +342,10 @@
                             alt="star"
                           />
                         </div>
-                        <p class="fs-7">1 顆星以上 (16 筆)</p>
+                        <p class="fs-7">
+                          1 顆星以上
+                          <span class="js-filterRatingNum"></span>
+                        </p>
                       </label>
                     </li>
                   </ul>
@@ -378,7 +379,7 @@
                 </div>
 
                 <div class="accordion accordion-flush" id="accordionFilter">
-                  <!-- 3. 前端  -->
+                  <!-- 3. 前端 frontend -->
                   <div
                     class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4"
                   >
@@ -387,7 +388,12 @@
                         class="fs-5 fw-bold text-nowrap d-flex align-items-center"
                         for="frontend"
                       >
-                        <input type="checkbox" name="frontend" id="frontend" />
+                        <input
+                          class="js-selectAll"
+                          type="checkbox"
+                          name="frontend"
+                          id="frontend"
+                        />
                         <span>前端</span>
                       </label>
                       <button
@@ -406,79 +412,137 @@
                     >
                       <ul class="accordion-body mb-0 ms-4 ms-md-5">
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="html">
-                            <input type="checkbox" name="html" id="html" />
-                            <span>HTML (10)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="css">
-                            <input type="checkbox" name="css" id="css" />
-                            <span>CSS (10)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="scss">
-                            <input type="checkbox" name="scss" id="scss" />
-                            <span>SCSS (10)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="bootstrap">
+                          <label
+                            class="fs-7 text-nowrap"
+                            for="frontendBootstrap"
+                          >
                             <input
+                              class="js-category"
                               type="checkbox"
-                              name="bootstrap"
-                              id="bootstrap"
+                              name="Bootstrap"
+                              id="frontendBootstrap"
+                              value="Bootstrap"
                             />
-                            <span>Bootstrap (10)</span>
+                            <span
+                              >Bootstrap<span data-category="Bootstrap"></span
+                            ></span>
                           </label>
                         </li>
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="tailwind">
+                          <label class="fs-7 text-nowrap" for="frontendCss">
                             <input
+                              class="js-category"
                               type="checkbox"
-                              name="tailwind"
-                              id="tailwind"
+                              name="css"
+                              id="frontendCss"
+                              value="CSS"
                             />
-                            <span>Tailwind (10)</span>
+                            <span>CSS<span data-category="CSS"></span></span>
                           </label>
                         </li>
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="javascript">
+                          <label class="fs-7 text-nowrap" for="frontendHtml">
                             <input
+                              class="js-category"
                               type="checkbox"
-                              name="javascript"
-                              id="javascript"
+                              name="html"
+                              id="frontendHtml"
+                              value="HTML"
                             />
-                            <span>Javascript (10)</span>
+                            <span>HTML<span data-category="HTML"></span></span>
                           </label>
                         </li>
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="vueJs">
-                            <input type="checkbox" name="vueJs" id="vueJs" />
-                            <span>Vue.js (10)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="react">
-                            <input type="checkbox" name="react" id="react" />
-                            <span>React (10)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="angular">
+                          <label class="fs-7 text-nowrap" for="frontendJQuery">
                             <input
+                              class="js-category"
                               type="checkbox"
-                              name="angular"
-                              id="angular"
+                              name="jQuery"
+                              id="frontendJQuery"
+                              value="jQuery"
                             />
-                            <span>Angular (10)</span>
+                            <span
+                              >jQuery<span data-category="jQuery"></span
+                            ></span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="frontendReact">
+                            <input
+                              class="js-category"
+                              type="checkbox"
+                              name="React"
+                              id="frontendReact"
+                              value="React"
+                            />
+                            <span
+                              >React<span data-category="React"></span
+                            ></span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="frontendScss">
+                            <input
+                              class="js-category"
+                              type="checkbox"
+                              name="scss"
+                              id="frontendScss"
+                              value="SCSS"
+                            />
+                            <span>SCSS<span data-category="SCSS"></span></span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label
+                            class="fs-7 text-nowrap"
+                            for="frontendTailwind"
+                          >
+                            <input
+                              class="js-category"
+                              type="checkbox"
+                              name="Tailwind"
+                              id="frontendTailwind"
+                              value="Tailwind"
+                            />
+                            <span
+                              >Tailwind<span data-category="Tailwind"></span
+                            ></span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="frontendVue">
+                            <input
+                              class="js-category"
+                              type="checkbox"
+                              name="Vue"
+                              id="frontendVue"
+                              value="Vue"
+                            />
+                            <span>Vue<span data-category="Vue"></span></span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label
+                            class="fs-7 text-nowrap"
+                            for="frontendJavascript"
+                          >
+                            <input
+                              class="js-category"
+                              type="checkbox"
+                              name="Javascript"
+                              id="frontendJavascript"
+                              value="JavaScript"
+                            />
+                            <span
+                              >JavaScript
+                              <span data-category="JavaScript"></span
+                            ></span>
                           </label>
                         </li>
                       </ul>
                     </div>
                   </div>
-                  <!-- 4. 後端  -->
+                  <!-- 4. 後端 backend -->
                   <div
                     class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4"
                   >
@@ -487,7 +551,12 @@
                         class="fs-5 fw-bold text-nowrap d-flex align-items-center"
                         for="backend"
                       >
-                        <input type="checkbox" name="backend" id="backend" />
+                        <input
+                          class="js-selectAll"
+                          type="checkbox"
+                          name="backend"
+                          id="backend"
+                        />
                         <span>後端</span>
                       </label>
                       <button
@@ -506,73 +575,120 @@
                     >
                       <ul class="accordion-body mb-0 ms-4 ms-md-5">
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="HTML">
-                            <input type="checkbox" name="java" id="java" />
-                            <span>Java (10)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="python">
-                            <input type="checkbox" name="python" id="python" />
-                            <span>Python (10)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="cSharp">
-                            <input type="checkbox" name="cSharp" id="cSharp" />
-                            <span>C# (10)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="ruby">
-                            <input type="checkbox" name="ruby" id="ruby" />
-                            <span>Ruby (10)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="nodeJs">
-                            <input type="checkbox" name="nodeJs" id="nodeJs" />
-                            <span>Node.js (5)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="php">
-                            <input type="checkbox" name="php" id="php" />
-                            <span>PHP (10)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="cPlusPlus">
+                          <label
+                            class="fs-7 text-nowrap"
+                            for="backendWebCrawler"
+                          >
                             <input
+                              class="js-category"
                               type="checkbox"
-                              name="cPlusPlus"
-                              id="cPlusPlus"
+                              name="WebCrawler"
+                              id="backendWebCrawler"
+                              value="網路爬蟲"
                             />
-                            <span> C++ (8)</span>
+                            <span
+                              >網路爬蟲<span data-category="網路爬蟲"></span
+                            ></span>
                           </label>
                         </li>
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="React">
-                            <input type="checkbox" name="React" id="React" />
-                            <span>React (10)</span>
+                          <label class="fs-7 text-nowrap" for="backendC">
+                            <input
+                              class="js-category"
+                              type="checkbox"
+                              name="C"
+                              id="backendC"
+                              value="C"
+                            />
+                            <span>C<span data-category="C"></span></span>
                           </label>
                         </li>
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="c">
-                            <input type="checkbox" name="c" id="c" />
-                            <span>C (6)</span>
+                          <label class="fs-7 text-nowrap" for="backendCSharp">
+                            <input
+                              class="js-category"
+                              type="checkbox"
+                              name="CSharp"
+                              id="backendCSharp"
+                              value="C#"
+                            />
+                            <span>C#<span data-category="C#"></span></span>
                           </label>
                         </li>
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="go">
-                            <input type="checkbox" name="go" id="go" />
-                            <span>Go (3)</span>
+                          <label class="fs-7 text-nowrap" for="backendJava">
+                            <input
+                              class="js-category"
+                              type="checkbox"
+                              name="Java"
+                              id="backendJava"
+                              value="Java"
+                            />
+                            <span>Java<span data-category="Java"></span></span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label
+                            class="fs-7 text-nowrap"
+                            for="backendJavaScript"
+                          >
+                            <input
+                              class="js-category"
+                              type="checkbox"
+                              name="JavaScript"
+                              id="backendJavaScript"
+                              value="JavaScript"
+                            />
+                            <span
+                              >JavaScript
+                              <span data-category="JavaScript"></span
+                            ></span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="backendNodeJs">
+                            <input
+                              class="js-category"
+                              type="checkbox"
+                              name="NodeJs"
+                              id="backendNodeJs"
+                              value="Node.js"
+                            />
+                            <span
+                              >Node.js<span data-category="Node.js"></span
+                            ></span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="backendPHP">
+                            <input
+                              class="js-category"
+                              type="checkbox"
+                              name="PHP"
+                              id="backendPHP"
+                              value="PHP"
+                            />
+                            <span>PHP<span data-category="PHP"></span></span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="backendPython">
+                            <input
+                              class="js-category"
+                              type="checkbox"
+                              name="Python"
+                              id="backendPython"
+                              value="Python"
+                            />
+                            <span
+                              >Python<span data-category="Python"></span
+                            ></span>
                           </label>
                         </li>
                       </ul>
                     </div>
                   </div>
-                  <!-- 5. 資料庫  -->
+                  <!-- 5. 資料庫 database -->
                   <div
                     class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4"
                   >
@@ -581,7 +697,12 @@
                         class="fs-5 fw-bold text-nowrap d-flex align-items-center"
                         for="database"
                       >
-                        <input type="checkbox" name="database" id="database" />
+                        <input
+                          class="js-selectAll"
+                          type="checkbox"
+                          name="database"
+                          id="database"
+                        />
                         <span>資料庫</span>
                       </label>
                       <button
@@ -600,112 +721,162 @@
                     >
                       <ul class="accordion-body mb-0 ms-4 ms-md-5">
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="sql">
-                            <input type="checkbox" name="sql" id="sql" />
-                            <span>SQL (10)</span>
+                          <label class="fs-7 text-nowrap" for="databaseMongoDB">
+                            <input
+                              class="js-category"
+                              type="checkbox"
+                              name="mongoDB"
+                              id="databaseMongoDB"
+                              value="mongoDB"
+                            />
+                            <span
+                              >mongoDB<span data-category="mongoDB"></span
+                            ></span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="databaseSQL">
+                            <input
+                              class="js-category"
+                              type="checkbox"
+                              name="SQL"
+                              id="databaseSQL"
+                              value="SQL"
+                            />
+                            <span>SQL<span data-category="SQL"></span></span>
                           </label>
                         </li>
                       </ul>
                     </div>
                   </div>
-                  <!-- 6. 行動應用  -->
+                  <!-- 6. 行動應用 mobileApp  -->
                   <div
                     class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4"
                   >
                     <h2 class="accordion-header d-flex">
                       <label
                         class="fs-5 fw-bold text-nowrap d-flex align-items-center"
-                        for="app"
+                        for="mobileApp"
                       >
-                        <input type="checkbox" name="app" id="app" />
+                        <input
+                          class="js-selectAll"
+                          type="checkbox"
+                          name="mobileApp"
+                          id="mobileApp"
+                        />
                         <span>行動應用</span>
                       </label>
                       <button
                         class="accordion-button collapsed"
                         type="button"
                         data-bs-toggle="collapse"
-                        data-bs-target="#collapseApp"
+                        data-bs-target="#collapseMobileApp"
                         aria-expanded="false"
-                        aria-controls="collapseApp"
+                        aria-controls="collapseMobileApp"
                       ></button>
                     </h2>
                     <div
-                      id="collapseApp"
+                      id="collapseMobileApp"
                       class="accordion-collapse collapse"
                       data-bs-parent="#accordionFilter"
                     >
                       <ul class="accordion-body mb-0 ms-4 ms-md-5">
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="android">
+                          <label
+                            class="fs-7 text-nowrap"
+                            for="mobileAppAndroid"
+                          >
                             <input
+                              class="js-category"
                               type="checkbox"
-                              name="android"
-                              id="android"
+                              name="Android"
+                              id="mobileAppAndroid"
+                              value="Android 開發"
                             />
-                            <span>Android 開發 (10)</span>
+                            <span
+                              >Android 開發<span
+                                data-category="Android 開發"
+                              ></span
+                            ></span>
                           </label>
                         </li>
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="ios">
-                            <input type="checkbox" name="ios" id="ios" />
-                            <span>iOS 開發 (10)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="googleFlutter">
+                          <label class="fs-7 text-nowrap" for="mobileAppIOS">
                             <input
+                              class="js-category"
                               type="checkbox"
-                              name="googleFlutter"
-                              id="googleFlutter"
+                              name="IOS"
+                              id="mobileAppIOS"
+                              value="iOS 開發"
                             />
-                            <span>Google Flutter (10)</span>
+                            <span
+                              >iOS 開發<span data-category="iOS 開發"></span
+                            ></span>
                           </label>
                         </li>
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="swift">
-                            <input type="checkbox" name="swift" id="swift" />
-                            <span>Swift (10)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="reactNative">
+                          <label class="fs-7 text-nowrap" for="mobileAppKotlin">
                             <input
+                              class="js-category"
                               type="checkbox"
-                              name="reactNative"
-                              id="reactNative"
+                              name="Kotlin"
+                              id="mobileAppKotlin"
+                              value="Kotlin"
                             />
-                            <span>React Native (8)</span>
+                            <span
+                              >Kotlin<span data-category="Kotlin"></span
+                            ></span>
                           </label>
                         </li>
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="swiftUI">
+                          <label
+                            class="fs-7 text-nowrap"
+                            for="mobileAppSpringBoot"
+                          >
                             <input
+                              class="js-category"
                               type="checkbox"
-                              name="swiftUI"
-                              id="swiftUI"
+                              name="SpringBoot"
+                              id="mobileAppSpringBoot"
+                              value="SpringBoot"
                             />
-                            <span>SwiftUI (8)</span>
+                            <span
+                              >SpringBoot<span data-category="SpringBoot"></span
+                            ></span>
                           </label>
                         </li>
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="ionic">
-                            <input type="checkbox" name="ionic" id="ionic" />
-                            <span> Ionic (8)</span>
+                          <label class="fs-7 text-nowrap" for="mobileAppSwift">
+                            <input
+                              class="js-category"
+                              type="checkbox"
+                              name="Swift"
+                              id="mobileAppSwift"
+                              value="Swift"
+                            />
+                            <span
+                              >Swift<span data-category="Swift"></span
+                            ></span>
                           </label>
                         </li>
                       </ul>
                     </div>
                   </div>
-                  <!-- 7. 開發維運  -->
+                  <!-- 7. 開發維運 DevOps  -->
                   <div
                     class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4"
                   >
                     <h2 class="accordion-header d-flex">
                       <label
                         class="fs-5 fw-bold text-nowrap d-flex align-items-center"
-                        for="devOps"
+                        for="DevOps"
                       >
-                        <input type="checkbox" name="devOps" id="devOps" />
+                        <input
+                          class="js-selectAll"
+                          type="checkbox"
+                          name="DevOps"
+                          id="DevOps"
+                        />
                         <span>開發維運</span>
                       </label>
                       <button
@@ -724,15 +895,66 @@
                     >
                       <ul class="accordion-body mb-0 ms-4 ms-md-5">
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="aws">
-                            <input type="checkbox" name="aws" id="aws" />
-                            <span>AWS (10)</span>
+                          <label class="fs-7 text-nowrap" for="DevOpsAWS">
+                            <input
+                              class="js-category"
+                              type="checkbox"
+                              name="AWS"
+                              id="DevOpsAWS"
+                              value="AWS"
+                            />
+                            <span>AWS<span data-category="AWS"></span></span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="DevOpsDocker">
+                            <input
+                              class="js-category"
+                              type="checkbox"
+                              name="Docker"
+                              id="DevOpsDocker"
+                              value="Docker"
+                            />
+                            <span
+                              >Docker<span data-category="Docker"></span
+                            ></span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label
+                            class="fs-7 text-nowrap"
+                            for="DevOpsKubernetes"
+                          >
+                            <input
+                              class="js-category"
+                              type="checkbox"
+                              name="Kubernetes"
+                              id="DevOpsKubernetes"
+                              value="Kubernetes"
+                            />
+                            <span
+                              >Kubernetes<span data-category="Kubernetes"></span
+                            ></span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="DevOpsLinux">
+                            <input
+                              class="js-category"
+                              type="checkbox"
+                              name="Linux"
+                              id="DevOpsLinux"
+                              value="Linux"
+                            />
+                            <span
+                              >Linux<span data-category="Linux"></span
+                            ></span>
                           </label>
                         </li>
                       </ul>
                     </div>
                   </div>
-                  <!-- 8. 產品測試  -->
+                  <!-- 8. 產品測試 productTesting  -->
                   <div
                     class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4"
                   >
@@ -742,6 +964,7 @@
                         for="productTesting"
                       >
                         <input
+                          class="js-selectAll"
                           type="checkbox"
                           name="productTesting"
                           id="productTesting"
@@ -764,22 +987,54 @@
                     >
                       <ul class="accordion-body mb-0 ms-4 ms-md-5">
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="scrum">
-                            <input type="checkbox" name="scrum" id="scrum" />
-                            <span>Scrum (10)</span>
+                          <label
+                            class="fs-7 text-nowrap"
+                            for="productTestingAutoTesting"
+                          >
+                            <input
+                              class="js-category"
+                              type="checkbox"
+                              name="AutoTesting"
+                              id="productTestingAutoTesting"
+                              value="自動測試"
+                            />
+                            <span
+                              >自動測試<span data-category="自動測試"></span
+                            ></span>
                           </label>
                         </li>
                         <li class="mb-2">
                           <label
                             class="fs-7 text-nowrap"
-                            for="productManagement"
+                            for="productTestingPostman"
                           >
                             <input
+                              class="js-category"
                               type="checkbox"
-                              name="productManagement"
-                              id="productManagement"
+                              name="Postman"
+                              id="productTestingPostman"
+                              value="Postman"
                             />
-                            <span>Product Management (10)</span>
+                            <span
+                              >Postman<span data-category="Postman"></span
+                            ></span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label
+                            class="fs-7 text-nowrap"
+                            for="productTestingSelenium"
+                          >
+                            <input
+                              class="js-category"
+                              type="checkbox"
+                              name="Selenium"
+                              id="productTestingSelenium"
+                              value="Selenium"
+                            />
+                            <span
+                              >Selenium<span data-category="Selenium"></span
+                            ></span>
                           </label>
                         </li>
                       </ul>
@@ -792,68 +1047,90 @@
                     <h2 class="accordion-header d-flex">
                       <label
                         class="fs-5 fw-bold text-nowrap d-flex align-items-center"
-                        for="uiUX"
+                        for="UIUX"
                       >
-                        <input type="checkbox" name="uiUX" id="uiUX" />
-                        <span>UI/UX</span>
+                        <input
+                          class="js-selectAll"
+                          type="checkbox"
+                          name="UIUX"
+                          id="UIUX"
+                        />
+                        <span>UI / UX</span>
                       </label>
                       <button
                         class="accordion-button collapsed"
                         type="button"
                         data-bs-toggle="collapse"
-                        data-bs-target="#collapseUiUX"
+                        data-bs-target="#collapseUIUX"
                         aria-expanded="false"
-                        aria-controls="collapseUiUX"
+                        aria-controls="collapseUIUX"
                       ></button>
                     </h2>
                     <div
-                      id="collapseUiUX"
+                      id="collapseUIUX"
                       class="accordion-collapse collapse"
                       data-bs-parent="#accordionFilter"
                     >
                       <ul class="accordion-body mb-0 ms-4 ms-md-5">
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="figma">
-                            <input type="checkbox" name="figma" id="figma" />
-                            <span>Figma (10)</span>
+                          <label class="fs-7 text-nowrap" for="UIUXAdobeXD">
+                            <input
+                              class="js-category"
+                              type="checkbox"
+                              name="AdobeXD"
+                              id="UIUXAdobeXD"
+                              value="Adobe XD"
+                            />
+                            <span
+                              >Adobe XD<span data-category="Adobe XD"></span
+                            ></span>
                           </label>
                         </li>
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="adobeXd">
+                          <label class="fs-7 text-nowrap" for="UIUXFigma">
                             <input
+                              class="js-category"
                               type="checkbox"
-                              name="adobeXd"
-                              id="adobeXd"
+                              name="Figma"
+                              id="UIUXFigma"
+                              value="Figma"
                             />
-                            <span>Adobe XD (10)</span>
+                            <span
+                              >Figma<span data-category="Figma"></span
+                            ></span>
                           </label>
                         </li>
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="photoshop">
+                          <label class="fs-7 text-nowrap" for="UIUXPhotoshop">
                             <input
+                              class="js-category"
                               type="checkbox"
-                              name="photoshop"
-                              id="photoshop"
+                              name="Photoshop"
+                              id="UIUXPhotoshop"
+                              value="Photoshop"
                             />
-                            <span>Photoshop (10)</span>
+                            <span
+                              >Photoshop<span data-category="Photoshop"></span
+                            ></span>
                           </label>
                         </li>
                       </ul>
                     </div>
                   </div>
-                  <!-- 10. 資安  -->
+                  <!-- 10. 資安 security  -->
                   <div
                     class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4"
                   >
                     <h2 class="accordion-header d-flex">
                       <label
                         class="fs-5 fw-bold text-nowrap d-flex align-items-center"
-                        for="informationSecurity"
+                        for="security"
                       >
                         <input
+                          class="js-selectAll"
                           type="checkbox"
-                          name="informationSecurity"
-                          id="informationSecurity"
+                          name="security"
+                          id="security"
                         />
                         <span>資安</span>
                       </label>
@@ -861,25 +1138,63 @@
                         class="accordion-button collapsed"
                         type="button"
                         data-bs-toggle="collapse"
-                        data-bs-target="#collapseInformationSecurity"
+                        data-bs-target="#collapseSecurity"
                         aria-expanded="false"
-                        aria-controls="collapseInformationSecurity"
+                        aria-controls="collapseSecurity"
                       ></button>
                     </h2>
                     <div
-                      id="collapseInformationSecurity"
+                      id="collapseSecurity"
                       class="accordion-collapse collapse"
                       data-bs-parent="#accordionFilter"
                     >
                       <ul class="accordion-body mb-0 ms-4 ms-md-5">
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="EthicalHacking">
+                          <label class="fs-7 text-nowrap" for="securityLinux">
                             <input
+                              class="js-category"
                               type="checkbox"
-                              name="EthicalHacking"
-                              id="EthicalHacking"
+                              name="Linux"
+                              id="securityLinux"
+                              value="Linux"
                             />
-                            <span>Ethical Hacking (10)</span>
+                            <span
+                              >Linux<span data-category="Linux"></span
+                            ></span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label
+                            class="fs-7 text-nowrap"
+                            for="securityEthicalHacker"
+                          >
+                            <input
+                              class="js-category"
+                              type="checkbox"
+                              name="EthicalHacker"
+                              id="securityEthicalHacker"
+                              value="道德駭客"
+                            />
+                            <span
+                              >道德駭客<span data-category="道德駭客"></span
+                            ></span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label
+                            class="fs-7 text-nowrap"
+                            for="securityReverseEngineering"
+                          >
+                            <input
+                              class="js-category"
+                              type="checkbox"
+                              name="ReverseEngineering"
+                              id="securityReverseEngineering"
+                              value="逆向工程"
+                            />
+                            <span
+                              >逆向工程<span data-category="逆向工程"></span
+                            ></span>
                           </label>
                         </li>
                       </ul>
@@ -892,52 +1207,98 @@
                     <h2 class="accordion-header d-flex">
                       <label
                         class="fs-5 fw-bold text-nowrap d-flex align-items-center"
-                        for="ai"
+                        for="AI"
                       >
-                        <input type="checkbox" name="ai" id="ai" />
+                        <input
+                          class="js-selectAll"
+                          type="checkbox"
+                          name="AI"
+                          id="AI"
+                        />
                         <span>AI</span>
                       </label>
                       <button
                         class="accordion-button collapsed"
                         type="button"
                         data-bs-toggle="collapse"
-                        data-bs-target="#collapseAi"
+                        data-bs-target="#collapseAI"
                         aria-expanded="false"
-                        aria-controls="collapseAi"
+                        aria-controls="collapseAI"
                       ></button>
                     </h2>
                     <div
-                      id="collapseAi"
+                      id="collapseAI"
                       class="accordion-collapse collapse"
                       data-bs-parent="#accordionFilter"
                     >
                       <ul class="accordion-body mb-0 ms-4 ms-md-5">
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="chatGpt">
+                          <label
+                            class="fs-7 text-nowrap"
+                            for="AIGameDevelopmentAI"
+                          >
                             <input
+                              class="js-category"
                               type="checkbox"
-                              name="chatGpt"
-                              id="chatGpt"
+                              name="gameDevelopmentAI"
+                              id="AIGameDevelopmentAI"
+                              value="遊戲開發 AI"
                             />
-                            <span>chatGPT (10)</span>
+                            <span
+                              >遊戲開發 AI<span
+                                data-category="遊戲開發 AI"
+                              ></span
+                            ></span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label
+                            class="fs-7 text-nowrap"
+                            for="AIMachineLearning"
+                          >
+                            <input
+                              class="js-category"
+                              type="checkbox"
+                              name="MachineLearning"
+                              id="AIMachineLearning"
+                              value="機器學習"
+                            />
+                            <span
+                              >機器學習<span data-category="機器學習"></span
+                            ></span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="AIChatGPT">
+                            <input
+                              class="js-category"
+                              type="checkbox"
+                              name="ChatGPT"
+                              id="AIChatGPT"
+                              value="ChatGPT"
+                            />
+                            <span
+                              >ChatGPT<span data-category="ChatGPT"></span
+                            ></span>
                           </label>
                         </li>
                       </ul>
                     </div>
                   </div>
-                  <!-- 12. 遊戲開發 -->
+                  <!-- 12. 遊戲開發 GameDevelopment -->
                   <div
                     class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4"
                   >
                     <h2 class="accordion-header d-flex">
                       <label
                         class="fs-5 fw-bold text-nowrap d-flex align-items-center"
-                        for="gameDevelopment"
+                        for="GameDevelopment"
                       >
                         <input
+                          class="js-selectAll"
                           type="checkbox"
-                          name="gameDevelopment"
-                          id="gameDevelopment"
+                          name="GameDevelopment"
+                          id="GameDevelopment"
                         />
                         <span>遊戲開發</span>
                       </label>
@@ -957,65 +1318,43 @@
                     >
                       <ul class="accordion-body mb-0 ms-4 ms-md-5">
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="unity">
-                            <input type="checkbox" name="unity" id="unity" />
-                            <span>Unity (10)</span>
+                          <label
+                            class="fs-7 text-nowrap"
+                            for="GameDevelopmentBlender"
+                          >
+                            <input
+                              class="js-category"
+                              type="checkbox"
+                              name="Blender"
+                              id="GameDevelopmentBlender"
+                              value="Blender"
+                            />
+                            <span
+                              >Blender<span data-category="Blender"></span
+                            ></span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label
+                            class="fs-7 text-nowrap"
+                            for="GameDevelopmentUnity"
+                          >
+                            <input
+                              class="js-category"
+                              type="checkbox"
+                              name="Unity"
+                              id="GameDevelopmentUnity"
+                              value="Unity"
+                            />
+                            <span
+                              >Unity<span data-category="Unity"></span
+                            ></span>
                           </label>
                         </li>
                       </ul>
                     </div>
                   </div>
-                  <!-- 13. 程度 -->
-                  <div
-                    class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4"
-                  >
-                    <h2 class="accordion-header d-flex">
-                      <label
-                        class="fs-5 fw-bold text-nowrap d-flex align-items-center"
-                        for="level"
-                      >
-                        <input type="checkbox" name="level" id="level" />
-                        <span>程度</span>
-                      </label>
-                      <button
-                        class="accordion-button collapsed"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseLevel"
-                        aria-expanded="false"
-                        aria-controls="collapseLevel"
-                      ></button>
-                    </h2>
-                    <div
-                      id="collapseLevel"
-                      class="accordion-collapse collapse"
-                      data-bs-parent="#accordionFilter"
-                    >
-                      <ul class="accordion-body mb-0 ms-4 ms-md-5">
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="beginner">
-                            <input
-                              type="checkbox"
-                              name="beginner"
-                              id="beginner"
-                            />
-                            <span>入門 (10)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="advanced">
-                            <input
-                              type="checkbox"
-                              name="advanced"
-                              id="advanced"
-                            />
-                            <span>進階 (10)</span>
-                          </label>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <!-- 14. 職涯-->
+                  <!-- 13. 職涯 Career -->
                   <div
                     class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4"
                   >
@@ -1024,7 +1363,12 @@
                         class="fs-5 fw-bold text-nowrap d-flex align-items-center"
                         for="career"
                       >
-                        <input type="checkbox" name="career" id="career" />
+                        <input
+                          class="js-selectAll"
+                          type="checkbox"
+                          name="career"
+                          id="career"
+                        />
                         <span>職涯</span>
                       </label>
                       <button
@@ -1043,45 +1387,129 @@
                     >
                       <ul class="accordion-body mb-0 ms-4 ms-md-5">
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="correction">
+                          <label class="fs-7 text-nowrap" for="careerPortfolio">
                             <input
+                              class="js-category"
                               type="checkbox"
-                              name="correction"
-                              id="correction"
+                              name="portfolio"
+                              id="careerPortfolio"
+                              value="作品修改"
                             />
-                            <span>作品修改 (3)</span>
+                            <span
+                              >作品修改<span data-category="作品修改"></span
+                            ></span>
                           </label>
                         </li>
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="resume">
-                            <input type="checkbox" name="resume" id="resume" />
-                            <span>履歷 (3)</span>
-                          </label>
-                        </li>
-                        <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="interview">
+                          <label class="fs-7 text-nowrap" for="careerInterview">
                             <input
+                              class="js-category"
                               type="checkbox"
                               name="interview"
-                              id="interview"
+                              id="careerInterview"
+                              value="面試"
                             />
-                            <span>面試 (3)</span>
+                            <span>面試<span data-category="面試"></span></span>
                           </label>
                         </li>
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="consult">
+                          <label class="fs-7 text-nowrap" for="careerResume">
                             <input
+                              class="js-category"
                               type="checkbox"
-                              name="consult"
-                              id="consult"
+                              name="resume"
+                              id="careerResume"
+                              value="履歷"
                             />
-                            <span>諮詢 (1)</span>
+                            <span>履歷<span data-category="履歷"></span></span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label
+                            class="fs-7 text-nowrap"
+                            for="careerCounseling"
+                          >
+                            <input
+                              class="js-category"
+                              type="checkbox"
+                              name="counseling"
+                              id="careerCounseling"
+                              value="職涯諮詢"
+                            />
+                            <span
+                              >職涯諮詢<span data-category="職涯諮詢"></span
+                            ></span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- 14. 程度 level -->
+                  <div
+                    class="accordion-item border-bottom border-2 border-secondary pb-4 mb-4"
+                  >
+                    <h2 class="accordion-header d-flex">
+                      <label
+                        class="fs-5 fw-bold text-nowrap d-flex align-items-center"
+                        for="level"
+                      >
+                        <input
+                          class="js-selectAll"
+                          type="checkbox"
+                          name="level"
+                          id="level"
+                        />
+                        <span>程度</span>
+                      </label>
+                      <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseLevel"
+                        aria-expanded="false"
+                        aria-controls="collapseLevel"
+                      ></button>
+                    </h2>
+                    <div
+                      id="collapseLevel"
+                      class="accordion-collapse collapse"
+                      data-bs-parent="#accordionFilter"
+                    >
+                      <ul class="accordion-body mb-0 ms-4 ms-md-5">
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="levelEasy">
+                            <input
+                              class="js-category"
+                              type="checkbox"
+                              name="easy"
+                              id="levelEasy"
+                              value="入門"
+                            />
+                            <span>入門<span data-category="入門"></span></span>
+                          </label>
+                        </li>
+                        <li class="mb-2">
+                          <label class="fs-7 text-nowrap" for="levelHard">
+                            <input
+                              class="js-category"
+                              type="checkbox"
+                              name="hard"
+                              id="levelHard"
+                              value="進階"
+                            />
+                            <span>進階<span data-category="進階"></span></span>
                           </label>
                         </li>
                       </ul>
                     </div>
                   </div>
                 </div>
+                <button
+                  type="button"
+                  class="btn btn-secondary2 w-100 fs-6 js-filterBtn mb-4"
+                >
+                  篩選
+                </button>
               </div>
             </div>
           </div>
@@ -1164,49 +1592,52 @@
         }
       });
     </script>
+
     <!-- 卡片 -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script>
+    <script type="module">
+      /***** 呼叫 api、渲染畫面 *****/
       const courseList = document.querySelector("#courseList");
       const api = "https://project-code-json-k0ti.onrender.com";
-      const data = {
+      const minPriceDefault = 0;
+      const maxPriceDefault = 9999;
+      let data = {
         sort: "",
         order: 0,
         page: 1,
         limit: 10,
         like: "",
-        operators: "",
+        q: "",
+        rate_gte: 0,
+        rate_lte: 5,
+        price_gte: minPriceDefault,
+        price_lte: maxPriceDefault,
+        filters: "",
       };
-      let courseData = [];
+      let currentPageCourses = [];
+      let allCourses = [];
+      let totalSearchNum = document.querySelector(".js-totalSearchNum");
+      let allCoursesNum;
+      let isLoading = false;
       const dateReg = /^(\d{4}-\d{2}-\d{2}).*/;
       const separatorReg = /\B(?=(?:\d{3})+(?!\d))/g;
 
-      const getData = async ({ page, limit }) => {
-        const apiUrl = `${api}/courses?_expand=teacher&_page=${page}`;
-        try {
-          const res = await axios.get(apiUrl);
-          courseData = res.data;
-
-          for (const item of courseData) {
-            const commentRes = await axios.get(
-              `${api}/comments/${item.commentId}?_expand=user`
-            );
-            item.comment = commentRes.data;
-          }
-          // 上面用 forEach 時，courseData[0]的comment有user，但courseData[0].comment卻沒有user
-          // 可能因為 forEach 是同步的，不會等待就繼續下一個迴圈，導致出錯? for...of 在處理迴圈時每個迴圈都會等待完成再進入下一個
-          console.log("courseData", courseData);
-          renderCourses();
-        } catch (error) {
-          console.log("course", error);
-        }
-      };
-      getData(data);
-
+      /*** 渲染畫面 ***/
       const renderCourses = () => {
         let courseHtml = "";
-        courseData.forEach((item) => {
-          courseHtml += `
+        /* loading動畫 */
+        isLoading
+          ? (courseHtml += `
+          <div class="d-flex justify-content-center mt-4">
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+          `)
+          : currentPageCourses.length !== 0
+          ? /* 卡片渲染 */
+            currentPageCourses.forEach((item) => {
+              courseHtml += `
             <li class="card flex-row flex-wrap flex-md-nowrap shadow">
               <div class="d-flex flex-grow-1 p-4 p-lg-8">
                 <!--  老師區塊 -->
@@ -1465,9 +1896,319 @@
               </div>
             </li>
           `;
-        });
+            })
+          : (courseHtml += `
+          <div class="d-flex flex-column justify-content-center text-center h-100 px-10">
+            <p class="fs-3 mb-4">沒有符合條件的課程</p>
+            <p class="fs-6">
+              看起來目前沒有符合您需求的課程，請嘗試修改您的搜尋詞彙或篩選條件。
+            </p>
+          </div>`);
         courseList.innerHTML = courseHtml;
       };
+
+      /*** api-取得卡片內容 ***/
+      const getData = async ({
+        page,
+        limit,
+        q,
+        rate_gte,
+        rate_lte,
+        price_gte,
+        price_lte,
+        filters,
+      }) => {
+        const apiUrl = `${api}/courses?_expand=teacher&_page=${page}&q=${q}&rate_gte=${rate_gte}&rate_lte=${rate_lte}&price_gte=${price_gte}&price_lte=${price_lte}${filters}`;
+        console.log(apiUrl);
+
+        isLoading = true;
+        renderCourses();
+
+        try {
+          const res = await axios.get(apiUrl);
+          currentPageCourses = res.data;
+          allCoursesNum = res.headers.get("X-Total-Count");
+          totalSearchNum.innerHTML = `共 ${allCoursesNum} 個結果`;
+          /** 課程卡片評論api **/
+          for (const item of currentPageCourses) {
+            const commentRes = await axios.get(
+              `${api}/comments/${item.commentId}?_expand=user`
+            );
+            item.comment = commentRes.data;
+          }
+          // 上面用 forEach 時，currentPageCourses[0]的comment有user，但currentPageCourses[0].comment卻沒有user
+          // 可能因為 forEach 是同步的，不會等待就繼續下一個迴圈，導致出錯? for...of 在處理迴圈時每個迴圈都會等待完成再進入下一個
+          console.log("getData currentPageCourses", currentPageCourses);
+
+          isLoading = false;
+          renderCourses();
+          getAllData(data);
+        } catch (error) {
+          console.log("courseError", error);
+        }
+      };
+
+      getData(data);
+
+      /*** api-取得卡片數量 ***/
+      // 取得全部課程以計算篩選項目數量
+      const getAllData = async ({
+        q,
+        rate_gte,
+        rate_lte,
+        price_gte,
+        price_lte,
+        filters,
+      }) => {
+        const apiUrl = `${api}/courses?&q=${q}&rate_gte=${rate_gte}&rate_lte=${rate_lte}&price_gte=${price_gte}&price_lte=${price_lte}${filters}`;
+        try {
+          const res = await axios.get(apiUrl);
+          handleFilterNum(res.data);
+        } catch (error) {
+          console.log("getAllData", error);
+        }
+      };
+
+      /***** 篩選 *****/
+      const selectedFiltersNumHtml = document.querySelectorAll(
+        ".js-selectedFiltersNum"
+      );
+      let selectedFiltersNum = 0;
+      const filterRatings = document.querySelectorAll(
+        'input[name="filterStar"]'
+      );
+      const minPrice = document.querySelector("input[name='minPrice']");
+      const maxPrice = document.querySelector("input[name='maxPrice']");
+      let categories = document.querySelector("#accordionFilter");
+      const filterBtn = document.querySelector(".js-filterBtn");
+      const delFilterBtn = document.querySelector(".js-delFilterBtn");
+      let prevSelectedRating = "allStar";
+
+      /*** 計算使用幾個篩選項目 ***/
+      const countSelectedFilters = () => {
+        /* 計算評等 */
+        if (!filterRatings[0].checked) {
+          selectedFiltersNum++;
+        }
+
+        /* 計算價格 */
+        if (minPrice.value || maxPrice.value) {
+          selectedFiltersNum++;
+        }
+
+        /* 計算課程分類 */
+        const checkboxes = document.querySelectorAll(".js-category");
+        checkboxes.forEach((checkbox) => {
+          if (checkbox.checked) {
+            selectedFiltersNum++;
+          }
+        });
+
+        /* 渲染篩選項目數量 */
+        selectedFiltersNumHtml.forEach(
+          (item) => (item.innerHTML = selectedFiltersNum)
+        );
+        selectedFiltersNum = 0;
+      };
+      const zeroSelectedFilters = () => {
+        selectedFiltersNum = 0;
+        selectedFiltersNumHtml.forEach(
+          (item) => (item.innerHTML = selectedFiltersNum)
+        );
+      };
+
+      /*** 篩選項目筆數 ***/
+      const handleFilterNum = (allCourses) => {
+        const filterRatingNum = document.querySelectorAll(
+          ".js-filterRatingNum"
+        );
+        const categoriesNum = document.querySelectorAll("[data-category]");
+        const ratingLength = filterRatingNum.length;
+        const categoryLength = categoriesNum.length;
+        const ratingNumData = {
+          5: 0,
+          4: 0,
+          3: 0,
+          2: 0,
+          1: 0,
+        };
+
+        const categoryNumData = {};
+        for (let i = 0; i < categoriesNum.length; i++) {
+          let dataCategory = categoriesNum[i].dataset.category;
+          categoryNumData[dataCategory] = 0;
+          if (categoryNumData[dataCategory] === NaN) {
+            console.log("篩選項目有打錯，出現NaN");
+          }
+        }
+        console.log(categoryNumData);
+        allCourses.forEach((course) => {
+          /* 計算各評等筆數 */
+          const rate = Math.floor(parseFloat(course.rate));
+          if (rate >= 1) {
+            for (let i = 1; i <= rate; i++) {
+              ratingNumData[i]++;
+            }
+          }
+
+          /* 計算各分類筆數 */
+          course.categories.forEach((category) => {
+            categoryNumData[category]++;
+          });
+
+          categoryNumData[course.level]++;
+        });
+        console.log(categoryNumData);
+
+        /* 將各評等筆數寫入HTML */
+        for (let i = 0; i < ratingLength; i++) {
+          filterRatingNum[i].innerHTML = `(${
+            ratingNumData[ratingLength - i]
+          } 筆)`;
+        }
+
+        /* 將各分類筆數寫入HTML */
+        for (let i = 0; i < categoryLength; i++) {
+          let dataCategory = categoriesNum[i].dataset.category;
+          categoriesNum[i].innerHTML = `(${categoryNumData[dataCategory]})`;
+        }
+      };
+
+      /*** 課程評等篩選功能 ***/
+      filterRatings.forEach((rate) => {
+        rate.addEventListener("change", (e) => {
+          handleRatingFilter(e.target.id);
+        });
+      });
+      const handleRatingFilter = (rate) => {
+        data.rate_gte = {
+          allStar: 0,
+          filterStar5: 5,
+          filterStar4: 4,
+          filterStar3: 3,
+          filterStar2: 2,
+          filterStar1: 1,
+        }[rate];
+      };
+
+      /***課程分類篩選功能***/
+
+      /* 課程分類 checkbox 點擊監聽 */
+      // categories為全部課程主題篩選的父元素，當作事件代理。當有change事件時，事件會冒泡到父元素。這避免每個全選checkbox都要綁監聽事件，耗性能且較難維護
+      categories.addEventListener("change", (e) => {
+        const target = e.target;
+
+        /* 當target是課程主題大項checkbox */
+        if (target.classList.contains("js-selectAll")) {
+          const isCheck = target.checked;
+          const relatedCheckboxes = document.querySelectorAll(
+            `input[id^="${target.name}"]:not([id="${target.name}"])`
+          );
+          if (relatedCheckboxes.length) {
+            relatedCheckboxes.forEach((checkbox) => {
+              checkbox.checked = isCheck;
+              handleCategoryFilters(checkbox);
+            });
+          } else {
+            console.log(`${target.name}內沒有checkbox`);
+          }
+          // 當target是課程分類小項checkbox
+        } else if ((target.type = "checkbox")) {
+          handleCategoryFilters(target);
+        }
+      });
+
+      const isEnglish = (value) => {
+        return /[a-zA-Z]/.test(value);
+      };
+
+      /* 課程分類篩選功能 */
+      const handleCategoryFilters = ({ checked, value }) => {
+        let apiFilter;
+        let apiLevel = `&level_like=${value}`;
+        isEnglish(value)
+          ? (apiFilter = `&categories_like=\\b${value}\\b`) //BUG：目前C會找到C#
+          : (apiFilter = `&categories_like=${value}`); //value是中文時，加正則表達式會找不到
+
+        if (checked) {
+          //避免按全選時重複選取
+          if (!data.filters.includes(value)) {
+            if (value === "入門" || value === "進階") {
+              data.filters += apiLevel;
+            } else {
+              data.filters += apiFilter;
+            }
+          }
+        } else {
+          data.filters = data.filters
+            .split(/(?=&)/)
+            .filter((item) => item !== apiFilter && item !== apiLevel)
+            .join("");
+        }
+      };
+
+      /*** 確定篩選 ***/
+      filterBtn.addEventListener("click", () => {
+        if (minPrice.value) {
+          data.price_gte = minPrice.value;
+        }
+        if (maxPrice.value) {
+          data.price_lte = maxPrice.value;
+        }
+        getData(data);
+        countSelectedFilters();
+      });
+
+      /*** 清除篩選 ***/
+      delFilterBtn.addEventListener("click", () => {
+        minPrice.value = "";
+        maxPrice.value = "";
+        filterRatings[0].checked = true;
+        const checkboxes = document.querySelectorAll(
+          ".js-selectAll, .js-category"
+        );
+        checkboxes.forEach((checkbox) => (checkbox.checked = false));
+        data = {
+          ...data,
+          rate_gte: 0,
+          rate_lte: 5,
+          price_gte: minPriceDefault,
+          price_lte: maxPriceDefault,
+          filters: "",
+        };
+        zeroSelectedFilters();
+        getData(data);
+      });
+
+      /***** 關鍵字搜尋 *****/
+      /*** 首頁搜尋跳轉 ***/
+      const indexSearchInput = localStorage.getItem("indexSearchInput");
+      if (indexSearchInput) {
+        data.q = indexSearchInput;
+        getData(data);
+        localStorage.setItem("indexSearchInput", "");
+      }
+
+      /*** 取得 banner 搜尋框的值 ***/
+      const courseSearchInput = document.querySelector(".course-search-input");
+
+      let courseSearchInputValue;
+
+      courseSearchInput.addEventListener("input", function () {
+        courseSearchInputValue = courseSearchInput.value;
+      });
+
+      const courseSearchButton = document.querySelector(
+        ".course-search-button"
+      );
+
+      courseSearchButton.addEventListener("click", function (data) {
+        courseSearchInput.value = "";
+        data.q = courseSearchInputValue;
+        getData(data);
+        data.q = "";
+      });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   </body>
 </html>
