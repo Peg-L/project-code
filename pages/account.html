@@ -2081,7 +2081,7 @@
       });
     </script>
 
-    <!-- my follow -->
+    <!-- my follow 我的關注 -->
     <script>
       const apiUrl = "http://localhost:3000";
       const userId = 1;
@@ -2097,8 +2097,6 @@
 
             // 取得追蹤列表
             let followArray = usersResponse.data[userId - 1].followList;
-            console.log("followArray", followArray);
-
             let courseData = coursesResponse.data;
 
             // 目前頁數 / 總頁數
@@ -2119,9 +2117,18 @@
         // 獲取 data
         let data = await fetchData();
         let { followArray, courseData, nowPage, followTotalPages } = data;
+        console.log("followArray", followArray);
+        console.log("courseData", courseData);
+        console.log("nowPage", nowPage);
+        console.log("followTotalPages", followTotalPages);
 
         // 渲染追蹤列表
-        function renderFollowList(courseData, nowPage) {
+        function renderFollowList(
+          courseData,
+          nowPage,
+          followArray,
+          followTotalPages
+        ) {
           // 列表容器
           const followList = document.querySelector("#followList");
 
@@ -2185,7 +2192,7 @@
 
           setButtonListeners();
         }
-        renderFollowList(courseData, nowPage);
+        renderFollowList(courseData, nowPage, followArray, followTotalPages);
 
         // 渲染分頁按鈕
         function renderFollowPagination(
@@ -2246,7 +2253,12 @@
               nowPage--;
 
               renderFollowPagination(followArray, nowPage, followTotalPages);
-              renderFollowList(courseData, nowPage);
+              renderFollowList(
+                courseData,
+                nowPage,
+                followArray,
+                followTotalPages
+              );
             }
           });
 
@@ -2255,7 +2267,12 @@
               nowPage++;
 
               renderFollowPagination(followArray, nowPage, followTotalPages);
-              renderFollowList(courseData, nowPage);
+              renderFollowList(
+                courseData,
+                nowPage,
+                followArray,
+                followTotalPages
+              );
             }
           });
 
@@ -2263,7 +2280,12 @@
             pageButton.addEventListener("click", () => {
               nowPage = Number(pageButton.innerText);
 
-              renderFollowList(courseData, nowPage);
+              renderFollowList(
+                courseData,
+                nowPage,
+                followArray,
+                followTotalPages
+              );
               renderFollowPagination(followArray, nowPage, followTotalPages);
             });
           });
@@ -2279,9 +2301,8 @@
         }
 
         // 取消追蹤
-        function cancelFollow(e) {
+        async function cancelFollow(e) {
           let buttonId = e.target.dataset.buttonid;
-
           let editfollowList = followArray.filter((item) => item != buttonId);
 
           Swal.fire({
@@ -2290,19 +2311,32 @@
             confirmButtonColor: "#115BC9",
             confirmButtonText: "取消追蹤",
             denyButtonText: `我再想想`,
-          }).then(async (result) => {
+          }).then((result) => {
             if (result.isConfirmed) {
               Swal.fire("已取消追蹤", "", "success");
 
-              try {
-                await axios.patch(`${apiUrl}/users/${userId}`, {
+              axios
+                .patch(`${apiUrl}/users/${userId}`, {
                   followList: editfollowList,
-                });
+                })
+                .then(async (res) => {
+                  console.log(res);
+                  // 重新获取数据
+                  const newData = await fetchData();
+                  followArray = newData.followArray;
 
-                renderFollowList(courseData, nowPage);
-              } catch (error) {
-                console.error("錯誤", error);
-              }
+                  renderFollowList(
+                    newData.courseData,
+                    nowPage,
+                    followArray,
+                    newData.followTotalPages
+                  );
+                  renderFollowPagination(
+                    followArray,
+                    nowPage,
+                    newData.followTotalPages
+                  );
+                });
             }
           });
         }
