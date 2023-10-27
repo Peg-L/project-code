@@ -23,10 +23,11 @@
           src="../assets/images/Ellipse 1 (2).svg"
           alt="大頭貼"
           class="user-img"
+          id="userImg"
         />
         <div class="ps-41">
-          <h2 class="fs-4 fw-bold mb-1">貓咪</h2>
-          <p>前端工程師</p>
+          <h2 class="fs-4 fw-bold mb-1" id="userName"></h2>
+          <p id="userRole"></p>
         </div>
       </div>
     </div>
@@ -171,7 +172,7 @@
               <div
                 class="d-flex flex-column align-items-center justify-content-center"
               >
-                <div
+                <!-- <div
                   class="d-flex align-items-center justify-content-around mb-4 gap-4"
                 >
                   <button
@@ -191,83 +192,38 @@
                       navigate_next
                     </span>
                   </button>
+                </div> -->
+                <div class="mb-lg-12 mb-10 w-100">
+                  <!-- data -->
+                  <div
+                    class="d-flex align-items-center justify-content-around mb-4"
+                  >
+                    <button
+                      type="button"
+                      class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 btn-week"
+                      id="PreviousWeek"
+                    >
+                      <span class="material-symbols-outlined">
+                        chevron_left
+                      </span>
+                    </button>
+                    <p class="" id="dateRange"></p>
+                    <button
+                      type="button"
+                      class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 btn-week"
+                      id="NextWeek"
+                    >
+                      <span class="material-symbols-outlined">
+                        navigate_next
+                      </span>
+                    </button>
+                  </div>
+                  <!-- calendar -->
+                  <ul
+                    class="calendar d-flex gap-1 justify-content-between flex-lg-nowrap flex-wrap"
+                    id="calendar"
+                  ></ul>
                 </div>
-                <!-- calendar -->
-                <ul class="calendar d-flex justify-content-center gap-3">
-                  <li class="calendar-list">
-                    <p class="text-center">日</p>
-                    <ul class="calendar-time2">
-                      <li>
-                        <button
-                          type="button"
-                          class="bg-white border-0 w-100 p-0"
-                          data-bs-toggle="modal"
-                          data-bs-target="#calendarModal"
-                        >
-                          08:00
-                        </button>
-                      </li>
-                      <li>
-                        <button
-                          type="button"
-                          class="bg-white border-0 w-100 p-0"
-                          data-bs-toggle="modal"
-                          data-bs-target="#calendarModal"
-                        >
-                          10:00
-                        </button>
-                      </li>
-                      <li>
-                        <button
-                          type="button"
-                          class="bg-white border-0 w-100 p-0"
-                          data-bs-toggle="modal"
-                          data-bs-target="#calendarModal"
-                        >
-                          13:00
-                        </button>
-                      </li>
-                      <li>
-                        <button
-                          type="button"
-                          class="bg-white border-0 w-100 p-0"
-                          data-bs-toggle="modal"
-                          data-bs-target="#calendarModal"
-                        >
-                          18:00
-                        </button>
-                      </li>
-                      <li>
-                        <button
-                          type="button"
-                          class="bg-white border-0 w-100 p-0"
-                          data-bs-toggle="modal"
-                          data-bs-target="#calendarModal"
-                        >
-                          20:00
-                        </button>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="calendar-list">
-                    <p class="text-center">一</p>
-                  </li>
-                  <li class="calendar-list">
-                    <p class="text-center">二</p>
-                  </li>
-                  <li class="calendar-list">
-                    <p class="text-center">三</p>
-                  </li>
-                  <li class="calendar-list">
-                    <p class="text-center">四</p>
-                  </li>
-                  <li class="calendar-list">
-                    <p class="text-center">五</p>
-                  </li>
-                  <li class="calendar-list">
-                    <p class="text-center">六</p>
-                  </li>
-                </ul>
               </div>
             </div>
           </div>
@@ -298,28 +254,25 @@
                       class="w-75px"
                       src="../assets/images/teacher/mike.png"
                       alt="麥克先生"
+                      id="courseImg"
                     />
                     <div
                       class="d-flex flex-column justify-content-between align-items-center"
                     >
                       <p>教師</p>
-                      <p class="fw-bold">麥克先生</p>
+                      <p class="fw-bold" id="courseTeacherName"></p>
                     </div>
                     <div
                       class="d-flex flex-column justify-content-between align-items-center"
                     >
                       <p>課程項目</p>
-                      <p class="fw-bold">JavaScript 大師</p>
+                      <p class="fw-bold" id="courseName"></p>
                     </div>
                     <div
                       class="d-flex flex-column justify-content-between align-items-center"
                     >
                       <p>上課時間</p>
-                      <p class="fw-bold">
-                        <time datetime="2023-07-21T11:00"
-                          >2023/09/10(週日) 08:00</time
-                        >-<time datetime="2023-07-21T11:00">08:50</time>
-                      </p>
+                      <p class="fw-bold" id="dateTime"></p>
                     </div>
                     <button
                       type="button"
@@ -363,7 +316,7 @@
                     class="btn btn-gray-200"
                     data-bs-dismiss="modal"
                   >
-                    取消預約
+                    關閉
                   </button>
                 </div>
               </div>
@@ -1949,13 +1902,16 @@
     <%- include("./layout/backtotop.ejs") -%>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="../main.js"></script>
     <!-- jquery-ui -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/i18n/jquery-ui-i18n.min.js"></script>
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <!--  -->
-    <script type="module" src="../main.js"></script>
 
+    <script src="../assets/js/openTime.js"></script>
+    <script src="../assets/js/account_date.js"></script>
     <!-- calender -->
     <script>
       const daysTag = document.querySelector(".days");
