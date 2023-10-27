@@ -1920,7 +1920,9 @@
           ></ul>
           <!-- 頁碼 -->
           <nav class="my-6 my-md-8" aria-label="Page navigation example">
-            <ul class="pagination pagination-lg justify-content-center">
+            <ul
+              class="pagination pagination-lg justify-content-center followPagination"
+            >
               <li class="page-item disabled">
                 <a class="page-link" href="#" aria-label="Previous">
                   <i class="fa-solid fa-angle-left"></i>
@@ -2084,79 +2086,201 @@
       const apiUrl = "http://localhost:3000";
       const userId = 1;
 
-      document.addEventListener("DOMContentLoaded", function () {
-        fetchData();
+      document.addEventListener("DOMContentLoaded", async function () {
+        // 取得追蹤列表 + 課程資料
+        async function fetchData() {
+          try {
+            let [usersResponse, coursesResponse] = await Promise.all([
+              axios.get(`${apiUrl}/users`),
+              axios.get(`${apiUrl}/courses?_expand=teacher`),
+            ]);
 
-        function renderFollowList(courseData) {
+            // 取得追蹤列表
+            let followArray = usersResponse.data[userId - 1].followList;
+            console.log("followArray", followArray);
+
+            let courseData = coursesResponse.data;
+
+            // 目前頁數 / 總頁數
+            let nowPage = 1;
+            let followTotalPages = Math.ceil(followArray.length / 6);
+
+            return {
+              followArray,
+              courseData,
+              nowPage,
+              followTotalPages,
+            };
+          } catch (error) {
+            console.log("錯誤", error);
+          }
+        }
+
+        // 獲取 data
+        let data = await fetchData();
+        let { followArray, courseData, nowPage, followTotalPages } = data;
+
+        // 渲染追蹤列表
+        function renderFollowList(courseData, nowPage) {
+          // 列表容器
           const followList = document.querySelector("#followList");
+
+          // 列表內容
           let courseCards = "";
 
-          followArray.forEach((item) => {
-            let courseId = item;
-            let courseItem = courseData[courseId - 1];
+          // 其中一頁內容
+          newFollowArray = followArray.slice((nowPage - 1) * 6, nowPage * 6);
+
+          newFollowArray.forEach((item) => {
+            let courseItem = courseData[item - 1];
 
             courseCards += `<li class="col">
-                      <div class="teacher-card position-relative">
-                        <button
-                          type="button"
-                          class="btn p-3 text-center align-self-start position-absolute top-0 end-0 follow-btn"
-                        >
-                          <i class="fa-regular fa-heart fs-4 text-primary fw-bold" data-buttonId="${courseItem.id}"></i>
-                        </button>
-                        <div class="teacher-card-profile">
-                          <div class="teacher-card-content">
-                            <h3 class="teacher-card-title">${courseItem.name}</h3>
-                            <p class="teacher-card-name">${courseItem.teacher.name}</p>
-                            <ul class="teacher-card-object">
+                  <div class="teacher-card position-relative">
+                    <button
+                      type="button"
+                      class="btn p-3 text-center align-self-start position-absolute top-0 end-0 follow-btn"
+                    >
+                      <i class="fa-regular fa-heart fs-4 text-primary fw-bold" data-buttonId="${courseItem.id}"></i>
+                    </button>
+                    <div class="teacher-card-profile">
+                      <div class="teacher-card-content">
+                        <h3 class="teacher-card-title">${courseItem.name}</h3>
+                        <p class="teacher-card-name">${courseItem.teacher.name}</p>
+                        <ul class="teacher-card-object">
 
-                              <li class="teacher-card-evaluate">4.8</li>
-                              <li class="teacher-card-hours">50分鐘</li>
-                            </ul>
-                            <p class="teacher-card-price">NT$<span>1,100</span></p>
-                          </div>
-                          <div class="teacher-card-img">
-                            <img
-                              src="${courseItem.teacher.avatar}"
-                              alt="${courseItem.teacher.name}"
-                              class="w-100px w-sm-120px"
-                            />
-                          </div>
-                        </div>
-                        <p class="teacher-card-text">
-                          ${courseItem.info}
-                        </p>
-                        <a
-                          href="./cart.html"
-                          type="button"
-                          class="btn btn-secondary2 w-100 mb-3"
-                        >
-                          立即上課
-                        </a>
-                        <a
-                          href="./course_intro.html"
-                          type="button"
-                          class="btn teacher-card-btn"
-                          >查看介紹</a
-                        >
+                          <li class="teacher-card-evaluate">4.8</li>
+                          <li class="teacher-card-hours">50分鐘</li>
+                        </ul>
+                        <p class="teacher-card-price">NT$<span>1,100</span></p>
                       </div>
-                    </li>`;
+                      <div class="teacher-card-img">
+                        <img
+                          src="${courseItem.teacher.avatar}"
+                          alt="${courseItem.teacher.name}"
+                          class="w-100px w-sm-120px"
+                        />
+                      </div>
+                    </div>
+                    <p class="teacher-card-text">
+                      ${courseItem.info}
+                    </p>
+                    <a
+                      href="./cart.html"
+                      type="button"
+                      class="btn btn-secondary2 w-100 mb-3"
+                    >
+                      立即上課
+                    </a>
+                    <a
+                      href="./course_intro.html"
+                      type="button"
+                      class="btn teacher-card-btn"
+                      >查看介紹</a
+                    >
+                  </div>
+                </li>`;
           });
 
           followList.innerHTML = courseCards;
 
-          // 設定按鈕監聽
           setButtonListeners();
         }
+        renderFollowList(courseData, nowPage);
 
+        // 渲染分頁按鈕
+        function renderFollowPagination(
+          followArray,
+          nowPage,
+          followTotalPages
+        ) {
+          // render 分頁按鈕
+          // 取得 ul
+          const followPaginationWrapper =
+            document.querySelector(".followPagination");
+
+          let followPagination = "";
+
+          // 上一頁按鈕
+          const prevPage = `<li class="page-item prevButton ${
+            nowPage == 1 ? "disabled" : ""
+          }"><a class="page-link" href="#" aria-label="Previous"><i class="fa-solid fa-angle-left"></i></a></li>`;
+          followPagination += prevPage;
+
+          // 頁數按鈕
+          for (let i = 1; i <= followTotalPages; i++) {
+            let pageItem = `<li class="page-item ${
+              i === nowPage ? "active" : ""
+            } pageButton">
+                        <a class="page-link" href="#">
+                          ${i}
+                        </a>
+                      </li>`;
+            followPagination += pageItem;
+          }
+
+          // 下一頁按鈕
+          const nextPage = `<li class="page-item nextButton ${
+            nowPage == followTotalPages ? "disabled" : ""
+          }">
+                    <a class="page-link" href="#" aria-label="Next">
+                      <i class="fa-solid fa-angle-right"></i>
+                    </a>
+                  </li>`;
+          followPagination += nextPage;
+
+          console.log(followPagination);
+
+          followPaginationWrapper.innerHTML = followPagination;
+          switchPage(followTotalPages, nowPage, courseData);
+        }
+        renderFollowPagination(followArray, nowPage, followTotalPages);
+
+        // 切換頁數
+        function switchPage(followTotalPages, nowPage, courseData) {
+          const prevButton = document.querySelector(".prevButton");
+          const nextButton = document.querySelector(".nextButton");
+          let pageButtons = document.querySelectorAll(".pageButton");
+
+          prevButton.addEventListener("click", function () {
+            if (nowPage > 1) {
+              nowPage--;
+
+              renderFollowPagination(followArray, nowPage, followTotalPages);
+              renderFollowList(courseData, nowPage);
+            }
+          });
+
+          nextButton.addEventListener("click", function () {
+            if (followTotalPages > nowPage) {
+              nowPage++;
+
+              renderFollowPagination(followArray, nowPage, followTotalPages);
+              renderFollowList(courseData, nowPage);
+            }
+          });
+
+          pageButtons.forEach((pageButton) => {
+            pageButton.addEventListener("click", () => {
+              nowPage = Number(pageButton.innerText);
+
+              renderFollowList(courseData, nowPage);
+              renderFollowPagination(followArray, nowPage, followTotalPages);
+            });
+          });
+        }
+        switchPage(followTotalPages, nowPage, courseData);
+
+        // 監聽 follow 愛心按鈕
         function setButtonListeners() {
           followButtons = document.querySelectorAll(".follow-btn");
           followButtons.forEach((followBtn) => {
-            followBtn.addEventListener("click", handleFollowButtonClick);
+            followBtn.addEventListener("click", cancelFollow);
           });
         }
 
-        function handleFollowButtonClick(e) {
-          const buttonId = e.target.dataset.buttonid;
+        // 取消追蹤
+        function cancelFollow(e) {
+          let buttonId = e.target.dataset.buttonid;
 
           let editfollowList = followArray.filter((item) => item != buttonId);
 
@@ -2166,35 +2290,21 @@
             confirmButtonColor: "#115BC9",
             confirmButtonText: "取消追蹤",
             denyButtonText: `我再想想`,
-          }).then((result) => {
+          }).then(async (result) => {
             if (result.isConfirmed) {
               Swal.fire("已取消追蹤", "", "success");
 
-              axios
-                .patch(`${apiUrl}/users/${userId}`, {
+              try {
+                await axios.patch(`${apiUrl}/users/${userId}`, {
                   followList: editfollowList,
-                })
-                .then((res) => {
-                  fetchData(); // 重新加載數據
                 });
+
+                renderFollowList(courseData, nowPage);
+              } catch (error) {
+                console.error("錯誤", error);
+              }
             }
           });
-        }
-
-        async function fetchData() {
-          try {
-            const [usersResponse, coursesResponse] = await Promise.all([
-              axios.get(`${apiUrl}/users`),
-              axios.get(`${apiUrl}/courses?_expand=teacher`),
-            ]);
-
-            followArray = usersResponse.data[userId - 1].followList;
-            const courseData = coursesResponse.data;
-
-            renderFollowList(courseData);
-          } catch (error) {
-            console.log("錯誤", error);
-          }
         }
       });
     </script>
