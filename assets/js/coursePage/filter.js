@@ -123,6 +123,65 @@ maxPrice.addEventListener("blur", () => {
 
 /* 判斷點擊的 checkbox 是大項還是小項 */
 // accordionFilter為全部課程主題篩選的父元素，當作事件代理。當有change事件時，事件會冒泡到父元素。這避免每個全選checkbox都要綁監聽事件，耗性能且較難維護
+let cateItemName = sessionStorage.getItem("cateItemName");
+console.log(cateItemName);
+
+document.addEventListener("DOMContentLoaded", cate);
+
+function cate() {
+  const target = document.querySelector(`#${cateItemName}`);
+
+  /* 當target是課程主題大項checkbox */
+  if (target.classList.contains("js-selectAll")) {
+    target.checked = true;
+
+    // 選取 大項內所有的小項
+    const relatedCheckboxes = document.querySelectorAll(
+      `input[id^="${target.name}"]:not([id="${target.name}"])`
+    );
+    // 確保大項內有小項
+    if (relatedCheckboxes.length) {
+      // 把 小項都打勾 並 執行篩選功能
+      relatedCheckboxes.forEach((checkbox) => {
+        checkbox.checked = true;
+        handleCategoryFilters(checkbox);
+      });
+
+      // 回到第一頁
+      data.page = 1;
+
+      //呼叫 api
+      getCoursesData(data);
+      // 計算篩選幾項
+      countSelectedFilters();
+    } else {
+      console.log(`${target.name}內沒有checkbox`);
+    }
+    /* 當target是課程分類小項checkbox */
+  } else if ((target.type = "checkbox")) {
+    // 更新父層 checkbox 狀態
+    const parentCheckbox = target
+      .closest(".accordion-item")
+      .querySelector(".js-selectAll");
+    const relatedCheckboxes = target
+      .closest(".accordion-body")
+      .querySelectorAll(".js-category");
+    updateParentCheckbox(parentCheckbox, relatedCheckboxes);
+
+    // 執行篩選
+    handleCategoryFilters(target);
+
+    //回到第一頁
+    data.page = 1;
+    //呼叫 api
+    getCoursesData(data);
+    // 計算篩選幾項
+    countSelectedFilters();
+  }
+
+  sessionStorage.removeItem("cateItemName");
+}
+
 accordionFilter.addEventListener("change", (e) => {
   const target = e.target;
 
