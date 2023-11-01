@@ -36,14 +36,16 @@ function updateData() {
         let dataNum = item.getAttribute('data-num'); //拿日期
         let matchData = findMatchData(dataNum); //日期比對
         let str = '';
-        if (matchData) { //取得當前預約課程
+        if (matchData.length !== 0) { //取得當前預約課程
+            for(let i=0;i<matchData.length;i++){
                 str += `<li><a href=''
                 data-bs-toggle="modal"
                 data-bs-target="#calendarModal"
-                data-course-id="${matchData.courseId}"
+                data-course-id="${matchData[i].courseId}"
                 id="viewCourse">
-                ${matchData.time}
+                ${matchData[i].time}
                 </a></li>`
+            }
             }
             item.innerHTML = str;
         }
@@ -57,7 +59,8 @@ function updateData() {
     })
 
     function findMatchData(dataNum) {
-        return data.attendTime.find(item => item.date === dataNum);
+        console.log(data.attendTime.filter(item => item.date === dataNum));
+        return data.attendTime.filter(item => item.date === dataNum);
     }
     function getCourse(id) {
         let courseData = [];

@@ -268,7 +268,7 @@
                     >
                       <p>上課時間</p>
                       <p class="fw-bold" id="dateTime">
-                        
+                        74
                       </p>
                     </div>
                     <button
@@ -330,7 +330,7 @@
           <div class="row">
             <div class="col-12 col-md-4 offset-md-1">
               <h3 class="mb-4">教師可預約時間</h3>
-              <ul class="d-flex flex-column g-0">
+              <ul class="d-flex flex-column g-0" id="appointment_list">
                 <li class="book-card active">
                   <img src="../assets/images/Rectangle 7.png" alt="" />
                   <div class="d-flex flex-column">
@@ -342,7 +342,7 @@
                     </div>
                   </div>
                 </li>
-                <li class="book-card">
+                <li class="book-card ">
                   <img src="../assets/images/Rectangle 8.png" alt="" />
                   <div class="d-flex flex-column">
                     <h4>一起打造你的前端職涯</h4>
@@ -2184,10 +2184,10 @@
     </div>
     <%- include('./layout/footer'); -%>
 
-    <!-- backtotop -->
+    <!-- 21backtotop -->
     <%- include("./layout/backtotop.ejs") -%>
 
-    <script type="module" src="../main.js"></script>
+    <script type="module" src="../main.js"></script>+
     <!-- jquery-ui -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
@@ -2198,79 +2198,7 @@
     <script src="../assets/js/openTime.js"></script>
     <script src="../assets/js/account_date.js"></script>
     <!-- calender -->
-    <script>
-      const daysTag = document.querySelector(".days");
-      const currentDate = document.querySelector(".current-date");
-      const prevNextIcon = document.querySelectorAll(".icons span");
-
-      let currYear = new Date().getFullYear();
-      let currMonth = new Date().getMonth();
-
-      const months = [
-        "一月",
-        "二月",
-        "三月",
-        "四月",
-        "五月",
-        "六月",
-        "七月",
-        "八月",
-        "九月",
-        "十月",
-        "十一月",
-        "十二月",
-      ];
-
-      const renderCalendar = () => {
-        const date = new Date(currYear, currMonth, 1);
-        let firstDayofMonth = date.getDay();
-        let lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate();
-        let lastDayofMonth = new Date(
-          currYear,
-          currMonth,
-          lastDateofMonth
-        ).getDay();
-        let lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate();
-
-        let liTag = "";
-
-        for (let i = firstDayofMonth; i > 0; i--) {
-          liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
-        }
-
-        for (let i = 1; i <= lastDateofMonth; i++) {
-          let isToday =
-            i === new Date().getDate() &&
-            currMonth === new Date().getMonth() &&
-            currYear === new Date().getFullYear()
-              ? "active"
-              : "";
-          liTag += `<li class="${isToday}">${i}</li>`;
-        }
-
-        for (let i = lastDayofMonth; i < 6; i++) {
-          liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`;
-        }
-
-        currentDate.innerText = `${months[currMonth]} ${currYear}`;
-        daysTag.innerHTML = liTag;
-      };
-
-      renderCalendar();
-
-      prevNextIcon.forEach((icon) => {
-        icon.addEventListener("click", () => {
-          currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
-
-          if (currMonth < 0 || currMonth > 11) {
-            currYear = icon.id === "prev" ? currYear - 1 : currYear + 1;
-            currMonth = currMonth < 0 ? 11 : 0;
-          }
-
-          renderCalendar();
-        });
-      });
-    </script>
+    <script src="../assets/js/calendar.js"></script>
     
     <!-- account -->
     <script>
