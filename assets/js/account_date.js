@@ -30,7 +30,7 @@ function init(){
         updateData();
     })
 }
-function updateData() {
+function updateData() { //課表生成
     const daysDate = document.querySelectorAll('.calendar-time');
     daysDate.forEach(item => {
         let dataNum = item.getAttribute('data-num'); //拿日期
@@ -59,7 +59,6 @@ function updateData() {
     })
 
     function findMatchData(dataNum) {
-        console.log(data.attendTime.filter(item => item.date === dataNum));
         return data.attendTime.filter(item => item.date === dataNum);
     }
     function getCourse(id) {
@@ -73,16 +72,16 @@ function updateData() {
         })
     }
 }
-
-// 預設載入初始化環境
-init();
-
 left.addEventListener('click',()=>{
     updateData();
 })
 right.addEventListener('click',()=>{
     updateData();
 })
+// 預設載入初始化環境
+init();
+
+
 
 
 
