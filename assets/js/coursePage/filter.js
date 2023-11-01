@@ -170,10 +170,6 @@ function handleCategoryFilters() {
   data.filters = "";
   let apiFilter = ""; //課程分類
   let apiLevel = ""; //課程程度
-  //檢查是否是英文
-  const isNonChinese = (value) => {
-    return /^[^\u4e00-\u9fa5]+$/.test(value);
-  };
 
   /* 課程分類篩選功能 */
   // 全部小項檢查有打勾的加入篩選
@@ -185,14 +181,30 @@ function handleCategoryFilters() {
         data.filters += apiLevel;
       } else {
         // 打勾的是課程分類
-        isNonChinese(item.value)
-          ? (apiFilter = `&categories_like=\\b${item.value}\\b`) //BUG：目前C#會找到所有包含C的結果，因為_like為模糊搜尋
-          : (apiFilter = `&categories_like=${item.value}`); //value是中文時，加正則表達式會找不到
+        if (isEnglish(item.value)) {
+          apiFilter = `&categories_like=\\b${item.value}\\b`;
+          if (item.value === "C") {
+            apiFilter += "(?!%23)"; //確保不匹配 C# (# 要轉成 %23)
+          }
+        } else if (hasSpecialCharacters(item.value)) {
+          apiFilter = `&categories_like=${encodeURIComponent(item.value)}`; // 特殊符號要轉成 url 編碼
+        } else {
+          apiFilter = `&categories_like=${item.value}`; //value是中文時，加正則表達式會找不到
+        }
+
         data.filters += apiFilter;
-        console.log(apiFilter);
       }
     }
   });
+}
+
+//檢查是否是英文
+function isEnglish(value) {
+  return /^[a-zA-Z]+$/.test(value);
+}
+//檢查是否有特殊符號
+function hasSpecialCharacters(value) {
+  return /.*[!@#$%^&*()].*/.test(value);
 }
 
 /* 課程分類篩選功能 */
