@@ -1310,7 +1310,7 @@
           aria-labelledby="nav-my-coupons-tab"
         >
           <!-- 優惠券 -->
-          <ul class="row row-cols-1 row-cols-lg-2 g-6">
+          <ul class="row row-cols-1 row-cols-lg-2 g-6 js-couponGroup">
             <!-- 優惠券1 -->
             <li class="col drop-shadow">
               <div class="card border-x-wave h-100">
@@ -1472,6 +1472,22 @@
               </div>
             </li>
           </ul>
+          <nav class="my-6 my-md-8" aria-label="Page navigation">
+            <ul
+              class="pagination pagination-lg justify-content-center gap-6 js-couponPagination"
+            >
+              <li class="page-item js-couponPageArrow disabled">
+                <a class="page-link rounded-3" href="#" aria-label="Previous">
+                  <i class="fa-solid fa-angle-left"></i>
+                </a>
+              </li>
+              <li class="page-item js-couponPageArrow">
+                <a class="page-link rounded-3" href="#" aria-label="Next">
+                  <i class="fa-solid fa-angle-right"></i>
+                </a>
+              </li>
+            </ul>
+          </nav>
         </div>
 
         <!-- 帳號設定 (Account Settings)-->
@@ -2273,6 +2289,154 @@
             }
           });
         }
+      });
+    </script>
+    <!-- my coupon 我的優惠券 -->
+    <script>
+      const couponPageArrow = document.querySelectorAll(".js-couponPageArrow");
+
+      let coupons = [];
+      let userCouponId = [];
+      let couponCurrentPage = 1;
+      let couponLastPage;
+      getCouponId();
+
+      // 取得 user 的 coupon id
+      async function getCouponId() {
+        try {
+          const userUrl = `${apiUrl}/users?id=${userId}`;
+          const { data } = await axios.get(userUrl);
+          userCouponId = data[0].couponList;
+          console.log("CouponIdArray", userCouponId);
+          couponLastPage = Math.ceil(userCouponId.length / 6);
+
+          getCoupons();
+        } catch (error) {
+          console.log("getCouponId", error);
+        }
+      }
+
+      // 取得 coupons
+      async function getCoupons() {
+        try {
+          let userCouponIdUrl = userCouponId
+            .map((item) => (item = `id=${item}`))
+            .join("&");
+
+          const couponUrl = `${apiUrl}/coupons?_expand=teacher&_page=${couponCurrentPage}&_limit=6&${userCouponIdUrl}`;
+          const { data } = await axios.get(couponUrl);
+          coupons = data;
+
+          renderCoupons();
+          renderCouponPagination();
+        } catch (error) {
+          console.log("getCoupons", error);
+        }
+      }
+
+      //渲染 Coupons
+      function renderCoupons() {
+        // 日期規則
+        const dateReg = /^(\d{4}-\d{2}-\d{2}).*/;
+        // 選取 優惠券ul
+        const couponGroup = document.querySelector(".js-couponGroup");
+
+        let couponListHtml = "";
+        coupons.length
+          ? coupons.forEach((coupon) => {
+              coupon.is_enabled
+                ? (couponListHtml += `
+            <li class="col drop-shadow">
+              <div class="card border-x-wave h-100">
+                <div class="row g-0 h-100">
+                  <div class="col-3 d-flex align-items-center p-4 ${
+                    coupon.type === "allCourse" ? "bg-primary" : "bg-gray-300"
+                  }">
+                  <img
+                    class="img-fluid w-100 rounded-circle img-thumbnail border-0"
+                    src="${
+                      coupon.type === "allCourse"
+                        ? "../assets/images/logo-img.svg"
+                        : coupon.teacher.avatar
+                    }"
+                    alt="teacher"
+                  />
+                  </div>
+                  <div class="col-6">
+                    <div class="card-body h-100 d-flex flex-column">
+                      <h5 class="card-title fs-7 fs-sm-5 mb-2 mb-sm-4">
+                        ${coupon.title}
+                      </h5>
+                      <p class="card-text fs-sm fs-sm-7 mb-3 flex-grow-1">
+                        ${coupon.info}
+                      </p>
+                      <p class="card-text">
+                        <small
+                          class="text-body-secondary d-flex align-items-center gap-1">
+                          <span class="material-symbols-outlined">
+                            update </span>
+                          <time datetime="${
+                            dateReg.exec(coupon.due_date)[1]
+                          }">${dateReg.exec(coupon.due_date)[1]}</time>
+                          失效
+                        </small>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-3 d-flex align-items-center pe-4">
+                    <a
+                      href="course.html"
+                      class="btn btn-secondary2 px-1 px-sm-4 w-100"
+                      >馬上使用</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </li>`)
+                : "";
+            })
+          : (couponListHtml += `<p class="text-center">目前沒有優惠券<p>`);
+
+        couponGroup.innerHTML = couponListHtml;
+      }
+
+      // 渲染 Coupons 分頁
+      function renderCouponPagination() {
+        couponPageArrow.forEach((arrow, index, arrowGroup) => {
+          // 要有分頁
+          if (couponLastPage > 1) {
+            arrow.classList.remove("d-none");
+
+            // 幫上一頁、下一頁加 disabled
+            if (couponCurrentPage === 1) {
+              arrowGroup[0].classList.add("disabled");
+            } else {
+              arrowGroup[0].classList.remove("disabled");
+            }
+            if (couponCurrentPage === couponLastPage) {
+              arrowGroup[1].classList.add("disabled");
+            } else {
+              arrowGroup[1].classList.remove("disabled");
+            }
+          } else {
+            // coupons 太少不需要分頁
+            arrow.classList.add("d-none");
+          }
+        });
+      }
+      // 上一頁、下一頁點擊事件
+      couponPageArrow.forEach((arrow, index) => {
+        arrow.addEventListener("click", (e) => {
+          e.preventDefault();
+          const target = e.target.closest(".js-couponPageArrow");
+          if (!target.classList.contains("disabled")) {
+            index === 1
+              ? couponCurrentPage++
+              : Math.max(1, couponCurrentPage--);
+
+            getCoupons();
+          }
+        });
       });
     </script>
   </body>
