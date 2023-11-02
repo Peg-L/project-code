@@ -51,7 +51,6 @@ axios.get(`${_url}/courses?_expand=teacher`).then((res) => {
   let popularCourses = courses.filter((course) =>
     course.badges.includes("熱門")
   );
-  console.log(popularCourses);
 
   // 取出前 6 項
   let popularCourses6th = popularCourses.slice(0, 7);
@@ -170,8 +169,6 @@ var reviewsSwiper = new Swiper(".reviewsSwiper", {
 });
 
 axios.get(`${_url}/comments?_expand=user`).then((res) => {
-  console.log("Comments", res.data);
-
   const reviewsSwiper = document.querySelector(".reviews-swiper");
 
   let commentsCard = "";

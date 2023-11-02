@@ -133,7 +133,7 @@
       <div class="tab-content" id="nav-tabContent">
         <!-- 我的課表 (Schedule) -->
         <div
-          class="tab-pane fade show active"
+          class="tab-pane fade active show"
           id="nav-schedule"
           role="tabpanel"
           aria-labelledby="nav-schedule-tab"
@@ -1865,10 +1865,11 @@
           aria-labelledby="nav-my-following-tab"
         >
           <!-- card -->
-          <ul
+          <div
             class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-6"
             id="followList"
-          ></ul>
+          ></div>
+
           <!-- 頁碼 -->
           <nav class="my-6 my-md-8" aria-label="Page navigation example">
             <ul
@@ -2066,51 +2067,45 @@
             courseCards = "";
 
             courseData.forEach((courseItem) => {
-              courseCards += `<li class="col">
-                  <div class="teacher-card position-relative">
-                    <button
-                      type="button"
-                      class="btn p-3 text-center align-self-start position-absolute top-0 end-0 follow-btn"
-                    >
-                      <i class="fa-regular fa-heart fs-4 text-primary fw-bold" data-buttonId="${courseItem.id}"></i>
-                    </button>
-                    <div class="teacher-card-profile">
-                      <div class="teacher-card-content">
-                        <h3 class="teacher-card-title">${courseItem.name}</h3>
-                        <p class="teacher-card-name">${courseItem.teacher.name}</p>
-                        <ul class="teacher-card-object">
-
-                          <li class="teacher-card-evaluate">4.8</li>
-                          <li class="teacher-card-hours">50分鐘</li>
-                        </ul>
-                        <p class="teacher-card-price">NT$<span>1,100</span></p>
-                      </div>
-                      <div class="teacher-card-img">
-                        <img
-                          src="${courseItem.teacher.avatar}"
-                          alt="${courseItem.teacher.name}"
-                          class="w-100px w-sm-120px"
-                        />
-                      </div>
-                    </div>
-                    <p class="teacher-card-text">
-                      ${courseItem.info}
-                    </p>
-                    <a
-                      href="./cart.html"
-                      type="button"
-                      class="btn btn-secondary2 w-100 mb-3"
-                    >
-                      立即上課
-                    </a>
-                    <a
-                      href="./course_intro.html"
-                      type="button"
-                      class="btn teacher-card-btn"
-                      >查看介紹</a
-                    >
-                  </div>
-                </li>`;
+              courseCards += `<div class="col"><div class="card teacher-card swiper-slide h-100">
+    <div class="card-body d-flex justify-content-between">
+      <div>
+        <h5 class="card-title teacher-card-title truncate-lines-2">${courseItem.name}
+        </h5>
+        <p class="teacher-card-name">${courseItem.teacher.name}</p>
+        <ul class="teacher-card-object">
+          <li class="teacher-card-evaluate">${courseItem.rate}</li>
+          <li class="teacher-card-hours">50分鐘</li>
+        </ul>
+        <p class="teacher-card-price">NT$<span>${courseItem.price}</span></p>
+      </div>
+      <div class="teacher-card-img">
+        <img
+          src="${courseItem.teacher.avatar}"
+          alt="老師"
+          class="w-100px w-sm-120px"
+        />
+      </div>
+    </div>
+    <div>
+      <p class="teacher-card-text">
+      ${courseItem.info}
+      </p>
+      <a
+        href="./cart.html"
+        type="button"
+        class="btn btn-secondary2 w-100 mb-3"
+      >
+        立即上課
+      </a>
+      <a
+        href="./course_intro.html"
+        type="button"
+        class="btn teacher-card-btn"
+        >查看介紹</a
+      >
+    </div>
+  </div></div>`;
             });
 
             followList.innerHTML = courseCards;
