@@ -37,6 +37,15 @@ function updateTeacherList(){
               </li>`;
                 });
                 appointment_list.innerHTML = str;
+                const teacher_list = document.querySelectorAll('.book-card');
+                teacher_list.forEach(btn => {
+                    btn.addEventListener('click',e=>{
+                        teacher_list.forEach(btn => {
+                            btn.classList.remove('active');
+                        })
+                        e.currentTarget.classList.add('active');
+                    })
+                })
             })
             .catch(err => {
                 console.error(err); 
