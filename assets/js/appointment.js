@@ -1,5 +1,6 @@
 const appointment_list = document.querySelector('#appointment_list'); //get ul
 let appointment_data = {};
+let clickTeacher = "";
 //生成預約教師列表
 function updateTeacherList(){
     axios.get(`${_url}/user_courses?userId=${userId.toString()}`)
@@ -44,7 +45,8 @@ function updateTeacherList(){
                             btn.classList.remove('active');
                         })
                         e.currentTarget.classList.add('active');
-                        const clickTeacher = e.currentTarget.getAttribute('data-courseId'); //偵測是否選擇
+                        clickCourse = e.currentTarget.getAttribute('data-courseId'); //偵測是否選擇
+                        viewTimeCourse();
                     })
                 })
             })

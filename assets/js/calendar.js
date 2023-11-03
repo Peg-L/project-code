@@ -1,7 +1,7 @@
 const daysTag = document.querySelector(".days");
 const current_Date = document.querySelector(".current-date");
 const prevNextIcon = document.querySelectorAll(".icons span");
-
+let clickDay = "";
 let currYear = new Date().getFullYear();
 let currMonth = new Date().getMonth();
 
@@ -64,8 +64,8 @@ const renderCalendar = () => {
         allDateElements.forEach(btn => {
           btn.addEventListener('click',e=>{
             handleDateClick(e.currentTarget);
-            const clickDay = e.target.getAttribute('data-day');//偵測是否選擇
-
+            clickDay = e.target.getAttribute('data-day');//偵測是否選擇
+            viewTimeCourse();
           });
         })
         

@@ -423,27 +423,27 @@
                   <!-- 凌晨 -->
                   <li class="d-flex flex-column align-items-center">
                     <h4 class="mb-4">上午</h4>
-                    <ul>
-                      <li class="btn-time active">08:00</li>
+                    <ul id="morning">
+                      <!-- <li class="btn-time active">08:00</li>
                       <li class="btn-time">9:00</li>
-                      <li class="btn-time">10:00</li>
+                      <li class="btn-time">10:00</li> -->
                     </ul>
                   </li>
                   <!-- 早上 -->
                   <li class="d-flex flex-column align-items-center">
                     <h4 class="mb-4">下午</h4>
-                    <ul>
-                      <li class="btn-time">13:00</li>
-                      <li class="btn-time">14:00</li>
+                    <ul id="afternoon">
+                      <!-- <li class="btn-time">13:00</li>
+                      <li class="btn-time">14:00</li> -->
                     </ul>
                   </li>
                   <!-- 晚上 -->
                   <li class="d-flex flex-column align-items-center">
                     <h4 class="mb-4">晚上</h4>
-                    <ul>
-                      <li class="btn-time disable">22:00</li>
+                    <ul id="evening">
+                      <!-- <li class="btn-time disable">22:00</li>
                       <li class="btn-time disable">22:30</li>
-                      <li class="btn-time">23:00</li>
+                      <li class="btn-time">23:00</li> -->
                     </ul>
                   </li>
                 </ul>
@@ -2202,7 +2202,10 @@
     
     <!-- account -->
     <script src="../assets/js/appointment.js"></script>
-    
+
+    <!-- timeCourse -->
+    <script src="../assets/js/time_course.js"></script>
+
     <script>
       //抓取按鈕
       const changeBtn = document.querySelectorAll("#change");
