@@ -44,7 +44,8 @@ const renderCalendar = () => {
             currYear === new Date().getFullYear()
               ? "active"
               : "";
-          liTag += `<li class="${isToday}">${i}</li>`;
+              let dateAttribute = `${currMonth + 1}/${String(i).padStart(2, '0')}`;
+              liTag += `<li class="${isToday}" data-day="${dateAttribute}">${i}</li>`;
         }
 
         for (let i = lastDayofMonth; i < 6; i++) {
@@ -53,6 +54,21 @@ const renderCalendar = () => {
 
         current_Date.innerText = `${months[currMonth]} ${currYear}`;
         daysTag.innerHTML = liTag;
+        
+        //day click
+        const allDateElements = document.querySelectorAll('.days li');
+        const handleDateClick = (element) => {
+          allDateElements.forEach((el) => el.classList.remove('active'));
+          element.classList.add('active');
+        };
+        allDateElements.forEach(btn => {
+          btn.addEventListener('click',e=>{
+            handleDateClick(e.currentTarget);
+            const clickDay = e.target.getAttribute('data-day');//偵測是否選擇
+
+          });
+        })
+        
       };
 
 renderCalendar();

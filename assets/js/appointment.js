@@ -24,7 +24,7 @@ function updateTeacherList(){
                 const arr = objectsWithCounts.filter(item => item.count !== undefined);
                 //console.log(arr);
                 arr.forEach(item => {
-                    str += `<li class="book-card">
+                    str += `<li class="book-card" data-courseId="${item.id}">
                 <img src="${item.teacher.avatar}" alt="" />
                 <div class="d-flex flex-column">
                   <h4>${item.name}</h4>
@@ -37,13 +37,14 @@ function updateTeacherList(){
               </li>`;
                 });
                 appointment_list.innerHTML = str;
-                const teacher_list = document.querySelectorAll('.book-card');
+                const teacher_list = document.querySelectorAll('.book-card'); //列表生成後抓取列表
                 teacher_list.forEach(btn => {
                     btn.addEventListener('click',e=>{
                         teacher_list.forEach(btn => {
                             btn.classList.remove('active');
                         })
                         e.currentTarget.classList.add('active');
+                        const clickTeacher = e.currentTarget.getAttribute('data-courseId'); //偵測是否選擇
                     })
                 })
             })
