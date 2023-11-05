@@ -194,21 +194,14 @@ accordionFilter.addEventListener("change", (e) => {
     );
     // 確保大項內有小項
     if (relatedCheckboxes.length) {
-      // 把 小項都打勾 並 執行篩選功能
+      // 把 小項都打勾
       relatedCheckboxes.forEach((checkbox) => {
         checkbox.checked = isCheck;
-        handleCategoryFilters(checkbox);
       });
-
-      // 回到第一頁
-      data.page = 1;
-      //呼叫 api
-      getCoursesData(data);
-      // 計算篩選幾項
-      countSelectedFilters();
     } else {
       console.log(`${target.name}內沒有checkbox`);
     }
+
     /* 當target是課程分類小項checkbox */
   } else if ((target.type = "checkbox")) {
     // 更新父層 checkbox 狀態
@@ -219,49 +212,89 @@ accordionFilter.addEventListener("change", (e) => {
       .closest(".accordion-body")
       .querySelectorAll(".js-category");
     updateParentCheckbox(parentCheckbox, relatedCheckboxes);
-
-    // 執行篩選
-    handleCategoryFilters(target);
-
-    //回到第一頁
-    data.page = 1;
-    //呼叫 api
-    getCoursesData(data);
-    // 計算篩選幾項
-    countSelectedFilters();
   }
+
+  // 執行篩選
+  handleCategoryFilters();
+
+  //回到第一頁
+  data.page = 1;
+  //呼叫 api
+  getCoursesData(data);
+  // 計算篩選幾項
+  countSelectedFilters();
 });
 
-/* 課程分類篩選功能 */
-function handleCategoryFilters({ checked, value }) {
-  let apiFilter; //課程分類
-  let apiLevel = `&level_like=${value}`; //課程程度
-  //檢查是否是英文
-  const isEnglish = (value) => {
-    return /[a-zA-Z]/.test(value);
-  };
-  isEnglish(value)
-    ? (apiFilter = `&categories_like=\\b${value}\\b`) //BUG：目前C會找到C#
-    : (apiFilter = `&categories_like=${value}`); //value是中文時，加正則表達式會找不到
+function handleCategoryFilters() {
+  data.filters = "";
+  let apiFilter = ""; //課程分類
+  let apiLevel = ""; //課程程度
 
-  // 打勾情況
-  if (checked) {
-    //避免按全選時重複選取
-    if (!data.filters.includes(value)) {
-      if (value === "入門" || value === "進階") {
+  /* 課程分類篩選功能 */
+  // 全部小項檢查有打勾的加入篩選
+  categories.forEach((item) => {
+    if (item.checked) {
+      // 打勾的是課程程度
+      if (item.value === "入門" || item.value === "進階") {
+        apiLevel = `&level_like=${item.value}`;
         data.filters += apiLevel;
       } else {
+        // 打勾的是課程分類
+        if (isEnglish(item.value)) {
+          apiFilter = `&categories_like=\\b${item.value}\\b`;
+          if (item.value === "C") {
+            apiFilter += "(?!%23)"; //確保不匹配 C# (# 要轉成 %23)
+          }
+        } else if (hasSpecialCharacters(item.value)) {
+          apiFilter = `&categories_like=${encodeURIComponent(item.value)}`; // 特殊符號要轉成 url 編碼
+        } else {
+          apiFilter = `&categories_like=${item.value}`; //value是中文時，加正則表達式會找不到
+        }
+
         data.filters += apiFilter;
       }
     }
-    // 取消打勾情況
-  } else {
-    data.filters = data.filters
-      .split(/(?=&)/)
-      .filter((item) => item !== apiFilter && item !== apiLevel)
-      .join("");
-  }
+  });
 }
+
+//檢查是否是英文
+function isEnglish(value) {
+  return /^[a-zA-Z]+$/.test(value);
+}
+//檢查是否有特殊符號
+function hasSpecialCharacters(value) {
+  return /.*[!@#$%^&*()].*/.test(value);
+}
+
+/* 課程分類篩選功能 */
+// function handleCategoryFilters({ checked, value }) {
+//   let apiFilter; //課程分類
+//   let apiLevel = `&level_like=${value}`; //課程程度
+//   //檢查是否是英文
+//   const isEnglish = (value) => {
+//     return /[a-zA-Z]/.test(value);
+//   };
+//   isEnglish(value) ? (apiFilter = `&categories_like=\\b${value}\\b`) //BUG：目前C會找到C#
+//     : (apiFilter = `&categories_like=${value}`); //value是中文時，加正則表達式會找不到
+
+//   // 打勾情況
+//   if (checked) {
+//     //避免按全選時重複選取
+//     if (!data.filters.includes(value)) {
+//       if (value === "入門" || value === "進階") {
+//         data.filters += apiLevel;
+//       } else {
+//         data.filters += apiFilter;
+//       }
+//     }
+//     // 取消打勾情況
+//   } else {
+//     data.filters = data.filters
+//       .split(/(?=&)/)
+//       .filter((item) => item !== apiFilter && item !== apiLevel)
+//       .join("");
+//   }
+// }
 
 /* 更新父層 checkbox 狀態 function */
 function updateParentCheckbox(parentCheckbox, relatedCheckboxes) {
