@@ -138,11 +138,19 @@ let recommendSwiper = new Swiper(".recommendSwiper", {
 });
 
 // 課程分類
-// let courseTopic  = "資安"
-// axios.get(`${_url}/courses?topics=${courseTopic}`).then(res=>{
-//   let courses = res.data;
-//   console.log(`${courseTopic}`,courses);
-// })
+
+sessionStorage.removeItem("cateItemName");
+
+const cateItems = document.querySelectorAll(".cate-item");
+cateItems.forEach((cateItem) => {
+  cateItem.addEventListener("click", function () {
+    let cateItemName = cateItem.getAttribute("name");
+    console.log(cateItemName);
+
+    sessionStorage.setItem("cateItemName", cateItemName);
+    location.href = "./course.html";
+  });
+});
 
 // 學生好評
 var reviewsSwiper = new Swiper(".reviewsSwiper", {

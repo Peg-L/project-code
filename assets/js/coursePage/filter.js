@@ -124,17 +124,16 @@ maxPrice.addEventListener("blur", () => {
 /* 判斷點擊的 checkbox 是大項還是小項 */
 // accordionFilter為全部課程主題篩選的父元素，當作事件代理。當有change事件時，事件會冒泡到父元素。這避免每個全選checkbox都要綁監聽事件，耗性能且較難維護
 let cateItemName = sessionStorage.getItem("cateItemName");
-console.log(cateItemName);
 
-document.addEventListener("DOMContentLoaded", cate);
+if (cateItemName) {
+  document.addEventListener("DOMContentLoaded", cate);
+}
 
 function cate() {
   const target = document.querySelector(`#${cateItemName}`);
-
+  target.checked = true;
   /* 當target是課程主題大項checkbox */
   if (target.classList.contains("js-selectAll")) {
-    target.checked = true;
-
     // 選取 大項內所有的小項
     const relatedCheckboxes = document.querySelectorAll(
       `input[id^="${target.name}"]:not([id="${target.name}"])`
