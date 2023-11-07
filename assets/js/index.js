@@ -1,4 +1,5 @@
 import axios from "axios";
+import { _url } from "./config.js";
 
 let bannerSwiper = new Swiper(".bannerSwiper", {
   slidesPerView: 1,
@@ -57,6 +58,7 @@ axios.get(`${_url}/courses?_expand=teacher`).then((res) => {
   let popularCourses = courses.filter((course) =>
     course.badges.includes("熱門")
   );
+  console.log(popularCourses);
 
   // 取出前 6 項
   let popularCourses6th = popularCourses.slice(0, 7);
@@ -66,27 +68,26 @@ axios.get(`${_url}/courses?_expand=teacher`).then((res) => {
   const swiperWrapper = document.querySelector(".recommend-swiper");
 
   popularCourses6th.forEach((popularCourse) => {
-    coursesCard += `<div class="card teacher-card swiper-slide">
-    <div class="card-body d-flex justify-content-between">
-      <div>
-        <h5 class="card-title teacher-card-title truncate-lines-2">${popularCourse.name}
-        </h5>
-        <p class="teacher-card-name">${popularCourse.teacher.name}</p>
-        <ul class="teacher-card-object">
-          <li class="teacher-card-evaluate">${popularCourse.rate}</li>
-          <li class="teacher-card-hours">50分鐘</li>
-        </ul>
-        <p class="teacher-card-price">NT$<span>${popularCourse.price}</span></p>
+    coursesCard += `<div class="swiper-slide">
+    <div class="teacher-card">
+      <div class="teacher-card-profile">
+        <div class="teacher-card-content">
+          <h3 class="teacher-card-title">${popularCourse.name}</h3>
+          <p class="teacher-card-name">${popularCourse.teacher.name}</p>
+          <ul class="teacher-card-object">
+            <li class="teacher-card-evaluate">${popularCourse.rate}</li>
+            <li class="teacher-card-hours">50分鐘</li>
+          </ul>
+          <p class="teacher-card-price">NT$<span>${popularCourse.price}</span></p>
+        </div>
+        <div class="teacher-card-img">
+          <img
+            src="${popularCourse.teacher.avatar}"
+            alt="老師"
+            class="w-100px w-sm-120px"
+          />
+        </div>
       </div>
-      <div class="teacher-card-img">
-        <img
-          src="${popularCourse.teacher.avatar}"
-          alt="老師"
-          class="w-100px w-sm-120px"
-        />
-      </div>
-    </div>
-    <div>
       <p class="teacher-card-text">
       ${popularCourse.info}
       </p>
@@ -143,11 +144,19 @@ let recommendSwiper = new Swiper(".recommendSwiper", {
 });
 
 // 課程分類
-// let courseTopic  = "資安"
-// axios.get(`${_url}/courses?topics=${courseTopic}`).then(res=>{
-//   let courses = res.data;
-//   console.log(`${courseTopic}`,courses);
-// })
+
+sessionStorage.removeItem("cateItemName");
+
+const cateItems = document.querySelectorAll(".cate-item");
+cateItems.forEach((cateItem) => {
+  cateItem.addEventListener("click", function () {
+    let cateItemName = cateItem.getAttribute("name");
+    console.log(cateItemName);
+
+    sessionStorage.setItem("cateItemName", cateItemName);
+    location.href = "./course.html";
+  });
+});
 
 // 學生好評
 var reviewsSwiper = new Swiper(".reviewsSwiper", {
@@ -175,6 +184,8 @@ var reviewsSwiper = new Swiper(".reviewsSwiper", {
 });
 
 axios.get(`${_url}/comments?_expand=user`).then((res) => {
+  console.log("Comments", res.data);
+
   const reviewsSwiper = document.querySelector(".reviews-swiper");
 
   let commentsCard = "";
