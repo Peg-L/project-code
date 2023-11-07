@@ -2,12 +2,9 @@ import { data, getCoursesData } from "./api.js";
 
 /*** 首頁搜尋跳轉 ***/
 const indexSearchInput = localStorage.getItem("indexSearchInput");
-console.log("indexSearchInput", indexSearchInput);
 
 if (indexSearchInput) {
   data.q = indexSearchInput;
-  console.log("data", data);
-
   getCoursesData(data);
   data.q = "";
   localStorage.removeItem("indexSearchInput");
@@ -35,5 +32,3 @@ document.addEventListener("keyup", function (e) {
     courseSearchButton.click();
   }
 });
-
-export {};

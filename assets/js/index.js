@@ -151,9 +151,9 @@ const cateItems = document.querySelectorAll(".cate-item");
 cateItems.forEach((cateItem) => {
   cateItem.addEventListener("click", function () {
     let cateItemName = cateItem.getAttribute("name");
-    console.log(cateItemName);
 
     sessionStorage.setItem("cateItemName", cateItemName);
+
     location.href = "./course.html";
   });
 });
