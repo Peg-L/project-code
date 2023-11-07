@@ -40,6 +40,12 @@ bannerInputs.forEach((bannerInput) => {
         //- 跳轉 course.html
         location.href = "./course.html";
       });
+
+      document.addEventListener("keyup", function (e) {
+        if (e.key === "Enter") {
+          bannerSearchBtn.click();
+        }
+      });
     });
   });
 });
@@ -145,9 +151,9 @@ const cateItems = document.querySelectorAll(".cate-item");
 cateItems.forEach((cateItem) => {
   cateItem.addEventListener("click", function () {
     let cateItemName = cateItem.getAttribute("name");
-    console.log(cateItemName);
 
     sessionStorage.setItem("cateItemName", cateItemName);
+
     location.href = "./course.html";
   });
 });
