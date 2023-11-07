@@ -2,10 +2,15 @@ import { data, getCoursesData } from "./api.js";
 
 /*** 首頁搜尋跳轉 ***/
 const indexSearchInput = localStorage.getItem("indexSearchInput");
+console.log("indexSearchInput", indexSearchInput);
+
 if (indexSearchInput) {
   data.q = indexSearchInput;
+  console.log("data", data);
+
   getCoursesData(data);
-  localStorage.setItem("indexSearchInput", "");
+  data.q = "";
+  localStorage.removeItem("indexSearchInput");
 }
 
 /*** 取得 banner 搜尋框的值 ***/
@@ -19,11 +24,16 @@ courseSearchInput.addEventListener("input", function () {
 
 const courseSearchButton = document.querySelector(".course-search-button");
 
-courseSearchButton.addEventListener("click", function (data) {
-  courseSearchInput.value = "";
+courseSearchButton.addEventListener("click", function () {
   data.q = courseSearchInputValue;
   getCoursesData(data);
-  data.q = "";
+  courseSearchInput.value = "";
+});
+
+document.addEventListener("keyup", function (e) {
+  if (e.key === "Enter") {
+    courseSearchButton.click();
+  }
 });
 
 export {};

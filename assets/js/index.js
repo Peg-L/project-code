@@ -39,6 +39,12 @@ bannerInputs.forEach((bannerInput) => {
         //- 跳轉 course.html
         location.href = "./course.html";
       });
+
+      document.addEventListener("keyup", function (e) {
+        if (e.key === "Enter") {
+          bannerSearchBtn.click();
+        }
+      });
     });
   });
 });
