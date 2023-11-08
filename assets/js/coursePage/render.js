@@ -282,6 +282,7 @@ function renderCourses() {
             <button
               type="button"
               class="btn btn-secondary2 w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
+              data-course=${item.id}
             >
               立即上課
             </button>
