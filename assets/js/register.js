@@ -1,4 +1,6 @@
 import axios from "axios";
+import "./firebase";
+import { RegisterWithGoogle } from "./firebase";
 
 // 替 input 框加上警示或通過的樣式
 function addIsInvalid(inputItem) {
@@ -20,8 +22,6 @@ let phoneInput = document.querySelector("#floatingTel");
 let passwordInput = document.querySelector("#floatingPassword");
 let passwordCheckInput = document.querySelector("#floatingCheckPassword");
 
-
-
 // 監聽 input
 if (window.location.href.includes("register.html")) {
   emailInput.addEventListener("input", emailValidate);
@@ -32,10 +32,24 @@ if (window.location.href.includes("register.html")) {
 }
 
 // input 的值
-let emailValue;
-let passwordValue;
-let phoneValue;
-let nameValue;
+
+const userInfo = {
+  email: "",
+  password: "",
+  user_phone: "",
+  user_name: "",
+  user_role: "學生",
+  user_title: "",
+  user_avatar: "",
+  user_birthdate: "",
+  user_gender: "",
+  user_address: "",
+};
+
+// let emailValue;
+// let passwordValue;
+// let phoneValue;
+// let nameValue;
 
 // 驗證狀態
 let emailState = false;
@@ -47,8 +61,9 @@ let passwordCheckState = false;
 // 驗證格式
 // - 驗證 email 格式
 function emailValidate() {
-  emailValue = emailInput.value;
-  
+  const emailValue = emailInput.value;
+  userInfo.email = emailValue;
+
   const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
   if (emailRegex.test(emailValue)) {
@@ -61,7 +76,8 @@ function emailValidate() {
 
 // - 驗證 姓名 格式
 function nameValidate() {
-  nameValue = nameInput.value;
+  const nameValue = nameInput.value;
+  userInfo.user_name = nameValue;
 
   const nameRegex = /^.{1,20}$/;
 
@@ -75,8 +91,8 @@ function nameValidate() {
 
 // - 驗證 手機 格式
 function phoneValidate() {
-  phoneValue = phoneInput.value;
-  console.log("phoneValue：", phoneValue);
+  const phoneValue = phoneInput.value;
+  userInfo.user_phone = phoneValue;
 
   const phoneRegex = /^09\d{8}$/;
 
@@ -90,8 +106,8 @@ function phoneValidate() {
 
 // - 驗證 密碼 格式
 function passwordValidate() {
-  passwordValue = passwordInput.value;
-  console.log("passwordValue：", passwordValue);
+  const passwordValue = passwordInput.value;
+  userInfo.password = passwordValue;
 
   const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
 
@@ -116,43 +132,46 @@ function passwordCheckValidate() {
   }
 }
 
+function handleRegister(userInfo) {
+  axios
+    .post(`${_url}/users`, userInfo)
+    .then((res) => {
+      console.log(res.data);
+
+      const registerSuccessModal = new bootstrap.Modal("#registerSuccess");
+      registerSuccessModal.show();
+    })
+    .catch((err) => {
+      if (err.response.data == "email already exists") {
+        alert("此帳號已註冊過");
+      }
+    });
+}
+
 // 送出按鈕
 const registerBtn = document.querySelector("#registerBtn");
-
 if (window.location.href.includes("register.html")) {
-registerBtn.addEventListener("click", function (event) {
-  event.preventDefault();
-  if (
-    emailState &&
-    nameState &&
-    phoneState &&
-    passwordState &&
-    passwordCheckState
-  ) {
-    
-    axios
-      .post(`${_url}/users`, {
-      "email": emailValue,
-      "password": passwordValue,
-      "user_phone": phoneValue,
-      "user_name": nameValue,
-      "user_role": "學生",
-      "user_title": "",
-      "user_avatar": "",
-      "user_birthdate": "",
-      "user_gender": "",
-      "user_address": ""
-      })
-      .then((res) => {
-        console.log(res.data);
-        const registerSuccessModal = new bootstrap.Modal("#registerSuccess");
-        registerSuccessModal.show();
-      }).catch((err)=> {
-        alert(err.data.message)
-      });
-  } else {
-    alert("註冊失敗，請確認資料格式");
-    return;
-  }
-});
+  registerBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+    if (
+      emailState &&
+      nameState &&
+      phoneState &&
+      passwordState &&
+      passwordCheckState
+    ) {
+      handleRegister(userInfo);
+    } else {
+      alert("註冊失敗，請確認資料格式");
+      return;
+    }
+  });
 }
+
+// google 註冊
+const googleRegister = document.querySelector("#google-register");
+if (googleRegister) {
+  googleRegister.addEventListener("click", RegisterWithGoogle);
+}
+
+export { handleRegister, userInfo };
