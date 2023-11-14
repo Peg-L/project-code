@@ -72,7 +72,12 @@ const getCoursesData = async ({
     console.log("courseError", error);
   }
 };
-getCoursesData(data);
+const indexSearchInput = localStorage.getItem("indexSearchInput");
+const cateItemName = sessionStorage.getItem("cateItemName");
+
+if (!indexSearchInput && !cateItemName) {
+  getCoursesData(data);
+}
 /*** api-取得卡片數量 ***/
 // 取得全部課程以計算篩選項目數量
 const getAllData = async ({
