@@ -26,7 +26,7 @@
     "axios": "^1.5.1",
     "bootstrap": "^5.3.1",
     "bootstrap-icons": "^1.10.5",
-    "firebase": "^10.5.2",
+    "firebase": "^10.6.0",
     "firebaseui": "^6.1.0",
     "gh-pages": "^5.0.0",
     "glob": "^10.2.2",

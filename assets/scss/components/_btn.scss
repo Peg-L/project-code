@@ -5,6 +5,7 @@
 .btn-secondary2:disabled {
   background-color: $gray-200;
 }
+
 .btn-gray {
   background-color: $gray-100;
   color: $gray-300;
@@ -78,27 +79,33 @@
   }
 }
 
-.btn-outline-secondary2{
+.btn-outline-secondary2 {
   border: 2px solid $secondary2;
-  background-color: $white ;
+  background-color: $white;
   transition: all 0.3s;
-  &.show, &:hover, &:active, &:focus-visible{
+  &.show,
+  &:hover,
+  &:active,
+  &:focus-visible {
     background-color: $white !important;
     border-color: $primary !important;
     color: $primary !important;
   }
 }
 
-.btn-outline-primary{
+.btn-outline-primary {
   border: 2px solid $primary;
-  background-color: $white ;
+  background-color: $white;
   transition: all 0.3s;
-  &.show, &:hover, &:active, &:focus-visible{
+  &.show,
+  &:hover,
+  &:active,
+  &:focus-visible {
     background-color: $white !important;
     border-color: $secondary2 !important;
     color: $secondary2 !important;
   }
-  &:disabled{
+  &:disabled {
     background-color: $white !important;
     border-color: $gray-300 !important;
     color: $gray-300 !important;
