@@ -84,7 +84,7 @@
               </button>
 
               <!-- 排序按鈕 -->
-              <div class="dropdown">
+              <div class="dropdown js-sortBy">
                 <button
                   class="btn btn-outline-secondary2 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4 dropdown-toggle"
                   type="button"
@@ -94,9 +94,33 @@
                   排序依據
                 </button>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">最熱門</a></li>
-                  <li><a class="dropdown-item" href="#">最高評等</a></li>
-                  <li><a class="dropdown-item" href="#">最新</a></li>
+                  <li>
+                    <button
+                      type="button"
+                      class="btn btn-link dropdown-item"
+                      data-order="commentNum"
+                    >
+                      最熱門
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      type="button"
+                      class="btn btn-link dropdown-item"
+                      data-order="rate"
+                    >
+                      最高評等
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      type="button"
+                      class="btn btn-link dropdown-item"
+                      data-order="date"
+                    >
+                      最新
+                    </button>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -791,11 +815,11 @@
                               type="checkbox"
                               name="Android"
                               id="mobileAppAndroid"
-                              value="Android 開發"
+                              value="Android開發"
                             />
                             <span
                               >Android 開發<span
-                                data-category="Android 開發"
+                                data-category="Android開發"
                               ></span
                             ></span>
                           </label>
@@ -807,10 +831,10 @@
                               type="checkbox"
                               name="IOS"
                               id="mobileAppIOS"
-                              value="iOS 開發"
+                              value="iOS開發"
                             />
                             <span
-                              >iOS 開發<span data-category="iOS 開發"></span
+                              >iOS 開發<span data-category="iOS開發"></span
                             ></span>
                           </label>
                         </li>
@@ -1079,10 +1103,10 @@
                               type="checkbox"
                               name="AdobeXD"
                               id="UIUXAdobeXD"
-                              value="Adobe XD"
+                              value="AdobeXD"
                             />
                             <span
-                              >Adobe XD<span data-category="Adobe XD"></span
+                              >Adobe XD<span data-category="AdobeXD"></span
                             ></span>
                           </label>
                         </li>
@@ -1242,11 +1266,11 @@
                               type="checkbox"
                               name="gameDevelopmentAI"
                               id="AIGameDevelopmentAI"
-                              value="遊戲開發 AI"
+                              value="遊戲開發AI"
                             />
                             <span
                               >遊戲開發 AI<span
-                                data-category="遊戲開發 AI"
+                                data-category="遊戲開發AI"
                               ></span
                             ></span>
                           </label>
@@ -1504,12 +1528,12 @@
                     </div>
                   </div>
                 </div>
-                <button
+                <!-- <button
                   type="button"
                   class="btn btn-secondary2 w-100 fs-6 js-filterBtn mb-4"
                 >
                   篩選
-                </button>
+                </button> -->
               </div>
             </div>
           </div>
@@ -1524,20 +1548,23 @@
       <!--========================
       =        pagination        =
       =========================-->
-      <nav class="my-6 my-md-8" aria-label="Page navigation example">
-        <ul class="pagination pagination-lg justify-content-center">
+      <nav class="my-6 my-md-8" aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
           <li class="page-item disabled">
-            <a class="page-link" href="#" aria-label="Previous">
+            <a
+              class="page-link"
+              href="#"
+              aria-label="Previous"
+              data-page="prev"
+            >
               <i class="fa-solid fa-angle-left"></i>
             </a>
           </li>
           <li class="page-item active" aria-current="page">
-            <a class="page-link" href="#">1</a>
+            <a class="page-link" href="#" data-page="1">1</a>
           </li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item">
-            <a class="page-link" href="#" aria-label="Next">
+          <li class="page-item" disabled>
+            <a class="page-link" href="#" aria-label="Next" data-page="next">
               <i class="fa-solid fa-angle-right"></i>
             </a>
           </li>
@@ -1549,666 +1576,10 @@
     <!-- backtotop -->
     <%- include("./layout/backtotop.ejs") -%>
     <script type="module" src="../main.js"></script>
-    <!-- 篩選欄 -->
-    <script>
-      //filter-bar 在 sticky 時添加陰影，且加上margin
-      let filterBar = document.querySelector("#js-filter-bar");
-      let stickyMargin = document.querySelector("#js-sticky-mt");
-      const navbar = document.querySelector(".navbar");
-
-      window.addEventListener("scroll", () => {
-        let scrollThreshold;
-
-        if (window.innerWidth < 375) {
-          // 手機板時
-          scrollThreshold = 120;
-        } else if (window.innerWidth < 768) {
-          // 平板時
-          scrollThreshold = 300;
-        } else {
-          // 桌機以上時
-          scrollThreshold = 418;
-        }
-
-        if (window.scrollY < scrollThreshold) {
-          filterBar.style.boxShadow = "";
-          stickyMargin.style.marginTop = "";
-          navbar.style.display = "block";
-        } else {
-          filterBar.style.boxShadow = "0 10px 6px -6px rgba(0, 0, 0, 0.15)";
-          stickyMargin.style.marginTop = "78px";
-          navbar.style.display = "none";
-        }
-      });
-
-      // 為#collapseFilter元素在螢幕寬度小於992px添加.show
-      window.addEventListener("resize", function () {
-        // 取得當前螢幕寬度
-        const screenWidth =
-          window.innerWidth || document.documentElement.clientWidth;
-
-        if (screenWidth < 1200) {
-          document.getElementById("collapseFilter").classList.add("show");
-        }
-      });
-    </script>
-
     <!-- 卡片 -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script type="module">
-      /***** 呼叫 api、渲染畫面 *****/
-      const courseList = document.querySelector("#courseList");
-      const api = "https://project-code-json-k0ti.onrender.com";
-      const minPriceDefault = 0;
-      const maxPriceDefault = 9999;
-      let data = {
-        sort: "",
-        order: 0,
-        page: 1,
-        limit: 10,
-        like: "",
-        q: "",
-        rate_gte: 0,
-        rate_lte: 5,
-        price_gte: minPriceDefault,
-        price_lte: maxPriceDefault,
-        filters: "",
-      };
-      let currentPageCourses = [];
-      let allCourses = [];
-      let totalSearchNum = document.querySelector(".js-totalSearchNum");
-      let allCoursesNum;
-      let isLoading = false;
-      const dateReg = /^(\d{4}-\d{2}-\d{2}).*/;
-      const separatorReg = /\B(?=(?:\d{3})+(?!\d))/g;
+    <script type="module" src="../assets/js/coursePage/coursePage.js"></script>
 
-      /*** 渲染畫面 ***/
-      const renderCourses = () => {
-        let courseHtml = "";
-        /* loading動畫 */
-        isLoading
-          ? (courseHtml += `
-          <div class="d-flex justify-content-center mt-4">
-            <div class="spinner-border text-primary" role="status">
-              <span class="visually-hidden">Loading...</span>
-            </div>
-          </div>
-          `)
-          : currentPageCourses.length !== 0
-          ? /* 卡片渲染 */
-            currentPageCourses.forEach((item) => {
-              courseHtml += `
-            <li class="card flex-row flex-wrap flex-md-nowrap shadow">
-              <div class="d-flex flex-grow-1 p-4 p-lg-8">
-                <!--  老師區塊 -->
-                <div
-                  class="d-flex flex-column align-items-center min-w-100px w-100px min-w-md-150px w-md-150px bg-white me-4"
-                >
-                  <!-- 愛心 -->
-                  <button
-                    type="button"
-                    class="btn p-0 text-center align-self-start"
-                  >
-                    <i
-                      class="fa-regular fa-heart fs-3 text-primary hover-bold"
-                    ></i>
-                  </button>
-
-                  <a href="#" class="text-center">
-                    <!-- 圖 -->
-                    <div class="mb-2 w-100px h-100px">
-                      <img
-                        class="img-fluid rounded-circle p-1 p-md-0"
-                        src="${item.teacher.avatar}"
-                        alt="teacher"
-                      />
-                    </div>
-                    <!-- 姓名、職稱 -->
-                    <h3 class="fs-7 fs-md-6 text-secondary2 fw-bold mb-1">
-                      ${item.teacher.name}
-                    </h3>
-                  </a>
-                  <p class="fs-sm fs-md-7 text-secondary2 text-center mb-2">
-                    ${item.teacher.title}
-                  </p>
-                  <ul class="text-center text-gray-300 fs-sm fs-md-7 mb-2">
-                    <li class="d-flex align-items-center">
-                      <img src="../assets/images/star.svg" alt="star" />
-                      <span class="fw-bold me-1"> ${item.teacher.rate} </span>
-                      講師評等
-                    </li>
-                    <li>${item.teacher.total_students} 位學生</li>
-                    <li>${item.teacher.total_courses} 門課程</li>
-                  </ul>
-                  <!-- link -->
-                  <ul class="d-flex justify-content-center mb-0">
-                    <li class="me-1">
-                      <a href="${
-                        item.teacher.links_codepen
-                      }" class="p-1" target="_blank">
-                        <i class="fa-brands fa-github"></i
-                      ></a>
-                    </li>
-                    <li class="me-1">
-                      <a href="${
-                        item.teacher.links_github
-                      }" class="p-1" target="_blank">
-                        <i class="fa-brands fa-linkedin-in"></i
-                      ></a>
-                    </li>
-                    <li>
-                      <a href="${
-                        item.teacher.links_linkedin
-                      }" class="p-1" target="_blank">
-                        <i class="fa-brands fa-codepen"></i
-                      ></a>
-                    </li>
-                  </ul>
-                </div>
-                <!--  課程區塊 -->
-                <div class="flex-grow-1">
-                  <!-- 課程名稱 -->
-                  <h3 class="card-title fs-6 fs-sm-4 ">
-                    ${item.name}
-                  </h3>
-                  <!-- 優質標籤 -->
-                  ${
-                    Array.isArray(item.badges) // 防止 item.badges 是空值而出錯
-                      ? `<ul class="d-flex gap-2 mb-2">
-                    ${item.badges
-                      .map(
-                        (badge) =>
-                          `<li class="badge bg-primary fw-normal fs-sm fs-lg-7">${badge}</li>`
-                      )
-                      .join("")}</ul>`
-                      : ""
-                  }
-
-                  <!-- 課程tag -->
-                  ${
-                    Array.isArray(item.tags)
-                      ? `<ul class="d-flex flex-wrap mb-1 mb-sm-2 column-gap-1">
-                    ${item.tags
-                      .map(
-                        (tag) =>
-                          `<li class="text-primary text-nowrap fs-sm fs-md-7">
-                      #${tag}
-                    </li>`
-                      )
-                      .join("")}
-                  </ul>`
-                      : ""
-                  }
-
-                  <!-- 課程評價、難度 -->
-                  <div class="d-flex">
-                    <a
-                      href="#"
-                      class="d-flex align-items-center mb-1 mb-sm-2 mb-md-4"
-                    >
-                      <img src="../assets/images/star.svg" alt="star" />
-                      <span class="fw-bold fs-sm fs-md-7 ms-1">${
-                        item.rate
-                      }</span>
-                      ・
-                      <span class="fs-sm fs-md-7 me-2">28 個評論</span>
-                    </a>
-                    <p class="text-gray-300">| ${item.level}</p>
-                  </div>
-                  <!-- 課程介紹 -->
-                  <p
-                    class="fs-sm fs-sm-7 fs-md-6 text-justify truncate-lines-2 truncate-md-lines-4"
-                  >${item.info}
-                  </p>
-                  <hr />
-                  <!-- 課程篩選tag -->
-                  <div>
-                    <h4
-                      class="text-secondary2 fs-7 fs-sm-6 fs-md-5 mb-2 mb-sm-3"
-                    >
-                      你可以跟我學
-                    </h4>
-                    ${
-                      Array.isArray(item.categories)
-                        ? `
-                      <ul class="d-flex flex-wrap gap-1 gap-md-2 mb-0">
-                        ${item.categories
-                          .map(
-                            (category) => `
-                            <li>
-                              <span class="badge text-bg-secondary text-gray-300 fs-sm fs-md-6">
-                                ${category}
-                              </span>
-                            </li>`
-                          )
-                          .join("")}
-                      </ul>`
-                        : ""
-                    }
-                  </div>
-                  <hr />
-                  <!-- 收合內容 -->
-                  <div class="collapse" id="collapseCourse${item.id}">
-                    <!-- 你將獲得 -->
-                    <div>
-                      <h4 class="text-secondary2 fs-7 fs-sm-5 mb-2 mb-sm-3">
-                        你將獲得
-                      </h4>
-                      ${
-                        Array.isArray(item.mainPoints)
-                          ? `<ul>
-                            ${item.mainPoints
-                              .map(
-                                (mainPoint) => `
-                          <li class="list-check fs-sm fs-sm-7 fs-md-6">
-                            ${mainPoint}
-                          </li>`
-                              )
-                              .join("")}`
-                          : ""
-                      }
-                      </ul>
-
-                    </div>
-                    <hr />
-                    <!-- 評價 -->
-                    <div>
-                      <h4 class="text-secondary2 fs-7 fs-sm-5 mb-2 mb-sm-3">
-                        精選評價
-                      </h4>
-                      <p
-                        class="fs-sm fs-sm-7 fs-md-6 text-justify mb-1 mb-md-2"
-                      >
-                       ${item.comment.content}
-                      </p>
-                      <div
-                        class="d-flex justify-content-end align-items-center"
-                      >
-                        <img
-                          class="me-2 d-none d-md-block w-40px h-40px"
-                          src="${item.comment.user.avatar}"
-                          alt="student"
-                        />
-                        <div class="d-flex flex-md-column fs-sm fs-md-7">
-                          <p class="fw-bold me-2 me-md-0">${
-                            item.comment.user.name
-                          }</p>
-                          <p>${dateReg.exec(item.comment.date)[1]}</p>
-                        </div>
-                      </div>
-                    </div>
-                    <hr />
-                  </div>
-                  <!-- 瀏覽更多 -->
-                  <button
-                    class="btn btn-gray fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4 float-end readMore"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapseCourse${item.id}"
-                    aria-expanded="false"
-                    aria-controls="collapseCourse${item.id}"
-                  ></button>
-                </div>
-              </div>
-              <!--  按鈕區塊 -->
-              <div
-                class="card-footer card-md-horizontal min-w-lg-250px w-lg-250px min-w-md-200px w-md-200px gap-2 gap-sm-6 p-4 p-md-8"
-              >
-                <!-- 價格 -->
-                <div
-                  class="d-flex justify-content-center flex-md-column flex-lg-row gap-2 gap-sm-4"
-                >
-                  <p class="text-nowrap text-center fs-sm fs-sm-6">
-                    <span class="fw-bold fs-7 fs-sm-5">
-                      NT$ ${
-                        item.price *
-                        (0.5) //數字三位一撇
-                          .toString()
-                          .replace(separatorReg, ",")
-                      }
-                      </span><br />體驗價
-                  </p>
-                  <p class="text-nowrap text-center fs-sm fs-sm-6">
-                    <span class="fw-bold fs-7 fs-sm-5">
-                      NT$ ${item.price //數字三位一撇
-                        .toString()
-                        .replace(separatorReg, ",")}
-                    </span>
-                    <br />${item.duration}分鐘
-                  </p>
-                </div>
-                <!-- 購買按鈕 -->
-                <button
-                  type="button"
-                  class="btn btn-secondary2 w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
-                >
-                  立即上課
-                </button>
-                <a
-                  href="https://peg-l.github.io/project-code/course_intro.html?course_id=${
-                    item.id
-                  }"
-                  type="button"
-                  class="btn btn-white w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
-                >
-                  查看介紹
-                </a>
-              </div>
-            </li>
-          `;
-            })
-          : (courseHtml += `
-          <div class="d-flex flex-column justify-content-center text-center h-100 px-10">
-            <p class="fs-3 mb-4">沒有符合條件的課程</p>
-            <p class="fs-6">
-              看起來目前沒有符合您需求的課程，請嘗試修改您的搜尋詞彙或篩選條件。
-            </p>
-          </div>`);
-        courseList.innerHTML = courseHtml;
-      };
-
-      /*** api-取得卡片內容 ***/
-      const getData = async ({
-        page,
-        limit,
-        q,
-        rate_gte,
-        rate_lte,
-        price_gte,
-        price_lte,
-        filters,
-      }) => {
-        const apiUrl = `${api}/courses?_expand=teacher&_page=${page}&q=${q}&rate_gte=${rate_gte}&rate_lte=${rate_lte}&price_gte=${price_gte}&price_lte=${price_lte}${filters}`;
-        console.log(apiUrl);
-
-        isLoading = true;
-        renderCourses();
-
-        try {
-          const res = await axios.get(apiUrl);
-          currentPageCourses = res.data;
-          allCoursesNum = res.headers.get("X-Total-Count");
-          totalSearchNum.innerHTML = `共 ${allCoursesNum} 個結果`;
-          /** 課程卡片評論api **/
-          for (const item of currentPageCourses) {
-            const commentRes = await axios.get(
-              `${api}/comments/${item.commentId}?_expand=user`
-            );
-            item.comment = commentRes.data;
-          }
-          // 上面用 forEach 時，currentPageCourses[0]的comment有user，但currentPageCourses[0].comment卻沒有user
-          // 可能因為 forEach 是同步的，不會等待就繼續下一個迴圈，導致出錯? for...of 在處理迴圈時每個迴圈都會等待完成再進入下一個
-          console.log("getData currentPageCourses", currentPageCourses);
-
-          isLoading = false;
-          renderCourses();
-          getAllData(data);
-        } catch (error) {
-          console.log("courseError", error);
-        }
-      };
-
-      getData(data);
-
-      /*** api-取得卡片數量 ***/
-      // 取得全部課程以計算篩選項目數量
-      const getAllData = async ({
-        q,
-        rate_gte,
-        rate_lte,
-        price_gte,
-        price_lte,
-        filters,
-      }) => {
-        const apiUrl = `${api}/courses?&q=${q}&rate_gte=${rate_gte}&rate_lte=${rate_lte}&price_gte=${price_gte}&price_lte=${price_lte}${filters}`;
-        try {
-          const res = await axios.get(apiUrl);
-          handleFilterNum(res.data);
-        } catch (error) {
-          console.log("getAllData", error);
-        }
-      };
-
-      /***** 篩選 *****/
-      const selectedFiltersNumHtml = document.querySelectorAll(
-        ".js-selectedFiltersNum"
-      );
-      let selectedFiltersNum = 0;
-      const filterRatings = document.querySelectorAll(
-        'input[name="filterStar"]'
-      );
-      const minPrice = document.querySelector("input[name='minPrice']");
-      const maxPrice = document.querySelector("input[name='maxPrice']");
-      let categories = document.querySelector("#accordionFilter");
-      const filterBtn = document.querySelector(".js-filterBtn");
-      const delFilterBtn = document.querySelector(".js-delFilterBtn");
-      let prevSelectedRating = "allStar";
-
-      /*** 計算使用幾個篩選項目 ***/
-      const countSelectedFilters = () => {
-        /* 計算評等 */
-        if (!filterRatings[0].checked) {
-          selectedFiltersNum++;
-        }
-
-        /* 計算價格 */
-        if (minPrice.value || maxPrice.value) {
-          selectedFiltersNum++;
-        }
-
-        /* 計算課程分類 */
-        const checkboxes = document.querySelectorAll(".js-category");
-        checkboxes.forEach((checkbox) => {
-          if (checkbox.checked) {
-            selectedFiltersNum++;
-          }
-        });
-
-        /* 渲染篩選項目數量 */
-        selectedFiltersNumHtml.forEach(
-          (item) => (item.innerHTML = selectedFiltersNum)
-        );
-        selectedFiltersNum = 0;
-      };
-      const zeroSelectedFilters = () => {
-        selectedFiltersNum = 0;
-        selectedFiltersNumHtml.forEach(
-          (item) => (item.innerHTML = selectedFiltersNum)
-        );
-      };
-
-      /*** 篩選項目筆數 ***/
-      const handleFilterNum = (allCourses) => {
-        const filterRatingNum = document.querySelectorAll(
-          ".js-filterRatingNum"
-        );
-        const categoriesNum = document.querySelectorAll("[data-category]");
-        const ratingLength = filterRatingNum.length;
-        const categoryLength = categoriesNum.length;
-        const ratingNumData = {
-          5: 0,
-          4: 0,
-          3: 0,
-          2: 0,
-          1: 0,
-        };
-
-        const categoryNumData = {};
-        for (let i = 0; i < categoriesNum.length; i++) {
-          let dataCategory = categoriesNum[i].dataset.category;
-          categoryNumData[dataCategory] = 0;
-          if (categoryNumData[dataCategory] === NaN) {
-            console.log("篩選項目有打錯，出現NaN");
-          }
-        }
-        console.log(categoryNumData);
-        allCourses.forEach((course) => {
-          /* 計算各評等筆數 */
-          const rate = Math.floor(parseFloat(course.rate));
-          if (rate >= 1) {
-            for (let i = 1; i <= rate; i++) {
-              ratingNumData[i]++;
-            }
-          }
-
-          /* 計算各分類筆數 */
-          course.categories.forEach((category) => {
-            categoryNumData[category]++;
-          });
-
-          categoryNumData[course.level]++;
-        });
-        console.log(categoryNumData);
-
-        /* 將各評等筆數寫入HTML */
-        for (let i = 0; i < ratingLength; i++) {
-          filterRatingNum[i].innerHTML = `(${
-            ratingNumData[ratingLength - i]
-          } 筆)`;
-        }
-
-        /* 將各分類筆數寫入HTML */
-        for (let i = 0; i < categoryLength; i++) {
-          let dataCategory = categoriesNum[i].dataset.category;
-          categoriesNum[i].innerHTML = `(${categoryNumData[dataCategory]})`;
-        }
-      };
-
-      /*** 課程評等篩選功能 ***/
-      filterRatings.forEach((rate) => {
-        rate.addEventListener("change", (e) => {
-          handleRatingFilter(e.target.id);
-        });
-      });
-      const handleRatingFilter = (rate) => {
-        data.rate_gte = {
-          allStar: 0,
-          filterStar5: 5,
-          filterStar4: 4,
-          filterStar3: 3,
-          filterStar2: 2,
-          filterStar1: 1,
-        }[rate];
-      };
-
-      /***課程分類篩選功能***/
-
-      /* 課程分類 checkbox 點擊監聽 */
-      // categories為全部課程主題篩選的父元素，當作事件代理。當有change事件時，事件會冒泡到父元素。這避免每個全選checkbox都要綁監聽事件，耗性能且較難維護
-      categories.addEventListener("change", (e) => {
-        const target = e.target;
-
-        /* 當target是課程主題大項checkbox */
-        if (target.classList.contains("js-selectAll")) {
-          const isCheck = target.checked;
-          const relatedCheckboxes = document.querySelectorAll(
-            `input[id^="${target.name}"]:not([id="${target.name}"])`
-          );
-          if (relatedCheckboxes.length) {
-            relatedCheckboxes.forEach((checkbox) => {
-              checkbox.checked = isCheck;
-              handleCategoryFilters(checkbox);
-            });
-          } else {
-            console.log(`${target.name}內沒有checkbox`);
-          }
-          // 當target是課程分類小項checkbox
-        } else if ((target.type = "checkbox")) {
-          handleCategoryFilters(target);
-        }
-      });
-
-      const isEnglish = (value) => {
-        return /[a-zA-Z]/.test(value);
-      };
-
-      /* 課程分類篩選功能 */
-      const handleCategoryFilters = ({ checked, value }) => {
-        let apiFilter;
-        let apiLevel = `&level_like=${value}`;
-        isEnglish(value)
-          ? (apiFilter = `&categories_like=\\b${value}\\b`) //BUG：目前C會找到C#
-          : (apiFilter = `&categories_like=${value}`); //value是中文時，加正則表達式會找不到
-
-        if (checked) {
-          //避免按全選時重複選取
-          if (!data.filters.includes(value)) {
-            if (value === "入門" || value === "進階") {
-              data.filters += apiLevel;
-            } else {
-              data.filters += apiFilter;
-            }
-          }
-        } else {
-          data.filters = data.filters
-            .split(/(?=&)/)
-            .filter((item) => item !== apiFilter && item !== apiLevel)
-            .join("");
-        }
-      };
-
-      /*** 確定篩選 ***/
-      filterBtn.addEventListener("click", () => {
-        if (minPrice.value) {
-          data.price_gte = minPrice.value;
-        }
-        if (maxPrice.value) {
-          data.price_lte = maxPrice.value;
-        }
-        getData(data);
-        countSelectedFilters();
-      });
-
-      /*** 清除篩選 ***/
-      delFilterBtn.addEventListener("click", () => {
-        minPrice.value = "";
-        maxPrice.value = "";
-        filterRatings[0].checked = true;
-        const checkboxes = document.querySelectorAll(
-          ".js-selectAll, .js-category"
-        );
-        checkboxes.forEach((checkbox) => (checkbox.checked = false));
-        data = {
-          ...data,
-          rate_gte: 0,
-          rate_lte: 5,
-          price_gte: minPriceDefault,
-          price_lte: maxPriceDefault,
-          filters: "",
-        };
-        zeroSelectedFilters();
-        getData(data);
-      });
-
-      /***** 關鍵字搜尋 *****/
-      /*** 首頁搜尋跳轉 ***/
-      const indexSearchInput = localStorage.getItem("indexSearchInput");
-      if (indexSearchInput) {
-        data.q = indexSearchInput;
-        getData(data);
-        localStorage.setItem("indexSearchInput", "");
-      }
-
-      /*** 取得 banner 搜尋框的值 ***/
-      const courseSearchInput = document.querySelector(".course-search-input");
-
-      let courseSearchInputValue;
-
-      courseSearchInput.addEventListener("input", function () {
-        courseSearchInputValue = courseSearchInput.value;
-      });
-
-      const courseSearchButton = document.querySelector(
-        ".course-search-button"
-      );
-
-      courseSearchButton.addEventListener("click", function (data) {
-        courseSearchInput.value = "";
-        data.q = courseSearchInputValue;
-        getData(data);
-        data.q = "";
-      });
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   </body>
 </html>

@@ -1,4 +1,5 @@
 import axios from "axios";
+import { _url } from "./config.js";
 
 let bannerSwiper = new Swiper(".bannerSwiper", {
   slidesPerView: 1,
@@ -17,52 +18,56 @@ let bannerSwiper = new Swiper(".bannerSwiper", {
 let bannerInputValue;
 
 // 取得 所有搜尋按鈕
-const bannerSearchBtns = document.querySelectorAll(".banner-btn-search")
+const bannerSearchBtns = document.querySelectorAll(".banner-btn-search");
 
 // 取得 所有搜尋框的值
-const bannerInputs = document.querySelectorAll(".banner-input")
-
+const bannerInputs = document.querySelectorAll(".banner-input");
 
 // 取得 搜尋內容
 bannerInputs.forEach((bannerInput) => {
-  bannerInput.addEventListener("input", ()=> {
+  bannerInput.addEventListener("input", () => {
     bannerInputValue = bannerInput.value;
 
     // 監聽搜尋按鈕
-    bannerSearchBtns.forEach((bannerSearchBtn)=>{
+    bannerSearchBtns.forEach((bannerSearchBtn) => {
       bannerSearchBtn.addEventListener("click", () => {
         //- 點擊按鈕後將 搜尋內容 放入 localStorage
-        localStorage.setItem("indexSearchInput", bannerInputValue) 
+        localStorage.setItem("indexSearchInput", bannerInputValue);
 
         // 清空首頁搜尋框
         bannerInput.value = "";
 
         //- 跳轉 course.html
         location.href = "./course.html";
-      })
-    })
-  })
-  }
-)
+      });
 
-
+      document.addEventListener("keyup", function (e) {
+        if (e.key === "Enter") {
+          bannerSearchBtn.click();
+        }
+      });
+    });
+  });
+});
 
 // 熱門教師 API
-axios.get(`${_url}/courses?_expand=teacher`).then(res=>{
-  let popularNum = 0;
+axios.get(`${_url}/courses?_expand=teacher`).then((res) => {
   let courses = res.data;
-  
+
   // 篩選出是熱門課程
-  let popularCourses = courses.filter(course=> course.badges.includes("熱門"));
-  
+  let popularCourses = courses.filter((course) =>
+    course.badges.includes("熱門")
+  );
+  console.log(popularCourses);
+
   // 取出前 6 項
   let popularCourses6th = popularCourses.slice(0, 7);
-  
+
   // 渲染至畫面
   let coursesCard = "";
   const swiperWrapper = document.querySelector(".recommend-swiper");
 
-  popularCourses6th.forEach(popularCourse => {
+  popularCourses6th.forEach((popularCourse) => {
     coursesCard += `<div class="swiper-slide">
     <div class="teacher-card">
       <div class="teacher-card-profile">
@@ -100,12 +105,11 @@ axios.get(`${_url}/courses?_expand=teacher`).then(res=>{
         >查看介紹</a
       >
     </div>
-  </div>`
-  }) 
-    
+  </div>`;
+  });
+
   swiperWrapper.innerHTML = coursesCard;
 });
-
 
 let recommendSwiper = new Swiper(".recommendSwiper", {
   slidesPerView: 1,
@@ -137,4 +141,93 @@ let recommendSwiper = new Swiper(".recommendSwiper", {
       },
     },
   },
+});
+
+// 課程分類
+
+sessionStorage.removeItem("cateItemName");
+
+const cateItems = document.querySelectorAll(".cate-item");
+cateItems.forEach((cateItem) => {
+  cateItem.addEventListener("click", function () {
+    let cateItemName = cateItem.getAttribute("name");
+
+    sessionStorage.setItem("cateItemName", cateItemName);
+
+    location.href = "./course.html";
+  });
+});
+
+// 學生好評
+var reviewsSwiper = new Swiper(".reviewsSwiper", {
+  slidesPerView: 1,
+  spaceBetween: 16,
+  pagination: {
+    el: ".reviewsSwiper-pagination-custom",
+    clickable: true,
+    dynamicBullets: true,
+    dynamicMainBullets: 5,
+  },
+  breakpoints: {
+    992: {
+      slidesPerView: 2,
+      spaceBetween: 24,
+      navigation: {
+        nextEl: ".reviewsSwiper-button-next-custom",
+        prevEl: ".reviewsSwiper-button-prev-custom",
+      },
+      pagination: {
+        dynamicMainBullets: 3,
+      },
+    },
+  },
+});
+
+axios.get(`${_url}/comments?_expand=user`).then((res) => {
+  console.log("Comments", res.data);
+
+  const reviewsSwiper = document.querySelector(".reviews-swiper");
+
+  let commentsCard = "";
+  res.data.forEach((comment) => {
+    commentsCard += `<div class="swiper-slide">
+    <div
+      class="teacher-card d-flex flex-column justify-content-between gap-10 h-100"
+    >
+      <div class="d-flex justify-content-between flex-column gap-4">
+        <img
+          class="w-40px h-40px"
+          src="../assets/images/comma.png"
+          alt="逗號"
+        />
+        <p>
+          ${comment.content}
+        </p>
+      </div>
+      <div class="d-flex">
+        <div class="d-flex flex-column gap-1 me-3 ms-auto">
+          <ul class="d-flex gap-1 text-primary mb-0">
+            <li><i class="fa-solid fa-star"></i></li>
+            <li><i class="fa-solid fa-star"></i></li>
+            <li><i class="fa-solid fa-star"></i></li>
+            <li><i class="fa-solid fa-star"></i></li>
+            <li><i class="fa-solid fa-star"></i></li>
+          </ul>
+          <p class="fs-6">
+            Cookie<span class="ms-1 fs-tiny text-gray-300"
+              >${comment.user.role}</span
+            >
+          </p>
+        </div>
+        <img
+          class="object-fit-cover rounded-circle w-60px h-60px"
+          src="${comment.user.avatar}"
+          alt="${comment.user.name}"
+        />
+      </div>
+    </div>
+  </div>`;
+  });
+
+  reviewsSwiper.innerHTML = commentsCard;
 });

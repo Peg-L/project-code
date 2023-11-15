@@ -1,12 +1,12 @@
-.page-item.active{
-    pointer-events: none;
-    z-index: 0;
+.page-item.active {
+  pointer-events: none;
+  z-index: 0;
 }
-.page-item:first-child .page-link{
-    border-top-left-radius: 0.5rem;
-    border-bottom-left-radius: 0.5rem;
+.page-item:first-child .page-link {
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
 }
-.page-item:last-child .page-link{
-    border-top-right-radius: 0.5rem;
-    border-bottom-right-radius: 0.5rem;
+.page-item:last-child .page-link {
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
 }

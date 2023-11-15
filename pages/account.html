@@ -133,7 +133,7 @@
       <div class="tab-content" id="nav-tabContent">
         <!-- 我的課表 (Schedule) -->
         <div
-          class="tab-pane fade show active"
+          class="tab-pane fade active show"
           id="nav-schedule"
           role="tabpanel"
           aria-labelledby="nav-schedule-tab"
@@ -194,14 +194,17 @@
                 </div> -->
                 <div class="mb-lg-12 mb-10 w-100">
                   <!-- data -->
-                  <div class="d-flex align-items-center justify-content-around mb-4">
+                  <div
+                    class="d-flex align-items-center justify-content-around mb-4"
+                  >
                     <button
                       type="button"
                       class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 btn-week"
                       id="PreviousWeek"
                     >
-                    <span class="material-symbols-outlined"> chevron_left </span>
-                      
+                      <span class="material-symbols-outlined">
+                        chevron_left
+                      </span>
                     </button>
                     <p class="" id="dateRange"></p>
                     <button
@@ -209,15 +212,16 @@
                       class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 btn-week"
                       id="NextWeek"
                     >
-                    <span class="material-symbols-outlined"> navigate_next </span>
+                      <span class="material-symbols-outlined">
+                        navigate_next
+                      </span>
                     </button>
                   </div>
                   <!-- calendar -->
                   <ul
                     class="calendar d-flex gap-1 justify-content-between flex-lg-nowrap flex-wrap"
                     id="calendar"
-                  >
-                  </ul>
+                  ></ul>
                 </div>
               </div>
             </div>
@@ -267,9 +271,7 @@
                       class="d-flex flex-column justify-content-between align-items-center"
                     >
                       <p>上課時間</p>
-                      <p class="fw-bold" id="dateTime">
-                        74
-                      </p>
+                      <p class="fw-bold" id="dateTime"></p>
                     </div>
                     <button
                       type="button"
@@ -1864,305 +1866,16 @@
           aria-labelledby="nav-my-following-tab"
         >
           <!-- card -->
-          <ul class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-6">
-            <!-- card1 -->
-            <li class="col">
-              <div class="teacher-card position-relative">
-                <button
-                  type="button"
-                  class="btn p-3 text-center align-self-start position-absolute top-0 end-0"
-                >
-                  <i class="fa-regular fa-heart fs-4 text-primary fw-bold"></i>
-                </button>
-                <div class="teacher-card-profile">
-                  <div class="teacher-card-content">
-                    <h3 class="teacher-card-title">從零開始成為切版大師</h3>
-                    <p class="teacher-card-name">麥克先生</p>
-                    <ul class="teacher-card-object">
-                      <!-- 評價 -->
-                      <li class="teacher-card-evaluate">4.8</li>
-                      <!-- 時數 -->
-                      <li class="teacher-card-hours">50分鐘</li>
-                    </ul>
-                    <p class="teacher-card-price">NT$<span>1,100</span></p>
-                  </div>
-                  <div class="teacher-card-img">
-                    <img
-                      src="../assets/images/Rectangle 7.png"
-                      alt="老師"
-                      class="w-100px w-sm-120px"
-                    />
-                  </div>
-                </div>
-                <p class="teacher-card-text">
-                  帶領零基礎的平民老百姓，從最基礎的 HTML
-                  語法出發，使用最淺顯易懂的語言與生活隨處可見的例子，輕鬆進入網頁架設的世界，手把手教你做出完整的網頁作品。
-                </p>
-                <a
-                  href="./cart.html"
-                  type="button"
-                  class="btn btn-secondary2 w-100 mb-3"
-                >
-                  立即上課
-                </a>
-                <a
-                  href="./course_intro.html"
-                  type="button"
-                  class="btn teacher-card-btn"
-                  >查看介紹</a
-                >
-              </div>
-            </li>
-            <!-- card2 -->
-            <li class="col">
-              <div class="teacher-card position-relative h-100">
-                <button
-                  type="button"
-                  class="btn p-3 text-center align-self-start position-absolute top-0 end-0"
-                >
-                  <i class="fa-regular fa-heart fs-4 text-primary fw-bold"></i>
-                </button>
-                <div class="teacher-card-profile">
-                  <div class="teacher-card-content">
-                    <h3 class="teacher-card-title">一起打造你的前端職涯</h3>
-                    <p class="teacher-card-name">榮哥</p>
-                    <ul class="teacher-card-object">
-                      <!-- 評價 -->
-                      <li class="teacher-card-evaluate">4.8</li>
-                      <!-- 時數 -->
-                      <li class="teacher-card-hours">50分鐘</li>
-                    </ul>
-                    <p class="teacher-card-price">NT$<span>1,000</span></p>
-                  </div>
-                  <div class="teacher-card-img">
-                    <img
-                      src="../assets/images/Rectangle 8.png"
-                      alt="老師"
-                      class="w-100px w-sm-120px"
-                    />
-                  </div>
-                </div>
-                <p class="teacher-card-text">
-                  協助你定位自己的前端職涯，並提供實用的指導和建議，以確保你能夠在競爭激烈的市場中脫穎而出。
-                </p>
-                <a
-                  href="./cart.html"
-                  type="button"
-                  class="btn btn-secondary2 w-100 mb-3"
-                >
-                  立即上課
-                </a>
-                <a
-                  href="./course_intro.html"
-                  type="button"
-                  class="btn teacher-card-btn"
-                  >查看介紹</a
-                >
-              </div>
-            </li>
-            <!-- card3 -->
-            <li class="col">
-              <div class="teacher-card position-relative h-100">
-                <button
-                  type="button"
-                  class="btn p-3 text-center align-self-start position-absolute top-0 end-0"
-                >
-                  <i class="fa-regular fa-heart fs-4 text-primary fw-bold"></i>
-                </button>
-                <div class="teacher-card-profile">
-                  <div class="teacher-card-content">
-                    <h3 class="teacher-card-title">Python 全攻略</h3>
-                    <p class="teacher-card-name">艾莉絲</p>
-                    <ul class="teacher-card-object">
-                      <!-- 評價 -->
-                      <li class="teacher-card-evaluate">5.0</li>
-                      <!-- 時數 -->
-                      <li class="teacher-card-hours">50分鐘</li>
-                    </ul>
-                    <p class="teacher-card-price">NT$<span>1,000</span></p>
-                  </div>
-                  <div class="teacher-card-img">
-                    <img
-                      src="../assets/images/Rectangle 9.png"
-                      alt="老師"
-                      class="w-100px w-sm-120px"
-                    />
-                  </div>
-                </div>
-                <p class="teacher-card-text">
-                  嗨，我是艾莉絲，有 8 年的 Python 開發經歷和 3
-                  年的教學經驗。我的專業有軟體開發、數據分析、人工智慧等各個
-                  Python
-                  相關領域，能和你分享非常專業且豐富的知識和實際案例，協助您建立紮實的
-                  Python
-                  基礎，無論你是初學者還是資深工程師，我都可以協助你找到適合自己的學習路徑。我將帶領學生深入探索
-                  Python 的各個層面，從基礎知識到高級應用，讓你具備全面的 Python
-                  技能，以應對不同領域的挑戰。
-                </p>
-                <a
-                  href="./cart.html"
-                  type="button"
-                  class="btn btn-secondary2 w-100 mb-3"
-                >
-                  立即上課
-                </a>
-                <a
-                  href="./course_intro.html"
-                  type="button"
-                  class="btn teacher-card-btn"
-                  >查看介紹</a
-                >
-              </div>
-            </li>
-            <!-- card4 -->
-            <li class="col">
-              <div class="teacher-card position-relative h-100">
-                <button
-                  type="button"
-                  class="btn p-3 text-center align-self-start position-absolute top-0 end-0"
-                >
-                  <i class="fa-regular fa-heart fs-4 text-primary fw-bold"></i>
-                </button>
-                <div class="teacher-card-profile">
-                  <div class="teacher-card-content">
-                    <h3 class="teacher-card-title">JavaScript 大師</h3>
-                    <p class="teacher-card-name">麥克先生</p>
-                    <ul class="teacher-card-object">
-                      <!-- 評價 -->
-                      <li class="teacher-card-evaluate">4.8</li>
-                      <!-- 時數 -->
-                      <li class="teacher-card-hours">50分鐘</li>
-                    </ul>
-                    <p class="teacher-card-price">NT$<span>1,200</span></p>
-                  </div>
-                  <div class="teacher-card-img">
-                    <img
-                      src="../assets/images/teacher/mike.png"
-                      alt="老師"
-                      class="w-100px w-sm-120px"
-                    />
-                  </div>
-                </div>
-                <p class="teacher-card-text">
-                  實戰應用為主，理論為輔，深入淺出好吸收，馬上學，馬上用！Facebook
-                  聊天機器人、Chrome
-                  Extensions、開放資料、即時聊天室、對戰遊戲，多個願望一次滿足！
-                </p>
-                <a
-                  href="./cart.html"
-                  type="button"
-                  class="btn btn-secondary2 w-100 mb-3"
-                >
-                  立即上課
-                </a>
-                <a
-                  href="./course_intro.html"
-                  type="button"
-                  class="btn teacher-card-btn"
-                  >查看介紹</a
-                >
-              </div>
-            </li>
-            <!-- card5 -->
-            <li class="col">
-              <div class="teacher-card position-relative h-100">
-                <button
-                  type="button"
-                  class="btn p-3 text-center align-self-start position-absolute top-0 end-0"
-                >
-                  <i class="fa-regular fa-heart fs-4 text-primary fw-bold"></i>
-                </button>
-                <div class="teacher-card-profile">
-                  <div class="teacher-card-content">
-                    <h3 class="teacher-card-title">資料庫設計與管理</h3>
-                    <p class="teacher-card-name">Ken</p>
-                    <ul class="teacher-card-object">
-                      <!-- 評價 -->
-                      <li class="teacher-card-evaluate">5.0</li>
-                      <!-- 時數 -->
-                      <li class="teacher-card-hours">50分鐘</li>
-                    </ul>
-                    <p class="teacher-card-price">NT$<span>1,300</span></p>
-                  </div>
-                  <div class="teacher-card-img">
-                    <img
-                      src="../assets/images/teacher/ken.png"
-                      alt="老師"
-                      class="w-100px w-sm-120px"
-                    />
-                  </div>
-                </div>
-                <p class="teacher-card-text">
-                  我是 Ken
-                  老師，在外商和台積電任職工程師多年，有豐富的資料庫設計經驗，熟悉正規化、索引策略、查詢優化、資料庫管理系統（DBMS）的選擇，以及資料安全等專業知識。無論你是初學者還是希望深化資料庫設計技能。我的目標是讓你在資料庫設計領域感到自信，並能夠在軟體系統開發時，成功應用所學的知識。
-                </p>
-                <a
-                  href="./cart.html"
-                  type="button"
-                  class="btn btn-secondary2 w-100 mb-3"
-                >
-                  立即上課
-                </a>
-                <a
-                  href="./course_intro.html"
-                  type="button"
-                  class="btn teacher-card-btn"
-                  >查看介紹</a
-                >
-              </div>
-            </li>
-            <!-- card6 -->
-            <li class="col">
-              <div class="teacher-card position-relative h-100">
-                <button
-                  type="button"
-                  class="btn p-3 text-center align-self-start position-absolute top-0 end-0"
-                >
-                  <i class="fa-regular fa-heart fs-4 text-primary fw-bold"></i>
-                </button>
-                <div class="teacher-card-profile">
-                  <div class="teacher-card-content">
-                    <h3 class="teacher-card-title">Java 從 0 到 Expert</h3>
-                    <p class="teacher-card-name">賽門</p>
-                    <ul class="teacher-card-object">
-                      <!-- 評價 -->
-                      <li class="teacher-card-evaluate">5.0</li>
-                      <!-- 時數 -->
-                      <li class="teacher-card-hours">50分鐘</li>
-                    </ul>
-                    <p class="teacher-card-price">NT$<span>1,400</span></p>
-                  </div>
-                  <div class="teacher-card-img">
-                    <img
-                      src="../assets/images/teacher/simon.png"
-                      alt="老師"
-                      class="w-100px w-sm-120px"
-                    />
-                  </div>
-                </div>
-                <p class="teacher-card-text">
-                  我的專業包括分析、設計和程式撰寫，並規劃執行軟體架構以及模組的設計。在軟體開發過程中，我非常注重測試、軟體的品質和穩定性，幫你揪出程式碼中的壞味道。有豐富的「Java
-                  實戰和教學經驗」，參與多項企業級系統專案開發，不管你是學生、菜鳥或是在職工程師，都可以帶走不少寶貴的建議。
-                </p>
-                <a
-                  href="./cart.html"
-                  type="button"
-                  class="btn btn-secondary2 w-100 mb-3"
-                >
-                  立即上課
-                </a>
-                <a
-                  href="./course_intro.html"
-                  type="button"
-                  class="btn teacher-card-btn"
-                  >查看介紹</a
-                >
-              </div>
-            </li>
-          </ul>
+          <div
+            class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-6"
+            id="followList"
+          ></div>
+
           <!-- 頁碼 -->
           <nav class="my-6 my-md-8" aria-label="Page navigation example">
-            <ul class="pagination pagination-lg justify-content-center">
+            <ul
+              class="pagination pagination-lg justify-content-center followPagination"
+            >
               <li class="page-item disabled">
                 <a class="page-link" href="#" aria-label="Previous">
                   <i class="fa-solid fa-angle-left"></i>
@@ -2187,7 +1900,6 @@
 
     <!-- 21backtotop -->
     <%- include("./layout/backtotop.ejs") -%>
-
     <script type="module" src="../main.js"></script>+
     <!-- jquery-ui -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -2195,12 +1907,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/i18n/jquery-ui-i18n.min.js"></script>
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <!--  -->
-  
+
     <script src="../assets/js/openTime.js"></script>
     <script src="../assets/js/account_date.js"></script>
     <!-- calender -->
     <script src="../assets/js/calendar.js"></script>
-    
     <!-- account -->
     <script src="../assets/js/appointment.js"></script>
 
@@ -2253,6 +1964,241 @@
           changeMonth: true,
           changeYear: true,
         });
+      });
+    </script>
+
+    <!-- my follow 我的關注 -->
+    <script>
+      const apiUrl = "http://localhost:3000";
+      userId = 2;
+      let pageId = 1;
+
+      document.addEventListener("DOMContentLoaded", async function () {
+        // 取得追蹤列表 + 課程資料
+        async function fetchData(pageId) {
+          try {
+            // 取得追蹤列表
+            let usersResponse = await axios.get(`${apiUrl}/users`);
+            let followArray = usersResponse.data[userId - 1].followList;
+            console.log("追蹤列表", followArray);
+
+            // 取得課程資料
+            let apiString = `${apiUrl}/courses?_expand=teacher&_page=${pageId}&_limit=6`;
+            followArray.forEach((item) => {
+              console.log(item);
+              apiString += `&id=${item}`;
+            });
+            console.log(apiString);
+
+            let coursesResponse = await axios.get(`${apiString}`);
+            let courseData = coursesResponse.data;
+            console.log("追蹤的課程資料", courseData);
+
+            const followList = document.querySelector("#followList");
+            courseCards = "";
+
+            courseData.forEach((courseItem) => {
+              courseCards += `<div class="col"><div class="card teacher-card swiper-slide h-100">
+    <div class="card-body d-flex justify-content-between">
+      <div>
+        <h5 class="card-title teacher-card-title truncate-lines-2">${courseItem.name}
+        </h5>
+        <p class="teacher-card-name">${courseItem.teacher.name}</p>
+        <ul class="teacher-card-object">
+          <li class="teacher-card-evaluate">${courseItem.rate}</li>
+          <li class="teacher-card-hours">50分鐘</li>
+        </ul>
+        <p class="teacher-card-price">NT$<span>${courseItem.price}</span></p>
+      </div>
+      <div class="teacher-card-img">
+        <img
+          src="${courseItem.teacher.avatar}"
+          alt="老師"
+          class="w-100px w-sm-120px"
+        />
+      </div>
+    </div>
+    <div>
+      <p class="teacher-card-text">
+      ${courseItem.info}
+      </p>
+      <a
+        href="./cart.html"
+        type="button"
+        class="btn btn-secondary2 w-100 mb-3"
+      >
+        立即上課
+      </a>
+      <a
+        href="./course_intro.html"
+        type="button"
+        class="btn teacher-card-btn"
+        >查看介紹</a
+      >
+    </div>
+  </div></div>`;
+            });
+
+            followList.innerHTML = courseCards;
+            setButtonListeners(pageId);
+            // 總頁數
+            let followTotalPages = Math.ceil(followArray.length / 6);
+            console.log("followTotalPages", followTotalPages);
+
+            return {
+              followTotalPages,
+              followArray,
+              courseData,
+            };
+          } catch (error) {
+            console.log("錯誤", error);
+          }
+        }
+        // fetchData();
+
+        let { followArray, followTotalPages, courseData } = await fetchData(
+          pageId
+        );
+
+        // 渲染分頁按鈕
+        function renderFollowPagination(followArray, pageId, followTotalPages) {
+          console.log("pageId 3", pageId);
+
+          // render 分頁按鈕
+          // 取得 ul
+          const followPaginationWrapper =
+            document.querySelector(".followPagination");
+
+          let followPagination = "";
+
+          // 上一頁按鈕
+          const prevPage = `<li class="page-item prevButton ${
+            pageId == 1 ? "disabled" : ""
+          }"><a class="page-link" href="#" aria-label="Previous"><i class="fa-solid fa-angle-left"></i></a></li>`;
+          followPagination += prevPage;
+
+          // 頁數按鈕
+          for (let i = 1; i <= followTotalPages; i++) {
+            let pageItem = `<li class="page-item ${
+              i === pageId ? "active" : ""
+            } pageButton">
+                        <a class="page-link" href="#">
+                          ${i}
+                        </a>
+                      </li>`;
+            followPagination += pageItem;
+          }
+
+          // 下一頁按鈕
+          const nextPage = `<li class="page-item nextButton ${
+            pageId == followTotalPages ? "disabled" : ""
+          }">
+                    <a class="page-link" href="#" aria-label="Next">
+                      <i class="fa-solid fa-angle-right"></i>
+                    </a>
+                  </li>`;
+          followPagination += nextPage;
+
+          console.log(followPagination);
+
+          followPaginationWrapper.innerHTML = followPagination;
+          switchPage(followTotalPages, pageId, courseData);
+        }
+        renderFollowPagination(followArray, pageId, followTotalPages);
+
+        // 切換頁數
+        function switchPage(followTotalPages, pageId, courseData) {
+          const prevButton = document.querySelector(".prevButton");
+          const nextButton = document.querySelector(".nextButton");
+          let pageButtons = document.querySelectorAll(".pageButton");
+
+          prevButton.addEventListener("click", function () {
+            if (pageId > 1) {
+              pageId--;
+
+              renderFollowPagination(followArray, pageId, followTotalPages);
+
+              fetchData(pageId);
+            }
+          });
+
+          nextButton.addEventListener("click", function () {
+            if (followTotalPages > pageId) {
+              pageId++;
+              console.log("pageId 頁數切換", pageId);
+
+              renderFollowPagination(followArray, pageId, followTotalPages);
+
+              fetchData(pageId);
+            }
+          });
+
+          pageButtons.forEach((pageButton) => {
+            pageButton.addEventListener("click", () => {
+              pageId = Number(pageButton.innerText);
+
+              fetchData(pageId);
+              renderFollowPagination(followArray, pageId, followTotalPages);
+            });
+          });
+        }
+        switchPage(followTotalPages, pageId, courseData);
+
+        // 監聽 follow 愛心按鈕
+        function setButtonListeners(pageId) {
+          followButtons = document.querySelectorAll(".follow-btn");
+          followButtons.forEach((followBtn) => {
+            followBtn.addEventListener("click", (e) => {
+              cancelFollow(e, pageId);
+            });
+          });
+        }
+
+        // 取消追蹤
+        async function cancelFollow(e, pageId) {
+          let buttonId = e.target.dataset.buttonid;
+          console.log("buttonId", buttonId);
+
+          let editfollowList = followArray.filter((item) => item != buttonId);
+          // console.log("pageId 44", pageId);
+
+          Swal.fire({
+            title: "確定要取消追蹤?",
+            showDenyButton: true,
+            confirmButtonColor: "#115BC9",
+            confirmButtonText: "取消追蹤",
+            denyButtonText: `我再想想`,
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire("已取消追蹤", "", "success");
+
+              axios
+                .patch(`${apiUrl}/users/${userId}`, {
+                  followList: editfollowList,
+                })
+                .then(async (res) => {
+                  console.log(res);
+                  // 重新取得數據
+                  const newData = await fetchData(pageId);
+
+                  followArray = newData.followArray;
+
+                  if (newData.followTotalPages == 1) {
+                    pageId = 1;
+                    fetchData(pageId);
+                  } else {
+                    fetchData(pageId);
+                  }
+
+                  renderFollowPagination(
+                    followArray,
+                    pageId,
+                    newData.followTotalPages
+                  );
+                });
+            }
+          });
+        }
       });
     </script>
   </body>
