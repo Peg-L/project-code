@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       courseData.forEach((courseItem) => {
         courseCards += `<div class="col"><div class="card teacher-card swiper-slide h-100"><button
         type="button"
-        class="btn p-3 text-center align-self-start position-absolute top-0 end-0 follow-btn"
+        class="btn p-3 text-center align-self-start position-absolute top-0 end-0 following"
       >
         <i class="fa-regular fa-heart fs-4 text-primary fw-bold" data-buttonId="${courseItem.id}"></i>
       </button>
@@ -211,24 +211,22 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   // 監聽 follow 愛心按鈕
   function setButtonListeners(pageId) {
-    let followButtons = document.querySelectorAll(".follow-btn");
+    let followButtons = document.querySelectorAll(".following");
 
     followButtons.forEach((followBtn) => {
       followBtn.addEventListener("click", (e) => {
         console.log("點擊到了");
 
-        cancelFollow(e, pageId);
+        unFollow(e, pageId);
       });
     });
   }
 
   // 取消追蹤
-  async function cancelFollow(e, pageId) {
+  async function unFollow(e, pageId) {
     let buttonId = e.target.dataset.buttonid;
-    console.log("buttonId", buttonId);
 
     let editfollowList = followArray.filter((item) => item != buttonId);
-    // console.log("pageId 44", pageId);
 
     Swal.fire({
       title: "確定要取消追蹤?",
@@ -238,7 +236,13 @@ document.addEventListener("DOMContentLoaded", async function () {
       denyButtonText: `我再想想`,
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire("已取消追蹤", "", "success");
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "已取消追蹤",
+          showConfirmButton: false,
+          timer: 1500,
+        });
 
         axios
           .patch(`${apiUrl}/users/${userId}`, {
