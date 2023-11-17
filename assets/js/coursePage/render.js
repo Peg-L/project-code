@@ -226,21 +226,21 @@ function renderCourses() {
                     <p
                       class="fs-sm fs-sm-7 fs-md-6 text-justify mb-1 mb-md-2"
                     >
-                     ${item.comment.content}
+                     ${item.comment?.content}
                     </p>
                     <div
                       class="d-flex justify-content-end align-items-center"
                     >
                       <img
                         class="me-2 d-none d-md-block w-40px h-40px"
-                        src="${item.comment.user.avatar}"
+                        src="${item.comment?.user?.avatar}"
                         alt="student"
                       />
                       <div class="d-flex flex-md-column fs-sm fs-md-7">
                         <p class="fw-bold me-2 me-md-0">${
-                          item.comment.user.name
+                          item.comment?.user?.name
                         }</p>
-                        <p>${dateReg.exec(item.comment.date)[1]}</p>
+                        <p>${dateReg.exec(item.comment?.date)[1]}</p>
                       </div>
                     </div>
                   </div>
@@ -288,6 +288,7 @@ function renderCourses() {
               <button
                 type="button"
                 class="btn btn-secondary2 w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
+                data-course="${item.id}"
               >
                 立即上課
               </button>
@@ -486,21 +487,21 @@ function renderCourses() {
                     <p
                       class="fs-sm fs-sm-7 fs-md-6 text-justify mb-1 mb-md-2"
                     >
-                     ${item.comment.content}
+                     ${item.comment?.content}
                     </p>
                     <div
                       class="d-flex justify-content-end align-items-center"
                     >
                       <img
                         class="me-2 d-none d-md-block w-40px h-40px"
-                        src="${item.comment.user.avatar}"
+                        src="${item.comment?.user?.avatar}"
                         alt="student"
                       />
                       <div class="d-flex flex-md-column fs-sm fs-md-7">
                         <p class="fw-bold me-2 me-md-0">${
-                          item.comment.user.name
+                          item.comment?.user?.name
                         }</p>
-                        <p>${dateReg.exec(item.comment.date)[1]}</p>
+                        <p>${dateReg.exec(item.comment?.date)[1]}</p>
                       </div>
                     </div>
                   </div>
@@ -548,6 +549,7 @@ function renderCourses() {
               <button
                 type="button"
                 class="btn btn-secondary2 w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
+                data-course="${item.id}"
               >
                 立即上課
               </button>
