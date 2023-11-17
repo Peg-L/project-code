@@ -1,6 +1,7 @@
 // 記得改 userId
 const couponPageArrow = document.querySelectorAll(".js-couponPageArrow");
 
+const apiUrl = "http://localhost:3000";
 let myCoupons = [];
 let couponCurrentPage = 1;
 let couponLastPage;

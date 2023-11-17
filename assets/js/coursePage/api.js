@@ -5,7 +5,7 @@ let totalSearchNum = document.querySelector(".js-totalSearchNum");
 let currentPageCourses = [];
 let allCoursesNum;
 let lastPage;
-const api = "https://project-code-json-k0ti.onrender.com";
+const api = "http://localhost:3000";
 const minPriceDefault = 0;
 const maxPriceDefault = 9999;
 let data = {
