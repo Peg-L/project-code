@@ -17,6 +17,8 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
     />
+
+    <!-- 聊天室編輯器 -->
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
   </head>
   <body>
@@ -36,12 +38,15 @@
             class="col-12 col-sm-10 col-md-8 col-lg-5 needs-validation"
             novalidate
           >
-            <button
-              type="button"
-              class="btn btn-outline-secondary2 rounded-1 fs-5 w-100 py-3 mb-2 mb-md-4"
-            >
-              <i class="fa-brands fa-google me-3"></i>使用 Google 註冊
-            </button>
+            <div id="firebaseui-auth-container">
+              <button
+                type="button"
+                class="btn btn-outline-secondary2 rounded-1 fs-5 w-100 py-3 mb-2 mb-md-4"
+                id="google-register"
+              >
+                <i class="fa-brands fa-google me-3"></i>使用 Google 帳戶註冊
+              </button>
+            </div>
             <div class="form-floating mb-2 mb-md-4">
               <input
                 type="email"
@@ -194,10 +199,10 @@
     <!-- backtotop -->
     <%- include("./layout/backtotop.ejs") -%>
 
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
-    <script src="../assets/js/config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="../assets/js/register.js"></script>
     <script type="module" src="../main.js"></script>
   </body>
 </html>

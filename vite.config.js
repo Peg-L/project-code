@@ -34,6 +34,7 @@ export default defineConfig({
   server: {
     // 啟動 server 時預設開啟的頁面
     open: "pages/index.html",
+    headers: { "Cross-Origin-Opener-Policy": "same-origin-allow-popups" },
   },
   build: {
     rollupOptions: {
