@@ -65,9 +65,11 @@ function viewTimeCourse(){
 function postAttendCourse(clickCourse,clickDay,userId,clickTime){
     const _url = 'http://localhost:3000';
     const data = {
-        courseId : clickCourse,
+        uid:generateRandomCode(4),
+        courseId : Number(clickCourse),
         date : clickDay,
-        time : clickTime
+        time : clickTime,
+        isCheck :false
     }
     axios.get(`${_url}/user_courses/${userId}`)
   .then(response => {
@@ -100,4 +102,19 @@ function classifyTime(timeString) {
     } else {
         return "晚上";
     }
+}
+function generateRandomCode(length) {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let result = '';
+
+    // 第一個字是英文字母
+    const firstCharIndex = Math.floor(Math.random() * (characters.length - 10));
+    result += characters.charAt(firstCharIndex);
+
+    for (let i = 1; i < length; i++) {
+        const randomIndex = Math.floor(Math.random() * characters.length);
+        result += characters.charAt(randomIndex);
+    }
+
+    return result;
 }

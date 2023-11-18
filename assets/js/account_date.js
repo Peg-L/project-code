@@ -56,7 +56,6 @@ function updateData() { //課表生成
             getCourse(courseId);
         })
     })
-
     function findMatchData(dataNum) {
         return data.attendTime.filter(item => item.date === dataNum);
     }
@@ -71,8 +70,7 @@ function updateData() { //課表生成
         })
 
     }
-    item.innerHTML = str;
-  });
+  };
   const viewCourse = document.querySelectorAll("#viewCourse");
   viewCourse.forEach((item) => {
     let courseId = item.getAttribute("data-course-id"); //取得課程ID
@@ -95,7 +93,6 @@ function updateData() { //課表生成
         dateTime.innerHTML = ``;
       });
   }
-}
 left.addEventListener('click',()=>{
     updateData();
 })
