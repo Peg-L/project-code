@@ -11,8 +11,8 @@
       type="image/x-icon"
     />
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
-    <script type="module" crossorigin src="/project-code/assets/index-7c0bcf9f.js"></script>
-    <link rel="stylesheet" href="/project-code/assets/index-1cf7cdda.css">
+    <script type="module" crossorigin src="/project-code/assets/backtotop-e6f982ee.js"></script>
+    <link rel="stylesheet" href="/project-code/assets/backtotop-ccddde46.css">
     <link rel="stylesheet" href="/project-code/assets/course_intro-dd2ed19d.css">
   </head>
   <body>
@@ -179,6 +179,13 @@
           class="btn btn-member btn-secondary2"
         >
           會員中心
+        </a>
+        <a
+          href="./index.html"
+          type="button"
+          class="btn btn-logout fw-medium"
+        >
+          登出
         </a>
         <a
           href="./register.html"
@@ -400,15 +407,15 @@
                   alt=""
                   width="100"
                   height="100"
+                  id="teacherImg"
                 />
-                <p class="fs-6 fw-bold text-secondary2">麥克先生</p>
+                <p class="fs-6 fw-bold text-secondary2" id="teacher_name"></p>
               </div>
               <div class="">
-                <h4 class="teacher-card-title mb-2">從零開始成為切版大師</h4>
-                <p class="mb-2 text-secondary2">前端語言</p>
-                <p>
-                  帶領零基礎的平民老百姓，從最基礎的 HTML
-                  語法出發，使用最淺顯易懂的語言與生活隨處可見的例子，輕鬆進入網頁架設的世界，手把手教你做出完整的網頁作品。
+                <h4 class="teacher-card-title mb-2" id="course_title"></h4>
+                <p class="mb-2 text-secondary2" id="courseClass"></p>
+                <p id="course_info">
+                  
                 </p>
               </div>
             </div>
@@ -426,8 +433,8 @@
                   >
                     school
                   </span>
-                  <span class="text-gray-300 me-2">學歷</span>國立中央大學
-                  資訊工程 <br class="d-lg-none d-block" />碩士 畢業
+                  <span class="text-gray-300 me-2">學歷</span>
+                  <span id="teacher_degree"></span>
                 </p>
                 <p class="d-flex align-items-lg-center">
                   <span
@@ -435,8 +442,8 @@
                   >
                     business_center
                   </span>
-                  <span class="text-gray-300 text-c1 me-2">經歷</span>2020.08 -
-                  迄今 上市企業 前端工程師
+                  <span class="text-gray-300 text-c1 me-2">經歷</span>
+                  <span id="teacher_experience"></span>
                 </p>
               </div>
               <div class="d-flex flex-column">
@@ -446,7 +453,8 @@
                   >
                     translate
                   </span>
-                  <span class="text-gray-300 me-2">語言</span>中文/英文
+                  <span class="text-gray-300 me-2">語言</span>
+                  <span id="language"></span>
                 </p>
                 <p class="d-flex mb-lg-0 mb-6 align-items-center">
                   <span
@@ -454,16 +462,13 @@
                   >
                     military_tech
                   </span>
-                  <span class="text-gray-300 me-2">等級</span>入門
+                  <span class="text-gray-300 me-2">等級</span>
+                  <span id="level"></span>
                 </p>
               </div>
             </div>
-            <p class="mb-8">
-              目前任職於上市企業資深前端工程師，總年資 8
-              年，興趣是幫助他人學習程式語言，我相信，透過清楚的講解與示範，任何人都可以學好怎麼寫程式與電腦科學中的複雜概念。
-            </p>
-            <p>
-              你可以在我的課程中累積作品，我重視知識分享和實作練習並行，帶你一步一步完成作品，提前做面試準備。重視每個學生的差異並量身定制指導，根據你的背景和目標，提供最適合你的建議，讓你進步更快速。一個人走的快，一群人走得遠，請善用學生專屬社群，在這個社群中與其他學生多多互相學習和交流。
+            <p class="mb-8" id="intro">
+              
             </p>
           </div>
           <!-- 3 -->
@@ -504,116 +509,25 @@
               <button
                 type="button"
                 class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 btn-week"
+                id="PreviousWeek"
               >
-                <span class="material-symbols-outlined"> chevron_left </span>
+              <span class="material-symbols-outlined"> chevron_left </span>
+                
               </button>
-              <p class="">2023/08/20 ~ 26</p>
+              <p class="" id="dateRange"></p>
               <button
                 type="button"
                 class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 btn-week"
+                id="NextWeek"
               >
-                <span class="material-symbols-outlined"> navigate_next </span>
+              <span class="material-symbols-outlined"> navigate_next </span>
               </button>
             </div>
             <!-- calendar -->
             <ul
               class="calendar d-flex gap-1 justify-content-between flex-lg-nowrap flex-wrap"
+              id="calendar"
             >
-              <li class="calendar-list">
-                <p class="text-center">日</p>
-                <ul class="calendar-time">
-                  <li class="ready-booking">
-                    <a href="" class="text-primary">08:00</a>
-                  </li>
-                  <li><a href="">08:30</a></li>
-                  <li><a href="">09:00</a></li>
-                  <li><a href="">09:30</a></li>
-                  <li><a href="">10:00</a></li>
-                </ul>
-              </li>
-              <li class="calendar-list">
-                <p class="text-center">一</p>
-                <ul class="calendar-time">
-                  <li class="ready-booking">
-                    <a href="" class="text-primary">08:00</a>
-                  </li>
-                  <li><a href="">08:30</a></li>
-                  <li><a href="">09:00</a></li>
-                  <li><a href="">09:30</a></li>
-                  <li><a href="">10:00</a></li>
-                </ul>
-              </li>
-              <li class="calendar-list">
-                <p class="text-center">二</p>
-                <ul class="calendar-time">
-                  <li class="ready-booking">
-                    <a href="" class="text-primary">08:00</a>
-                  </li>
-                  <li><a href="">08:30</a></li>
-                  <li><a href="">09:00</a></li>
-                  <li><a href="">09:30</a></li>
-                  <li><a href="">10:00</a></li>
-                </ul>
-              </li>
-              <li class="calendar-list">
-                <p class="text-center">三</p>
-                <ul class="calendar-time">
-                  <li class="ready-booking">
-                    <a href="" class="text-primary">08:00</a>
-                  </li>
-                  <li><a href="">08:30</a></li>
-                  <li><a href="">09:00</a></li>
-                  <li><a href="">09:30</a></li>
-                  <li><a href="">10:00</a></li>
-                </ul>
-              </li>
-              <li class="calendar-list">
-                <p class="text-center">四</p>
-                <ul class="calendar-time">
-                  <li class="ready-booking">
-                    <a href="" class="text-primary">08:00</a>
-                  </li>
-                  <li><a href="">08:30</a></li>
-                  <li><a href="">09:00</a></li>
-                  <li class="ready-booking">
-                    <a href="" class="text-primary">09:30</a>
-                  </li>
-                  <li class="ready-booking">
-                    <a href="" class="text-primary">10:00</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="calendar-list">
-                <p class="text-center">五</p>
-                <ul class="calendar-time">
-                  <li class="ready-booking">
-                    <a href="" class="text-primary">08:00</a>
-                  </li>
-                  <li><a href="">08:30</a></li>
-                  <li><a href="">09:00</a></li>
-                  <li><a href="">09:30</a></li>
-                  <li><a href="">10:00</a></li>
-                  <li><a href="">10:30</a></li>
-                  <li class="ready-booking">
-                    <a href="" class="text-primary">11:00</a>
-                  </li>
-                  <li class="ready-booking">
-                    <a href="" class="text-primary">11:30</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="calendar-list">
-                <p class="text-center">六</p>
-                <ul class="calendar-time">
-                  <li class="ready-booking">
-                    <a href="" class="text-primary">08:00</a>
-                  </li>
-                  <li><a href="">08:30</a></li>
-                  <li><a href="">09:00</a></li>
-                  <li><a href="">09:30</a></li>
-                  <li><a href="">10:00</a></li>
-                </ul>
-              </li>
               <button
                 type="button"
                 class="btn mx-auto btn-calendar text-secondary2"
@@ -1440,6 +1354,7 @@
   <p class="fs-tiny">TOP</p>
 </button>
     
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script>
       (function ($) {
@@ -1671,5 +1586,7 @@
         $("#myStat2").circliful();
       });
     </script>
+    <script src="../assets/js/openTime.js"></script>
+    <script src="../assets/js/course_intro.js"></script>
   </body>
 </html>

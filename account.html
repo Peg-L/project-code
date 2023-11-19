@@ -14,8 +14,10 @@
       href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
     />
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
-    <script type="module" crossorigin src="/project-code/assets/index-7c0bcf9f.js"></script>
-    <link rel="stylesheet" href="/project-code/assets/index-1cf7cdda.css">
+    <script type="module" crossorigin src="/project-code/assets/backtotop-e6f982ee.js"></script>
+    <script type="module" crossorigin src="/project-code/assets/axios-21b846bc.js"></script>
+    <script type="module" crossorigin src="/project-code/assets/account-724f38ac.js"></script>
+    <link rel="stylesheet" href="/project-code/assets/backtotop-ccddde46.css">
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-white fixed-top">
@@ -181,6 +183,13 @@
           class="btn btn-member btn-secondary2"
         >
           會員中心
+        </a>
+        <a
+          href="./index.html"
+          type="button"
+          class="btn btn-logout fw-medium"
+        >
+          登出
         </a>
         <a
           href="./register.html"
@@ -393,10 +402,11 @@
           src="/project-code/assets/Ellipse 1 (2)-9cb89071.svg"
           alt="大頭貼"
           class="user-img"
+          id="userImg"
         />
         <div class="ps-41">
-          <h2 class="fs-4 fw-bold mb-1">貓咪</h2>
-          <p>前端工程師</p>
+          <h2 class="fs-4 fw-bold mb-1" id="userName"></h2>
+          <p id="userRole"></p>
         </div>
       </div>
     </div>
@@ -502,7 +512,7 @@
       <div class="tab-content" id="nav-tabContent">
         <!-- 我的課表 (Schedule) -->
         <div
-          class="tab-pane fade show active"
+          class="tab-pane fade active show"
           id="nav-schedule"
           role="tabpanel"
           aria-labelledby="nav-schedule-tab"
@@ -540,7 +550,7 @@
               <div
                 class="d-flex flex-column align-items-center justify-content-center"
               >
-                <div
+                <!-- <div
                   class="d-flex align-items-center justify-content-around mb-4 gap-4"
                 >
                   <button
@@ -560,83 +570,38 @@
                       navigate_next
                     </span>
                   </button>
+                </div> -->
+                <div class="mb-lg-12 mb-10 w-100">
+                  <!-- data -->
+                  <div
+                    class="d-flex align-items-center justify-content-around mb-4"
+                  >
+                    <button
+                      type="button"
+                      class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 btn-week"
+                      id="PreviousWeek"
+                    >
+                      <span class="material-symbols-outlined">
+                        chevron_left
+                      </span>
+                    </button>
+                    <p class="" id="dateRange"></p>
+                    <button
+                      type="button"
+                      class="btn border-light rounded-0 border border-gray-200 d-flex align-items-center py-1 btn-week"
+                      id="NextWeek"
+                    >
+                      <span class="material-symbols-outlined">
+                        navigate_next
+                      </span>
+                    </button>
+                  </div>
+                  <!-- calendar -->
+                  <ul
+                    class="calendar d-flex gap-1 justify-content-between flex-lg-nowrap flex-wrap"
+                    id="calendar"
+                  ></ul>
                 </div>
-                <!-- calendar -->
-                <ul class="calendar d-flex justify-content-center gap-3">
-                  <li class="calendar-list">
-                    <p class="text-center">日</p>
-                    <ul class="calendar-time2">
-                      <li>
-                        <button
-                          type="button"
-                          class="bg-white border-0 w-100 p-0"
-                          data-bs-toggle="modal"
-                          data-bs-target="#calendarModal"
-                        >
-                          08:00
-                        </button>
-                      </li>
-                      <li>
-                        <button
-                          type="button"
-                          class="bg-white border-0 w-100 p-0"
-                          data-bs-toggle="modal"
-                          data-bs-target="#calendarModal"
-                        >
-                          10:00
-                        </button>
-                      </li>
-                      <li>
-                        <button
-                          type="button"
-                          class="bg-white border-0 w-100 p-0"
-                          data-bs-toggle="modal"
-                          data-bs-target="#calendarModal"
-                        >
-                          13:00
-                        </button>
-                      </li>
-                      <li>
-                        <button
-                          type="button"
-                          class="bg-white border-0 w-100 p-0"
-                          data-bs-toggle="modal"
-                          data-bs-target="#calendarModal"
-                        >
-                          18:00
-                        </button>
-                      </li>
-                      <li>
-                        <button
-                          type="button"
-                          class="bg-white border-0 w-100 p-0"
-                          data-bs-toggle="modal"
-                          data-bs-target="#calendarModal"
-                        >
-                          20:00
-                        </button>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="calendar-list">
-                    <p class="text-center">一</p>
-                  </li>
-                  <li class="calendar-list">
-                    <p class="text-center">二</p>
-                  </li>
-                  <li class="calendar-list">
-                    <p class="text-center">三</p>
-                  </li>
-                  <li class="calendar-list">
-                    <p class="text-center">四</p>
-                  </li>
-                  <li class="calendar-list">
-                    <p class="text-center">五</p>
-                  </li>
-                  <li class="calendar-list">
-                    <p class="text-center">六</p>
-                  </li>
-                </ul>
               </div>
             </div>
           </div>
@@ -667,28 +632,25 @@
                       class="w-75px"
                       src="/project-code/assets/mike-3c4b76a2.png"
                       alt="麥克先生"
+                      id="courseImg"
                     />
                     <div
                       class="d-flex flex-column justify-content-between align-items-center"
                     >
                       <p>教師</p>
-                      <p class="fw-bold">麥克先生</p>
+                      <p class="fw-bold" id="courseTeacherName"></p>
                     </div>
                     <div
                       class="d-flex flex-column justify-content-between align-items-center"
                     >
                       <p>課程項目</p>
-                      <p class="fw-bold">JavaScript 大師</p>
+                      <p class="fw-bold" id="courseName"></p>
                     </div>
                     <div
                       class="d-flex flex-column justify-content-between align-items-center"
                     >
                       <p>上課時間</p>
-                      <p class="fw-bold">
-                        <time datetime="2023-07-21T11:00"
-                          >2023/09/10(週日) 08:00</time
-                        >-<time datetime="2023-07-21T11:00">08:50</time>
-                      </p>
+                      <p class="fw-bold" id="dateTime"></p>
                     </div>
                     <button
                       type="button"
@@ -732,7 +694,7 @@
                     class="btn btn-gray-200"
                     data-bs-dismiss="modal"
                   >
-                    取消預約
+                    關閉
                   </button>
                 </div>
               </div>
@@ -1727,168 +1689,25 @@
           aria-labelledby="nav-my-coupons-tab"
         >
           <!-- 優惠券 -->
-          <ul class="row row-cols-1 row-cols-lg-2 g-6">
-            <!-- 優惠券1 -->
-            <li class="col drop-shadow">
-              <div class="card border-x-wave h-100">
-                <div class="row g-0 h-100">
-                  <div class="col-3 d-flex align-items-center bg-gray-300 p-4">
-                    <img
-                      src="/project-code/assets/Rectangle 7-ab3dd5b8.png"
-                      class="img-fluid w-100 rounded-circle img-thumbnail border-0"
-                      alt="logo"
-                    />
-                  </div>
-                  <div class="col-6">
-                    <div class="card-body h-100 d-flex flex-column">
-                      <h5 class="card-title fs-7 fs-sm-5 mb-2 mb-sm-4">
-                        體驗價 - 從零開始成為切版大師
-                      </h5>
-                      <p class="card-text fs-sm fs-sm-7 mb-3 flex-grow-1">
-                        50 分鐘體驗課特價 $ 550
-                      </p>
-                      <p class="card-text">
-                        <small
-                          class="text-body-secondary d-flex align-items-center"
-                          ><span class="material-symbols-outlined me-1">
-                            update </span
-                          ><time datetime="2023-12-31">2023/12/31</time>
-                          失效</small
-                        >
-                      </p>
-                    </div>
-                  </div>
-                  <div class="col-3 d-flex align-items-center pe-4">
-                    <a
-                      href="./course_intro.html"
-                      class="btn btn-secondary2 px-1 px-sm-4 w-100"
-                      >馬上使用</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </li>
-            <!-- 優惠券2 -->
-            <li class="col drop-shadow">
-              <div class="card border-x-wave h-100">
-                <div class="row g-0 h-100">
-                  <div class="col-3 d-flex align-items-center bg-primary p-4">
-                    <img
-                      src="/project-code/assets/logo-img-ee7a417d.svg"
-                      class="img-fluid w-100 rounded-circle img-thumbnail border-0"
-                      alt="logo"
-                    />
-                  </div>
-                  <div class="col-6">
-                    <div class="card-body h-100 d-flex flex-column">
-                      <h5 class="card-title fs-7 fs-sm-5 mb-2 mb-sm-4">
-                        課程 9 折
-                      </h5>
-                      <p class="card-text fs-sm fs-sm-7 mb-3 flex-grow-1">
-                        低消 $ 1,500 ，最高折抵 $ 3,000
-                      </p>
-                      <p class="card-text">
-                        <small
-                          class="text-body-secondary d-flex align-items-center"
-                          ><span class="material-symbols-outlined me-1">
-                            update </span
-                          ><time datetime="2023-10-31">2023/10/31</time>
-                          失效</small
-                        >
-                      </p>
-                    </div>
-                  </div>
-                  <div class="col-3 d-flex align-items-center pe-4">
-                    <a
-                      href="course.html"
-                      class="btn btn-secondary2 px-1 px-sm-4 w-100"
-                      >馬上使用</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </li>
-            <!-- 優惠券3 -->
-            <li class="col drop-shadow">
-              <div class="card border-x-wave h-100">
-                <div class="row g-0 h-100">
-                  <div class="col-3 d-flex align-items-center bg-gray-300 p-4">
-                    <img
-                      src="/project-code/assets/Rectangle 9-7f0cfb4e.png"
-                      class="img-fluid w-100 rounded-circle img-thumbnail border-0"
-                      alt="logo"
-                    />
-                  </div>
-                  <div class="col-6">
-                    <div class="card-body h-100 d-flex flex-column">
-                      <h5 class="card-title fs-7 fs-sm-5 mb-2 mb-sm-4">
-                        體驗價 - Python 全攻略
-                      </h5>
-                      <p class="card-text fs-sm fs-sm-7 mb-3 flex-grow-1">
-                        50 分鐘體驗課特價 $ 500
-                      </p>
-                      <p class="card-text">
-                        <small
-                          class="text-body-secondary d-flex align-items-center"
-                          ><span class="material-symbols-outlined me-1">
-                            update </span
-                          ><time datetime="2023-12-31">2023/12/31</time>
-                          失效</small
-                        >
-                      </p>
-                    </div>
-                  </div>
-                  <div class="col-3 d-flex align-items-center pe-4">
-                    <a
-                      href="course_intro.html"
-                      class="btn btn-secondary2 px-1 px-sm-4 w-100"
-                      >馬上使用</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </li>
-            <!-- 優惠券4 -->
-            <li class="col drop-shadow">
-              <div class="card border-x-wave h-100">
-                <div class="row g-0 h-100">
-                  <div class="col-3 d-flex align-items-center bg-primary p-4">
-                    <img
-                      src="/project-code/assets/logo-img-ee7a417d.svg"
-                      class="img-fluid w-100 rounded-circle img-thumbnail border-0"
-                      alt="logo"
-                    />
-                  </div>
-                  <div class="col-6">
-                    <div class="card-body h-100 d-flex flex-column">
-                      <h5 class="card-title fs-7 fs-sm-5 mb-2 mb-sm-4">
-                        課程 8 折
-                      </h5>
-                      <p class="card-text fs-sm fs-sm-7 mb-3 flex-grow-1">
-                        低消 $ 2,000 ，最高折抵 $ 3,000
-                      </p>
-                      <p class="card-text">
-                        <small
-                          class="text-body-secondary d-flex align-items-center"
-                          ><span class="material-symbols-outlined me-1">
-                            update </span
-                          ><time datetime="2023-10-31">2023/10/31</time>
-                          失效</small
-                        >
-                      </p>
-                    </div>
-                  </div>
-                  <div class="col-3 d-flex align-items-center pe-4">
-                    <a
-                      href="course.html"
-                      class="btn btn-secondary2 px-1 px-sm-4 w-100"
-                      >馬上使用</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </li>
+          <ul class="row row-cols-1 row-cols-lg-2 g-6 js-couponGroup">
+            <p class="text-center fs-5">優惠券載入失敗</p>
           </ul>
+          <nav class="my-6 my-md-8" aria-label="Page navigation">
+            <ul
+              class="pagination pagination-lg justify-content-center gap-6 js-couponPagination"
+            >
+              <li class="page-item js-couponPageArrow d-none disabled">
+                <a class="page-link rounded-3" href="#" aria-label="Previous">
+                  <i class="fa-solid fa-angle-left"></i>
+                </a>
+              </li>
+              <li class="page-item js-couponPageArrow d-none">
+                <a class="page-link rounded-3" href="#" aria-label="Next">
+                  <i class="fa-solid fa-angle-right"></i>
+                </a>
+              </li>
+            </ul>
+          </nav>
         </div>
 
         <!-- 帳號設定 (Account Settings)-->
@@ -2282,305 +2101,16 @@
           aria-labelledby="nav-my-following-tab"
         >
           <!-- card -->
-          <ul class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-6">
-            <!-- card1 -->
-            <li class="col">
-              <div class="teacher-card position-relative">
-                <button
-                  type="button"
-                  class="btn p-3 text-center align-self-start position-absolute top-0 end-0"
-                >
-                  <i class="fa-regular fa-heart fs-4 text-primary fw-bold"></i>
-                </button>
-                <div class="teacher-card-profile">
-                  <div class="teacher-card-content">
-                    <h3 class="teacher-card-title">從零開始成為切版大師</h3>
-                    <p class="teacher-card-name">麥克先生</p>
-                    <ul class="teacher-card-object">
-                      <!-- 評價 -->
-                      <li class="teacher-card-evaluate">4.8</li>
-                      <!-- 時數 -->
-                      <li class="teacher-card-hours">50分鐘</li>
-                    </ul>
-                    <p class="teacher-card-price">NT$<span>1,100</span></p>
-                  </div>
-                  <div class="teacher-card-img">
-                    <img
-                      src="/project-code/assets/Rectangle 7-ab3dd5b8.png"
-                      alt="老師"
-                      class="w-100px w-sm-120px"
-                    />
-                  </div>
-                </div>
-                <p class="teacher-card-text">
-                  帶領零基礎的平民老百姓，從最基礎的 HTML
-                  語法出發，使用最淺顯易懂的語言與生活隨處可見的例子，輕鬆進入網頁架設的世界，手把手教你做出完整的網頁作品。
-                </p>
-                <a
-                  href="./cart.html"
-                  type="button"
-                  class="btn btn-secondary2 w-100 mb-3"
-                >
-                  立即上課
-                </a>
-                <a
-                  href="./course_intro.html"
-                  type="button"
-                  class="btn teacher-card-btn"
-                  >查看介紹</a
-                >
-              </div>
-            </li>
-            <!-- card2 -->
-            <li class="col">
-              <div class="teacher-card position-relative h-100">
-                <button
-                  type="button"
-                  class="btn p-3 text-center align-self-start position-absolute top-0 end-0"
-                >
-                  <i class="fa-regular fa-heart fs-4 text-primary fw-bold"></i>
-                </button>
-                <div class="teacher-card-profile">
-                  <div class="teacher-card-content">
-                    <h3 class="teacher-card-title">一起打造你的前端職涯</h3>
-                    <p class="teacher-card-name">榮哥</p>
-                    <ul class="teacher-card-object">
-                      <!-- 評價 -->
-                      <li class="teacher-card-evaluate">4.8</li>
-                      <!-- 時數 -->
-                      <li class="teacher-card-hours">50分鐘</li>
-                    </ul>
-                    <p class="teacher-card-price">NT$<span>1,000</span></p>
-                  </div>
-                  <div class="teacher-card-img">
-                    <img
-                      src="/project-code/assets/Rectangle 8-2a3cf305.png"
-                      alt="老師"
-                      class="w-100px w-sm-120px"
-                    />
-                  </div>
-                </div>
-                <p class="teacher-card-text">
-                  協助你定位自己的前端職涯，並提供實用的指導和建議，以確保你能夠在競爭激烈的市場中脫穎而出。
-                </p>
-                <a
-                  href="./cart.html"
-                  type="button"
-                  class="btn btn-secondary2 w-100 mb-3"
-                >
-                  立即上課
-                </a>
-                <a
-                  href="./course_intro.html"
-                  type="button"
-                  class="btn teacher-card-btn"
-                  >查看介紹</a
-                >
-              </div>
-            </li>
-            <!-- card3 -->
-            <li class="col">
-              <div class="teacher-card position-relative h-100">
-                <button
-                  type="button"
-                  class="btn p-3 text-center align-self-start position-absolute top-0 end-0"
-                >
-                  <i class="fa-regular fa-heart fs-4 text-primary fw-bold"></i>
-                </button>
-                <div class="teacher-card-profile">
-                  <div class="teacher-card-content">
-                    <h3 class="teacher-card-title">Python 全攻略</h3>
-                    <p class="teacher-card-name">艾莉絲</p>
-                    <ul class="teacher-card-object">
-                      <!-- 評價 -->
-                      <li class="teacher-card-evaluate">5.0</li>
-                      <!-- 時數 -->
-                      <li class="teacher-card-hours">50分鐘</li>
-                    </ul>
-                    <p class="teacher-card-price">NT$<span>1,000</span></p>
-                  </div>
-                  <div class="teacher-card-img">
-                    <img
-                      src="/project-code/assets/Rectangle 9-7f0cfb4e.png"
-                      alt="老師"
-                      class="w-100px w-sm-120px"
-                    />
-                  </div>
-                </div>
-                <p class="teacher-card-text">
-                  嗨，我是艾莉絲，有 8 年的 Python 開發經歷和 3
-                  年的教學經驗。我的專業有軟體開發、數據分析、人工智慧等各個
-                  Python
-                  相關領域，能和你分享非常專業且豐富的知識和實際案例，協助您建立紮實的
-                  Python
-                  基礎，無論你是初學者還是資深工程師，我都可以協助你找到適合自己的學習路徑。我將帶領學生深入探索
-                  Python 的各個層面，從基礎知識到高級應用，讓你具備全面的 Python
-                  技能，以應對不同領域的挑戰。
-                </p>
-                <a
-                  href="./cart.html"
-                  type="button"
-                  class="btn btn-secondary2 w-100 mb-3"
-                >
-                  立即上課
-                </a>
-                <a
-                  href="./course_intro.html"
-                  type="button"
-                  class="btn teacher-card-btn"
-                  >查看介紹</a
-                >
-              </div>
-            </li>
-            <!-- card4 -->
-            <li class="col">
-              <div class="teacher-card position-relative h-100">
-                <button
-                  type="button"
-                  class="btn p-3 text-center align-self-start position-absolute top-0 end-0"
-                >
-                  <i class="fa-regular fa-heart fs-4 text-primary fw-bold"></i>
-                </button>
-                <div class="teacher-card-profile">
-                  <div class="teacher-card-content">
-                    <h3 class="teacher-card-title">JavaScript 大師</h3>
-                    <p class="teacher-card-name">麥克先生</p>
-                    <ul class="teacher-card-object">
-                      <!-- 評價 -->
-                      <li class="teacher-card-evaluate">4.8</li>
-                      <!-- 時數 -->
-                      <li class="teacher-card-hours">50分鐘</li>
-                    </ul>
-                    <p class="teacher-card-price">NT$<span>1,200</span></p>
-                  </div>
-                  <div class="teacher-card-img">
-                    <img
-                      src="/project-code/assets/mike-3c4b76a2.png"
-                      alt="老師"
-                      class="w-100px w-sm-120px"
-                    />
-                  </div>
-                </div>
-                <p class="teacher-card-text">
-                  實戰應用為主，理論為輔，深入淺出好吸收，馬上學，馬上用！Facebook
-                  聊天機器人、Chrome
-                  Extensions、開放資料、即時聊天室、對戰遊戲，多個願望一次滿足！
-                </p>
-                <a
-                  href="./cart.html"
-                  type="button"
-                  class="btn btn-secondary2 w-100 mb-3"
-                >
-                  立即上課
-                </a>
-                <a
-                  href="./course_intro.html"
-                  type="button"
-                  class="btn teacher-card-btn"
-                  >查看介紹</a
-                >
-              </div>
-            </li>
-            <!-- card5 -->
-            <li class="col">
-              <div class="teacher-card position-relative h-100">
-                <button
-                  type="button"
-                  class="btn p-3 text-center align-self-start position-absolute top-0 end-0"
-                >
-                  <i class="fa-regular fa-heart fs-4 text-primary fw-bold"></i>
-                </button>
-                <div class="teacher-card-profile">
-                  <div class="teacher-card-content">
-                    <h3 class="teacher-card-title">資料庫設計與管理</h3>
-                    <p class="teacher-card-name">Ken</p>
-                    <ul class="teacher-card-object">
-                      <!-- 評價 -->
-                      <li class="teacher-card-evaluate">5.0</li>
-                      <!-- 時數 -->
-                      <li class="teacher-card-hours">50分鐘</li>
-                    </ul>
-                    <p class="teacher-card-price">NT$<span>1,300</span></p>
-                  </div>
-                  <div class="teacher-card-img">
-                    <img
-                      src="/project-code/assets/ken-602c463d.png"
-                      alt="老師"
-                      class="w-100px w-sm-120px"
-                    />
-                  </div>
-                </div>
-                <p class="teacher-card-text">
-                  我是 Ken
-                  老師，在外商和台積電任職工程師多年，有豐富的資料庫設計經驗，熟悉正規化、索引策略、查詢優化、資料庫管理系統（DBMS）的選擇，以及資料安全等專業知識。無論你是初學者還是希望深化資料庫設計技能。我的目標是讓你在資料庫設計領域感到自信，並能夠在軟體系統開發時，成功應用所學的知識。
-                </p>
-                <a
-                  href="./cart.html"
-                  type="button"
-                  class="btn btn-secondary2 w-100 mb-3"
-                >
-                  立即上課
-                </a>
-                <a
-                  href="./course_intro.html"
-                  type="button"
-                  class="btn teacher-card-btn"
-                  >查看介紹</a
-                >
-              </div>
-            </li>
-            <!-- card6 -->
-            <li class="col">
-              <div class="teacher-card position-relative h-100">
-                <button
-                  type="button"
-                  class="btn p-3 text-center align-self-start position-absolute top-0 end-0"
-                >
-                  <i class="fa-regular fa-heart fs-4 text-primary fw-bold"></i>
-                </button>
-                <div class="teacher-card-profile">
-                  <div class="teacher-card-content">
-                    <h3 class="teacher-card-title">Java 從 0 到 Expert</h3>
-                    <p class="teacher-card-name">賽門</p>
-                    <ul class="teacher-card-object">
-                      <!-- 評價 -->
-                      <li class="teacher-card-evaluate">5.0</li>
-                      <!-- 時數 -->
-                      <li class="teacher-card-hours">50分鐘</li>
-                    </ul>
-                    <p class="teacher-card-price">NT$<span>1,400</span></p>
-                  </div>
-                  <div class="teacher-card-img">
-                    <img
-                      src="/project-code/assets/simon-57ec7107.png"
-                      alt="老師"
-                      class="w-100px w-sm-120px"
-                    />
-                  </div>
-                </div>
-                <p class="teacher-card-text">
-                  我的專業包括分析、設計和程式撰寫，並規劃執行軟體架構以及模組的設計。在軟體開發過程中，我非常注重測試、軟體的品質和穩定性，幫你揪出程式碼中的壞味道。有豐富的「Java
-                  實戰和教學經驗」，參與多項企業級系統專案開發，不管你是學生、菜鳥或是在職工程師，都可以帶走不少寶貴的建議。
-                </p>
-                <a
-                  href="./cart.html"
-                  type="button"
-                  class="btn btn-secondary2 w-100 mb-3"
-                >
-                  立即上課
-                </a>
-                <a
-                  href="./course_intro.html"
-                  type="button"
-                  class="btn teacher-card-btn"
-                  >查看介紹</a
-                >
-              </div>
-            </li>
-          </ul>
+          <div
+            class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-6"
+            id="followList"
+          ></div>
+
           <!-- 頁碼 -->
           <nav class="my-6 my-md-8" aria-label="Page navigation example">
-            <ul class="pagination pagination-lg justify-content-center">
+            <ul
+              class="pagination pagination-lg justify-content-center followPagination"
+            >
               <li class="page-item disabled">
                 <a class="page-link" href="#" aria-label="Previous">
                   <i class="fa-solid fa-angle-left"></i>
@@ -2693,14 +2223,18 @@
 >
   <p class="fs-tiny">TOP</p>
 </button>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
     <!-- jquery-ui -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/i18n/jquery-ui-i18n.min.js"></script>
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <!--  -->
-    
 
+    <script src="../assets/js/openTime.js"></script>
+    <script src="../assets/js/account_date.js"></script>
     <!-- calender -->
     <script>
       const daysTag = document.querySelector(".days");
@@ -2777,7 +2311,9 @@
     </script>
 
     <!-- account -->
-    <script>
+    
+    <script src="../assets/js/account_coupon.js"></script>
+    <!-- <script>
       //抓取按鈕
       const changeBtn = document.querySelectorAll("#change");
       const saveBtn = document.querySelectorAll("#saveBtn");
@@ -2806,7 +2342,7 @@
           changeBtn[index].toggleAttribute("disabled");
         });
       });
-    </script>
+    </script> -->
 
     <!-- datepicker -->
     <script>

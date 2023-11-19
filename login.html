@@ -18,9 +18,10 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
     />
-    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
-    <script type="module" crossorigin src="/project-code/assets/index-7c0bcf9f.js"></script>
-    <link rel="stylesheet" href="/project-code/assets/index-1cf7cdda.css">
+    <script type="module" crossorigin src="/project-code/assets/login-8515b5f5.js"></script>
+    <link rel="modulepreload" crossorigin href="/project-code/assets/backtotop-e6f982ee.js">
+    <link rel="modulepreload" crossorigin href="/project-code/assets/firebase-f51430d4.js">
+    <link rel="stylesheet" href="/project-code/assets/backtotop-ccddde46.css">
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-white fixed-top">
@@ -186,6 +187,13 @@
           class="btn btn-member btn-secondary2"
         >
           會員中心
+        </a>
+        <a
+          href="./index.html"
+          type="button"
+          class="btn btn-logout fw-medium"
+        >
+          登出
         </a>
         <a
           href="./register.html"
@@ -397,7 +405,7 @@
         <div class="col-12 d-flex flex-column align-items-center">
           <img
             class="mb-2 mb-md-3 w-40px"
-            src="/project-code/assets/logo-img-ee7a417d.svg"
+            src="/project-code/assets/logo-img-9afefee1.svg"
             alt="logo"
           />
           <h1 class="fs-3 mb-2 mb-md-4">會員登入</h1>
@@ -410,32 +418,30 @@
             <button
               type="button"
               class="btn btn-outline-secondary2 rounded-1 fs-5 w-100 py-3 mb-2 mb-md-4"
+              id="google-login"
             >
-              <i class="fa-brands fa-google me-3"></i>使用 Google 登入
+              <i class="fa-brands fa-google me-3"></i>使用 Google 帳戶登入
             </button>
             <div class="form-floating mb-2 mb-md-4">
               <input
                 type="email"
                 class="form-control rounded-1"
-                id="floatingInput"
+                id="floatingEmailLogin"
                 placeholder="name@example.com"
-                pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$
-                "
                 required
               />
-              <label for="floatingInput">Email</label>
+              <label for="floatingEmailLogin">Email</label>
             </div>
             <div class="form-floating d-flex align-items-center">
               <input
                 type="password"
                 class="form-control rounded-1"
-                id="floatingPassword"
+                id="floatingPasswordLogin"
                 placeholder="Password"
-                pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$"
                 required
               />
               <!-- <i class="bi bi-eye-slash-fill position-absolute end-0 pe-4"></i> -->
-              <label for="floatingPassword">密碼</label>
+              <label for="floatingPasswordLogin">密碼</label>
             </div>
             <div
               id="passwordHelpBlock"
@@ -462,8 +468,8 @@
               <div><a href="###">忘記密碼?</a></div>
             </div>
             <button
-              type="submit"
-              id="login-btn"
+              type="button"
+              id="loginButton"
               class="btn btn-secondary2 rounded-1 fs-5 w-100 py-3 mb-4"
             >
               <i class="fa-solid fa-user me-3"></i>
@@ -757,7 +763,10 @@
 >
   <p class="fs-tiny">TOP</p>
 </button>
-
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../assets/js/config.js"></script>
+    
     
   </body>
 </html>
