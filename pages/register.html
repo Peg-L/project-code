@@ -77,6 +77,31 @@
                 required
               />
               <label for="floatingTel">手機</label>
+              <button
+                class="btn btn-outline-secondary2 rounded-1 position-absolute top-50 end-0 translate-middle-y me-2 disabled"
+                type="button"
+                id="sendCode"
+              >
+                發送驗證碼
+              </button>
+            </div>
+            <div class="form-floating mb-2 mb-md-4 d-none" id="inputVerifyCode">
+              <input
+                type="tel"
+                class="form-control rounded-1"
+                id="floatingVerifyCode"
+                pattern="^09\d{8}$"
+                placeholder="Tel"
+                required
+              />
+              <label for="floatingVerifyCode">請填寫手機驗證碼</label>
+              <button
+                class="btn btn-outline-secondary2 rounded-1 position-absolute top-50 end-0 translate-middle-y me-2"
+                type="button"
+                id="verify-button"
+              >
+                立即驗證
+              </button>
             </div>
             <div class="form-floating d-flex align-items-center">
               <input
@@ -139,6 +164,7 @@
       tabindex="-1"
       aria-labelledby="registerSuccess"
       aria-hidden="true"
+      data-bs-backdrop="static"
     >
       <div class="modal-dialog modal-dialog-centered">
         <div
@@ -158,11 +184,13 @@
                   感謝您的註冊！<br />非常歡迎您成為我們的會員
                 </h1>
               </div>
-              <div class="modal-body p-0">
-                <p class="text-center mb-4">
-                  我們已寄送一封帳號驗證信至您的信箱<br />exa***e1@gmail.com
+              <div id="emailVerified" class="modal-body p-0">
+                <!-- <p class="mb-4">
+                  我們已寄送一封帳號驗證信至您的信箱
+                  <br />
+                  ex***e1@gmail.com
                 </p>
-                <p class="text-center mb-10">
+                <p class="mb-10">
                   請點擊驗證信的「<strong>連結</strong>」來開通帳號
                 </p>
                 <div
@@ -175,15 +203,15 @@
                   >
                     重新寄送驗證信
                   </button>
-                </div>
-                <a
-                  href="./login.html"
-                  type="button"
-                  class="btn btn-secondary2 rounded-1 w-100 py-3"
-                >
-                  前往登入頁面
-                </a>
+                </div> -->
               </div>
+              <a
+                href="./login.html"
+                type="button"
+                class="btn btn-secondary2 rounded-1 w-100 py-3"
+              >
+                前往登入頁面
+              </a>
             </div>
           </div>
         </div>
