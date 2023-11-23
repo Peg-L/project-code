@@ -68,26 +68,27 @@ axios.get(`${_url}/courses?_expand=teacher`).then((res) => {
   const swiperWrapper = document.querySelector(".recommend-swiper");
 
   popularCourses6th.forEach((popularCourse) => {
-    coursesCard += `<div class="swiper-slide">
-    <div class="teacher-card">
-      <div class="teacher-card-profile">
-        <div class="teacher-card-content">
-          <h3 class="teacher-card-title">${popularCourse.name}</h3>
-          <p class="teacher-card-name">${popularCourse.teacher.name}</p>
-          <ul class="teacher-card-object">
-            <li class="teacher-card-evaluate">${popularCourse.rate}</li>
-            <li class="teacher-card-hours">50分鐘</li>
-          </ul>
-          <p class="teacher-card-price">NT$<span>${popularCourse.price}</span></p>
-        </div>
-        <div class="teacher-card-img">
-          <img
-            src="${popularCourse.teacher.avatar}"
-            alt="老師"
-            class="w-100px w-sm-120px"
-          />
-        </div>
+    coursesCard += `<div class="card teacher-card swiper-slide">
+    <div class="card-body d-flex justify-content-between">
+      <div>
+        <h5 class="card-title teacher-card-title truncate-lines-2">${popularCourse.name}
+        </h5>
+        <p class="teacher-card-name">${popularCourse.teacher.name}</p>
+        <ul class="teacher-card-object">
+          <li class="teacher-card-evaluate">${popularCourse.rate}</li>
+          <li class="teacher-card-hours">50分鐘</li>
+        </ul>
+        <p class="teacher-card-price">NT$<span>${popularCourse.price}</span></p>
       </div>
+      <div class="teacher-card-img">
+        <img
+          src="${popularCourse.teacher.avatar}"
+          alt="老師"
+          class="w-100px w-sm-120px"
+        />
+      </div>
+    </div>
+    <div>
       <p class="teacher-card-text">
       ${popularCourse.info}
       </p>
@@ -107,7 +108,6 @@ axios.get(`${_url}/courses?_expand=teacher`).then((res) => {
     </div>
   </div>`;
   });
-
   swiperWrapper.innerHTML = coursesCard;
 });
 
@@ -158,38 +158,26 @@ cateItems.forEach((cateItem) => {
   });
 });
 
-// 學生好評
-var reviewsSwiper = new Swiper(".reviewsSwiper", {
-  slidesPerView: 1,
-  spaceBetween: 16,
-  pagination: {
-    el: ".reviewsSwiper-pagination-custom",
-    clickable: true,
-    dynamicBullets: true,
-    dynamicMainBullets: 5,
-  },
-  breakpoints: {
-    992: {
-      slidesPerView: 2,
-      spaceBetween: 24,
-      navigation: {
-        nextEl: ".reviewsSwiper-button-next-custom",
-        prevEl: ".reviewsSwiper-button-prev-custom",
-      },
-      pagination: {
-        dynamicMainBullets: 3,
-      },
-    },
-  },
-});
+// 學生好評卡片資料
+// 隨機取得 4 個 5星好評
+function get4Random(arr) {
+  const shuffled = [...arr].sort(() => 0.5 - Math.random());
 
+  return shuffled.slice(0, 4);
+}
+
+// render 卡片
 axios.get(`${_url}/comments?_expand=user`).then((res) => {
-  console.log("Comments", res.data);
-
   const reviewsSwiper = document.querySelector(".reviews-swiper");
 
   let commentsCard = "";
+  res.data = get4Random(res.data.filter((item) => item.rate == 5));
+  console.log(res.data);
+
   res.data.forEach((comment) => {
+    console.log(comment);
+    console.log(comment.user.name);
+
     commentsCard += `<div class="swiper-slide">
     <div
       class="teacher-card d-flex flex-column justify-content-between gap-10 h-100"
@@ -214,7 +202,7 @@ axios.get(`${_url}/comments?_expand=user`).then((res) => {
             <li><i class="fa-solid fa-star"></i></li>
           </ul>
           <p class="fs-6">
-            Cookie<span class="ms-1 fs-tiny text-gray-300"
+          ${comment.user.name}<span class="ms-1 fs-tiny"
               >${comment.user.role}</span
             >
           </p>
@@ -230,4 +218,29 @@ axios.get(`${_url}/comments?_expand=user`).then((res) => {
   });
 
   reviewsSwiper.innerHTML = commentsCard;
+});
+
+// 學生好評 輪播設定
+let reviewsSwiper = new Swiper(".reviewsSwiper", {
+  slidesPerView: 1,
+  spaceBetween: 16,
+  pagination: {
+    el: ".reviewsSwiper-pagination-custom",
+    clickable: true,
+    dynamicBullets: true,
+    dynamicMainBullets: 5,
+  },
+  breakpoints: {
+    992: {
+      slidesPerView: 2,
+      spaceBetween: 24,
+      navigation: {
+        nextEl: ".reviewsSwiper-button-next-custom",
+        prevEl: ".reviewsSwiper-button-prev-custom",
+      },
+      pagination: {
+        dynamicMainBullets: 3,
+      },
+    },
+  },
 });
