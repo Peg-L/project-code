@@ -27,7 +27,7 @@ courseSearchButton.addEventListener("click", function () {
   courseSearchInput.value = "";
 });
 
-document.addEventListener("keyup", function (e) {
+courseSearchInput.addEventListener("keyup", function (e) {
   if (e.key === "Enter") {
     courseSearchButton.click();
   }

@@ -42,82 +42,59 @@ function handleRatingFilter(rate) {
     filterStar1: 1,
   }[rate];
 
-  //回到第一頁
-  data.page = 1;
-  //呼叫 api
-  getCoursesData(data);
-  // 計算篩選幾項
-  countSelectedFilters();
+  // 進行篩選呼叫api
+  runFilter();
 }
 
 /*** 價格 篩選功能 ***/
 /* 最低價格 */
-minPrice.addEventListener("blur", () => {
-  const priceInputValue = parseInt(minPrice.value.trim());
-
-  // 把 input 的值清空時
-  if (isNaN(priceInputValue)) {
-    // data.price_gte 不是初始值時才呼叫api
-    if (data.price_gte !== minPriceDefault) {
-      data.price_gte = minPriceDefault;
-
-      //回到第一頁
-      data.page = 1;
-      //呼叫 api
-      getCoursesData(data);
-      // 計算篩選幾項
-      countSelectedFilters();
-    }
-  }
-  // input 輸入數值時
-  else {
-    // 輸入的數值不是上次輸入的值時
-    if (priceInputValue !== data.price_gte) {
-      data.price_gte = priceInputValue;
-
-      //回到第一頁
-      data.page = 1;
-      //呼叫 api
-      getCoursesData(data);
-      // 計算篩選幾項
-      countSelectedFilters();
-    }
-  }
-});
+minPrice.addEventListener("change", handlePriceFilter);
 
 /* 最高價格 */
-maxPrice.addEventListener("blur", () => {
-  const priceInputValue = parseInt(maxPrice.value.trim());
+maxPrice.addEventListener("change", handlePriceFilter);
+
+function handlePriceFilter() {
+  const priceInputValue = parseInt(this.value.trim());
+  let priceDefault;
+  let priceApi;
+  // 判斷是輸入最小值還是最大值
+  if (this === minPrice) {
+    priceDefault = minPriceDefault;
+    priceApi = data.price_gte;
+  } else if (this === maxPrice) {
+    priceDefault = maxPriceDefault;
+    priceApi = data.price_lte;
+  }
 
   // 把 input 的值清空時
   if (isNaN(priceInputValue)) {
     // data.price_lte 不是初始值時才呼叫api
-    if (data.price_lte !== maxPriceDefault) {
-      data.price_lte = maxPriceDefault;
+    if (priceApi !== priceDefault) {
+      if (this === minPrice) {
+        data.price_gte = priceInputValue;
+      } else if (this === maxPrice) {
+        data.price_lte = priceInputValue;
+      }
 
-      //回到第一頁
-      data.page = 1;
-      //呼叫 api
-      getCoursesData(data);
-      // 計算篩選幾項
-      countSelectedFilters();
+      // 進行篩選呼叫api
+      runFilter();
     }
   }
   // input 輸入數值時
   else {
     // 輸入的數值不是上次輸入的值時
-    if (priceInputValue !== data.price_lte) {
-      data.price_lte = priceInputValue;
+    if (priceInputValue !== priceApi) {
+      if (this === minPrice) {
+        data.price_gte = priceInputValue;
+      } else if (this === maxPrice) {
+        data.price_lte = priceInputValue;
+      }
 
-      //回到第一頁
-      data.page = 1;
-      //呼叫 api
-      getCoursesData(data);
-      // 計算篩選幾項
-      countSelectedFilters();
+      // 進行篩選呼叫api
+      runFilter();
     }
   }
-});
+}
 
 /***課程分類篩選功能***/
 
@@ -170,12 +147,8 @@ function cate() {
     // 執行篩選
     handleCategoryFilters(target);
 
-    //回到第一頁
-    data.page = 1;
-    //呼叫 api
-    getCoursesData(data);
-    // 計算篩選幾項
-    countSelectedFilters();
+    // 進行篩選呼叫api
+    runFilter();
   }
 
   sessionStorage.removeItem("cateItemName");
@@ -216,12 +189,8 @@ accordionFilter.addEventListener("change", (e) => {
   // 執行篩選
   handleCategoryFilters();
 
-  //回到第一頁
-  data.page = 1;
-  //呼叫 api
-  getCoursesData(data);
-  // 計算篩選幾項
-  countSelectedFilters();
+  // 進行篩選呼叫api
+  runFilter();
 });
 
 function handleCategoryFilters() {
@@ -265,36 +234,6 @@ function hasSpecialCharacters(value) {
   return /.*[!@#$%^&*()].*/.test(value);
 }
 
-/* 課程分類篩選功能 */
-// function handleCategoryFilters({ checked, value }) {
-//   let apiFilter; //課程分類
-//   let apiLevel = `&level_like=${value}`; //課程程度
-//   //檢查是否是英文
-//   const isEnglish = (value) => {
-//     return /[a-zA-Z]/.test(value);
-//   };
-//   isEnglish(value) ? (apiFilter = `&categories_like=\\b${value}\\b`) //BUG：目前C會找到C#
-//     : (apiFilter = `&categories_like=${value}`); //value是中文時，加正則表達式會找不到
-
-//   // 打勾情況
-//   if (checked) {
-//     //避免按全選時重複選取
-//     if (!data.filters.includes(value)) {
-//       if (value === "入門" || value === "進階") {
-//         data.filters += apiLevel;
-//       } else {
-//         data.filters += apiFilter;
-//       }
-//     }
-//     // 取消打勾情況
-//   } else {
-//     data.filters = data.filters
-//       .split(/(?=&)/)
-//       .filter((item) => item !== apiFilter && item !== apiLevel)
-//       .join("");
-//   }
-// }
-
 /* 更新父層 checkbox 狀態 function */
 function updateParentCheckbox(parentCheckbox, relatedCheckboxes) {
   // 要先把 NodeList 轉成 array 才能用 every()
@@ -303,6 +242,16 @@ function updateParentCheckbox(parentCheckbox, relatedCheckboxes) {
   parentCheckbox.checked = relatedCheckboxesArray.every(
     (checkbox) => checkbox.checked
   );
+}
+
+/*** 進行篩選呼叫 api ***/
+function runFilter() {
+  //回到第一頁
+  data.page = 1;
+  //呼叫 api
+  getCoursesData(data);
+  // 計算篩選幾項
+  countSelectedFilters();
 }
 
 /*** 計算使用幾個篩選項目 ***/

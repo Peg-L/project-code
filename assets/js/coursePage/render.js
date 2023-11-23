@@ -66,46 +66,47 @@ function renderCourses() {
                   <div class="mb-2 w-100px h-100px">
                     <img
                       class="img-fluid rounded-circle p-1 p-md-0"
-                      src="${item.teacher.avatar}"
+                      src="${item.teacher?.avatar}"
                       alt="teacher"
+                      loading="lazy"
                     />
                   </div>
                   <!-- 姓名、職稱 -->
                   <h3 class="fs-7 fs-md-6 text-secondary2 fw-bold mb-1">
-                    ${item.teacher.name}
+                    ${item.teacher?.name}
                   </h3>
                 </a>
                 <p class="fs-sm fs-md-7 text-secondary2 text-center mb-2">
-                  ${item.teacher.title}
+                  ${item.teacher?.title}
                 </p>
                 <ul class="text-center text-gray-300 fs-sm fs-md-7 mb-2">
                   <li class="d-flex align-items-center">
-                    <img src="../assets/images/star.svg" alt="star" />
-                    <span class="fw-bold me-1"> ${item.teacher.rate} </span>
+                    <img src="../assets/images/star.svg" alt="star" loading="lazy"/>
+                    <span class="fw-bold me-1"> ${item.teacher?.rate} </span>
                     講師評等
                   </li>
-                  <li>${item.teacher.total_students} 位學生</li>
-                  <li>${item.teacher.total_courses} 門課程</li>
+                  <li>${item.teacher?.total_students} 位學生</li>
+                  <li>${item.teacher?.total_courses} 門課程</li>
                 </ul>
                 <!-- link -->
                 <ul class="d-flex justify-content-center mb-0">
                   <li class="me-1">
                     <a href="${
-                      item.teacher.links_codepen
+                      item.teacher?.links_codepen
                     }" class="p-1" target="_blank">
                       <i class="fa-brands fa-github"></i
                     ></a>
                   </li>
                   <li class="me-1">
                     <a href="${
-                      item.teacher.links_github
+                      item.teacher?.links_github
                     }" class="p-1" target="_blank">
                       <i class="fa-brands fa-linkedin-in"></i
                     ></a>
                   </li>
                   <li>
                     <a href="${
-                      item.teacher.links_linkedin
+                      item.teacher?.links_linkedin
                     }" class="p-1" target="_blank">
                       <i class="fa-brands fa-codepen"></i
                     ></a>
@@ -153,7 +154,7 @@ function renderCourses() {
                     href="#"
                     class="d-flex align-items-center mb-1 mb-sm-2 mb-md-4"
                   >
-                    <img src="../assets/images/star.svg" alt="star" />
+                    <img src="../assets/images/star.svg" alt="star" loading="lazy"/>
                     <span class="fw-bold fs-sm fs-md-7 ms-1">${item.rate}</span>
                     ・
                     <span class="fs-sm fs-md-7 me-2">${
@@ -235,6 +236,7 @@ function renderCourses() {
                         class="me-2 d-none d-md-block w-40px h-40px"
                         src="${item.comment?.user?.avatar}"
                         alt="student"
+                        loading="lazy"
                       />
                       <div class="d-flex flex-md-column fs-sm fs-md-7">
                         <p class="fw-bold me-2 me-md-0">${
@@ -327,46 +329,47 @@ function renderCourses() {
                   <div class="mb-2 w-100px h-100px">
                     <img
                       class="img-fluid rounded-circle p-1 p-md-0"
-                      src="${item.teacher.avatar}"
+                      src="${item.teacher?.avatar}"
                       alt="teacher"
+                      loading="lazy"
                     />
                   </div>
                   <!-- 姓名、職稱 -->
                   <h3 class="fs-7 fs-md-6 text-secondary2 fw-bold mb-1">
-                    ${item.teacher.name}
+                    ${item.teacher?.name}
                   </h3>
                 </a>
                 <p class="fs-sm fs-md-7 text-secondary2 text-center mb-2">
-                  ${item.teacher.title}
+                  ${item.teacher?.title}
                 </p>
                 <ul class="text-center text-gray-300 fs-sm fs-md-7 mb-2">
                   <li class="d-flex align-items-center">
-                    <img src="../assets/images/star.svg" alt="star" />
-                    <span class="fw-bold me-1"> ${item.teacher.rate} </span>
+                    <img src="../assets/images/star.svg" alt="star" loading="lazy"/>
+                    <span class="fw-bold me-1"> ${item.teacher?.rate} </span>
                     講師評等
                   </li>
-                  <li>${item.teacher.total_students} 位學生</li>
-                  <li>${item.teacher.total_courses} 門課程</li>
+                  <li>${item.teacher?.total_students} 位學生</li>
+                  <li>${item.teacher?.total_courses} 門課程</li>
                 </ul>
                 <!-- link -->
                 <ul class="d-flex justify-content-center mb-0">
                   <li class="me-1">
                     <a href="${
-                      item.teacher.links_codepen
+                      item.teacher?.links_codepen
                     }" class="p-1" target="_blank">
                       <i class="fa-brands fa-github"></i
                     ></a>
                   </li>
                   <li class="me-1">
                     <a href="${
-                      item.teacher.links_github
+                      item.teacher?.links_github
                     }" class="p-1" target="_blank">
                       <i class="fa-brands fa-linkedin-in"></i
                     ></a>
                   </li>
                   <li>
                     <a href="${
-                      item.teacher.links_linkedin
+                      item.teacher?.links_linkedin
                     }" class="p-1" target="_blank">
                       <i class="fa-brands fa-codepen"></i
                     ></a>
@@ -414,7 +417,7 @@ function renderCourses() {
                     href="#"
                     class="d-flex align-items-center mb-1 mb-sm-2 mb-md-4"
                   >
-                    <img src="../assets/images/star.svg" alt="star" />
+                    <img src="../assets/images/star.svg" alt="star" loading="lazy"/>
                     <span class="fw-bold fs-sm fs-md-7 ms-1">${item.rate}</span>
                     ・
                     <span class="fs-sm fs-md-7 me-2">${
@@ -496,6 +499,7 @@ function renderCourses() {
                         class="me-2 d-none d-md-block w-40px h-40px"
                         src="${item.comment?.user?.avatar}"
                         alt="student"
+                        loading="lazy"
                       />
                       <div class="d-flex flex-md-column fs-sm fs-md-7">
                         <p class="fw-bold me-2 me-md-0">${
