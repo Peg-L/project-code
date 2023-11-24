@@ -92,7 +92,7 @@
     color: $primary !important;
   }
 
-  &.disabled {
+  &:disabled {
     color: $gray-300;
     border: 1px solid $gray-300;
     pointer-events: auto;

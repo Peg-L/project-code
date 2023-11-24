@@ -78,11 +78,17 @@
               />
               <label for="floatingTel">手機</label>
               <button
-                class="btn btn-outline-secondary2 rounded-1 position-absolute top-50 end-0 translate-middle-y me-2 disabled"
+                class="btn btn-outline-secondary2 rounded-1 position-absolute top-50 end-0 translate-middle-y me-2"
                 type="button"
                 id="sendCode"
+                disabled
               >
-                發送驗證碼
+                <span
+                  class="spinner-border spinner-border-sm me-1 d-none"
+                  aria-hidden="true"
+                  id="sendCodeSpinner"
+                ></span>
+                <span role="status">發送驗證碼</span>
               </button>
             </div>
             <div class="form-floating mb-2 mb-md-4 d-none" id="inputVerifyCode">

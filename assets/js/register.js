@@ -7,8 +7,6 @@ import {
 } from "./firebase";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 
-const _url = "https://project-code-json-k0ti.onrender.com";
-
 // 替 input 框加上警示或通過的樣式
 function addIsInvalid(inputItem) {
   // console.log("失敗");
@@ -105,10 +103,10 @@ function phoneValidate() {
     phoneState = true;
 
     // 手機格式正確，才可點擊發送驗證碼
-    sendCode.classList.remove("disabled");
+    sendCode.removeAttribute("disabled");
   } else {
     addIsInvalid(phoneInput);
-    sendCode.classList.add("disabled");
+    sendCode.setAttribute("disabled", "disabled");
   }
 
   enableRegisterBtn();
@@ -276,15 +274,19 @@ function getPhoneNumberFromUserInput() {
 
 let phoneNumber;
 const sendCode = document.querySelector("#sendCode");
+const sendCodeSpinner = document.querySelector("#sendCodeSpinner");
 const appVerifier = window.recaptchaVerifier;
 
 sendCode.addEventListener("click", function () {
+  sendCodeSpinner.classList.remove("d-none");
+
   phoneNumber = "+886" + getPhoneNumberFromUserInput();
 
   signInWithPhoneNumber(auth, phoneNumber, appVerifier)
     .then((confirmationResult) => {
       console.log("手機驗證");
       inputVerifyCode.classList.remove("d-none");
+      sendCodeSpinner.classList.add("d-none");
 
       window.confirmationResult = confirmationResult;
       console.log(window.confirmationResult);
@@ -326,7 +328,7 @@ verifyBtn.addEventListener("click", function () {
       phoneVerifiedState = true;
       inputVerifyCode.classList.add("d-none");
       sendCode.textContent = "驗證成功";
-      sendCode.classList.add("disabled");
+      sendCode.setAttribute("disabled", "disabled");
 
       enableRegisterBtn();
     })
