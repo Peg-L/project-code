@@ -13,7 +13,7 @@ if (indexSearchInput) {
 /*** 取得 banner 搜尋框的值 ***/
 const courseSearchInput = document.querySelector(".course-search-input");
 
-let courseSearchInputValue;
+let courseSearchInputValue = "";
 
 courseSearchInput.addEventListener("input", function () {
   courseSearchInputValue = courseSearchInput.value;
@@ -25,6 +25,7 @@ courseSearchButton.addEventListener("click", function () {
   data.q = courseSearchInputValue;
   getCoursesData(data);
   courseSearchInput.value = "";
+  courseSearchInputValue = "";
 });
 
 courseSearchInput.addEventListener("keyup", function (e) {
