@@ -28,24 +28,49 @@ function init() {
       updateData();
     });
 }
-function updateData() {
-  const daysDate = document.querySelectorAll(".calendar-time");
-  daysDate.forEach((item) => {
-    let dataNum = item.getAttribute("data-num"); //拿日期
-    let matchData = findMatchData(dataNum); //日期比對
-    let str = "";
-    if (matchData) {
-      //取得當前預約課程
-      str += `<li><a href=''
+
+function updateData() { //課表生成
+    const daysDate = document.querySelectorAll('.calendar-time');
+    daysDate.forEach(item => {
+        let dataNum = item.getAttribute('data-num'); //拿日期
+        let matchData = findMatchData(dataNum); //日期比對
+        let str = '';
+        if (matchData.length !== 0) { //取得當前預約課程
+            for(let i=0;i<matchData.length;i++){
+                str += `<li><a href=''
                 data-bs-toggle="modal"
                 data-bs-target="#calendarModal"
-                data-course-id="${matchData.courseId}"
+                data-course-id="${matchData[i].courseId}"
                 id="viewCourse">
-                ${matchData.time}
-                </a></li>`;
+                ${matchData[i].time}
+                </a></li>`
+            }
+            }
+            item.innerHTML = str;
+        }
+    );
+    const viewCourse = document.querySelectorAll('#viewCourse');    
+    viewCourse.forEach(item => {
+        let courseId = item.getAttribute('data-course-id');//取得課程ID
+        item.addEventListener('click',() => {
+            getCourse(courseId);
+        })
+    })
+    function findMatchData(dataNum) {
+        return data.attendTime.filter(item => item.date === dataNum);
     }
-    item.innerHTML = str;
-  });
+    function getCourse(id) {
+        let courseData = [];
+        axios.get(`${_url}/courses/${id.toString()}?_expand=teacher`)
+        .then(function(response){
+            courseData = response.data; //取得課程資訊
+            courseTeacherName.textContent = courseData.teacher.name;
+            courseName.textContent = courseData.name;
+            dateTime.innerHTML = ``;
+        })
+
+    }
+  };
   const viewCourse = document.querySelectorAll("#viewCourse");
   viewCourse.forEach((item) => {
     let courseId = item.getAttribute("data-course-id"); //取得課程ID
@@ -68,17 +93,22 @@ function updateData() {
         dateTime.innerHTML = ``;
       });
   }
-}
-
+left.addEventListener('click',()=>{
+    updateData();
+})
+right.addEventListener('click',()=>{
+    updateData();
+})
 // 預設載入初始化環境
 init();
 
-left.addEventListener("click", () => {
-  updateData();
-});
-right.addEventListener("click", () => {
-  updateData();
-});
+
+
+
+
+
+
+
 
 // // 新增待辦功能
 // save.addEventListener('click',function(e){

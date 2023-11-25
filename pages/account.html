@@ -332,8 +332,8 @@
           <div class="row">
             <div class="col-12 col-md-4 offset-md-1">
               <h3 class="mb-4">教師可預約時間</h3>
-              <ul class="d-flex flex-column g-0">
-                <li class="book-card active">
+              <ul class="d-flex flex-column g-0" id="appointment_list">
+                <!-- <li class="book-card active">
                   <img src="../assets/images/Rectangle 7.png" alt="" />
                   <div class="d-flex flex-column">
                     <h4>從零開始成為切版大師</h4>
@@ -344,7 +344,7 @@
                     </div>
                   </div>
                 </li>
-                <li class="book-card">
+                <li class="book-card ">
                   <img src="../assets/images/Rectangle 8.png" alt="" />
                   <div class="d-flex flex-column">
                     <h4>一起打造你的前端職涯</h4>
@@ -365,7 +365,7 @@
                       <p>請求中: 1</p>
                     </div>
                   </div>
-                </li>
+                </li> -->
               </ul>
             </div>
             <div class="col-12 col-md-5 offset-md-1">
@@ -425,27 +425,27 @@
                   <!-- 凌晨 -->
                   <li class="d-flex flex-column align-items-center">
                     <h4 class="mb-4">上午</h4>
-                    <ul>
-                      <li class="btn-time active">08:00</li>
+                    <ul id="morning">
+                      <!-- <li class="btn-time active">08:00</li>
                       <li class="btn-time">9:00</li>
-                      <li class="btn-time">10:00</li>
+                      <li class="btn-time">10:00</li> -->
                     </ul>
                   </li>
                   <!-- 早上 -->
                   <li class="d-flex flex-column align-items-center">
                     <h4 class="mb-4">下午</h4>
-                    <ul>
-                      <li class="btn-time">13:00</li>
-                      <li class="btn-time">14:00</li>
+                    <ul id="afternoon">
+                      <!-- <li class="btn-time">13:00</li>
+                      <li class="btn-time">14:00</li> -->
                     </ul>
                   </li>
                   <!-- 晚上 -->
                   <li class="d-flex flex-column align-items-center">
                     <h4 class="mb-4">晚上</h4>
-                    <ul>
-                      <li class="btn-time disable">22:00</li>
+                    <ul id="evening">
+                      <!-- <li class="btn-time disable">22:00</li>
                       <li class="btn-time disable">22:30</li>
-                      <li class="btn-time">23:00</li>
+                      <li class="btn-time">23:00</li> -->
                     </ul>
                   </li>
                 </ul>
@@ -493,11 +493,11 @@
                   <div class="modal-body">
                     <p class="mb-2 fw-bold">選擇您想要學習的課程內容</p>
                     <ul class="d-flex flex-wrap gap-2">
-                      <li class="btn-time">入門教學</li>
-                      <li class="btn-time">技術討論</li>
-                      <li class="btn-time">專題討論</li>
-                      <li class="btn-time">程式檢視</li>
-                      <li class="btn-time">學習建議</li>
+                      <li class="btn-time2">入門教學</li>
+                      <li class="btn-time2">技術討論</li>
+                      <li class="btn-time2">專題討論</li>
+                      <li class="btn-time2">程式檢視</li>
+                      <li class="btn-time2">學習建議</li>
                     </ul>
                   </div>
                   <div
@@ -524,6 +524,7 @@
                       class="btn btn-secondary2"
                       data-bs-toggle="modal"
                       data-bs-target="#bookedModal2"
+                      id="attendSubmit"
                     >
                       確認
                     </button>
@@ -577,364 +578,7 @@
           role="tabpanel"
           aria-labelledby="nav-course-management-tab"
         >
-          <ul class="d-flex flex-column gap-4 align-items-center">
-            <li class="course-card shadow w-100 w-xl-75">
-              <!--  老師區塊 -->
-              <div class="d-flex flex-grow-1 p-3 p-sm-4 align-items-center">
-                <div class="course-card-header me-4">
-                  <a href="#" class="text-center">
-                    <!-- 圖 -->
-                    <div class="mb-2">
-                      <img
-                        class="avatar"
-                        src="../assets/images/Rectangle 7.png"
-                        alt="teacher"
-                      />
-                    </div>
-                    <!-- 姓名、職稱 -->
-                    <h3 class="fs-7 fs-md-6 text-secondary2 mb-1">麥克先生</h3>
-                    <p>未預約: 3</p>
-                    <p>請求中: 1</p>
-                  </a>
-                  <!-- link -->
-                </div>
-                <!--  課程區塊 -->
-                <div class="flex-grow-1 px-4 px-lg-8">
-                  <!-- 課程名稱 -->
-                  <div
-                    class="d-flex flex-md-row flex-column justify-content-md-between mb-md-0 mb-2"
-                  >
-                    <h2 class="fs-6 fs-sm-5 fs-md-4 line-ellipsis mb-2">
-                      從零開始成為切版大師
-                    </h2>
-                    <p>剩餘0堂</p>
-                  </div>
-                  <!-- 課程介紹 -->
-                  <div
-                    class="d-flex flex-md-row flex-column justify-content-md-between mb-2 mb-md-4"
-                  >
-                    <p class="fs-sm fs-sm-7 fs-md-6 text-justify mb-md-0 mb-4">
-                      50分鐘 x <span class="text-primary">1堂</span>
-                    </p>
-                    <div class="d-flex flex-md-row flex-column gap-2">
-                      <div class="w-150px">
-                        <input
-                          class="form-control border-light cursor-pointer jq-appointmentDate"
-                          type="text"
-                          name="accountDate1-1"
-                          placeholder="日期"
-                          value="2023/09/20"
-                          autocomplete="off"
-                          id="date"
-                          disabled
-                          required
-                        />
-                      </div>
-
-                      <div class="w-150px">
-                        <select
-                          class="form-select border border-light"
-                          id="time"
-                          disabled
-                        >
-                          <option selected>AM 09:00</option>
-                          <option value="AM 10:00">AM 10:00</option>
-                          <option value="PM 03:00">PM 03:00</option>
-                          <option value="PM 08:00">PM 08:00</option>
-                        </select>
-                      </div>
-                      <button
-                        type="button"
-                        class="btn text-primary"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#save0"
-                        aria-expanded="false"
-                        aria-controls="save0"
-                        id="change"
-                      >
-                        修改
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!--  按鈕區塊 -->
-              <div
-                class="course-card-footer d-flex flex-lg-row justify-content-center gap-2 gap-sm-6 p-4 bg-secondary"
-                id="btnBlock"
-              >
-                <!-- 購買按鈕 -->
-                <button
-                  type="button"
-                  class="btn btn-secondary2 w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
-                  disabled
-                >
-                  等待確認中
-                </button>
-                <a
-                  href="#"
-                  type="button"
-                  class="btn btn-white w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
-                >
-                  取消預約
-                </a>
-              </div>
-              <div
-                class="collapse course-card-footer p-4 bg-secondary"
-                id="save0"
-              >
-                <a
-                  href="#"
-                  type="button"
-                  class="btn btn-white w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#save0"
-                  aria-expanded="false"
-                  aria-controls="save0"
-                  id="saveBtn"
-                >
-                  儲存
-                </a>
-              </div>
-            </li>
-            <li class="course-card shadow w-100 w-xl-75">
-              <!--  老師區塊 -->
-              <div class="d-flex flex-grow-1 p-3 p-sm-4 align-items-center">
-                <div class="course-card-header me-4">
-                  <a href="#" class="text-center">
-                    <!-- 圖 -->
-                    <div class="mb-2">
-                      <img
-                        class="avatar"
-                        src="../assets/images/Rectangle 8.png"
-                        alt="teacher"
-                      />
-                    </div>
-                    <!-- 姓名、職稱 -->
-                    <h3 class="fs-7 fs-md-6 text-secondary2 mb-1">榮哥</h3>
-                    <p>未預約: 4</p>
-                    <p>請求中: 1</p>
-                  </a>
-                  <!-- link -->
-                </div>
-                <!--  課程區塊 -->
-                <div class="flex-grow-1 px-4 px-lg-8">
-                  <!-- 課程名稱 -->
-                  <div
-                    class="d-flex flex-md-row flex-column justify-content-md-between mb-md-0 mb-2"
-                  >
-                    <h2 class="fs-6 fs-sm-5 fs-md-4 line-ellipsis mb-2">
-                      一起打造你的前端職涯
-                    </h2>
-                    <p>剩餘0堂</p>
-                  </div>
-                  <!-- 課程介紹 -->
-                  <div
-                    class="d-flex flex-md-row flex-column justify-content-md-between mb-2 mb-md-4"
-                  >
-                    <p class="fs-sm fs-sm-7 fs-md-6 text-justify mb-md-0 mb-4">
-                      50分鐘 x <span class="text-primary">1堂</span>
-                    </p>
-                    <div class="d-flex flex-md-row flex-column gap-2">
-                      <div class="w-150px">
-                        <input
-                          class="form-control border-light cursor-pointer jq-appointmentDate"
-                          type="text"
-                          name="accountDate2-1"
-                          placeholder="日期"
-                          value="2023/09/20"
-                          autocomplete="off"
-                          id="date"
-                          disabled
-                          required
-                        />
-                      </div>
-                      <div class="w-150px">
-                        <select
-                          class="form-select border border-light"
-                          id="time"
-                          disabled
-                        >
-                          <option selected>AM 09:00</option>
-                          <option value="AM 10:00">AM 10:00</option>
-                          <option value="PM 03:00">PM 03:00</option>
-                          <option value="PM 08:00">PM 08:00</option>
-                        </select>
-                      </div>
-                      <button
-                        type="button"
-                        class="btn text-primary"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#save1"
-                        aria-expanded="false"
-                        aria-controls="save1"
-                        id="change"
-                      >
-                        修改
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!--  按鈕區塊 -->
-              <div
-                class="course-card-footer d-flex flex-lg-row justify-content-center gap-2 gap-sm-6 p-4 bg-secondary"
-                id="btnBlock"
-              >
-                <!-- 購買按鈕 -->
-                <a
-                  href="https://zoom.us/"
-                  target="_blank"
-                  type="button"
-                  class="btn btn-secondary2 w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
-                >
-                  即將上課
-                </a>
-                <a
-                  href="#"
-                  type="button"
-                  class="btn btn-white w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
-                >
-                  取消預約
-                </a>
-              </div>
-              <div
-                class="collapse course-card-footer p-4 bg-secondary"
-                id="save1"
-              >
-                <a
-                  href="#"
-                  type="button"
-                  class="btn btn-white w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#save1"
-                  aria-expanded="false"
-                  aria-controls="save1"
-                  id="saveBtn"
-                >
-                  儲存
-                </a>
-              </div>
-            </li>
-            <li class="course-card shadow w-100 w-xl-75">
-              <!--  老師區塊 -->
-              <div class="d-flex flex-grow-1 p-3 p-sm-4 align-items-center">
-                <div class="course-card-header me-4">
-                  <a href="#" class="text-center">
-                    <!-- 圖 -->
-                    <div class="mb-2">
-                      <img
-                        class="avatar"
-                        src="../assets/images/Rectangle 9.png"
-                        alt="teacher"
-                      />
-                    </div>
-                    <!-- 姓名、職稱 -->
-                    <h3 class="fs-7 fs-md-6 text-secondary2 mb-1">艾莉絲</h3>
-                    <p>未預約: 1</p>
-                    <p>請求中: 1</p>
-                  </a>
-                  <!-- link -->
-                </div>
-                <!--  課程區塊 -->
-                <div class="flex-grow-1 px-4 px-lg-8">
-                  <!-- 課程名稱 -->
-                  <div
-                    class="d-flex flex-md-row flex-column justify-content-md-between mb-md-0 mb-2"
-                  >
-                    <h2 class="fs-6 fs-sm-5 fs-md-4 line-ellipsis mb-2">
-                      Python 全攻略
-                    </h2>
-                    <p>剩餘0堂</p>
-                  </div>
-                  <!-- 課程介紹 -->
-                  <div
-                    class="d-flex flex-md-row flex-column justify-content-md-between mb-2 mb-md-4"
-                  >
-                    <p class="fs-sm fs-sm-7 fs-md-6 text-justify mb-md-0 mb-4">
-                      50分鐘 x <span class="text-primary">1堂</span>
-                    </p>
-                    <div class="d-flex flex-md-row flex-column gap-2">
-                      <div class="w-150px">
-                        <input
-                          class="form-control border-light cursor-pointer jq-appointmentDate"
-                          type="text"
-                          name="accountDate3-1"
-                          placeholder="日期"
-                          value="2023/09/20"
-                          autocomplete="off"
-                          id="date"
-                          disabled
-                          required
-                        />
-                      </div>
-                      <div class="w-150px">
-                        <select
-                          class="form-select border border-light"
-                          id="time"
-                          disabled
-                        >
-                          <option selected>AM 09:00</option>
-                          <option value="AM 10:00">AM 10:00</option>
-                          <option value="PM 03:00">PM 03:00</option>
-                          <option value="PM 08:00">PM 08:00</option>
-                        </select>
-                      </div>
-                      <button
-                        type="button"
-                        class="btn text-primary"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#save2"
-                        aria-expanded="false"
-                        aria-controls="save2"
-                        id="change"
-                      >
-                        修改
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!--  按鈕區塊 -->
-              <div
-                class="course-card-footer d-flex flex-lg-row justify-content-center gap-2 gap-sm-6 p-4 bg-secondary"
-                id="btnBlock"
-              >
-                <!-- 購買按鈕 -->
-                <a
-                  href="https://zoom.us/"
-                  target="_blank"
-                  type="button"
-                  class="btn btn-secondary2 w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
-                >
-                  即將上課
-                </a>
-                <a
-                  href="#"
-                  type="button"
-                  class="btn btn-white w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
-                >
-                  取消預約
-                </a>
-              </div>
-              <div
-                class="collapse course-card-footer p-4 bg-secondary"
-                id="save2"
-              >
-                <a
-                  href="#"
-                  type="button"
-                  class="btn btn-white w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#save2"
-                  aria-expanded="false"
-                  aria-controls="save2"
-                  id="saveBtn"
-                >
-                  儲存
-                </a>
-              </div>
-            </li>
+          <ul class="d-flex flex-column gap-4 align-items-center" id="course-management">
           </ul>
           <div class="border p-4">
             <ul class="d-flex p-0 flex-column gap-2">
@@ -951,6 +595,90 @@
               <li>3. 如欲取消課程或更改時間，須在開課前 12 小時完成動作。</li>
             </ul>
           </div>
+        </div>
+        <div
+            class="modal fade"
+            id="checkModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content rounded-0">
+                <div class="modal-header border-0">
+                  <h5 class="modal-title" id="exampleModalLabel">更改時段</h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <div
+                    class="d-flex justify-content-between flex-md-row flex-column align-items-center mb-8 gap-2"
+                  >
+                    <img
+                      class="w-75px"
+                      src="../assets/images/teacher/mike.png"
+                      alt="麥克先生"
+                      id="checkImg"
+                    />
+                    <div
+                      class="d-flex flex-column justify-content-between align-items-center"
+                    >
+                      <p>教師</p>
+                      <p class="fw-bold" id="checkTeacherName"></p>
+                    </div>
+                    <div
+                      class="d-flex flex-column justify-content-between align-items-center"
+                    >
+                      <p>課程項目</p>
+                      <p class="fw-bold" id="checkName"></p>
+                    </div>
+                    <div
+                      class="d-flex flex-column justify-content-between align-items-center"
+                    >
+                      <p>上課時間</p>
+                      <p class="fw-bold" id="checkDate"></p>
+                    </div>
+                    <button
+                      type="button"
+                      class="btn btn-secondary2 text-white"
+                      data-bs-toggle="offcanvas"
+                      data-bs-target="#message-mike"
+                      aria-controls="message-mike"
+                      data-bs-dismiss="modal"
+                    >
+                      聯絡老師
+                    </button>
+                  </div>
+                  <div
+                    class="d-flex pb-4 mb-4 border-bottom border-light border-2"
+                  >
+                    <p>課程狀態: <span class="text-secondary2">已預約</span></p>
+                  </div>
+                </div>
+                <div class="modal-footer border-0">
+                  <a
+                    href="#"
+                    target="_blank"
+                    type="button"
+                    class="btn btn-secondary2"
+                    id="checkSubmit"
+                  >
+                    確認
+                  </a>
+                  <button
+                    type="button"
+                    class="btn btn-gray-200"
+                    data-bs-dismiss="modal"
+                  >
+                    取消
+                  </button>
+                </div>
+              </div>
+            </div>
         </div>
         <!-- 我的評價 (My Reviews)-->
         <div class="tab-pane fade container" id="nav-course-review">
@@ -1330,7 +1058,6 @@
             </ul>
           </nav>
         </div>
-
         <!-- 帳號設定 (Account Settings)-->
         <div
           class="tab-pane fade"
@@ -1559,7 +1286,6 @@
                     修改
                   </button>
                 </div>
-
                 <!-- 個人資料Modal -->
                 <div
                   class="modal fade"
@@ -1754,144 +1480,261 @@
     </div>
     <%- include('./layout/footer'); -%>
 
-    <!-- backtotop -->
+    <!-- 21backtotop -->
     <%- include("./layout/backtotop.ejs") -%>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script type="module" src="../main.js"></script>
-    <!-- jquery-ui -->
+    <script type="module" src="../main.js"></script>+
+    <!-- 套件 -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/i18n/jquery-ui-i18n.min.js"></script>
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
-    <!--  -->
-
+    <!-- 課程相關 -->
     <script src="../assets/js/openTime.js"></script>
     <script src="../assets/js/account_date.js"></script>
-    <!-- calender -->
+    <script src="../assets/js/calendar.js"></script>
+    <script src="../assets/js/appointment.js"></script>
+    <script src="../assets/js/time_course.js"></script>
+    <script src="../assets/js/course_management.js"></script>
+    <script src="../assets/js/patch_data.js"></script>
     <script>
-      const daysTag = document.querySelector(".days");
-      const currentDate = document.querySelector(".current-date");
-      const prevNextIcon = document.querySelectorAll(".icons span");
+      $(function () {
+                  $(".jq-birthday").datepicker({
+                    changeMonth: true,
+                    changeYear: true,
+                  });
+                });
+    </script>
+    <!-- my follow 我的關注 -->
+    <script>
+      const apiUrl = "http://localhost:3000";
+      let pageId = 1;
 
-      let currYear = new Date().getFullYear();
-      let currMonth = new Date().getMonth();
+      document.addEventListener("DOMContentLoaded", async function () {
+        // 取得追蹤列表 + 課程資料
+        async function fetchData(pageId) {
+          try {
+            // 取得追蹤列表
+            let usersResponse = await axios.get(`${apiUrl}/users`);
+            let followArray = usersResponse.data[userId - 1].followList;
+            console.log("追蹤列表", followArray);
 
-      const months = [
-        "一月",
-        "二月",
-        "三月",
-        "四月",
-        "五月",
-        "六月",
-        "七月",
-        "八月",
-        "九月",
-        "十月",
-        "十一月",
-        "十二月",
-      ];
+            // 取得課程資料
+            let apiString = `${apiUrl}/courses?_expand=teacher&_page=${pageId}&_limit=6`;
+            followArray.forEach((item) => {
+              console.log(item);
+              apiString += `&id=${item}`;
+            });
+            console.log(apiString);
 
-      const renderCalendar = () => {
-        const date = new Date(currYear, currMonth, 1);
-        let firstDayofMonth = date.getDay();
-        let lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate();
-        let lastDayofMonth = new Date(
-          currYear,
-          currMonth,
-          lastDateofMonth
-        ).getDay();
-        let lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate();
+            let coursesResponse = await axios.get(`${apiString}`);
+            let courseData = coursesResponse.data;
+            console.log("追蹤的課程資料", courseData);
 
-        let liTag = "";
+            const followList = document.querySelector("#followList");
+            courseCards = "";
 
-        for (let i = firstDayofMonth; i > 0; i--) {
-          liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
+            courseData.forEach((courseItem) => {
+              courseCards += `<div class="col"><div class="card teacher-card swiper-slide h-100">
+    <div class="card-body d-flex justify-content-between">
+      <div>
+        <h5 class="card-title teacher-card-title truncate-lines-2">${courseItem.name}
+        </h5>
+        <p class="teacher-card-name">${courseItem.teacher.name}</p>
+        <ul class="teacher-card-object">
+          <li class="teacher-card-evaluate">${courseItem.rate}</li>
+          <li class="teacher-card-hours">50分鐘</li>
+        </ul>
+        <p class="teacher-card-price">NT$<span>${courseItem.price}</span></p>
+      </div>
+      <div class="teacher-card-img">
+        <img
+          src="${courseItem.teacher.avatar}"
+          alt="老師"
+          class="w-100px w-sm-120px"
+        />
+      </div>
+    </div>
+    <div>
+      <p class="teacher-card-text">
+      ${courseItem.info}
+      </p>
+      <a
+        href="./cart.html"
+        type="button"
+        class="btn btn-secondary2 w-100 mb-3"
+      >
+        立即上課
+      </a>
+      <a
+        href="./course_intro.html"
+        type="button"
+        class="btn teacher-card-btn"
+        >查看介紹</a
+      >
+    </div>
+  </div></div>`;
+            });
+
+            followList.innerHTML = courseCards;
+            setButtonListeners(pageId);
+            // 總頁數
+            let followTotalPages = Math.ceil(followArray.length / 6);
+            console.log("followTotalPages", followTotalPages);
+
+            return {
+              followTotalPages,
+              followArray,
+              courseData,
+            };
+          } catch (error) {
+            console.log("錯誤", error);
+          }
         }
+        // fetchData();
 
-        for (let i = 1; i <= lastDateofMonth; i++) {
-          let isToday =
-            i === new Date().getDate() &&
-            currMonth === new Date().getMonth() &&
-            currYear === new Date().getFullYear()
-              ? "active"
-              : "";
-          liTag += `<li class="${isToday}">${i}</li>`;
-        }
+        let { followArray, followTotalPages, courseData } = await fetchData(
+          pageId
+        );
 
-        for (let i = lastDayofMonth; i < 6; i++) {
-          liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`;
-        }
+        // 渲染分頁按鈕
+        function renderFollowPagination(followArray, pageId, followTotalPages) {
+          console.log("pageId 3", pageId);
 
-        currentDate.innerText = `${months[currMonth]} ${currYear}`;
-        daysTag.innerHTML = liTag;
-      };
+          // render 分頁按鈕
+          // 取得 ul
+          const followPaginationWrapper =
+            document.querySelector(".followPagination");
 
-      renderCalendar();
+          let followPagination = "";
 
-      prevNextIcon.forEach((icon) => {
-        icon.addEventListener("click", () => {
-          currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
+          // 上一頁按鈕
+          const prevPage = `<li class="page-item prevButton ${
+            pageId == 1 ? "disabled" : ""
+          }"><a class="page-link" href="#" aria-label="Previous"><i class="fa-solid fa-angle-left"></i></a></li>`;
+          followPagination += prevPage;
 
-          if (currMonth < 0 || currMonth > 11) {
-            currYear = icon.id === "prev" ? currYear - 1 : currYear + 1;
-            currMonth = currMonth < 0 ? 11 : 0;
+          // 頁數按鈕
+          for (let i = 1; i <= followTotalPages; i++) {
+            let pageItem = `<li class="page-item ${
+              i === pageId ? "active" : ""
+            } pageButton">
+                        <a class="page-link" href="#">
+                          ${i}
+                        </a>
+                      </li>`;
+            followPagination += pageItem;
           }
 
-          renderCalendar();
-        });
-      });
-    </script>
+          // 下一頁按鈕
+          const nextPage = `<li class="page-item nextButton ${
+            pageId == followTotalPages ? "disabled" : ""
+          }">
+                    <a class="page-link" href="#" aria-label="Next">
+                      <i class="fa-solid fa-angle-right"></i>
+                    </a>
+                  </li>`;
+          followPagination += nextPage;
 
-    <!-- account -->
-    <script type="module" src="../assets/js/account.js"></script>
-    <script src="../assets/js/account_coupon.js"></script>
-    <!-- <script>
-      //抓取按鈕
-      const changeBtn = document.querySelectorAll("#change");
-      const saveBtn = document.querySelectorAll("#saveBtn");
-      //抓取區塊
-      const btnBlock = document.querySelectorAll("#btnBlock");
-      //抓取時間欄
-      const date = document.querySelectorAll("#date");
-      const time = document.querySelectorAll("#time");
+          console.log(followPagination);
 
-      console.log(changeBtn);
+          followPaginationWrapper.innerHTML = followPagination;
+          switchPage(followTotalPages, pageId, courseData);
+        }
+        renderFollowPagination(followArray, pageId, followTotalPages);
 
-      //click觸發修改事件
-      changeBtn.forEach((item, index) => {
-        item.addEventListener("click", (e) => {
-          date[index].toggleAttribute("disabled");
-          time[index].toggleAttribute("disabled");
-          btnBlock[index].classList.toggle("hidden");
-          item.toggleAttribute("disabled");
-        });
-      });
-      saveBtn.forEach((item, index) => {
-        item.addEventListener("click", (e) => {
-          date[index].toggleAttribute("disabled");
-          time[index].toggleAttribute("disabled");
-          btnBlock[index].classList.toggle("hidden");
-          changeBtn[index].toggleAttribute("disabled");
-        });
-      });
-    </script> -->
+        // 切換頁數
+        function switchPage(followTotalPages, pageId, courseData) {
+          const prevButton = document.querySelector(".prevButton");
+          const nextButton = document.querySelector(".nextButton");
+          let pageButtons = document.querySelectorAll(".pageButton");
 
-    <!-- datepicker -->
-    <script>
-      $.datepicker.setDefaults($.datepicker.regional["zh-TW"]);
-      $(function () {
-        $(".jq-appointmentDate").datepicker({
-          minDate: 0,
-          maxDate: "+1M +10D",
-          formatDate: "yy-mm-dd",
-        });
-      });
-      $(function () {
-        $(".jq-birthday").datepicker({
-          changeMonth: true,
-          changeYear: true,
-        });
+          prevButton.addEventListener("click", function () {
+            if (pageId > 1) {
+              pageId--;
+
+              renderFollowPagination(followArray, pageId, followTotalPages);
+
+              fetchData(pageId);
+            }
+          });
+
+          nextButton.addEventListener("click", function () {
+            if (followTotalPages > pageId) {
+              pageId++;
+              console.log("pageId 頁數切換", pageId);
+
+              renderFollowPagination(followArray, pageId, followTotalPages);
+
+              fetchData(pageId);
+            }
+          });
+
+          pageButtons.forEach((pageButton) => {
+            pageButton.addEventListener("click", () => {
+              pageId = Number(pageButton.innerText);
+
+              fetchData(pageId);
+              renderFollowPagination(followArray, pageId, followTotalPages);
+            });
+          });
+        }
+        switchPage(followTotalPages, pageId, courseData);
+
+        // 監聽 follow 愛心按鈕
+        function setButtonListeners(pageId) {
+          followButtons = document.querySelectorAll(".follow-btn");
+          followButtons.forEach((followBtn) => {
+            followBtn.addEventListener("click", (e) => {
+              cancelFollow(e, pageId);
+            });
+          });
+        }
+
+        // 取消追蹤
+        async function cancelFollow(e, pageId) {
+          let buttonId = e.target.dataset.buttonid;
+          console.log("buttonId", buttonId);
+
+          let editfollowList = followArray.filter((item) => item != buttonId);
+          // console.log("pageId 44", pageId);
+
+          Swal.fire({
+            title: "確定要取消追蹤?",
+            showDenyButton: true,
+            confirmButtonColor: "#115BC9",
+            confirmButtonText: "取消追蹤",
+            denyButtonText: `我再想想`,
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire("已取消追蹤", "", "success");
+
+              axios
+                .patch(`${apiUrl}/users/${userId}`, {
+                  followList: editfollowList,
+                })
+                .then(async (res) => {
+                  console.log(res);
+                  // 重新取得數據
+                  const newData = await fetchData(pageId);
+
+                  followArray = newData.followArray;
+
+                  if (newData.followTotalPages == 1) {
+                    pageId = 1;
+                    fetchData(pageId);
+                  } else {
+                    fetchData(pageId);
+                  }
+
+                  renderFollowPagination(
+                    followArray,
+                    pageId,
+                    newData.followTotalPages
+                  );
+                });
+            }
+          });
+        }
       });
     </script>
   </body>

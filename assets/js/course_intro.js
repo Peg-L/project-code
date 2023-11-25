@@ -52,16 +52,20 @@ function updateData() {
         let dataNum = item.getAttribute('data-num');
         let matchData = findMatchData(dataNum);
         let str = '';
-        if (matchData) {
-            matchData.time.forEach(date => {
-                str += `<li><a href=''>${date}</a></li>`
+        if (matchData.length !== 0) {
+            matchData[0].time.forEach(date => {
+                if(!matchData[0].useTime.find(item => date === item)){
+                    str += `<li><a href=''>${date}</a></li>`
+                }else{
+                    str += `<li><a class="text-primary" href=''>${date}</a></li>`
+                }
             })
             item.innerHTML = str;
         }
     });
 
     function findMatchData(dataNum) {
-        return data.teacher.openTime.find(item => item.date === dataNum);
+        return data.teacher.openTime.filter(item => item.date === dataNum);
     }
 }
 

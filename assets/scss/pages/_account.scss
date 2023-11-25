@@ -184,6 +184,25 @@
   background: $gray-200;
   cursor: not-allowed;
 }
+.btn-time2 {
+  padding: 8px 32px;
+  border: 1px solid $gray-200;
+  margin-bottom: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    background: $secondary;
+  }
+}
+.btn-time2.active {
+  background: $secondary;
+}
+.btn-time2.disable {
+  background: $gray-200;
+  cursor: not-allowed;
+}
 .show {
   display: block !important;
 }
