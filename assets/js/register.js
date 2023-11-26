@@ -1,8 +1,11 @@
 import axios from "axios";
-// import "./firebase";
-import firebase from "./firebase";
-
-const _url = "https://project-code-json-k0ti.onrender.com";
+import {
+  signInWithPopup,
+  provider,
+  auth,
+  GoogleAuthProvider,
+} from "./firebase";
+import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 
 // 替 input 框加上警示或通過的樣式
 function addIsInvalid(inputItem) {
@@ -51,6 +54,7 @@ let nameState = false;
 let phoneState = false;
 let passwordState = false;
 let passwordCheckState = false;
+let phoneVerifiedState = false;
 
 // 驗證格式
 // - 驗證 email 格式
@@ -97,8 +101,12 @@ function phoneValidate() {
   if (phoneRegex.test(phoneValue)) {
     addIsValid(phoneInput);
     phoneState = true;
+
+    // 手機格式正確，才可點擊發送驗證碼
+    sendCode.removeAttribute("disabled");
   } else {
     addIsInvalid(phoneInput);
+    sendCode.setAttribute("disabled", "disabled");
   }
 
   enableRegisterBtn();
@@ -137,13 +145,50 @@ function passwordCheckValidate() {
 }
 
 // 註冊
-function handleRegister(userInfo) {
+// email 遮罩
+function maskEmail(email) {
+  let matches = email.match(/^(.)(.*)(.)@(.+)$/);
+
+  // 保留最前面 1個字符和最後 2個字符，其他用 6 個星號代替
+  let maskedPrefix = matches[1] + "******" + matches[3];
+
+  let maskedEmail = maskedPrefix + "@" + matches[4];
+
+  return maskedEmail;
+}
+
+function handleRegister(userInfo, isGoogle) {
   axios
     .post(`${_url}/users`, userInfo)
     .then((res) => {
       console.log(res.data);
 
+      let userEmail = maskEmail(userInfo.email);
+      const emailVerified = document.querySelector("#emailVerified");
+      emailVerified.innerHTML = isGoogle
+        ? ""
+        : `<p class="mb-4">
+我們已寄送一封帳號驗證信至您的信箱
+<br />
+${userEmail}
+</p>
+<p class="mb-10">
+請點擊驗證信的「<strong>連結</strong>」來開通帳號
+</p>
+<div
+class="text-center mb-2 d-flex justify-content-between align-items-center"
+>
+<span>沒收到信嗎?</span>
+<button
+  type="button"
+  class="btn btn-outline-secondary2 rounded-1 py-2"
+>
+  重新寄送驗證信
+</button>
+</div>`;
+
       const registerSuccessModal = new bootstrap.Modal("#registerSuccess");
+
       registerSuccessModal.show();
     })
     .catch((err) => {
@@ -168,7 +213,8 @@ function enableRegisterBtn() {
     nameState &&
     phoneState &&
     passwordState &&
-    passwordCheckState
+    passwordCheckState &&
+    phoneVerifiedState
   ) {
     registerBtn.removeAttribute("disabled");
   } else {
@@ -180,7 +226,7 @@ enableRegisterBtn();
 registerBtn.addEventListener("click", function (event) {
   event.preventDefault();
 
-  handleRegister(userInfo);
+  handleRegister(userInfo, false);
 });
 
 // google 註冊
@@ -189,12 +235,10 @@ if (googleRegister) {
   googleRegister.addEventListener("click", function () {
     // console.log("點擊註冊按鈕");
 
-    firebase
-      .signInWithPopup(firebase.auth, firebase.provider)
+    signInWithPopup(auth, provider)
       .then((result) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential =
-          firebase.GoogleAuthProvider.credentialFromResult(result);
+        const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
         // The signed-in user info.
         const user = result.user;
@@ -205,10 +249,90 @@ if (googleRegister) {
         userInfo.user_phone = user.phoneNumber;
         userInfo.user_avatar = user.photoURL;
 
-        handleRegister(userInfo);
+        handleRegister(userInfo, true);
       })
       .catch((error) => {
         console.error(error);
       });
   });
 }
+
+// 驗證手機
+const inputVerifyCode = document.querySelector("#inputVerifyCode");
+
+window.recaptchaVerifier = new RecaptchaVerifier(auth, "verify-button", {
+  size: "invisible",
+  callback: (res) => {
+    console.log("res：", res);
+  },
+});
+
+function getPhoneNumberFromUserInput() {
+  const phoneValue = document.querySelector("#floatingTel").value;
+  return phoneValue;
+}
+
+let phoneNumber;
+const sendCode = document.querySelector("#sendCode");
+const sendCodeSpinner = document.querySelector("#sendCodeSpinner");
+const appVerifier = window.recaptchaVerifier;
+
+sendCode.addEventListener("click", function () {
+  sendCodeSpinner.classList.remove("d-none");
+
+  phoneNumber = "+886" + getPhoneNumberFromUserInput();
+
+  signInWithPhoneNumber(auth, phoneNumber, appVerifier)
+    .then((confirmationResult) => {
+      console.log("手機驗證");
+      inputVerifyCode.classList.remove("d-none");
+      sendCodeSpinner.classList.add("d-none");
+
+      window.confirmationResult = confirmationResult;
+      console.log(window.confirmationResult);
+    })
+    .catch((error) => {
+      if (
+        error ==
+        "FirebaseError: Firebase: Invalid format. (auth/invalid-phone-number)."
+      ) {
+        alert("手機格式不符，請重新輸入");
+      }
+
+      grecaptcha.reset(window.recaptchaWidgetId);
+
+      // Or, if you haven't stored the widget ID:
+      window.recaptchaVerifier.render().then(function (widgetId) {
+        grecaptcha.reset(widgetId);
+      });
+    });
+});
+
+function getCodeFromUserInput() {
+  const codeValue = document.querySelector("#floatingVerifyCode").value;
+  return codeValue;
+}
+
+let code;
+const verifyBtn = document.querySelector("#verify-button");
+
+verifyBtn.addEventListener("click", function () {
+  code = getCodeFromUserInput();
+
+  confirmationResult
+    .confirm(code)
+    .then((result) => {
+      const user = result.user;
+      console.log("user", user);
+
+      phoneVerifiedState = true;
+      inputVerifyCode.classList.add("d-none");
+      sendCode.textContent = "驗證成功";
+      sendCode.setAttribute("disabled", "disabled");
+
+      enableRegisterBtn();
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
