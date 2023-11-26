@@ -32,7 +32,6 @@ saveBtn.forEach((item, index) => {
 // ----------------
 // 我的關注
 const apiUrl = "http://localhost:3000";
-userId = 2;
 let pageId = 1;
 
 document.addEventListener("DOMContentLoaded", async function () {
