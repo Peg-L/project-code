@@ -17,9 +17,4 @@ const provider = new GoogleAuthProvider();
 
 const auth = getAuth(app);
 
-export default {
-  signInWithPopup,
-  provider,
-  auth,
-  GoogleAuthProvider,
-};
+export { signInWithPopup, provider, auth, GoogleAuthProvider };
