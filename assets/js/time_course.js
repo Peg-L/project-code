@@ -14,9 +14,6 @@ attendSubmit.addEventListener('click',() => {
     //console.log(clickCourse,clickDay,userId,clickTime);
     postAttendCourse(clickCourse,clickDay,userId,clickTime);
 });
-
-
-
 //顯示教師當日開放時間
 function viewTimeCourse(){
     if (clickCourse!==""&&clickDay!==""&&userId!==""){
@@ -24,18 +21,38 @@ function viewTimeCourse(){
         axios.get(`${_url}/courses/${clickCourse}?_expand=teacher`)
         .then(function(response){
                 const filteredTimeCourse = response.data.teacher.openTime.filter(item=>item.date === clickDay);
+                console.log(filteredTimeCourse);
                 if(filteredTimeCourse.length>0){
                     const viewTime = filteredTimeCourse[0].time;
+                    function isUseDate(time){
+                        if(filteredTimeCourse[0].useTime.find(el => el === time) === undefined){
+                            return false;    
+                        }else{
+                            return true;
+                        }
+                    }
                     viewTime.forEach(item => {
                         switch (classifyTime(item)) {
                             case '上午':
-                                morning_str += `<li class="btn-time" data-time=${item}>${item}</li>`;
+                                if(isUseDate(item)){
+                                    morning_str += `<li class="btn-time  disable" data-time=${item}>${item}</li>`
+                                }else{
+                                    morning_str += `<li class="btn-time" data-time=${item}>${item}</li>`
+                                }
                                 break;
                             case '中午':
-                                afternoon_str+=`<li class="btn-time" data-time=${item}>${item}</li>`;
+                                if(isUseDate(item)){
+                                    afternoon_str += `<li class="btn-time disable" data-time=${item}>${item}</li>`
+                                }else{
+                                    afternoon_str += `<li class="btn-time" data-time=${item}>${item}</li>`
+                                }
                                 break;
                             case '晚上':
-                                evening_str+=`<li class="btn-time" data-time=${item}>${item}</li>`;
+                                if(isUseDate(item)){
+                                    evening_str += `<li class="btn-time disable" data-time=${item} >${item}</li>`
+                                }else{
+                                    evening_str += `<li class="btn-time" data-time=${item}>${item}</li>`
+                                }
                                 break;
                         }
                     });
