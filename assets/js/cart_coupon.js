@@ -19,7 +19,6 @@ const useCouponBtn = document.querySelector(".js-useCouponBtn");
 const originalCoursePrice = document.querySelectorAll(".OriginalCoursePrice");
 
 let myCoupons = [];
-let couponDiscount;
 let usedCouponData = [];
 let chooseCoupon = {};
 function couponInit() {
