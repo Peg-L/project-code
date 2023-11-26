@@ -53,20 +53,54 @@ paymentInfoBtns.forEach((btn) => {
 
 // 下次再買 功能
 function tempDeleteOrder(listItem) {
-  const courseId = listItem.dataset.course;
-  listItem.remove(); // 刪除 listItem
-  CalculateToTalSum(); // 計算價格
-  tempDeleteCart(courseId); // 刪除購物車資料，但不刪除 db.json 資料
-  delUsedCoupon(courseId); // 刪除使用的優惠券資料
+  Swal.fire({
+    title: "確定下次再買嗎?",
+    showDenyButton: true,
+    confirmButtonColor: "#115BC9",
+    confirmButtonText: "確定下次再買",
+    denyButtonText: `我再想想`,
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "已刪除課程",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      const courseId = listItem.dataset.course;
+      listItem.remove(); // 刪除 listItem
+      CalculateToTalSum(); // 計算價格
+      tempDeleteCart(courseId); // 刪除購物車資料，但不刪除 db.json 資料
+      delUsedCoupon(courseId); // 刪除使用的優惠券資料
+    }
+  });
 }
 
 // 刪除購物車內的課程
 function deleteOrder(listItem) {
-  const courseId = listItem.dataset.course;
-  listItem.remove(); // 刪除 listItem
-  CalculateToTalSum(); // 計算價格
-  deleteCart(courseId); // 刪除購物車資料
-  delUsedCoupon(courseId); // 刪除使用的優惠券資料
+  Swal.fire({
+    title: "確定要刪除嗎?",
+    showDenyButton: true,
+    confirmButtonColor: "#115BC9",
+    confirmButtonText: "確定刪除",
+    denyButtonText: `我再想想`,
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "已刪除課程",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      const courseId = listItem.dataset.course;
+      listItem.remove(); // 刪除 listItem
+      CalculateToTalSum(); // 計算價格
+      deleteCart(courseId); // 刪除購物車資料
+      delUsedCoupon(courseId); // 刪除使用的優惠券資料
+    }
+  });
 }
 
 // $(function () {
