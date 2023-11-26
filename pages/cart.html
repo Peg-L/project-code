@@ -17,7 +17,7 @@
     <!--========================
     =        step bar          =
     =========================-->
-    <div class="container-sm mt-18 mt-md-22 mb-10 mb-md-15">
+    <div class="container-sm mt-18 mt-md-22 mb-10 mb-md-15 js-cartContainer">
       <div class="col-md-10 col-lg-7 mx-auto">
         <ul
           class="stepbar list-unstyled d-flex justify-content-between mt-2 mt-md-7 mb-8 mb-md-13"
@@ -40,9 +40,9 @@
             =========================-->
         <h2 class="fs-4 fs-md-3 mb-6 mb-md-8">訂單資訊</h2>
         <!-- card -->
-        <ul class="list-unstyle d-flex flex-column gap-5 mb-3">
+        <ul class="list-unstyle d-flex flex-column gap-5 mb-3 js-cartGroup">
           <!-- card1 -->
-          <li>
+          <!-- <li>
             <div
               class="shadow rounded-2 p-4 pb-md-4 pt-md-6 px-md-8 mb-1 mb-md-2"
             >
@@ -50,7 +50,6 @@
                 從零開始成為切版大師
               </h3>
               <div class="row justify-content-between">
-                <!-- 老師區塊 -->
                 <div
                   class="col-4 col-sm-3 d-flex flex-column align-items-start"
                 >
@@ -69,7 +68,6 @@
                 </div>
 
                 <div class="col-8 col-sm-9 order">
-                  <!-- 堂數 -->
                   <form class="mb-3 mb-md-5" action="#">
                     <div
                       class="d-flex flex-wrap align-items-center column-gap-8 row-gap-3"
@@ -117,7 +115,6 @@
                     </div>
                   </form>
 
-                  <!-- 價格 -->
                   <div class="d-flex justify-content-between mb-3">
                     <div class="d-flex gap-3">
                       <h4 class="fs-5 fs-md-4 fw-bold text-deleted">
@@ -141,9 +138,9 @@
               </div>
             </div>
             <div class="d-flex align-items-center js-usedCoupon"></div>
-          </li>
+          </li> -->
           <!-- card2 -->
-          <li>
+          <!-- <li>
             <div
               class="shadow rounded-2 p-4 pb-md-4 pt-md-6 px-md-8 mb-1 mb-md-2"
             >
@@ -151,7 +148,6 @@
                 Python 全攻略
               </h3>
               <div class="row justify-content-between">
-                <!-- 老師區塊 -->
                 <div
                   class="col-4 col-sm-3 d-flex flex-column align-items-start"
                 >
@@ -170,7 +166,6 @@
                 </div>
 
                 <div class="col-8 col-sm-9 order">
-                  <!-- 堂數 -->
                   <form class="mb-3 mb-md-5" action="#">
                     <div
                       class="d-flex flex-wrap align-items-center column-gap-8 row-gap-3"
@@ -218,7 +213,6 @@
                     </div>
                   </form>
 
-                  <!-- 價格 -->
                   <div class="d-flex justify-content-between mb-3">
                     <div class="d-flex gap-3">
                       <h4 class="fs-5 fs-md-4 fw-bold">
@@ -239,15 +233,15 @@
               </div>
             </div>
             <div class="d-flex align-items-center js-usedCoupon"></div>
-            <!-- <div class="d-flex align-items-center">
+            <div class="d-flex align-items-center">
               <button type="button" class="btn btn-close fs-sm"></button>
               <p>
                 已套用 <span class="fw-bold text-secondary2">體驗價</span
                 ><i class="fa-solid fa-arrow-right mx-1"></i
                 ><span class="fw-bold text-primary">折價 1,200 元</span>
               </p>
-            </div> -->
-          </li>
+            </div> 
+          </li> -->
         </ul>
 
         <!--========================
@@ -264,6 +258,7 @@
               <div class="input-group">
                 <input
                   class="form-control border-primary"
+                  type="search"
                   list="couponOption"
                   id="coupon"
                   placeholder="請輸入優惠券"
@@ -494,7 +489,7 @@
                 <!-- Button trigger modal -->
                 <button
                   type="button"
-                  class="btn btn-secondary2 rounded-2 align-self-end"
+                  class="btn btn-secondary2 rounded-2 align-self-end js-paymentInfoBtn"
                   data-bs-toggle="modal"
                   data-bs-target="#storeInfo"
                 >
@@ -530,13 +525,14 @@
                             店內之多媒體機台上列印繳費)
                           </li>
                           <li>
-                            繳款金額：<span class="text-secondary2"
-                              >NT$ 1,359</span
+                            繳款金額：<span
+                              class="text-secondary2 js-paymentPrice"
+                              >NT$ 0</span
                             >
                           </li>
                           <li>
-                            繳費期限：<span class="text-secondary2"
-                              >2023-02-07 23:59:59</span
+                            繳費期限：<span class="text-secondary2 js-dueDate"
+                              >2023-01-01 23:59:59</span
                             >
                           </li>
                         </ul>
@@ -592,7 +588,7 @@
                 <!-- Button trigger modal -->
                 <button
                   type="button"
-                  class="btn btn-secondary2 rounded-2 align-self-end"
+                  class="btn btn-secondary2 rounded-2 align-self-end js-paymentInfoBtn"
                   data-bs-toggle="modal"
                   data-bs-target="#atmInfo"
                 >
@@ -628,12 +624,13 @@
                             >
                           </li>
                           <li>
-                            轉帳金額：<span class="text-secondary2"
-                              >NT$ 1,359</span
+                            轉帳金額：<span
+                              class="text-secondary2 js-paymentPrice"
+                              >NT$ 0</span
                             >
                           </li>
                           <li>
-                            繳費期限：<span class="text-secondary2"
+                            繳費期限：<span class="text-secondary2 js-dueDate"
                               >2023-02-07 23:59:59</span
                             >
                           </li>
