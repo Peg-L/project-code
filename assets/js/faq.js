@@ -6,9 +6,10 @@ faqSearchButton.addEventListener("click", searchQuestion);
 function searchQuestion() {
   const faqSearchInput = document.querySelector(".faq-search-input");
   let faqSearchValue = faqSearchInput.value;
+  console.log(faqSearchValue);
 
   if (faqSearchValue) {
-    faqSearchInput.value = "";
+    console.log("faqSearchValue 有值");
 
     const faqTeams = document.querySelectorAll(".faq-team");
     faqTeams.forEach((faqTeam) => {
@@ -23,6 +24,13 @@ function searchQuestion() {
           faqTeam.classList.remove("d-none");
         }
       }
+    });
+  } else {
+    console.log("faqSearchValue 沒有值");
+    const faqTeams = document.querySelectorAll(".faq-team");
+
+    faqTeams.forEach((faqTeam) => {
+      faqTeam.classList.remove("d-none");
     });
   }
 }
