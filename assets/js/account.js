@@ -9,7 +9,7 @@ const btnBlock = document.querySelectorAll("#btnBlock");
 const date = document.querySelectorAll("#date");
 const time = document.querySelectorAll("#time");
 
-console.log(changeBtn);
+// console.log(changeBtn);
 
 //click觸發修改事件
 changeBtn.forEach((item, index) => {
@@ -33,33 +33,37 @@ saveBtn.forEach((item, index) => {
 // 我的關注
 const apiUrl = "http://localhost:3000";
 let pageId = 1;
+let followArray = [];
+let followTotalPages = 0;
+let courseData = [];
 
 document.addEventListener("DOMContentLoaded", async function () {
   // 取得追蹤列表 + 課程資料
-  async function fetchData(pageId) {
+  async function fetchData() {
     try {
       // 取得追蹤列表
-      let usersResponse = await axios.get(`${apiUrl}/users`);
-      let followArray = usersResponse.data[userId - 1].followList;
-      console.log("追蹤列表", followArray);
+      let usersResponse = await axios.get(`${apiUrl}/users/${userId}`);
+      followArray = usersResponse.data.followList;
+      // 計算總頁數
+      followTotalPages = Math.ceil(followArray.length / 6);
 
-      // 取得課程資料
-      let apiString = `${apiUrl}/courses?_expand=teacher&_page=${pageId}&_limit=6`;
-      followArray.forEach((item) => {
-        // console.log(item);
-        apiString += `&id=${item}`;
-      });
-      console.log(apiString);
-
-      let coursesResponse = await axios.get(`${apiString}`);
-      let courseData = coursesResponse.data;
-      console.log("追蹤的課程資料", courseData);
-
-      const followList = document.querySelector("#followList");
       let courseCards = "";
+      if (followArray.length != 0) {
+        // 取得課程資料
+        let apiString = `${apiUrl}/courses?_expand=teacher&_page=${pageId}&_limit=6`;
+        followArray.forEach((item) => {
+          apiString += `&id=${item}`;
+        });
 
-      courseData.forEach((courseItem) => {
-        courseCards += `<div class="col"><div class="card teacher-card swiper-slide h-100"><button
+        let coursesResponse = await axios.get(`${apiString}`);
+        courseData = coursesResponse.data;
+        console.log("追蹤的課程資料", courseData);
+
+        // 關注列表容器
+        const followList = document.querySelector("#followList");
+
+        courseData.forEach((courseItem) => {
+          courseCards += `<div class="col"><div class="card teacher-card swiper-slide h-100"><button
         type="button"
         class="btn p-3 text-center align-self-start position-absolute top-0 end-0 following"
       >
@@ -103,126 +107,116 @@ document.addEventListener("DOMContentLoaded", async function () {
       >
     </div>
   </div></div>`;
-      });
+        });
+      } else {
+        courseCards = `<p class="text-center fs-5">目前沒有追蹤任何課程</p>`;
+      }
 
       followList.innerHTML = courseCards;
-      setButtonListeners(pageId);
+      renderFollowPagination();
+      switchPage();
 
-      // 總頁數
-      let followTotalPages = Math.ceil(followArray.length / 6);
-      console.log("followTotalPages", followTotalPages);
-
-      return {
-        followTotalPages,
-        followArray,
-        courseData,
-      };
+      setButtonListeners();
     } catch (error) {
       console.log("錯誤", error);
     }
   }
-  // fetchData();
-
-  let { followArray, followTotalPages, courseData } = await fetchData(pageId);
+  fetchData();
 
   // 渲染分頁按鈕
-  function renderFollowPagination(followArray, pageId, followTotalPages) {
-    console.log("pageId 3", pageId);
-
+  function renderFollowPagination() {
     // render 分頁按鈕
     // 取得 ul
     const followPaginationWrapper = document.querySelector(".followPagination");
 
     let followPagination = "";
+    if (followTotalPages) {
+      // 上一頁按鈕
+      const prevPage = `<li class="page-item prevButton ${
+        pageId == 1 ? "disabled" : ""
+      }"><a class="page-link" href="#" aria-label="Previous"><i class="fa-solid fa-angle-left"></i></a></li>`;
+      followPagination += prevPage;
 
-    // 上一頁按鈕
-    const prevPage = `<li class="page-item prevButton ${
-      pageId == 1 ? "disabled" : ""
-    }"><a class="page-link" href="#" aria-label="Previous"><i class="fa-solid fa-angle-left"></i></a></li>`;
-    followPagination += prevPage;
+      // 頁數按鈕
+      for (let i = 1; i <= followTotalPages; i++) {
+        let pageItem = `<li class="page-item ${
+          i === pageId ? "active" : ""
+        } pageButton">
+                          <a class="page-link" href="#">
+                            ${i}
+                          </a>
+                        </li>`;
+        followPagination += pageItem;
+      }
 
-    // 頁數按鈕
-    for (let i = 1; i <= followTotalPages; i++) {
-      let pageItem = `<li class="page-item ${
-        i === pageId ? "active" : ""
-      } pageButton">
-                        <a class="page-link" href="#">
-                          ${i}
-                        </a>
-                      </li>`;
-      followPagination += pageItem;
+      // 下一頁按鈕
+      const nextPage = `<li class="page-item nextButton ${
+        pageId == followTotalPages ? "disabled" : ""
+      }">
+                      <a class="page-link" href="#" aria-label="Next">
+                        <i class="fa-solid fa-angle-right"></i>
+                      </a>
+                    </li>`;
+      followPagination += nextPage;
     }
-
-    // 下一頁按鈕
-    const nextPage = `<li class="page-item nextButton ${
-      pageId == followTotalPages ? "disabled" : ""
-    }">
-                    <a class="page-link" href="#" aria-label="Next">
-                      <i class="fa-solid fa-angle-right"></i>
-                    </a>
-                  </li>`;
-    followPagination += nextPage;
-
-    // console.log(followPagination);
-
     followPaginationWrapper.innerHTML = followPagination;
-    switchPage(followTotalPages, pageId, courseData);
   }
-  renderFollowPagination(followArray, pageId, followTotalPages);
 
   // 切換頁數
-  function switchPage(followTotalPages, pageId, courseData) {
+  function switchPage() {
     const prevButton = document.querySelector(".prevButton");
     const nextButton = document.querySelector(".nextButton");
     let pageButtons = document.querySelectorAll(".pageButton");
 
     prevButton.addEventListener("click", function () {
+      // console.log("點擊上一頁成功");
+
       if (pageId > 1) {
         pageId--;
+        // console.log("點擊上一頁後的 pageId", pageId);
 
-        renderFollowPagination(followArray, pageId, followTotalPages);
-
-        fetchData(pageId);
+        renderFollowPagination();
+        fetchData();
       }
     });
 
     nextButton.addEventListener("click", function () {
+      // console.log("點擊下一頁成功");
       if (followTotalPages > pageId) {
         pageId++;
-        console.log("pageId 頁數切換", pageId);
+        // console.log("點擊下一頁後的 pageId", pageId);
 
-        renderFollowPagination(followArray, pageId, followTotalPages);
-
-        fetchData(pageId);
+        renderFollowPagination();
+        fetchData();
       }
     });
 
     pageButtons.forEach((pageButton) => {
       pageButton.addEventListener("click", () => {
         pageId = Number(pageButton.innerText);
+        // console.log("點擊數字切換頁面後的", pageId);
 
-        fetchData(pageId);
-        renderFollowPagination(followArray, pageId, followTotalPages);
+        fetchData();
+        renderFollowPagination();
       });
     });
   }
-  switchPage(followTotalPages, pageId, courseData);
 
   // 監聽 follow 愛心按鈕
-  function setButtonListeners(pageId) {
+  function setButtonListeners() {
     let followButtons = document.querySelectorAll(".following");
 
     followButtons.forEach((followBtn) => {
       followBtn.addEventListener("click", (e) => {
-        console.log("點擊到了");
+        // console.log("點擊到了");
 
-        unFollow(e, pageId);
+        unFollow(e);
       });
     });
   }
 
   // 取消追蹤
-  async function unFollow(e, pageId) {
+  async function unFollow(e) {
     let buttonId = e.target.dataset.buttonid;
 
     let editfollowList = followArray.filter((item) => item != buttonId);
@@ -248,24 +242,16 @@ document.addEventListener("DOMContentLoaded", async function () {
             followList: editfollowList,
           })
           .then(async (res) => {
-            console.log(res);
             // 重新取得數據
-            const newData = await fetchData(pageId);
+            await fetchData();
+            console.log(courseData);
 
-            followArray = newData.followArray;
-
-            if (newData.followTotalPages == 1) {
-              pageId = 1;
-              fetchData(pageId);
-            } else {
-              fetchData(pageId);
+            if (courseData.length == 0) {
+              pageId--;
+              fetchData();
             }
 
-            renderFollowPagination(
-              followArray,
-              pageId,
-              newData.followTotalPages
-            );
+            renderFollowPagination();
           });
       }
     });
