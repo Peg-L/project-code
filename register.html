@@ -20,11 +20,12 @@
 
     <!-- 聊天室編輯器 -->
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
-    <script type="module" crossorigin src="/project-code/assets/register-06ee3af9.js"></script>
-    <link rel="modulepreload" crossorigin href="/project-code/assets/backtotop-e6f982ee.js">
+    <script type="module" crossorigin src="/project-code/assets/register-4073a904.js"></script>
+    <link rel="modulepreload" crossorigin href="/project-code/assets/backtotop-d0934485.js">
     <link rel="modulepreload" crossorigin href="/project-code/assets/axios-21b846bc.js">
-    <link rel="modulepreload" crossorigin href="/project-code/assets/firebase-f51430d4.js">
-    <link rel="stylesheet" href="/project-code/assets/backtotop-ccddde46.css">
+    <link rel="modulepreload" crossorigin href="/project-code/assets/firebase-9e2df465.js">
+    <link rel="modulepreload" crossorigin href="/project-code/assets/config-28f3114d.js">
+    <link rel="stylesheet" href="/project-code/assets/backtotop-3f2dd250.css">
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-white fixed-top">
@@ -457,6 +458,37 @@
                 required
               />
               <label for="floatingTel">手機</label>
+              <button
+                class="btn btn-outline-secondary2 rounded-1 position-absolute top-50 end-0 translate-middle-y me-2"
+                type="button"
+                id="sendCode"
+                disabled
+              >
+                <span
+                  class="spinner-border spinner-border-sm me-1 d-none"
+                  aria-hidden="true"
+                  id="sendCodeSpinner"
+                ></span>
+                <span role="status">發送驗證碼</span>
+              </button>
+            </div>
+            <div class="form-floating mb-2 mb-md-4 d-none" id="inputVerifyCode">
+              <input
+                type="tel"
+                class="form-control rounded-1"
+                id="floatingVerifyCode"
+                pattern="^09\d{8}$"
+                placeholder="Tel"
+                required
+              />
+              <label for="floatingVerifyCode">請填寫手機驗證碼</label>
+              <button
+                class="btn btn-outline-secondary2 rounded-1 position-absolute top-50 end-0 translate-middle-y me-2"
+                type="button"
+                id="verify-button"
+              >
+                立即驗證
+              </button>
             </div>
             <div class="form-floating d-flex align-items-center">
               <input
@@ -519,6 +551,7 @@
       tabindex="-1"
       aria-labelledby="registerSuccess"
       aria-hidden="true"
+      data-bs-backdrop="static"
     >
       <div class="modal-dialog modal-dialog-centered">
         <div
@@ -538,11 +571,13 @@
                   感謝您的註冊！<br />非常歡迎您成為我們的會員
                 </h1>
               </div>
-              <div class="modal-body p-0">
-                <p class="text-center mb-4">
-                  我們已寄送一封帳號驗證信至您的信箱<br />exa***e1@gmail.com
+              <div id="emailVerified" class="modal-body p-0">
+                <!-- <p class="mb-4">
+                  我們已寄送一封帳號驗證信至您的信箱
+                  <br />
+                  ex***e1@gmail.com
                 </p>
-                <p class="text-center mb-10">
+                <p class="mb-10">
                   請點擊驗證信的「<strong>連結</strong>」來開通帳號
                 </p>
                 <div
@@ -555,15 +590,15 @@
                   >
                     重新寄送驗證信
                   </button>
-                </div>
-                <a
-                  href="./login.html"
-                  type="button"
-                  class="btn btn-secondary2 rounded-1 w-100 py-3"
-                >
-                  前往登入頁面
-                </a>
+                </div> -->
               </div>
+              <a
+                href="./login.html"
+                type="button"
+                class="btn btn-secondary2 rounded-1 w-100 py-3"
+              >
+                前往登入頁面
+              </a>
             </div>
           </div>
         </div>
@@ -858,6 +893,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
     
     
   </body>
