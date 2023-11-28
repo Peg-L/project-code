@@ -179,6 +179,9 @@ function updateTeacherList(){
                         href="#"
                         type="button"
                         class="btn btn-white w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
+                        data-course="${item.uid}"
+                        data-courseId="${item.id}"
+                        id="deleteCourse"
                       >
                         取消預約
                       </a>
@@ -326,6 +329,75 @@ function updateTeacherList(){
                           })
                         })
                     })
+                })
+                //取消預約功能
+                const delete_btn = document.querySelectorAll('#deleteCourse');
+                delete_btn.forEach(btn=>{
+                  btn.addEventListener('click',e=>{
+                    e.preventDefault();
+                    const delete_courseId = e.currentTarget.getAttribute('data-course');
+                    console.log(delete_courseId);
+                    const courseId = e.currentTarget.getAttribute('data-courseId');
+                    axios.get(`${_url}/user_courses/${userId}`)
+                    .then(res=>{
+                      const oldData = [...res.data.attendTime];
+                      // console.log(oldData);
+                      let findIndex = 0;
+                      //確認是否有此資料
+                      const getCurrentData = oldData.find((item,idx) => {
+                        if(item.uid === delete_courseId){
+                          findIndex = idx;
+                          return true;
+                        }
+                        return false;
+                      })
+                      //找到此筆資料並且刪除
+                      if(getCurrentData){
+                        //刪除此資料
+                        oldData.splice(findIndex,1);
+                        //老師資料中的useTime也一併刪除
+                        axios.get(`${_url}/courses/${courseId}`)
+                        .then(res=>{
+                          //找到此課程的教師
+                          const teacherId = res.data.teacherId;
+                          //再選擇取消使用的時段
+                          const get2 = document.querySelectorAll(`.${delete_courseId}`);
+                          console.log(get2);
+                          //get2[0]日期
+                          //get2[1]時間
+                          axios.get(`${_url}/teachers/${teacherId}`)
+                          .then(res=>{
+                            const oldOpenTime = [...res.data.openTime];
+                            const findDataIdx = oldOpenTime.findIndex(time=>time.date === get2[0].value.slice(5));
+                            const newOpenTime = oldOpenTime[findDataIdx].useTime.filter(item => item !== get2[1].value);
+                            oldOpenTime[findDataIdx].useTime = newOpenTime;
+                            axios.patch(`${_url}/teachers/${teacherId}`,{
+                              opentime : [...oldOpenTime]
+                            })
+                            .then(response => {
+                              console.log('update success');
+                            })
+                            .catch(error => {
+                              console.error('Error adding post:', error);
+                            });
+                          })
+                          
+                        })
+                        axios.patch(`${_url}/user_courses/${userId}`,{
+                          attendTime : [...oldData]
+                        })
+                        .then(response => {
+                          console.log('delete success');
+                          location.reload();
+                        })
+                        .catch(error => {
+                          console.error('Error adding post:', error);
+                        });
+                        
+                      }
+                      
+                    })
+                  })
                 })
             })
             .catch(err => {
