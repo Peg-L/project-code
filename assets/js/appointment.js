@@ -138,6 +138,8 @@ function updateTeacherList(){
                                 placeholder="日期"
                                 value="2023/${item.day}"
                                 autocomplete="off"
+                                data-courseId="${item.id}"
+                                data-uid="${item.uid}"
                                 id="date"
                                 disabled
                                 required
@@ -203,15 +205,40 @@ function updateTeacherList(){
                 $.datepicker.setDefaults($.datepicker.regional["zh-TW"]);
                 $(function () {
                   $("[class*=jq-appointmentDate]").each(function(index) {
-                    $(this).attr("id", "datepicker-" + index); // 加入唯一的 id
-                    $(this).datepicker({
+                    const vm =this;
+                    $(vm).attr("id", "datepicker-" + index); // 加入唯一的 id
+                    $(vm).datepicker({
                       minDate: 0,
                       maxDate: "+1M +10D",
                       formatDate: "yy-mm-dd",
+                      showButtonPanel: true,
+                      onSelect: function(){
+                        console.log(vm.getAttribute('data-uid'),vm.getAttribute('data-courseId'));
+                        let str = '';
+                        const getSelect = document.querySelectorAll(`.${vm.getAttribute('data-uid')}`)[1];
+                        //console.log(getSelect);
+                        const selectCourse = [...objects][vm.getAttribute('data-courseId')-1];
+                        // console.log(selectCourse.teacher);
+                        // console.log(selectCourse.teacher.openTime);
+                        // console.log(vm.value.slice(5));
+                        // console.log(selectCourse.teacher.openTime.find(day=>day.date === vm.value.slice(5)));
+                        const courseDay = {...selectCourse.teacher.openTime.find(day=>day.date === vm.value.slice(5))};
+                        console.log(courseDay);
+                        if(Object.keys(courseDay).length === 0){
+                          getSelect.innerHTML = ``;
+                          return 0;
+                        }else{
+                          const filterTime = courseDay.time.filter(time=> !courseDay.useTime.includes(time));
+                        //console.log(filterTime);
+                          filterTime.forEach(item=>{
+                          str += `<option>${item}</option>`
+                        })
+                        getSelect.innerHTML = str;
+                        }
+                      },
                     });
                   });
                 });
-                
                 course_management.innerHTML = str;
                 const change_btn = document.querySelectorAll('#change');
                 // console.log(change_btn);
@@ -240,7 +267,10 @@ function updateTeacherList(){
                         btn.removeAttribute('disabled');
                         btn.textContent = '儲存';
                         //
-
+                        console.log(get2[0]);
+                        get2[0].addEventListener('input',e=>{
+                          console.log(e.currentTarget.value);
+                        })
                         //1.click儲存時，儲存現有資料。
                         //2.並且改變確認鍵上的資料。
                         btn.addEventListener('click',()=>{
