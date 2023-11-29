@@ -18,6 +18,7 @@ const language = document.querySelector('#language');
 const level = document.querySelector('#level');
 const intro = document.querySelector('#intro');
 //第三部分參數 
+const youCanGet = document.querySelector('#youCanGet');
 //第四部分參數
 
 const left = document.querySelector('#PreviousWeek');
@@ -28,6 +29,7 @@ const right = document.querySelector('#NextWeek');
 function init(){
     axios.get(`${_url}/courses/${courseId.toString()}?_expand=teacher`)
     .then(function(response){
+        let str = ``;
         data=response.data;
         //sections1(course profile)
         teacherImg.setAttribute("src",data.teacher.avatar);
@@ -40,8 +42,15 @@ function init(){
         teacher_experience.textContent = data.teacher.experience;
         language.textContent = data.teacher.lang.join("/");
         level.textContent = data.level;
-        intro.textContent = data.teacher.intro;
+        intro.innerHTML = data.teacher.intro.replace(/\r\n\r\n/g, '<br><br>');
+        console.log(data.teacher.intro);
         //section3
+        data.mainPoints.forEach(point=>{
+            str += `<li class="list-decorate ps-4 position-relative">
+            ${point}
+          </li>`;
+        })
+        youCanGet.innerHTML = str;
         //section4(calendar)
         updateData();
     })

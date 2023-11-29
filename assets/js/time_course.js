@@ -17,7 +17,6 @@ attendSubmit.addEventListener('click',() => {
 //顯示教師當日開放時間
 function viewTimeCourse(){
     if (clickCourse!==""&&clickDay!==""&&userId!==""){
-        console.log('gooooood');
         axios.get(`${_url}/courses/${clickCourse}?_expand=teacher`)
         .then(function(response){
                 const filteredTimeCourse = response.data.teacher.openTime.filter(item=>item.date === clickDay);
@@ -89,19 +88,48 @@ function postAttendCourse(clickCourse,clickDay,userId,clickTime){
         isCheck :false
     }
     axios.get(`${_url}/user_courses/${userId}`)
-  .then(response => {
+    .then(response => {
     oldAttendTime = [...response.data.attendTime];
     //console.log(oldAttendTime);
     //update data to db
-    axios.patch(`${_url}/user_courses/${userId}`,{
-        attendTime : [...oldAttendTime , data]
-    })
-    .then(response => {
-        console.log('add success');
-    })
-    .catch(error => {
-        console.error('Error adding post:', error);
-    });
+        axios.patch(`${_url}/user_courses/${userId}`,{
+            attendTime : [...oldAttendTime , data]
+        })
+        .then(response => {
+            console.log('add success');
+        })
+        .catch(error => {
+            console.error('Error adding post:', error);
+        });
+        //add to teacher's useTime
+        axios.get(`${_url}/courses/${data.courseId}`)
+        .then(response=>{
+            //取得老師資料
+            const teacherId = response.data.teacherId;
+            axios.get(`${_url}/teachers/${teacherId}`)
+            .then(response => {
+                const oldTeacherData = [...response.data.openTime];
+                const dateIdx = oldTeacherData.findIndex(item=>item.date === data.date);
+                oldTeacherData[dateIdx].useTime.push(data.time);
+                //更新老師裡的openTime
+                axios.patch(`${_url}/teachers/${teacherId}`,{
+                    openTime : [...oldTeacherData]
+                })
+                .then(response => {
+                    console.log('更新老師資料成功');
+                })
+                .catch(error => {
+                    console.error('Error adding post:', error);
+                });
+            })
+            .catch(error => {
+                console.error('Error adding post:', error);
+            });
+        })
+        .catch(error => {
+            console.error('Error adding post:', error);
+        });
+
   })
   .catch(error => {
     console.error('Error adding post:', error);

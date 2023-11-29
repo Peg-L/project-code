@@ -45,13 +45,14 @@ function updateTeacherList(){
                 });
                 appointment_list.innerHTML = str;
                 const teacher_list = document.querySelectorAll('.book-card'); //列表生成後抓取列表
+                 //偵測是否選擇
                 teacher_list.forEach(btn => {
                     btn.addEventListener('click',e=>{
                         teacher_list.forEach(btn => {
                             btn.classList.remove('active');
                         })
                         e.currentTarget.classList.add('active');
-                        clickCourse = e.currentTarget.getAttribute('data-courseId'); //偵測是否選擇
+                        clickCourse = e.currentTarget.getAttribute('data-courseId');
                         viewTimeCourse();
                     })
                 })
