@@ -6,6 +6,7 @@ import {
   GoogleAuthProvider,
 } from "./firebase";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
+import { _url } from "./config";
 
 // 替 input 框加上警示或通過的樣式
 function addIsInvalid(inputItem) {

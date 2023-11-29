@@ -40,10 +40,9 @@ ClassicEditor.create(document.querySelector("#editor"), {
     console.log(error);
   });
 
-
 // 登出
 navbarLogoutBtns.forEach(function (navbarLogoutBtn) {
-  navbarLogoutBtn.addEventListener("click", function (){
-    localStorage.setItem("isLogin", "0");
-  })
+  navbarLogoutBtn.addEventListener("click", function () {
+    localStorage.clear();
+  });
 });

@@ -578,8 +578,10 @@
           role="tabpanel"
           aria-labelledby="nav-course-management-tab"
         >
-          <ul class="d-flex flex-column gap-4 align-items-center" id="course-management">
-          </ul>
+          <ul
+            class="d-flex flex-column gap-4 align-items-center"
+            id="course-management"
+          ></ul>
           <div class="border p-4">
             <ul class="d-flex p-0 flex-column gap-2">
               <li>注意事項</li>
@@ -597,88 +599,88 @@
           </div>
         </div>
         <div
-            class="modal fade"
-            id="checkModal"
-            tabindex="-1"
-            aria-labelledby="exampleModalLabel"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog modal-lg">
-              <div class="modal-content rounded-0">
-                <div class="modal-header border-0">
-                  <h5 class="modal-title" id="exampleModalLabel">更改時段</h5>
-                  <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-                </div>
-                <div class="modal-body">
+          class="modal fade"
+          id="checkModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content rounded-0">
+              <div class="modal-header border-0">
+                <h5 class="modal-title" id="exampleModalLabel">更改時段</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <div
+                  class="d-flex justify-content-between flex-md-row flex-column align-items-center mb-8 gap-2"
+                >
+                  <img
+                    class="w-75px"
+                    src="../assets/images/teacher/mike.png"
+                    alt="麥克先生"
+                    id="checkImg"
+                  />
                   <div
-                    class="d-flex justify-content-between flex-md-row flex-column align-items-center mb-8 gap-2"
+                    class="d-flex flex-column justify-content-between align-items-center"
                   >
-                    <img
-                      class="w-75px"
-                      src="../assets/images/teacher/mike.png"
-                      alt="麥克先生"
-                      id="checkImg"
-                    />
-                    <div
-                      class="d-flex flex-column justify-content-between align-items-center"
-                    >
-                      <p>教師</p>
-                      <p class="fw-bold" id="checkTeacherName"></p>
-                    </div>
-                    <div
-                      class="d-flex flex-column justify-content-between align-items-center"
-                    >
-                      <p>課程項目</p>
-                      <p class="fw-bold" id="checkName"></p>
-                    </div>
-                    <div
-                      class="d-flex flex-column justify-content-between align-items-center"
-                    >
-                      <p>上課時間</p>
-                      <p class="fw-bold" id="checkDate"></p>
-                    </div>
-                    <button
-                      type="button"
-                      class="btn btn-secondary2 text-white"
-                      data-bs-toggle="offcanvas"
-                      data-bs-target="#message-mike"
-                      aria-controls="message-mike"
-                      data-bs-dismiss="modal"
-                    >
-                      聯絡老師
-                    </button>
+                    <p>教師</p>
+                    <p class="fw-bold" id="checkTeacherName"></p>
                   </div>
                   <div
-                    class="d-flex pb-4 mb-4 border-bottom border-light border-2"
+                    class="d-flex flex-column justify-content-between align-items-center"
                   >
-                    <p>課程狀態: <span class="text-secondary2">已預約</span></p>
+                    <p>課程項目</p>
+                    <p class="fw-bold" id="checkName"></p>
                   </div>
-                </div>
-                <div class="modal-footer border-0">
-                  <a
-                    href="#"
-                    target="_blank"
-                    type="button"
-                    class="btn btn-secondary2"
-                    id="checkSubmit"
+                  <div
+                    class="d-flex flex-column justify-content-between align-items-center"
                   >
-                    確認
-                  </a>
+                    <p>上課時間</p>
+                    <p class="fw-bold" id="checkDate"></p>
+                  </div>
                   <button
                     type="button"
-                    class="btn btn-gray-200"
+                    class="btn btn-secondary2 text-white"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#message-mike"
+                    aria-controls="message-mike"
                     data-bs-dismiss="modal"
                   >
-                    取消
+                    聯絡老師
                   </button>
                 </div>
+                <div
+                  class="d-flex pb-4 mb-4 border-bottom border-light border-2"
+                >
+                  <p>課程狀態: <span class="text-secondary2">已預約</span></p>
+                </div>
+              </div>
+              <div class="modal-footer border-0">
+                <a
+                  href="#"
+                  target="_blank"
+                  type="button"
+                  class="btn btn-secondary2"
+                  id="checkSubmit"
+                >
+                  確認
+                </a>
+                <button
+                  type="button"
+                  class="btn btn-gray-200"
+                  data-bs-dismiss="modal"
+                >
+                  取消
+                </button>
               </div>
             </div>
+          </div>
         </div>
         <!-- 我的評價 (My Reviews)-->
         <div class="tab-pane fade container" id="nav-course-review">
@@ -1482,7 +1484,8 @@
 
     <!-- 21backtotop -->
     <%- include("./layout/backtotop.ejs") -%>
-    <script type="module" src="../main.js"></script>+
+    <script type="module" src="../main.js"></script>
+    +
     <!-- 套件 -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
@@ -1498,11 +1501,11 @@
     <script src="../assets/js/patch_data.js"></script>
     <script>
       $(function () {
-                  $(".jq-birthday").datepicker({
-                    changeMonth: true,
-                    changeYear: true,
-                  });
-                });
+        $(".jq-birthday").datepicker({
+          changeMonth: true,
+          changeYear: true,
+        });
+      });
     </script>
     <!-- my follow 我的關注 -->
     <script>
