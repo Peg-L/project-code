@@ -1,5 +1,5 @@
 const queryParams = new URLSearchParams(window.location.search);
-const courseId = queryParams.get('course_id'); //抓取課程ID
+const courseId = queryParams.get('courseId'); //抓取課程ID
 const _url = "http://localhost:3000"; // 修改處
 let data = [];
 

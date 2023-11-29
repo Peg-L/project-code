@@ -423,7 +423,10 @@
               <div class="col-md-10 offset-md-1 col-12 mt-10 mb-10">
                 <ul class="d-flex justify-content-between gap-2">
                   <!-- 凌晨 -->
-                  <li class="d-flex flex-column align-items-center">
+                  <li
+                    class="d-flex flex-column align-items-center"
+                    style="width: 106.53px"
+                  >
                     <h4 class="mb-4">上午</h4>
                     <ul id="morning">
                       <!-- <li class="btn-time active">08:00</li>
@@ -432,7 +435,10 @@
                     </ul>
                   </li>
                   <!-- 早上 -->
-                  <li class="d-flex flex-column align-items-center">
+                  <li
+                    class="d-flex flex-column align-items-center"
+                    style="width: 106.53px"
+                  >
                     <h4 class="mb-4">下午</h4>
                     <ul id="afternoon">
                       <!-- <li class="btn-time">13:00</li>
@@ -440,7 +446,10 @@
                     </ul>
                   </li>
                   <!-- 晚上 -->
-                  <li class="d-flex flex-column align-items-center">
+                  <li
+                    class="d-flex flex-column align-items-center"
+                    style="width: 106.53px"
+                  >
                     <h4 class="mb-4">晚上</h4>
                     <ul id="evening">
                       <!-- <li class="btn-time disable">22:00</li>
@@ -1491,6 +1500,7 @@
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/i18n/jquery-ui-i18n.min.js"></script>
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- 課程相關 -->
     <script src="../assets/js/openTime.js"></script>
     <script src="../assets/js/account_date.js"></script>
@@ -1507,6 +1517,8 @@
         });
       });
     </script>
+    <script type="module" src="../assets/js/account.js"></script>
+    <script src="../assets/js/account_coupon.js"></script>
     <!-- my follow 我的關注 -->
     <script>
       const apiUrl = "http://localhost:3000";
