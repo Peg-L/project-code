@@ -4,7 +4,7 @@ import {
   auth,
   GoogleAuthProvider,
 } from "./firebase";
-import { _url } from "./config";
+
 const loginButton = document.querySelector("#loginButton");
 
 let emailLoginInput = document.querySelector("#floatingEmailLogin");
@@ -43,7 +43,7 @@ function handleLogin(userInfo) {
       localStorage.setItem("isLogin", "1");
     })
     .catch((err) => {
-      console.error(err);
+      console.log(err);
 
       if (err.response.data == "Email and password are required") {
         Swal.fire({
