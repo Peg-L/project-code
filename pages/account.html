@@ -423,7 +423,10 @@
               <div class="col-md-10 offset-md-1 col-12 mt-10 mb-10">
                 <ul class="d-flex justify-content-between gap-2">
                   <!-- 凌晨 -->
-                  <li class="d-flex flex-column align-items-center" style="width: 106.53px;">
+                  <li
+                    class="d-flex flex-column align-items-center"
+                    style="width: 106.53px"
+                  >
                     <h4 class="mb-4">上午</h4>
                     <ul id="morning">
                       <!-- <li class="btn-time active">08:00</li>
@@ -432,7 +435,10 @@
                     </ul>
                   </li>
                   <!-- 早上 -->
-                  <li class="d-flex flex-column align-items-center" style="width: 106.53px;">
+                  <li
+                    class="d-flex flex-column align-items-center"
+                    style="width: 106.53px"
+                  >
                     <h4 class="mb-4">下午</h4>
                     <ul id="afternoon">
                       <!-- <li class="btn-time">13:00</li>
@@ -440,7 +446,10 @@
                     </ul>
                   </li>
                   <!-- 晚上 -->
-                  <li class="d-flex flex-column align-items-center" style="width: 106.53px;">
+                  <li
+                    class="d-flex flex-column align-items-center"
+                    style="width: 106.53px"
+                  >
                     <h4 class="mb-4">晚上</h4>
                     <ul id="evening">
                       <!-- <li class="btn-time disable">22:00</li>
@@ -578,8 +587,10 @@
           role="tabpanel"
           aria-labelledby="nav-course-management-tab"
         >
-          <ul class="d-flex flex-column gap-4 align-items-center" id="course-management">
-          </ul>
+          <ul
+            class="d-flex flex-column gap-4 align-items-center"
+            id="course-management"
+          ></ul>
           <div class="border p-4">
             <ul class="d-flex p-0 flex-column gap-2">
               <li>注意事項</li>
@@ -597,88 +608,88 @@
           </div>
         </div>
         <div
-            class="modal fade"
-            id="checkModal"
-            tabindex="-1"
-            aria-labelledby="exampleModalLabel"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog modal-lg">
-              <div class="modal-content rounded-0">
-                <div class="modal-header border-0">
-                  <h5 class="modal-title" id="exampleModalLabel">更改時段</h5>
-                  <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-                </div>
-                <div class="modal-body">
+          class="modal fade"
+          id="checkModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content rounded-0">
+              <div class="modal-header border-0">
+                <h5 class="modal-title" id="exampleModalLabel">更改時段</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <div
+                  class="d-flex justify-content-between flex-md-row flex-column align-items-center mb-8 gap-2"
+                >
+                  <img
+                    class="w-75px"
+                    src="../assets/images/teacher/mike.png"
+                    alt="麥克先生"
+                    id="checkImg"
+                  />
                   <div
-                    class="d-flex justify-content-between flex-md-row flex-column align-items-center mb-8 gap-2"
+                    class="d-flex flex-column justify-content-between align-items-center"
                   >
-                    <img
-                      class="w-75px"
-                      src="../assets/images/teacher/mike.png"
-                      alt="麥克先生"
-                      id="checkImg"
-                    />
-                    <div
-                      class="d-flex flex-column justify-content-between align-items-center"
-                    >
-                      <p>教師</p>
-                      <p class="fw-bold" id="checkTeacherName"></p>
-                    </div>
-                    <div
-                      class="d-flex flex-column justify-content-between align-items-center"
-                    >
-                      <p>課程項目</p>
-                      <p class="fw-bold" id="checkName"></p>
-                    </div>
-                    <div
-                      class="d-flex flex-column justify-content-between align-items-center"
-                    >
-                      <p>上課時間</p>
-                      <p class="fw-bold" id="checkDate"></p>
-                    </div>
-                    <button
-                      type="button"
-                      class="btn btn-secondary2 text-white"
-                      data-bs-toggle="offcanvas"
-                      data-bs-target="#message-mike"
-                      aria-controls="message-mike"
-                      data-bs-dismiss="modal"
-                    >
-                      聯絡老師
-                    </button>
+                    <p>教師</p>
+                    <p class="fw-bold" id="checkTeacherName"></p>
                   </div>
                   <div
-                    class="d-flex pb-4 mb-4 border-bottom border-light border-2"
+                    class="d-flex flex-column justify-content-between align-items-center"
                   >
-                    <p>課程狀態: <span class="text-secondary2">已預約</span></p>
+                    <p>課程項目</p>
+                    <p class="fw-bold" id="checkName"></p>
                   </div>
-                </div>
-                <div class="modal-footer border-0">
-                  <a
-                    href="#"
-                    target="_blank"
-                    type="button"
-                    class="btn btn-secondary2"
-                    id="checkSubmit"
+                  <div
+                    class="d-flex flex-column justify-content-between align-items-center"
                   >
-                    確認
-                  </a>
+                    <p>上課時間</p>
+                    <p class="fw-bold" id="checkDate"></p>
+                  </div>
                   <button
                     type="button"
-                    class="btn btn-gray-200"
+                    class="btn btn-secondary2 text-white"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#message-mike"
+                    aria-controls="message-mike"
                     data-bs-dismiss="modal"
                   >
-                    取消
+                    聯絡老師
                   </button>
                 </div>
+                <div
+                  class="d-flex pb-4 mb-4 border-bottom border-light border-2"
+                >
+                  <p>課程狀態: <span class="text-secondary2">已預約</span></p>
+                </div>
+              </div>
+              <div class="modal-footer border-0">
+                <a
+                  href="#"
+                  target="_blank"
+                  type="button"
+                  class="btn btn-secondary2"
+                  id="checkSubmit"
+                >
+                  確認
+                </a>
+                <button
+                  type="button"
+                  class="btn btn-gray-200"
+                  data-bs-dismiss="modal"
+                >
+                  取消
+                </button>
               </div>
             </div>
+          </div>
         </div>
         <!-- 我的評價 (My Reviews)-->
         <div class="tab-pane fade container" id="nav-course-review">
@@ -1482,7 +1493,7 @@
 
     <!-- 21backtotop -->
     <%- include("./layout/backtotop.ejs") -%>
-    <script type="module" src="../main.js"></script>
+
     <!-- 套件 -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
@@ -1490,6 +1501,8 @@
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- 課程相關 -->
+    <script src="../assets/js/config.js"></script>
+    <script type="module" src="../main.js"></script>
     <script src="../assets/js/openTime.js"></script>
     <script src="../assets/js/account_date.js"></script>
     <script src="../assets/js/calendar.js"></script>
@@ -1499,247 +1512,13 @@
     <script src="../assets/js/patch_data.js"></script>
     <script>
       $(function () {
-                  $(".jq-birthday").datepicker({
-                    changeMonth: true,
-                    changeYear: true,
-                  });
-                });
+        $(".jq-birthday").datepicker({
+          changeMonth: true,
+          changeYear: true,
+        });
+      });
     </script>
     <script type="module" src="../assets/js/account.js"></script>
     <script src="../assets/js/account_coupon.js"></script>
-    <!-- my follow 我的關注 -->
-    <script>
-      const apiUrl = "http://localhost:3000";
-      let pageId = 1;
-
-      document.addEventListener("DOMContentLoaded", async function () {
-        // 取得追蹤列表 + 課程資料
-        async function fetchData(pageId) {
-          try {
-            // 取得追蹤列表
-            let usersResponse = await axios.get(`${apiUrl}/users`);
-            let followArray = usersResponse.data[userId - 1].followList;
-            console.log("追蹤列表", followArray);
-
-            // 取得課程資料
-            let apiString = `${apiUrl}/courses?_expand=teacher&_page=${pageId}&_limit=6`;
-            followArray.forEach((item) => {
-              console.log(item);
-              apiString += `&id=${item}`;
-            });
-            console.log(apiString);
-
-            let coursesResponse = await axios.get(`${apiString}`);
-            let courseData = coursesResponse.data;
-            console.log("追蹤的課程資料", courseData);
-
-            const followList = document.querySelector("#followList");
-            courseCards = "";
-
-            courseData.forEach((courseItem) => {
-              courseCards += `<div class="col"><div class="card teacher-card swiper-slide h-100">
-    <div class="card-body d-flex justify-content-between">
-      <div>
-        <h5 class="card-title teacher-card-title truncate-lines-2">${courseItem.name}
-        </h5>
-        <p class="teacher-card-name">${courseItem.teacher.name}</p>
-        <ul class="teacher-card-object">
-          <li class="teacher-card-evaluate">${courseItem.rate}</li>
-          <li class="teacher-card-hours">50分鐘</li>
-        </ul>
-        <p class="teacher-card-price">NT$<span>${courseItem.price}</span></p>
-      </div>
-      <div class="teacher-card-img">
-        <img
-          src="${courseItem.teacher.avatar}"
-          alt="老師"
-          class="w-100px w-sm-120px"
-        />
-      </div>
-    </div>
-    <div>
-      <p class="teacher-card-text">
-      ${courseItem.info}
-      </p>
-      <a
-        href="./cart.html"
-        type="button"
-        class="btn btn-secondary2 w-100 mb-3"
-      >
-        立即上課
-      </a>
-      <a
-        href="./course_intro.html"
-        type="button"
-        class="btn teacher-card-btn"
-        >查看介紹</a
-      >
-    </div>
-  </div></div>`;
-            });
-
-            followList.innerHTML = courseCards;
-            setButtonListeners(pageId);
-            // 總頁數
-            let followTotalPages = Math.ceil(followArray.length / 6);
-            console.log("followTotalPages", followTotalPages);
-
-            return {
-              followTotalPages,
-              followArray,
-              courseData,
-            };
-          } catch (error) {
-            console.log("錯誤", error);
-          }
-        }
-        // fetchData();
-
-        let { followArray, followTotalPages, courseData } = await fetchData(
-          pageId
-        );
-
-        // 渲染分頁按鈕
-        function renderFollowPagination(followArray, pageId, followTotalPages) {
-          console.log("pageId 3", pageId);
-
-          // render 分頁按鈕
-          // 取得 ul
-          const followPaginationWrapper =
-            document.querySelector(".followPagination");
-
-          let followPagination = "";
-
-          // 上一頁按鈕
-          const prevPage = `<li class="page-item prevButton ${
-            pageId == 1 ? "disabled" : ""
-          }"><a class="page-link" href="#" aria-label="Previous"><i class="fa-solid fa-angle-left"></i></a></li>`;
-          followPagination += prevPage;
-
-          // 頁數按鈕
-          for (let i = 1; i <= followTotalPages; i++) {
-            let pageItem = `<li class="page-item ${
-              i === pageId ? "active" : ""
-            } pageButton">
-                        <a class="page-link" href="#">
-                          ${i}
-                        </a>
-                      </li>`;
-            followPagination += pageItem;
-          }
-
-          // 下一頁按鈕
-          const nextPage = `<li class="page-item nextButton ${
-            pageId == followTotalPages ? "disabled" : ""
-          }">
-                    <a class="page-link" href="#" aria-label="Next">
-                      <i class="fa-solid fa-angle-right"></i>
-                    </a>
-                  </li>`;
-          followPagination += nextPage;
-
-          console.log(followPagination);
-
-          followPaginationWrapper.innerHTML = followPagination;
-          switchPage(followTotalPages, pageId, courseData);
-        }
-        renderFollowPagination(followArray, pageId, followTotalPages);
-
-        // 切換頁數
-        function switchPage(followTotalPages, pageId, courseData) {
-          const prevButton = document.querySelector(".prevButton");
-          const nextButton = document.querySelector(".nextButton");
-          let pageButtons = document.querySelectorAll(".pageButton");
-
-          prevButton.addEventListener("click", function () {
-            if (pageId > 1) {
-              pageId--;
-
-              renderFollowPagination(followArray, pageId, followTotalPages);
-
-              fetchData(pageId);
-            }
-          });
-
-          nextButton.addEventListener("click", function () {
-            if (followTotalPages > pageId) {
-              pageId++;
-              console.log("pageId 頁數切換", pageId);
-
-              renderFollowPagination(followArray, pageId, followTotalPages);
-
-              fetchData(pageId);
-            }
-          });
-
-          pageButtons.forEach((pageButton) => {
-            pageButton.addEventListener("click", () => {
-              pageId = Number(pageButton.innerText);
-
-              fetchData(pageId);
-              renderFollowPagination(followArray, pageId, followTotalPages);
-            });
-          });
-        }
-        switchPage(followTotalPages, pageId, courseData);
-
-        // 監聽 follow 愛心按鈕
-        function setButtonListeners(pageId) {
-          followButtons = document.querySelectorAll(".follow-btn");
-          followButtons.forEach((followBtn) => {
-            followBtn.addEventListener("click", (e) => {
-              cancelFollow(e, pageId);
-            });
-          });
-        }
-
-        // 取消追蹤
-        async function cancelFollow(e, pageId) {
-          let buttonId = e.target.dataset.buttonid;
-          console.log("buttonId", buttonId);
-
-          let editfollowList = followArray.filter((item) => item != buttonId);
-          // console.log("pageId 44", pageId);
-
-          Swal.fire({
-            title: "確定要取消追蹤?",
-            showDenyButton: true,
-            confirmButtonColor: "#115BC9",
-            confirmButtonText: "取消追蹤",
-            denyButtonText: `我再想想`,
-          }).then((result) => {
-            if (result.isConfirmed) {
-              Swal.fire("已取消追蹤", "", "success");
-
-              axios
-                .patch(`${apiUrl}/users/${userId}`, {
-                  followList: editfollowList,
-                })
-                .then(async (res) => {
-                  console.log(res);
-                  // 重新取得數據
-                  const newData = await fetchData(pageId);
-
-                  followArray = newData.followArray;
-
-                  if (newData.followTotalPages == 1) {
-                    pageId = 1;
-                    fetchData(pageId);
-                  } else {
-                    fetchData(pageId);
-                  }
-
-                  renderFollowPagination(
-                    followArray,
-                    pageId,
-                    newData.followTotalPages
-                  );
-                });
-            }
-          });
-        }
-      });
-    </script>
-
   </body>
 </html>
