@@ -1,5 +1,4 @@
 import axios from "axios";
-import { _url } from "./config.js";
 
 let bannerSwiper = new Swiper(".bannerSwiper", {
   slidesPerView: 1,
@@ -58,7 +57,6 @@ axios.get(`${_url}/courses?_expand=teacher`).then((res) => {
   let popularCourses = courses.filter((course) =>
     course.badges.includes("熱門")
   );
-  console.log(popularCourses);
 
   // 取出前 6 項
   let popularCourses6th = popularCourses.slice(0, 7);
@@ -172,12 +170,8 @@ axios.get(`${_url}/comments?_expand=user`).then((res) => {
 
   let commentsCard = "";
   res.data = get4Random(res.data.filter((item) => item.rate == 5));
-  console.log(res.data);
 
   res.data.forEach((comment) => {
-    console.log(comment);
-    console.log(comment.user.name);
-
     commentsCard += `<div class="swiper-slide">
     <div
       class="teacher-card d-flex flex-column justify-content-between gap-10 h-100"
