@@ -1,4 +1,6 @@
-const apiUrl = "http://localhost:3000";
+// const _url = "http://localhost:3000";
+import { _url } from "../config.js";
+
 let userId = 1;
 let courseId;
 const Toast = Swal.mixin({
@@ -38,16 +40,16 @@ courseList.addEventListener("click", async (e) => {
 
 async function getData() {
   try {
-    const myCartApi = `${apiUrl}/myCarts?userId=${userId}&courseId=${courseId}`;
-    const myCouponsApi = `${apiUrl}/myCoupons?userId=${userId}`;
-    const courseCouponsApi = `${apiUrl}/coupons?courseId=${courseId}`;
+    const myCartApi = `${_url}/myCarts?userId=${userId}&courseId=${courseId}`;
+    const myCouponsApi = `${_url}/myCoupons?userId=${userId}`;
+    const courseCouponsApi = `${_url}/coupons?courseId=${courseId}`;
 
     const arrayRes = await Promise.all([
       axios.get(myCartApi), // 取得目前user購物車內的該課程
       axios.get(myCouponsApi), // 取得目前user優惠券
       axios.get(courseCouponsApi), // 取得點擊課程的優惠券
     ]);
-    console.log("arrayRes", arrayRes);
+    // console.log("arrayRes", arrayRes);
 
     myCart = arrayRes[0].data; // user購物車內的該課程
     myCoupons = arrayRes[1].data; // user優惠券
@@ -85,13 +87,13 @@ async function addCourseToMyCarts() {
       courseId,
       quantity: 1,
       isPurchased: false,
+      isNextPurchase: false,
     };
-    await axios.post(`${apiUrl}/myCarts`, postData, {
+    await axios.post(`${_url}/myCarts`, postData, {
       headers: {
         "Content-Type": "application/json",
       },
     });
-    console.log("課程加入購物車");
   } catch (error) {
     console.log("getMyCarts", error);
   }
@@ -100,16 +102,15 @@ async function addCourseToMyCarts() {
 async function addQuantityToMyCarts(myCarts) {
   try {
     let { id, quantity } = myCarts;
-    quantity += 1;
+    quantity = Number(quantity) + 1;
     let patchData = {
       quantity,
     };
-    await axios.patch(`${apiUrl}/myCarts/${id}`, patchData, {
+    await axios.patch(`${_url}/myCarts/${id}`, patchData, {
       headers: {
         "Content-Type": "application/json",
       },
     });
-    console.log("購物車數量加一");
   } catch (error) {
     console.log("getMyCarts", error);
   }
@@ -144,7 +145,7 @@ async function addCoupon(coupon) {
       timestamp,
       dueDate,
     };
-    await axios.post(`${apiUrl}/myCoupons`, postData, {
+    await axios.post(`${_url}/myCoupons`, postData, {
       headers: {
         "Content-Type": "application/json",
       },

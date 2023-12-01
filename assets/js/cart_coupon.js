@@ -19,21 +19,25 @@ const useCouponBtn = document.querySelector(".js-useCouponBtn");
 const originalCoursePrice = document.querySelectorAll(".OriginalCoursePrice");
 
 let myCoupons = [];
-let usedCouponData = [];
+let cartCoupons = [];
 let chooseCoupon = {};
+const usedCouponInitObj = {
+  myCouponId: "",
+  originPrice: "",
+  courseId: "",
+  type: "",
+  title: "",
+  discount: 0,
+  minSpending: "",
+  discountCourseNum: "",
+  discountPrice: 0,
+};
 function couponInit() {
   // 已使用 coupon 的id、標題和價格
-  usedCouponData = Array.from({ length: myCarts.length + 1 }, () => ({
-    myCouponId: "",
-    originPrice: "",
-    courseId: "",
-    type: "",
-    title: "",
-    discount: 0,
-    minSpending: "",
-    discountCourseNum: "",
-    discountPrice: 0,
-  }));
+  usedCouponData = Array.from(
+    { length: myCarts.length + 1 },
+    () => usedCouponInitObj
+  );
 }
 
 // 按下使用優惠券按鈕
@@ -49,17 +53,13 @@ async function confirmToUseCoupon() {
     for (const item of usedCouponData) {
       // 該課程有用到優惠券才需要呼叫 api
       if (item.myCouponId) {
-        const usedUrl = `${apiUrl}/myCoupons/${item.myCouponId}`;
+        const usedUrl = `${_url}/myCoupons/${item.myCouponId}`;
         await axios.patch(
           usedUrl,
           {
             canUse: false,
           },
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
+          headers
         );
       }
     }
@@ -71,60 +71,79 @@ async function confirmToUseCoupon() {
 // 取得 coupons
 async function getCoupons() {
   try {
-    // 取得 myCoupons
-    const userUrl = `${apiUrl}/myCoupons?_expand=coupon&userId=${userId}&_sort=couponId&_order=asc`;
+    // 取得 cartCoupons
+    const userUrl = `${_url}/myCoupons?_expand=coupon&userId=${userId}&_sort=couponId&_order=asc`;
     const { data } = await axios.get(userUrl);
+
     if (data.length) {
-      for (item of data) {
-        const couponUrl = `${apiUrl}/coupons/${item.couponId}?_expand=teacher&_expand=course`;
-        const res = await axios.get(couponUrl);
-        item.coupon = res.data;
-      }
+      const couponUrls = data.map((item) => {
+        return `${_url}/coupons/${item.couponId}?_expand=teacher&_expand=course`;
+      });
+
+      const responses = await Promise.all(
+        couponUrls.map((couponUrl) => axios.get(couponUrl))
+      );
+
+      data.forEach((item, index) => {
+        item.coupon = responses[index].data;
+      });
     }
+
+    myCoupons = data;
+
     // 確認有無過期
-    checkDueDate(data);
-    console.log("coupon", data);
-    console.log("myCoupons", myCoupons);
+    checkDueDate();
+
+    // console.log("cartCoupons", cartCoupons);
   } catch (error) {
     console.log("getCoupon", error);
   }
 }
 
 // 確認有無過期，過期的改為 canUse: false 不顯示
-async function checkDueDate(data) {
-  let today = new Date().getTime();
-  for (const coupon of data) {
-    try {
-      if (new Date(coupon.dueDate).getTime() < today) {
-        coupon.canUse = false;
-        await axios.patch(
-          `${apiUrl}/myCoupons/${coupon.id}`,
-          {
-            canUse: false,
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        console.log("過期", coupon);
-
-        data = data.filter((coupon) => coupon.canUse === true);
-      }
-    } catch (error) {
-      console.log("checkDueDate", error);
+async function checkDueDate() {
+  const expiredCoupons = [];
+  // 標記過期優惠券
+  myCoupons.forEach((coupon) => {
+    let today = new Date().getTime();
+    if (new Date(coupon.dueDate).getTime() < today) {
+      coupon.canUse = false;
+      expiredCoupons.push(coupon);
     }
+  });
+
+  // 如果有過期優惠券就發送 patch 請求
+  if (expiredCoupons.length > 0) {
+    await Promise.all(
+      expiredCoupons.map(async (coupon) => {
+        try {
+          await axios.patch(
+            `${_url}/myCoupons/${coupon.id}`,
+            {
+              canUse: false,
+            },
+            headers
+          );
+          // console.log("過期", coupon);
+        } catch (error) {
+          console.log("checkDueDate", error);
+        }
+      })
+    );
+    // 移除過期的優惠券
+    myCoupons = myCoupons.filter((coupon) => coupon.canUse === true);
   }
-  // 將 coupon 整理成想要的格式
-  handleCouponData(data);
+
+  // 將 coupon 整理成想要的格式、並取得要顯示的優惠券
+  getCartCouponsData();
 }
 
-function handleCouponData(data) {
+// 取得、更新購物車課程的優惠券資訊
+function getCartCouponsData() {
   // 先清空之前的資料
-  myCoupons = [];
+  cartCoupons = [];
   // 篩選出任何課程都能使用的優惠券
-  let couponArr = data.forEach((coupon) => {
+  myCoupons.forEach((coupon) => {
     if (coupon.coupon.type === "allCourse") {
       const {
         courseId,
@@ -144,12 +163,12 @@ function handleCouponData(data) {
         minSpending,
         discountCourseNum,
       };
-      myCoupons.push(obj);
+      cartCoupons.push(obj);
     }
   });
   // 篩選出在購物車的課程的優惠券
   myCarts.forEach((cart) => {
-    let couponArr = data.forEach((coupon) => {
+    myCoupons.forEach((coupon) => {
       if (coupon.coupon.type === "course") {
         const {
           courseId,
@@ -171,7 +190,7 @@ function handleCouponData(data) {
             minSpending,
             discountCourseNum,
           };
-          myCoupons.push(obj);
+          cartCoupons.push(obj);
         }
       }
     });
@@ -183,10 +202,9 @@ function handleCouponData(data) {
 // 使用優惠券
 function handleToUseCoupon() {
   // 取出輸入的優惠券資訊
-  const chooseCoupon = myCoupons.filter(
+  const chooseCoupon = cartCoupons.filter(
     (item) => item.title === couponInput.value
   )[0];
-  console.log("chooseCoupon", chooseCoupon);
   // 有此優惠券並可使用
   if (chooseCoupon !== undefined) {
     // 取得總金額(已去掉 , )
@@ -271,6 +289,11 @@ function handleToUseCoupon() {
   }
 }
 
+function handleCouponDelBtn(index) {
+  clearUsedCoupon(index);
+  renderCoupon();
+}
+
 // 重新確認優惠券資格
 function reCheckCoupon(listItem) {
   // 取得總金額(已去掉 , )
@@ -282,7 +305,7 @@ function reCheckCoupon(listItem) {
   const courseNum = listItem.querySelector("input[name='count']");
 
   usedCouponData.forEach((coupon, index) => {
-    // 輸入的優惠券資訊：折扣、低銷、折抵課堂數
+    // 使用的優惠券資訊：折扣、低銷、折抵課堂數
     const { minSpending, discountCourseNum, courseId, myCouponId } = coupon;
 
     // 判斷是否符合條件-低消
@@ -291,16 +314,17 @@ function reCheckCoupon(listItem) {
       if (courseId == cartCourseId) {
         // 判斷是否符合條件-購買課程數量
         if (discountCourseNum === "" || discountCourseNum <= courseNum.value) {
-          // 紀錄已使用的優惠券資訊
-          updateUsedCoupon(index, coupon);
+          // 更新特定課程優惠券的折價
+          // updateUsedCoupon(index, coupon);
+          coupon.discountPrice = calculateDiscountPrice(coupon);
         } else {
           clearUsedCoupon(index);
         }
       }
       // 若是有使用全課程優惠券
       else if (index == usedCouponData.length - 1 && myCouponId !== "") {
-        // 紀錄已使用的優惠券資訊
-        updateUsedCoupon(index, coupon);
+        // 更新全優惠券的折價
+        coupon.discountPrice = calculateDiscountPrice(coupon);
       } else {
         clearUsedCoupon(index);
       }
@@ -308,11 +332,11 @@ function reCheckCoupon(listItem) {
       clearUsedCoupon(index);
     }
   });
+  renderCoupon();
 }
 
-// 將該欄位的優惠券清空
+// 將該欄位的優惠券資訊清空
 function clearUsedCoupon(index) {
-  // 將該欄位的優惠券資訊清空
   usedCouponData[index].type = "";
   usedCouponData[index].originPrice = 0;
   usedCouponData[index].discountPrice = 0;
@@ -322,9 +346,6 @@ function clearUsedCoupon(index) {
   usedCouponData[index].discount = "";
   usedCouponData[index].minSpending = 0; // 總消費低消
   usedCouponData[index].discountCourseNum = 0; // 最低購買量
-  console.log(usedCouponData);
-
-  renderCoupon();
 }
 
 // 寫入使用優惠券資訊
@@ -333,11 +354,11 @@ function updateUsedCoupon(index, coupon) {
     ...coupon,
     discountPrice: calculateDiscountPrice(coupon),
   };
-  console.log(usedCouponData);
+  // console.log("usedCouponData", usedCouponData);
   renderCoupon();
 }
 
-//折抵金額計算
+// 使用優惠券的折抵金額計算
 function calculateDiscountPrice(coupon) {
   const { type, originPrice, discount, discountCourseNum } = coupon;
   // 使用指定課程優惠券的折價
@@ -356,21 +377,33 @@ function calculateDiscountPrice(coupon) {
   }
 }
 
-// 將該欄位刪除時，要讓該課程的優惠券不顯示
+// 刪除購買項目課程時將優惠券欄位刪除
 function delUsedCoupon(courseId) {
-  usedCouponData = usedCouponData.filter((item) => item.courseId != courseId);
-  myCoupons = myCoupons.filter((item) => item.courseId != courseId);
-  console.log(usedCouponData);
+  // 刪除使用的優惠券
+  usedCouponData = usedCouponData.filter(
+    (coupon) => coupon.courseId != courseId
+  );
+}
 
+// 當從下次購買 移置 購買項目
+function addEmptyUsedCoupon() {
+  if (usedCouponData.length >= 2) {
+    // 從下次購買移置購買項目的課程優惠券 index
+    lastTwoIndex = usedCouponData.length - 2;
+    // 在全課程優惠券前增加空 obj 以記錄移置購買項目課程的優惠券
+    usedCouponData.splice(lastTwoIndex, 0, usedCouponInitObj);
+  }
   renderCoupon();
 }
+
+/***** 渲染 *****/
 
 // 渲染優惠券選項
 function renderCouponOption() {
   const couponOption = document.querySelector("#couponOption");
   let couponOptionHtml = "";
-  if (myCoupons.length) {
-    myCoupons.forEach((myCoupon) => {
+  if (cartCoupons.length) {
+    cartCoupons.forEach((myCoupon) => {
       couponOptionHtml += `<option value="${myCoupon.title}"></option>`;
     });
   }
@@ -379,14 +412,9 @@ function renderCouponOption() {
 
 // 渲染使用的優惠券、渲染優惠券折扣
 function renderCoupon() {
-  // 渲染、計算指定課程優惠券全部折扣
-  updateCourseDiscount();
-  // 渲染全課程優惠券折扣
-  updateWebDiscount();
-  // 渲染使用的優惠券
-  renderUsedCoupon();
-  // 計算價格
-  CalculateToTalSum();
+  updateCourseDiscount(); // 渲染、計算指定課程優惠券全部折扣
+  updateWebDiscount(); // 渲染全課程優惠券折扣
+  renderUsedCoupon(); // 渲染使用的優惠券
 }
 
 // 渲染 全站折扣
@@ -407,15 +435,15 @@ function updateCourseDiscount() {
 function renderUsedCoupon() {
   const usedCoupons = document.querySelectorAll(".js-usedCoupon");
   usedCoupons.forEach((div, index) => {
-    if (usedCouponData[index].myCouponId !== "") {
-      div.innerHTML = `<button type="button" class="btn btn-close fs-sm js-delCoupon" onclick="clearUsedCoupon(${index})"></button>
+    if (usedCouponData[index].myCouponId === "") {
+      div.innerHTML = "";
+    } else {
+      div.innerHTML = `<button type="button" class="btn btn-close fs-sm js-delCoupon" onclick="handleCouponDelBtn(${index})"></button>
       <p>
         已套用 <span class="fw-bold text-secondary2">${usedCouponData[index].title}</span
         ><i class="fa-solid fa-arrow-right mx-1"></i
         ><span class="fw-bold text-primary">折價 <span class="js-usedCouponDiscount">${usedCouponData[index].discountPrice}</span> 元</span>
       </p>`;
-    } else {
-      div.innerHTML = "";
     }
   });
 }

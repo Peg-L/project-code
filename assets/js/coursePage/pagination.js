@@ -1,4 +1,5 @@
-import { data, getCoursesData, lastPage } from "./api.js";
+import { data, getCoursesData } from "./api.js";
+import { toCoursesTop } from "./filter.js";
 
 const pagination = document.querySelector(".pagination");
 
@@ -12,11 +13,9 @@ pagination.addEventListener("click", (e) => {
 
     switch (page) {
       case "prev":
-        console.log("prev");
         data.page -= 1;
         break;
       case "next":
-        console.log("next");
         data.page += 1;
         break;
       default:
@@ -24,6 +23,8 @@ pagination.addEventListener("click", (e) => {
     }
 
     getCoursesData(data);
+    // 畫面回到上面
+    toCoursesTop();
   }
 });
 export { pagination };
