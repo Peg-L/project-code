@@ -1,7 +1,6 @@
-// const _url = "http://localhost:3000";
-import { _url } from "../config.js";
+// const _url = "https://project-code-json-k0ti.onrender.com";
+// let userId = 1;
 
-let userId = 1;
 let courseId;
 const Toast = Swal.mixin({
   icon: "success",

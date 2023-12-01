@@ -1,8 +1,6 @@
-import { _url } from "../config.js";
 import { inputDisable, renderCourses, renderPagination } from "./render.js";
 import { handleFilterNum } from "./filter.js";
-// const _url = "http://localhost:3000";
-// const _url = "https://project-code-json.onrender.com";
+// const _url = "https://project-code-json-k0ti.onrender.com";
 let totalSearchNum = document.querySelector(".js-totalSearchNum");
 let currentPageCourses = [];
 let allCoursesNum;

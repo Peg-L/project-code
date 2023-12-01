@@ -1,4 +1,4 @@
-let userId = 1; // 假設的
+// let userId = 1; // 假設的
 // 日期、數字三位一點規則
 const dateReg = /^(\d{4}-\d{2}-\d{2}).*/;
 const separatorReg = /\B(?=(?:\d{3})+(?!\d))/g;

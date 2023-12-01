@@ -620,8 +620,9 @@ function renderPagination() {
 }
 
 // 追蹤
-const _url = "http://localhost:3000";
+// const _url = "http://localhost:3000";
 const userId = 1;
+console.log(userId, _url);
 let followList;
 
 async function getFollowList() {
