@@ -144,7 +144,6 @@ let recommendSwiper = new Swiper(".recommendSwiper", {
 });
 
 // 課程分類
-
 sessionStorage.removeItem("cateItemName");
 
 const cateItems = document.querySelectorAll(".cate-item");
