@@ -1,0 +1,18 @@
+.nav-tabs-primary {
+  border-color: $secondary;
+
+  .nav-link:hover,
+  .nav-link:focus {
+    border-top-color: $secondary;
+    border-left-color: $secondary;
+    border-right-color: $secondary;
+    border-bottom-color: $secondary;
+  }
+  .nav-link.active,
+  .nav-item.show .nav-link {
+    border-top-color: $secondary;
+    border-left-color: $secondary;
+    border-right-color: $secondary;
+    border-bottom-color: $white;
+  }
+}
