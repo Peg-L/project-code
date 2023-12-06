@@ -142,11 +142,11 @@ function checkAndRenderMyCart() {
 
 // 購物車卡片的按鈕監聽
 purchaseTabContent.addEventListener("click", (e) => {
-  e.preventDefault(); // 防止連結跳轉的問題發生
   const target = e.target;
   const listItem = target.closest("li");
 
   if (listItem) {
+    e.preventDefault(); // 防止連結跳轉的問題發生
     // 若點擊 刪除 按鈕
     if (target.classList.contains("delete-order")) {
       deleteOrder(listItem);
@@ -198,6 +198,12 @@ async function deleteCart(id) {
   try {
     let myCartId;
     myCarts = myCarts.filter((item) => {
+      if (item.courseId == id) {
+        myCartId = item.id;
+      }
+      return item.courseId != id;
+    });
+    nextPurchaseCarts = nextPurchaseCarts.filter((item) => {
       if (item.courseId == id) {
         myCartId = item.id;
       }
@@ -663,14 +669,14 @@ function renderNextPurchaseCart() {
           </li>`;
       })
     : (cartHtml += `<div class="d-flex flex-column align-items-center text-center h-100 px-10 pt-10 mb-4">
-    <p class="fs-3 mb-10">沒有商品</p>
+    <p class="fs-4 mb-10">沒有商品</p>
   </div>`);
   nextCartGroup.innerHTML = cartHtml;
 }
 function renderEmptyCart() {
   const emptyCart = `
   <div class="d-flex flex-column align-items-center text-center h-100 px-10 pt-10 mb-4">
-    <p class="fs-3 mb-10">購物車內沒有商品</p>
+    <p class="fs-4 mb-10">購物車內沒有商品</p>
     <a href="./course.html"
       class="btn btn-secondary2 rounded-2 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
     >

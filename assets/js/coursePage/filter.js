@@ -224,10 +224,10 @@ function handleCategoryFilters() {
           if (item.value === "C") {
             apiFilter += "(?!%23)"; //確保不匹配 C# (# 要轉成 %23)
           }
-        } else if (hasSpecialCharacters(item.value)) {
-          apiFilter = `&categories_like=${encodeURIComponent(item.value)}`; // 特殊符號要轉成 url 編碼
         } else {
-          apiFilter = `&categories_like=${item.value}`; //value是中文時，加正則表達式會找不到
+          apiFilter = `&categories_like=${specialCharactersToURL(item.value)}`; //value是中文時，加正則表達式會找不到 // 特殊符號要轉成 url 編碼
+          console.log(specialCharactersToURL(item.value));
+          console.dir(item);
         }
 
         data.filters += apiFilter;
@@ -241,8 +241,10 @@ function isEnglish(value) {
   return /^[a-zA-Z]+$/.test(value);
 }
 //檢查是否有特殊符號
-function hasSpecialCharacters(value) {
-  return /.*[!@#$%^&*()].*/.test(value);
+function specialCharactersToURL(value) {
+  return value.replace(/[!@#$%^&*()\s]/g, function (match) {
+    return encodeURIComponent(match);
+  });
 }
 
 /* 更新父層 checkbox 狀態 function */
