@@ -109,6 +109,12 @@ axios.get(`${_url}/courses?_expand=teacher`).then((res) => {
   swiperWrapper.innerHTML = coursesCard;
 });
 
+// 熱門推薦 查看更多按鈕
+const redirectPopularBtn = document.querySelector("#redirectPopular");
+redirectPopularBtn.addEventListener("click", function () {
+  localStorage.setItem("redirectToPopular", true);
+});
+
 let recommendSwiper = new Swiper(".recommendSwiper", {
   slidesPerView: 1,
   spaceBetween: 16,
