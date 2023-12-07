@@ -1,3 +1,4 @@
+import { Modal } from "bootstrap";
 const loginBtn = document.querySelector("#loginButton");
 
 let navbarMemberBtns = document.querySelectorAll(".btn-member");
@@ -44,3 +45,16 @@ navbarLogoutBtns.forEach(function (navbarLogoutBtn) {
     localStorage.clear();
   });
 });
+
+const toMyCartBtn = document.querySelectorAll(".js-toMyCart");
+
+document.addEventListener("DOMContentLoaded", function () {
+  toMyCartBtn.forEach((btn) => {
+    btn.addEventListener("click", checkLoginModal);
+  });
+});
+// 若未登入出現登入註冊 Modal
+function checkLoginModal() {
+  const loginModal = new Modal("#loginModal");
+  isLogin ? (location.href = "./cart.html") : loginModal.show();
+}
