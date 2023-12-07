@@ -46,3 +46,14 @@ const clearInput = document.querySelector(".clear-input");
 clearInput.addEventListener("click", function () {
   faqSearchInput.value = "";
 });
+
+// 跳轉 老師問答
+const teacherTab = document.querySelector("#teacher-tab");
+const studentTab = document.querySelector("#student-tab");
+
+const faq = sessionStorage.getItem("faq");
+if (faq == "teacherFaq") {
+  teacherTab.click();
+} else if (faq == "studentFaq") {
+  studentTab.click();
+}
