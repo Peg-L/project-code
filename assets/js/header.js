@@ -1,4 +1,32 @@
 import { Modal } from "bootstrap";
+const cateItems = document.querySelectorAll(".cateitem");
+cateItems.forEach((cateItem) => {
+  cateItem.addEventListener("click", function () {
+    let cateItemName = cateItem.getAttribute("name");
+
+    sessionStorage.setItem("cateItemName", cateItemName);
+
+    location.href = "./course.html";
+  });
+});
+
+// 常見問答
+const teacherFaqBtn = document.querySelector(".teacher-faq");
+const studentFaqBtns = document.querySelectorAll(".student-faq");
+
+teacherFaqBtn.addEventListener("click", function () {
+  sessionStorage.setItem("faq", "teacherFaq");
+  location.href = "./faq.html";
+});
+
+studentFaqBtns.forEach((studentFaqBtn) => {
+  studentFaqBtn.addEventListener("click", function () {
+    sessionStorage.setItem("faq", "studentFaq");
+    location.href = "./faq.html";
+  });
+});
+
+// 登入註冊
 const loginBtn = document.querySelector("#loginButton");
 
 let navbarMemberBtns = document.querySelectorAll(".btn-member");
@@ -43,6 +71,7 @@ ClassicEditor.create(document.querySelector("#editor"), {
 navbarLogoutBtns.forEach(function (navbarLogoutBtn) {
   navbarLogoutBtn.addEventListener("click", function () {
     localStorage.clear();
+    localStorage.setItem("isLogin", "0");
   });
 });
 
