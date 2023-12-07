@@ -47,8 +47,6 @@ courseList.addEventListener("click", async (e) => {
   }
 });
 
-function checkLoginModal() {}
-
 async function getData() {
   try {
     const myCartApi = `${_url}/myCarts?userId=${userId}&courseId=${courseId}`;
@@ -112,11 +110,21 @@ async function addCourseToMyCarts() {
 
 async function addQuantityToMyCarts(myCarts) {
   try {
-    let { id, quantity } = myCarts;
-    quantity = Number(quantity) + 1;
-    let patchData = {
-      quantity,
-    };
+    let { id, quantity, isNextPurchase } = myCarts;
+    let patchData = {};
+    // 課程若在 下次再買 就把它移到 購物項目
+    if (isNextPurchase) {
+      patchData = {
+        isNextPurchase: false,
+      };
+    }
+    // 課程若在購物項目就加數量
+    else {
+      quantity = Number(quantity) + 1;
+      patchData = {
+        quantity,
+      };
+    }
     await axios.patch(`${_url}/myCarts/${id}`, patchData, {
       headers: {
         "Content-Type": "application/json",
