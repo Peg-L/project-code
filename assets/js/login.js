@@ -1,5 +1,10 @@
-import firebase from "./firebase";
-const _url = "https://project-code-json-k0ti.onrender.com";
+import {
+  signInWithPopup,
+  provider,
+  auth,
+  GoogleAuthProvider,
+} from "./firebase";
+
 const loginButton = document.querySelector("#loginButton");
 
 let emailLoginInput = document.querySelector("#floatingEmailLogin");
@@ -19,6 +24,7 @@ const userInfo = {
   user_gender: "",
   user_address: "",
 };
+
 let token = "";
 
 function handleLogin(userInfo) {
@@ -26,15 +32,18 @@ function handleLogin(userInfo) {
     .post(`${_url}/login`, userInfo)
     .then((res) => {
       // console.log(res.data);
+      token = res.data.accessToken;
+      console.log(token);
+
+      localStorage.setItem("token", token);
 
       localStorage.setItem("userId", res.data.user.id);
-
       // 跳轉到首頁
       location.href = "./index.html";
       localStorage.setItem("isLogin", "1");
     })
     .catch((err) => {
-      console.error(err);
+      console.log(err);
 
       if (err.response.data == "Email and password are required") {
         Swal.fire({
@@ -79,14 +88,12 @@ if (googleLogin) {
   googleLogin.addEventListener("click", function () {
     console.log("點擊按鈕");
 
-    firebase
-      .signInWithPopup(firebase.auth, firebase.provider)
+    signInWithPopup(auth, provider)
       .then((result) => {
-        const credential =
-          firebase.GoogleAuthProvider.credentialFromResult(result);
+        const credential = GoogleAuthProvider.credentialFromResult(result);
 
         token = credential.accessToken;
-        localStorage.setItem("accessToken", token);
+        localStorage.setItem("token", token);
         // The signed-in user info.
         const user = result.user;
 
@@ -100,3 +107,29 @@ if (googleLogin) {
       });
   });
 }
+
+//// 修改密碼
+// const updatePasswordBtn = document.querySelector("#updatePassword");
+// updatePasswordBtn.addEventListener("click", updatePassword);
+
+// function updatePassword() {
+//   const userId = localStorage.getItem("userId");
+//   let token = localStorage.getItem("token");
+
+//   axios
+//     .patch(
+//       `${_url}/600/users/${userId}`,
+//       { password: "Bb222222" },
+//       {
+//         headers: {
+//           authorization: `Bearer ${token}`,
+//         },
+//       }
+//     )
+//     .then((res) => {
+//       console.log(res);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// }

@@ -61,9 +61,7 @@ ClassicEditor.create(document.querySelector("#editor"), {
   placeholder: "說些什麼...",
   toolbar: ["uploadImage"],
 })
-  .then((res) => {
-    console.log("success");
-  })
+  .then((res) => {})
   .catch((error) => {
     console.log(error);
   });
@@ -71,6 +69,7 @@ ClassicEditor.create(document.querySelector("#editor"), {
 // 登出
 navbarLogoutBtns.forEach(function (navbarLogoutBtn) {
   navbarLogoutBtn.addEventListener("click", function () {
+    localStorage.clear();
     localStorage.setItem("isLogin", "0");
   });
 });

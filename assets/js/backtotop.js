@@ -1,5 +1,3 @@
-console.log("backtotop");
-
 const backtotopBtn = document.querySelector(".backtotopBtn");
 
 // 偵測往下滾動才顯示
