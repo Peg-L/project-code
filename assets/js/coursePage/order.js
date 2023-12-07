@@ -20,7 +20,8 @@ if (redirectToPopular) {
     //回到第一頁
     data.page = 1;
     //呼叫 api
-    getCoursesData(data);
+    await getCoursesData(data);
+    localStorage.removeItem("redirectToPopular");
   }
 }
 
