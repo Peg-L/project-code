@@ -103,6 +103,9 @@ async function addCourseToMyCarts() {
         "Content-Type": "application/json",
       },
     });
+
+    await getCartLength();
+    renderCartNum();
   } catch (error) {
     console.log("getMyCarts", error);
   }
