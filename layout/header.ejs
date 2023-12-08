@@ -16,10 +16,10 @@
     </h1>
     <div class="d-flex">
       <a
-        class="d-lg-none btn btn-outline-secondary2 border-0 hasProducts"
-        href="./cart.html"
+        class="d-lg-none btn btn-outline-secondary2 border-0 cartBtn hasProducts"
+        href="#"
         type="button"
-        ><i class="fa-solid fa-cart-shopping"></i
+        ><i class="fa-solid fa-cart-shopping fa-xl"></i
       ></a>
       <input type="checkbox" id="menu-toggle" />
       <label
@@ -150,11 +150,13 @@
 
       <div class="d-flex flex-column flex-lg-row row-gap-2 mt-6 mt-lg-0">
         <a
-          class="d-none d-lg-block btn btn-outline-secondary2 border-0 hasProducts"
-          href="./cart.html"
+          class="d-none d-lg-block btn btn-outline-secondary2 border-0 cartBtn position-relative"
+          href="#"
           type="button"
-          ><i class="fa-solid fa-cart-shopping"></i
-        ></a>
+          ><i class="fa-solid fa-cart-shopping fa-xl"
+            ><span class="badge rounded-pill hasProducts">123</span></i
+          ></a
+        >
         <a
           href="./account.html"
           type="button"
@@ -162,11 +164,7 @@
         >
           會員中心
         </a>
-        <a
-          href="./index.html"
-          type="button"
-          class="btn btn-logout fw-medium"
-        >
+        <a href="./index.html" type="button" class="btn btn-logout fw-medium">
           登出
         </a>
         <a

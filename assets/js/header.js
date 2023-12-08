@@ -44,3 +44,26 @@ navbarLogoutBtns.forEach(function (navbarLogoutBtn) {
     localStorage.clear();
   });
 });
+
+// 購物車: 產品數量提示
+const hasProductsEl = document.querySelector("span.hasProducts");
+
+let cartNum = 0;
+
+if (hasProductsEl) {
+  await getCartLength();
+
+  hasProductsEl.innerHTML = cartNum > 0 ? `${cartNum}` : "";
+}
+
+async function getCartLength() {
+  try {
+    // 取得課程長度
+    const { data } = await axios.get(
+      `${_url}/myCarts?userId=${userId}&isPurchased=${false}`
+    );
+    cartNum = data.length;
+  } catch (error) {
+    console.log("getMyCart", error);
+  }
+}
