@@ -15,12 +15,12 @@
       </a>
     </h1>
     <div class="d-flex">
-      <a
-        class="d-lg-none btn btn-outline-secondary2 border-0 hasProducts"
-        href="./cart.html"
+      <button
+        class="d-lg-none btn btn-outline-secondary2 border-0 hasProducts js-toMyCart"
         type="button"
-        ><i class="fa-solid fa-cart-shopping"></i
-      ></a>
+      >
+        <i class="fa-solid fa-cart-shopping"></i>
+      </button>
       <input type="checkbox" id="menu-toggle" />
       <label
         for="menu-toggle"
@@ -175,12 +175,12 @@
       </ul>
 
       <div class="d-flex flex-column flex-lg-row row-gap-2 mt-6 mt-lg-0">
-        <a
-          class="d-none d-lg-block btn btn-outline-secondary2 border-0 hasProducts"
-          href="./cart.html"
+        <button
+          class="d-none d-lg-block btn btn-outline-secondary2 border-0 hasProducts js-toMyCart"
           type="button"
-          ><i class="fa-solid fa-cart-shopping"></i
-        ></a>
+        >
+          <i class="fa-solid fa-cart-shopping"></i>
+        </button>
         <a
           href="./account.html"
           type="button"
@@ -208,3 +208,5 @@
 
 <!-- message -->
 <%- include("./layout/message.ejs") -%>
+<!-- login modal -->
+<%- include("./layout/loginModal.ejs") -%>

@@ -1,3 +1,4 @@
+import { Modal } from "bootstrap";
 const cateItems = document.querySelectorAll(".cateitem");
 cateItems.forEach((cateItem) => {
   cateItem.addEventListener("click", function () {
@@ -34,10 +35,10 @@ let navbarLogoutBtns = document.querySelectorAll(".btn-logout");
 let navbarLoginBtns = document.querySelectorAll(".btn-login");
 let navbarRegisterBtns = document.querySelectorAll(".btn-register");
 
-let isLogin = localStorage.getItem("isLogin");
+let isLogin = JSON.parse(localStorage.getItem("isLogin"));
 
 function checkLogin() {
-  if (isLogin === "1") {
+  if (isLogin == "1") {
     navbarMemberBtns.forEach(function (navbarMemberBtn) {
       navbarMemberBtn.style.display = "block";
     });
@@ -73,3 +74,16 @@ navbarLogoutBtns.forEach(function (navbarLogoutBtn) {
     localStorage.setItem("isLogin", "0");
   });
 });
+
+// 點購物車圖示判斷有無登入
+const toMyCartBtn = document.querySelectorAll(".js-toMyCart");
+
+toMyCartBtn.forEach((btn) => {
+  btn.addEventListener("click", checkLoginModal);
+});
+
+// 若未登入出現登入註冊 Modal
+function checkLoginModal() {
+  const loginModal = new Modal("#loginModal");
+  isLogin ? (location.href = "./cart.html") : loginModal.show();
+}
