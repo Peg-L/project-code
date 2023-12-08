@@ -49,7 +49,7 @@ courseList.addEventListener("click", async (e) => {
 
 async function getData() {
   try {
-    const myCartApi = `${_url}/myCarts?userId=${userId}&courseId=${courseId}`;
+    const myCartApi = `${_url}/myCarts?userId=${userId}&courseId=${courseId}&status=purchase`;
     const myCouponsApi = `${_url}/myCoupons?userId=${userId}`;
     const courseCouponsApi = `${_url}/coupons?courseId=${courseId}`;
 
@@ -95,8 +95,9 @@ async function addCourseToMyCarts() {
       userId,
       courseId,
       quantity: 1,
-      isPurchased: false,
+      status: "purchase",
       isNextPurchase: false,
+      dueDate: "",
     };
     await axios.post(`${_url}/myCarts`, postData, {
       headers: {

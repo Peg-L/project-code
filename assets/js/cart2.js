@@ -1,25 +1,32 @@
 let purchasedCarts = [];
 const cartList = document.querySelector(".js-cartList");
 const confirmBtn = document.querySelector(".js-confirmBtn");
-const addOrder = document.querySelector(".btn-addOrder");
-const reduceOrder = document.querySelector(".btn-reduceOrder");
+
+const headers = {
+  headers: {
+    "Content-Type": "application/json",
+  },
+};
 
 // 課程卡片
 let cartCard;
 // 預約課程的父元素 ul
-let orderList;
+let appointmentList;
 // 第幾個購物車項目
 let cartIndex;
 
-confirmBtn.addEventListener("click", () => {
-  Swal.fire({
-    title: "確定完成預約嗎?",
-    text: "之後可至會員中心修改預約時間或預約剩餘堂數",
-    showDenyButton: true,
-    confirmButtonColor: "#115BC9",
-    confirmButtonText: "確認",
-    denyButtonText: "我再想想",
-  }).then((result) => {
+// 按下確定預約按鈕
+confirmBtn.addEventListener("click", async () => {
+  try {
+    const result = await Swal.fire({
+      title: "確定完成預約嗎?",
+      text: "之後可至會員中心修改預約時間或預約剩餘堂數",
+      showDenyButton: true,
+      confirmButtonColor: "#115BC9",
+      confirmButtonText: "確認",
+      denyButtonText: "我再想想",
+    });
+    // 按下確認
     if (result.isConfirmed) {
       // 檢查是否都有填
       const appointments = cartList.querySelectorAll(".js-appointment");
@@ -29,21 +36,33 @@ confirmBtn.addEventListener("click", () => {
           isBlank = true;
         }
       });
+      // 若發現有空白
       if (isBlank) {
-        Swal.fire("預約欄位請勿空白，沒有要預約的堂數可先刪除");
-      } else {
+        Swal.fire({
+          title: "預約欄位請勿空白",
+          text: "沒有要預約的堂數可先刪除",
+          confirmButtonColor: "#115BC9",
+          confirmButtonText: "確認",
+        });
+      }
+      // 若都有填
+      else {
+        console.log(purchasedCarts);
+        await patchPurchasedCart();
         // 複製 purchasedCarts
-        let appointmentData = purchasedCarts;
+        let appointmentData = [...purchasedCarts];
         // 取得每張卡片預約的 ul
-        const orderLists = document.querySelectorAll(".js-orderList");
-        orderLists.forEach((ul, index) => {
+        const appointmentLists = document.querySelectorAll(
+          ".js-appointmentList"
+        );
+        appointmentLists.forEach((ul, index) => {
           // 取得預約 ul 內的所有 li
-          const orders = ul.querySelectorAll("li");
-          orders.forEach((order) => {
+          const appointments = ul.querySelectorAll("li");
+          appointments.forEach((appointment) => {
             // 取得 日期
-            const date = order.querySelector("[name='appointmentDate']");
+            const date = appointment.querySelector("[name='appointmentDate']");
             // 取得 時間
-            const time = order.querySelector("[name='appointmentTime']");
+            const time = appointment.querySelector("[name='appointmentTime']");
             // 將日期和時間加入資料
             const appointmentObj = {
               date: date.value,
@@ -57,30 +76,42 @@ confirmBtn.addEventListener("click", () => {
         location.href = "cart3.html";
       }
     }
-  });
+  } catch (error) {}
 });
 
+function patchPurchasedCart() {
+  const urls = purchasedCarts.map((item) => `${_url}/myCarts/${item.myCartId}`);
+  const patchData = { status: "finish" };
+  return Promise.all(urls.map((url) => axios.patch(url, patchData, headers)));
+}
+
+/**** 卡片增加、減少預約按鈕 ****/
+
+// 課程卡片 ul 監聽點擊事件
 cartList.addEventListener("click", (e) => {
+  // 取得 課程卡片
   cartCard = e.target.closest("[data-cart]");
   if (cartCard) {
-    orderList = cartCard.querySelector(".js-orderList");
+    // 取得 該課程卡片預約的 ul
+    appointmentList = cartCard.querySelector(".js-appointmentList");
+    // 取得 該課程卡片的 index
     cartIndex = cartCard.dataset.cart;
   }
   // 按減少按鈕
-  if (e.target.classList.contains("btn-reduceOrder")) {
-    purchasedCarts[cartIndex].orderNum--;
+  if (e.target.classList.contains("btn-reduceAppointment")) {
+    purchasedCarts[cartIndex].appointmentNum--;
     // 幫新增、刪除按鈕加 disabled
-    updateOrderBtn();
+    updateAppointmentBtn();
     // 更新剩餘堂數
     updateRemainNum();
     // 刪除 InputGroup
     deleteLastInputGroup();
   }
   // 按增加按鈕
-  else if (e.target.classList.contains("btn-addOrder")) {
-    purchasedCarts[cartIndex].orderNum++;
+  else if (e.target.classList.contains("btn-addAppointment")) {
+    purchasedCarts[cartIndex].appointmentNum++;
     // 幫新增、刪除按鈕加 disabled
-    updateOrderBtn();
+    updateAppointmentBtn();
     // 更新剩餘堂數
     updateRemainNum();
     // 新增 InputGroup
@@ -91,26 +122,28 @@ cartList.addEventListener("click", (e) => {
 });
 
 // 幫新增、刪除按鈕加 disabled
-function updateOrderBtn() {
-  const addBtn = cartCard.querySelector(".btn-addOrder");
-  const reduceBtn = cartCard.querySelector(".btn-reduceOrder");
+function updateAppointmentBtn() {
+  const addBtn = cartCard.querySelector(".btn-addAppointment");
+  const reduceBtn = cartCard.querySelector(".btn-reduceAppointment");
   addBtn.disabled = false;
   reduceBtn.disabled = false;
   // 若預約堂數已滿就不能再加
   if (
-    purchasedCarts[cartIndex].orderNum == purchasedCarts[cartIndex].quantity
+    purchasedCarts[cartIndex].appointmentNum ==
+    purchasedCarts[cartIndex].quantity
   ) {
     addBtn.disabled = true;
   }
-  // 若預約1糖就不能再刪
-  if (purchasedCarts[cartIndex].orderNum == 1) {
+  // 若預約1堂就不能再刪
+  if (purchasedCarts[cartIndex].appointmentNum == 1) {
     reduceBtn.disabled = true;
   }
 }
 
+// 新增 InputGroup
 function addInputGroup() {
   // 第幾堂
-  const classNum = purchasedCarts[cartIndex].orderNum;
+  const classNum = purchasedCarts[cartIndex].appointmentNum;
   // 寫入 html
   const inputGroup = `
     <li class="d-flex flex-wrap align-items-center column-gap-3 row-gap-2 mb-3 mb-md-5">
@@ -136,12 +169,13 @@ function addInputGroup() {
         </select>
         </div>
     </li>`;
-  orderList.insertAdjacentHTML("beforeend", inputGroup);
+  appointmentList.insertAdjacentHTML("beforeend", inputGroup);
 }
 
+// 刪除 InputGroup
 function deleteLastInputGroup() {
   // 所有 li
-  const listItems = orderList.querySelectorAll("li");
+  const listItems = appointmentList.querySelectorAll("li");
   // li 有幾個
   const length = listItems.length;
   // 刪除最後一個 li
@@ -151,9 +185,11 @@ function deleteLastInputGroup() {
 // 更新剩餘堂數
 function updateRemainNum() {
   // 選取剩餘堂數
-  const remainNum = orderList.nextElementSibling.querySelector(".js-remainNum");
+  const remainNum =
+    appointmentList.nextElementSibling.querySelector(".js-remainNum");
   remainNum.innerText = `剩餘 ${
-    purchasedCarts[cartIndex].quantity - purchasedCarts[cartIndex].orderNum
+    purchasedCarts[cartIndex].quantity -
+    purchasedCarts[cartIndex].appointmentNum
   } 堂`;
 }
 
@@ -168,9 +204,8 @@ async function init() {
 async function getPurchasedCart() {
   try {
     // 取得課程
-    const { data } = await axios.get(
-      `${_url}/myCarts?userId=${userId}&isPurchased=${true}&_expand=course`
-    );
+    const api = `${_url}/myCarts?userId=${userId}&status=appointment&_expand=course`;
+    const { data } = await axios.get(api);
     if (data !== undefined) {
       // 取得各課程的老師資料
       const courseUrls = data.map(
@@ -184,10 +219,8 @@ async function getPurchasedCart() {
       data.forEach((item, index) => {
         item.course = responses[index].data;
       });
-      console.log(data);
 
       handleData(data);
-      console.log(purchasedCarts);
     }
   } catch (error) {
     console.log("getPurchasedCart", error);
@@ -204,11 +237,13 @@ function handleData(data) {
       teacherImg: cart.course?.teacher?.avatar,
       quantity: cart.quantity,
       myCartId: cart.id,
-      orderNum: 1,
+      appointmentNum: 1,
       appointment: [],
+      dueDate: cart.dueDate,
     };
     return obj;
   });
+  console.log(purchasedCarts);
 }
 // 渲染已購買的課程
 function renderPurchasedCart() {
@@ -251,12 +286,12 @@ function renderPurchasedCart() {
           請先選取日期再預約時間 ：
         </p>
         <div class="mb-2">
-          <button type="button" class="btn btn-primary text-white btn-sm me-1 btn-addOrder" ${
+          <button type="button" class="btn btn-primary text-white btn-sm me-1 btn-addAppointment" ${
             cart.quantity == 1 ? "disabled" : ""
           }>增加預約</button>
-          <button type="button" class="btn btn-primary text-white btn-sm btn-reduceOrder" disabled>減少預約</button>
+          <button type="button" class="btn btn-primary text-white btn-sm btn-reduceAppointment" disabled>減少預約</button>
         </div>
-        <ul class="js-orderList">
+        <ul class="js-appointmentList">
           <li class="d-flex flex-wrap align-items-center column-gap-3 row-gap-2 mb-3 mb-md-5">
               <p class="fw-bold w-150px">第 1 堂 (50 分鐘)</p>
               <div class="d-flex gap-2 w-300px">
@@ -287,10 +322,10 @@ function renderPurchasedCart() {
         </ul>
         <div class="d-flex justify-content-end align-items-center gap-4 mt-auto">
           <p class="fs-sm fs-md-7 js-remainNum">剩餘 ${
-            cart.quantity - cart.orderNum
+            cart.quantity - cart.appointmentNum
           } 堂</p>
           <p class="fs-sm fs-md-7">
-            <time datetime="2024-02-01">2024/2/1</time> 到期
+          預約截止日 <time datetime="${cart.dueDate}">${cart.dueDate}</time>
           </p>
         </div>
       </div>
@@ -300,6 +335,7 @@ function renderPurchasedCart() {
   cartList.innerHTML = cartHtml;
 }
 
+// jquery datepicker
 function datepicker() {
   $.datepicker.setDefaults($.datepicker.regional["zh-TW"]);
   $(function () {

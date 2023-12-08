@@ -76,15 +76,15 @@ function renderCard() {
             </ul>
             <p class="fs-sm fs-md-6 text-start px-2 py-4">
               共購買 ${card.quantity} 堂，目前已預約 ${
-      card.orderNum
+      card.appointmentNum
     } 堂，尚有 <span class="text-primary fw-bold">${
-      card.quantity - card.orderNum
+      card.quantity - card.appointmentNum
     }</span> 堂未預約
             </p>
           </div>
         </div>
         <div class="fs-sm fs-md-7 text-primary text-end">
-          <time datetime="2024-02-01">- 2024/2/1</time> 到期 -
+        預約截止日 <time datetime="${card.dueDate}">${card.dueDate}</time>
         </div>
       </li>`;
   });

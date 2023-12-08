@@ -2,19 +2,20 @@
 // 日期、數字三位一點規則
 const dateReg = /^(\d{4}-\d{2}-\d{2}).*/;
 const separatorReg = /\B(?=(?:\d{3})+(?!\d))/g;
-const cartGroup = document.querySelector(".js-cartGroup");
-const nextCartGroup = document.querySelector(".js-nextCartGroup");
+const cartList = document.querySelector(".js-cartList");
+const nextCartList = document.querySelector(".js-nextCartList");
 const purchaseTabContent = document.querySelector("#purchaseTabContent");
 const cartContainer = document.querySelector("#mainPurchase");
 // 取得 付款資訊按鈕
 const paymentInfoBtns = document.querySelectorAll(".js-paymentInfoBtn");
 // 取得 付款按鈕
 const payBtns = document.querySelectorAll(".js-payBtn");
+// 取得 nav-tabs 的 ul
 const purchaseTab = document.querySelector("#purchaseTab");
 
 // 目前網址
-const currentURL = window.location.href;
-const newURL = currentURL.replace("cart", "course_intro");
+// const currentURL = window.location.href;
+// const newURL = currentURL.replace("cart", "course_intro");
 
 const headers = {
   headers: {
@@ -22,8 +23,8 @@ const headers = {
   },
 };
 
-let myCarts;
-let nextPurchaseCarts;
+let myCarts = [];
+let nextPurchaseCarts = [];
 let cartCourseId;
 let usedCouponData = [];
 
@@ -33,7 +34,7 @@ init();
 async function init() {
   renderLoading();
   await getMyCart();
-  // console.log("myCarts", myCarts);
+
   if (myCarts.length) {
     renderCart();
     CalculateToTalSum();
@@ -49,25 +50,42 @@ async function init() {
 async function getMyCart() {
   try {
     // 取得課程
-    const { data } = await axios.get(
-      `${_url}/myCarts?userId=${userId}&isPurchased=${false}&_expand=course`
-    );
+    const api = `${_url}/myCarts?userId=${userId}&status=purchase&_expand=course`;
+    const { data } = await axios.get(api);
     if (data !== undefined) {
-      for (let item of data) {
-        // 取得各課程的老師資料
-        const courseRes = await axios.get(
-          `${_url}/courses/${item.courseId}?_expand=teacher`
-        );
-        item.course = courseRes.data;
-      }
-      // 購買項目
-      myCarts = data.filter((item) => !item.isNextPurchase);
-      // 下次再買項目
-      nextPurchaseCarts = data.filter((item) => item.isNextPurchase);
+      // 取得各課程的老師資料
+      const courseUrls = data.map(
+        (item) => `${_url}/courses/${item.courseId}?_expand=teacher`
+      );
+
+      const responses = await Promise.all(
+        courseUrls.map((courseUrl) => axios.get(courseUrl))
+      );
+
+      data.forEach((item, index) => {
+        item.course = responses[index].data;
+      });
+      handleData(data);
     }
   } catch (error) {
     console.log("getMyCart", error);
   }
+}
+
+function handleData(data) {
+  // 到期日(一年後)的 23:59:59 過期
+  let dueDate = new Date();
+  dueDate.setDate(dueDate.getDate() + 365);
+  dueDate.setHours(23, 59, 59, 999);
+  dueDate = dateReg.exec(dueDate.toISOString())[1];
+  data.forEach((item) => {
+    item.dueDate = dueDate;
+  });
+
+  // 購買項目
+  myCarts = data.filter((item) => !item.isNextPurchase);
+  // 下次再買項目
+  nextPurchaseCarts = data.filter((item) => item.isNextPurchase);
 }
 
 function CalculateToTalSum() {
@@ -358,23 +376,21 @@ async function updateQuantity(target) {
     let myCartId;
     myCarts.forEach((cart) => {
       if (cart.courseId == courseId) {
-        myCartId = cart.id;
-        cart.quantity = target.value;
+        myCartId = cart.id; // 取得 id
+        cart.quantity = target.value; // 更新數量
       }
     });
-
-    await axios.patch(
-      `${_url}/myCarts/${myCartId}`,
-      { quantity: target.value },
-      headers
-    );
+    // 更新遠端數量
+    const api = `${_url}/myCarts/${myCartId}`;
+    const patchData = { quantity: target.value };
+    await axios.patch(api, patchData, headers);
   } catch (error) {
     console.log("updateQuantity", error);
   }
 }
 
 // 購買項目更改數量時 json-server 同步更新
-cartGroup.addEventListener("change", (e) => {
+cartList.addEventListener("change", (e) => {
   if ((e.target.name = "count")) {
     updateQuantity(e.target);
     reCheckCoupon(listItem); // 重新確認優惠券資格
@@ -382,7 +398,7 @@ cartGroup.addEventListener("change", (e) => {
   }
 });
 // 下次再買項目更改數量時 json-server 同步更新
-nextCartGroup.addEventListener("change", (e) => {
+nextCartList.addEventListener("change", (e) => {
   if ((e.target.name = "count")) {
     updateQuantity(e.target);
   }
@@ -399,21 +415,25 @@ paymentInfoBtns.forEach((btn) => {
 payBtns.forEach((btn) => {
   btn.addEventListener("click", async (e) => {
     e.preventDefault();
-    await confirmToUseCoupon();
-    await confirmToBuy();
+    await patchMyCoupon(); // 按確認購買後優惠券 canUse 改成 false
+    await patchMyCarts(); // 按確認購買後更新商品狀態
     location.href = "cart2.html";
   });
 });
 
-async function confirmToBuy() {
-  try {
-    for (const item of myCarts) {
-      const buyUrl = `${_url}/myCarts/${item.id}`;
-      await axios.patch(buyUrl, { isPurchased: true }, headers);
-    }
-  } catch (error) {
-    console.log("confirmToBuy", error);
-  }
+// 按確認購買後更新商品狀態
+function patchMyCarts() {
+  const buyUrls = myCarts.map((item) => `${_url}/myCarts/${item.id}`);
+
+  return Promise.all(
+    buyUrls.map((url, index) => {
+      const patchData = {
+        status: "appointment",
+        dueDate: myCarts[index].dueDate,
+      };
+      return axios.patch(url, patchData, headers);
+    })
+  );
 }
 
 /***** 渲染 *****/
@@ -421,11 +441,6 @@ async function confirmToBuy() {
 // 渲染購物車
 function renderCart() {
   let cartHtml = "";
-  // 到期日(一年後)的 23:59:59 過期
-  let dueDate = new Date();
-  dueDate.setDate(dueDate.getDate() + 365);
-  dueDate.setHours(23, 59, 59, 999);
-  dueDate = dueDate.toISOString();
 
   myCarts.length
     ? myCarts.forEach((cart, index) => {
@@ -526,8 +541,8 @@ function renderCart() {
               <div class="d-flex justify-content-end gap-4">
                 <p class="fs-sm fs-md-7">
                   預約截止日
-                  <time datetime="${dateReg.exec(dueDate)[1]}">
-                    ${dateReg.exec(dueDate)[1]}</time
+                  <time datetime="${cart.dueDate}">
+                  ${cart.dueDate}</time
                   >
                 </p>
                 <a
@@ -549,17 +564,12 @@ function renderCart() {
       </li>`;
       })
     : "";
-  cartGroup.innerHTML = cartHtml;
+  cartList.innerHTML = cartHtml;
 }
 
 // 渲染下次再買
 function renderNextPurchaseCart() {
   let cartHtml = "";
-  // 到期日(一年後)的 23:59:59 過期
-  let dueDate = new Date();
-  dueDate.setDate(dueDate.getDate() + 365);
-  dueDate.setHours(23, 59, 59, 999);
-  dueDate = dueDate.toISOString();
 
   nextPurchaseCarts.length
     ? nextPurchaseCarts.forEach((cart, index) => {
@@ -655,9 +665,7 @@ function renderNextPurchaseCart() {
                 <div class="d-flex justify-content-end gap-4">
                   <p class="fs-sm fs-md-7">
                     預約截止日
-                    <time datetime="${dateReg.exec(dueDate)[1]}">${
-          dateReg.exec(dueDate)[1]
-        }</time>
+                    <time datetime="${cart.dueDate}">${cart.dueDate}</time>
                   </p>
                   <a class="text-decoration-underline js-mainPurchaseBtn" role="button" href="#">移至購物車</a>
                   <a class="text-decoration-underline delete-order" role="button" href="#"
@@ -671,7 +679,7 @@ function renderNextPurchaseCart() {
     : (cartHtml += `<div class="d-flex flex-column align-items-center text-center h-100 px-10 pt-10 mb-4">
     <p class="fs-4 mb-10">沒有商品</p>
   </div>`);
-  nextCartGroup.innerHTML = cartHtml;
+  nextCartList.innerHTML = cartHtml;
 }
 function renderEmptyCart() {
   const emptyCart = `
@@ -694,7 +702,7 @@ function renderLoading() {
         <span class="visually-hidden">Loading...</span>
       </div>
     </div>`;
-  cartGroup.innerHTML = loading;
+  cartList.innerHTML = loading;
 }
 
 function renderPaymentInfo(target) {

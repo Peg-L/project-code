@@ -47,7 +47,7 @@ useCouponBtn.addEventListener("click", (e) => {
 });
 
 // 付款時把使用的優惠券 canUse 改成 false
-async function confirmToUseCoupon() {
+async function patchMyCoupon() {
   try {
     // 各課程的優惠券欄位跑迴圈
     for (const item of usedCouponData) {
