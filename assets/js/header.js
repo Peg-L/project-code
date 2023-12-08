@@ -35,7 +35,7 @@ let navbarLogoutBtns = document.querySelectorAll(".btn-logout");
 let navbarLoginBtns = document.querySelectorAll(".btn-login");
 let navbarRegisterBtns = document.querySelectorAll(".btn-register");
 
-let isLogin = localStorage.getItem("isLogin");
+let isLogin = JSON.parse(localStorage.getItem("isLogin"));
 
 function checkLogin() {
   if (isLogin === "1") {
@@ -75,13 +75,13 @@ navbarLogoutBtns.forEach(function (navbarLogoutBtn) {
   });
 });
 
+// 點購物車圖示判斷有無登入
 const toMyCartBtn = document.querySelectorAll(".js-toMyCart");
 
-document.addEventListener("DOMContentLoaded", function () {
-  toMyCartBtn.forEach((btn) => {
-    btn.addEventListener("click", checkLoginModal);
-  });
+toMyCartBtn.forEach((btn) => {
+  btn.addEventListener("click", checkLoginModal);
 });
+
 // 若未登入出現登入註冊 Modal
 function checkLoginModal() {
   const loginModal = new Modal("#loginModal");
