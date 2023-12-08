@@ -38,7 +38,7 @@ let navbarRegisterBtns = document.querySelectorAll(".btn-register");
 let isLogin = JSON.parse(localStorage.getItem("isLogin"));
 
 function checkLogin() {
-  if (isLogin === "1") {
+  if (isLogin == "1") {
     navbarMemberBtns.forEach(function (navbarMemberBtn) {
       navbarMemberBtn.style.display = "block";
     });
