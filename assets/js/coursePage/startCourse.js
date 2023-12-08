@@ -24,7 +24,7 @@ let hasCoupons;
 courseList.addEventListener("click", async (e) => {
   if (e.target && e.target.dataset.course) {
     // 取得 登入狀態
-    const isLogin = localStorage.getItem("isLogin");
+    let isLogin = JSON.parse(localStorage.getItem("isLogin"));
     // 取得 登入modal
     const loginModal = new Modal("#loginModal");
     // 若有登入，執行加入購物車和優惠券
