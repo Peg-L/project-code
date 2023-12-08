@@ -1,4 +1,4 @@
-import { Modal } from "bootstrap";
+// import { Modal } from "bootstrap";
 const cateItems = document.querySelectorAll(".cateitem");
 cateItems.forEach((cateItem) => {
   cateItem.addEventListener("click", function () {
@@ -84,6 +84,32 @@ toMyCartBtn.forEach((btn) => {
 
 // 若未登入出現登入註冊 Modal
 function checkLoginModal() {
-  const loginModal = new Modal("#loginModal");
+  const loginModal = new bootstrap.Modal("#loginModal");
   isLogin ? (location.href = "./cart.html") : loginModal.show();
+}
+
+// 購物車: 產品數量提示
+
+function renderCartNum() {
+  const hasProductsEl = document.querySelectorAll("span.hasProducts");
+
+  hasProductsEl.forEach(async (el) => {
+    let cartNum = await getCartLength();
+
+    el.textContent = cartNum ? `${cartNum}` : "";
+  });
+}
+renderCartNum();
+
+async function getCartLength() {
+  try {
+    // 取得課程長度
+    const { data } = await axios.get(
+      `${_url}/myCarts?userId=${userId}&isPurchased=${false}&isNextPurchase=${false}`
+    );
+    let cartNum = data.length;
+    return cartNum;
+  } catch (error) {
+    console.log("getMyCart", error);
+  }
 }
