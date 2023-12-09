@@ -35,7 +35,7 @@ let navbarLogoutBtns = document.querySelectorAll(".btn-logout");
 let navbarLoginBtns = document.querySelectorAll(".btn-login");
 let navbarRegisterBtns = document.querySelectorAll(".btn-register");
 
-let isLogin = JSON.parse(localStorage.getItem("isLogin"));
+// let isLogin = JSON.parse(localStorage.getItem("isLogin"));
 
 function checkLogin() {
   if (isLogin == "1") {
@@ -85,6 +85,10 @@ function myCartCheckLogin() {
   if (!isLogin) {
     toMyCartBtn.forEach((btn) => {
       btn.setAttribute("data-bs-toggle", "modal");
+    });
+  } else {
+    toMyCartBtn.forEach((btn) => {
+      btn.setAttribute("href", "./cart.html");
     });
   }
 }

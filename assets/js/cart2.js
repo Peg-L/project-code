@@ -343,7 +343,6 @@ function renderPurchasedCart() {
   </li>`;
   });
   cartList.innerHTML = cartHtml;
-  inputPreventEnter(document);
 }
 
 // jquery datepicker

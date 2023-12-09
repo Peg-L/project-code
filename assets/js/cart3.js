@@ -46,7 +46,7 @@ function renderCard() {
               <!-- card.teacherImg -->
                 <img
                   class="img-fluid rounded-circle mb-2"
-                  src="../assets/images/student/olivia.png"
+                  src="${card.teacherImg}"
                   alt="teacher"
                   width="90px"
                   height="90px"

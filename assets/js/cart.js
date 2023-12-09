@@ -2,7 +2,7 @@
 // 日期、數字三位一點規則
 const dateReg = /^(\d{4}-\d{2}-\d{2}).*/;
 const separatorReg = /\B(?=(?:\d{3})+(?!\d))/g;
-let cartList = document.querySelector(".js-cartList");
+const cartList = document.querySelector(".js-cartList");
 const nextCartList = document.querySelector(".js-nextCartList");
 const purchaseTabContent = document.querySelector("#purchaseTabContent");
 const cartContainer = document.querySelector("#mainPurchase");
@@ -36,14 +36,11 @@ async function init() {
   cartInitialHtml = cartContainer.innerHTML; // 取得購物項目初始 html，因為空購物車渲染會把這些蓋掉
   renderLoading(); // 渲染loading
   await getMyCart(); // 取得我的購物車資料
-
+  renderCart();
   if (myCarts.length) {
-    renderCart();
     CalculateToTalSum();
     couponInit();
     getCoupons();
-  } else {
-    renderEmptyCart();
   }
   renderNextPurchaseCart();
 }
@@ -149,11 +146,9 @@ function CalculateToTalSum() {
 
 // 依據購物車商品數量來進行渲染購買項目和下次再買項目
 async function checkAndRenderMyCart() {
+  renderCart(); // 渲染購買項目
   if (myCarts.length) {
-    renderCart(); // 渲染購買項目
     getCartCouponsData(); // 取得課程優惠券、渲染優惠券選項
-  } else {
-    renderEmptyCart(); // 渲染空購物車
   }
   renderNextPurchaseCart(); // 渲染下次購買
 
@@ -455,11 +450,6 @@ function patchMyCarts() {
 
 // 渲染購物車
 function renderCart() {
-  // 重置cartContainer，避免是空購物車會沒有cartList、優惠券、付款資訊
-  cartContainer.innerHTML = cartInitialHtml;
-  // 重抓一次 cartList
-  cartList = document.querySelector(".js-cartList");
-
   let cartHtml = "";
 
   myCarts.length
@@ -582,9 +572,47 @@ function renderCart() {
         <div class="d-flex align-items-center js-usedCoupon"></div>
       </li>`;
       })
-    : "";
+    : (cartHtml = `
+    <div class="d-flex flex-column align-items-center text-center h-100 px-10 pt-10 mb-4">
+      <p class="fs-4 mb-10">購物車內沒有商品</p>
+      <a href="./course.html"
+        class="btn btn-secondary2 rounded-2 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
+      >
+        繼續選購
+      </a>
+    </div>
+    `);
   cartList.innerHTML = cartHtml;
+  checkDisabled();
   inputPreventEnter(document); // 防止整頁 input 按 enter 的預設行為(在 config.js)
+}
+
+// 空購物車時按鈕要加上 disabled
+function checkDisabled() {
+  const payment = document.querySelector("#payWay");
+  if (myCarts.length) {
+    payment.querySelectorAll("button").forEach((item) => {
+      item.disabled = false;
+    });
+    useCouponBtn.disabled = false;
+  } else {
+    payment.querySelectorAll("button").forEach((item) => {
+      item.disabled = true;
+    });
+    useCouponBtn.disabled = true;
+  }
+}
+
+// 防止 input 按 enter 的預設行為
+function inputPreventEnter(element) {
+  const inputs = element.querySelectorAll("input");
+  inputs.forEach((input) => {
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+      }
+    });
+  });
 }
 
 // 渲染下次再買
@@ -687,21 +715,6 @@ function renderNextPurchaseCart() {
     <p class="fs-4 mb-10">沒有商品</p>
   </div>`);
   nextCartList.innerHTML = cartHtml;
-}
-
-// 渲染空購物車
-function renderEmptyCart() {
-  const emptyCart = `
-  <div class="d-flex flex-column align-items-center text-center h-100 px-10 pt-10 mb-4">
-    <p class="fs-4 mb-10">購物車內沒有商品</p>
-    <a href="./course.html"
-      class="btn btn-secondary2 rounded-2 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
-    >
-      繼續選購
-    </a>
-  </div>
-  `;
-  cartContainer.innerHTML = emptyCart;
 }
 
 // 渲染loading
