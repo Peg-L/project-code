@@ -23,6 +23,7 @@ const userInfo = {
   user_birthdate: "",
   user_gender: "",
   user_address: "",
+  followList: [],
 };
 
 let token = "";
