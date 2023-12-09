@@ -40,6 +40,10 @@ function renderCourses() {
     : currentPageCourses.length !== 0
     ? /* 卡片渲染 */
       currentPageCourses.forEach(async (item) => {
+        console.log("測試");
+        if (followList) {
+          console.log("測試2");
+        }
         if (followList && followList.includes(item.id)) {
           courseHtml += `
           <li class="card flex-row flex-wrap flex-md-nowrap shadow">
