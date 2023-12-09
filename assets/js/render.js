@@ -620,7 +620,6 @@ function renderPagination() {
 }
 
 // 追蹤
-console.log(userId, _url);
 let followList;
 
 async function getFollowList() {
