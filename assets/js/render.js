@@ -627,12 +627,10 @@ function renderPagination() {
 let followList;
 
 async function getFollowList() {
-  console.log(_url);
-  console.log(userId);
-  let res = await axios.get(`${_url}/users/${userId}`);
-  console.log("res", res);
-
-  followList = res.data.followList;
+  if (userId) {
+    let res = await axios.get(`${_url}/users/${userId}`);
+    followList = res.data.followList;
+  }
 }
 
 // 追蹤/取消追蹤
