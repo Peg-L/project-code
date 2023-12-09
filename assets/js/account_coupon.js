@@ -1,4 +1,3 @@
-// 記得改 userId
 const couponPageArrow = document.querySelectorAll(".js-couponPageArrow");
 
 let myCoupons = [];
