@@ -18,11 +18,10 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
     />
-    <script type="module" crossorigin src="/project-code/assets/login-2de4da38.js"></script>
-    <link rel="modulepreload" crossorigin href="/project-code/assets/backtotop-d0934485.js">
-    <link rel="modulepreload" crossorigin href="/project-code/assets/config-28f3114d.js">
+    <script type="module" crossorigin src="/project-code/assets/login-cd208dc6.js"></script>
+    <link rel="modulepreload" crossorigin href="/project-code/assets/backtotop-81d6d365.js">
     <link rel="modulepreload" crossorigin href="/project-code/assets/firebase-9e2df465.js">
-    <link rel="stylesheet" href="/project-code/assets/backtotop-3f2dd250.css">
+    <link rel="stylesheet" href="/project-code/assets/backtotop-9a334624.css">
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-white fixed-top">
@@ -43,11 +42,13 @@
     </h1>
     <div class="d-flex">
       <a
-        class="d-lg-none btn btn-outline-secondary2 border-0 hasProducts"
-        href="./cart.html"
+        class="d-lg-none btn btn-outline-secondary2 border-0 js-toMyCart"
         type="button"
-        ><i class="fa-solid fa-cart-shopping"></i
-      ></a>
+      >
+        <i class="fa-solid fa-cart-shopping fa-xl"
+          ><span class="badge rounded-pill hasProducts"></span
+        ></i>
+      </a>
       <input type="checkbox" id="menu-toggle" />
       <label
         for="menu-toggle"
@@ -99,18 +100,42 @@
                 data-bs-parent="#accordionFlush"
               >
                 <ul class="accordion-body text-center">
-                  <li><a href="./course.html">前端</a></li>
-                  <li><a href="./course.html">後端</a></li>
-                  <li><a href="./course.html">資料庫</a></li>
-                  <li><a href="./course.html">資安</a></li>
-                  <li><a href="./course.html">產品測試</a></li>
-                  <li><a href="./course.html">UI / UX</a></li>
-                  <li><a href="./course.html">開發維運</a></li>
-                  <li><a href="./course.html">行動應用</a></li>
-                  <li><a href="./course.html">AI</a></li>
-                  <li><a href="./course.html">遊戲開發</a></li>
-                  <li><a href="./course.html">程式入門</a></li>
-                  <li><a href="./course.html">職涯</a></li>
+                  <li class="cateitem" name="frontend">
+                    <a href="./course.html">前端</a>
+                  </li>
+                  <li class="cateitem" name="backend">
+                    <a href="./course.html">後端</a>
+                  </li>
+                  <li class="cateitem" name="database">
+                    <a href="./course.html">資料庫</a>
+                  </li>
+                  <li class="cateitem" name="security">
+                    <a href="./course.html">資安</a>
+                  </li>
+                  <li class="cateitem" name="productTesting">
+                    <a href="./course.html">產品測試</a>
+                  </li>
+                  <li class="cateitem" name="UIUX">
+                    <a href="./course.html">UI / UX</a>
+                  </li>
+                  <li class="cateitem" name="DevOps">
+                    <a href="./course.html">開發維運</a>
+                  </li>
+                  <li class="cateitem" name="mobileApp">
+                    <a href="./course.html">行動應用</a>
+                  </li>
+                  <li class="cateitem" name="AI">
+                    <a href="./course.html">AI</a>
+                  </li>
+                  <li class="cateitem" name="GameDevelopment">
+                    <a href="./course.html">遊戲開發</a>
+                  </li>
+                  <li class="cateitem" name="levelEasy">
+                    <a href="./course.html">程式入門</a>
+                  </li>
+                  <li class="cateitem" name="career">
+                    <a href="./course.html">職涯</a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -118,10 +143,10 @@
         </li>
         <li class="nav-item">
           <a
-            class="nav-link pc d-none d-lg-block "
+            class="nav-link pc d-none d-lg-block student-faq "
             aria-current="page"
-            href="./faq.html"
-            >常見問題</a
+            href="#"
+            >常見問答</a
           >
           <div
             class="accordion accordion-flush d-block d-lg-none"
@@ -137,7 +162,7 @@
                   aria-expanded="false"
                   aria-controls="faq"
                 >
-                  常見問題
+                  常見問答
                 </button>
               </h2>
               <div
@@ -146,8 +171,10 @@
                 data-bs-parent="#accordionFlush"
               >
                 <ul class="accordion-body text-center">
-                  <li><a href="./faq.html">學生常見問答</a></li>
-                  <li><a href="./faq.html">老師常見問答</a></li>
+                  <li>
+                    <a href="./faq.html" class="student-faq">學生常見問答</a>
+                  </li>
+                  <li><a href="#" class="teacher-faq">老師常見問答</a></li>
                 </ul>
               </div>
             </div>
@@ -176,12 +203,14 @@
       </ul>
 
       <div class="d-flex flex-column flex-lg-row row-gap-2 mt-6 mt-lg-0">
-        <a
-          class="d-none d-lg-block btn btn-outline-secondary2 border-0 hasProducts"
-          href="./cart.html"
+        <button
+          class="d-none d-lg-block btn btn-outline-secondary2 border-0 js-toMyCart position-relative"
           type="button"
-          ><i class="fa-solid fa-cart-shopping"></i
-        ></a>
+        >
+          <i class="fa-solid fa-cart-shopping fa-xl"
+            ><span class="badge hasProducts"></span
+          ></i>
+        </button>
         <a
           href="./account.html"
           type="button"
@@ -189,11 +218,7 @@
         >
           會員中心
         </a>
-        <a
-          href="./index.html"
-          type="button"
-          class="btn btn-logout fw-medium"
-        >
+        <a href="./index.html" type="button" class="btn btn-logout fw-medium">
           登出
         </a>
         <a
@@ -401,6 +426,49 @@
   </div>
   <div id="editor"></div>
 </div>
+<!-- login modal -->
+<!-- 按鈕 -->
+<!-- <button
+  type="button"
+  class="btn btn-primary"
+  data-bs-toggle="modal"
+  data-bs-target="#loginModal"
+>
+  Launch static backdrop modal
+</button> -->
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="loginModal"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">...</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"></script>
     <div class="container py-5 py-md-10 mt-16 mt-md-19">
       <div class="row d-flex justify-content-center">
         <div class="col-12 d-flex flex-column align-items-center">
@@ -476,6 +544,14 @@
               <i class="fa-solid fa-user me-3"></i>
               登入會員
             </button>
+            <!-- <button
+              type="button"
+              id="updatePassword"
+              class="btn btn-secondary2 rounded-1 fs-5 w-100 py-3 mb-4"
+            >
+              <i class="fa-solid fa-user me-3"></i>
+              修改密碼
+            </button> -->
           </form>
         </div>
       </div>
@@ -767,7 +843,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
-    
+    <script src="../assets/js/config.js"></script>
     
   </body>
 </html>
