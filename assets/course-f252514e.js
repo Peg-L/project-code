@@ -4,7 +4,7 @@ import{P as qe,c as Ue}from"./backtotop-81d6d365.js";let le=document.querySelect
           <span class="visually-hidden">Loading...</span>
         </div>
       </div>
-      `:st.length!==0?st.forEach(async e=>{var n,i,a,o,l,d,_,h,p,m,C,y;et.includes(e.id)?s+=`
+      `:st.length!==0?st.forEach(async e=>{var n,i,a,o,l,d,_,h,p,m,C,y;et.includes(e.id)!=null?s+=`
           <li class="card flex-row flex-wrap flex-md-nowrap shadow">
             <div class="d-flex flex-grow-1 p-4 p-lg-8">
               <!--  老師區塊 -->

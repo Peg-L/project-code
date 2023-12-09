@@ -40,7 +40,7 @@ function renderCourses() {
     : currentPageCourses.length !== 0
     ? /* 卡片渲染 */
       currentPageCourses.forEach(async (item) => {
-        if (followList.includes(item.id)) {
+        if (followList.includes(item.id) != undefined) {
           courseHtml += `
           <li class="card flex-row flex-wrap flex-md-nowrap shadow">
             <div class="d-flex flex-grow-1 p-4 p-lg-8">
