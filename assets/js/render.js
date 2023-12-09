@@ -79,7 +79,7 @@ function renderCourses() {
                 </p>
                 <ul class="text-center text-gray-300 fs-sm fs-md-7 mb-2">
                   <li class="d-flex align-items-center">
-                    <img src="../assets/images/star.svg" alt="star" />
+                    <img src="./assets/images/star.svg" alt="star" />
                     <span class="fw-bold me-1"> ${item.teacher.rate} </span>
                     講師評等
                   </li>
@@ -152,7 +152,7 @@ function renderCourses() {
                     href="#"
                     class="d-flex align-items-center mb-1 mb-sm-2 mb-md-4"
                   >
-                    <img src="../assets/images/star.svg" alt="star" />
+                    <img src="./assets/images/star.svg" alt="star" />
                     <span class="fw-bold fs-sm fs-md-7 ms-1">${item.rate}</span>
                     ・
                     <span class="fs-sm fs-md-7 me-2">${
@@ -339,7 +339,7 @@ function renderCourses() {
                 </p>
                 <ul class="text-center text-gray-300 fs-sm fs-md-7 mb-2">
                   <li class="d-flex align-items-center">
-                    <img src="../assets/images/star.svg" alt="star" />
+                    <img src="./assets/images/star.svg" alt="star" />
                     <span class="fw-bold me-1"> ${item.teacher.rate} </span>
                     講師評等
                   </li>
@@ -412,7 +412,7 @@ function renderCourses() {
                     href="#"
                     class="d-flex align-items-center mb-1 mb-sm-2 mb-md-4"
                   >
-                    <img src="../assets/images/star.svg" alt="star" />
+                    <img src="./assets/images/star.svg" alt="star" />
                     <span class="fw-bold fs-sm fs-md-7 ms-1">${item.rate}</span>
                     ・
                     <span class="fs-sm fs-md-7 me-2">${

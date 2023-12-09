@@ -88,7 +88,7 @@ function renderCoupons() {
                     class="img-fluid w-100 rounded-circle img-thumbnail border-0"
                     src="${
                       myCoupon.coupon.type === "allCourse"
-                        ? "../assets/images/logo-img.svg"
+                        ? "./assets/images/logo-img.svg"
                         : myCoupon.coupon.teacher.avatar
                     }"
                     alt="teacher"

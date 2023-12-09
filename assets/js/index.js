@@ -184,7 +184,7 @@ axios.get(`${_url}/comments?_expand=user`).then((res) => {
       <div class="d-flex justify-content-between flex-column gap-4">
         <img
           class="w-40px h-40px"
-          src="../assets/images/comma.png"
+          src="./assets/images/comma.png"
           alt="逗號"
         />
         <p>

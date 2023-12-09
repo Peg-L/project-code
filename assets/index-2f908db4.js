@@ -43,7 +43,7 @@ import"./backtotop-81d6d365.js";import{a as n}from"./axios-21b846bc.js";new Swip
       <div class="d-flex justify-content-between flex-column gap-4">
         <img
           class="w-40px h-40px"
-          src="../assets/images/comma.png"
+          src="./assets/images/comma.png"
           alt="逗號"
         />
         <p>

@@ -40,7 +40,7 @@ import{P as Ue,c as ze}from"./backtotop-81d6d365.js";let ce=document.querySelect
                 </p>
                 <ul class="text-center text-gray-300 fs-sm fs-md-7 mb-2">
                   <li class="d-flex align-items-center">
-                    <img src="../assets/images/star.svg" alt="star" />
+                    <img src="./assets/images/star.svg" alt="star" />
                     <span class="fw-bold me-1"> ${e.teacher.rate} </span>
                     講師評等
                   </li>
@@ -89,7 +89,7 @@ import{P as Ue,c as ze}from"./backtotop-81d6d365.js";let ce=document.querySelect
                     href="#"
                     class="d-flex align-items-center mb-1 mb-sm-2 mb-md-4"
                   >
-                    <img src="../assets/images/star.svg" alt="star" />
+                    <img src="./assets/images/star.svg" alt="star" />
                     <span class="fw-bold fs-sm fs-md-7 ms-1">${e.rate}</span>
                     ・
                     <span class="fs-sm fs-md-7 me-2">${e.commentNum} 個評論</span>
@@ -245,7 +245,7 @@ import{P as Ue,c as ze}from"./backtotop-81d6d365.js";let ce=document.querySelect
                 </p>
                 <ul class="text-center text-gray-300 fs-sm fs-md-7 mb-2">
                   <li class="d-flex align-items-center">
-                    <img src="../assets/images/star.svg" alt="star" />
+                    <img src="./assets/images/star.svg" alt="star" />
                     <span class="fw-bold me-1"> ${e.teacher.rate} </span>
                     講師評等
                   </li>
@@ -294,7 +294,7 @@ import{P as Ue,c as ze}from"./backtotop-81d6d365.js";let ce=document.querySelect
                     href="#"
                     class="d-flex align-items-center mb-1 mb-sm-2 mb-md-4"
                   >
-                    <img src="../assets/images/star.svg" alt="star" />
+                    <img src="./assets/images/star.svg" alt="star" />
                     <span class="fw-bold fs-sm fs-md-7 ms-1">${e.rate}</span>
                     ・
                     <span class="fs-sm fs-md-7 me-2">${e.commentNum} 個評論</span>
