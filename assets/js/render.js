@@ -630,7 +630,7 @@ async function getFollowList() {
   console.log(_url);
   console.log(userId);
   let res = await axios.get(`${_url}/users/${userId}`);
-  console.log(res);
+  console.log("res", res);
 
   followList = res.data.followList;
 }
