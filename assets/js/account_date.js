@@ -1,6 +1,3 @@
-// const queryParams = new URLSearchParams(window.location.search);
-// let userId = queryParams.get("userId"); //抓取使用者的ID
-// const _url = "http://localhost:3000"; // 修改處
 let data = [];
 
 //第一部分參數

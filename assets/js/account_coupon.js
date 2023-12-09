@@ -1,5 +1,4 @@
 const couponPageArrow = document.querySelectorAll(".js-couponPageArrow");
-
 let myCoupons = [];
 let couponCurrentPage = 1;
 let couponLastPage;
@@ -34,6 +33,7 @@ async function checkDueDate() {
     }
   }
 }
+
 // 取得 coupons
 async function getCoupons() {
   try {
@@ -152,6 +152,7 @@ function renderCouponPagination() {
     }
   });
 }
+
 // 上一頁、下一頁點擊事件
 couponPageArrow.forEach((arrow, index) => {
   arrow.addEventListener("click", (e) => {

@@ -1,5 +1,3 @@
-// const _url = "https://project-code-json-k0ti.onrender.com";
-// let userId = 1;
 import { Modal } from "bootstrap";
 
 let courseId;
