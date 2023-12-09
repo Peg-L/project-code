@@ -1,0 +1,19 @@
+import"./backtotop-81d6d365.js";import{a as q}from"./axios-21b846bc.js";import{s as _,G as I,R as P,a as f,b as A,p as $}from"./firebase-9e2df465.js";function i(e){e.classList.remove("is-valid"),e.classList.add("is-invalid")}function l(e){e.classList.remove("is-invalid"),e.classList.add("is-valid")}let c=document.querySelector("#floatingEmail"),d=document.querySelector("#floatingName"),u=document.querySelector("#floatingTel"),a=document.querySelector("#floatingPassword"),m=document.querySelector("#floatingCheckPassword");c.addEventListener("input",F);d.addEventListener("input",B);u.addEventListener("input",M);a.addEventListener("input",N);m.addEventListener("input",T);const s={email:"",password:"",user_phone:"",user_name:"",user_role:"學生",user_title:"",user_avatar:"",user_birthdate:"",user_gender:"",user_address:""};let V=!1,S=!1,y=!1,L=!1,R=!1,k=!1;function F(){const e=c.value;s.email=e,/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(e)?(l(c),V=!0):i(c),o()}function B(){const e=d.value;s.user_name=e,/^.{1,20}$/.test(e)?(l(d),S=!0):i(d),o()}function M(){const e=u.value;s.user_phone=e,/^09\d{8}$/.test(e)?(l(u),y=!0,r.removeAttribute("disabled")):(i(u),r.setAttribute("disabled","disabled")),o()}function N(){const e=a.value;s.password=e,/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/.test(e)?(l(a),L=!0):i(a),o()}function T(){let e=a.value,t=m.value;console.log("passwordCheckValue：",t),t==e&&t?(l(m),R=!0):i(m),o()}function W(e){let t=e.match(/^(.)(.*)(.)@(.+)$/);return t[1]+"******"+t[3]+"@"+t[4]}function x(e,t){q.post(`${_url}/users`,e).then(n=>{console.log(n.data);let h=W(e.email);const C=document.querySelector("#emailVerified");C.innerHTML=t?"":`<p class="mb-4">
+我們已寄送一封帳號驗證信至您的信箱
+<br />
+${h}
+</p>
+<p class="mb-10">
+請點擊驗證信的「<strong>連結</strong>」來開通帳號
+</p>
+<div
+class="text-center mb-2 d-flex justify-content-between align-items-center"
+>
+<span>沒收到信嗎?</span>
+<button
+  type="button"
+  class="btn btn-outline-secondary2 rounded-1 py-2"
+>
+  重新寄送驗證信
+</button>
+</div>`,new bootstrap.Modal("#registerSuccess").show()}).catch(n=>{console.error(n),n.response.data=="Email already exists"&&Swal.fire({icon:"error",title:"此帳號已註冊",text:"請前往登入頁面或註冊新帳號"})})}const p=document.querySelector("#registerBtn");function o(){V&&S&&y&&L&&R&&k?p.removeAttribute("disabled"):p.setAttribute("disabled","true")}o();p.addEventListener("click",function(e){e.preventDefault(),x(s,!1)});const g=document.querySelector("#google-register");g&&g.addEventListener("click",function(){_(f,$).then(e=>{I.credentialFromResult(e).accessToken;const n=e.user;console.log(n),s.email=n.email,s.password="00000000",s.user_name=n.email,s.user_phone=n.phoneNumber,s.user_avatar=n.photoURL,x(s,!0)}).catch(e=>{console.error(e)})});const E=document.querySelector("#inputVerifyCode");window.recaptchaVerifier=new P(f,"verify-button",{size:"invisible",callback:e=>{console.log("res：",e)}});function z(){return document.querySelector("#floatingTel").value}let v;const r=document.querySelector("#sendCode"),w=document.querySelector("#sendCodeSpinner"),G=window.recaptchaVerifier;r.addEventListener("click",function(){w.classList.remove("d-none"),v="+886"+z(),A(f,v,G).then(e=>{console.log("手機驗證"),E.classList.remove("d-none"),w.classList.add("d-none"),window.confirmationResult=e,console.log(window.confirmationResult)}).catch(e=>{e=="FirebaseError: Firebase: Invalid format. (auth/invalid-phone-number)."&&alert("手機格式不符，請重新輸入"),grecaptcha.reset(window.recaptchaWidgetId),window.recaptchaVerifier.render().then(function(t){grecaptcha.reset(t)})})});function U(){return document.querySelector("#floatingVerifyCode").value}let b;const j=document.querySelector("#verify-button");j.addEventListener("click",function(){b=U(),confirmationResult.confirm(b).then(e=>{const t=e.user;console.log("user",t),k=!0,E.classList.add("d-none"),r.textContent="驗證成功",r.setAttribute("disabled","disabled"),o()}).catch(e=>{console.log(e)})});

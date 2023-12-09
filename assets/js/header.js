@@ -84,9 +84,7 @@ toMyCartBtn.forEach((btn) => {
 
 // 若未登入出現登入註冊 Modal
 function checkLoginModal() {
-  const loginModal = new bootstrap.Modal(
-    document.getElementById("#loginModal")
-  );
+  const loginModal = new bootstrap.Modal("#loginModal");
   isLogin ? (location.href = "./cart.html") : loginModal.show();
 }
 

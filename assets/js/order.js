@@ -27,6 +27,7 @@ async function redirectToPopularFn() {
   }
 }
 redirectToPopularFn();
+
 // 課程分類: 排序按鈕
 sortByList.addEventListener("click", (e) => {
   const { order } = e.target.dataset;

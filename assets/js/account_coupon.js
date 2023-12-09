@@ -1,4 +1,7 @@
+// 記得改 userId
 const couponPageArrow = document.querySelectorAll(".js-couponPageArrow");
+
+const apiUrl = "http://localhost:3000";
 let myCoupons = [];
 let couponCurrentPage = 1;
 let couponLastPage;
@@ -11,7 +14,7 @@ async function checkDueDate() {
     if (new Date(coupon.dueDate).getTime() < today) {
       try {
         await axios.patch(
-          `${_url}/myCoupons/${coupon.id}`,
+          `${apiUrl}/myCoupons/${coupon.id}`,
           {
             canUse: false,
           },
@@ -33,17 +36,17 @@ async function checkDueDate() {
     }
   }
 }
-
 // 取得 coupons
 async function getCoupons() {
   try {
-    const couponUrl = `${_url}/myCoupons?_expand=coupon&canUse=true&userId=${userId}&_page=${couponCurrentPage}&_limit=6_sort=dueDate&_order=asc`;
+    let userId = 1; // 假設的
+    const couponUrl = `${apiUrl}/myCoupons?_expand=coupon&canUse=true&userId=${userId}&_page=${couponCurrentPage}&_limit=6_sort=dueDate&_order=asc`;
     const res = await axios.get(couponUrl);
     let myCouponsNum = parseInt(res.headers.get("X-Total-Count"));
     // 展開老師資料
     for (item of res.data) {
       const { data } = await axios.get(
-        `${_url}/coupons/${item.couponId}?_expand=teacher`
+        `${apiUrl}/coupons/${item.couponId}?_expand=teacher`
       );
       item.coupon = data;
     }
@@ -85,7 +88,7 @@ function renderCoupons() {
                     class="img-fluid w-100 rounded-circle img-thumbnail border-0"
                     src="${
                       myCoupon.coupon.type === "allCourse"
-                        ? "./assets/images/logo-img.svg"
+                        ? "../assets/images/logo-img.svg"
                         : myCoupon.coupon.teacher.avatar
                     }"
                     alt="teacher"
@@ -152,7 +155,6 @@ function renderCouponPagination() {
     }
   });
 }
-
 // 上一頁、下一頁點擊事件
 couponPageArrow.forEach((arrow, index) => {
   arrow.addEventListener("click", (e) => {

@@ -23,7 +23,6 @@ const userInfo = {
   user_birthdate: "",
   user_gender: "",
   user_address: "",
-  followList: [],
 };
 
 let token = "";
@@ -114,6 +113,7 @@ if (googleLogin) {
 // updatePasswordBtn.addEventListener("click", updatePassword);
 
 // function updatePassword() {
+//   const userId = localStorage.getItem("userId");
 //   let token = localStorage.getItem("token");
 
 //   axios
