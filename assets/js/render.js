@@ -24,8 +24,8 @@ function inputDisable() {
 
 // let followBtns;
 /*** 渲染課程 ***/
-function renderCourses() {
-  getFollowList();
+async function renderCourses() {
+  await getFollowList();
 
   let courseHtml = "";
   /* loading動畫 */
