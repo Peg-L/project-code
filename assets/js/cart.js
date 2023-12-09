@@ -146,7 +146,7 @@ function CalculateToTalSum() {
 }
 
 // 依據購物車商品數量來進行渲染購買項目和下次再買項目
-function checkAndRenderMyCart() {
+async function checkAndRenderMyCart() {
   if (myCarts.length) {
     renderCart(); // 渲染購買項目
     getCartCouponsData(); // 取得課程優惠券、渲染優惠券選項
@@ -154,6 +154,10 @@ function checkAndRenderMyCart() {
     renderEmptyCart(); // 渲染空購物車
   }
   renderNextPurchaseCart(); // 渲染下次購買
+
+  // 渲染navbar 購物車數量顯示
+  await getCartLength();
+  renderCartNum();
 }
 
 /***** 購物車卡片按鈕事件 *****/
