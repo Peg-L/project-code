@@ -40,7 +40,7 @@ confirmBtn.addEventListener("click", async () => {
       if (isBlank) {
         Swal.fire({
           title: "預約欄位請勿空白",
-          text: "沒有要預約的堂數可先刪除",
+          text: "請至少預約一堂，沒有要預約的堂數可先刪除",
           confirmButtonColor: "#115BC9",
           confirmButtonText: "確認",
         });
@@ -48,41 +48,54 @@ confirmBtn.addEventListener("click", async () => {
       // 若都有填
       else {
         console.log(purchasedCarts);
-        await patchPurchasedCart();
-        // 複製 purchasedCarts
-        let appointmentData = [...purchasedCarts];
-        // 取得每張卡片預約的 ul
-        const appointmentLists = document.querySelectorAll(
-          ".js-appointmentList"
-        );
-        appointmentLists.forEach((ul, index) => {
-          // 取得預約 ul 內的所有 li
-          const appointments = ul.querySelectorAll("li");
-          appointments.forEach((appointment) => {
-            // 取得 日期
-            const date = appointment.querySelector("[name='appointmentDate']");
-            // 取得 時間
-            const time = appointment.querySelector("[name='appointmentTime']");
-            // 將日期和時間加入資料
-            const appointmentObj = {
-              date: date.value,
-              time: time.value,
-            };
-            appointmentData[index].appointment.push(appointmentObj);
-          });
-        });
-        console.log(appointmentData);
-        sessionStorage.setItem("appointment", JSON.stringify(appointmentData));
-        location.href = "cart3.html";
+        patchPurchasedCart();
       }
     }
   } catch (error) {}
 });
 
-function patchPurchasedCart() {
-  const urls = purchasedCarts.map((item) => `${_url}/myCarts/${item.myCartId}`);
-  const patchData = { status: "finish" };
-  return Promise.all(urls.map((url) => axios.patch(url, patchData, headers)));
+async function patchPurchasedCart() {
+  try {
+    const urls = purchasedCarts.map(
+      (item) => `${_url}/myCarts/${item.myCartId}`
+    );
+    const patchData = { status: "finish" };
+    await Promise.all(urls.map((url) => axios.patch(url, patchData, headers)));
+    await Swal.fire({
+      icon: "success",
+      title: "預約成功！",
+      text: "已發送預約給教師，需等待教師進行確認，如教師拒絕或是未在24小時內確認，系統將系統將自動歸還自動歸還課堂數給您。",
+      showConfirmButton: true,
+      confirmButtonColor: "#115BC9",
+      confirmButtonText: "確認",
+    });
+    handleAppointmentData();
+  } catch (error) {}
+}
+function handleAppointmentData() {
+  // 複製 purchasedCarts
+  let appointmentData = [...purchasedCarts];
+  // 取得每張卡片預約的 ul
+  const appointmentLists = document.querySelectorAll(".js-appointmentList");
+  appointmentLists.forEach((ul, index) => {
+    // 取得預約 ul 內的所有 li
+    const appointments = ul.querySelectorAll("li");
+    appointments.forEach((appointment) => {
+      // 取得 日期
+      const date = appointment.querySelector("[name='appointmentDate']");
+      // 取得 時間
+      const time = appointment.querySelector("[name='appointmentTime']");
+      // 將日期和時間加入資料
+      const appointmentObj = {
+        date: date.value,
+        time: time.value,
+      };
+      appointmentData[index].appointment.push(appointmentObj);
+    });
+  });
+  console.log(appointmentData);
+  sessionStorage.setItem("appointment", JSON.stringify(appointmentData));
+  location.href = "cart3.html";
 }
 
 /**** 卡片增加、減少預約按鈕 ****/
@@ -272,10 +285,7 @@ function renderPurchasedCart() {
           </div>
           <ul>
             <li class="fs-sm fs-sm-7" title="已購買但尚未預約">
-              未預約：<span class="text-secondary2">0</span> 堂
-            </li>
-            <li class="fs-sm fs-sm-7" title="已預約但老師尚未確認">
-              請求中：<span class="text-secondary2">0</span> 堂
+              先前未預約：<span class="text-secondary2">0</span> 堂
             </li>
           </ul>
         </div>
@@ -283,7 +293,7 @@ function renderPurchasedCart() {
       <!-- 右 -->
       <div class="col-8 col-sm-9">
         <p class="fs-7 fs-md-6 text-primary fw-bold mb-2">
-          請先選取日期再預約時間 ：
+          預約時間：
         </p>
         <div class="mb-2">
           <button type="button" class="btn btn-primary text-white btn-sm me-1 btn-addAppointment" ${
@@ -315,9 +325,9 @@ function renderPurchasedCart() {
                   <option value="16:00">16:00</option>
                   </select>
               </div>
-              <span class="fs-sm fs-md-7 text-primary"
-                  >請至少預約一堂，剩餘堂數可在會員中心預約
-              </span>
+              <p class="fs-sm fs-md-7"
+                  ><span class="text-danger">請至少預約一堂</span>，剩餘堂數可在會員中心預約
+              </p>
           </li>
         </ul>
         <div class="d-flex justify-content-end align-items-center gap-4 mt-auto">
@@ -333,6 +343,7 @@ function renderPurchasedCart() {
   </li>`;
   });
   cartList.innerHTML = cartHtml;
+  inputPreventEnter(document);
 }
 
 // jquery datepicker

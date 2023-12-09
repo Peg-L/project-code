@@ -1,5 +1,4 @@
 import { data, getCoursesData } from "./api.js";
-import { renderCourses } from "./render.js";
 
 // 選取 排列依據按鈕
 const sortByBtn = document.querySelector(".js-sortBy .dropdown-toggle");

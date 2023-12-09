@@ -2,7 +2,7 @@
 // 日期、數字三位一點規則
 const dateReg = /^(\d{4}-\d{2}-\d{2}).*/;
 const separatorReg = /\B(?=(?:\d{3})+(?!\d))/g;
-const cartList = document.querySelector(".js-cartList");
+let cartList = document.querySelector(".js-cartList");
 const nextCartList = document.querySelector(".js-nextCartList");
 const purchaseTabContent = document.querySelector("#purchaseTabContent");
 const cartContainer = document.querySelector("#mainPurchase");
@@ -22,6 +22,7 @@ const headers = {
     "Content-Type": "application/json",
   },
 };
+let cartInitialHtml = "";
 
 let myCarts = [];
 let nextPurchaseCarts = [];
@@ -32,8 +33,9 @@ let usedCouponData = [];
 
 init();
 async function init() {
-  renderLoading();
-  await getMyCart();
+  cartInitialHtml = cartContainer.innerHTML; // 取得購物項目初始 html，因為空購物車渲染會把這些蓋掉
+  renderLoading(); // 渲染loading
+  await getMyCart(); // 取得我的購物車資料
 
   if (myCarts.length) {
     renderCart();
@@ -243,9 +245,9 @@ async function deleteCart(id) {
   }
 }
 
-/*** 下次再買 ***/
+/*** 移至 下次再買 或 購買清單 ***/
 
-// 下次再買 功能
+// 移至下次再買 功能
 async function nextPurchaseOrder(listItem) {
   const result = await Swal.fire({
     title: "確定要下次再買該課程嗎?",
@@ -296,8 +298,7 @@ async function toNextPurchase(courseId) {
   }
 }
 
-/*** 移至購買項目 ***/
-
+// 移至 購買項目 功能
 function mainPurchaseOrder(listItem) {
   Swal.fire({
     title: "確定將該課程移至購物車嗎?",
@@ -353,24 +354,36 @@ async function toMainPurchase(courseId) {
 
 // 使用 jQuery 實現增加數字輸入的值
 function incrementValue(id) {
-  // 原本用 .val() 只有改變 innerText 的值，改用 .attr()才能改變屬性 value 的值
-  $("#" + id).attr("value", function (i, currentValue) {
+  $("#" + id).val(function (i, currentValue) {
     return parseInt(currentValue) + 1;
   });
-  // 更新 json-server 的值
-  updateQuantity($("#" + id)[0]);
+  // 更新數量
+  quantityChange($("#" + id)[0]);
 }
 
 // 使用 jQuery 實現減少數字輸入的值
 function decrementValue(id) {
-  // 原本用 .val() 只有改變 innerText 的值，改用 .attr()才能改變屬性 value 的值
-  $("#" + id).attr("value", function (i, currentValue) {
+  $("#" + id).val(function (i, currentValue) {
     currentValue = parseInt(currentValue);
     return currentValue > 1 ? currentValue - 1 : currentValue;
   });
-  // 更新 json-server 的值
-  updateQuantity($("#" + id)[0]);
+  // 更新數量
+  quantityChange($("#" + id)[0]);
 }
+
+// 直接更改數量
+document.addEventListener("change", (e) => {
+  if (e.target.name === "count") {
+    // 若是輸入非數字或為0，就變成預設的值
+    if (e.target.value.match(/[^0-9]|^0$/g)) {
+      e.target.value = e.target.defaultValue;
+    }
+    // 輸入數字執行數量變更
+    else {
+      quantityChange(e.target);
+    }
+  }
+});
 
 // 更新課程購買數量
 async function updateQuantity(target) {
@@ -385,28 +398,26 @@ async function updateQuantity(target) {
       }
     });
     // 更新遠端數量
-    const api = `${_url}/myCarts/${myCartId}`;
-    const patchData = { quantity: target.value };
-    await axios.patch(api, patchData, headers);
+    patchQuantity(myCartId, target.value);
   } catch (error) {
     console.log("updateQuantity", error);
   }
 }
 
-// 購買項目更改數量時 json-server 同步更新
-cartList.addEventListener("change", (e) => {
-  if ((e.target.name = "count")) {
-    updateQuantity(e.target);
-    reCheckCoupon(listItem); // 重新確認優惠券資格
-    CalculateToTalSum();
-  }
-});
-// 下次再買項目更改數量時 json-server 同步更新
-nextCartList.addEventListener("change", (e) => {
-  if ((e.target.name = "count")) {
-    updateQuantity(e.target);
-  }
-});
+async function patchQuantity(id, quantity) {
+  try {
+    const api = `${_url}/myCarts/${id}`;
+    const patchData = { quantity };
+    await axios.patch(api, patchData, headers);
+  } catch (error) {}
+}
+
+function quantityChange(input) {
+  const listItem = input.closest("li");
+  updateQuantity(input);
+  reCheckCoupon(listItem); // 重新確認優惠券資格
+  CalculateToTalSum();
+}
 
 /***** 付款按鈕 *****/
 
@@ -444,6 +455,11 @@ function patchMyCarts() {
 
 // 渲染購物車
 function renderCart() {
+  // 重置cartContainer，避免是空購物車會沒有cartList、優惠券、付款資訊
+  cartContainer.innerHTML = cartInitialHtml;
+  // 重抓一次 cartList
+  cartList = document.querySelector(".js-cartList");
+
   let cartHtml = "";
 
   myCarts.length
@@ -483,12 +499,12 @@ function renderCart() {
                   <div
                     class="d-flex flex-wrap align-items-center column-gap-8 row-gap-3"
                   >
-                    <label for="hour2"
+                    <label for="hour${index}"
                       >單堂時長 (分鐘)
                       <select
                         class="form-select border-primary fw-bold mt-2 py-1 py-sm-2 w-150px"
-                        name="hour2"
-                        id="hour2"
+                        name="hour"
+                        id="hour${index}"
                         disabled
                       >
                         <option value="${cart.course?.duration}" selected>
@@ -497,7 +513,7 @@ function renderCart() {
                       </select>
                     </label>
 
-                    <label class="w-150px" for="count2"
+                    <label class="w-150px" for="count${index}"
                       >堂數 (堂)
                       <div class="input-group w-fit mt-2">
                         <button
@@ -514,7 +530,6 @@ function renderCart() {
                           id="count${index}"
                           value="${cart.quantity}"
                           inputmode="numeric"
-                          pattern="[0-9]"
                         />
                         <button
                           type="button"
@@ -569,6 +584,7 @@ function renderCart() {
       })
     : "";
   cartList.innerHTML = cartHtml;
+  inputPreventEnter(document); // 防止整頁 input 按 enter 的預設行為(在 config.js)
 }
 
 // 渲染下次再買
@@ -610,12 +626,12 @@ function renderNextPurchaseCart() {
                     <div
                       class="d-flex flex-wrap align-items-center column-gap-8 row-gap-3"
                     >
-                      <label for="hour2"
+                      <label for="nextHour${index}"
                         >單堂時長 (分鐘)
                         <select
                           class="form-select border-primary fw-bold mt-2 py-1 py-sm-2 w-150px"
-                          name="hour2"
-                          id="hour2"
+                          name="nextHour"
+                          id="nextHour${index}"
                           disabled
                         >
                           <option value="${cart.course?.duration}" selected>${
@@ -624,32 +640,19 @@ function renderNextPurchaseCart() {
                         </select>
                       </label>
 
-                      <label class="w-150px" for="count2"
+                      <label class="w-150px" for="nextCount${index}"
                         >堂數 (堂)
-                        <div class="input-group w-fit mt-2">
-                          <button
-                            type="button"
-                            class="btn btn-outline-primary rounded-start-2 border-2 py-0 fw-bold fs-4 w-45px"
-                            onclick="decrementValue('count${index}');"
-                          >
-                            -
-                          </button>
+                        <div class="w-fit mt-2">
                           <input
                             class="form-control border-primary fw-bold text-center py-1 py-sm-2"
                             type="text"
-                            name="count"
-                            id="count${index}"
+                            name="nextCount"
+                            id="nextCount${index}"
                             value="${cart.quantity}"
                             inputmode="numeric"
                             pattern="[0-9]"
+                            disabled
                           />
-                          <button
-                            type="button"
-                            class="btn btn-outline-primary rounded-end-2 border-2 py-0 fw-bold fs-4 w-45px"
-                            onclick="incrementValue('count${index}');"
-                          >
-                            +
-                          </button>
                         </div>
                       </label>
                     </div>
@@ -685,6 +688,8 @@ function renderNextPurchaseCart() {
   </div>`);
   nextCartList.innerHTML = cartHtml;
 }
+
+// 渲染空購物車
 function renderEmptyCart() {
   const emptyCart = `
   <div class="d-flex flex-column align-items-center text-center h-100 px-10 pt-10 mb-4">
@@ -699,6 +704,7 @@ function renderEmptyCart() {
   cartContainer.innerHTML = emptyCart;
 }
 
+// 渲染loading
 function renderLoading() {
   const loading = `
     <div class="d-flex justify-content-center py-10">
@@ -709,6 +715,7 @@ function renderLoading() {
   cartList.innerHTML = loading;
 }
 
+// 渲染繳款資訊
 function renderPaymentInfo(target) {
   // 取得 按鈕的 data-bs-target 的值
   const bsTarget = target.getAttribute("data-bs-target");

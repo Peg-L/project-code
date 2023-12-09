@@ -30,8 +30,8 @@ function init() {
 
   if (!indexSearchInput && !cateItemName) {
     getCoursesData(data);
-    getAllData(data);
   }
+  getAllData(data);
 }
 
 /*** api-取得卡片內容 ***/

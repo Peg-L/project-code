@@ -31,21 +31,22 @@ function renderCard() {
       </li>`;
     });
     cardHtml += `<li
-        class="shadow rounded-2 p-4 pb-md-4 pt-md-6 px-md-8 px-xl-12 mb-1 mb-md-2"
+        class="shadow rounded-2 p-4 pb-md-4 pt-md-6 px-md-8 ps-xl-11 pe-xl-13 mb-1 mb-md-2"
       >
         <h3 class="fs-5 fs-md-4 fw-bold mb-4 mb-md-6 text-secondary2 text-center">
           ${card.courseName}
         </h3>
-        <div class="d-flex justify-content-center gap-4 gap-lg-8">
+        <div class="d-flex justify-content-center gap-4 gap-lg-8 gap-xl-10">
           <!-- 左 -->
           <div
             class=" d-flex flex-column align-items-start"
           >
             <div class="text-center">
               <div>
+              <!-- card.teacherImg -->
                 <img
                   class="img-fluid rounded-circle mb-2"
-                  src="${card.teacherImg}"
+                  src="../assets/images/student/olivia.png"
                   alt="teacher"
                   width="90px"
                   height="90px"

@@ -1,6 +1,4 @@
-// const _url = "https://project-code-json-k0ti.onrender.com";
-// let userId = 1;
-import { Modal } from "bootstrap";
+// import { Modal } from "bootstrap";
 
 let courseId;
 const Toast = Swal.mixin({
@@ -22,11 +20,7 @@ let hasCoupons;
 
 // coursePage：若直接監聽 button ，因為還沒渲染完會抓不到東西，因此監聽父元素 courseList 的點擊事件
 courseList.addEventListener("click", async (e) => {
-  if (e.target && e.target.dataset.course) {
-    // 取得 登入狀態
-    let isLogin = JSON.parse(localStorage.getItem("isLogin"));
-    // 取得 登入modal
-    const loginModal = new Modal("#loginModal");
+  if (e.target.dataset.course) {
     // 若有登入，執行加入購物車和優惠券
     if (isLogin) {
       courseId = e.target.dataset.course;
@@ -39,10 +33,6 @@ courseList.addEventListener("click", async (e) => {
       addCart();
       checkCoupon();
       message();
-    }
-    // 若沒登入，打開 登入 modal
-    else {
-      loginModal.show();
     }
   }
 });
