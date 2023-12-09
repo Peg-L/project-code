@@ -1,4 +1,4 @@
-import { Modal } from "bootstrap";
+// import { Modal } from "bootstrap";
 
 let courseId;
 const Toast = Swal.mixin({
@@ -24,7 +24,7 @@ courseList.addEventListener("click", async (e) => {
     // 取得 登入狀態
     let isLogin = JSON.parse(localStorage.getItem("isLogin"));
     // 取得 登入modal
-    const loginModal = new Modal("#loginModal");
+    const loginModal = new bootstrap.Modal("#loginModal");
     // 若有登入，執行加入購物車和優惠券
     if (isLogin) {
       courseId = e.target.dataset.course;
