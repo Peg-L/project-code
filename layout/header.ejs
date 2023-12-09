@@ -16,11 +16,13 @@
     </h1>
     <div class="d-flex">
       <a
-        class="d-lg-none btn btn-outline-secondary2 border-0 hasProducts"
-        href="./cart.html"
+        class="d-lg-none btn btn-outline-secondary2 border-0 js-toMyCart"
         type="button"
-        ><i class="fa-solid fa-cart-shopping"></i
-      ></a>
+      >
+        <i class="fa-solid fa-cart-shopping fa-xl"
+          ><span class="badge rounded-pill hasProducts"></span
+        ></i>
+      </a>
       <input type="checkbox" id="menu-toggle" />
       <label
         for="menu-toggle"
@@ -72,18 +74,42 @@
                 data-bs-parent="#accordionFlush"
               >
                 <ul class="accordion-body text-center">
-                  <li><a href="./course.html">前端</a></li>
-                  <li><a href="./course.html">後端</a></li>
-                  <li><a href="./course.html">資料庫</a></li>
-                  <li><a href="./course.html">資安</a></li>
-                  <li><a href="./course.html">產品測試</a></li>
-                  <li><a href="./course.html">UI / UX</a></li>
-                  <li><a href="./course.html">開發維運</a></li>
-                  <li><a href="./course.html">行動應用</a></li>
-                  <li><a href="./course.html">AI</a></li>
-                  <li><a href="./course.html">遊戲開發</a></li>
-                  <li><a href="./course.html">程式入門</a></li>
-                  <li><a href="./course.html">職涯</a></li>
+                  <li class="cateitem" name="frontend">
+                    <a href="./course.html">前端</a>
+                  </li>
+                  <li class="cateitem" name="backend">
+                    <a href="./course.html">後端</a>
+                  </li>
+                  <li class="cateitem" name="database">
+                    <a href="./course.html">資料庫</a>
+                  </li>
+                  <li class="cateitem" name="security">
+                    <a href="./course.html">資安</a>
+                  </li>
+                  <li class="cateitem" name="productTesting">
+                    <a href="./course.html">產品測試</a>
+                  </li>
+                  <li class="cateitem" name="UIUX">
+                    <a href="./course.html">UI / UX</a>
+                  </li>
+                  <li class="cateitem" name="DevOps">
+                    <a href="./course.html">開發維運</a>
+                  </li>
+                  <li class="cateitem" name="mobileApp">
+                    <a href="./course.html">行動應用</a>
+                  </li>
+                  <li class="cateitem" name="AI">
+                    <a href="./course.html">AI</a>
+                  </li>
+                  <li class="cateitem" name="GameDevelopment">
+                    <a href="./course.html">遊戲開發</a>
+                  </li>
+                  <li class="cateitem" name="levelEasy">
+                    <a href="./course.html">程式入門</a>
+                  </li>
+                  <li class="cateitem" name="career">
+                    <a href="./course.html">職涯</a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -91,10 +117,10 @@
         </li>
         <li class="nav-item">
           <a
-            class="nav-link pc d-none d-lg-block <%= page === 'faq' ? 'menu-active' : '' %>"
+            class="nav-link pc d-none d-lg-block student-faq <%= page === 'faq' ? 'menu-active' : '' %>"
             aria-current="page"
-            href="./faq.html"
-            >常見問題</a
+            href="#"
+            >常見問答</a
           >
           <div
             class="accordion accordion-flush d-block d-lg-none"
@@ -110,7 +136,7 @@
                   aria-expanded="false"
                   aria-controls="faq"
                 >
-                  常見問題
+                  常見問答
                 </button>
               </h2>
               <div
@@ -119,8 +145,10 @@
                 data-bs-parent="#accordionFlush"
               >
                 <ul class="accordion-body text-center">
-                  <li><a href="./faq.html">學生常見問答</a></li>
-                  <li><a href="./faq.html">老師常見問答</a></li>
+                  <li>
+                    <a href="./faq.html" class="student-faq">學生常見問答</a>
+                  </li>
+                  <li><a href="#" class="teacher-faq">老師常見問答</a></li>
                 </ul>
               </div>
             </div>
@@ -149,12 +177,14 @@
       </ul>
 
       <div class="d-flex flex-column flex-lg-row row-gap-2 mt-6 mt-lg-0">
-        <a
-          class="d-none d-lg-block btn btn-outline-secondary2 border-0 hasProducts"
-          href="./cart.html"
+        <button
+          class="d-none d-lg-block btn btn-outline-secondary2 border-0 js-toMyCart position-relative"
           type="button"
-          ><i class="fa-solid fa-cart-shopping"></i
-        ></a>
+        >
+          <i class="fa-solid fa-cart-shopping fa-xl"
+            ><span class="badge hasProducts"></span
+          ></i>
+        </button>
         <a
           href="./account.html"
           type="button"
@@ -162,11 +192,7 @@
         >
           會員中心
         </a>
-        <a
-          href="./index.html"
-          type="button"
-          class="btn btn-logout fw-medium"
-        >
+        <a href="./index.html" type="button" class="btn btn-logout fw-medium">
           登出
         </a>
         <a
@@ -186,3 +212,6 @@
 
 <!-- message -->
 <%- include("./layout/message.ejs") -%>
+<!-- login modal -->
+<%- include("./layout/loginModal.ejs") -%>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"></script>

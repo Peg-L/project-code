@@ -1,5 +1,4 @@
 import axios from "axios";
-import { _url } from "./config.js";
 
 let bannerSwiper = new Swiper(".bannerSwiper", {
   slidesPerView: 1,
@@ -58,7 +57,6 @@ axios.get(`${_url}/courses?_expand=teacher`).then((res) => {
   let popularCourses = courses.filter((course) =>
     course.badges.includes("熱門")
   );
-  console.log(popularCourses);
 
   // 取出前 6 項
   let popularCourses6th = popularCourses.slice(0, 7);
@@ -111,6 +109,12 @@ axios.get(`${_url}/courses?_expand=teacher`).then((res) => {
   swiperWrapper.innerHTML = coursesCard;
 });
 
+// 熱門推薦 查看更多按鈕
+const redirectPopularBtn = document.querySelector("#redirectPopular");
+redirectPopularBtn.addEventListener("click", function () {
+  localStorage.setItem("redirectToPopular", true);
+});
+
 let recommendSwiper = new Swiper(".recommendSwiper", {
   slidesPerView: 1,
   spaceBetween: 16,
@@ -144,7 +148,6 @@ let recommendSwiper = new Swiper(".recommendSwiper", {
 });
 
 // 課程分類
-
 sessionStorage.removeItem("cateItemName");
 
 const cateItems = document.querySelectorAll(".cate-item");
@@ -172,12 +175,8 @@ axios.get(`${_url}/comments?_expand=user`).then((res) => {
 
   let commentsCard = "";
   res.data = get4Random(res.data.filter((item) => item.rate == 5));
-  console.log(res.data);
 
   res.data.forEach((comment) => {
-    console.log(comment);
-    console.log(comment.user.name);
-
     commentsCard += `<div class="swiper-slide">
     <div
       class="teacher-card d-flex flex-column justify-content-between gap-10 h-100"

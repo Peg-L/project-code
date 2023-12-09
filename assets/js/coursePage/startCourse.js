@@ -1,5 +1,7 @@
-const apiUrl = "http://localhost:3000";
-let userId = 1;
+// const _url = "https://project-code-json-k0ti.onrender.com";
+// let userId = 1;
+import { Modal } from "bootstrap";
+
 let courseId;
 const Toast = Swal.mixin({
   icon: "success",
@@ -21,33 +23,42 @@ let hasCoupons;
 // coursePage：若直接監聽 button ，因為還沒渲染完會抓不到東西，因此監聽父元素 courseList 的點擊事件
 courseList.addEventListener("click", async (e) => {
   if (e.target && e.target.dataset.course) {
-    // e.target.disabled = true;
-    courseId = e.target.dataset.course;
-    await getData();
-    // 若沒拿過優惠券(以體驗課 courseCoupons[0].id 為代表判斷)就能獲得優惠券
-    hasCoupons =
-      myCoupons.find((coupon) => coupon.couponId == courseCoupons[0].id) !==
-      undefined;
+    // 取得 登入狀態
+    let isLogin = JSON.parse(localStorage.getItem("isLogin"));
+    // 取得 登入modal
+    const loginModal = new Modal("#loginModal");
+    // 若有登入，執行加入購物車和優惠券
+    if (isLogin) {
+      courseId = e.target.dataset.course;
+      await getData();
+      // 若沒拿過優惠券(以體驗課 courseCoupons[0].id 為代表判斷)就能獲得優惠券
+      hasCoupons =
+        myCoupons.find((coupon) => coupon.couponId == courseCoupons[0].id) !==
+        undefined;
 
-    addCart();
-    checkCoupon();
-    message();
-    // e.target.disabled = false;
+      addCart();
+      checkCoupon();
+      message();
+    }
+    // 若沒登入，打開 登入 modal
+    else {
+      loginModal.show();
+    }
   }
 });
 
 async function getData() {
   try {
-    const myCartApi = `${apiUrl}/myCarts?userId=${userId}&courseId=${courseId}`;
-    const myCouponsApi = `${apiUrl}/myCoupons?userId=${userId}`;
-    const courseCouponsApi = `${apiUrl}/coupons?courseId=${courseId}`;
+    const myCartApi = `${_url}/myCarts?userId=${userId}&courseId=${courseId}`;
+    const myCouponsApi = `${_url}/myCoupons?userId=${userId}`;
+    const courseCouponsApi = `${_url}/coupons?courseId=${courseId}`;
 
     const arrayRes = await Promise.all([
       axios.get(myCartApi), // 取得目前user購物車內的該課程
       axios.get(myCouponsApi), // 取得目前user優惠券
       axios.get(courseCouponsApi), // 取得點擊課程的優惠券
     ]);
-    console.log("arrayRes", arrayRes);
+    // console.log("arrayRes", arrayRes);
 
     myCart = arrayRes[0].data; // user購物車內的該課程
     myCoupons = arrayRes[1].data; // user優惠券
@@ -85,13 +96,16 @@ async function addCourseToMyCarts() {
       courseId,
       quantity: 1,
       isPurchased: false,
+      isNextPurchase: false,
     };
-    await axios.post(`${apiUrl}/myCarts`, postData, {
+    await axios.post(`${_url}/myCarts`, postData, {
       headers: {
         "Content-Type": "application/json",
       },
     });
-    console.log("課程加入購物車");
+
+    await getCartLength();
+    renderCartNum();
   } catch (error) {
     console.log("getMyCarts", error);
   }
@@ -99,17 +113,26 @@ async function addCourseToMyCarts() {
 
 async function addQuantityToMyCarts(myCarts) {
   try {
-    let { id, quantity } = myCarts;
-    quantity += 1;
-    let patchData = {
-      quantity,
-    };
-    await axios.patch(`${apiUrl}/myCarts/${id}`, patchData, {
+    let { id, quantity, isNextPurchase } = myCarts;
+    let patchData = {};
+    // 課程若在 下次再買 就把它移到 購物項目
+    if (isNextPurchase) {
+      patchData = {
+        isNextPurchase: false,
+      };
+    }
+    // 課程若在購物項目就加數量
+    else {
+      quantity = Number(quantity) + 1;
+      patchData = {
+        quantity,
+      };
+    }
+    await axios.patch(`${_url}/myCarts/${id}`, patchData, {
       headers: {
         "Content-Type": "application/json",
       },
     });
-    console.log("購物車數量加一");
   } catch (error) {
     console.log("getMyCarts", error);
   }
@@ -144,7 +167,7 @@ async function addCoupon(coupon) {
       timestamp,
       dueDate,
     };
-    await axios.post(`${apiUrl}/myCoupons`, postData, {
+    await axios.post(`${_url}/myCoupons`, postData, {
       headers: {
         "Content-Type": "application/json",
       },

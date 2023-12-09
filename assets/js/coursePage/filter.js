@@ -23,6 +23,18 @@ const delFilterBtn = document.querySelector(".js-delFilterBtn");
 //選取 確認篩選按鈕
 // const filterBtn = document.querySelector(".js-filterBtn");
 
+/*** 進行篩選呼叫 api ***/
+function runFilter() {
+  //回到第一頁
+  data.page = 1;
+  // 畫面回到上面
+  toCoursesTop();
+  //呼叫 api
+  getCoursesData(data);
+  // 計算篩選幾項
+  countSelectedFilters();
+}
+
 /*** 課程評等篩選功能 ***/
 filterRatings.forEach((rate) => {
   /* 找到選取的評等 */
@@ -49,7 +61,6 @@ function handleRatingFilter(rate) {
 /*** 價格 篩選功能 ***/
 /* 最低價格 */
 minPrice.addEventListener("change", handlePriceFilter);
-
 /* 最高價格 */
 maxPrice.addEventListener("change", handlePriceFilter);
 
@@ -131,7 +142,7 @@ function cate() {
       // 計算篩選幾項
       countSelectedFilters();
     } else {
-      console.log(`${target.name}內沒有checkbox`);
+      // console.log(`${target.name}內沒有checkbox`);
     }
     /* 當target是課程分類小項checkbox */
   } else if ((target.type = "checkbox")) {
@@ -171,7 +182,7 @@ accordionFilter.addEventListener("change", (e) => {
         checkbox.checked = isCheck;
       });
     } else {
-      console.log(`${target.name}內沒有checkbox`);
+      // console.log(`${target.name}內沒有checkbox`);
     }
 
     /* 當target是課程分類小項checkbox */
@@ -213,10 +224,10 @@ function handleCategoryFilters() {
           if (item.value === "C") {
             apiFilter += "(?!%23)"; //確保不匹配 C# (# 要轉成 %23)
           }
-        } else if (hasSpecialCharacters(item.value)) {
-          apiFilter = `&categories_like=${encodeURIComponent(item.value)}`; // 特殊符號要轉成 url 編碼
         } else {
-          apiFilter = `&categories_like=${item.value}`; //value是中文時，加正則表達式會找不到
+          apiFilter = `&categories_like=${specialCharactersToURL(item.value)}`; //value是中文時，加正則表達式會找不到 // 特殊符號要轉成 url 編碼
+          console.log(specialCharactersToURL(item.value));
+          console.dir(item);
         }
 
         data.filters += apiFilter;
@@ -230,8 +241,10 @@ function isEnglish(value) {
   return /^[a-zA-Z]+$/.test(value);
 }
 //檢查是否有特殊符號
-function hasSpecialCharacters(value) {
-  return /.*[!@#$%^&*()].*/.test(value);
+function specialCharactersToURL(value) {
+  return value.replace(/[!@#$%^&*()\s]/g, function (match) {
+    return encodeURIComponent(match);
+  });
 }
 
 /* 更新父層 checkbox 狀態 function */
@@ -242,16 +255,6 @@ function updateParentCheckbox(parentCheckbox, relatedCheckboxes) {
   parentCheckbox.checked = relatedCheckboxesArray.every(
     (checkbox) => checkbox.checked
   );
-}
-
-/*** 進行篩選呼叫 api ***/
-function runFilter() {
-  //回到第一頁
-  data.page = 1;
-  //呼叫 api
-  getCoursesData(data);
-  // 計算篩選幾項
-  countSelectedFilters();
 }
 
 /*** 計算使用幾個篩選項目 ***/
@@ -300,11 +303,12 @@ function handleFilterNum(allCourses) {
   };
   // 建立 課程分類小項:筆數 對照物件
   const categoryNumData = {};
+
   for (let i = 0; i < categoriesNum.length; i++) {
     let dataCategory = categoriesNum[i].dataset.category;
     categoryNumData[dataCategory] = 0;
     if (categoryNumData[dataCategory] === NaN) {
-      console.log("篩選項目有打錯，出現NaN");
+      // console.log("篩選項目有打錯，出現NaN");
     }
   }
 
@@ -359,7 +363,7 @@ function initFilters() {
   data.filters = "";
 
   zeroSelectedFilters();
-  getCoursesData(data);
+  runFilter();
 }
 
 // 篩選個數歸零
@@ -368,6 +372,14 @@ function zeroSelectedFilters() {
   selectedFiltersNumHtml.forEach(
     (item) => (item.innerHTML = selectedFiltersNum)
   );
+}
+
+function toCoursesTop() {
+  window.scrollTo({
+    top: 350,
+    left: 0,
+    behavior: "smooth",
+  });
 }
 
 /*** 確定篩選 ***/
@@ -386,4 +398,4 @@ function zeroSelectedFilters() {
 // countSelectedFilters();
 // });
 
-export { handleFilterNum };
+export { handleFilterNum, toCoursesTop };
