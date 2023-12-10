@@ -1,5 +1,3 @@
 import treasureImgUrl from "../images/category/treasure.png";
-const treasureImgs = document.querySelectorAll("treasureImg");
-treasureImgs.forEach((img) => {
-  img.src = treasureImgUrl;
-});
+document.getElementById("treasureImg1").src = treasureImgUrl;
+document.getElementById("treasureImg2").src = treasureImgUrl;
