@@ -9,21 +9,24 @@ const sortByList = document.querySelector(".js-sortBy .dropdown-menu");
 // 首頁熱門推薦: 查看更多按鈕
 const redirectToPopular = localStorage.getItem("redirectToPopular");
 
-if (redirectToPopular) {
-  const order = "commentNum";
+async function redirectToPopularFn() {
+  if (redirectToPopular) {
+    const order = "commentNum";
 
-  // 確保和上次選的不同
-  if (data.sort !== order) {
-    data.sort = order;
-    sortByBtn.innerHTML = `排序依據：最熱門`;
+    // 確保和上次選的不同
+    if (data.sort !== order) {
+      data.sort = order;
+      sortByBtn.innerHTML = `排序依據：最熱門`;
 
-    //回到第一頁
-    data.page = 1;
-    //呼叫 api
-    await getCoursesData(data);
-    localStorage.removeItem("redirectToPopular");
+      //回到第一頁
+      data.page = 1;
+      //呼叫 api
+      await getCoursesData(data);
+      localStorage.removeItem("redirectToPopular");
+    }
   }
 }
+redirectToPopularFn();
 
 // 課程分類: 排序按鈕
 sortByList.addEventListener("click", (e) => {
