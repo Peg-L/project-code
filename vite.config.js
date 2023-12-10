@@ -3,8 +3,8 @@ import { ViteEjsPlugin } from "vite-plugin-ejs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 import { glob } from "glob";
-
 import liveReload from "vite-plugin-live-reload";
+import copy from "rollup-plugin-copy";
 
 function moveOutputPlugin() {
   return {
@@ -16,11 +16,13 @@ function moveOutputPlugin() {
         if (fileName.startsWith("pages/")) {
           const newFileName = fileName.slice("pages/".length);
           bundle[fileName].fileName = newFileName;
+          console.log("newFileName", newFileName);
         }
       }
     },
   };
 }
+moveOutputPlugin();
 
 export default defineConfig({
   // base 的寫法：
@@ -30,14 +32,20 @@ export default defineConfig({
     liveReload(["./layout/**/*.ejs", "./pages/**/*.ejs", "./pages/**/*.html"]),
     ViteEjsPlugin(),
     moveOutputPlugin(),
+    copy({
+      targets: [{ src: "assets/**/*.js", dest: "dist/assets/js/" }],
+      hook: "writeBundle",
+    }),
   ],
   server: {
     // 啟動 server 時預設開啟的頁面
     open: "pages/index.html",
-    headers: { "Cross-Origin-Opener-Policy": "same-origin-allow-popups" },
   },
   build: {
     rollupOptions: {
+      output: {
+        format: "es",
+      },
       input: Object.fromEntries(
         glob
           .sync("pages/**/*.html")
