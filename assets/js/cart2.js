@@ -176,9 +176,6 @@ function addInputGroup() {
             name="appointmentTime" required"
         >
             <option value="" disabled selected hidden>時間</option>
-            <option value="9:00">9:00</option>
-            <option value="10:00">10:00</option>
-            <option value="16:00">16:00</option>
         </select>
         </div>
     </li>`;
@@ -320,9 +317,6 @@ function renderPurchasedCart() {
                   required
                   >
                   <option value="" disabled selected hidden>時間</option>
-                  <option value="9:00">9:00</option>
-                  <option value="10:00">10:00</option>
-                  <option value="16:00">16:00</option>
                   </select>
               </div>
               <p class="fs-sm fs-md-7"
@@ -345,7 +339,7 @@ function renderPurchasedCart() {
   cartList.innerHTML = cartHtml;
 }
 
-// jquery datepicker
+// jquery datepicker、日期時間選取
 function datepicker() {
   $.datepicker.setDefaults($.datepicker.regional["zh-TW"]);
 
