@@ -54,13 +54,10 @@ async function patchMyCoupon() {
       // 該課程有用到優惠券才需要呼叫 api
       if (item.myCouponId) {
         const usedUrl = `${_url}/myCoupons/${item.myCouponId}`;
-        await axios.patch(
-          usedUrl,
-          {
-            canUse: false,
-          },
-          headers
-        );
+        const patchData = {
+          canUse: false,
+        };
+        await axios.patch(usedUrl, patchData, headers);
       }
     }
   } catch (error) {

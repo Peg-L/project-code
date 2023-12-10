@@ -432,18 +432,19 @@ payBtns.forEach((btn) => {
 });
 
 // 按確認購買後更新商品狀態
-function patchMyCarts() {
-  const buyUrls = myCarts.map((item) => `${_url}/myCarts/${item.id}`);
-
-  return Promise.all(
-    buyUrls.map((url, index) => {
-      const patchData = {
-        status: "appointment",
-        dueDate: myCarts[index].dueDate,
-      };
-      return axios.patch(url, patchData, headers);
-    })
-  );
+async function patchMyCarts() {
+  try {
+    const buyUrls = myCarts.map((item) => `${_url}/myCarts/${item.id}`);
+    await Promise.all(
+      buyUrls.map((url, index) => {
+        const patchData = {
+          status: "appointment",
+          dueDate: myCarts[index].dueDate,
+        };
+        return axios.patch(url, patchData, headers);
+      })
+    );
+  } catch (error) {}
 }
 
 /***** 渲染 *****/
