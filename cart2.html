@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>購物車 | C0DE</title>
+    <link
+      rel="shortcut icon"
+      href="/project-code/assets/favicon-ee1e2dda.ico"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
+    />
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+    <script type="module" crossorigin src="/project-code/assets/backtotop-81d6d365.js"></script>
+    <link rel="stylesheet" href="/project-code/assets/backtotop-9a334624.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-white fixed-top">
+  <div class="container">
+    <h1 class="navbar-brand">
+      <a href="./index.html">
+        <img
+          class="d-none d-lg-block"
+          src="/project-code/assets/logo-a3c8a1c6.svg"
+          alt="C0DE logo"
+        />
+        <img
+          class="d-block d-lg-none"
+          src="/project-code/assets/logo-sm-9ed0e1e0.svg"
+          alt="C0DE logo"
+        />
+      </a>
+    </h1>
+    <div class="d-flex">
+      <a
+        class="d-lg-none btn btn-outline-secondary2 border-0 js-toMyCart"
+        type="button"
+      >
+        <i class="fa-solid fa-cart-shopping fa-xl"
+          ><span class="badge rounded-pill hasProducts"></span
+        ></i>
+      </a>
+      <input type="checkbox" id="menu-toggle" />
+      <label
+        for="menu-toggle"
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarScroll"
+        aria-controls="navbarScroll"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </label>
+    </div>
+
+    <div class="navbar-collapse collapse py-6 py-lg-0" id="navbarScroll">
+      <ul
+        id="accordionFlush"
+        class="navbar-scrollBar navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll m-auto column-gap-10 row-gap-2"
+        style="--bs-scroll-height: 205px"
+      >
+        <li class="nav-item">
+          <a
+            class="nav-link pc d-none d-lg-block "
+            aria-current="page"
+            href="./course.html"
+            >課程分類</a
+          >
+          <div
+            class="accordion accordion-flush d-block d-lg-none"
+            id="accordionFlush"
+          >
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed nav-link "
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#category"
+                  aria-expanded="false"
+                  aria-controls="category"
+                >
+                  課程分類
+                </button>
+              </h2>
+              <div
+                id="category"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionFlush"
+              >
+                <ul class="accordion-body text-center">
+                  <li class="cateitem" name="frontend">
+                    <a href="./course.html">前端</a>
+                  </li>
+                  <li class="cateitem" name="backend">
+                    <a href="./course.html">後端</a>
+                  </li>
+                  <li class="cateitem" name="database">
+                    <a href="./course.html">資料庫</a>
+                  </li>
+                  <li class="cateitem" name="security">
+                    <a href="./course.html">資安</a>
+                  </li>
+                  <li class="cateitem" name="productTesting">
+                    <a href="./course.html">產品測試</a>
+                  </li>
+                  <li class="cateitem" name="UIUX">
+                    <a href="./course.html">UI / UX</a>
+                  </li>
+                  <li class="cateitem" name="DevOps">
+                    <a href="./course.html">開發維運</a>
+                  </li>
+                  <li class="cateitem" name="mobileApp">
+                    <a href="./course.html">行動應用</a>
+                  </li>
+                  <li class="cateitem" name="AI">
+                    <a href="./course.html">AI</a>
+                  </li>
+                  <li class="cateitem" name="GameDevelopment">
+                    <a href="./course.html">遊戲開發</a>
+                  </li>
+                  <li class="cateitem" name="levelEasy">
+                    <a href="./course.html">程式入門</a>
+                  </li>
+                  <li class="cateitem" name="career">
+                    <a href="./course.html">職涯</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link pc d-none d-lg-block student-faq "
+            aria-current="page"
+            href="#"
+            >常見問答</a
+          >
+          <div
+            class="accordion accordion-flush d-block d-lg-none"
+            id="accordionFlush"
+          >
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed nav-link "
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq"
+                  aria-expanded="false"
+                  aria-controls="faq"
+                >
+                  常見問答
+                </button>
+              </h2>
+              <div
+                id="faq"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionFlush"
+              >
+                <ul class="accordion-body text-center">
+                  <li>
+                    <a href="./faq.html" class="student-faq">學生常見問答</a>
+                  </li>
+                  <li><a href="#" class="teacher-faq">老師常見問答</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button
+            class="nav-link pc d-none d-lg-block"
+            aria-current="page"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#message-list"
+            aria-controls="#message-list"
+          >
+            聯絡老師
+          </button>
+          <button
+            class="nav-link d-block d-lg-none mx-auto"
+            aria-current="page"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#message-list"
+            aria-controls="#message-list"
+          >
+            聯絡老師
+          </button>
+        </li>
+      </ul>
+
+      <div class="d-flex flex-column flex-lg-row row-gap-2 mt-6 mt-lg-0">
+        <button
+          class="d-none d-lg-block btn btn-outline-secondary2 border-0 js-toMyCart position-relative"
+          type="button"
+        >
+          <i class="fa-solid fa-cart-shopping fa-xl"
+            ><span class="badge hasProducts"></span
+          ></i>
+        </button>
+        <a
+          href="./account.html"
+          type="button"
+          class="btn btn-member btn-secondary2"
+        >
+          會員中心
+        </a>
+        <a href="./index.html" type="button" class="btn btn-logout fw-medium">
+          登出
+        </a>
+        <a
+          href="./register.html"
+          type="button"
+          class="btn btn-register btn-secondary2"
+        >
+          註冊
+        </a>
+        <a href="./login.html" type="button" class="btn btn-login fw-medium"
+          >登入</a
+        >
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- message -->
+<div
+  class="offcanvas offcanvas-end message"
+  tabindex="-1"
+  id="message-list"
+  aria-labelledby="offcanvasRightLabel"
+>
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasRightLabel">訊息</h5>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    ></button>
+  </div>
+  <div class="input-group p-4 pt-0 border-bottom border-gray-200">
+    <input
+      type="text"
+      class="form-control border border-gray-200"
+      placeholder="搜尋教師姓名"
+      aria-label="search keywords"
+      aria-describedby="button-addon2"
+    />
+    <button
+      class="btn btn-secondary2 btn-search border border-secondary2"
+      type="button"
+      id="button-addon2"
+    >
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+  </div>
+  <ul class="offcanvas-body p-0 d-flex flex-column">
+    <li class="message-item">
+      <a
+        href="###"
+        class="d-block px-4 py-3"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#message-mike"
+        aria-controls="message-mike"
+      >
+        <div class="d-flex gap-3">
+          <img
+            style="width: 60px; height: 60px"
+            src="/project-code/assets/mike-3c4b76a2.png"
+            alt="mike"
+          />
+          <div class="d-flex flex-column justify-content-between truncate">
+            <div class="d-flex justify-content-between">
+              <h4 class="fs-6">麥克先生</h4>
+              <span>3 天前</span>
+            </div>
+            <p class="text-truncate">
+              感謝你預約我的體驗課，在上課前請幫我填寫
+            </p>
+          </div>
+        </div>
+      </a>
+    </li>
+    <li class="message-item">
+      <a href="###" class="d-block px-4 py-3">
+        <div class="d-flex gap-3">
+          <img
+            style="width: 60px; height: 60px"
+            src="/project-code/assets/arong-b7b838fb.png"
+            alt="mike"
+          />
+          <div class="d-flex flex-column justify-content-between truncate">
+            <div class="d-flex justify-content-between">
+              <h4 class="fs-6">榮哥</h4>
+              <span>4 天前</span>
+            </div>
+            <p class="text-truncate">
+              謝謝你預約「一起打造你的前端職涯」課程，這是上課內容大綱的檔案連結，可以提前思考有什麼相關的問題想詢問，期待禮拜五見囉
+            </p>
+          </div>
+        </div>
+      </a>
+    </li>
+    <li class="message-item">
+      <a href="###" class="d-block px-4 py-3">
+        <div class="d-flex gap-3">
+          <img
+            style="width: 60px; height: 60px"
+            src="/project-code/assets/alice-26beb67d.png"
+            alt="mike"
+          />
+          <div class="d-flex flex-column justify-content-between truncate">
+            <div class="d-flex justify-content-between">
+              <h4 class="fs-6">艾莉絲</h4>
+              <span>5 天前</span>
+            </div>
+            <p class="text-truncate">
+              嗨，我是艾莉絲，有 8 年 Python 教學經驗，
+            </p>
+          </div>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<div
+  class="offcanvas offcanvas-end"
+  tabindex="-1"
+  id="message-mike"
+  aria-labelledby="message"
+>
+  <div class="offcanvas-header border-bottom border-gray-200">
+    <div class="d-flex align-items-center">
+      <button
+        type="button"
+        class="btn btn-back"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#message-list"
+        aria-controls="#message-list"
+      >
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <img
+        class="me-3"
+        style="width: 50px; height: 50px"
+        src="/project-code/assets/mike-3c4b76a2.png"
+        alt="mike"
+      />
+      <h5 class="offcanvas-title" id="offcanvasRightLabel">麥克先生</h5>
+    </div>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    ></button>
+  </div>
+  <div class="offcanvas-body" style="height: calc(100% - 177px)">
+    <ul class="d-flex flex-column gap-6">
+      <li class="d-flex me-10">
+        <img
+          class="me-3"
+          style="width: 40px; height: 40px"
+          src="/project-code/assets/mike-3c4b76a2.png"
+          alt="mike"
+        />
+        <div>
+          <p class="fs-6 bg-gray-100 p-3 mb-1 rounded-2">hello</p>
+          <p class="fs-7 text-gray-200">12天前</p>
+        </div>
+      </li>
+      <li class="d-flex me-10">
+        <img
+          class="me-3"
+          style="width: 40px; height: 40px"
+          src="/project-code/assets/mike-3c4b76a2.png"
+          alt="mike"
+        />
+        <div>
+          <p class="fs-6 bg-gray-100 p-3 mb-1 rounded-2">
+            嗨，我是麥克先生😀 不是麥克雞塊喔xDD 我的課會帶你一起探索 JavaScript
+            更多神奇功能和應用！深入了解高階概念，如閉包、原型繼承...等
+          </p>
+          <p class="fs-7 text-gray-200">12天前</p>
+        </div>
+      </li>
+      <li class="d-flex me-10">
+        <img
+          class="me-3"
+          style="width: 40px; height: 40px"
+          src="/project-code/assets/mike-3c4b76a2.png"
+          alt="mike"
+        />
+        <div>
+          <p class="fs-6 bg-gray-100 p-3 mb-1 rounded-2">
+            歡迎預約時間上課 體驗課有優惠喔~ 可以先體驗，再決定要不要買很多堂
+            有問題都可以直接詢問 👾
+          </p>
+          <p class="fs-7 text-gray-200">12天前</p>
+        </div>
+      </li>
+      <li class="d-flex justify-content-end ms-13">
+        <div class="d-flex flex-column align-items-end">
+          <p class="fs-6 bg-gray-100 p-3 mb-1 rounded-2">
+            謝謝麥克老師！我看完介紹後已經手刀買了10堂課拉~ 期待第一次上課😆
+          </p>
+          <p class="fs-7 text-gray-200">10天前</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="editor"></div>
+</div>
+<!-- login modal -->
+<!-- 按鈕 -->
+<!-- <button
+  type="button"
+  class="btn btn-primary"
+  data-bs-toggle="modal"
+  data-bs-target="#loginModal"
+>
+  Launch static backdrop modal
+</button> -->
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="loginModal"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">...</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"></script>
+    <!--========================
+    =        step bar          =
+    =========================-->
+    <div class="container-sm mt-18 mt-md-22 mb-10 mb-md-15">
+      <div class="col-md-10 col-lg-7 mx-auto d-flex flex-column">
+        <ul
+          class="stepbar list-unstyled d-flex justify-content-between mt-2 mt-md-7 mb-8 mb-md-13"
+        >
+          <li class="d-flex flex-column align-items-center">
+            <div class="stepbar-item ready mb-1 mb-md-2">1</div>
+            <p class="fw-bold">確認訂單</p>
+          </li>
+          <li class="d-flex flex-column align-items-center">
+            <div class="stepbar-item ready mb-1 mb-md-2">2</div>
+            <p class="fw-bold">預約時段</p>
+          </li>
+          <li class="d-flex flex-column align-items-center">
+            <div class="stepbar-item mb-1 mb-md-2">3</div>
+            <p class="fw-bold">課程明細</p>
+          </li>
+        </ul>
+        <!--========================
+            =           card        =
+            =========================-->
+        <h2 class="fs-4 fs-md-3 mb-6 mb-md-8">預約時段</h2>
+        <!-- card -->
+        <ul class="d-flex flex-column gap-5 mb-6">
+          <!-- card1 -->
+          <li class="shadow rounded-2 p-4 pb-md-4 pt-md-6 px-md-8 mb-1 mb-md-2">
+            <h3 class="fs-5 fs-md-4 fw-bold mb-4 mb-md-6 text-secondary2">
+              從零開始成為切版大師
+            </h3>
+            <div class="row justify-content-between">
+              <!-- 左 -->
+              <div class="col-4 col-sm-3 d-flex flex-column align-items-start">
+                <div class="text-center">
+                  <div class="">
+                    <div>
+                      <img
+                        class="img-fluid rounded-circle mb-2"
+                        src="/project-code/assets/Rectangle 7-ab3dd5b8.png"
+                        alt="teacher"
+                        width="90px"
+                        height="90px"
+                      />
+                    </div>
+                    <h5 class="fs-7 fs-md-6 mb-2">麥克先生</h5>
+                  </div>
+                  <ul class="">
+                    <li class="fs-sm fs-sm-7" title="已購買但尚未預約">
+                      未預約：<span class="text-secondary2">2</span> 堂
+                    </li>
+                    <li class="fs-sm fs-sm-7" title="已預約但老師尚未確認">
+                      請求中：<span class="text-secondary2">2</span> 堂
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!-- 右 -->
+              <div class="col-8 col-sm-9">
+                <p class="fs-7 fs-md-6 text-primary fw-bold mb-4">
+                  請先選取日期再預約時間：
+                </p>
+                <ul>
+                  <li>
+                    <form
+                      class="d-flex flex-wrap align-items-center column-gap-3 row-gap-2 mb-3 mb-md-5"
+                      action="#"
+                      method="post"
+                    >
+                      <p class="fw-bold w-150px">第 1 堂 (50 分鐘)</p>
+                      <div class="d-flex gap-2 w-300px">
+                        <input
+                          class="form-control border-primary cursor-pointer fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4 jq-appointmentDate"
+                          type="text"
+                          name="appointmentDate1-1"
+                          id="appointmentDate1-1"
+                          placeholder="日期"
+                          value="2023/09/20"
+                          autocomplete="off"
+                          required
+                        />
+                        <select
+                          class="form-select border-primary fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4"
+                          name="appointmentTime1-1"
+                          id="appointmentTime1-1"
+                          required
+                        >
+                          <option value="">時間</option>
+                          <option value="AM 9:00" selected>AM 9:00</option>
+                          <option value="AM 10:00">AM 10:00</option>
+                          <option value="PM 16:00">AM 16:00</option>
+                        </select>
+                      </div>
+                      <span class="fs-sm fs-md-7 text-primary"
+                        >請至少預約一堂，剩餘堂數可在會員中心預約
+                      </span>
+                    </form>
+                  </li>
+                  <li>
+                    <form
+                      class="d-flex flex-wrap align-items-center column-gap-3 row-gap-2 mb-3 mb-md-5"
+                      action="#"
+                      method="post"
+                    >
+                      <p class="fw-bold w-150px">第 2 堂 (50 分鐘)</p>
+                      <div class="d-flex gap-2 w-300px">
+                        <input
+                          class="form-control border-primary cursor-pointer fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4 jq-appointmentDate"
+                          type="text"
+                          name="appointmentDate1-2"
+                          id="appointmentDate1-2"
+                          placeholder="日期"
+                          autocomplete="off"
+                        />
+                        <select
+                          class="form-select border-primary fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4"
+                          name="appointmentTime1-2"
+                          id="appointmentTime1-2"
+                        >
+                          <option value="" selected>時間</option>
+                          <option value="AM 9:00">AM 9:00</option>
+                          <option value="AM 10:00">AM 10:00</option>
+                          <option value="PM 16:00">AM 16:00</option>
+                        </select>
+                      </div>
+                    </form>
+                  </li>
+                </ul>
+                <div class="d-flex justify-content-end gap-4 mt-auto">
+                  <p class="fs-sm fs-md-7">剩餘 1 堂</p>
+                  <p class="fs-sm fs-md-7">
+                    <time datetime="2024-02-01">2024/2/1</time> 到期
+                  </p>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- card2 -->
+          <li class="shadow rounded-2 p-4 pb-md-4 pt-md-6 px-md-8 mb-1 mb-md-2">
+            <h3 class="fs-5 fs-md-4 fw-bold mb-4 mb-md-6 text-secondary2">
+              Python 全攻略
+            </h3>
+            <div class="row justify-content-between">
+              <!-- 左 -->
+              <div class="col-4 col-sm-3 d-flex flex-column align-items-start">
+                <div class="text-center">
+                  <div class="">
+                    <div>
+                      <img
+                        class="img-fluid rounded-circle mb-2"
+                        src="/project-code/assets/Rectangle 9-7f0cfb4e.png"
+                        alt="teacher"
+                        width="90px"
+                        height="90px"
+                      />
+                    </div>
+                    <h5 class="fs-7 fs-md-6 mb-2">艾莉絲</h5>
+                  </div>
+                  <ul class="">
+                    <li class="fs-sm fs-sm-7" title="已購買但尚未預約">
+                      未預約：<span class="text-secondary2">10</span> 堂
+                    </li>
+                    <li class="fs-sm fs-sm-7" title="已預約但老師尚未確認">
+                      請求中：<span class="text-secondary2">0</span> 堂
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!-- 右 -->
+              <div class="col-8 col-sm-9">
+                <p class="fs-7 fs-md-6 text-primary fw-bold mb-4">
+                  請先選取日期再預約時間 ：
+                </p>
+                <ul>
+                  <li>
+                    <form
+                      class="d-flex flex-wrap align-items-center column-gap-3 row-gap-2 mb-3 mb-md-5"
+                      action="#"
+                      method="post"
+                    >
+                      <p class="fw-bold w-150px">第 1 堂 (50 分鐘)</p>
+                      <div class="d-flex gap-2 w-300px">
+                        <input
+                          class="form-control border-primary cursor-pointer fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4 jq-appointmentDate"
+                          type="text"
+                          name="appointmentDate2-1"
+                          id="appointmentDate2-1"
+                          placeholder="日期"
+                          value="2023/09/21"
+                          autocomplete="off"
+                          required
+                        />
+                        <select
+                          class="form-select border-primary fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4"
+                          name="appointmentTime2-1"
+                          id="appointmentTime2-1"
+                          required
+                        >
+                          <option value="">時間</option>
+                          <option value="AM 9:00" selected>AM 9:00</option>
+                          <option value="AM 10:00">AM 10:00</option>
+                          <option value="PM 16:00">AM 16:00</option>
+                        </select>
+                      </div>
+                      <span class="fs-sm fs-md-7 text-primary"
+                        >請至少預約一堂，剩餘堂數可在會員中心預約
+                      </span>
+                    </form>
+                  </li>
+                  <li>
+                    <form
+                      class="d-flex flex-wrap align-items-center column-gap-3 row-gap-2 mb-3 mb-md-5"
+                      action="#"
+                      method="post"
+                    >
+                      <p class="fw-bold w-150px">第 2 堂 (50 分鐘)</p>
+                      <div class="d-flex gap-2 w-300px">
+                        <input
+                          class="form-control border-primary cursor-pointer fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4 jq-appointmentDate"
+                          type="text"
+                          name="appointmentDate2-2"
+                          id="appointmentDate2-2"
+                          value="2023/09/24"
+                          placeholder="日期"
+                          autocomplete="off"
+                        />
+                        <select
+                          class="form-select border-primary fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4"
+                          name="appointmentTime2-2"
+                          id="appointmentTime2-2"
+                        >
+                          <option value="">時間</option>
+                          <option value="AM 9:00">AM 9:00</option>
+                          <option value="AM 10:00" selected>AM 10:00</option>
+                          <option value="PM 16:00">AM 16:00</option>
+                        </select>
+                      </div>
+                    </form>
+                  </li>
+                  <li>
+                    <form
+                      class="d-flex flex-wrap align-items-center column-gap-3 row-gap-2 mb-3 mb-md-5"
+                      action="#"
+                      method="post"
+                    >
+                      <p class="fw-bold w-150px">第 3 堂 (50 分鐘)</p>
+                      <div class="d-flex gap-2 w-300px">
+                        <input
+                          class="form-control border-primary cursor-pointer fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4 jq-appointmentDate"
+                          type="text"
+                          name="appointmentDate2-3"
+                          id="appointmentDate2-3"
+                          placeholder="日期"
+                          autocomplete="off"
+                        />
+                        <select
+                          class="form-select border-primary fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4"
+                          name="appointmentTime2-3"
+                          id="appointmentTime2-3"
+                        >
+                          <option value="" selected>時間</option>
+                          <option value="AM 9:00">AM 9:00</option>
+                          <option value="AM 10:00">AM 10:00</option>
+                          <option value="PM 16:00">AM 16:00</option>
+                        </select>
+                      </div>
+                    </form>
+                  </li>
+                </ul>
+                <div class="d-flex justify-content-end gap-4 mt-auto">
+                  <p class="fs-sm fs-md-7">剩餘 8 堂</p>
+                  <p class="fs-sm fs-md-7">
+                    <time datetime="2024-02-01">2024/2/1</time> 到期
+                  </p>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <!--========================
+        =          按鈕            =
+        =========================-->
+
+        <a href="./cart3.html" class="btn btn-secondary2 rounded-2 ms-auto"
+          >確認預約</a
+        >
+      </div>
+    </div>
+
+    <div
+  class="container footer py-6 py-lg-10 d-flex flex-column flex-lg-row justify-content-between bg-white"
+>
+  <div
+    class="d-flex flex-lg-column justify-content-between mb-6 mb-lg-0 flex-wrap"
+  >
+    <h1 class="navbar-brand">
+      <a href="./index.html">
+        <img
+          class="d-none d-lg-block"
+          src="/project-code/assets/logo-a3c8a1c6.svg"
+          alt="C0DE logo"
+        />
+        <img
+          class="d-block d-lg-none"
+          src="/project-code/assets/logo-sm-9ed0e1e0.svg"
+          alt="C0DE logo"
+        />
+      </a>
+    </h1>
+    <div class="d-flex column-gap-3">
+      <a
+        href="https://www.facebook.com/"
+        class="btn btn-outlined-circle"
+        type="button"
+        target="_blank"
+      >
+        <div class="d-flex">
+          <i class="fa-brands fa-facebook-f"></i>
+        </div>
+      </a>
+      <a
+        href="https://www.instagram.com/"
+        target="_blank"
+        class="btn btn-outlined-circle"
+        type="button"
+      >
+        <div class="d-flex">
+          <i class="fa-brands fa-instagram"></i>
+        </div>
+      </a>
+      <a
+        href="https://www.linkedin.com/"
+        target="_blank"
+        class="btn btn-outlined-circle"
+        type="button"
+      >
+        <div class="d-flex">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="d-flex gap-10 gap-lg-15">
+    <div>
+      <h4 class="footer-cate-title">學生上課</h4>
+      <ul class="footer-cate-list">
+        <li><a href="###">熱門教師</a></li>
+        <li><a href="./course.html">課程分類</a></li>
+        <li><a href="###">學生好評</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="footer-cate-title">成為教師</h4>
+      <ul class="footer-cate-list">
+        <li><a href="###">申請成為教師</a></li>
+        <li><a href="###">教師儀表板</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="footer-cate-title">關於C0DE</h4>
+      <ul class="footer-cate-list">
+        <li><a href="###">關於我們</a></li>
+        <li><a href="###">聯絡我們</a></li>
+        <li><a href="./faq.html">常見問題</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="bg-secondary2 text-white fs-tiny text-center py-3">
+  <div class="container">
+    <p>Copyright © 2023 C0DE, All Rights Reserved</p>
+  </div>
+</div>
+    <!-- backtotop -->
+    <button
+  type="button"
+  class="rounded-circle text-light border-0 backtotopBtn z-1"
+>
+  <p class="fs-tiny">TOP</p>
+</button>
+    <!-- jquery-ui -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/i18n/jquery-ui-i18n.min.js"></script>
+    <!--  -->
+    
+    <script src="../assets/js/config.js"></script>
+
+    <!-- datepicker -->
+    <script>
+      $.datepicker.setDefaults($.datepicker.regional["zh-TW"]);
+      $(function () {
+        $(".jq-appointmentDate").datepicker({
+          minDate: 0,
+          maxDate: "+1M +10D",
+          formatDate: "yy-mm-dd",
+        });
+      });
+    </script>
+  </body>
+</html>
