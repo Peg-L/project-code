@@ -1024,25 +1024,7 @@
       });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script>
-      // 定義環境變數
-      let preSrc;
-      let env = "production";
-      if (env == "production") {
-        preSrc = ".";
-      } else {
-        preSrc = "..";
-      }
-
-      // 創建 script 元素
-      const scriptElement = document.createElement("script");
-
-      // 設定 src 屬性
-      scriptElement.src = `${preSrc}/assets/js/test.js`;
-
-      // 將 script 元素插入到 body 中，或者插入到你希望的位置
-      document.body.appendChild(scriptElement);
-    </script>
+    <script src="../assets/js/config.js"></script>
     
     
   </body>
