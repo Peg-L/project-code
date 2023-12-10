@@ -15,7 +15,7 @@
     />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
-    <script type="module" crossorigin src="/project-code/assets/index-ab574af7.js"></script>
+    <script type="module" crossorigin src="/project-code/assets/index-e52a7c53.js"></script>
     <link rel="modulepreload" crossorigin href="/project-code/assets/backtotop-81d6d365.js">
     <link rel="modulepreload" crossorigin href="/project-code/assets/axios-21b846bc.js">
     <link rel="stylesheet" href="/project-code/assets/backtotop-9a334624.css">
@@ -1027,6 +1027,25 @@
     <script src="../assets/js/config.js"></script>
     
     
-    
+    <script>
+      // 定義環境變數
+      let env = "production";
+      console.log(env);
+
+      // 獲取所有的 script 標籤
+      let scripts = document.querySelectorAll("script");
+
+      // 迭代處理每個 script 標籤
+      scripts.forEach(function (script) {
+        let src = script.getAttribute("src");
+
+        if (src) {
+          if (env == "production" && src.startsWith("../")) {
+            script.setAttribute("src", "." + src.substring(2));
+            console.log(script);
+          }
+        }
+      });
+    </script>
   </body>
 </html>
