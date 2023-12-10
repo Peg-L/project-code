@@ -318,7 +318,7 @@ function renderCourses() {
   courseList.innerHTML = courseHtml;
 
   let followBtns = document.querySelectorAll(".follow-btn");
-  if (followBtns) {
+  if (followBtns && isLogin) {
     followBtns.forEach((followBtn) => {
       followBtn.addEventListener("click", function () {
         if (followBtn.classList.contains("following")) {
