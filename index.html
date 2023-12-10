@@ -1024,26 +1024,24 @@
       });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="../assets/js/config.js"></script>
     <script>
       // 定義環境變數
+      let preSrc;
       let env = "production";
-      console.log(env);
+      if (env == "production") {
+        preSrc = ".";
+      } else {
+        preSrc = "..";
+      }
 
-      // 獲取所有的 script 標籤
-      let scripts = document.querySelectorAll("script");
+      // 創建 script 元素
+      const scriptElement = document.createElement("script");
 
-      // 迭代處理每個 script 標籤
-      scripts.forEach(function (script) {
-        let src = script.getAttribute("src");
+      // 設定 src 屬性
+      scriptElement.src = `${preSrc}/assets/js/config.js`;
 
-        if (src) {
-          if (env == "production" && src.startsWith("../")) {
-            script.setAttribute("src", "." + src.substring(2));
-            console.log(script);
-          }
-        }
-      });
+      // 將 script 元素插入到 body 中，或者插入到你希望的位置
+      document.body.appendChild(scriptElement);
     </script>
     
     
