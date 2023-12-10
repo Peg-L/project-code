@@ -348,15 +348,55 @@ function renderPurchasedCart() {
 // jquery datepicker
 function datepicker() {
   $.datepicker.setDefaults($.datepicker.regional["zh-TW"]);
+
   $(function () {
     $("[name='appointmentDate']").datepicker({
       minDate: 0,
       maxDate: "+1M +10D",
       formatDate: "yy-mm-dd",
-      onSelect: function (dateText) {
-        // 在選擇日期時，將選擇的日期設置為相應 input 元素的值
-        $(this).attr("value", dateText);
+      // 選擇日期後觸發
+      onSelect: async function (dateText) {
+        this.setAttribute("value", dateText);
+
+        const index = this.closest("[data-cart]").dataset.cart;
+        const courseId = purchasedCarts[index].courseId;
+        // 取得 可預約時間
+        const time = await getTeacherOpenTime(courseId, dateText);
+        // 取得 select 後渲染選項
+        const select = this.nextElementSibling;
+        renderTime(select, time);
       },
     });
   });
+}
+
+async function getTeacherOpenTime(courseId, dateText) {
+  try {
+    // 取得老師的時間
+    const api = `${_url}/courses/${courseId}?_expand=teacher`;
+    const { data } = await axios.get(api);
+    // 取得老師在選取日期的時間
+    const openTime = data.teacher.openTime.find(
+      (item) => item.date === dateText.slice(-5)
+    );
+    // 篩選可以預約(還沒被預約)的時間
+    const time = openTime.time.filter(
+      (item) => !openTime.useTime.includes(item)
+    );
+    return time;
+  } catch (error) {}
+}
+
+// 渲染時間選項
+function renderTime(target, time) {
+  let optionHtml = `
+  <option value="" disabled="" selected="" hidden="">${
+    time !== undefined ? "時間" : "無預約時間"
+  }</option>`;
+  if (time !== undefined) {
+    optionHtml += time
+      .map((item) => `<option value="${item}">${item}</option>`)
+      .join("");
+  }
+  target.innerHTML = optionHtml;
 }
