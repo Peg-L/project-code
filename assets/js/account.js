@@ -1,4 +1,4 @@
-import axios from "axios";
+import { userId } from "./config";
 
 //抓取按鈕
 const changeBtn = document.querySelectorAll("#change");

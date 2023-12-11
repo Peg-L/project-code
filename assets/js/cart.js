@@ -1,4 +1,14 @@
-// let userId = 1; // 假設的
+import { userId } from "./config";
+import { couponInit } from "./cart_coupon";
+import {
+  getCartCouponsData,
+  getCoupons,
+  delUsedCoupon,
+  renderCoupon,
+  confirmToUseCoupon,
+} from "./cart_coupon";
+import { getCartLength, renderCartNum } from "./header";
+
 // 日期、數字三位一點規則
 const dateReg = /^(\d{4}-\d{2}-\d{2}).*/;
 const separatorReg = /\B(?=(?:\d{3})+(?!\d))/g;
@@ -25,7 +35,6 @@ const headers = {
 let myCarts;
 let nextPurchaseCarts;
 let cartCourseId;
-let usedCouponData = [];
 
 /***** 初始化、取資料 *****/
 
@@ -33,7 +42,7 @@ init();
 async function init() {
   renderLoading();
   await getMyCart();
-  // console.log("myCarts", myCarts);
+
   if (myCarts.length) {
     renderCart();
     CalculateToTalSum();
@@ -176,7 +185,7 @@ function deleteOrder(listItem) {
     confirmButtonColor: "#115BC9",
     confirmButtonText: "確定刪除",
     denyButtonText: `我再想想`,
-  }).then((result) => {
+  }).then(async (result) => {
     if (result.isConfirmed) {
       Swal.fire({
         position: "center",
@@ -719,3 +728,5 @@ function renderPaymentInfo(target) {
     dateReg.exec(dueDate)[1]
   } 23:59:59`;
 }
+
+export { myCarts };

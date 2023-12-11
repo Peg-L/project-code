@@ -1,3 +1,7 @@
+import { myCarts } from "./cart";
+import { userId } from "./config";
+let usedCouponData = [];
+
 const Toast = Swal.mixin({
   toast: true,
   position: "top-end",
@@ -447,3 +451,12 @@ function renderUsedCoupon() {
     }
   });
 }
+
+export {
+  couponInit,
+  getCartCouponsData,
+  getCoupons,
+  delUsedCoupon,
+  renderCoupon,
+  confirmToUseCoupon,
+};

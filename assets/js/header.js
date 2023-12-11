@@ -1,4 +1,6 @@
 // import { Modal } from "bootstrap";
+import { userId } from "./config";
+
 const cateItems = document.querySelectorAll(".cateitem");
 cateItems.forEach((cateItem) => {
   cateItem.addEventListener("click", function () {
@@ -107,9 +109,12 @@ async function getCartLength() {
     const { data } = await axios.get(
       `${_url}/myCarts?userId=${userId}&isPurchased=${false}&isNextPurchase=${false}`
     );
+
     let cartNum = data.length;
     return cartNum;
   } catch (error) {
-    console.log("getMyCart", error);
+    console.log("getCartLength", error);
   }
 }
+
+export { getCartLength, renderCartNum };

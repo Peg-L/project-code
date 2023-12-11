@@ -1,6 +1,6 @@
-// const _url = "https://project-code-json-k0ti.onrender.com";
-// let userId = 1;
 import { Modal } from "bootstrap";
+import { userId } from "../config";
+import { getCartLength, renderCartNum } from "../header";
 
 let courseId;
 const Toast = Swal.mixin({

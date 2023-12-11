@@ -1,5 +1,6 @@
 import { currentPageCourses, isLoading, data, lastPage } from "./api.js";
 import { pagination } from "./pagination.js";
+import { userId } from "../config.js";
 
 const courseList = document.querySelector("#courseList");
 // 日期、數字三位一點規則
@@ -620,9 +621,6 @@ function renderPagination() {
 }
 
 // 追蹤
-// const _url = "http://localhost:3000";
-const userId = 1;
-console.log(userId, _url);
 let followList;
 
 async function getFollowList() {
