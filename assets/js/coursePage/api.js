@@ -1,5 +1,7 @@
 import { inputDisable, renderCourses, renderPagination } from "./render.js";
 import { handleFilterNum } from "./filter.js";
+import axios from "axios";
+
 // const _url = "https://project-code-json-k0ti.onrender.com";
 let totalSearchNum = document.querySelector(".js-totalSearchNum");
 let currentPageCourses = [];

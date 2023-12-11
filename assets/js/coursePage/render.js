@@ -1,5 +1,7 @@
 import { currentPageCourses, isLoading, data, lastPage } from "./api.js";
 import { pagination } from "./pagination.js";
+import { userId, isLogin } from "../config.js";
+import axios from "axios";
 
 const courseList = document.querySelector("#courseList");
 // 日期、數字三位一點規則
@@ -25,8 +27,6 @@ function inputDisable() {
 // let followBtns;
 /*** 渲染課程 ***/
 function renderCourses() {
-  getFollowList();
-
   let courseHtml = "";
   /* loading動畫 */
   isLoading
@@ -40,7 +40,7 @@ function renderCourses() {
     : currentPageCourses.length !== 0
     ? /* 卡片渲染 */
       currentPageCourses.forEach(async (item) => {
-        if (followList.includes(item.id)) {
+        if (followList && followList.includes(item.id)) {
           courseHtml += `
           <li class="card flex-row flex-wrap flex-md-nowrap shadow">
             <div class="d-flex flex-grow-1 p-4 p-lg-8">
@@ -620,20 +620,20 @@ function renderPagination() {
 }
 
 // 追蹤
-// const _url = "http://localhost:3000";
-const userId = 1;
-console.log(userId, _url);
-let followList;
+let followList = [];
 
-async function getFollowList() {
-  let res = await axios.get(`${_url}/users/${userId}`);
-  followList = res.data.followList;
+function getFollowList() {
+  if (isLogin) {
+    let res = axios.get(`${_url}/users/${userId}`);
+    followList = res.data.followList;
+    console.log(followList);
+  } else {
+    console.log("沒有登入");
+  }
 }
 
 // 追蹤/取消追蹤
-async function toggleFollowCourse(followBtn, following) {
-  await getFollowList();
-
+function toggleFollowCourse(followBtn, following) {
   let heartEl = followBtn.querySelector("i.fa-regular.fa-heart");
   let buttonId = Number(heartEl.dataset.buttonid);
 

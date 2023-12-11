@@ -33,7 +33,13 @@ export default defineConfig({
     ViteEjsPlugin(),
     moveOutputPlugin(),
     copy({
-      targets: [{ src: "assets/**/*.js", dest: "dist/assets/js/" }],
+      targets: [
+        { src: "assets/**/*.js", dest: "dist/assets/js/" },
+        {
+          src: "assets/images/**",
+          dest: "dist/assets/images",
+        },
+      ],
       hook: "writeBundle",
     }),
   ],
@@ -59,5 +65,9 @@ export default defineConfig({
       ),
     },
     outDir: "dist",
+  },
+  define: {
+    _url: '"http://localhost:3000"',
+    // _url: '"https://project-code-json-k0ti.onrender.com"',
   },
 });

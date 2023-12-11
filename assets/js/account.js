@@ -1,3 +1,4 @@
+import { userId } from "./config";
 import axios from "axios";
 
 //抓取按鈕
@@ -108,15 +109,15 @@ document.addEventListener("DOMContentLoaded", async function () {
     </div>
   </div></div>`;
         });
+
+        followList.innerHTML = courseCards;
+        renderFollowPagination();
+        switchPage();
+
+        setButtonListeners();
       } else {
         courseCards = `<p class="text-center fs-5">目前沒有追蹤任何課程</p>`;
       }
-
-      followList.innerHTML = courseCards;
-      renderFollowPagination();
-      switchPage();
-
-      setButtonListeners();
     } catch (error) {
       console.log("錯誤", error);
     }
