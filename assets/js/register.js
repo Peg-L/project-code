@@ -46,6 +46,7 @@ const userInfo = {
   user_birthdate: "",
   user_gender: "",
   user_address: "",
+  followList: [],
 };
 
 // 驗證狀態
