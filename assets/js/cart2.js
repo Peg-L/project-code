@@ -1,3 +1,6 @@
+import axios from "axios";
+import { userId } from "./config";
+
 let appointCarts = [];
 const cartList = document.querySelector(".js-cartList");
 const confirmBtn = document.querySelector(".js-confirmBtn");

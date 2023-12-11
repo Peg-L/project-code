@@ -1,12 +1,16 @@
 import axios from "axios";
 import { userId } from "./config";
-import { couponInit } from "./cart_coupon";
 import {
+  couponInit,
   getCartCouponsData,
   getCoupons,
   delUsedCoupon,
   renderCoupon,
-  confirmToUseCoupon,
+  patchMyCoupon,
+  useCouponBtn,
+  reCheckCoupon,
+  usedCouponData,
+  handleCouponDelBtn,
 } from "./cart_coupon";
 import { getCartLength, renderCartNum } from "./header";
 
@@ -170,23 +174,43 @@ async function checkAndRenderMyCart() {
 /***** 購物車卡片按鈕事件 *****/
 
 // 購物車卡片的按鈕監聽
-purchaseTabContent.addEventListener("click", (e) => {
+cartContainer.addEventListener("click", (e) => {
   const target = e.target;
   const listItem = target.closest("li");
+  console.log(target);
 
   if (listItem) {
     e.preventDefault(); // 防止連結跳轉的問題發生
+    e.stopPropagation();
+    const courseId = listItem.dataset.course;
+    // 取得 數量 input
+    const countInput = listItem.querySelector("input[name='count']");
     // 若點擊 刪除 按鈕
     if (target.classList.contains("delete-order")) {
-      deleteOrder(listItem);
+      deleteOrder(courseId);
     }
     // 若點擊 下次再買 按鈕
     else if (target.classList.contains("js-nextPurchaseBtn")) {
-      nextPurchaseOrder(listItem);
+      nextPurchaseOrder(courseId);
+      console.log("1");
     }
     // 若點擊 移至購買項目 按鈕
     else if (target.classList.contains("js-mainPurchaseBtn")) {
-      mainPurchaseOrder(listItem);
+      mainPurchaseOrder(courseId);
+    }
+    // 若點擊 增加數量 按鈕
+    else if (target.classList.contains("js-increment")) {
+      console.log(target);
+      incrementValue(courseId, countInput);
+    }
+    // 若點擊 減少數量 按鈕
+    else if (target.classList.contains("js-decrement")) {
+      decrementValue(courseId, countInput);
+    } else if (target.classList.contains("js-delCoupon")) {
+      const index = target.dataset.index;
+      console.log(usedCouponData);
+
+      handleCouponDelBtn(index);
     }
   }
 });
@@ -194,7 +218,7 @@ purchaseTabContent.addEventListener("click", (e) => {
 /*** 刪除 ***/
 
 // 刪除購物車內的課程
-function deleteOrder(listItem) {
+function deleteOrder(courseId) {
   Swal.fire({
     title: "確定要刪除嗎?",
     showDenyButton: true,
@@ -210,7 +234,6 @@ function deleteOrder(listItem) {
         showConfirmButton: false,
         timer: 1500,
       });
-      const courseId = listItem.dataset.course;
       // listItem.remove(); // 刪除 listItem
       deleteCart(courseId); // 刪除購物車資料
       delUsedCoupon(courseId); // 刪除使用的優惠券資料
@@ -253,7 +276,7 @@ async function deleteCart(id) {
 /*** 移至 下次再買 或 購買清單 ***/
 
 // 移至下次再買 功能
-async function nextPurchaseOrder(listItem) {
+async function nextPurchaseOrder(courseId) {
   const result = await Swal.fire({
     title: "確定要下次再買該課程嗎?",
     showDenyButton: true,
@@ -269,7 +292,6 @@ async function nextPurchaseOrder(listItem) {
       showConfirmButton: false,
       timer: 1500,
     });
-    const courseId = listItem.dataset.course;
     // listItem.remove(); // 刪除 listItem
     toNextPurchase(courseId); // 將課程移置 下次再買
     delUsedCoupon(courseId); // 刪除使用的優惠券資料
@@ -304,7 +326,7 @@ async function toNextPurchase(courseId) {
 }
 
 // 移至 購買項目 功能
-function mainPurchaseOrder(listItem) {
+function mainPurchaseOrder(courseId) {
   Swal.fire({
     title: "確定將該課程移至購物車嗎?",
     showDenyButton: true,
@@ -320,7 +342,6 @@ function mainPurchaseOrder(listItem) {
         showConfirmButton: false,
         timer: 1500,
       });
-      const courseId = listItem.dataset.course;
       // listItem.remove(); // 刪除 listItem
       toMainPurchase(courseId); // 將課程移置 購買項目
       // addEmptyUsedCoupon(); // 新增優惠券欄位
@@ -357,71 +378,65 @@ async function toMainPurchase(courseId) {
 
 /*** 購買課程數量 ***/
 
-// 使用 jQuery 實現增加數字輸入的值
-function incrementValue(id) {
-  $("#" + id).val(function (i, currentValue) {
-    return parseInt(currentValue) + 1;
-  });
+// 增加數字輸入的值
+function incrementValue(courseId, input) {
+  console.log(input.value);
+  input.value = Number(input.value) + 1;
+  console.log(input.value);
+
   // 更新數量
-  quantityChange($("#" + id)[0]);
+  quantityChange(courseId, input.value);
 }
 
-// 使用 jQuery 實現減少數字輸入的值
-function decrementValue(id) {
-  $("#" + id).val(function (i, currentValue) {
-    currentValue = parseInt(currentValue);
-    return currentValue > 1 ? currentValue - 1 : currentValue;
-  });
+// 減少數字輸入的值
+function decrementValue(courseId, input) {
+  input.value = Number(input.value) - 1;
   // 更新數量
-  quantityChange($("#" + id)[0]);
+  quantityChange(courseId, input.value);
 }
 
 // 直接更改數量
 document.addEventListener("change", (e) => {
-  if (e.target.name === "count") {
-    // 若是輸入非數字或為0，就變成預設的值
-    if (e.target.value.match(/[^0-9]|^0$/g)) {
-      e.target.value = e.target.defaultValue;
+  const target = e.target;
+  if (target.name === "count") {
+    const courseId = target.closest("data-course").dataset.course;
+
+    // 若是輸入非數字或為0，就變成預設的值，不然就是照輸入的值
+    if (target.value.match(/[^0-9]|^0$/g)) {
+      target.value = target.defaultValue;
     }
-    // 輸入數字執行數量變更
-    else {
-      quantityChange(e.target);
-    }
+    // 變更數量、重新確認優惠券資格、計算總額
+    quantityChange(courseId, target.value);
   }
 });
 
-// 更新課程購買數量
-async function updateQuantity(target) {
-  try {
-    const listItem = target.closest("li");
-    const courseId = listItem.dataset.course;
-    let myCartId;
-    myCarts.forEach((cart) => {
-      if (cart.courseId == courseId) {
-        myCartId = cart.id; // 取得 id
-        cart.quantity = target.value; // 更新數量
-      }
-    });
-    // 更新遠端數量
-    patchQuantity(myCartId, target.value);
-  } catch (error) {
-    console.log("updateQuantity", error);
-  }
+// 變更數量、重新確認優惠券資格、計算總額
+function quantityChange(courseId, quantity) {
+  updateQuantity(courseId, quantity);
+  reCheckCoupon(courseId, quantity); // 重新確認優惠券資格
+  CalculateToTalSum();
 }
 
+// 更新課程購買數量
+function updateQuantity(courseId, quantity) {
+  let myCartId;
+  myCarts.forEach((cart) => {
+    if (cart.courseId == courseId) {
+      myCartId = cart.id; // 取得 id
+      cart.quantity = quantity; // 更新數量
+    }
+  });
+  // 更新遠端數量
+  patchQuantity(myCartId, quantity);
+}
+
+// 更新遠端數量
 async function patchQuantity(id, quantity) {
   try {
     const api = `${_url}/myCarts/${id}`;
     const patchData = { quantity };
     await axios.patch(api, patchData, headers);
   } catch (error) {}
-}
-
-function quantityChange(input) {
-  const listItem = input.closest("li");
-  updateQuantity(input);
-  reCheckCoupon(listItem); // 重新確認優惠券資格
-  CalculateToTalSum();
 }
 
 /***** 付款按鈕 *****/
@@ -519,8 +534,7 @@ function renderCart() {
                       <div class="input-group w-fit mt-2">
                         <button
                           type="button"
-                          class="btn btn-outline-primary rounded-start-2 border-2 py-0 fw-bold fs-4 w-45px"
-                          onclick="decrementValue('count${index}');"
+                          class="btn btn-outline-primary rounded-start-2 border-2 py-0 fw-bold fs-4 w-45px js-decrement"
                         >
                           -
                         </button>
@@ -534,8 +548,7 @@ function renderCart() {
                         />
                         <button
                           type="button"
-                          class="btn btn-outline-primary rounded-end-2 border-2 py-0 fw-bold fs-4 w-45px"
-                          onclick="incrementValue('count${index}');"
+                          class="btn btn-outline-primary rounded-end-2 border-2 py-0 fw-bold fs-4 w-45px js-increment"
                         >
                           +
                         </button>

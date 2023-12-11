@@ -9,10 +9,6 @@ const Toast = Swal.mixin({
   position: "top-end",
   showConfirmButton: false,
   timer: 2000,
-  didOpen: (toast) => {
-    toast.addEventListener("mouseenter", Swal.stopTimer);
-    toast.addEventListener("mouseleave", Swal.resumeTimer);
-  },
 });
 
 // 取得 已套用優惠的 X 按鈕
@@ -67,7 +63,7 @@ async function patchMyCoupon() {
       }
     }
   } catch (error) {
-    console.log("confirmToUseCoupon", error);
+    console.log("patchMyCoupon", error);
   }
 }
 
@@ -298,14 +294,11 @@ function handleCouponDelBtn(index) {
 }
 
 // 重新確認優惠券資格
-function reCheckCoupon(listItem) {
+function reCheckCoupon(cartCourseId, quantity) {
   // 取得總金額(已去掉 , )
   const originalTotalPrice = document
     .querySelector("#OriginalPrice")
     .textContent.replace(",", "");
-  const cartCourseId = listItem.dataset.course;
-  // 要購買的課程數量
-  const courseNum = listItem.querySelector("input[name='count']");
 
   usedCouponData.forEach((coupon, index) => {
     // 使用的優惠券資訊：折扣、低銷、折抵課堂數
@@ -316,7 +309,7 @@ function reCheckCoupon(listItem) {
       // 找到指定課程優惠券是哪個欄位的
       if (courseId == cartCourseId) {
         // 判斷是否符合條件-購買課程數量
-        if (discountCourseNum === "" || discountCourseNum <= courseNum.value) {
+        if (discountCourseNum === "" || discountCourseNum <= quantity) {
           // 更新特定課程優惠券的折價
           // updateUsedCoupon(index, coupon);
           coupon.discountPrice = calculateDiscountPrice(coupon);
@@ -438,10 +431,11 @@ function updateCourseDiscount() {
 function renderUsedCoupon() {
   const usedCoupons = document.querySelectorAll(".js-usedCoupon");
   usedCoupons.forEach((div, index) => {
+    console.log(usedCouponData, index);
     if (usedCouponData[index].myCouponId === "") {
       div.innerHTML = "";
     } else {
-      div.innerHTML = `<button type="button" class="btn btn-close fs-sm js-delCoupon" onclick="handleCouponDelBtn(${index})"></button>
+      div.innerHTML = `<button type="button" class="btn btn-close fs-sm js-delCoupon" data-index="${index}"></button>
       <p>
         已套用 <span class="fw-bold text-secondary2">${usedCouponData[index].title}</span
         ><i class="fa-solid fa-arrow-right mx-1"></i
@@ -457,5 +451,9 @@ export {
   getCoupons,
   delUsedCoupon,
   renderCoupon,
-  confirmToUseCoupon,
+  patchMyCoupon,
+  useCouponBtn,
+  reCheckCoupon,
+  usedCouponData,
+  handleCouponDelBtn,
 };

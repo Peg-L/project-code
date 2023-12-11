@@ -1,6 +1,6 @@
 // import { Modal } from "bootstrap";
 import axios from "axios";
-import { userId } from "./config";
+import { userId, isLogin } from "./config";
 
 const cateItems = document.querySelectorAll(".cateitem");
 cateItems.forEach((cateItem) => {

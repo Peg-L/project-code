@@ -368,9 +368,9 @@ function renderPagination() {
 // 追蹤
 let followList = [];
 
-function getFollowList() {
+async function getFollowList() {
   if (isLogin) {
-    let res = axios.get(`${_url}/users/${userId}`);
+    let res = await axios.get(`${_url}/users/${userId}`);
     followList = res.data.followList;
     console.log(followList);
   } else {
