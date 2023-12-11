@@ -24,13 +24,11 @@ async function checkDueDate() {
             },
           }
         );
-        console.log("過期", coupon);
         getCoupons();
       } catch (error) {
         console.log("checkDueDate", error);
       }
     } else {
-      console.log("沒過期");
       renderCoupons();
       renderCouponPagination();
     }
@@ -65,8 +63,6 @@ async function getCoupons() {
 
 //渲染 Coupons
 function renderCoupons() {
-  console.log("123", myCoupons);
-  console.log("123", myCoupons.length);
   // 日期規則
   const dateReg = /^(\d{4}-\d{2}-\d{2}).*/;
   // 選取 優惠券ul

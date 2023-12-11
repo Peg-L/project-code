@@ -35,7 +35,7 @@ let navbarLogoutBtns = document.querySelectorAll(".btn-logout");
 let navbarLoginBtns = document.querySelectorAll(".btn-login");
 let navbarRegisterBtns = document.querySelectorAll(".btn-register");
 
-let isLogin = JSON.parse(localStorage.getItem("isLogin"));
+// let isLogin = JSON.parse(localStorage.getItem("isLogin"));
 
 function checkLogin() {
   if (isLogin == "1") {
@@ -78,16 +78,21 @@ navbarLogoutBtns.forEach(function (navbarLogoutBtn) {
 // 點購物車圖示判斷有無登入
 const toMyCartBtn = document.querySelectorAll(".js-toMyCart");
 
-toMyCartBtn.forEach((btn) => {
-  btn.addEventListener("click", checkLoginModal);
-});
-
 // 若未登入出現登入註冊 Modal
-function checkLoginModal() {
-  const loginModal = new bootstrap.Modal("#loginModal");
-  isLogin ? (location.href = "./cart.html") : loginModal.show();
+function myCartCheckLogin() {
+  // const loginModal = new bootstrap.Modal("#loginModal");
+  // isLogin ? (location.href = "./cart.html") : loginModal.show();
+  if (!isLogin) {
+    toMyCartBtn.forEach((btn) => {
+      btn.setAttribute("data-bs-toggle", "modal");
+    });
+  } else {
+    toMyCartBtn.forEach((btn) => {
+      btn.setAttribute("href", "./cart.html");
+    });
+  }
 }
-
+myCartCheckLogin();
 // 購物車: 產品數量提示
 
 function renderCartNum() {
@@ -105,7 +110,7 @@ async function getCartLength() {
   try {
     // 取得課程長度
     const { data } = await axios.get(
-      `${_url}/myCarts?userId=${userId}&isPurchased=${false}&isNextPurchase=${false}`
+      `${_url}/myCarts?userId=${userId}&status=purchase&isNextPurchase=false`
     );
     let cartNum = data.length;
     return cartNum;

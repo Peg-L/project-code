@@ -32,8 +32,8 @@ function init() {
 
   if (!indexSearchInput && !cateItemName && !redirectToPopular) {
     getCoursesData(data);
-    getAllData(data);
   }
+  getAllData(data);
 }
 
 /*** api-取得卡片內容 ***/
