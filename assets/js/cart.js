@@ -13,44 +13,44 @@ import { getCartLength, renderCartNum } from "./header";
 // 日期、數字三位一點規則
 const dateReg = /^(\d{4}-\d{2}-\d{2}).*/;
 const separatorReg = /\B(?=(?:\d{3})+(?!\d))/g;
-const cartGroup = document.querySelector(".js-cartGroup");
-const nextCartGroup = document.querySelector(".js-nextCartGroup");
+const cartList = document.querySelector(".js-cartList");
+const nextCartList = document.querySelector(".js-nextCartList");
 const purchaseTabContent = document.querySelector("#purchaseTabContent");
 const cartContainer = document.querySelector("#mainPurchase");
 // 取得 付款資訊按鈕
 const paymentInfoBtns = document.querySelectorAll(".js-paymentInfoBtn");
 // 取得 付款按鈕
 const payBtns = document.querySelectorAll(".js-payBtn");
+// 取得 nav-tabs 的 ul
 const purchaseTab = document.querySelector("#purchaseTab");
 
 // 目前網址
-const currentURL = window.location.href;
-const newURL = currentURL.replace("cart", "course_intro");
+// const currentURL = window.location.href;
+// const newURL = currentURL.replace("cart", "course_intro");
 
 const headers = {
   headers: {
     "Content-Type": "application/json",
   },
 };
+let cartInitialHtml = "";
 
-let myCarts;
-let nextPurchaseCarts;
+let myCarts = [];
+let nextPurchaseCarts = [];
 let cartCourseId;
 
 /***** 初始化、取資料 *****/
 
 init();
 async function init() {
-  renderLoading();
-  await getMyCart();
-
+  cartInitialHtml = cartContainer.innerHTML; // 取得購物項目初始 html，因為空購物車渲染會把這些蓋掉
+  renderLoading(); // 渲染loading
+  await getMyCart(); // 取得我的購物車資料
+  renderCart();
   if (myCarts.length) {
-    renderCart();
     CalculateToTalSum();
     couponInit();
     getCoupons();
-  } else {
-    renderEmptyCart();
   }
   renderNextPurchaseCart();
 }
@@ -59,25 +59,42 @@ async function init() {
 async function getMyCart() {
   try {
     // 取得課程
-    const { data } = await axios.get(
-      `${_url}/myCarts?userId=${userId}&isPurchased=${false}&_expand=course`
-    );
+    const api = `${_url}/myCarts?userId=${userId}&status=purchase&_expand=course`;
+    const { data } = await axios.get(api);
     if (data !== undefined) {
-      for (let item of data) {
-        // 取得各課程的老師資料
-        const courseRes = await axios.get(
-          `${_url}/courses/${item.courseId}?_expand=teacher`
-        );
-        item.course = courseRes.data;
-      }
-      // 購買項目
-      myCarts = data.filter((item) => !item.isNextPurchase);
-      // 下次再買項目
-      nextPurchaseCarts = data.filter((item) => item.isNextPurchase);
+      // 取得各課程的老師資料
+      const courseUrls = data.map(
+        (item) => `${_url}/courses/${item.courseId}?_expand=teacher`
+      );
+
+      const responses = await Promise.all(
+        courseUrls.map((courseUrl) => axios.get(courseUrl))
+      );
+
+      data.forEach((item, index) => {
+        item.course = responses[index].data;
+      });
+      handleData(data);
     }
   } catch (error) {
     console.log("getMyCart", error);
   }
+}
+
+function handleData(data) {
+  // 到期日(一年後)的 23:59:59 過期
+  let dueDate = new Date();
+  dueDate.setDate(dueDate.getDate() + 365);
+  dueDate.setHours(23, 59, 59, 999);
+  dueDate = dateReg.exec(dueDate.toISOString())[1];
+  data.forEach((item) => {
+    item.dueDate = dueDate;
+  });
+
+  // 購買項目
+  myCarts = data.filter((item) => !item.isNextPurchase);
+  // 下次再買項目
+  nextPurchaseCarts = data.filter((item) => item.isNextPurchase);
 }
 
 function CalculateToTalSum() {
@@ -139,11 +156,9 @@ function CalculateToTalSum() {
 
 // 依據購物車商品數量來進行渲染購買項目和下次再買項目
 async function checkAndRenderMyCart() {
+  renderCart(); // 渲染購買項目
   if (myCarts.length) {
-    renderCart(); // 渲染購買項目
     getCartCouponsData(); // 取得課程優惠券、渲染優惠券選項
-  } else {
-    renderEmptyCart(); // 渲染空購物車
   }
   renderNextPurchaseCart(); // 渲染下次購買
 
@@ -235,9 +250,9 @@ async function deleteCart(id) {
   }
 }
 
-/*** 下次再買 ***/
+/*** 移至 下次再買 或 購買清單 ***/
 
-// 下次再買 功能
+// 移至下次再買 功能
 async function nextPurchaseOrder(listItem) {
   const result = await Swal.fire({
     title: "確定要下次再買該課程嗎?",
@@ -288,8 +303,7 @@ async function toNextPurchase(courseId) {
   }
 }
 
-/*** 移至購買項目 ***/
-
+// 移至 購買項目 功能
 function mainPurchaseOrder(listItem) {
   Swal.fire({
     title: "確定將該課程移至購物車嗎?",
@@ -345,24 +359,36 @@ async function toMainPurchase(courseId) {
 
 // 使用 jQuery 實現增加數字輸入的值
 function incrementValue(id) {
-  // 原本用 .val() 只有改變 innerText 的值，改用 .attr()才能改變屬性 value 的值
-  $("#" + id).attr("value", function (i, currentValue) {
+  $("#" + id).val(function (i, currentValue) {
     return parseInt(currentValue) + 1;
   });
-  // 更新 json-server 的值
-  updateQuantity($("#" + id)[0]);
+  // 更新數量
+  quantityChange($("#" + id)[0]);
 }
 
 // 使用 jQuery 實現減少數字輸入的值
 function decrementValue(id) {
-  // 原本用 .val() 只有改變 innerText 的值，改用 .attr()才能改變屬性 value 的值
-  $("#" + id).attr("value", function (i, currentValue) {
+  $("#" + id).val(function (i, currentValue) {
     currentValue = parseInt(currentValue);
     return currentValue > 1 ? currentValue - 1 : currentValue;
   });
-  // 更新 json-server 的值
-  updateQuantity($("#" + id)[0]);
+  // 更新數量
+  quantityChange($("#" + id)[0]);
 }
+
+// 直接更改數量
+document.addEventListener("change", (e) => {
+  if (e.target.name === "count") {
+    // 若是輸入非數字或為0，就變成預設的值
+    if (e.target.value.match(/[^0-9]|^0$/g)) {
+      e.target.value = e.target.defaultValue;
+    }
+    // 輸入數字執行數量變更
+    else {
+      quantityChange(e.target);
+    }
+  }
+});
 
 // 更新課程購買數量
 async function updateQuantity(target) {
@@ -372,35 +398,31 @@ async function updateQuantity(target) {
     let myCartId;
     myCarts.forEach((cart) => {
       if (cart.courseId == courseId) {
-        myCartId = cart.id;
-        cart.quantity = target.value;
+        myCartId = cart.id; // 取得 id
+        cart.quantity = target.value; // 更新數量
       }
     });
-
-    await axios.patch(
-      `${_url}/myCarts/${myCartId}`,
-      { quantity: target.value },
-      headers
-    );
+    // 更新遠端數量
+    patchQuantity(myCartId, target.value);
   } catch (error) {
     console.log("updateQuantity", error);
   }
 }
 
-// 購買項目更改數量時 json-server 同步更新
-cartGroup.addEventListener("change", (e) => {
-  if ((e.target.name = "count")) {
-    updateQuantity(e.target);
-    reCheckCoupon(listItem); // 重新確認優惠券資格
-    CalculateToTalSum();
-  }
-});
-// 下次再買項目更改數量時 json-server 同步更新
-nextCartGroup.addEventListener("change", (e) => {
-  if ((e.target.name = "count")) {
-    updateQuantity(e.target);
-  }
-});
+async function patchQuantity(id, quantity) {
+  try {
+    const api = `${_url}/myCarts/${id}`;
+    const patchData = { quantity };
+    await axios.patch(api, patchData, headers);
+  } catch (error) {}
+}
+
+function quantityChange(input) {
+  const listItem = input.closest("li");
+  updateQuantity(input);
+  reCheckCoupon(listItem); // 重新確認優惠券資格
+  CalculateToTalSum();
+}
 
 /***** 付款按鈕 *****/
 
@@ -413,21 +435,26 @@ paymentInfoBtns.forEach((btn) => {
 payBtns.forEach((btn) => {
   btn.addEventListener("click", async (e) => {
     e.preventDefault();
-    await confirmToUseCoupon();
-    await confirmToBuy();
+    await patchMyCoupon(); // 按確認購買後優惠券 canUse 改成 false
+    await patchMyCarts(); // 按確認購買後更新商品狀態
     location.href = "cart2.html";
   });
 });
 
-async function confirmToBuy() {
+// 按確認購買後更新商品狀態
+async function patchMyCarts() {
   try {
-    for (const item of myCarts) {
-      const buyUrl = `${_url}/myCarts/${item.id}`;
-      await axios.patch(buyUrl, { isPurchased: true }, headers);
-    }
-  } catch (error) {
-    console.log("confirmToBuy", error);
-  }
+    const buyUrls = myCarts.map((item) => `${_url}/myCarts/${item.id}`);
+    await Promise.all(
+      buyUrls.map((url, index) => {
+        const patchData = {
+          status: "appointment",
+          dueDate: myCarts[index].dueDate,
+        };
+        return axios.patch(url, patchData, headers);
+      })
+    );
+  } catch (error) {}
 }
 
 /***** 渲染 *****/
@@ -435,11 +462,6 @@ async function confirmToBuy() {
 // 渲染購物車
 function renderCart() {
   let cartHtml = "";
-  // 到期日(一年後)的 23:59:59 過期
-  let dueDate = new Date();
-  dueDate.setDate(dueDate.getDate() + 365);
-  dueDate.setHours(23, 59, 59, 999);
-  dueDate = dueDate.toISOString();
 
   myCarts.length
     ? myCarts.forEach((cart, index) => {
@@ -478,12 +500,12 @@ function renderCart() {
                   <div
                     class="d-flex flex-wrap align-items-center column-gap-8 row-gap-3"
                   >
-                    <label for="hour2"
+                    <label for="hour${index}"
                       >單堂時長 (分鐘)
                       <select
                         class="form-select border-primary fw-bold mt-2 py-1 py-sm-2 w-150px"
-                        name="hour2"
-                        id="hour2"
+                        name="hour"
+                        id="hour${index}"
                         disabled
                       >
                         <option value="${cart.course?.duration}" selected>
@@ -492,7 +514,7 @@ function renderCart() {
                       </select>
                     </label>
 
-                    <label class="w-150px" for="count2"
+                    <label class="w-150px" for="count${index}"
                       >堂數 (堂)
                       <div class="input-group w-fit mt-2">
                         <button
@@ -509,7 +531,6 @@ function renderCart() {
                           id="count${index}"
                           value="${cart.quantity}"
                           inputmode="numeric"
-                          pattern="[0-9]"
                         />
                         <button
                           type="button"
@@ -540,8 +561,8 @@ function renderCart() {
               <div class="d-flex justify-content-end gap-4">
                 <p class="fs-sm fs-md-7">
                   預約截止日
-                  <time datetime="${dateReg.exec(dueDate)[1]}">
-                    ${dateReg.exec(dueDate)[1]}</time
+                  <time datetime="${cart.dueDate}">
+                  ${cart.dueDate}</time
                   >
                 </p>
                 <a
@@ -562,18 +583,52 @@ function renderCart() {
         <div class="d-flex align-items-center js-usedCoupon"></div>
       </li>`;
       })
-    : "";
-  cartGroup.innerHTML = cartHtml;
+    : (cartHtml = `
+    <div class="d-flex flex-column align-items-center text-center h-100 px-10 pt-10 mb-4">
+      <p class="fs-4 mb-10">購物車內沒有商品</p>
+      <a href="./course.html"
+        class="btn btn-secondary2 rounded-2 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
+      >
+        繼續選購
+      </a>
+    </div>
+    `);
+  cartList.innerHTML = cartHtml;
+  checkDisabled();
+  inputPreventEnter(document); // 防止整頁 input 按 enter 的預設行為(在 config.js)
+}
+
+// 空購物車時按鈕要加上 disabled
+function checkDisabled() {
+  const payment = document.querySelector("#payWay");
+  if (myCarts.length) {
+    payment.querySelectorAll("button").forEach((item) => {
+      item.disabled = false;
+    });
+    useCouponBtn.disabled = false;
+  } else {
+    payment.querySelectorAll("button").forEach((item) => {
+      item.disabled = true;
+    });
+    useCouponBtn.disabled = true;
+  }
+}
+
+// 防止 input 按 enter 的預設行為
+function inputPreventEnter(element) {
+  const inputs = element.querySelectorAll("input");
+  inputs.forEach((input) => {
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+      }
+    });
+  });
 }
 
 // 渲染下次再買
 function renderNextPurchaseCart() {
   let cartHtml = "";
-  // 到期日(一年後)的 23:59:59 過期
-  let dueDate = new Date();
-  dueDate.setDate(dueDate.getDate() + 365);
-  dueDate.setHours(23, 59, 59, 999);
-  dueDate = dueDate.toISOString();
 
   nextPurchaseCarts.length
     ? nextPurchaseCarts.forEach((cart, index) => {
@@ -610,12 +665,12 @@ function renderNextPurchaseCart() {
                     <div
                       class="d-flex flex-wrap align-items-center column-gap-8 row-gap-3"
                     >
-                      <label for="hour2"
+                      <label for="nextHour${index}"
                         >單堂時長 (分鐘)
                         <select
                           class="form-select border-primary fw-bold mt-2 py-1 py-sm-2 w-150px"
-                          name="hour2"
-                          id="hour2"
+                          name="nextHour"
+                          id="nextHour${index}"
                           disabled
                         >
                           <option value="${cart.course?.duration}" selected>${
@@ -624,32 +679,19 @@ function renderNextPurchaseCart() {
                         </select>
                       </label>
 
-                      <label class="w-150px" for="count2"
+                      <label class="w-150px" for="nextCount${index}"
                         >堂數 (堂)
-                        <div class="input-group w-fit mt-2">
-                          <button
-                            type="button"
-                            class="btn btn-outline-primary rounded-start-2 border-2 py-0 fw-bold fs-4 w-45px"
-                            onclick="decrementValue('count${index}');"
-                          >
-                            -
-                          </button>
+                        <div class="w-fit mt-2">
                           <input
                             class="form-control border-primary fw-bold text-center py-1 py-sm-2"
                             type="text"
-                            name="count"
-                            id="count${index}"
+                            name="nextCount"
+                            id="nextCount${index}"
                             value="${cart.quantity}"
                             inputmode="numeric"
                             pattern="[0-9]"
+                            disabled
                           />
-                          <button
-                            type="button"
-                            class="btn btn-outline-primary rounded-end-2 border-2 py-0 fw-bold fs-4 w-45px"
-                            onclick="incrementValue('count${index}');"
-                          >
-                            +
-                          </button>
                         </div>
                       </label>
                     </div>
@@ -669,9 +711,7 @@ function renderNextPurchaseCart() {
                 <div class="d-flex justify-content-end gap-4">
                   <p class="fs-sm fs-md-7">
                     預約截止日
-                    <time datetime="${dateReg.exec(dueDate)[1]}">${
-          dateReg.exec(dueDate)[1]
-        }</time>
+                    <time datetime="${cart.dueDate}">${cart.dueDate}</time>
                   </p>
                   <a class="text-decoration-underline js-mainPurchaseBtn" role="button" href="#">移至購物車</a>
                   <a class="text-decoration-underline delete-order" role="button" href="#"
@@ -685,22 +725,10 @@ function renderNextPurchaseCart() {
     : (cartHtml += `<div class="d-flex flex-column align-items-center text-center h-100 px-10 pt-10 mb-4">
     <p class="fs-4 mb-10">沒有商品</p>
   </div>`);
-  nextCartGroup.innerHTML = cartHtml;
-}
-function renderEmptyCart() {
-  const emptyCart = `
-  <div class="d-flex flex-column align-items-center text-center h-100 px-10 pt-10 mb-4">
-    <p class="fs-4 mb-10">購物車內沒有商品</p>
-    <a href="./course.html"
-      class="btn btn-secondary2 rounded-2 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
-    >
-      繼續選購
-    </a>
-  </div>
-  `;
-  cartContainer.innerHTML = emptyCart;
+  nextCartList.innerHTML = cartHtml;
 }
 
+// 渲染loading
 function renderLoading() {
   const loading = `
     <div class="d-flex justify-content-center py-10">
@@ -708,9 +736,10 @@ function renderLoading() {
         <span class="visually-hidden">Loading...</span>
       </div>
     </div>`;
-  cartGroup.innerHTML = loading;
+  cartList.innerHTML = loading;
 }
 
+// 渲染繳款資訊
 function renderPaymentInfo(target) {
   // 取得 按鈕的 data-bs-target 的值
   const bsTarget = target.getAttribute("data-bs-target");

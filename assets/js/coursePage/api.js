@@ -29,11 +29,13 @@ init();
 function init() {
   const indexSearchInput = localStorage.getItem("indexSearchInput");
   const cateItemName = sessionStorage.getItem("cateItemName");
+  const redirectToPopular = localStorage.getItem("redirectToPopular");
+  console.log(redirectToPopular);
 
-  if (!indexSearchInput && !cateItemName) {
+  if (!indexSearchInput && !cateItemName && !redirectToPopular) {
     getCoursesData(data);
-    getAllData(data);
   }
+  getAllData(data);
 }
 
 /*** api-取得卡片內容 ***/
