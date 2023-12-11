@@ -1,6 +1,7 @@
-import { myCarts } from "./cart";
-import { userId } from "./config";
 import axios from "axios";
+import { myCarts } from "./cart";
+import { userId } from "../config";
+import { renderCoupon, renderCouponOption } from "./render";
 
 let usedCouponData = [];
 
@@ -11,18 +12,13 @@ const Toast = Swal.mixin({
   timer: 2000,
 });
 
-// 取得 已套用優惠的 X 按鈕
-const delCouponBtns = document.querySelectorAll(".js-delCoupon");
 // 取得 使用優惠券input
 const couponInput = document.querySelector("#coupon");
 // 取得 使用優惠券按鈕
 const useCouponBtn = document.querySelector(".js-useCouponBtn");
-// 取得 每堂課價格
-const originalCoursePrice = document.querySelectorAll(".OriginalCoursePrice");
 
 let myCoupons = [];
 let cartCoupons = [];
-let chooseCoupon = {};
 const usedCouponInitObj = {
   myCouponId: "",
   originPrice: "",
@@ -41,6 +37,14 @@ function couponInit() {
     () => usedCouponInitObj
   );
 }
+
+// 防止 couponInput 按 enter 的預設行為，並使用優惠券
+couponInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    handleToUseCoupon();
+  }
+});
 
 // 按下使用優惠券按鈕
 useCouponBtn.addEventListener("click", (e) => {
@@ -382,78 +386,25 @@ function delUsedCoupon(courseId) {
 }
 
 // 當從下次購買 移置 購買項目
-function addEmptyUsedCoupon() {
-  if (usedCouponData.length >= 2) {
-    // 從下次購買移置購買項目的課程優惠券 index
-    lastTwoIndex = usedCouponData.length - 2;
-    // 在全課程優惠券前增加空 obj 以記錄移置購買項目課程的優惠券
-    usedCouponData.splice(lastTwoIndex, 0, usedCouponInitObj);
-  }
-  renderCoupon();
-}
-
-/***** 渲染 *****/
-
-// 渲染優惠券選項
-function renderCouponOption() {
-  const couponOption = document.querySelector("#couponOption");
-  let couponOptionHtml = "";
-  if (cartCoupons.length) {
-    cartCoupons.forEach((myCoupon) => {
-      couponOptionHtml += `<option value="${myCoupon.title}"></option>`;
-    });
-  }
-  couponOption.innerHTML = couponOptionHtml;
-}
-
-// 渲染使用的優惠券、渲染優惠券折扣
-function renderCoupon() {
-  updateCourseDiscount(); // 渲染、計算指定課程優惠券全部折扣
-  updateWebDiscount(); // 渲染全課程優惠券折扣
-  renderUsedCoupon(); // 渲染使用的優惠券
-}
-
-// 渲染 全站折扣
-function updateWebDiscount() {
-  document.querySelector("#WebDiscount").innerHTML =
-    usedCouponData[usedCouponData.length - 1].discountPrice;
-}
-
-// 渲染 計算課程全部折扣
-function updateCourseDiscount() {
-  const courseDiscount = usedCouponData.reduce((acc, cur, index) => {
-    return index < usedCouponData.length - 1 ? acc + cur.discountPrice : acc;
-  }, 0);
-  document.querySelector("#CourseDiscount").innerHTML = courseDiscount;
-}
-
-// 渲染 已使用的優惠券
-function renderUsedCoupon() {
-  const usedCoupons = document.querySelectorAll(".js-usedCoupon");
-  usedCoupons.forEach((div, index) => {
-    console.log(usedCouponData, index);
-    if (usedCouponData[index].myCouponId === "") {
-      div.innerHTML = "";
-    } else {
-      div.innerHTML = `<button type="button" class="btn btn-close fs-sm js-delCoupon" data-index="${index}"></button>
-      <p>
-        已套用 <span class="fw-bold text-secondary2">${usedCouponData[index].title}</span
-        ><i class="fa-solid fa-arrow-right mx-1"></i
-        ><span class="fw-bold text-primary">折價 <span class="js-usedCouponDiscount">${usedCouponData[index].discountPrice}</span> 元</span>
-      </p>`;
-    }
-  });
-}
+// function addEmptyUsedCoupon() {
+//   if (usedCouponData.length >= 2) {
+//     // 從下次購買移置購買項目的課程優惠券 index
+//     lastTwoIndex = usedCouponData.length - 2;
+//     // 在全課程優惠券前增加空 obj 以記錄移置購買項目課程的優惠券
+//     usedCouponData.splice(lastTwoIndex, 0, usedCouponInitObj);
+//   }
+//   renderCoupon();
+// }
 
 export {
   couponInit,
   getCartCouponsData,
   getCoupons,
   delUsedCoupon,
-  renderCoupon,
   patchMyCoupon,
   useCouponBtn,
   reCheckCoupon,
   usedCouponData,
   handleCouponDelBtn,
+  cartCoupons,
 };
