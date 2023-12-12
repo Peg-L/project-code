@@ -8,8 +8,7 @@ const courseList = document.querySelector("#courseList");
 // 日期、數字三位一點規則
 const dateReg = /^(\d{4}-\d{2}-\d{2}).*/;
 const separatorReg = /\B(?=(?:\d{3})+(?!\d))/g;
-// 目前網址
-const currentURL = window.location.href;
+
 const newURL = currentURL.replace("course", "course_intro");
 
 // 點擊 開始上課 -> 加入購物車、優惠券

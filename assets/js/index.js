@@ -296,4 +296,3 @@ let reviewsSwiper = new Swiper(".reviewsSwiper", {
     },
   },
 });
-export { recommendSwiper };
