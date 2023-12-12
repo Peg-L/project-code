@@ -1,4 +1,6 @@
-// import { Modal } from "bootstrap";
+import { userId, isLogin } from "../config";
+import { getCartLength, renderCartNum } from "../header";
+import axios from "axios";
 
 let courseId;
 const Toast = Swal.mixin({
@@ -29,7 +31,7 @@ courseList.addEventListener("click", async (e) => {
       hasCoupons =
         myCoupons.find((coupon) => coupon.couponId == courseCoupons[0].id) !==
         undefined;
-
+      console.log("4654");
       addCart();
       checkCoupon();
       message();

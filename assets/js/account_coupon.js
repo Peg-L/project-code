@@ -1,7 +1,8 @@
-// 記得改 userId
+import { userId } from "./config";
+import axios from "axios";
+
 const couponPageArrow = document.querySelectorAll(".js-couponPageArrow");
 
-const apiUrl = "http://localhost:3000";
 let myCoupons = [];
 let couponCurrentPage = 1;
 let couponLastPage;
@@ -14,7 +15,7 @@ async function checkDueDate() {
     if (new Date(coupon.dueDate).getTime() < today) {
       try {
         await axios.patch(
-          `${apiUrl}/myCoupons/${coupon.id}`,
+          `${_url}/myCoupons/${coupon.id}`,
           {
             canUse: false,
           },
@@ -37,14 +38,14 @@ async function checkDueDate() {
 // 取得 coupons
 async function getCoupons() {
   try {
-    let userId = 1; // 假設的
-    const couponUrl = `${apiUrl}/myCoupons?_expand=coupon&canUse=true&userId=${userId}&_page=${couponCurrentPage}&_limit=6_sort=dueDate&_order=asc`;
+    const couponUrl = `${_url}/myCoupons?_expand=coupon&canUse=true&userId=${userId}&_page=${couponCurrentPage}&_limit=6_sort=dueDate&_order=asc`;
     const res = await axios.get(couponUrl);
+
     let myCouponsNum = parseInt(res.headers.get("X-Total-Count"));
     // 展開老師資料
-    for (item of res.data) {
+    for (let item of res.data) {
       const { data } = await axios.get(
-        `${apiUrl}/coupons/${item.couponId}?_expand=teacher`
+        `${_url}/coupons/${item.couponId}?_expand=teacher`
       );
       item.coupon = data;
     }
@@ -163,3 +164,5 @@ couponPageArrow.forEach((arrow, index) => {
     }
   });
 });
+
+export { getCoupons, renderCoupons };
