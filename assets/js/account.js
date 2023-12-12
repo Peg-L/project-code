@@ -1,3 +1,4 @@
+import { userId } from "./config";
 import axios from "axios";
 
 //抓取按鈕
@@ -31,7 +32,7 @@ saveBtn.forEach((item, index) => {
 
 // ----------------
 // 我的關注
-const apiUrl = "http://localhost:3000";
+
 let pageId = 1;
 let followArray = [];
 let followTotalPages = 0;
@@ -42,7 +43,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   async function fetchData() {
     try {
       // 取得追蹤列表
-      let usersResponse = await axios.get(`${apiUrl}/users/${userId}`);
+      let usersResponse = await axios.get(`${_url}/users/${userId}`);
       followArray = usersResponse.data.followList;
       // 計算總頁數
       followTotalPages = Math.ceil(followArray.length / 6);
@@ -50,7 +51,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       let courseCards = "";
       if (followArray.length != 0) {
         // 取得課程資料
-        let apiString = `${apiUrl}/courses?_expand=teacher&_page=${pageId}&_limit=6`;
+        let apiString = `${_url}/courses?_expand=teacher&_page=${pageId}&_limit=6`;
         followArray.forEach((item) => {
           apiString += `&id=${item}`;
         });
@@ -108,15 +109,15 @@ document.addEventListener("DOMContentLoaded", async function () {
     </div>
   </div></div>`;
         });
+
+        followList.innerHTML = courseCards;
+        renderFollowPagination();
+        switchPage();
+
+        setButtonListeners();
       } else {
         courseCards = `<p class="text-center fs-5">目前沒有追蹤任何課程</p>`;
       }
-
-      followList.innerHTML = courseCards;
-      renderFollowPagination();
-      switchPage();
-
-      setButtonListeners();
     } catch (error) {
       console.log("錯誤", error);
     }
@@ -238,7 +239,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         });
 
         axios
-          .patch(`${apiUrl}/users/${userId}`, {
+          .patch(`${_url}/users/${userId}`, {
             followList: editfollowList,
           })
           .then(async (res) => {

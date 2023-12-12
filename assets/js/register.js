@@ -46,6 +46,7 @@ const userInfo = {
   user_birthdate: "",
   user_gender: "",
   user_address: "",
+  followList: [],
 };
 
 // 驗證狀態
@@ -242,6 +243,7 @@ if (googleRegister) {
         const token = credential.accessToken;
         // The signed-in user info.
         const user = result.user;
+        console.log(user);
 
         userInfo.email = user.email;
         userInfo.password = "00000000"; // 需要密碼才能 post 進 json server auth
@@ -267,7 +269,7 @@ window.recaptchaVerifier = new RecaptchaVerifier(auth, "verify-button", {
   },
 });
 
-function getPhoneNumberFromUserInput() {
+function getPhoneFromInput() {
   const phoneValue = document.querySelector("#floatingTel").value;
   return phoneValue;
 }
@@ -280,7 +282,7 @@ const appVerifier = window.recaptchaVerifier;
 sendCode.addEventListener("click", function () {
   sendCodeSpinner.classList.remove("d-none");
 
-  phoneNumber = "+886" + getPhoneNumberFromUserInput();
+  phoneNumber = "+886" + getPhoneFromInput();
 
   signInWithPhoneNumber(auth, phoneNumber, appVerifier)
     .then((confirmationResult) => {

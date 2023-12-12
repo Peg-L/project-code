@@ -1,5 +1,45 @@
 import axios from "axios";
-import { _url } from "./config.js";
+
+// 圖片 src 修改
+import treasureImgUrl from "../images/category/treasure.png";
+document.getElementById("treasureImg1").src = treasureImgUrl;
+document.getElementById("treasureImg2").src = treasureImgUrl;
+
+import frontendImgUrl from "../images/category/frontend.svg";
+document.getElementById("frontendImg").src = frontendImgUrl;
+
+import backendUrl from "../images/category/backend.svg";
+document.getElementById("backendUrl").src = backendUrl;
+
+import databaseUrl from "../images/category/database.svg";
+document.getElementById("databaseUrl").src = databaseUrl;
+
+import securityUrl from "../images/category/security.svg";
+document.getElementById("securityUrl").src = securityUrl;
+
+import testingUrl from "../images/category/testing.svg";
+document.getElementById("testingUrl").src = testingUrl;
+
+import UIUXUrl from "../images/category/UI-UX.svg";
+document.getElementById("UIUXUrl").src = UIUXUrl;
+
+import devOpsUrl from "../images/category/DevOps.svg";
+document.getElementById("devOpsUrl").src = devOpsUrl;
+
+import mobileUrl from "../images/category/mobile.svg";
+document.getElementById("mobileUrl").src = mobileUrl;
+
+import AIUrl from "../images/category/AI.svg";
+document.getElementById("AIUrl").src = AIUrl;
+
+import gameUrl from "../images/category/game.svg";
+document.getElementById("gameUrl").src = gameUrl;
+
+import basicUrl from "../images/category/basic.svg";
+document.getElementById("basicUrl").src = basicUrl;
+
+import careerUrl from "../images/category/career.svg";
+document.getElementById("careerUrl").src = careerUrl;
 
 let bannerSwiper = new Swiper(".bannerSwiper", {
   slidesPerView: 1,
@@ -58,7 +98,6 @@ axios.get(`${_url}/courses?_expand=teacher`).then((res) => {
   let popularCourses = courses.filter((course) =>
     course.badges.includes("熱門")
   );
-  console.log(popularCourses);
 
   // 取出前 6 項
   let popularCourses6th = popularCourses.slice(0, 7);
@@ -111,6 +150,12 @@ axios.get(`${_url}/courses?_expand=teacher`).then((res) => {
   swiperWrapper.innerHTML = coursesCard;
 });
 
+// 熱門推薦 查看更多按鈕
+const redirectPopularBtn = document.querySelector("#redirectPopular");
+redirectPopularBtn.addEventListener("click", function () {
+  localStorage.setItem("redirectToPopular", true);
+});
+
 let recommendSwiper = new Swiper(".recommendSwiper", {
   slidesPerView: 1,
   spaceBetween: 16,
@@ -144,7 +189,6 @@ let recommendSwiper = new Swiper(".recommendSwiper", {
 });
 
 // 課程分類
-
 sessionStorage.removeItem("cateItemName");
 
 const cateItems = document.querySelectorAll(".cate-item");
@@ -172,12 +216,8 @@ axios.get(`${_url}/comments?_expand=user`).then((res) => {
 
   let commentsCard = "";
   res.data = get4Random(res.data.filter((item) => item.rate == 5));
-  console.log(res.data);
 
   res.data.forEach((comment) => {
-    console.log(comment);
-    console.log(comment.user.name);
-
     commentsCard += `<div class="swiper-slide">
     <div
       class="teacher-card d-flex flex-column justify-content-between gap-10 h-100"

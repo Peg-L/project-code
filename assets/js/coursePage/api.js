@@ -1,11 +1,11 @@
 import { inputDisable, renderCourses, renderPagination } from "./render.js";
 import { handleFilterNum } from "./filter.js";
+import axios from "axios";
 
 let totalSearchNum = document.querySelector(".js-totalSearchNum");
 let currentPageCourses = [];
 let allCoursesNum;
 let lastPage;
-const api = "https://project-code-json-k0ti.onrender.com";
 const minPriceDefault = 0;
 const maxPriceDefault = 9999;
 let data = {
@@ -24,8 +24,21 @@ let data = {
 };
 let isLoading = false;
 
+init();
+function init() {
+  const indexSearchInput = localStorage.getItem("indexSearchInput");
+  const cateItemName = sessionStorage.getItem("cateItemName");
+  const redirectToPopular = localStorage.getItem("redirectToPopular");
+  console.log(redirectToPopular);
+
+  if (!indexSearchInput && !cateItemName && !redirectToPopular) {
+    getCoursesData(data);
+  }
+  getAllData(data);
+}
+
 /*** api-取得卡片內容 ***/
-const getCoursesData = async ({
+async function getCoursesData({
   page,
   limit,
   q,
@@ -36,34 +49,34 @@ const getCoursesData = async ({
   filters,
   sort,
   order,
-}) => {
-  const apiUrl = `${api}/courses?_expand=teacher&_page=${page}&_limit=${limit}&q=${q}&rate_gte=${rate_gte}&rate_lte=${rate_lte}&price_gte=${price_gte}&price_lte=${price_lte}${filters}&_sort=${sort}&_order=${order}`;
-  console.log(apiUrl);
-
-  isLoading = true;
-  renderCourses();
-  inputDisable();
-
+}) {
   try {
+    const apiUrl = `${_url}/courses?_expand=teacher&_page=${page}&_limit=${limit}&q=${q}&rate_gte=${rate_gte}&rate_lte=${rate_lte}&price_gte=${price_gte}&price_lte=${price_lte}${filters}&_sort=${sort}&_order=${order}`;
+
+    isLoading = true;
+    renderCourses();
+    inputDisable();
+
     const res = await axios.get(apiUrl);
     currentPageCourses = res.data;
     allCoursesNum = parseInt(res.headers.get("X-Total-Count"));
     totalSearchNum.innerHTML = `共 ${allCoursesNum} 個結果`;
     /** 課程卡片評論api **/
-    for (const item of currentPageCourses) {
-      const commentRes = await axios.get(
-        `${api}/comments/${item.commentId}?_expand=user`
-      );
-      item.comment = commentRes.data;
-    }
-    // 上面用 forEach 時，currentPageCourses[0]的comment有user，但currentPageCourses[0].comment卻沒有user
-    // 可能因為 forEach 是同步的，不會等待就繼續下一個迴圈，導致出錯? for...of 在處理迴圈時每個迴圈都會等待完成再進入下一個
-    console.log("currentPageCourses", currentPageCourses);
+    const commentUrls = currentPageCourses.map((item) => {
+      return `${_url}/comments/${item.commentId}?_expand=user`;
+    });
+
+    const responses = await Promise.all(
+      commentUrls.map((commentUrl) => axios.get(commentUrl))
+    );
+    currentPageCourses.forEach((item, index) => {
+      item.comment = responses[index].data;
+    });
+    // console.log("currentPageCourses", currentPageCourses);
 
     isLoading = false;
     renderCourses();
     inputDisable();
-    getAllData(data);
 
     //計算一共有幾頁
     lastPage = Math.ceil(parseInt(allCoursesNum) / parseInt(data.limit));
@@ -71,31 +84,27 @@ const getCoursesData = async ({
   } catch (error) {
     console.log("courseError", error);
   }
-};
-const indexSearchInput = localStorage.getItem("indexSearchInput");
-const cateItemName = sessionStorage.getItem("cateItemName");
-
-if (!indexSearchInput && !cateItemName) {
-  getCoursesData(data);
 }
+
 /*** api-取得卡片數量 ***/
 // 取得全部課程以計算篩選項目數量
-const getAllData = async ({
+async function getAllData({
   q,
   rate_gte,
   rate_lte,
   price_gte,
   price_lte,
   filters,
-}) => {
-  const apiUrl = `${api}/courses?&q=${q}&rate_gte=${rate_gte}&rate_lte=${rate_lte}&price_gte=${price_gte}&price_lte=${price_lte}${filters}`;
+}) {
   try {
+    const apiUrl = `${_url}/courses?&q=${q}&rate_gte=${rate_gte}&rate_lte=${rate_lte}&price_gte=${price_gte}&price_lte=${price_lte}${filters}`;
+
     const res = await axios.get(apiUrl);
     handleFilterNum(res.data);
   } catch (error) {
     console.log("getAllData", error);
   }
-};
+}
 
 export {
   currentPageCourses,

@@ -1,16 +1,15 @@
 const queryParams = new URLSearchParams(window.location.search);
-const courseId = queryParams.get('courseId'); //抓取課程ID
-const _url = "http://localhost:3000"; // 修改處
+const courseId = queryParams.get("courseId"); //抓取課程ID
+import axios from "axios";
+
 let data = [];
 
-
-
 //第一部分參數
-const teacherImg = document.querySelector('#teacherImg');
-const teacherName = document.querySelector('#teacher_name');
-const course_title = document.querySelector('#course_title');
-const courseClass = document.querySelector('#courseClass');
-const course_info = document.querySelector('#course_info');
+const teacherImg = document.querySelector("#teacherImg");
+const teacherName = document.querySelector("#teacher_name");
+const course_title = document.querySelector("#course_title");
+const courseClass = document.querySelector("#courseClass");
+const course_info = document.querySelector("#course_info");
 //第二部分參數
 const teacher_degree = document.querySelector('#teacher_degree');
 const teacher_experience = document.querySelector('#teacher_experience');
@@ -21,9 +20,8 @@ const intro = document.querySelector('#intro');
 const youCanGet = document.querySelector('#youCanGet');
 //第四部分參數
 
-const left = document.querySelector('#PreviousWeek');
-const right = document.querySelector('#NextWeek');
-
+const left = document.querySelector("#PreviousWeek");
+const right = document.querySelector("#NextWeek");
 
 //資料取得完畢並且初始化
 function init(){
@@ -56,42 +54,37 @@ function init(){
     })
 }
 function updateData() {
-    const daysDate = document.querySelectorAll('.calendar-time');
-    daysDate.forEach(item => {
-        let dataNum = item.getAttribute('data-num');
-        let matchData = findMatchData(dataNum);
-        let str = '';
-        if (matchData.length !== 0) {
-            matchData[0].time.forEach(date => {
-                if(!matchData[0].useTime.find(item => date === item)){
-                    str += `<li><a href=''>${date}</a></li>`
-                }else{
-                    str += `<li><a class="text-primary" href=''>${date}</a></li>`
-                }
-            })
-            item.innerHTML = str;
+  const daysDate = document.querySelectorAll(".calendar-time");
+  daysDate.forEach((item) => {
+    let dataNum = item.getAttribute("data-num");
+    let matchData = findMatchData(dataNum);
+    let str = "";
+    if (matchData.length !== 0) {
+      matchData[0].time.forEach((date) => {
+        if (!matchData[0].useTime.find((item) => date === item)) {
+          str += `<li><a href=''>${date}</a></li>`;
+        } else {
+          str += `<li><a class="text-primary" href=''>${date}</a></li>`;
         }
-    });
-
-    function findMatchData(dataNum) {
-        return data.teacher.openTime.filter(item => item.date === dataNum);
+      });
+      item.innerHTML = str;
     }
+  });
+
+  function findMatchData(dataNum) {
+    return data.teacher.openTime.filter((item) => item.date === dataNum);
+  }
 }
 
 // 預設載入初始化環境
 init();
 
-left.addEventListener('click',()=>{
-    updateData();
-})
-right.addEventListener('click',()=>{
-    updateData();
-})
-
-
-
-
-
+left.addEventListener("click", () => {
+  updateData();
+});
+right.addEventListener("click", () => {
+  updateData();
+});
 
 // // 新增待辦功能
 // save.addEventListener('click',function(e){

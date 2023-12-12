@@ -1,18 +1,21 @@
+import { userId } from "./config";
+import axios from "axios";
+
 //判斷早中晚之參數
-const morning = document.querySelector('#morning');
-const afternoon = document.querySelector('#afternoon');
-const evening = document.querySelector('#evening');
-let clickTime = '';
-let morning_str = '';
-let afternoon_str = '';
-let evening_str = '';
+const morning = document.querySelector("#morning");
+const afternoon = document.querySelector("#afternoon");
+const evening = document.querySelector("#evening");
+let clickTime = "";
+let morning_str = "";
+let afternoon_str = "";
+let evening_str = "";
 
 //add data to db
-const attendSubmit = document.querySelector('#attendSubmit');
+const attendSubmit = document.querySelector("#attendSubmit");
 let oldAttendTime = [];
-attendSubmit.addEventListener('click',() => {
-    //console.log(clickCourse,clickDay,userId,clickTime);
-    postAttendCourse(clickCourse,clickDay,userId,clickTime);
+attendSubmit.addEventListener("click", () => {
+  //console.log(clickCourse,clickDay,userId,clickTime);
+  postAttendCourse(clickCourse, clickDay, userId, clickTime);
 });
 //顯示教師當日開放時間
 function viewTimeCourse(){
@@ -56,26 +59,44 @@ function viewTimeCourse(){
                         }
                     });
                 }
-                morning.innerHTML = morning_str;
-                morning_str = '';
-                afternoon.innerHTML = afternoon_str;
-                afternoon_str = '';
-                evening.innerHTML = evening_str;
-                evening_str = '';
-                const btn_times = document.querySelectorAll('.btn-time');
-                btn_times.forEach(btn=>{
-                    btn.addEventListener('click',e=>{
-                        btn_times.forEach(btn=>{
-                            btn.classList.remove('active');
-                        })
-                        e.currentTarget.classList.add('active');
-                        clickTime = e.target.getAttribute('data-time');
-                    })
-                })
-        })
-    }else{
-        return;
-    }
+                break;
+              case "中午":
+                if (isUseDate(item)) {
+                  afternoon_str += `<li class="btn-time disable" data-time=${item}>${item}</li>`;
+                } else {
+                  afternoon_str += `<li class="btn-time" data-time=${item}>${item}</li>`;
+                }
+                break;
+              case "晚上":
+                if (isUseDate(item)) {
+                  evening_str += `<li class="btn-time disable" data-time=${item} >${item}</li>`;
+                } else {
+                  evening_str += `<li class="btn-time" data-time=${item}>${item}</li>`;
+                }
+                break;
+            }
+          });
+        }
+        morning.innerHTML = morning_str;
+        morning_str = "";
+        afternoon.innerHTML = afternoon_str;
+        afternoon_str = "";
+        evening.innerHTML = evening_str;
+        evening_str = "";
+        const btn_times = document.querySelectorAll(".btn-time");
+        btn_times.forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            btn_times.forEach((btn) => {
+              btn.classList.remove("active");
+            });
+            e.currentTarget.classList.add("active");
+            clickTime = e.target.getAttribute("data-time");
+          });
+        });
+      });
+  } else {
+    return;
+  }
 }
 //將資料加入到db
 function postAttendCourse(clickCourse,clickDay,userId,clickTime){
@@ -137,29 +158,30 @@ function postAttendCourse(clickCourse,clickDay,userId,clickTime){
 }
 //判斷時間為早、中、晚
 function classifyTime(timeString) {
-    const time = new Date(`2000-01-01 ${timeString}`);
-    const hours = time.getHours();
+  const time = new Date(`2000-01-01 ${timeString}`);
+  const hours = time.getHours();
 
-    if (hours >= 0 && hours < 12) {
-        return "上午";
-    } else if (hours >= 12 && hours < 18) {
-        return "中午";
-    } else {
-        return "晚上";
-    }
+  if (hours >= 0 && hours < 12) {
+    return "上午";
+  } else if (hours >= 12 && hours < 18) {
+    return "中午";
+  } else {
+    return "晚上";
+  }
 }
 function generateRandomCode(length) {
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    let result = '';
+  const characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  let result = "";
 
-    // 第一個字是英文字母
-    const firstCharIndex = Math.floor(Math.random() * (characters.length - 10));
-    result += characters.charAt(firstCharIndex);
+  // 第一個字是英文字母
+  const firstCharIndex = Math.floor(Math.random() * (characters.length - 10));
+  result += characters.charAt(firstCharIndex);
 
-    for (let i = 1; i < length; i++) {
-        const randomIndex = Math.floor(Math.random() * characters.length);
-        result += characters.charAt(randomIndex);
-    }
+  for (let i = 1; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    result += characters.charAt(randomIndex);
+  }
 
-    return result;
+  return result;
 }
