@@ -83,11 +83,28 @@ const toMyCartBtn = document.querySelectorAll(".js-toMyCart");
 
 // 若未登入出現登入註冊 Modal
 function myCartCheckLogin() {
-  // const loginModal = new bootstrap.Modal("#loginModal");
-  // isLogin ? (location.href = "./cart.html") : loginModal.show();
   if (!isLogin) {
     toMyCartBtn.forEach((btn) => {
       btn.setAttribute("data-bs-toggle", "modal");
+      btn.addEventListener("click", function () {
+        // 設定倒數秒數
+        let count = 5;
+        function countDown() {
+          // 將秒數寫在指定元素中
+          document.getElementById("timeBox").innerHTML = count;
+
+          // 每次執行就減1
+          count -= 1;
+          // 當 count = 0 時跳轉頁面
+          if (count == 0) {
+            location.href = "./login.html";
+          }
+          // 設定每秒執行1次
+          setTimeout(countDown, 1000);
+        }
+        // 執行 countDown
+        countDown();
+      });
     });
   } else {
     toMyCartBtn.forEach((btn) => {

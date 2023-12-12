@@ -1,14 +1,6 @@
-<!-- 按鈕 -->
-<!-- <button
-  type="button"
-  class="btn btn-primary"
-  data-bs-toggle="modal"
-  data-bs-target="#loginModal"
->
-  Launch static backdrop modal
-</button> -->
-
 <!-- Modal -->
+
+<!-- 跳轉提示 modal -->
 <div
   class="modal fade"
   id="loginModal"
@@ -20,8 +12,8 @@
 >
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+      <div class="modal-header border-0">
+        <h1 class="modal-title fs-4" id="staticBackdropLabel">貼心提醒</h1>
         <button
           type="button"
           class="btn-close"
@@ -29,13 +21,298 @@
           aria-label="Close"
         ></button>
       </div>
-      <div class="modal-body">...</div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Close
-        </button>
-        <button type="button" class="btn btn-primary">Understood</button>
+      <div class="modal-body pt-0 fs-6">
+        <p>
+          欲購買與收藏課程，點此<a class="text-primary" href="./login.html"
+            >登入會員</a
+          >
+        </p>
+        <p><span id="timeBox">5</span>秒後自動跳轉登入頁面</p>
       </div>
     </div>
   </div>
 </div>
+
+<!-- 註冊登入 modal -->
+<!-- <div
+  class="modal fade"
+  id="loginModal"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body p-6">
+        <div class="text-center position-relative">
+          <img
+            class="mb-2 mb-md-3"
+            src="../assets/images/logo-img.svg"
+            alt="logo"
+          />
+          <button
+            type="button"
+            class="btn-close position-absolute end-0"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <ul
+          class="nav nav-pills mb-3 d-flex justify-content-evenly"
+          id="pills-tab"
+          role="tablist"
+        >
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link active"
+              id="pills-home-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#pills-home"
+              type="button"
+              role="tab"
+              aria-controls="pills-home"
+              aria-selected="true"
+            >
+              註冊
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="pills-profile-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#pills-profile"
+              type="button"
+              role="tab"
+              aria-controls="pills-profile"
+              aria-selected="false"
+            >
+              登入
+            </button>
+          </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+          <div
+            class="tab-pane fade show active"
+            id="pills-home"
+            role="tabpanel"
+            aria-labelledby="pills-home-tab"
+            tabindex="0"
+          >
+            <div class="col-12 d-flex flex-column align-items-center">
+              <form
+                id="registerForm"
+                class="col-12 col-sm-10 needs-validation"
+                novalidate
+              >
+                <div id="firebaseui-auth-container">
+                  <button
+                    type="button"
+                    class="btn btn-outline-secondary2 rounded-1 fs-5 w-100 py-3 mb-2 mb-md-4"
+                    id="google-register2"
+                  >
+                    <i class="fa-brands fa-google me-3"></i>使用 Google 帳戶註冊
+                  </button>
+                </div>
+                <div class="form-floating mb-2 mb-md-4">
+                  <input
+                    type="email"
+                    class="form-control rounded-1"
+                    id="floatingEmail2"
+                    placeholder="name@example.com"
+                    required
+                  />
+                  <label for="floatingEmail2">Email</label>
+                </div>
+                <div class="form-floating mb-2 mb-md-4">
+                  <input
+                    type="text"
+                    class="form-control rounded-1"
+                    id="floatingName2"
+                    placeholder="Username"
+                    required
+                  />
+                  <label for="floatingName2">姓名</label>
+                </div>
+                <div class="form-floating mb-2 mb-md-4">
+                  <input
+                    type="tel"
+                    class="form-control rounded-1"
+                    id="floatingTel2"
+                    pattern="^09\d{8}$"
+                    placeholder="Tel"
+                    required
+                  />
+                  <label for="floatingTel2">手機</label>
+                  <button
+                    class="btn btn-outline-secondary2 rounded-1 position-absolute top-50 end-0 translate-middle-y me-2"
+                    type="button"
+                    id="sendCode2"
+                    disabled
+                  >
+                    <span
+                      class="spinner-border spinner-border-sm me-1 d-none"
+                      aria-hidden="true"
+                      id="sendCodeSpinner2"
+                    ></span>
+                    <span role="status">發送驗證碼</span>
+                  </button>
+                </div>
+                <div
+                  class="form-floating mb-2 mb-md-4 d-none"
+                  id="inputVerifyCode2"
+                >
+                  <input
+                    type="tel"
+                    class="form-control rounded-1"
+                    id="floatingVerifyCode2"
+                    pattern="^09\d{8}$"
+                    placeholder="Tel"
+                    required
+                  />
+                  <label for="floatingVerifyCode">請填寫手機驗證碼</label>
+                  <button
+                    class="btn btn-outline-secondary2 rounded-1 position-absolute top-50 end-0 translate-middle-y me-2"
+                    type="button"
+                    id="verify-button2"
+                  >
+                    立即驗證
+                  </button>
+                </div>
+                <div class="form-floating d-flex align-items-center">
+                  <input
+                    type="password"
+                    class="form-control rounded-1"
+                    id="floatingPassword2"
+                    pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$"
+                    placeholder="Password"
+                    required
+                  />
+
+                  <label for="floatingPassword2">密碼</label>
+                </div>
+                <div id="passwordHelpBlock" class="form-text ms-2 mb-2 mb-md-4">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-exclamation-circle me-1"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                    />
+                    <path
+                      d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"
+                    />
+                  </svg>
+                  大於8個字元，包含數字、大寫和小寫字母
+                </div>
+                <div
+                  class="form-floating d-flex align-items-center mb-2 mb-md-4"
+                >
+                  <input
+                    type="password"
+                    class="form-control rounded-1"
+                    id="floatingCheckPassword"
+                    placeholder="Password"
+                    required
+                  />
+                  <label for="floatingCheckPassword">確認密碼</label>
+                </div>
+                <button
+                  id="registerBtn2"
+                  type="button"
+                  class="btn btn-secondary2 rounded-1 fs-5 w-100 py-3"
+                  ds-
+                >
+                  <i class="fa-solid fa-user me-3"></i>
+                  加入會員
+                </button>
+              </form>
+            </div>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="pills-profile"
+            role="tabpanel"
+            aria-labelledby="pills-profile-tab"
+            tabindex="0"
+          >
+            <div class="col-12 d-flex flex-column align-items-center">
+              <form
+                id="loginForm"
+                class="col-12 col-sm-10 needs-validation"
+                novalidate
+              >
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary2 rounded-1 fs-5 w-100 py-3 mb-2 mb-md-4"
+                  id="google-login"
+                >
+                  <i class="fa-brands fa-google me-3"></i>使用 Google 帳戶登入
+                </button>
+                <div class="form-floating mb-2 mb-md-4">
+                  <input
+                    type="email"
+                    class="form-control rounded-1"
+                    id="floatingEmailLogin"
+                    placeholder="name@example.com"
+                    required
+                  />
+                  <label for="floatingEmailLogin">Email</label>
+                </div>
+                <div class="form-floating d-flex align-items-center">
+                  <input
+                    type="password"
+                    class="form-control rounded-1"
+                    id="floatingPasswordLogin"
+                    placeholder="Password"
+                    required
+                  />
+
+                  <label for="floatingPasswordLogin">密碼</label>
+                </div>
+                <div
+                  id="passwordHelpBlock"
+                  class="form-text d-flex justify-content-between ms-2 mb-2 mb-md-4"
+                >
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-exclamation-circle me-1"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                      />
+                      <path
+                        d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"
+                      />
+                    </svg>
+                    大於8個字元，包含數字、大寫和小寫字母
+                  </div>
+                  <div><a href="###">忘記密碼?</a></div>
+                </div>
+                <button
+                  type="button"
+                  id="loginButton"
+                  class="btn btn-secondary2 rounded-1 fs-5 w-100 py-3 mb-4"
+                >
+                  <i class="fa-solid fa-user me-3"></i>
+                  登入會員
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

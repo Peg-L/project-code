@@ -35,6 +35,27 @@ courseList.addEventListener("click", async (e) => {
       addCart();
       checkCoupon();
       message();
+    } else {
+      // 若沒登入，打開 登入 modal
+      // loginModal.show();
+
+      // 設定倒數秒數
+      let count = 5;
+      function countDown() {
+        // 將秒數寫在指定元素中
+        document.getElementById("timeBox").innerHTML = count;
+
+        // 每次執行就減1
+        count -= 1;
+        // 當 count = 0 時跳轉頁面
+        if (count == 0) {
+          location.href = "./login.html";
+        }
+        // 設定每秒執行1次
+        setTimeout(countDown, 1000);
+      }
+      // 執行 countDown
+      countDown();
     }
   }
 });
