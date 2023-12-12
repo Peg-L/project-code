@@ -1,5 +1,6 @@
 import { currentPageCourses, isLoading, data, lastPage } from "./api.js";
 import { pagination } from "./pagination.js";
+import { handleClickStartCourseBtn } from "./startCourse.js";
 import { userId, isLogin } from "../config.js";
 import axios from "axios";
 
@@ -10,6 +11,11 @@ const separatorReg = /\B(?=(?:\d{3})+(?!\d))/g;
 // 目前網址
 const currentURL = window.location.href;
 const newURL = currentURL.replace("course", "course_intro");
+
+// 點擊 開始上課 -> 加入購物車、優惠券
+if (courseList) {
+  handleClickStartCourseBtn(courseList);
+}
 
 function inputDisable() {
   const inputs = document.querySelectorAll("input");

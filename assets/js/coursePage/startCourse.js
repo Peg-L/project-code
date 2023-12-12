@@ -9,10 +9,6 @@ const Toast = Swal.mixin({
   position: "top-end",
   showConfirmButton: false,
   timer: 2000,
-  didOpen: (toast) => {
-    toast.addEventListener("mouseenter", Swal.stopTimer);
-    toast.addEventListener("mouseleave", Swal.resumeTimer);
-  },
 });
 
 let myCart;
@@ -20,24 +16,28 @@ let myCoupons;
 let courseCoupons;
 let hasCoupons;
 
-// coursePage：若直接監聽 button ，因為還沒渲染完會抓不到東西，因此監聽父元素 courseList 的點擊事件
-courseList.addEventListener("click", async (e) => {
-  if (e.target.dataset.course) {
-    // 若有登入，執行加入購物車和優惠券
-    if (isLogin) {
-      courseId = e.target.dataset.course;
-      await getData();
-      // 若沒拿過優惠券(以體驗課 courseCoupons[0].id 為代表判斷)就能獲得優惠券
-      hasCoupons =
-        myCoupons.find((coupon) => coupon.couponId == courseCoupons[0].id) !==
-        undefined;
-      console.log("4654");
-      addCart();
-      checkCoupon();
-      message();
-    }
-  }
-});
+function handleClickStartCourseBtn(parentEl) {
+  document.addEventListener("DOMContentLoaded", () => {
+    parentEl.addEventListener("click", async (e) => {
+      if (e.target.dataset.course && e.target.type === "button") {
+        console.log(e.target);
+        // 若有登入，執行加入購物車和優惠券
+        if (isLogin) {
+          courseId = e.target.dataset.course;
+          await getData();
+          // 若沒拿過優惠券(以體驗課 courseCoupons[0].id 為代表判斷)就能獲得優惠券
+          hasCoupons =
+            myCoupons.find(
+              (coupon) => coupon.couponId == courseCoupons[0].id
+            ) !== undefined;
+          addCart();
+          checkCoupon();
+          message();
+        }
+      }
+    });
+  });
+}
 
 async function getData() {
   try {
@@ -169,3 +169,5 @@ async function addCoupon(coupon) {
     console.log("addCoupon", error);
   }
 }
+
+export { handleClickStartCourseBtn };

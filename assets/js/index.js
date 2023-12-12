@@ -1,4 +1,5 @@
 import axios from "axios";
+import { handleClickStartCourseBtn } from "./coursePage/startCourse";
 
 // // 圖片 src 修改
 // import treasureImgUrl from "../images/category/treasure.png";
@@ -106,6 +107,13 @@ axios.get(`${_url}/courses?_expand=teacher`).then((res) => {
   let coursesCard = "";
   const swiperWrapper = document.querySelector(".recommend-swiper");
 
+  // 點擊 開始上課 -> 加入購物車、優惠券
+  handleClickStartCourseBtn(swiperWrapper);
+
+  // 目前網址
+  const currentURL = window.location.href;
+  const newURL = currentURL.replace("index", "course_intro");
+
   popularCourses6th.forEach((popularCourse) => {
     coursesCard += `<div class="card teacher-card swiper-slide">
     <div class="card-body d-flex justify-content-between">
@@ -132,14 +140,14 @@ axios.get(`${_url}/courses?_expand=teacher`).then((res) => {
       ${popularCourse.info}
       </p>
       <a
-        href="./cart.html"
         type="button"
         class="btn btn-secondary2 w-100 mb-3"
+        data-course="${popularCourse.id}"
       >
         立即上課
       </a>
       <a
-        href="./course_intro.html"
+        href="${newURL}?courseId=${popularCourse.id}"
         type="button"
         class="btn teacher-card-btn"
         >查看介紹</a
