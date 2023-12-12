@@ -119,7 +119,9 @@ axios.get(`${_url}/courses?_expand=teacher`).then((res) => {
     coursesCard += `<div class="card teacher-card swiper-slide">
     <div class="card-body d-flex justify-content-between">
       <div>
-        <h5 class="card-title teacher-card-title truncate-lines-2">${popularCourse.name}
+        <h5 class="card-title teacher-card-title truncate-lines-2">${
+          popularCourse.name
+        }
         </h5>
         <p class="teacher-card-name">${popularCourse.teacher.name}</p>
         <ul class="teacher-card-object">
@@ -144,6 +146,8 @@ axios.get(`${_url}/courses?_expand=teacher`).then((res) => {
         type="button"
         class="btn btn-secondary2 w-100 mb-3"
         data-course="${popularCourse.id}"
+        data-bs-target="#loginModal"
+        ${isLogin ? "" : 'data-bs-toggle="modal"'}
       >
         立即上課
       </a>

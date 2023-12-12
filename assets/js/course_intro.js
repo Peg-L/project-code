@@ -154,9 +154,11 @@ function renderDiscountedPrices(priceData) {
       .replace(separatorReg, ",")}</p>
     <p>${item.quantity} 堂 ${item.duration} 分鐘</p>
   </div>
-  <a type="button" class="btn btn-text" data-course="${courseId}" ${
-        item.quantity > 1 ? `data-quantity="${item.quantity}"` : ""
-      }
+  <a type="button" class="btn btn-text" 
+      data-course="${courseId}" 
+      ${item.quantity > 1 ? `data-quantity="${item.quantity}"` : ""} 
+      data-bs-target="#loginModal"
+      ${isLogin ? "" : 'data-bs-toggle="modal"'}
     >立即預約</a
   >
 </li>`
@@ -176,9 +178,10 @@ function renderDiscountedPrices(priceData) {
     data-bs-target="#message-mike"
     aria-controls="message-mike"
     aria-current="page"
-    data-bs-toggle="offcanvas"
     data-bs-target="#message-list"
     aria-controls="#message-list"
+    data-bs-target="#loginModal"
+    ${isLogin ? 'data-bs-toggle="offcanvas"' : 'data-bs-toggle="modal"'}
   >
     立即洽談
   </button>
@@ -213,7 +216,9 @@ axios.get(`${_url}/courses?_expand=teacher`).then((res) => {
     coursesCard += `<div class="card teacher-card swiper-slide">
     <div class="card-body d-flex justify-content-between">
       <div>
-        <h5 class="card-title teacher-card-title truncate-lines-2">${popularCourse.name}
+        <h5 class="card-title teacher-card-title truncate-lines-2">${
+          popularCourse.name
+        }
         </h5>
         <p class="teacher-card-name">${popularCourse.teacher.name}</p>
         <ul class="teacher-card-object">
@@ -238,6 +243,8 @@ axios.get(`${_url}/courses?_expand=teacher`).then((res) => {
         type="button"
         class="btn btn-secondary2 w-100 mb-3"
         data-course="${popularCourse.id}"
+        data-bs-target="#loginModal"
+        ${isLogin ? "" : 'data-bs-toggle="modal"'}
       >
         立即上課
       </a>
