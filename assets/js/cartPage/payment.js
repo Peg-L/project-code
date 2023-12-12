@@ -1,6 +1,8 @@
+import axios from "axios";
 /***** 付款按鈕 *****/
 import { patchMyCoupon } from "./coupon";
 import { renderPaymentInfo } from "./render";
+import { myCarts, headers } from "./cart";
 
 // 取得 付款資訊按鈕
 const paymentInfoBtns = document.querySelectorAll(".js-paymentInfoBtn");
@@ -18,6 +20,7 @@ payBtns.forEach((btn) => {
     e.preventDefault();
     await patchMyCoupon(); // 按確認購買後優惠券 canUse 改成 false
     await patchMyCarts(); // 按確認購買後更新商品狀態
+    debugger;
     location.href = "cart2.html";
   });
 });
@@ -35,5 +38,7 @@ async function patchMyCarts() {
         return axios.patch(url, patchData, headers);
       })
     );
-  } catch (error) {}
+  } catch (error) {
+    console.log("patchMyCarts", error);
+  }
 }

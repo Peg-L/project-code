@@ -71,7 +71,6 @@ async function getUserCourses() {
     attendTimeData = data[0].attendTime;
     purchasedData = data[0].purchased;
     user_coursesId = data[0].id;
-    console.log(data);
   } catch (error) {
     console.log(error);
   }
@@ -81,7 +80,6 @@ async function getUserCourses() {
 function handleData(data) {
   appointCarts = data.map((cart) => {
     // 取得未預約堂數
-    console.log(purchasedData);
     const purchasedItem = purchasedData.find(
       (item) => item.courseId == cart.courseId
     );
@@ -104,7 +102,6 @@ function handleData(data) {
     };
     return obj;
   });
-  console.log(appointCarts);
 }
 // 渲染已購買的課程
 function renderPurchasedCart() {
@@ -388,7 +385,6 @@ confirmBtn.addEventListener("click", async () => {
       }
       // 若都有填
       else {
-        console.log(appointCarts);
         patchPurchasedCart(); // patch 購物車狀態
         handleAppointmentData(); // 處理預約資料(sessionStorage、patch)
         await Swal.fire({
@@ -402,7 +398,9 @@ confirmBtn.addEventListener("click", async () => {
         location.href = "cart3.html";
       }
     }
-  } catch (error) {}
+  } catch (error) {
+    console.log("確定預約", error);
+  }
 });
 
 // patch 購物車狀態
@@ -411,7 +409,9 @@ async function patchPurchasedCart() {
     const urls = appointCarts.map((item) => `${_url}/myCarts/${item.myCartId}`);
     const patchData = { status: "finish" };
     await Promise.all(urls.map((url) => axios.patch(url, patchData, headers)));
-  } catch (error) {}
+  } catch (error) {
+    console.log("patchPurchasedCart", error);
+  }
 }
 
 // 處理預約資料(sessionStorage、patch)
@@ -478,7 +478,9 @@ async function patchAppointmentData() {
     const api = `${_url}/user_courses/${user_coursesId}`;
     const patchData = { purchased: purchasedData, attendTime: attendTimeData };
     await axios.patch(api, patchData, headers);
-  } catch (error) {}
+  } catch (error) {
+    console.log("patchAppointmentData", error);
+  }
 }
 
 function generateRandomCode(length) {

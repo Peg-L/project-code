@@ -1,5 +1,5 @@
 import axios from "axios";
-import { myCarts } from "./cart";
+import { myCarts, headers } from "./cart";
 import { userId } from "../config";
 import { renderCoupon, renderCouponOption } from "./render";
 
