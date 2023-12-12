@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
-    "axios": "^1.5.1",
+    "axios": "^1.6.2",
     "bootstrap": "^5.3.1",
     "bootstrap-icons": "^1.10.5",
     "firebase": "^10.6.0",
@@ -33,6 +33,7 @@
     "jquery": "^3.7.1",
     "jQuery": "^1.7.4",
     "jquery-ui": "^1.13.2",
+    "rollup-plugin-copy": "^3.5.0",
     "sass": "^1.61.0",
     "sass-loader": "^13.2.2",
     "vite-plugin-live-reload": "^3.0.2"

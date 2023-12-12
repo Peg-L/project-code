@@ -1,50 +1,49 @@
 const queryParams = new URLSearchParams(window.location.search);
-const courseId = queryParams.get('courseId'); //抓取課程ID
-const _url = "http://localhost:3000"; // 修改處
+const courseId = queryParams.get("courseId"); //抓取課程ID
+import axios from "axios";
+
 let data = [];
 
-
-
 //第一部分參數
-const teacherImg = document.querySelector('#teacherImg');
-const teacherName = document.querySelector('#teacher_name');
-const course_title = document.querySelector('#course_title');
-const courseClass = document.querySelector('#courseClass');
-const course_info = document.querySelector('#course_info');
+const teacherImg = document.querySelector("#teacherImg");
+const teacherName = document.querySelector("#teacher_name");
+const course_title = document.querySelector("#course_title");
+const courseClass = document.querySelector("#courseClass");
+const course_info = document.querySelector("#course_info");
 //第二部分參數
-const teacher_degree = document.querySelector('#teacher_degree');
-const teacher_experience = document.querySelector('#teacher_experience');
-const language = document.querySelector('#language');
-const level = document.querySelector('#level');
-const intro = document.querySelector('#intro');
-//第三部分參數 
+const teacher_degree = document.querySelector("#teacher_degree");
+const teacher_experience = document.querySelector("#teacher_experience");
+const language = document.querySelector("#language");
+const level = document.querySelector("#level");
+const intro = document.querySelector("#intro");
+//第三部分參數
 //第四部分參數
 
-const left = document.querySelector('#PreviousWeek');
-const right = document.querySelector('#NextWeek');
-
+const left = document.querySelector("#PreviousWeek");
+const right = document.querySelector("#NextWeek");
 
 //資料取得完畢並且初始化
-function init(){
-    axios.get(`${_url}/courses/${courseId.toString()}?_expand=teacher`)
-    .then(function(response){
-        data=response.data;
-        //sections1(course profile)
-        teacherImg.setAttribute("src",data.teacher.avatar);
-        teacherName.textContent = data.teacher.name;
-        course_title.textContent = data.name;
-        courseClass.textContent = data.topics;
-        course_info.textContent = data.info;
-        //section2(teacher profile)
-        teacher_degree.textContent = data.teacher.education;
-        teacher_experience.textContent = data.teacher.experience;
-        language.textContent = data.teacher.lang.join("/");
-        level.textContent = data.level;
-        intro.textContent = data.teacher.intro;
-        //section3
-        //section4(calendar)
-        updateData();
-    })
+function init() {
+  axios
+    .get(`${_url}/courses/${courseId.toString()}?_expand=teacher`)
+    .then(function (response) {
+      data = response.data;
+      //sections1(course profile)
+      teacherImg.setAttribute("src", data.teacher.avatar);
+      teacherName.textContent = data.teacher.name;
+      course_title.textContent = data.name;
+      courseClass.textContent = data.topics;
+      course_info.textContent = data.info;
+      //section2(teacher profile)
+      teacher_degree.textContent = data.teacher.education;
+      teacher_experience.textContent = data.teacher.experience;
+      language.textContent = data.teacher.lang.join("/");
+      level.textContent = data.level;
+      intro.textContent = data.teacher.intro;
+      //section3
+      //section4(calendar)
+      updateData();
+    });
 }
 function updateData() {
     const daysDate = document.querySelectorAll('.calendar-time');
@@ -72,22 +71,22 @@ function updateData() {
     function findMatchData(dataNum) {
         return data.teacher.openTime.filter(item => item.date === dataNum);
     }
+  });
+
+  function findMatchData(dataNum) {
+    return data.teacher.openTime.filter((item) => item.date === dataNum);
+  }
 }
 
 // 預設載入初始化環境
 init();
 
-left.addEventListener('click',()=>{
-    updateData();
-})
-right.addEventListener('click',()=>{
-    updateData();
-})
-
-
-
-
-
+left.addEventListener("click", () => {
+  updateData();
+});
+right.addEventListener("click", () => {
+  updateData();
+});
 
 // // 新增待辦功能
 // save.addEventListener('click',function(e){

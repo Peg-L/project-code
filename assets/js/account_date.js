@@ -1,6 +1,5 @@
-const queryParams = new URLSearchParams(window.location.search);
-// let userId = queryParams.get("userId"); //抓取使用者的ID
-// const _url = "http://localhost:3000"; // 修改處
+import { userId } from "./config";
+import axios from "axios";
 let data = [];
 
 //第一部分參數
@@ -28,7 +27,6 @@ function init() {
       updateData();
     });
 }
-
 function updateData() { //課表生成
     const daysDate = document.querySelectorAll('.calendar-time');
     daysDate.forEach(item => {
@@ -43,34 +41,11 @@ function updateData() { //課表生成
                 data-course-id="${matchData[i].courseId}"
                 id="viewCourse">
                 ${matchData[i].time}
-                </a></li>`
-            }
-            }
-            item.innerHTML = str;
-        }
-    );
-    const viewCourse = document.querySelectorAll('#viewCourse');    
-    viewCourse.forEach(item => {
-        let courseId = item.getAttribute('data-course-id');//取得課程ID
-        item.addEventListener('click',() => {
-            getCourse(courseId);
-        })
-    })
-    function findMatchData(dataNum) {
-        return data.attendTime.filter(item => item.date === dataNum);
+                </a></li>`;
+      }
     }
-    function getCourse(id) {
-        let courseData = [];
-        axios.get(`${_url}/courses/${id.toString()}?_expand=teacher`)
-        .then(function(response){
-            courseData = response.data; //取得課程資訊
-            courseTeacherName.textContent = courseData.teacher.name;
-            courseName.textContent = courseData.name;
-            dateTime.innerHTML = ``;
-        })
-
-    }
-  };
+    item.innerHTML = str;
+  });
   const viewCourse = document.querySelectorAll("#viewCourse");
   viewCourse.forEach((item) => {
     let courseId = item.getAttribute("data-course-id"); //取得課程ID
@@ -78,9 +53,8 @@ function updateData() { //課表生成
       getCourse(courseId);
     });
   });
-
   function findMatchData(dataNum) {
-    return data.attendTime.find((item) => item.date === dataNum);
+    return data.attendTime.filter((item) => item.date === dataNum);
   }
   function getCourse(id) {
     let courseData = [];
@@ -93,22 +67,37 @@ function updateData() { //課表生成
         dateTime.innerHTML = ``;
       });
   }
-left.addEventListener('click',()=>{
-    updateData();
-})
-right.addEventListener('click',()=>{
-    updateData();
-})
+}
+const viewCourse = document.querySelectorAll("#viewCourse");
+viewCourse.forEach((item) => {
+  let courseId = item.getAttribute("data-course-id"); //取得課程ID
+  item.addEventListener("click", () => {
+    getCourse(courseId);
+  });
+});
+
+function findMatchData(dataNum) {
+  return data.attendTime.find((item) => item.date === dataNum);
+}
+function getCourse(id) {
+  let courseData = [];
+  axios
+    .get(`${_url}/courses/${id.toString()}?_expand=teacher`)
+    .then(function (response) {
+      courseData = response.data; //取得課程資訊
+      courseTeacherName.textContent = courseData.teacher.name;
+      courseName.textContent = courseData.name;
+      dateTime.innerHTML = ``;
+    });
+}
+left.addEventListener("click", () => {
+  updateData();
+});
+right.addEventListener("click", () => {
+  updateData();
+});
 // 預設載入初始化環境
 init();
-
-
-
-
-
-
-
-
 
 // // 新增待辦功能
 // save.addEventListener('click',function(e){

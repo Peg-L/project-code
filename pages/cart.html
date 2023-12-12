@@ -6,10 +6,9 @@
     <title>購物車 | C0DE</title>
     <link
       rel="shortcut icon"
-      href="../assets/images/favicon.ico"
+      href="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/favicon.ico"
       type="image/x-icon"
     />
-    <!-- 通常js會放到<body>最下面，讓畫面先跑出來在跑js，所以我把js都移下去了 by jiayu -->
   </head>
 
   <body>
@@ -81,7 +80,7 @@
             aria-labelledby="mainPurchase-tab"
           >
             <!-- card -->
-            <ul class="list-unstyle d-flex flex-column gap-5 mb-3 js-cartGroup">
+            <ul class="list-unstyle d-flex flex-column gap-5 mb-3 js-cartList">
               <div
                 class="d-flex flex-column justify-content-center text-center h-100 px-10 pt-10"
               >
@@ -537,7 +536,7 @@
             aria-labelledby="nextPurchase-tab"
           >
             <ul
-              class="list-unstyle d-flex flex-column gap-5 mb-3 js-nextCartGroup"
+              class="list-unstyle d-flex flex-column gap-5 mb-3 js-nextCartList"
             >
               <div
                 class="d-flex flex-column justify-content-center text-center h-100 px-10 pt-10"
@@ -557,10 +556,7 @@
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
-    <script src="../assets/js/config.js"></script>
-    <script src="../assets/js/header.js"></script>
-    <script src="../assets/js/cart.js"></script>
-    <script src="../assets/js/cart_coupon.js"></script>
+
+    <script type="module" src="../assets/js/cartPage"></script>
   </body>
 </html>

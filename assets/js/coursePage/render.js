@@ -1,5 +1,7 @@
 import { currentPageCourses, isLoading, data, lastPage } from "./api.js";
 import { pagination } from "./pagination.js";
+import { userId, isLogin } from "../config.js";
+import axios from "axios";
 
 const courseList = document.querySelector("#courseList");
 // 日期、數字三位一點規則
@@ -40,8 +42,7 @@ function renderCourses() {
     : currentPageCourses.length !== 0
     ? /* 卡片渲染 */
       currentPageCourses.forEach(async (item) => {
-        if (followList.includes(item.id)) {
-          courseHtml += `
+        courseHtml += `
           <li class="card flex-row flex-wrap flex-md-nowrap shadow">
             <div class="d-flex flex-grow-1 p-4 p-lg-8">
               <!--  老師區塊 -->
@@ -51,12 +52,16 @@ function renderCourses() {
                 <!-- 愛心 -->
                 <button
                   type="button"
-                  class="btn p-0 text-center align-self-start follow-btn following"
+                  class="btn p-0 text-center align-self-start follow-btn ${
+                    followList.includes(item.id) ? "following" : "not-follow"
+                  }"
+                  data-bs-target="#loginModal"
+                  ${isLogin ? "" : 'data-bs-toggle="modal"'}
                 >
                   <i
-                    class="fa-regular fa-heart fs-3 text-primary hover-bold fw-bold" data-buttonId="${
-                      item.id
-                    }"
+                    class="fa-regular fa-heart fs-3 text-primary hover-bold ${
+                      followList.includes(item.id) ? "fw-bold" : ""
+                    }" data-buttonId="${item.id}"
                   ></i>
                 </button>
   
@@ -65,46 +70,46 @@ function renderCourses() {
                   <div class="mb-2 w-100px h-100px">
                     <img
                       class="img-fluid rounded-circle p-1 p-md-0"
-                      src="${item.teacher.avatar}"
+                      src="${item.teacher?.avatar}"
                       alt="teacher"
                     />
                   </div>
                   <!-- 姓名、職稱 -->
                   <h3 class="fs-7 fs-md-6 text-secondary2 fw-bold mb-1">
-                    ${item.teacher.name}
+                    ${item.teacher?.name}
                   </h3>
                 </a>
                 <p class="fs-sm fs-md-7 text-secondary2 text-center mb-2">
-                  ${item.teacher.title}
+                  ${item.teacher?.title}
                 </p>
                 <ul class="text-center text-gray-300 fs-sm fs-md-7 mb-2">
                   <li class="d-flex align-items-center">
-                    <img src="../assets/images/star.svg" alt="star" />
-                    <span class="fw-bold me-1"> ${item.teacher.rate} </span>
+                    <img src="https://raw.githubusercontent.com/Peg-L/project-code/89a637dfbea6e49a34b11aacf46dc07a001b4a90/assets/images/star.svg" />
+                    <span class="fw-bold me-1"> ${item.teacher?.rate} </span>
                     講師評等
                   </li>
-                  <li>${item.teacher.total_students} 位學生</li>
-                  <li>${item.teacher.total_courses} 門課程</li>
+                  <li>${item.teacher?.total_students} 位學生</li>
+                  <li>${item.teacher?.total_courses} 門課程</li>
                 </ul>
                 <!-- link -->
                 <ul class="d-flex justify-content-center mb-0">
                   <li class="me-1">
                     <a href="${
-                      item.teacher.links_codepen
+                      item.teacher?.links_codepen
                     }" class="p-1" target="_blank">
                       <i class="fa-brands fa-github"></i
                     ></a>
                   </li>
                   <li class="me-1">
                     <a href="${
-                      item.teacher.links_github
+                      item.teacher?.links_github
                     }" class="p-1" target="_blank">
                       <i class="fa-brands fa-linkedin-in"></i
                     ></a>
                   </li>
                   <li>
                     <a href="${
-                      item.teacher.links_linkedin
+                      item.teacher?.links_linkedin
                     }" class="p-1" target="_blank">
                       <i class="fa-brands fa-codepen"></i
                     ></a>
@@ -152,7 +157,7 @@ function renderCourses() {
                     href="#"
                     class="d-flex align-items-center mb-1 mb-sm-2 mb-md-4"
                   >
-                    <img src="../assets/images/star.svg" alt="star" />
+                    <img src="https://raw.githubusercontent.com/Peg-L/project-code/89a637dfbea6e49a34b11aacf46dc07a001b4a90/assets/images/star.svg" alt="star" />
                     <span class="fw-bold fs-sm fs-md-7 ms-1">${item.rate}</span>
                     ・
                     <span class="fs-sm fs-md-7 me-2">${
@@ -288,6 +293,8 @@ function renderCourses() {
                 type="button"
                 class="btn btn-secondary2 w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
                 data-course="${item.id}"
+                data-bs-target="#loginModal"
+                ${isLogin ? "" : 'data-bs-toggle="modal"'}
               >
                 立即上課
               </button>
@@ -300,267 +307,6 @@ function renderCourses() {
             </div>
           </li>
         `;
-        } else {
-          courseHtml += `
-          <li class="card flex-row flex-wrap flex-md-nowrap shadow">
-            <div class="d-flex flex-grow-1 p-4 p-lg-8">
-              <!--  老師區塊 -->
-              <div
-                class="d-flex flex-column align-items-center min-w-100px w-100px min-w-md-150px w-md-150px bg-white me-4"
-              >
-                <!-- 愛心 -->
-                <button
-                  type="button"
-                  class="btn p-0 text-center align-self-start follow-btn not-follow"
-                >
-                  <i
-                    class="fa-regular fa-heart fs-3 text-primary hover-bold" data-buttonId="${
-                      item.id
-                    }"
-                  ></i>
-                </button>
-  
-                <a href="#" class="text-center">
-                  <!-- 圖 -->
-                  <div class="mb-2 w-100px h-100px">
-                    <img
-                      class="img-fluid rounded-circle p-1 p-md-0"
-                      src="${item.teacher.avatar}"
-                      alt="teacher"
-                    />
-                  </div>
-                  <!-- 姓名、職稱 -->
-                  <h3 class="fs-7 fs-md-6 text-secondary2 fw-bold mb-1">
-                    ${item.teacher.name}
-                  </h3>
-                </a>
-                <p class="fs-sm fs-md-7 text-secondary2 text-center mb-2">
-                  ${item.teacher.title}
-                </p>
-                <ul class="text-center text-gray-300 fs-sm fs-md-7 mb-2">
-                  <li class="d-flex align-items-center">
-                    <img src="../assets/images/star.svg" alt="star" />
-                    <span class="fw-bold me-1"> ${item.teacher.rate} </span>
-                    講師評等
-                  </li>
-                  <li>${item.teacher.total_students} 位學生</li>
-                  <li>${item.teacher.total_courses} 門課程</li>
-                </ul>
-                <!-- link -->
-                <ul class="d-flex justify-content-center mb-0">
-                  <li class="me-1">
-                    <a href="${
-                      item.teacher.links_codepen
-                    }" class="p-1" target="_blank">
-                      <i class="fa-brands fa-github"></i
-                    ></a>
-                  </li>
-                  <li class="me-1">
-                    <a href="${
-                      item.teacher.links_github
-                    }" class="p-1" target="_blank">
-                      <i class="fa-brands fa-linkedin-in"></i
-                    ></a>
-                  </li>
-                  <li>
-                    <a href="${
-                      item.teacher.links_linkedin
-                    }" class="p-1" target="_blank">
-                      <i class="fa-brands fa-codepen"></i
-                    ></a>
-                  </li>
-                </ul>
-              </div>
-              <!--  課程區塊 -->
-              <div class="flex-grow-1">
-                <!-- 課程名稱 -->
-                <h3 class="card-title fs-6 fs-sm-4 ">
-                  ${item.name}
-                </h3>
-                <!-- 優質標籤 -->
-                ${
-                  Array.isArray(item.badges) // 防止 item.badges 是空值而出錯
-                    ? `<ul class="d-flex gap-2 mb-2">
-                  ${item.badges
-                    .map(
-                      (badge) =>
-                        `<li class="badge bg-primary fw-normal fs-sm fs-lg-7">${badge}</li>`
-                    )
-                    .join("")}</ul>`
-                    : ""
-                }
-  
-                <!-- 課程tag -->
-                ${
-                  Array.isArray(item.tags)
-                    ? `<ul class="d-flex flex-wrap mb-1 mb-sm-2 column-gap-1">
-                  ${item.tags
-                    .map(
-                      (tag) =>
-                        `<li class="text-primary text-nowrap fs-sm fs-md-7">
-                    #${tag}
-                  </li>`
-                    )
-                    .join("")}
-                </ul>`
-                    : ""
-                }
-  
-                <!-- 課程評價、難度 -->
-                <div class="d-flex">
-                  <a
-                    href="#"
-                    class="d-flex align-items-center mb-1 mb-sm-2 mb-md-4"
-                  >
-                    <img src="../assets/images/star.svg" alt="star" />
-                    <span class="fw-bold fs-sm fs-md-7 ms-1">${item.rate}</span>
-                    ・
-                    <span class="fs-sm fs-md-7 me-2">${
-                      item.commentNum
-                    } 個評論</span>
-                  </a>
-                  <p class="text-gray-300">| ${item.level}</p>
-                </div>
-                <!-- 課程介紹 -->
-                <p
-                  class="fs-sm fs-sm-7 fs-md-6 text-justify truncate-lines-2 truncate-md-lines-4"
-                >${item.info}
-                </p>
-                <hr />
-                <!-- 課程篩選tag -->
-                <div>
-                  <h4
-                    class="text-secondary2 fs-7 fs-sm-6 fs-md-5 mb-2 mb-sm-3"
-                  >
-                    你可以跟我學
-                  </h4>
-                  ${
-                    Array.isArray(item.categories)
-                      ? `
-                    <ul class="d-flex flex-wrap gap-1 gap-md-2 mb-0">
-                      ${item.categories
-                        .map(
-                          (category) => `
-                          <li>
-                            <span class="badge text-bg-secondary text-gray-300 fs-sm fs-md-6">
-                              ${category}
-                            </span>
-                          </li>`
-                        )
-                        .join("")}
-                    </ul>`
-                      : ""
-                  }
-                </div>
-                <hr />
-                <!-- 收合內容 -->
-                <div class="collapse" id="collapseCourse${item.id}">
-                  <!-- 你將獲得 -->
-                  <div>
-                    <h4 class="text-secondary2 fs-7 fs-sm-5 mb-2 mb-sm-3">
-                      你將獲得
-                    </h4>
-                    ${
-                      Array.isArray(item.mainPoints)
-                        ? `<ul>
-                          ${item.mainPoints
-                            .map(
-                              (mainPoint) => `
-                        <li class="list-check fs-sm fs-sm-7 fs-md-6">
-                          ${mainPoint}
-                        </li>`
-                            )
-                            .join("")}`
-                        : ""
-                    }
-                    </ul>
-  
-                  </div>
-                  <hr />
-                  <!-- 評價 -->
-                  <div>
-                    <h4 class="text-secondary2 fs-7 fs-sm-5 mb-2 mb-sm-3">
-                      精選評價
-                    </h4>
-                    <p
-                      class="fs-sm fs-sm-7 fs-md-6 text-justify mb-1 mb-md-2"
-                    >
-                     ${item.comment?.content}
-                    </p>
-                    <div
-                      class="d-flex justify-content-end align-items-center"
-                    >
-                      <img
-                        class="me-2 d-none d-md-block w-40px h-40px"
-                        src="${item.comment?.user?.avatar}"
-                        alt="student"
-                      />
-                      <div class="d-flex flex-md-column fs-sm fs-md-7">
-                        <p class="fw-bold me-2 me-md-0">${
-                          item.comment?.user?.name
-                        }</p>
-                        <p>${dateReg.exec(item.comment?.date)[1]}</p>
-                      </div>
-                    </div>
-                  </div>
-                  <hr />
-                </div>
-                <!-- 瀏覽更多 -->
-                <button
-                  class="btn btn-gray fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4 float-end readMore"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseCourse${item.id}"
-                  aria-expanded="false"
-                  aria-controls="collapseCourse${item.id}"
-                ></button>
-              </div>
-            </div>
-            <!--  按鈕區塊 -->
-            <div
-              class="card-footer card-md-horizontal min-w-lg-250px w-lg-250px min-w-md-200px w-md-200px gap-2 gap-sm-6 p-4 p-md-8"
-            >
-              <!-- 價格 -->
-              <div
-                class="d-flex justify-content-center flex-md-column flex-lg-row gap-2 gap-sm-4"
-              >
-                <p class="text-nowrap text-center fs-sm fs-sm-6">
-                  <span class="fw-bold fs-7 fs-sm-5">
-                    NT$ ${
-                      item.price *
-                      (0.5) //數字三位一撇
-                        .toString()
-                        .replace(separatorReg, ",")
-                    }
-                    </span><br />體驗價
-                </p>
-                <p class="text-nowrap text-center fs-sm fs-sm-6">
-                  <span class="fw-bold fs-7 fs-sm-5">
-                    NT$ ${item.price //數字三位一撇
-                      .toString()
-                      .replace(separatorReg, ",")}
-                  </span>
-                  <br />${item.duration}分鐘
-                </p>
-              </div>
-              <!-- 購買按鈕 -->
-              <button
-                type="button"
-                class="btn btn-secondary2 w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
-                data-course="${item.id}"
-              >
-                立即上課
-              </button>
-              <a
-                href="${newURL}?courseId=${item.id}"
-                class="btn btn-white w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
-              >
-                查看介紹
-              </a>
-            </div>
-          </li>
-        `;
-        }
       })
     : (courseHtml += `
       <div class="d-flex flex-column justify-content-center text-center h-100 px-10">
@@ -572,7 +318,7 @@ function renderCourses() {
   courseList.innerHTML = courseHtml;
 
   let followBtns = document.querySelectorAll(".follow-btn");
-  if (followBtns) {
+  if (followBtns && isLogin) {
     followBtns.forEach((followBtn) => {
       followBtn.addEventListener("click", function () {
         if (followBtn.classList.contains("following")) {
@@ -620,20 +366,20 @@ function renderPagination() {
 }
 
 // 追蹤
-// const _url = "http://localhost:3000";
-const userId = 1;
-console.log(userId, _url);
-let followList;
+let followList = [];
 
 async function getFollowList() {
-  let res = await axios.get(`${_url}/users/${userId}`);
-  followList = res.data.followList;
+  if (isLogin) {
+    let res = await axios.get(`${_url}/users/${userId}`);
+    followList = res.data.followList;
+    console.log(followList);
+  } else {
+    console.log("沒有登入");
+  }
 }
 
 // 追蹤/取消追蹤
-async function toggleFollowCourse(followBtn, following) {
-  await getFollowList();
-
+function toggleFollowCourse(followBtn, following) {
   let heartEl = followBtn.querySelector("i.fa-regular.fa-heart");
   let buttonId = Number(heartEl.dataset.buttonid);
 
