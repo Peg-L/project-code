@@ -114,9 +114,17 @@ function renderCoupons() {
                   </div>
                   <div class="col-3 d-flex align-items-center pe-4">
                     <a
-                      href="course.html"
+                      href="${
+                        myCoupon.coupon.type === "allCourse"
+                          ? "course.html"
+                          : `course_intro.html?courseId=${myCoupon.coupon.courseId}`
+                      }"
                       class="btn btn-secondary2 px-1 px-sm-4 w-100"
-                      >馬上使用</a
+                      >${
+                        myCoupon.coupon.type === "allCourse"
+                          ? "立即選購"
+                          : "課程介紹"
+                      }</a
                     >
                   </div>
                 </div>
