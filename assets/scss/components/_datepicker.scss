@@ -1,6 +1,7 @@
 input.hasDatepicker {
   @include media-breakpoint-up(sm) {
-    background: url("../images/calendar.svg") no-repeat transparent;
+    background: url("https://raw.githubusercontent.com/Peg-L/project-code/89a637dfbea6e49a34b11aacf46dc07a001b4a90/assets/images/calendar.svg")
+      no-repeat transparent;
     background-position: right 12px center;
   }
 }
