@@ -6,7 +6,7 @@
     <title>購物車 | C0DE</title>
     <link
       rel="shortcut icon"
-      href="/project-code/assets/favicon-ee1e2dda.ico"
+      href="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/favicon.ico"
       type="image/x-icon"
     />
     <link
@@ -14,8 +14,9 @@
       href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
     />
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
-    <script type="module" crossorigin src="/project-code/assets/backtotop-5c0a417f.js"></script>
-    <link rel="stylesheet" href="/project-code/assets/backtotop-9a334624.css">
+    <script type="module" crossorigin src="/project-code/assets/cart2-4c174b5f.js"></script>
+    <link rel="modulepreload" crossorigin href="/project-code/assets/backtotop-e931ed7f.js">
+    <link rel="stylesheet" href="/project-code/assets/backtotop-af314ed9.css">
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-white fixed-top">
@@ -24,12 +25,12 @@
       <a href="./index.html">
         <img
           class="d-none d-lg-block"
-          src="/project-code/assets/logo-a3c8a1c6.svg"
+          src="https://raw.githubusercontent.com/Peg-L/project-code/89a637dfbea6e49a34b11aacf46dc07a001b4a90/assets/images/logo.svg"
           alt="C0DE logo"
         />
         <img
           class="d-block d-lg-none"
-          src="/project-code/assets/logo-sm-9ed0e1e0.svg"
+          src="https://raw.githubusercontent.com/Peg-L/project-code/89a637dfbea6e49a34b11aacf46dc07a001b4a90/assets/images/logo-sm.svg"
           alt="C0DE logo"
         />
       </a>
@@ -38,6 +39,7 @@
       <a
         class="d-lg-none btn btn-outline-secondary2 border-0 js-toMyCart"
         type="button"
+        data-bs-target="#loginModal"
       >
         <i class="fa-solid fa-cart-shopping fa-xl"
           ><span class="badge rounded-pill hasProducts"></span
@@ -197,14 +199,15 @@
       </ul>
 
       <div class="d-flex flex-column flex-lg-row row-gap-2 mt-6 mt-lg-0">
-        <button
+        <a
           class="d-none d-lg-block btn btn-outline-secondary2 border-0 js-toMyCart position-relative"
           type="button"
+          data-bs-target="#loginModal"
         >
           <i class="fa-solid fa-cart-shopping fa-xl"
             ><span class="badge hasProducts"></span
           ></i>
-        </button>
+        </a>
         <a
           href="./account.html"
           type="button"
@@ -274,7 +277,7 @@
         <div class="d-flex gap-3">
           <img
             style="width: 60px; height: 60px"
-            src="/project-code/assets/mike-3c4b76a2.png"
+            src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/teacher/mike.png"
             alt="mike"
           />
           <div class="d-flex flex-column justify-content-between truncate">
@@ -294,7 +297,7 @@
         <div class="d-flex gap-3">
           <img
             style="width: 60px; height: 60px"
-            src="/project-code/assets/arong-b7b838fb.png"
+            src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/teacher/arong.png"
             alt="mike"
           />
           <div class="d-flex flex-column justify-content-between truncate">
@@ -314,7 +317,7 @@
         <div class="d-flex gap-3">
           <img
             style="width: 60px; height: 60px"
-            src="/project-code/assets/alice-26beb67d.png"
+            src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/teacher/alice.png"
             alt="mike"
           />
           <div class="d-flex flex-column justify-content-between truncate">
@@ -352,7 +355,7 @@
       <img
         class="me-3"
         style="width: 50px; height: 50px"
-        src="/project-code/assets/mike-3c4b76a2.png"
+        src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/teacher/mike.png"
         alt="mike"
       />
       <h5 class="offcanvas-title" id="offcanvasRightLabel">麥克先生</h5>
@@ -370,7 +373,7 @@
         <img
           class="me-3"
           style="width: 40px; height: 40px"
-          src="/project-code/assets/mike-3c4b76a2.png"
+          src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/teacher/mike.png"
           alt="mike"
         />
         <div>
@@ -382,7 +385,7 @@
         <img
           class="me-3"
           style="width: 40px; height: 40px"
-          src="/project-code/assets/mike-3c4b76a2.png"
+          src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/teacher/mike.png"
           alt="mike"
         />
         <div>
@@ -397,7 +400,7 @@
         <img
           class="me-3"
           style="width: 40px; height: 40px"
-          src="/project-code/assets/mike-3c4b76a2.png"
+          src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/teacher/mike.png"
           alt="mike"
         />
         <div>
@@ -421,17 +424,9 @@
   <div id="editor"></div>
 </div>
 <!-- login modal -->
-<!-- 按鈕 -->
-<!-- <button
-  type="button"
-  class="btn btn-primary"
-  data-bs-toggle="modal"
-  data-bs-target="#loginModal"
->
-  Launch static backdrop modal
-</button> -->
-
 <!-- Modal -->
+
+<!-- 跳轉提示 modal -->
 <div
   class="modal fade"
   id="loginModal"
@@ -443,26 +438,312 @@
 >
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+      <div class="modal-header border-0">
+        <h1 class="modal-title fs-4" id="staticBackdropLabel">貼心提醒</h1>
         <button
           type="button"
           class="btn-close"
+          id="btn-close"
           data-bs-dismiss="modal"
           aria-label="Close"
         ></button>
       </div>
-      <div class="modal-body">...</div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Close
-        </button>
-        <button type="button" class="btn btn-primary">Understood</button>
+      <div class="modal-body pt-0 fs-6">
+        <p>
+          欲購買與收藏課程，點此<a class="text-primary" href="./login.html"
+            >登入會員</a
+          >
+        </p>
+        <p><span id="timeBox">5</span> 秒後自動跳轉登入頁面</p>
       </div>
     </div>
   </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"></script>
+
+<!-- 註冊登入 modal -->
+<!-- <div
+  class="modal fade"
+  id="loginModal"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body p-6">
+        <div class="text-center position-relative">
+          <img
+            class="mb-2 mb-md-3"
+            src="../assets/images/logo-img.svg"
+            alt="logo"
+          />
+          <button
+            type="button"
+            class="btn-close position-absolute end-0"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <ul
+          class="nav nav-pills mb-3 d-flex justify-content-evenly"
+          id="pills-tab"
+          role="tablist"
+        >
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link active"
+              id="pills-home-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#pills-home"
+              type="button"
+              role="tab"
+              aria-controls="pills-home"
+              aria-selected="true"
+            >
+              註冊
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="pills-profile-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#pills-profile"
+              type="button"
+              role="tab"
+              aria-controls="pills-profile"
+              aria-selected="false"
+            >
+              登入
+            </button>
+          </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+          <div
+            class="tab-pane fade show active"
+            id="pills-home"
+            role="tabpanel"
+            aria-labelledby="pills-home-tab"
+            tabindex="0"
+          >
+            <div class="col-12 d-flex flex-column align-items-center">
+              <form
+                id="registerForm"
+                class="col-12 col-sm-10 needs-validation"
+                novalidate
+              >
+                <div id="firebaseui-auth-container">
+                  <button
+                    type="button"
+                    class="btn btn-outline-secondary2 rounded-1 fs-5 w-100 py-3 mb-2 mb-md-4"
+                    id="google-register2"
+                  >
+                    <i class="fa-brands fa-google me-3"></i>使用 Google 帳戶註冊
+                  </button>
+                </div>
+                <div class="form-floating mb-2 mb-md-4">
+                  <input
+                    type="email"
+                    class="form-control rounded-1"
+                    id="floatingEmail2"
+                    placeholder="name@example.com"
+                    required
+                  />
+                  <label for="floatingEmail2">Email</label>
+                </div>
+                <div class="form-floating mb-2 mb-md-4">
+                  <input
+                    type="text"
+                    class="form-control rounded-1"
+                    id="floatingName2"
+                    placeholder="Username"
+                    required
+                  />
+                  <label for="floatingName2">姓名</label>
+                </div>
+                <div class="form-floating mb-2 mb-md-4">
+                  <input
+                    type="tel"
+                    class="form-control rounded-1"
+                    id="floatingTel2"
+                    pattern="^09\d{8}$"
+                    placeholder="Tel"
+                    required
+                  />
+                  <label for="floatingTel2">手機</label>
+                  <button
+                    class="btn btn-outline-secondary2 rounded-1 position-absolute top-50 end-0 translate-middle-y me-2"
+                    type="button"
+                    id="sendCode2"
+                    disabled
+                  >
+                    <span
+                      class="spinner-border spinner-border-sm me-1 d-none"
+                      aria-hidden="true"
+                      id="sendCodeSpinner2"
+                    ></span>
+                    <span role="status">發送驗證碼</span>
+                  </button>
+                </div>
+                <div
+                  class="form-floating mb-2 mb-md-4 d-none"
+                  id="inputVerifyCode2"
+                >
+                  <input
+                    type="tel"
+                    class="form-control rounded-1"
+                    id="floatingVerifyCode2"
+                    pattern="^09\d{8}$"
+                    placeholder="Tel"
+                    required
+                  />
+                  <label for="floatingVerifyCode">請填寫手機驗證碼</label>
+                  <button
+                    class="btn btn-outline-secondary2 rounded-1 position-absolute top-50 end-0 translate-middle-y me-2"
+                    type="button"
+                    id="verify-button2"
+                  >
+                    立即驗證
+                  </button>
+                </div>
+                <div class="form-floating d-flex align-items-center">
+                  <input
+                    type="password"
+                    class="form-control rounded-1"
+                    id="floatingPassword2"
+                    pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$"
+                    placeholder="Password"
+                    required
+                  />
+
+                  <label for="floatingPassword2">密碼</label>
+                </div>
+                <div id="passwordHelpBlock" class="form-text ms-2 mb-2 mb-md-4">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-exclamation-circle me-1"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                    />
+                    <path
+                      d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"
+                    />
+                  </svg>
+                  大於8個字元，包含數字、大寫和小寫字母
+                </div>
+                <div
+                  class="form-floating d-flex align-items-center mb-2 mb-md-4"
+                >
+                  <input
+                    type="password"
+                    class="form-control rounded-1"
+                    id="floatingCheckPassword"
+                    placeholder="Password"
+                    required
+                  />
+                  <label for="floatingCheckPassword">確認密碼</label>
+                </div>
+                <button
+                  id="registerBtn2"
+                  type="button"
+                  class="btn btn-secondary2 rounded-1 fs-5 w-100 py-3"
+                  ds-
+                >
+                  <i class="fa-solid fa-user me-3"></i>
+                  加入會員
+                </button>
+              </form>
+            </div>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="pills-profile"
+            role="tabpanel"
+            aria-labelledby="pills-profile-tab"
+            tabindex="0"
+          >
+            <div class="col-12 d-flex flex-column align-items-center">
+              <form
+                id="loginForm"
+                class="col-12 col-sm-10 needs-validation"
+                novalidate
+              >
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary2 rounded-1 fs-5 w-100 py-3 mb-2 mb-md-4"
+                  id="google-login"
+                >
+                  <i class="fa-brands fa-google me-3"></i>使用 Google 帳戶登入
+                </button>
+                <div class="form-floating mb-2 mb-md-4">
+                  <input
+                    type="email"
+                    class="form-control rounded-1"
+                    id="floatingEmailLogin"
+                    placeholder="name@example.com"
+                    required
+                  />
+                  <label for="floatingEmailLogin">Email</label>
+                </div>
+                <div class="form-floating d-flex align-items-center">
+                  <input
+                    type="password"
+                    class="form-control rounded-1"
+                    id="floatingPasswordLogin"
+                    placeholder="Password"
+                    required
+                  />
+
+                  <label for="floatingPasswordLogin">密碼</label>
+                </div>
+                <div
+                  id="passwordHelpBlock"
+                  class="form-text d-flex justify-content-between ms-2 mb-2 mb-md-4"
+                >
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-exclamation-circle me-1"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                      />
+                      <path
+                        d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"
+                      />
+                    </svg>
+                    大於8個字元，包含數字、大寫和小寫字母
+                  </div>
+                  <div><a href="###">忘記密碼?</a></div>
+                </div>
+                <button
+                  type="button"
+                  id="loginButton"
+                  class="btn btn-secondary2 rounded-1 fs-5 w-100 py-3 mb-4"
+                >
+                  <i class="fa-solid fa-user me-3"></i>
+                  登入會員
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"></script> -->
     <!--========================
     =        step bar          =
     =========================-->
@@ -489,268 +770,17 @@
             =========================-->
         <h2 class="fs-4 fs-md-3 mb-6 mb-md-8">預約時段</h2>
         <!-- card -->
-        <ul class="d-flex flex-column gap-5 mb-6">
-          <!-- card1 -->
-          <li class="shadow rounded-2 p-4 pb-md-4 pt-md-6 px-md-8 mb-1 mb-md-2">
-            <h3 class="fs-5 fs-md-4 fw-bold mb-4 mb-md-6 text-secondary2">
-              從零開始成為切版大師
-            </h3>
-            <div class="row justify-content-between">
-              <!-- 左 -->
-              <div class="col-4 col-sm-3 d-flex flex-column align-items-start">
-                <div class="text-center">
-                  <div class="">
-                    <div>
-                      <img
-                        class="img-fluid rounded-circle mb-2"
-                        src="/project-code/assets/Rectangle 7-ab3dd5b8.png"
-                        alt="teacher"
-                        width="90px"
-                        height="90px"
-                      />
-                    </div>
-                    <h5 class="fs-7 fs-md-6 mb-2">麥克先生</h5>
-                  </div>
-                  <ul class="">
-                    <li class="fs-sm fs-sm-7" title="已購買但尚未預約">
-                      未預約：<span class="text-secondary2">2</span> 堂
-                    </li>
-                    <li class="fs-sm fs-sm-7" title="已預約但老師尚未確認">
-                      請求中：<span class="text-secondary2">2</span> 堂
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <!-- 右 -->
-              <div class="col-8 col-sm-9">
-                <p class="fs-7 fs-md-6 text-primary fw-bold mb-4">
-                  請先選取日期再預約時間：
-                </p>
-                <ul>
-                  <li>
-                    <form
-                      class="d-flex flex-wrap align-items-center column-gap-3 row-gap-2 mb-3 mb-md-5"
-                      action="#"
-                      method="post"
-                    >
-                      <p class="fw-bold w-150px">第 1 堂 (50 分鐘)</p>
-                      <div class="d-flex gap-2 w-300px">
-                        <input
-                          class="form-control border-primary cursor-pointer fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4 jq-appointmentDate"
-                          type="text"
-                          name="appointmentDate1-1"
-                          id="appointmentDate1-1"
-                          placeholder="日期"
-                          value="2023/09/20"
-                          autocomplete="off"
-                          required
-                        />
-                        <select
-                          class="form-select border-primary fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4"
-                          name="appointmentTime1-1"
-                          id="appointmentTime1-1"
-                          required
-                        >
-                          <option value="">時間</option>
-                          <option value="AM 9:00" selected>AM 9:00</option>
-                          <option value="AM 10:00">AM 10:00</option>
-                          <option value="PM 16:00">AM 16:00</option>
-                        </select>
-                      </div>
-                      <span class="fs-sm fs-md-7 text-primary"
-                        >請至少預約一堂，剩餘堂數可在會員中心預約
-                      </span>
-                    </form>
-                  </li>
-                  <li>
-                    <form
-                      class="d-flex flex-wrap align-items-center column-gap-3 row-gap-2 mb-3 mb-md-5"
-                      action="#"
-                      method="post"
-                    >
-                      <p class="fw-bold w-150px">第 2 堂 (50 分鐘)</p>
-                      <div class="d-flex gap-2 w-300px">
-                        <input
-                          class="form-control border-primary cursor-pointer fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4 jq-appointmentDate"
-                          type="text"
-                          name="appointmentDate1-2"
-                          id="appointmentDate1-2"
-                          placeholder="日期"
-                          autocomplete="off"
-                        />
-                        <select
-                          class="form-select border-primary fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4"
-                          name="appointmentTime1-2"
-                          id="appointmentTime1-2"
-                        >
-                          <option value="" selected>時間</option>
-                          <option value="AM 9:00">AM 9:00</option>
-                          <option value="AM 10:00">AM 10:00</option>
-                          <option value="PM 16:00">AM 16:00</option>
-                        </select>
-                      </div>
-                    </form>
-                  </li>
-                </ul>
-                <div class="d-flex justify-content-end gap-4 mt-auto">
-                  <p class="fs-sm fs-md-7">剩餘 1 堂</p>
-                  <p class="fs-sm fs-md-7">
-                    <time datetime="2024-02-01">2024/2/1</time> 到期
-                  </p>
-                </div>
-              </div>
-            </div>
-          </li>
-
-          <!-- card2 -->
-          <li class="shadow rounded-2 p-4 pb-md-4 pt-md-6 px-md-8 mb-1 mb-md-2">
-            <h3 class="fs-5 fs-md-4 fw-bold mb-4 mb-md-6 text-secondary2">
-              Python 全攻略
-            </h3>
-            <div class="row justify-content-between">
-              <!-- 左 -->
-              <div class="col-4 col-sm-3 d-flex flex-column align-items-start">
-                <div class="text-center">
-                  <div class="">
-                    <div>
-                      <img
-                        class="img-fluid rounded-circle mb-2"
-                        src="/project-code/assets/Rectangle 9-7f0cfb4e.png"
-                        alt="teacher"
-                        width="90px"
-                        height="90px"
-                      />
-                    </div>
-                    <h5 class="fs-7 fs-md-6 mb-2">艾莉絲</h5>
-                  </div>
-                  <ul class="">
-                    <li class="fs-sm fs-sm-7" title="已購買但尚未預約">
-                      未預約：<span class="text-secondary2">10</span> 堂
-                    </li>
-                    <li class="fs-sm fs-sm-7" title="已預約但老師尚未確認">
-                      請求中：<span class="text-secondary2">0</span> 堂
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <!-- 右 -->
-              <div class="col-8 col-sm-9">
-                <p class="fs-7 fs-md-6 text-primary fw-bold mb-4">
-                  請先選取日期再預約時間 ：
-                </p>
-                <ul>
-                  <li>
-                    <form
-                      class="d-flex flex-wrap align-items-center column-gap-3 row-gap-2 mb-3 mb-md-5"
-                      action="#"
-                      method="post"
-                    >
-                      <p class="fw-bold w-150px">第 1 堂 (50 分鐘)</p>
-                      <div class="d-flex gap-2 w-300px">
-                        <input
-                          class="form-control border-primary cursor-pointer fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4 jq-appointmentDate"
-                          type="text"
-                          name="appointmentDate2-1"
-                          id="appointmentDate2-1"
-                          placeholder="日期"
-                          value="2023/09/21"
-                          autocomplete="off"
-                          required
-                        />
-                        <select
-                          class="form-select border-primary fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4"
-                          name="appointmentTime2-1"
-                          id="appointmentTime2-1"
-                          required
-                        >
-                          <option value="">時間</option>
-                          <option value="AM 9:00" selected>AM 9:00</option>
-                          <option value="AM 10:00">AM 10:00</option>
-                          <option value="PM 16:00">AM 16:00</option>
-                        </select>
-                      </div>
-                      <span class="fs-sm fs-md-7 text-primary"
-                        >請至少預約一堂，剩餘堂數可在會員中心預約
-                      </span>
-                    </form>
-                  </li>
-                  <li>
-                    <form
-                      class="d-flex flex-wrap align-items-center column-gap-3 row-gap-2 mb-3 mb-md-5"
-                      action="#"
-                      method="post"
-                    >
-                      <p class="fw-bold w-150px">第 2 堂 (50 分鐘)</p>
-                      <div class="d-flex gap-2 w-300px">
-                        <input
-                          class="form-control border-primary cursor-pointer fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4 jq-appointmentDate"
-                          type="text"
-                          name="appointmentDate2-2"
-                          id="appointmentDate2-2"
-                          value="2023/09/24"
-                          placeholder="日期"
-                          autocomplete="off"
-                        />
-                        <select
-                          class="form-select border-primary fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4"
-                          name="appointmentTime2-2"
-                          id="appointmentTime2-2"
-                        >
-                          <option value="">時間</option>
-                          <option value="AM 9:00">AM 9:00</option>
-                          <option value="AM 10:00" selected>AM 10:00</option>
-                          <option value="PM 16:00">AM 16:00</option>
-                        </select>
-                      </div>
-                    </form>
-                  </li>
-                  <li>
-                    <form
-                      class="d-flex flex-wrap align-items-center column-gap-3 row-gap-2 mb-3 mb-md-5"
-                      action="#"
-                      method="post"
-                    >
-                      <p class="fw-bold w-150px">第 3 堂 (50 分鐘)</p>
-                      <div class="d-flex gap-2 w-300px">
-                        <input
-                          class="form-control border-primary cursor-pointer fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4 jq-appointmentDate"
-                          type="text"
-                          name="appointmentDate2-3"
-                          id="appointmentDate2-3"
-                          placeholder="日期"
-                          autocomplete="off"
-                        />
-                        <select
-                          class="form-select border-primary fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-md-4"
-                          name="appointmentTime2-3"
-                          id="appointmentTime2-3"
-                        >
-                          <option value="" selected>時間</option>
-                          <option value="AM 9:00">AM 9:00</option>
-                          <option value="AM 10:00">AM 10:00</option>
-                          <option value="PM 16:00">AM 16:00</option>
-                        </select>
-                      </div>
-                    </form>
-                  </li>
-                </ul>
-                <div class="d-flex justify-content-end gap-4 mt-auto">
-                  <p class="fs-sm fs-md-7">剩餘 8 堂</p>
-                  <p class="fs-sm fs-md-7">
-                    <time datetime="2024-02-01">2024/2/1</time> 到期
-                  </p>
-                </div>
-              </div>
-            </div>
-          </li>
-        </ul>
+        <ul class="d-flex flex-column gap-5 mb-6 js-cartList"></ul>
         <!--========================
         =          按鈕            =
         =========================-->
 
-        <a href="./cart3.html" class="btn btn-secondary2 rounded-2 ms-auto"
-          >確認預約</a
+        <button
+          type="button"
+          class="btn btn-secondary2 rounded-2 ms-auto js-confirmBtn"
         >
+          確認預約
+        </button>
       </div>
     </div>
 
@@ -764,12 +794,12 @@
       <a href="./index.html">
         <img
           class="d-none d-lg-block"
-          src="/project-code/assets/logo-a3c8a1c6.svg"
+          src="https://raw.githubusercontent.com/Peg-L/project-code/89a637dfbea6e49a34b11aacf46dc07a001b4a90/assets/images/logo.svg"
           alt="C0DE logo"
         />
         <img
           class="d-block d-lg-none"
-          src="/project-code/assets/logo-sm-9ed0e1e0.svg"
+          src="https://raw.githubusercontent.com/Peg-L/project-code/89a637dfbea6e49a34b11aacf46dc07a001b4a90/assets/images/logo-sm.svg"
           alt="C0DE logo"
         />
       </a>
@@ -849,20 +879,10 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/i18n/jquery-ui-i18n.min.js"></script>
-    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <!--  -->
     
-
-    <!-- datepicker -->
-    <script>
-      $.datepicker.setDefaults($.datepicker.regional["zh-TW"]);
-      $(function () {
-        $(".jq-appointmentDate").datepicker({
-          minDate: 0,
-          maxDate: "+1M +10D",
-          formatDate: "yy-mm-dd",
-        });
-      });
-    </script>
+    
   </body>
 </html>

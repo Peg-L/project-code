@@ -1,4 +1,5 @@
 import { userId } from "./config";
+import axios from "axios";
 let data = [];
 
 //第一部分參數

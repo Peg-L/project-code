@@ -1,4 +1,5 @@
 import { userId } from "./config";
+import axios from "axios";
 
 const appointment_list = document.querySelector("#appointment_list"); //get ul
 const course_management = document.querySelector("#course-management");

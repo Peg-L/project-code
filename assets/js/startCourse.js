@@ -1,6 +1,6 @@
-import { Modal } from "bootstrap";
-import { userId } from "../config";
+import { userId, isLogin } from "../config";
 import { getCartLength, renderCartNum } from "../header";
+import axios from "axios";
 
 let courseId;
 const Toast = Swal.mixin({
@@ -22,11 +22,7 @@ let hasCoupons;
 
 // coursePage：若直接監聽 button ，因為還沒渲染完會抓不到東西，因此監聽父元素 courseList 的點擊事件
 courseList.addEventListener("click", async (e) => {
-  if (e.target && e.target.dataset.course) {
-    // 取得 登入狀態
-    let isLogin = JSON.parse(localStorage.getItem("isLogin"));
-    // 取得 登入modal
-    const loginModal = new Modal("#loginModal");
+  if (e.target.dataset.course) {
     // 若有登入，執行加入購物車和優惠券
     if (isLogin) {
       courseId = e.target.dataset.course;
@@ -35,21 +31,56 @@ courseList.addEventListener("click", async (e) => {
       hasCoupons =
         myCoupons.find((coupon) => coupon.couponId == courseCoupons[0].id) !==
         undefined;
-
+      console.log("4654");
       addCart();
       checkCoupon();
       message();
-    }
-    // 若沒登入，打開 登入 modal
-    else {
-      loginModal.show();
+    } else {
+      // 若沒登入，打開 登入 modal
+      // loginModal.show();
+
+      // 設定倒數秒數
+      let count = 5;
+      let countdownActive = true;
+      // 將秒數寫在指定元素中
+      document.getElementById("timeBox").innerHTML = count;
+
+      // 取得 btn-close 元素
+      let closeBtnEl = document.querySelector("#btn-close");
+
+      function countDown() {
+        if (countdownActive) {
+          // 當 count = 0 時跳轉頁面
+          if (count == 0) {
+            location.href = "./login.html";
+          }
+
+          // 將秒數寫在指定元素中
+          document.getElementById("timeBox").innerHTML = count;
+          // 每次執行就減1
+          count -= 1;
+
+          // 設定每秒執行1次
+
+          setTimeout(countDown, 1000);
+        }
+      }
+
+      // 監聽 close-btn 點擊事件
+      closeBtnEl.addEventListener("click", function () {
+        // 停止倒計時
+        countdownActive = false;
+      });
+
+      // 執行 countDown
+      countDown();
     }
   }
 });
 
 async function getData() {
   try {
-    const myCartApi = `${_url}/myCarts?userId=${userId}&courseId=${courseId}`;
+    const myCartApi = `${_url}/myCarts?userId=${userId}&courseId=${courseId}&status=purchase`;
     const myCouponsApi = `${_url}/myCoupons?userId=${userId}`;
     const courseCouponsApi = `${_url}/coupons?courseId=${courseId}`;
 
@@ -95,8 +126,9 @@ async function addCourseToMyCarts() {
       userId,
       courseId,
       quantity: 1,
-      isPurchased: false,
+      status: "purchase",
       isNextPurchase: false,
+      dueDate: "",
     };
     await axios.post(`${_url}/myCarts`, postData, {
       headers: {

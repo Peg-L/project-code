@@ -1,5 +1,6 @@
 const queryParams = new URLSearchParams(window.location.search);
 const courseId = queryParams.get("courseId"); //抓取課程ID
+import axios from "axios";
 
 let data = [];
 

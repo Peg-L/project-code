@@ -4,6 +4,7 @@ import {
   auth,
   GoogleAuthProvider,
 } from "./firebase";
+import axios from "axios";
 
 const loginButton = document.querySelector("#loginButton");
 

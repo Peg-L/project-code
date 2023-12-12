@@ -1,4 +1,5 @@
 import { userId } from "./config";
+import axios from "axios";
 
 const couponPageArrow = document.querySelectorAll(".js-couponPageArrow");
 
@@ -24,13 +25,11 @@ async function checkDueDate() {
             },
           }
         );
-        console.log("過期", coupon);
         getCoupons();
       } catch (error) {
         console.log("checkDueDate", error);
       }
     } else {
-      console.log("沒過期");
       renderCoupons();
       renderCouponPagination();
     }
@@ -65,8 +64,6 @@ async function getCoupons() {
 
 //渲染 Coupons
 function renderCoupons() {
-  console.log("123", myCoupons);
-  console.log("456", myCoupons.length);
   // 日期規則
   const dateReg = /^(\d{4}-\d{2}-\d{2}).*/;
   // 選取 優惠券ul
@@ -88,7 +85,7 @@ function renderCoupons() {
                     class="img-fluid w-100 rounded-circle img-thumbnail border-0"
                     src="${
                       myCoupon.coupon.type === "allCourse"
-                        ? "../assets/images/logo-img.svg"
+                        ? "https://raw.githubusercontent.com/Peg-L/project-code/89a637dfbea6e49a34b11aacf46dc07a001b4a90/assets/images/logo-img.svg"
                         : myCoupon.coupon.teacher.avatar
                     }"
                     alt="teacher"
