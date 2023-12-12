@@ -81,6 +81,45 @@ navbarLogoutBtns.forEach(function (navbarLogoutBtn) {
 // 點購物車圖示判斷有無登入
 const toMyCartBtn = document.querySelectorAll(".js-toMyCart");
 
+// 提示跳轉 login 頁面
+function handleLoginModal() {
+  // 設定倒數秒數
+  let count = 5;
+  let countdownActive = true;
+  // 將秒數寫在指定元素中
+  document.getElementById("timeBox").innerHTML = count;
+
+  // 取得 btn-close 元素
+  let closeBtnEl = document.querySelector("#btn-close");
+
+  function countDown() {
+    if (countdownActive) {
+      // 當 count = 0 時跳轉頁面
+      if (count == 0) {
+        location.href = "./login.html";
+      }
+
+      // 將秒數寫在指定元素中
+      document.getElementById("timeBox").innerHTML = count;
+      // 每次執行就減1
+      count -= 1;
+
+      // 設定每秒執行1次
+
+      setTimeout(countDown, 1000);
+    }
+  }
+
+  // 監聽 close-btn 點擊事件
+  closeBtnEl.addEventListener("click", function () {
+    // 停止倒計時
+    countdownActive = false;
+  });
+
+  // 執行 countDown
+  countDown();
+}
+
 // 若未登入出現登入註冊 Modal
 function myCartCheckLogin() {
   if (!isLogin) {
@@ -88,41 +127,7 @@ function myCartCheckLogin() {
       btn.setAttribute("data-bs-toggle", "modal");
 
       btn.addEventListener("click", function () {
-        // 設定倒數秒數
-        let count = 5;
-        let countdownActive = true;
-        // 將秒數寫在指定元素中
-        document.getElementById("timeBox").innerHTML = count;
-
-        // 取得 btn-close 元素
-        let closeBtnEl = document.querySelector("#btn-close");
-
-        function countDown() {
-          if (countdownActive) {
-            // 當 count = 0 時跳轉頁面
-            if (count == 0) {
-              location.href = "./login.html";
-            }
-
-            // 將秒數寫在指定元素中
-            document.getElementById("timeBox").innerHTML = count;
-            // 每次執行就減1
-            count -= 1;
-
-            // 設定每秒執行1次
-
-            setTimeout(countDown, 1000);
-          }
-        }
-
-        // 監聽 close-btn 點擊事件
-        closeBtnEl.addEventListener("click", function () {
-          // 停止倒計時
-          countdownActive = false;
-        });
-
-        // 執行 countDown
-        countDown();
+        handleLoginModal();
       });
     });
   } else {
@@ -159,4 +164,4 @@ async function getCartLength() {
   }
 }
 
-export { getCartLength, renderCartNum };
+export { getCartLength, renderCartNum, handleLoginModal };
