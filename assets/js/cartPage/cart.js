@@ -423,4 +423,11 @@ function CalculateToTalSum() {
   $("#TotalPrice").text(TotalPrice.toString().replace(separatorReg, ","));
 }
 
-export { myCarts, cartContainer, nextPurchaseCarts, dateReg, separatorReg };
+export {
+  myCarts,
+  cartContainer,
+  nextPurchaseCarts,
+  dateReg,
+  separatorReg,
+  headers,
+};
