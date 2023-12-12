@@ -20,7 +20,6 @@ payBtns.forEach((btn) => {
     e.preventDefault();
     await patchMyCoupon(); // 按確認購買後優惠券 canUse 改成 false
     await patchMyCarts(); // 按確認購買後更新商品狀態
-    debugger;
     location.href = "cart2.html";
   });
 });
