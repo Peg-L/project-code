@@ -4,7 +4,7 @@ const prevNextIcon = document.querySelectorAll(".icons span");
 let clickDay = "";
 let currYear = new Date().getFullYear();
 let currMonth = new Date().getMonth();
-
+let clickCourse = '';
 const months = [
         "一月",
         "二月",
@@ -65,7 +65,10 @@ const renderCalendar = () => {
           btn.addEventListener('click',e=>{
             handleDateClick(e.currentTarget);
             clickDay = e.target.getAttribute('data-day');//偵測是否選擇
-            viewTimeCourse();
+            if (!clickCourse){
+              clickCourse = document.querySelector('.book-card').getAttribute('data-courseid');
+            }
+            viewTimeCourse(clickCourse,clickDay);
           });
         })
         

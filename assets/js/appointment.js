@@ -45,6 +45,10 @@ function updateTeacherList(){
                 });
                 appointment_list.innerHTML = str;
                 const teacher_list = document.querySelectorAll('.book-card'); //列表生成後抓取列表
+                const first_teacher_list = document.querySelector('.book-card');
+                var Today=new Date();
+                viewTimeCourse(first_teacher_list.getAttribute('data-courseId'),`${(Today.getMonth()+1)}/${Today.getDate()}`);
+                first_teacher_list.classList.add('active');
                 teacher_list.forEach(btn => {
                     btn.addEventListener('click',e=>{
                         teacher_list.forEach(btn => {
@@ -52,7 +56,7 @@ function updateTeacherList(){
                         })
                         e.currentTarget.classList.add('active');
                         clickCourse = e.currentTarget.getAttribute('data-courseId'); //偵測是否選擇
-                        viewTimeCourse();
+                        viewTimeCourse(clickCourse,clickDay);
                     })
                 })
             })
@@ -284,6 +288,7 @@ function updateTeacherList(){
                           const checkName = document.querySelector('#checkName');
                           const checkDate = document.querySelector('#checkDate');
                           const checkSubmit = document.querySelector('#checkSubmit');
+                          checkSubmit.setAttribute('data-bs-dismiss','modal');
                           //設定標籤上的變數
                           checkImg.setAttribute('src',`${getClassData.teacher.avatar}`);
                           checkTeacherName.textContent = getClassData.teacher.name;
@@ -319,7 +324,13 @@ function updateTeacherList(){
                                 })
                                 .then(response => {
                                   console.log('add success');
-                                  location.reload();  // 刷新頁面
+                                  Swal.fire({
+                                    icon: "success",
+                                    title: "修改成功",
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                });
+                                updateTeacherList();
                                 })
                                 .catch(error => {
                                   console.error('Error adding post:', error);

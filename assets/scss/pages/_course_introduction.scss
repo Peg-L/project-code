@@ -75,6 +75,34 @@
       }
     }
 }
+.c2{
+  text-align: center;
+  position: relative;
+  &:hover{
+      outline:2px solid $primary;
+      font-weight: bold;
+      transition: font-weight 0.2s;
+      a,button{
+          color: $primary;
+          transition: color 0.2s;
+      }
+      &::before {
+          position: absolute;
+          vertical-align: middle;
+          content: "查看課程";
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 35px;
+          top:-40px;
+          right:0;
+          background-color: black;
+          color: #fff;
+          transition: all 0.5s;
+      }
+  }
+}
 .calendar{
     width: 100%;
 }
@@ -147,6 +175,7 @@
             }
         }
     }
+    
 }
 
 @media (max-width:769px){

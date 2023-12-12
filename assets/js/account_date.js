@@ -1,6 +1,6 @@
 const queryParams = new URLSearchParams(window.location.search);
-let userId = queryParams.get("userId"); //抓取使用者的ID
-const _url = "http://localhost:3000"; // 修改處
+// let userId = queryParams.get("userId"); //抓取使用者的ID
+// const _url = "http://localhost:3000"; // 修改處
 let data = [];
 
 //第一部分參數
@@ -37,7 +37,7 @@ function updateData() { //課表生成
         let str = '';
         if (matchData.length !== 0) { //取得當前預約課程
             for(let i=0;i<matchData.length;i++){
-                str += `<li><a href=''
+                str += `<li class="c2"><a href=''
                 data-bs-toggle="modal"
                 data-bs-target="#calendarModal"
                 data-course-id="${matchData[i].courseId}"

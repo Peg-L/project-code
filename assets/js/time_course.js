@@ -10,14 +10,16 @@ let evening_str = '';
 //add data to db
 const attendSubmit = document.querySelector('#attendSubmit');
 let oldAttendTime = [];
-attendSubmit.addEventListener('click',() => {
+attendSubmit.addEventListener('click',(e) => {
     //console.log(clickCourse,clickDay,userId,clickTime);
     postAttendCourse(clickCourse,clickDay,userId,clickTime);
 });
 //顯示教師當日開放時間
-function viewTimeCourse(){
+
+
+function viewTimeCourse(clickCourse = document.querySelector('.book-card').getAttribute('data-courseid'),clickDay){
     if (clickCourse!==""&&clickDay!==""&&userId!==""){
-        console.log('gooooood');
+        console.log(clickCourse,clickDay);
         axios.get(`${_url}/courses/${clickCourse}?_expand=teacher`)
         .then(function(response){
                 const filteredTimeCourse = response.data.teacher.openTime.filter(item=>item.date === clickDay);
@@ -80,7 +82,7 @@ function viewTimeCourse(){
 }
 //將資料加入到db
 function postAttendCourse(clickCourse,clickDay,userId,clickTime){
-    const _url = 'http://localhost:3000';
+    // const _url = 'http://localhost:3000';
     const data = {
         uid:generateRandomCode(4),
         courseId : Number(clickCourse),
@@ -89,23 +91,58 @@ function postAttendCourse(clickCourse,clickDay,userId,clickTime){
         isCheck :false
     }
     axios.get(`${_url}/user_courses/${userId}`)
-  .then(response => {
-    oldAttendTime = [...response.data.attendTime];
-    //console.log(oldAttendTime);
-    //update data to db
-    axios.patch(`${_url}/user_courses/${userId}`,{
-        attendTime : [...oldAttendTime , data]
-    })
     .then(response => {
-        console.log('add success');
+        oldAttendTime = [...response.data.attendTime];
+        //console.log(oldAttendTime);
+        //update data to db
+        axios.patch(`${_url}/user_courses/${userId}`,{
+            attendTime : [...oldAttendTime , data]
+        })
+        .then(response => {
+            console.log('add success');
+            Swal.fire({
+                icon: "success",
+                title: "預約成功",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        })
+        .catch(error => {
+            console.error('Error adding post:', error);
+        });
+        //add to teacher's useTime
+        axios.get(`${_url}/courses/${data.courseId}`)
+        .then(response=>{
+            //取得老師資料
+            const teacherId = response.data.teacherId;
+            axios.get(`${_url}/teachers/${teacherId}`)
+            .then(response => {
+                const oldTeacherData = [...response.data.openTime];
+                const dateIdx = oldTeacherData.findIndex(item=>item.date === data.date);
+                oldTeacherData[dateIdx].useTime.push(data.time);
+                //更新老師裡的openTime
+                axios.patch(`${_url}/teachers/${teacherId}`,{
+                    openTime : [...oldTeacherData]
+                })
+                .then(response => {
+                    console.log('更新老師資料成功');
+                    viewTimeCourse(clickCourse,clickDay);
+                })
+                .catch(error => {
+                    console.error('Error adding post:', error);
+                });
+            })
+            .catch(error => {
+                console.error('Error adding post:', error);
+            });
+        })
+        .catch(error => {
+            console.error('Error adding post:', error);
+        });
     })
     .catch(error => {
         console.error('Error adding post:', error);
     });
-  })
-  .catch(error => {
-    console.error('Error adding post:', error);
-  });
 }
 //判斷時間為早、中、晚
 function classifyTime(timeString) {

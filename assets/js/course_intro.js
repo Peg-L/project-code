@@ -55,15 +55,20 @@ function updateData() {
         if (matchData.length !== 0) {
             matchData[0].time.forEach(date => {
                 if(!matchData[0].useTime.find(item => date === item)){
-                    str += `<li><a href=''>${date}</a></li>`
+                    str += `<li><a href=''  class="deleteDefault">${date}</a></li>`
                 }else{
-                    str += `<li><a class="text-primary" href=''>${date}</a></li>`
+                    str += `<li><a class="text-primary deleteDefault" href=''>${date}</a></li>`
                 }
             })
             item.innerHTML = str;
         }
     });
-
+    const deleteDefault = document.querySelectorAll('.deleteDefault');
+    deleteDefault.forEach(btn=>{
+        btn.addEventListener('click',e=>{
+            e.preventDefault();
+        })
+    })
     function findMatchData(dataNum) {
         return data.teacher.openTime.filter(item => item.date === dataNum);
     }
