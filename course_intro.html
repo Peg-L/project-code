@@ -10,11 +10,16 @@
       href="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/favicon.ico"
       type="image/x-icon"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
-    <script type="module" crossorigin src="/project-code/assets/course_intro-e3c3b9d2.js"></script>
-    <link rel="modulepreload" crossorigin href="/project-code/assets/backtotop-e931ed7f.js">
+    <script type="module" crossorigin src="/project-code/assets/course_intro-e50a00f1.js"></script>
+    <link rel="modulepreload" crossorigin href="/project-code/assets/backtotop-257d1cbf.js">
     <link rel="modulepreload" crossorigin href="/project-code/assets/openTime-482ad5b4.js">
-    <link rel="stylesheet" href="/project-code/assets/backtotop-af314ed9.css">
+    <link rel="modulepreload" crossorigin href="/project-code/assets/startCourse-477ed2b7.js">
+    <link rel="stylesheet" href="/project-code/assets/backtotop-ec876723.css">
     <link rel="stylesheet" href="/project-code/assets/course_intro-dd2ed19d.css">
   </head>
   <body>
@@ -975,7 +980,10 @@
               9 個月後找到工作~
             </li>
             <li class="card-evaluate-person flex-lg-row flex-row-reverse">
-              <img src="../assets/images/Ellipse 1.svg" alt="" />
+              <img
+                src="https://raw.githubusercontent.com/Peg-L/project-code/dev/assets/images/ellipse1.png"
+                alt=""
+              />
               <div class="d-flex flex-column">
                 <div class="text-primary d-flex align-items-center">
                   <img
@@ -1012,7 +1020,10 @@
               我找到了一位出色的Python老師，他的指導使我在後端能力上有了很大的進步。月薪也增加了2000元。強烈推薦給所有想！
             </li>
             <li class="card-evaluate-person flex-lg-row flex-row-reverse">
-              <img src="../assets/images/Ellipse 1 (2).svg" alt="" />
+              <img
+                src="https://raw.githubusercontent.com/Peg-L/project-code/dev/assets/images/ellipse2.png"
+                alt=""
+              />
               <div class="d-flex flex-column">
                 <div class="text-primary d-flex align-items-center">
                   <img
@@ -1059,70 +1070,7 @@
           <div class="view-move">
             <h2 class="fs-5 mb-4">一對一教學</h2>
             <div class="rounded shadow p-lg-12 mb-lg-12 p-6 mb-10">
-              <ul class="d-flex flex-column gap-">
-                <li
-                  class="py-4 d-flex justify-content-between align-items-center border-bottom border-gray-200"
-                >
-                  <div>
-                    <p class="fs-4 fw-bold">NT$1100</p>
-                    <p class="">1堂50分鐘</p>
-                  </div>
-                  <a href="./cart.html" type="button" class="btn btn-text"
-                    >立即預約</a
-                  >
-                </li>
-                <li
-                  class="py-4 d-flex justify-content-between align-items-center border-bottom border-gray-200"
-                >
-                  <div>
-                    <p class="fs-4 fw-bold">NT$1000</p>
-                    <p class="">3堂50分鐘</p>
-                  </div>
-                  <a href="./cart.html" type="button" class="btn btn-text"
-                    >立即預約</a
-                  >
-                </li>
-                <li
-                  class="py-4 d-flex justify-content-between align-items-center border-bottom border-gray-200"
-                >
-                  <div>
-                    <p class="fs-4 fw-bold">NT$900</p>
-                    <p class="">10堂50分鐘</p>
-                  </div>
-                  <a href="./cart.html" type="button" class="btn btn-text"
-                    >立即預約</a
-                  >
-                </li>
-                <li
-                  class="py-4 d-flex justify-content-between align-items-center border-bottom border-gray-200"
-                >
-                  <div>
-                    <p class="fs-4 fw-bold">NT$800</p>
-                    <p class="">20堂50分鐘</p>
-                  </div>
-                  <a href="./cart.html" type="button" class="btn btn-text"
-                    >立即預約</a
-                  >
-                </li>
-                <li
-                  class="py-4 d-flex justify-content-between align-items-center"
-                >
-                  <div>
-                    <p class="fs-4 fw-bold">洽談報價</p>
-                    <p class="">客製化課程/專案製作</p>
-                  </div>
-                  <button
-                    type="button"
-                    class="btn btn-text"
-                    aria-current="page"
-                    data-bs-toggle="offcanvas"
-                    data-bs-target="#message-list"
-                    aria-controls="#message-list"
-                  >
-                    立即洽談
-                  </button>
-                </li>
-              </ul>
+              <ul class="d-flex flex-column js-appointList"></ul>
             </div>
           </div>
         </div>
@@ -1136,138 +1084,36 @@
           <a
             href="./course.html"
             type="button"
-            class="btn btn-text fw-medium align-self-end py-0 pe-2"
-            >查看更多</a
+            class="btn btn-text pe-2 fw-medium"
+            id="redirectPopular"
           >
+            查看更多
+          </a>
         </div>
-        <div class="row g-6">
-          <div class="col-12 col-md-6 col-lg-4">
-            <div class="teacher-card h-100">
-              <div class="teacher-card-profile">
-                <div class="teacher-card-content">
-                  <h3 class="teacher-card-title">從零開始成為切版大師</h3>
-                  <p class="teacher-card-name">麥克先生</p>
-                  <ul class="teacher-card-object">
-                    <!-- 評價 -->
-                    <li class="teacher-card-evaluate">4.8</li>
-                    <!-- 時數 -->
-                    <li class="teacher-card-hours">50分鐘</li>
-                  </ul>
-                  <p class="teacher-card-price">NT$<span>1,100</span></p>
-                </div>
-                <div class="teacher-card-img">
-                  <img
-                    src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/Rectangle%207.png"
-                    alt="老師"
-                    class="w-100px w-sm-120px"
-                  />
-                </div>
-              </div>
-              <p class="teacher-card-text">
-                帶領零基礎的平民老百姓，從最基礎的 HTML
-                語法出發，使用最淺顯易懂的語言與生活隨處可見的例子，輕鬆進入網頁架設的世界，手把手教你做出完整的網頁作品。
-              </p>
-              <a
-                href="./cart.html"
-                type="button"
-                class="btn btn-secondary2 w-100 mb-3"
-              >
-                立即上課
-              </a>
-              <a
-                href="./course_intro.html"
-                type="button"
-                class="btn teacher-card-btn"
-                >查看介紹</a
-              >
-            </div>
+        <!-- 輪播 -->
+        <div class="container">
+          <div class="swiper recommendSwiper">
+            <div class="swiper-wrapper recommend-swiper d-flex"></div>
           </div>
-          <div class="col-12 col-md-6 col-lg-4 d-none d-lg-block">
-            <div class="teacher-card h-100">
-              <div class="teacher-card-profile">
-                <div class="teacher-card-content">
-                  <h3 class="teacher-card-title">一起打造你的前端職涯</h3>
-                  <p class="teacher-card-name">榮哥</p>
-                  <ul class="teacher-card-object">
-                    <!-- 評價 -->
-                    <li class="teacher-card-evaluate">4.8</li>
-                    <!-- 時數 -->
-                    <li class="teacher-card-hours">50分鐘</li>
-                  </ul>
-                  <p class="teacher-card-price">NT$<span>1,000</span></p>
-                </div>
-                <div class="teacher-card-img">
-                  <img
-                    src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/Rectangle%208.png"
-                    alt="老師"
-                    class="w-100px w-sm-120px"
-                  />
-                </div>
-              </div>
-              <p class="teacher-card-text">
-                協助你定位自己的前端職涯，並提供實用的指導和建議，以確保你能夠在競爭激烈的市場中脫穎而出。
-              </p>
-              <a
-                href="./cart.html"
-                type="button"
-                class="btn btn-secondary2 w-100 mb-3"
-              >
-                立即上課
-              </a>
-              <a
-                href="./course_intro.html"
-                type="button"
-                class="btn teacher-card-btn"
-                >查看介紹</a
-              >
-            </div>
-          </div>
-          <div class="col-12 col-md-6 col-lg-4 d-none d-md-block">
-            <div class="teacher-card h-100">
-              <div class="teacher-card-profile">
-                <div class="teacher-card-content">
-                  <h3 class="teacher-card-title">Python 全攻略</h3>
-                  <p class="teacher-card-name">艾莉絲</p>
-                  <ul class="teacher-card-object">
-                    <!-- 評價 -->
-                    <li class="teacher-card-evaluate">5.0</li>
-                    <!-- 時數 -->
-                    <li class="teacher-card-hours">50分鐘</li>
-                  </ul>
-                  <p class="teacher-card-price">NT$<span>1,000</span></p>
-                </div>
-                <div class="teacher-card-img">
-                  <img
-                    src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/Rectangle%209.png"
-                    alt="老師"
-                    class="w-100px w-sm-120px"
-                  />
-                </div>
-              </div>
-              <p class="teacher-card-text">
-                嗨，我是艾莉絲，有 8 年的 Python 開發經歷和 3
-                年的教學經驗。我的專業有軟體開發、數據分析、人工智慧等各個
-                Python
-                相關領域，能和你分享非常專業且豐富的知識和實際案例，協助您建立紮實的
-                Python
-                基礎，無論你是初學者還是資深工程師，我都可以協助你找到適合自己的學習路徑。我將帶領學生深入探索
-                Python 的各個層面，從基礎知識到高級應用，讓你具備全面的 Python
-                技能，以應對不同領域的挑戰。
-              </p>
-              <a
-                href="./cart.html"
-                type="button"
-                class="btn btn-secondary2 w-100 mb-3"
-              >
-                立即上課
-              </a>
-              <a
-                href="./course_intro.html"
-                type="button"
-                class="btn teacher-card-btn"
-                >查看介紹</a
-              >
-            </div>
+          <!-- 輪播按鈕 -->
+          <div
+            class="recommendSwiper-btns d-flex justify-content-center align-items-center mt-5 mt-md-7"
+          >
+            <button
+              class="btn btn-link recommendSwiper-button-prev d-none d-sm-block"
+              type="button"
+              disabled
+            >
+              <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <div class="recommendSwiper-pagination"></div>
+            <button
+              class="btn btn-link recommendSwiper-button-next d-none d-sm-block"
+              type="button"
+              disabled
+            >
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
           </div>
         </div>
       </div>
@@ -1467,7 +1313,10 @@
                 9 個月後找到工作~
               </li>
               <li class="card-evaluate-person flex-lg-row flex-row-reverse">
-                <img src="../assets/images/Ellipse 1.svg" alt="" />
+                <img
+                  src="https://raw.githubusercontent.com/Peg-L/project-code/dev/assets/images/ellipse1.png"
+                  alt=""
+                />
                 <div class="d-flex flex-column">
                   <div class="text-primary d-flex align-items-center">
                     <img
@@ -1853,6 +1702,8 @@
   <p class="fs-tiny">TOP</p>
 </button>
     
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script>

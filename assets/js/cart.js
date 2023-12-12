@@ -30,7 +30,6 @@ const headers = {
     "Content-Type": "application/json",
   },
 };
-let cartInitialHtml = "";
 let myCarts = [];
 let nextPurchaseCarts = [];
 
@@ -38,7 +37,6 @@ let nextPurchaseCarts = [];
 
 init();
 async function init() {
-  cartInitialHtml = cartContainer.innerHTML; // 取得購物項目初始 html，因為空購物車渲染會把這些蓋掉
   renderLoading(); // 渲染loading
   await getMyCart(); // 取得我的購物車資料
   renderCart();
@@ -97,7 +95,6 @@ document.addEventListener("DOMContentLoaded", () => {
   purchaseTabContent.addEventListener("click", (e) => {
     const target = e.target;
     const listItem = target.closest("li");
-    //   console.log(target);
 
     if (listItem) {
       e.preventDefault(); // 防止連結跳轉的問題發生
@@ -322,7 +319,7 @@ function incrementValue(courseId, input) {
 // 減少數字輸入的值
 function decrementValue(courseId, input) {
   $(input).val(function (i, currentValue) {
-    return parseInt(currentValue) - 1;
+    return parseInt(currentValue) === 1 ? 1 : parseInt(currentValue) - 1;
   });
   // 更新數量
   quantityChange(courseId, input.value);
@@ -406,9 +403,7 @@ function CalculateToTalSum() {
 
     // 將小計加到原價
     OriginalTotalPrice += Subtotal;
-    console.log("小計", Count, OriginalPrice);
   });
-  console.log(OriginalTotalPrice);
 
   //獲取網頁上原價的物件
   const OriginalPriceObject = $("#OriginalPrice");
@@ -425,12 +420,6 @@ function CalculateToTalSum() {
   //總金額為原價-課程優惠-全站優惠
   const TotalPrice =
     OriginalTotalPrice - CourseDiscountPrice - WebDiscountPrice;
-  console.log(
-    TotalPrice,
-    OriginalTotalPrice,
-    CourseDiscountPrice,
-    WebDiscountPrice
-  );
   $("#TotalPrice").text(TotalPrice.toString().replace(separatorReg, ","));
 }
 
