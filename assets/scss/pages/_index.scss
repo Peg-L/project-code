@@ -7,15 +7,18 @@
   }
 
   &-1 {
-    background: url("../images/banner.svg") no-repeat center / cover;
+    background: url("https://raw.githubusercontent.com/Peg-L/project-code/dev/assets/images/banner.png")
+      no-repeat center / cover;
   }
 
   &-2 {
-    background: url("../images/banner2-2.jpg") no-repeat center / cover;
+    background: url("https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/banner2-2.jpg")
+      no-repeat center / cover;
   }
 
   &-3 {
-    background: url("../images/banner3.jpg") no-repeat center / cover;
+    background: url("https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/banner3.jpg")
+      no-repeat center / cover;
   }
 }
 
@@ -69,10 +72,12 @@
 
 // recommend 熱門推薦
 .bg-gray-dot {
-  background: url("../images/bg-gray-dot-sm.png") no-repeat center / cover;
+  background: url("https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/bg-gray-dot-sm.png")
+    no-repeat center / cover;
 
   @include media-breakpoint-up(md) {
-    background: url("../images/bg-gray-dot.jpg") no-repeat center / cover;
+    background: url("https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/bg-gray-dot.jpg")
+      no-repeat center / cover;
   }
 }
 

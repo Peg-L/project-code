@@ -74,90 +74,92 @@
         transition: all 0.5s;
       }
     }
-}
-.calendar{
+  }
+  .calendar {
     width: 100%;
-}
-.calendar-list{
+  }
+  .calendar-list {
     display: flex;
     flex-direction: column;
     width: 10%;
-    gap:8px;
+    gap: 8px;
     padding-top: 8px;
     border-top: 4px solid $primary;
-}
+  }
 
-.calendar-time{
+  .calendar-time {
     display: flex;
     flex-direction: column;
-    gap:4px;
-    .ready-booking{
-        text-align: center;
-        position: relative;
-            &:hover{
-                outline:2px solid $primary;
-                font-weight: bold;
-                transition: font-weight 0.2s;
-                a,button{
-                    color: $primary;
-                    transition: color 0.2s;
-                }
-                &::before {
-                    position: absolute;
-                    vertical-align: middle;
-                    content: "已預約";
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    width: 100%;
-                    height: 35px;
-                    top:-40px;
-                    right:0;
-                    background-color: black;
-                    color: #fff;
-                    transition: all 0.5s;
-                }
-            }
-    }
-    li{
-        text-align: center;
-        position: relative;
-        &:hover{
-            outline:2px solid $primary;
-            font-weight: bold;
-            transition: font-weight 0.2s;
-            a,button{
-                color: $primary;
-                transition: color 0.2s;
-            }
-            &::before {
-                position: absolute;
-                vertical-align: middle;
-                content: "預約課程";
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 100%;
-                height: 35px;
-                top:-40px;
-                right:0;
-                background-color: black;
-                color: #fff;
-                transition: all 0.5s;
-            }
+    gap: 4px;
+    .ready-booking {
+      text-align: center;
+      position: relative;
+      &:hover {
+        outline: 2px solid $primary;
+        font-weight: bold;
+        transition: font-weight 0.2s;
+        a,
+        button {
+          color: $primary;
+          transition: color 0.2s;
         }
+        &::before {
+          position: absolute;
+          vertical-align: middle;
+          content: "已預約";
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 35px;
+          top: -40px;
+          right: 0;
+          background-color: black;
+          color: #fff;
+          transition: all 0.5s;
+        }
+      }
     }
-}
+    li {
+      text-align: center;
+      position: relative;
+      &:hover {
+        outline: 2px solid $primary;
+        font-weight: bold;
+        transition: font-weight 0.2s;
+        a,
+        button {
+          color: $primary;
+          transition: color 0.2s;
+        }
+        &::before {
+          position: absolute;
+          vertical-align: middle;
+          content: "預約課程";
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 35px;
+          top: -40px;
+          right: 0;
+          background-color: black;
+          color: #fff;
+          transition: all 0.5s;
+        }
+      }
+    }
+  }
 
-@media (max-width:769px){
-    .calendar-time{
-        li{
-            &:hover{
-                &::before{
-                    display: none;
-                }
-            }
+  @media (max-width: 769px) {
+    .calendar-time {
+      li {
+        &:hover {
+          &::before {
+            display: none;
+          }
         }
+      }
     }
     a,
     button {
@@ -214,7 +216,7 @@
   &::before {
     content: "";
     position: absolute;
-    background-image: url("../images/”.svg");
+    background-image: url("https://raw.githubusercontent.com/Peg-L/project-code/89a637dfbea6e49a34b11aacf46dc07a001b4a90/assets/images/%E2%80%9D.svg");
     background-repeat: no-repeat;
     background-size: cover;
     width: 40px;
@@ -224,7 +226,7 @@
   }
 }
 .bg-custom {
-  background-image: url("../images/bg-gray-dot.jpg");
+  background-image: url("https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/bg-gray-dot.jpg");
   height: 600px;
   background-size: cover;
 }
