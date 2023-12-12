@@ -1,4 +1,3 @@
-
 const test_str = `<li class="course-card shadow w-100 w-xl-75">
 <div class="d-flex flex-grow-1 p-3 p-sm-4 align-items-center">
   <div class="course-card-header me-4">
@@ -6,7 +5,7 @@ const test_str = `<li class="course-card shadow w-100 w-xl-75">
       <div class="mb-2">
         <img
           class="avatar"
-          src="../assets/images/Rectangle 7.png"
+          src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/Rectangle%207.png"
           alt="teacher"
         />
       </div>
@@ -114,4 +113,3 @@ const test_str = `<li class="course-card shadow w-100 w-xl-75">
   </a>
 </div>
 </li>`;
-

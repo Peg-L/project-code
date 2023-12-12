@@ -6,7 +6,7 @@
     <title>C0DE | 讓你從 0 到 Expert</title>
     <link
       rel="shortcut icon"
-      href="../assets/images/favicon.ico"
+      href="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/favicon.ico"
       type="image/x-icon"
     />
     <link
@@ -28,7 +28,7 @@
         <div class="col-12 d-flex flex-column align-items-center">
           <img
             class="mb-2 mb-md-3 w-40px"
-            src="../assets/images/logo-img.svg"
+            src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/logo-img.svg"
             alt="logo"
           />
           <h1 class="fs-3 mb-2 mb-md-4">會員註冊</h1>
@@ -118,7 +118,6 @@
                 placeholder="Password"
                 required
               />
-              <!-- <i class="bi bi-eye-slash-fill position-absolute end-0 p-4"></i> -->
               <label for="floatingPassword">密碼</label>
             </div>
             <div id="passwordHelpBlock" class="form-text ms-2 mb-2 mb-md-4">
@@ -158,6 +157,9 @@
               <i class="fa-solid fa-user me-3"></i>
               加入會員
             </button>
+            <div class="text-center">
+              已有帳號？<a href="./login.html">前往登入</a>
+            </div>
           </form>
         </div>
       </div>
@@ -182,7 +184,7 @@
                 <div class="text-center">
                   <img
                     class="mb-2 mb-md-3 w-40px"
-                    src="../assets/images/logo-img.svg"
+                    src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/logo-img.svg"
                     alt="logo"
                   />
                 </div>
@@ -190,27 +192,7 @@
                   感謝您的註冊！<br />非常歡迎您成為我們的會員
                 </h1>
               </div>
-              <div id="emailVerified" class="modal-body p-0">
-                <!-- <p class="mb-4">
-                  我們已寄送一封帳號驗證信至您的信箱
-                  <br />
-                  ex***e1@gmail.com
-                </p>
-                <p class="mb-10">
-                  請點擊驗證信的「<strong>連結</strong>」來開通帳號
-                </p>
-                <div
-                  class="text-center mb-2 d-flex justify-content-between align-items-center"
-                >
-                  <span>沒收到信嗎?</span>
-                  <button
-                    type="button"
-                    class="btn btn-outline-secondary2 rounded-1 py-2"
-                  >
-                    重新寄送驗證信
-                  </button>
-                </div> -->
-              </div>
+              <div id="emailVerified" class="modal-body p-0"></div>
               <a
                 href="./login.html"
                 type="button"
@@ -233,11 +215,9 @@
     <!-- backtotop -->
     <%- include("./layout/backtotop.ejs") -%>
 
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="module" src="../main.js"></script>
-    <script src="../assets/js/config.js"></script>
     <script type="module" src="../assets/js/register.js"></script>
   </body>
 </html>

@@ -2,15 +2,12 @@
 const faqSearchButton = document.querySelector(".faq-search-btn");
 const faqSearchInput = document.querySelector(".faq-search-input");
 let faqSearchValue = "";
-console.log(faqSearchValue);
 
 faqSearchButton.addEventListener("click", searchQuestion);
 
 function searchQuestion() {
   faqSearchValue = faqSearchInput.value;
   if (faqSearchValue) {
-    console.log("faqSearchValue 有值");
-
     const faqTeams = document.querySelectorAll(".faq-team");
     faqTeams.forEach((faqTeam) => {
       const faqQ = faqTeam.querySelector(".faq-question");
@@ -26,7 +23,6 @@ function searchQuestion() {
       }
     });
   } else {
-    console.log("faqSearchValue 沒有值");
     const faqTeams = document.querySelectorAll(".faq-team");
 
     faqTeams.forEach((faqTeam) => {
