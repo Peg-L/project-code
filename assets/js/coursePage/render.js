@@ -1,7 +1,7 @@
 import { currentPageCourses, isLoading, data, lastPage } from "./api.js";
 import { pagination } from "./pagination.js";
 import { handleClickStartCourseBtn } from "./startCourse.js";
-import { userId, isLogin } from "../config.js";
+import { userId, isLogin, currentURL } from "../config.js";
 import axios from "axios";
 
 const courseList = document.querySelector("#courseList");
