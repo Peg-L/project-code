@@ -1,15 +1,21 @@
 import { currentPageCourses, isLoading, data, lastPage } from "./api.js";
 import { pagination } from "./pagination.js";
-import { userId, isLogin } from "../config.js";
+import { handleClickStartCourseBtn } from "./startCourse.js";
+import { userId, isLogin, currentURL } from "../config.js";
+import { handleLoginModal } from "../header.js";
 import axios from "axios";
 
 const courseList = document.querySelector("#courseList");
 // 日期、數字三位一點規則
 const dateReg = /^(\d{4}-\d{2}-\d{2}).*/;
 const separatorReg = /\B(?=(?:\d{3})+(?!\d))/g;
-// 目前網址
-const currentURL = window.location.href;
+
 const newURL = currentURL.replace("course", "course_intro");
+
+// 點擊 開始上課 -> 加入購物車、優惠券
+if (courseList) {
+  handleClickStartCourseBtn(courseList);
+}
 
 function inputDisable() {
   const inputs = document.querySelectorAll("input");
@@ -318,17 +324,19 @@ function renderCourses() {
   courseList.innerHTML = courseHtml;
 
   let followBtns = document.querySelectorAll(".follow-btn");
-  if (followBtns && isLogin) {
-    followBtns.forEach((followBtn) => {
-      followBtn.addEventListener("click", function () {
+  followBtns.forEach((followBtn) => {
+    followBtn.addEventListener("click", function () {
+      if (followBtns && isLogin) {
         if (followBtn.classList.contains("following")) {
           toggleFollowCourse(followBtn, true);
         } else {
           toggleFollowCourse(followBtn, false);
         }
-      });
+      } else {
+        handleLoginModal();
+      }
     });
-  }
+  });
 }
 
 /*** 渲染 Pagination ***/

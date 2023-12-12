@@ -1,5 +1,5 @@
 import { userId, isLogin } from "../config";
-import { getCartLength, renderCartNum } from "../header";
+import { getCartLength, renderCartNum, handleLoginModal } from "../header";
 import axios from "axios";
 
 let courseId;
@@ -9,10 +9,6 @@ const Toast = Swal.mixin({
   position: "top-end",
   showConfirmButton: false,
   timer: 2000,
-  didOpen: (toast) => {
-    toast.addEventListener("mouseenter", Swal.stopTimer);
-    toast.addEventListener("mouseleave", Swal.resumeTimer);
-  },
 });
 
 let myCart;
@@ -20,24 +16,33 @@ let myCoupons;
 let courseCoupons;
 let hasCoupons;
 
-// coursePage：若直接監聽 button ，因為還沒渲染完會抓不到東西，因此監聽父元素 courseList 的點擊事件
-courseList.addEventListener("click", async (e) => {
-  if (e.target.dataset.course) {
-    // 若有登入，執行加入購物車和優惠券
-    if (isLogin) {
-      courseId = e.target.dataset.course;
-      await getData();
-      // 若沒拿過優惠券(以體驗課 courseCoupons[0].id 為代表判斷)就能獲得優惠券
-      hasCoupons =
-        myCoupons.find((coupon) => coupon.couponId == courseCoupons[0].id) !==
-        undefined;
-      console.log("4654");
-      addCart();
-      checkCoupon();
-      message();
-    }
-  }
-});
+function handleClickStartCourseBtn(parentEl) {
+  document.addEventListener("DOMContentLoaded", () => {
+    parentEl.addEventListener("click", async (e) => {
+      if (e.target.dataset.course && e.target.type === "button") {
+        // 若有登入，執行加入購物車和優惠券
+        if (isLogin) {
+          courseId = e.target.dataset.course;
+          const quantity = Number(e.target.dataset.quantity) || 1;
+          await getData();
+          // 若沒拿過優惠券(以體驗課 courseCoupons[0].id 為代表判斷)就能獲得優惠券
+          hasCoupons =
+            myCoupons.find(
+              (coupon) => coupon.couponId == courseCoupons[0].id
+            ) !== undefined;
+          addCart(quantity);
+          checkCoupon();
+          message();
+        } else {
+          // 若沒登入，打開 登入 modal
+          // loginModal.show();
+
+          handleLoginModal();
+        }
+      }
+    });
+  });
+}
 
 async function getData() {
   try {
@@ -74,19 +79,19 @@ async function message() {
     });
   }
 }
-function addCart() {
+function addCart(quantity) {
   myCart.length
-    ? addQuantityToMyCarts(myCart[0]) // 該課程已在購物車
-    : addCourseToMyCarts(); // 該課程沒在購物車
+    ? addQuantityToMyCarts(myCart[0], quantity) // 該課程已在購物車
+    : addCourseToMyCarts(quantity); // 該課程沒在購物車
 }
 
 // 新增購物車課程
-async function addCourseToMyCarts() {
+async function addCourseToMyCarts(quantity) {
   try {
     const postData = {
       userId,
       courseId,
-      quantity: 1,
+      quantity,
       status: "purchase",
       isNextPurchase: false,
       dueDate: "",
@@ -104,21 +109,22 @@ async function addCourseToMyCarts() {
   }
 }
 
-async function addQuantityToMyCarts(myCarts) {
+async function addQuantityToMyCarts(myCarts, addQuantity) {
   try {
     let { id, quantity, isNextPurchase } = myCarts;
     let patchData = {};
-    // 課程若在 下次再買 就把它移到 購物項目
+    // 課程若在 下次再買 就把它移到 購物項目，另若是按多堂的立即上課，會把數量加到指定堂數，若按一般的立即上課，堂數不變
     if (isNextPurchase) {
       patchData = {
         isNextPurchase: false,
+        quantity: addQuantity === 1 ? quantity : addQuantity,
       };
     }
-    // 課程若在購物項目就加數量
+    // 課程若在購物項目就加數量或加到指定堂數
     else {
       quantity = Number(quantity) + 1;
       patchData = {
-        quantity,
+        quantity: addQuantity === 1 ? quantity++ : addQuantity,
       };
     }
     await axios.patch(`${_url}/myCarts/${id}`, patchData, {
@@ -169,3 +175,5 @@ async function addCoupon(coupon) {
     console.log("addCoupon", error);
   }
 }
+
+export { handleClickStartCourseBtn };

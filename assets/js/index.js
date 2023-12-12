@@ -1,45 +1,6 @@
 import axios from "axios";
-
-// // 圖片 src 修改
-// import treasureImgUrl from "../images/category/treasure.png";
-// document.getElementById("treasureImg1").src = treasureImgUrl;
-// document.getElementById("treasureImg2").src = treasureImgUrl;
-
-// import frontendImgUrl from "../images/category/frontend.svg";
-// document.getElementById("frontendImg").src = frontendImgUrl;
-
-// import backendUrl from "../images/category/backend.svg";
-// document.getElementById("backendUrl").src = backendUrl;
-
-// import databaseUrl from "../images/category/database.svg";
-// document.getElementById("databaseUrl").src = databaseUrl;
-
-// import securityUrl from "../images/category/security.svg";
-// document.getElementById("securityUrl").src = securityUrl;
-
-// import testingUrl from "../images/category/testing.svg";
-// document.getElementById("testingUrl").src = testingUrl;
-
-// import UIUXUrl from "../images/category/UI-UX.svg";
-// document.getElementById("UIUXUrl").src = UIUXUrl;
-
-// import devOpsUrl from "../images/category/DevOps.svg";
-// document.getElementById("devOpsUrl").src = devOpsUrl;
-
-// import mobileUrl from "../images/category/mobile.svg";
-// document.getElementById("mobileUrl").src = mobileUrl;
-
-// import AIUrl from "../images/category/AI.svg";
-// document.getElementById("AIUrl").src = AIUrl;
-
-// import gameUrl from "../images/category/game.svg";
-// document.getElementById("gameUrl").src = gameUrl;
-
-// import basicUrl from "../images/category/basic.svg";
-// document.getElementById("basicUrl").src = basicUrl;
-
-// import careerUrl from "../images/category/career.svg";
-// document.getElementById("careerUrl").src = careerUrl;
+import { userId, isLogin, currentURL } from "./config";
+import { handleClickStartCourseBtn } from "./coursePage/startCourse";
 
 let bannerSwiper = new Swiper(".bannerSwiper", {
   slidesPerView: 1,
@@ -90,6 +51,13 @@ bannerInputs.forEach((bannerInput) => {
   });
 });
 
+// 匹配 / 和 .html 之間的字串
+const regex = /\/[^/]+\.html/;
+// 修改連結網址
+const newURL = regex.test(currentURL)
+  ? currentURL.replace(regex, "/course_intro.html")
+  : currentURL + "course_intro.html";
+
 // 熱門教師 API
 axios.get(`${_url}/courses?_expand=teacher`).then((res) => {
   let courses = res.data;
@@ -110,7 +78,9 @@ axios.get(`${_url}/courses?_expand=teacher`).then((res) => {
     coursesCard += `<div class="card teacher-card swiper-slide">
     <div class="card-body d-flex justify-content-between">
       <div>
-        <h5 class="card-title teacher-card-title truncate-lines-2">${popularCourse.name}
+        <h5 class="card-title teacher-card-title truncate-lines-2">${
+          popularCourse.name
+        }
         </h5>
         <p class="teacher-card-name">${popularCourse.teacher.name}</p>
         <ul class="teacher-card-object">
@@ -132,14 +102,16 @@ axios.get(`${_url}/courses?_expand=teacher`).then((res) => {
       ${popularCourse.info}
       </p>
       <a
-        href="./cart.html"
         type="button"
         class="btn btn-secondary2 w-100 mb-3"
+        data-course="${popularCourse.id}"
+        data-bs-target="#loginModal"
+        ${isLogin ? "" : 'data-bs-toggle="modal"'}
       >
         立即上課
       </a>
       <a
-        href="./course_intro.html"
+        href="${newURL}?courseId=${popularCourse.id}"
         type="button"
         class="btn teacher-card-btn"
         >查看介紹</a
@@ -149,6 +121,9 @@ axios.get(`${_url}/courses?_expand=teacher`).then((res) => {
   });
   swiperWrapper.innerHTML = coursesCard;
 });
+
+// 點擊 開始上課 -> 加入購物車、優惠券
+handleClickStartCourseBtn(document.querySelector(".recommend-swiper"));
 
 // 熱門推薦 查看更多按鈕
 const redirectPopularBtn = document.querySelector("#redirectPopular");

@@ -1,4 +1,5 @@
-import { userId } from "./config";
+import { userId, isLogin, currentURL } from "./config";
+import { handleClickStartCourseBtn } from "./coursePage/startCourse";
 import axios from "axios";
 
 //抓取按鈕
@@ -37,6 +38,19 @@ let pageId = 1;
 let followArray = [];
 let followTotalPages = 0;
 let courseData = [];
+const regex = /\/[^/]+\.html/;
+// 修改連結網址
+const newURL = regex.test(currentURL)
+  ? currentURL.replace(regex, "/course_intro.html")
+  : currentURL + "course_intro.html";
+
+// 關注列表容器
+const followList = document.querySelector("#followList");
+
+// 點擊 開始上課 -> 加入購物車、優惠券
+if (followList) {
+  handleClickStartCourseBtn(followList);
+}
 
 document.addEventListener("DOMContentLoaded", async function () {
   // 取得追蹤列表 + 課程資料
@@ -60,19 +74,20 @@ document.addEventListener("DOMContentLoaded", async function () {
         courseData = coursesResponse.data;
         console.log("追蹤的課程資料", courseData);
 
-        // 關注列表容器
-        const followList = document.querySelector("#followList");
-
         courseData.forEach((courseItem) => {
           courseCards += `<div class="col"><div class="card teacher-card swiper-slide h-100"><button
         type="button"
         class="btn p-3 text-center align-self-start position-absolute top-0 end-0 following"
       >
-        <i class="fa-regular fa-heart fs-4 text-primary fw-bold" data-buttonId="${courseItem.id}"></i>
+        <i class="fa-regular fa-heart fs-4 text-primary fw-bold" data-buttonId="${
+          courseItem.id
+        }"></i>
       </button>
     <div class="card-body d-flex justify-content-between">
       <div>
-        <h5 class="card-title teacher-card-title truncate-lines-2">${courseItem.name}
+        <h5 class="card-title teacher-card-title truncate-lines-2">${
+          courseItem.name
+        }
         </h5>
         <p class="teacher-card-name">${courseItem.teacher.name}</p>
         <ul class="teacher-card-object">
@@ -94,14 +109,16 @@ document.addEventListener("DOMContentLoaded", async function () {
       ${courseItem.info}
       </p>
       <a
-        href="./cart.html"
         type="button"
         class="btn btn-secondary2 w-100 mb-3"
+        data-course="${courseItem.id}"
+        data-bs-target="#loginModal"
+        ${isLogin ? "" : 'data-bs-toggle="modal"'}
       >
         立即上課
       </a>
       <a
-        href="./course_intro.html"
+        href="${newURL}?courseId=${courseItem.id}"
         type="button"
         class="btn teacher-card-btn"
         >查看介紹</a
@@ -109,14 +126,14 @@ document.addEventListener("DOMContentLoaded", async function () {
     </div>
   </div></div>`;
         });
-
         followList.innerHTML = courseCards;
         renderFollowPagination();
         switchPage();
-
         setButtonListeners();
       } else {
         courseCards = `<p class="text-center fs-5">目前沒有追蹤任何課程</p>`;
+        followList.innerHTML = courseCards;
+        renderFollowPagination();
       }
     } catch (error) {
       console.log("錯誤", error);
@@ -170,7 +187,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     let pageButtons = document.querySelectorAll(".pageButton");
 
     prevButton.addEventListener("click", function () {
-      // console.log("點擊上一頁成功");
+      console.log("點擊上一頁成功");
 
       if (pageId > 1) {
         pageId--;
@@ -182,7 +199,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
 
     nextButton.addEventListener("click", function () {
-      // console.log("點擊下一頁成功");
+      console.log("點擊下一頁成功");
       if (followTotalPages > pageId) {
         pageId++;
         // console.log("點擊下一頁後的 pageId", pageId);
@@ -219,6 +236,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   // 取消追蹤
   async function unFollow(e) {
     let buttonId = e.target.dataset.buttonid;
+    console.log("buttonId", buttonId);
 
     let editfollowList = followArray.filter((item) => item != buttonId);
 
@@ -251,8 +269,6 @@ document.addEventListener("DOMContentLoaded", async function () {
               pageId--;
               fetchData();
             }
-
-            renderFollowPagination();
           });
       }
     });
