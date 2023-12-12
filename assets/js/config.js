@@ -3,6 +3,9 @@
 const userId = localStorage.getItem("userId");
 // 取得 登入狀態
 const isLogin = JSON.parse(localStorage.getItem("isLogin"));
-console.log("isLogin", isLogin);
+// console.log("isLogin", isLogin);
 
-export { userId, isLogin };
+// 目前網址
+const currentURL = window.location.href;
+
+export { userId, isLogin, currentURL };
