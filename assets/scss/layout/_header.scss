@@ -129,11 +129,11 @@
     margin: 0;
     right: 0;
     position: absolute;
-    background-image: url("../images/chevron-down.svg");
+    background-image: url("https://raw.githubusercontent.com/Peg-L/project-code/89a637dfbea6e49a34b11aacf46dc07a001b4a90/assets/images/chevron-down.svg");
   }
 
   &:not(.collapsed)::after {
-    background-image: url("../images/chevron-down.svg");
+    background-image: url("https://raw.githubusercontent.com/Peg-L/project-code/89a637dfbea6e49a34b11aacf46dc07a001b4a90/assets/images/chevron-down.svg");
   }
 }
 
