@@ -20,17 +20,17 @@ function handleClickStartCourseBtn(parentEl) {
   document.addEventListener("DOMContentLoaded", () => {
     parentEl.addEventListener("click", async (e) => {
       if (e.target.dataset.course && e.target.type === "button") {
-        console.log(e.target);
         // 若有登入，執行加入購物車和優惠券
         if (isLogin) {
           courseId = e.target.dataset.course;
+          const quantity = Number(e.target.dataset.quantity) || 1;
           await getData();
           // 若沒拿過優惠券(以體驗課 courseCoupons[0].id 為代表判斷)就能獲得優惠券
           hasCoupons =
             myCoupons.find(
               (coupon) => coupon.couponId == courseCoupons[0].id
             ) !== undefined;
-          addCart();
+          addCart(quantity);
           checkCoupon();
           message();
         }
@@ -74,19 +74,19 @@ async function message() {
     });
   }
 }
-function addCart() {
+function addCart(quantity) {
   myCart.length
-    ? addQuantityToMyCarts(myCart[0]) // 該課程已在購物車
-    : addCourseToMyCarts(); // 該課程沒在購物車
+    ? addQuantityToMyCarts(myCart[0], quantity) // 該課程已在購物車
+    : addCourseToMyCarts(quantity); // 該課程沒在購物車
 }
 
 // 新增購物車課程
-async function addCourseToMyCarts() {
+async function addCourseToMyCarts(quantity) {
   try {
     const postData = {
       userId,
       courseId,
-      quantity: 1,
+      quantity,
       status: "purchase",
       isNextPurchase: false,
       dueDate: "",
@@ -104,21 +104,22 @@ async function addCourseToMyCarts() {
   }
 }
 
-async function addQuantityToMyCarts(myCarts) {
+async function addQuantityToMyCarts(myCarts, addQuantity) {
   try {
     let { id, quantity, isNextPurchase } = myCarts;
     let patchData = {};
-    // 課程若在 下次再買 就把它移到 購物項目
+    // 課程若在 下次再買 就把它移到 購物項目，另若是按多堂的立即上課，會把數量加到指定堂數，若按一般的立即上課，堂數不變
     if (isNextPurchase) {
       patchData = {
         isNextPurchase: false,
+        quantity: addQuantity === 1 ? quantity : addQuantity,
       };
     }
-    // 課程若在購物項目就加數量
+    // 課程若在購物項目就加數量或加到指定堂數
     else {
       quantity = Number(quantity) + 1;
       patchData = {
-        quantity,
+        quantity: addQuantity === 1 ? quantity++ : addQuantity,
       };
     }
     await axios.patch(`${_url}/myCarts/${id}`, patchData, {

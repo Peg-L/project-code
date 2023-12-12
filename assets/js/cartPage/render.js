@@ -313,7 +313,6 @@ function updateCourseDiscount() {
 function renderUsedCoupon() {
   const usedCoupons = document.querySelectorAll(".js-usedCoupon");
   usedCoupons.forEach((div, index) => {
-    console.log(usedCouponData, index);
     if (usedCouponData[index].myCouponId === "") {
       div.innerHTML = "";
     } else {

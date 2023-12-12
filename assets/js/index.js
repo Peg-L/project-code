@@ -1,4 +1,5 @@
 import axios from "axios";
+import { userId, isLogin, currentURL } from "./config";
 import { handleClickStartCourseBtn } from "./coursePage/startCourse";
 
 // // 圖片 src 修改
@@ -91,6 +92,13 @@ bannerInputs.forEach((bannerInput) => {
   });
 });
 
+// 匹配 / 和 .html 之間的字串
+const regex = /\/[^/]+\.html/;
+// 修改連結網址
+const newURL = regex.test(currentURL)
+  ? currentURL.replace(regex, "/course_intro.html")
+  : currentURL + "course_intro.html";
+
 // 熱門教師 API
 axios.get(`${_url}/courses?_expand=teacher`).then((res) => {
   let courses = res.data;
@@ -106,13 +114,6 @@ axios.get(`${_url}/courses?_expand=teacher`).then((res) => {
   // 渲染至畫面
   let coursesCard = "";
   const swiperWrapper = document.querySelector(".recommend-swiper");
-
-  // 點擊 開始上課 -> 加入購物車、優惠券
-  handleClickStartCourseBtn(swiperWrapper);
-
-  // 目前網址
-  const currentURL = window.location.href;
-  const newURL = currentURL.replace("index", "course_intro");
 
   popularCourses6th.forEach((popularCourse) => {
     coursesCard += `<div class="card teacher-card swiper-slide">
@@ -157,6 +158,9 @@ axios.get(`${_url}/courses?_expand=teacher`).then((res) => {
   });
   swiperWrapper.innerHTML = coursesCard;
 });
+
+// 點擊 開始上課 -> 加入購物車、優惠券
+handleClickStartCourseBtn(document.querySelector(".recommend-swiper"));
 
 // 熱門推薦 查看更多按鈕
 const redirectPopularBtn = document.querySelector("#redirectPopular");
@@ -292,3 +296,4 @@ let reviewsSwiper = new Swiper(".reviewsSwiper", {
     },
   },
 });
+export { recommendSwiper };
