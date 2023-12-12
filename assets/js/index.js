@@ -1,45 +1,45 @@
 import axios from "axios";
 
-// 圖片 src 修改
-import treasureImgUrl from "../images/category/treasure.png";
-document.getElementById("treasureImg1").src = treasureImgUrl;
-document.getElementById("treasureImg2").src = treasureImgUrl;
+// // 圖片 src 修改
+// import treasureImgUrl from "../images/category/treasure.png";
+// document.getElementById("treasureImg1").src = treasureImgUrl;
+// document.getElementById("treasureImg2").src = treasureImgUrl;
 
-import frontendImgUrl from "../images/category/frontend.svg";
-document.getElementById("frontendImg").src = frontendImgUrl;
+// import frontendImgUrl from "../images/category/frontend.svg";
+// document.getElementById("frontendImg").src = frontendImgUrl;
 
-import backendUrl from "../images/category/backend.svg";
-document.getElementById("backendUrl").src = backendUrl;
+// import backendUrl from "../images/category/backend.svg";
+// document.getElementById("backendUrl").src = backendUrl;
 
-import databaseUrl from "../images/category/database.svg";
-document.getElementById("databaseUrl").src = databaseUrl;
+// import databaseUrl from "../images/category/database.svg";
+// document.getElementById("databaseUrl").src = databaseUrl;
 
-import securityUrl from "../images/category/security.svg";
-document.getElementById("securityUrl").src = securityUrl;
+// import securityUrl from "../images/category/security.svg";
+// document.getElementById("securityUrl").src = securityUrl;
 
-import testingUrl from "../images/category/testing.svg";
-document.getElementById("testingUrl").src = testingUrl;
+// import testingUrl from "../images/category/testing.svg";
+// document.getElementById("testingUrl").src = testingUrl;
 
-import UIUXUrl from "../images/category/UI-UX.svg";
-document.getElementById("UIUXUrl").src = UIUXUrl;
+// import UIUXUrl from "../images/category/UI-UX.svg";
+// document.getElementById("UIUXUrl").src = UIUXUrl;
 
-import devOpsUrl from "../images/category/DevOps.svg";
-document.getElementById("devOpsUrl").src = devOpsUrl;
+// import devOpsUrl from "../images/category/DevOps.svg";
+// document.getElementById("devOpsUrl").src = devOpsUrl;
 
-import mobileUrl from "../images/category/mobile.svg";
-document.getElementById("mobileUrl").src = mobileUrl;
+// import mobileUrl from "../images/category/mobile.svg";
+// document.getElementById("mobileUrl").src = mobileUrl;
 
-import AIUrl from "../images/category/AI.svg";
-document.getElementById("AIUrl").src = AIUrl;
+// import AIUrl from "../images/category/AI.svg";
+// document.getElementById("AIUrl").src = AIUrl;
 
-import gameUrl from "../images/category/game.svg";
-document.getElementById("gameUrl").src = gameUrl;
+// import gameUrl from "../images/category/game.svg";
+// document.getElementById("gameUrl").src = gameUrl;
 
-import basicUrl from "../images/category/basic.svg";
-document.getElementById("basicUrl").src = basicUrl;
+// import basicUrl from "../images/category/basic.svg";
+// document.getElementById("basicUrl").src = basicUrl;
 
-import careerUrl from "../images/category/career.svg";
-document.getElementById("careerUrl").src = careerUrl;
+// import careerUrl from "../images/category/career.svg";
+// document.getElementById("careerUrl").src = careerUrl;
 
 let bannerSwiper = new Swiper(".bannerSwiper", {
   slidesPerView: 1,
@@ -225,7 +225,7 @@ axios.get(`${_url}/comments?_expand=user`).then((res) => {
       <div class="d-flex justify-content-between flex-column gap-4">
         <img
           class="w-40px h-40px"
-          src="../assets/images/comma.png"
+          src="https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/comma.png"
           alt="逗號"
         />
         <p>
