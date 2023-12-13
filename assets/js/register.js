@@ -38,14 +38,15 @@ passwordCheckInput.addEventListener("input", passwordCheckValidate);
 const userInfo = {
   email: "",
   password: "",
-  user_phone: "",
-  user_name: "",
-  user_role: "學生",
-  user_title: "",
-  user_avatar: "",
-  user_birthdate: "",
-  user_gender: "",
-  user_address: "",
+  phone: "",
+  name: "",
+  role: "學生",
+  title: "",
+  avatar:
+    "https://raw.githubusercontent.com/Peg-L/project-code/0a1e1a3dcd659bc9a4c72332f12ef660630a103e/assets/images/logo-img.svg",
+  birthdate: "",
+  gender: "",
+  address: "",
   followList: [],
 };
 
@@ -78,7 +79,7 @@ function emailValidate() {
 // - 驗證 姓名 格式
 function nameValidate() {
   const nameValue = nameInput.value;
-  userInfo.user_name = nameValue;
+  userInfo.name = nameValue;
 
   const nameRegex = /^.{1,20}$/;
 
@@ -95,7 +96,7 @@ function nameValidate() {
 // - 驗證 手機 格式
 function phoneValidate() {
   const phoneValue = phoneInput.value;
-  userInfo.user_phone = phoneValue;
+  userInfo.phone = phoneValue;
 
   const phoneRegex = /^09\d{8}$/;
 
@@ -285,9 +286,9 @@ if (googleRegister) {
 
         userInfo.email = user.email;
         userInfo.password = "00000000"; // 需要密碼才能 post 進 json server auth
-        userInfo.user_name = user.email;
-        userInfo.user_phone = user.phoneNumber;
-        userInfo.user_avatar = user.photoURL;
+        userInfo.name = user.email;
+        userInfo.phone = user.phoneNumber;
+        userInfo.avatar = user.photoURL;
 
         handleRegister(userInfo, true);
       })
