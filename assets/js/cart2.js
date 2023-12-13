@@ -65,7 +65,6 @@ async function getPurchasedCart() {
 
 async function getUserCourses() {
   try {
-    const userId = 1; // 測試用
     const api = `${_url}/user_courses?userId=${userId}`;
     const { data } = await axios.get(api);
     attendTimeData = data[0].attendTime;
