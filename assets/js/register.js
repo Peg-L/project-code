@@ -377,3 +377,5 @@ verifyBtn.addEventListener("click", function () {
       console.log(error);
     });
 });
+
+export { addIsValid, addIsInvalid };
