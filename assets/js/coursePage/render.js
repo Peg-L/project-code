@@ -242,7 +242,7 @@ function renderCourses() {
                       class="d-flex justify-content-end align-items-center"
                     >
                       <img
-                        class="me-2 d-none d-md-block w-40px h-40px"
+                        class="me-2 d-none d-md-block w-40px h-40px rounded-circle"
                         src="${item.comment?.user?.avatar}"
                         alt="student"
                       />

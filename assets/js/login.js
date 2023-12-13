@@ -16,14 +16,14 @@ let passwordLoginValue;
 const userInfo = {
   email: "",
   password: "",
-  user_phone: "",
-  user_name: "",
-  user_role: "學生",
-  user_title: "",
-  user_avatar: "",
-  user_birthdate: "",
-  user_gender: "",
-  user_address: "",
+  phone: "",
+  name: "",
+  role: "學生",
+  title: "",
+  avatar: "",
+  birthdate: "",
+  gender: "",
+  address: "",
   followList: [],
 };
 
