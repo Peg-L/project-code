@@ -11,6 +11,7 @@ if (indexSearchInput) {
   data.q = indexSearchInput;
   getCoursesData(data);
   data.q = "";
+  localStorage.removeItem("indexSearchInput");
 }
 
 const courseSearchButton = document.querySelector(".course-search-button");
@@ -18,7 +19,6 @@ const courseSearchButton = document.querySelector(".course-search-button");
 courseSearchButton.addEventListener("click", function () {
   data.q = courseSearchInput.value;
   getCoursesData(data);
-  localStorage.removeItem("indexSearchInput");
 });
 
 courseSearchInput.addEventListener("keyup", function (e) {
