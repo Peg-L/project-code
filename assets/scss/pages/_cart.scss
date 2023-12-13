@@ -1,46 +1,51 @@
 .stepbar {
-    position: relative;
-    &::before {
-      position: absolute;
-      content: "";
-      width: 87%;
-      height: 3px;
-      top: 16px;
-      left: 32px;
-      background-color: $secondary;
-      z-index: -1;
-      @include media-breakpoint-up(md) {
-        top: 24px;
-        left: 48px;
-      }
-    }
-  }
-  .stepbar-item {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 3px solid $secondary;
-    border-radius: 50%;
-    font-weight: 700;
-    color: #000;
-    background-color: $body-bg;
-  
-    &.ready {
-      background-color: $primary;
-      color: $white;
-    }
+  position: relative;
+  &::before {
+    position: absolute;
+    content: "";
+    width: 87%;
+    height: 3px;
+    top: 16px;
+    left: 32px;
+    background-color: $secondary;
+    z-index: -1;
     @include media-breakpoint-up(md) {
-      font-size: 1.125rem;
-      width: 52px;
-      height: 52px;
+      top: 24px;
+      left: 48px;
     }
   }
+}
+.stepbar-item {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid $secondary;
+  border-radius: 50%;
+  font-weight: 700;
+  color: #000;
+  background-color: $body-bg;
+
+  &.ready {
+    background-color: $primary;
+    color: $white;
+  }
+  @include media-breakpoint-up(md) {
+    font-size: 1.125rem;
+    width: 52px;
+    height: 52px;
+  }
+}
 
 .text-deleted {
   text-decoration-color: $danger;
   text-decoration-line: line-through;
   text-decoration-thickness: 3px;
   color: $gray-600;
+}
+
+.btn-addAppointment:disabled,
+.btn-reduceAppointment:disabled {
+  opacity: 0.5;
 }

@@ -1,7 +1,8 @@
-// 記得改 userId
+import { userId } from "./config";
+import axios from "axios";
+
 const couponPageArrow = document.querySelectorAll(".js-couponPageArrow");
 
-const apiUrl = "http://localhost:3000";
 let myCoupons = [];
 let couponCurrentPage = 1;
 let couponLastPage;
@@ -14,7 +15,7 @@ async function checkDueDate() {
     if (new Date(coupon.dueDate).getTime() < today) {
       try {
         await axios.patch(
-          `${apiUrl}/myCoupons/${coupon.id}`,
+          `${_url}/myCoupons/${coupon.id}`,
           {
             canUse: false,
           },
@@ -24,13 +25,11 @@ async function checkDueDate() {
             },
           }
         );
-        console.log("過期", coupon);
         getCoupons();
       } catch (error) {
         console.log("checkDueDate", error);
       }
     } else {
-      console.log("沒過期");
       renderCoupons();
       renderCouponPagination();
     }
@@ -39,14 +38,14 @@ async function checkDueDate() {
 // 取得 coupons
 async function getCoupons() {
   try {
-    let userId = 1; // 假設的
-    const couponUrl = `${apiUrl}/myCoupons?_expand=coupon&canUse=true&userId=${userId}&_page=${couponCurrentPage}&_limit=6_sort=dueDate&_order=asc`;
+    const couponUrl = `${_url}/myCoupons?_expand=coupon&canUse=true&userId=${userId}&_page=${couponCurrentPage}&_limit=6_sort=dueDate&_order=asc`;
     const res = await axios.get(couponUrl);
+
     let myCouponsNum = parseInt(res.headers.get("X-Total-Count"));
     // 展開老師資料
-    for (item of res.data) {
+    for (let item of res.data) {
       const { data } = await axios.get(
-        `${apiUrl}/coupons/${item.couponId}?_expand=teacher`
+        `${_url}/coupons/${item.couponId}?_expand=teacher`
       );
       item.coupon = data;
     }
@@ -65,8 +64,6 @@ async function getCoupons() {
 
 //渲染 Coupons
 function renderCoupons() {
-  console.log("123", myCoupons);
-  console.log("123", myCoupons.length);
   // 日期規則
   const dateReg = /^(\d{4}-\d{2}-\d{2}).*/;
   // 選取 優惠券ul
@@ -88,7 +85,7 @@ function renderCoupons() {
                     class="img-fluid w-100 rounded-circle img-thumbnail border-0"
                     src="${
                       myCoupon.coupon.type === "allCourse"
-                        ? "../assets/images/logo-img.svg"
+                        ? "https://raw.githubusercontent.com/Peg-L/project-code/89a637dfbea6e49a34b11aacf46dc07a001b4a90/assets/images/logo-img.svg"
                         : myCoupon.coupon.teacher.avatar
                     }"
                     alt="teacher"
@@ -117,9 +114,17 @@ function renderCoupons() {
                   </div>
                   <div class="col-3 d-flex align-items-center pe-4">
                     <a
-                      href="course.html"
+                      href="${
+                        myCoupon.coupon.type === "allCourse"
+                          ? "course.html"
+                          : `course_intro.html?courseId=${myCoupon.coupon.courseId}`
+                      }"
                       class="btn btn-secondary2 px-1 px-sm-4 w-100"
-                      >馬上使用</a
+                      >${
+                        myCoupon.coupon.type === "allCourse"
+                          ? "立即選購"
+                          : "課程介紹"
+                      }</a
                     >
                   </div>
                 </div>
@@ -167,3 +172,5 @@ couponPageArrow.forEach((arrow, index) => {
     }
   });
 });
+
+export { getCoupons, renderCoupons };

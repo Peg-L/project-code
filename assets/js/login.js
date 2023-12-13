@@ -4,6 +4,7 @@ import {
   auth,
   GoogleAuthProvider,
 } from "./firebase";
+import axios from "axios";
 
 const loginButton = document.querySelector("#loginButton");
 
@@ -23,6 +24,7 @@ const userInfo = {
   user_birthdate: "",
   user_gender: "",
   user_address: "",
+  followList: [],
 };
 
 let token = "";

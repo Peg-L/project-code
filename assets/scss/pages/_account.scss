@@ -1,5 +1,5 @@
 .bg-account {
-  background-image: url("../images/bg-gray-dot.jpg");
+  background-image: url("https://raw.githubusercontent.com/Peg-L/project-code/main/assets/images/bg-gray-dot.jpg");
   height: 148px;
   background-size: cover;
   position: relative;
@@ -21,7 +21,7 @@
       &::before {
         position: absolute;
         vertical-align: middle;
-        content: "已預約";
+        content: "查看課程";
         display: flex;
         align-items: center;
         justify-content: center;

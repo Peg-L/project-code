@@ -1,6 +1,7 @@
 import { inputDisable, renderCourses, renderPagination } from "./render.js";
 import { handleFilterNum } from "./filter.js";
-// const _url = "https://project-code-json-k0ti.onrender.com";
+import axios from "axios";
+
 let totalSearchNum = document.querySelector(".js-totalSearchNum");
 let currentPageCourses = [];
 let allCoursesNum;
@@ -27,11 +28,13 @@ init();
 function init() {
   const indexSearchInput = localStorage.getItem("indexSearchInput");
   const cateItemName = sessionStorage.getItem("cateItemName");
+  const redirectToPopular = localStorage.getItem("redirectToPopular");
+  console.log(redirectToPopular);
 
-  if (!indexSearchInput && !cateItemName) {
+  if (!indexSearchInput && !cateItemName && !redirectToPopular) {
     getCoursesData(data);
-    getAllData(data);
   }
+  getAllData(data);
 }
 
 /*** api-取得卡片內容 ***/
