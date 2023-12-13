@@ -78,20 +78,6 @@ async function getCoupons() {
     const userUrl = `${_url}/myCoupons?_expand=coupon&userId=${userId}&_sort=couponId&_order=asc`;
     const { data } = await axios.get(userUrl);
 
-    if (data.length) {
-      const couponUrls = data.map((item) => {
-        return `${_url}/coupons/${item.couponId}?_expand=teacher&_expand=course`;
-      });
-
-      const responses = await Promise.all(
-        couponUrls.map((couponUrl) => axios.get(couponUrl))
-      );
-
-      data.forEach((item, index) => {
-        item.coupon = responses[index].data;
-      });
-    }
-
     myCoupons = data;
 
     // 確認有無過期
@@ -146,8 +132,8 @@ function getCartCouponsData() {
   // 先清空之前的資料
   cartCoupons = [];
   // 篩選出任何課程都能使用的優惠券
-  myCoupons.forEach((coupon) => {
-    if (coupon.coupon.type === "allCourse") {
+  myCoupons.forEach((myCoupon) => {
+    if (myCoupon.coupon.type === "allCourse") {
       const {
         courseId,
         type,
@@ -155,9 +141,9 @@ function getCartCouponsData() {
         minSpending,
         discountCourseNum,
         discount,
-      } = coupon.coupon;
+      } = myCoupon.coupon;
       const obj = {
-        myCouponId: coupon.id,
+        myCouponId: myCoupon.id,
         originPrice: null,
         courseId,
         type,
@@ -171,8 +157,11 @@ function getCartCouponsData() {
   });
   // 篩選出在購物車的課程的優惠券
   myCarts.forEach((cart) => {
-    myCoupons.forEach((coupon) => {
-      if (coupon.coupon.type === "course") {
+    myCoupons.forEach((myCoupon) => {
+      if (
+        myCoupon.coupon.type === "course" &&
+        cart.courseId == myCoupon.coupon.courseId
+      ) {
         const {
           courseId,
           type,
@@ -180,12 +169,12 @@ function getCartCouponsData() {
           discount,
           minSpending,
           discountCourseNum,
-        } = coupon.coupon;
-        const { price } = coupon.coupon.course;
+        } = myCoupon.coupon;
+        const originPrice = cart.course.price;
         if (courseId == cart.courseId) {
           const obj = {
-            myCouponId: coupon.id,
-            originPrice: price,
+            myCouponId: myCoupon.id,
+            originPrice,
             courseId,
             type,
             title,
