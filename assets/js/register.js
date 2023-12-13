@@ -163,7 +163,6 @@ function handleRegister(userInfo, isGoogle) {
     .post(`${_url}/users`, userInfo)
     .then((res) => {
       console.log(res.data);
-
       let userEmail = maskEmail(userInfo.email);
       const emailVerified = document.querySelector("#emailVerified");
       emailVerified.innerHTML = isGoogle
@@ -191,6 +190,9 @@ class="text-center mb-2 d-flex justify-content-between align-items-center"
       const registerSuccessModal = new bootstrap.Modal("#registerSuccess");
 
       registerSuccessModal.show();
+
+      // 新增新註冊的使用者相關資料
+      postNewUserRelatedData(res.data.user.id);
     })
     .catch((err) => {
       console.error(err);
@@ -203,6 +205,42 @@ class="text-center mb-2 d-flex justify-content-between align-items-center"
         });
       }
     });
+}
+
+// 新增新註冊的使用者相關資料(獲得優惠券、使用者上課紀錄容器)
+async function postNewUserRelatedData(userId) {
+  try {
+    const headers = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    let timestamp = Date.now(); //毫秒
+    // 到期日的 23:59:59 過期
+    let dueDate = new Date(timestamp);
+    dueDate.setDate(dueDate.getDate() + 30);
+    dueDate.setHours(23, 59, 59, 999);
+    // 優惠券
+    const couponData = {
+      userId,
+      couponId: 1,
+      canUse: true,
+      timestamp,
+      dueDate,
+    };
+    // 使用者上課紀錄容器
+    const userCourseData = {
+      userId,
+      purchased: [],
+      attendTime: [],
+    };
+    await Promise.all([
+      axios.post(`${_url}/myCoupons`, couponData, headers),
+      axios.post(`${_url}/user_courses`, userCourseData, headers),
+    ]);
+  } catch (error) {
+    console.log("postNewUserRelatedData", error);
+  }
 }
 
 // 送出按鈕

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { myCarts } from "./cart";
+import { myCarts, headers } from "./cart";
 import { userId } from "../config";
 import { renderCoupon, renderCouponOption } from "./render";
 
@@ -238,7 +238,7 @@ function handleToUseCoupon() {
             const courseNum = li.querySelector("input[name='count']");
             // 判斷是否符合條件-購買課程數量
             if (
-              discountCourseNum === "" ||
+              discountCourseNum === null ||
               discountCourseNum <= courseNum.value
             ) {
               // 若該課程還沒使用優惠券
@@ -313,7 +313,7 @@ function reCheckCoupon(cartCourseId, quantity) {
       // 找到指定課程優惠券是哪個欄位的
       if (courseId == cartCourseId) {
         // 判斷是否符合條件-購買課程數量
-        if (discountCourseNum === "" || discountCourseNum <= quantity) {
+        if (discountCourseNum === null || discountCourseNum <= quantity) {
           // 更新特定課程優惠券的折價
           // updateUsedCoupon(index, coupon);
           coupon.discountPrice = calculateDiscountPrice(coupon);

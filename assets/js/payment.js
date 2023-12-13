@@ -1,6 +1,8 @@
+import axios from "axios";
 /***** 付款按鈕 *****/
 import { patchMyCoupon } from "./coupon";
 import { renderPaymentInfo } from "./render";
+import { myCarts, headers } from "./cart";
 
 // 取得 付款資訊按鈕
 const paymentInfoBtns = document.querySelectorAll(".js-paymentInfoBtn");
@@ -35,5 +37,7 @@ async function patchMyCarts() {
         return axios.patch(url, patchData, headers);
       })
     );
-  } catch (error) {}
+  } catch (error) {
+    console.log("patchMyCarts", error);
+  }
 }
