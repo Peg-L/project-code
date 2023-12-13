@@ -282,11 +282,11 @@ if (googleRegister) {
         const token = credential.accessToken;
         // The signed-in user info.
         const user = result.user;
-        console.log(user);
+        console.log("user", user);
 
         userInfo.email = user.email;
         userInfo.password = "00000000"; // 需要密碼才能 post 進 json server auth
-        userInfo.name = user.email;
+        userInfo.name = user.displayName;
         userInfo.phone = user.phoneNumber;
         userInfo.avatar = user.photoURL;
 
