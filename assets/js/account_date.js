@@ -28,17 +28,15 @@ function init() {
     });
 }
 
-function updateData() {
-  //課表生成
-  const daysDate = document.querySelectorAll(".calendar-time");
-  daysDate.forEach((item) => {
-    let dataNum = item.getAttribute("data-num"); //拿日期
-    let matchData = findMatchData(dataNum); //日期比對
-    let str = "";
-    if (matchData.length !== 0) {
-      //取得當前預約課程
-      for (let i = 0; i < matchData.length; i++) {
-        str += `<li><a href=''
+function updateData() { //課表生成
+    const daysDate = document.querySelectorAll('.calendar-time');
+    daysDate.forEach(item => {
+        let dataNum = item.getAttribute('data-num'); //拿日期
+        let matchData = findMatchData(dataNum); //日期比對
+        let str = '';
+        if (matchData.length !== 0) { //取得當前預約課程
+            for(let i=0;i<matchData.length;i++){
+                str += `<li class="c2"><a href=''
                 data-bs-toggle="modal"
                 data-bs-target="#calendarModal"
                 data-course-id="${matchData[i].courseId}"
