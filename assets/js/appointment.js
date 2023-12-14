@@ -524,7 +524,13 @@ function updateTeacherList() {
                       })
                       .then((response) => {
                         console.log("delete success");
-                        location.reload();
+                        Swal.fire({
+                          icon: "success",
+                          title: "取消預約成功",
+                          showConfirmButton: false,
+                          timer: 1500
+                        });
+                        updateTeacherList()
                       })
                       .catch((error) => {
                         console.error("Error adding post:", error);
