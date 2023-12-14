@@ -47,7 +47,7 @@ const renderCalendar = () => {
             currYear === new Date().getFullYear()
               ? "active"
               : "";
-              let dateAttribute = `${currMonth + 1}/${String(i).padStart(2, '0')}`;
+              let dateAttribute = `${currYear}/${currMonth + 1}/${String(i).padStart(2, '0')}`;
               liTag += `<li class="${isToday}" data-day="${dateAttribute}">${i}</li>`;
         }
 
@@ -238,7 +238,7 @@ function updateTeacherList() {
                                 type="text"
                                 name="accountDate1-1"
                                 placeholder="日期"
-                                value="2023/${item.day}"
+                                value="${item.day}"
                                 autocomplete="off"
                                 data-courseId="${item.id}"
                                 data-uid="${item.uid}"
@@ -336,7 +336,7 @@ function updateTeacherList() {
                     // console.log(selectCourse.teacher.openTime.find(day=>day.date === vm.value.slice(5)));
                     const courseDay = {
                       ...selectCourse.teacher.openTime.find(
-                        (day) => day.date === vm.value.slice(5)
+                        (day) => day.date === vm.value
                       ),
                     };
                     console.log(courseDay);
@@ -433,7 +433,7 @@ function updateTeacherList() {
                           });
                           // console.log(getCurrentData,findIndex);
                           oldData.splice(findIndex, 1);
-                          getCurrentData.date = get2[0].value.slice(5);
+                          getCurrentData.date = get2[0].value
                           getCurrentData.time = get2[1].value;
                           getCurrentData.isCheck = false;
                           // console.log(getCurrentData);
@@ -500,7 +500,7 @@ function updateTeacherList() {
                       axios.get(`${_url}/teachers/${teacherId}`).then((res) => {
                         const oldOpenTime = [...res.data.openTime];
                         const findDataIdx = oldOpenTime.findIndex(
-                          (time) => time.date === get2[0].value.slice(5)
+                          (time) => time.date === get2[0].value
                         );
                         const newOpenTime = oldOpenTime[
                           findDataIdx

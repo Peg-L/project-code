@@ -67,7 +67,6 @@ export default defineConfig({
     outDir: "dist",
   },
   define: {
-    _url: '"http://localhost:3000"',
-    // _url: '"https://project-code-json-k0ti.onrender.com"',
+    _url: '"https://project-code-json-k0ti.onrender.com"',
   },
 });
