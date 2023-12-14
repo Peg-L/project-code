@@ -79,17 +79,13 @@ function handlePriceFilter() {
 
   // 把 input 的值清空時
   if (isNaN(priceInputValue)) {
-    // data.price_lte 不是初始值時才呼叫api
-    if (priceApi !== priceDefault) {
-      if (this === minPrice) {
-        data.price_gte = priceInputValue;
-      } else if (this === maxPrice) {
-        data.price_lte = priceInputValue;
-      }
-
-      // 進行篩選呼叫api
-      runFilter();
+    if (this === minPrice) {
+      data.price_gte = priceDefault;
+    } else if (this === maxPrice) {
+      data.price_lte = priceDefault;
     }
+    // 進行篩選呼叫api
+    runFilter();
   }
   // input 輸入數值時
   else {
