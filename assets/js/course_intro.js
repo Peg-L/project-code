@@ -52,6 +52,8 @@ function init(){
       youCanGet.innerHTML = str;
       //section4(calendar)
       updateData();
+       // 取得多堂預約價格
+       getDiscountedPrices();
   })
 }
 function updateData() {
