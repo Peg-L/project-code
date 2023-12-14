@@ -19,11 +19,11 @@ attendSubmit.addEventListener('click',(e) => {
 
 function viewTimeCourse(clickCourse = document.querySelector('.book-card').getAttribute('data-courseid'),clickDay){
     if (clickCourse!==""&&clickDay!==""&&userId!==""){
-        console.log(clickCourse,clickDay);
+        // console.log(clickCourse,clickDay);
         axios.get(`${_url}/courses/${clickCourse}?_expand=teacher`)
         .then(function(response){
                 const filteredTimeCourse = response.data.teacher.openTime.filter(item=>item.date === clickDay);
-                console.log(filteredTimeCourse);
+                //console.log(filteredTimeCourse);
                 if(filteredTimeCourse.length>0){
                     const viewTime = filteredTimeCourse[0].time;
                     function isUseDate(time){
@@ -106,6 +106,7 @@ function postAttendCourse(clickCourse,clickDay,userId,clickTime){
                 showConfirmButton: false,
                 timer: 1500
             });
+            updateTeacherList();
         })
         .catch(error => {
             console.error('Error adding post:', error);

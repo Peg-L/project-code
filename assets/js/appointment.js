@@ -64,7 +64,7 @@ function updateTeacherList(){
                 console.error(err); 
             })
         }
-        function mergeManageData(data){ //處裡課程管理
+        function mergeManageData(data){ //處理課程管理
             let str = '';
             axios.get(`${_url}/courses?_expand=teacher`)
             .then(function(response){
@@ -80,135 +80,138 @@ function updateTeacherList(){
                     }
                 });
                 // console.log(arr);
-                arr.forEach((item,idx) => {//課程管理列表
-                  let ischeck_str ='';
-                  if(item.isCheck){
-                    ischeck_str = 
-                    `<button
-                    type="button"
-                    class="btn btn-secondary2 w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
-                    id="ready-${item.uid}"
-                  >
-                    即將上課
-                  </button>`
-                  }else{
-                    ischeck_str = 
-                    `<button
-                    type="button"
-                    class="btn btn-secondary2 w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
-                    id="check-${item.uid}"
-                    disabled
-                  >
-                    等待確認中
-                  </button>`
-                  }
-                    str += `<li class="course-card shadow w-100 w-xl-75">
-                    <div class="d-flex flex-grow-1 p-3 p-sm-4 align-items-center">
-                      <div class="course-card-header me-4">
-                        <a href="#" class="text-center">
-                          <div class="mb-2">
-                            <img
-                              class="avatar"
-                              src="${item.teacher.avatar}"
-                              alt="teacher"
-                            />
-                          </div>
-                          <h3 class="fs-7 fs-md-6 text-secondary2 mb-1">${item.teacher.name}</h3>
-                        </a>
-                        <!-- link -->
-                      </div>
-                      <div class="flex-grow-1 px-4 px-lg-8">
-                        <!-- 課程名稱 -->
-                        <div
-                          class="d-flex flex-md-row flex-column justify-content-md-between mb-md-0 mb-2"
-                        >
-                          <h2 class="fs-6 fs-sm-5 fs-md-4 line-ellipsis mb-2">
-                          ${item.name}
-                          </h2>
-                        </div>
-                        <!-- 課程介紹 -->
-                        <div
-                          class="d-flex flex-md-row flex-column justify-content-md-between mb-2 mb-md-4"
-                        >
-                          <p class="fs-sm fs-sm-7 fs-md-6 text-justify mb-md-0 mb-4">
-                            50分鐘 x <span class="text-primary">1堂</span>
-                          </p>
-                          <div class="d-flex flex-md-row flex-column gap-2">
-                            <div class="w-150px">
-                              <input
-                                class="form-control border-light cursor-pointer jq-appointmentDate${idx} ${item.uid}"
-                                type="text"
-                                name="accountDate1-1"
-                                placeholder="日期"
-                                value="2023/${item.day}"
-                                autocomplete="off"
-                                data-courseId="${item.id}"
-                                data-uid="${item.uid}"
-                                id="date"
-                                disabled
-                                required
+                function management_render(){
+                  arr.forEach((item,idx) => {//課程管理列表
+                    let ischeck_str ='';
+                    if(item.isCheck){
+                      ischeck_str = 
+                      `<button
+                      type="button"
+                      class="btn btn-secondary2 w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
+                      id="ready-${item.uid}"
+                    >
+                      即將上課
+                    </button>`
+                    }else{
+                      ischeck_str = 
+                      `<button
+                      type="button"
+                      class="btn btn-secondary2 w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
+                      id="check-${item.uid}"
+                      disabled
+                    >
+                      等待確認中
+                    </button>`
+                    }
+                      str += `<li class="course-card shadow w-100 w-xl-75">
+                      <div class="d-flex flex-grow-1 p-3 p-sm-4 align-items-center">
+                        <div class="course-card-header me-4">
+                          <a href="#" class="text-center">
+                            <div class="mb-2">
+                              <img
+                                class="avatar"
+                                src="${item.teacher.avatar}"
+                                alt="teacher"
                               />
                             </div>
-                    
-                            <div class="w-150px">
-                              <select
-                                class="form-select border border-light ${item.uid}"
-                                id="time"
-                                disabled
+                            <h3 class="fs-7 fs-md-6 text-secondary2 mb-1">${item.teacher.name}</h3>
+                          </a>
+                          <!-- link -->
+                        </div>
+                        <div class="flex-grow-1 px-4 px-lg-8">
+                          <!-- 課程名稱 -->
+                          <div
+                            class="d-flex flex-md-row flex-column justify-content-md-between mb-md-0 mb-2"
+                          >
+                            <h2 class="fs-6 fs-sm-5 fs-md-4 line-ellipsis mb-2">
+                            ${item.name}
+                            </h2>
+                          </div>
+                          <!-- 課程介紹 -->
+                          <div
+                            class="d-flex flex-md-row flex-column justify-content-md-between mb-2 mb-md-4"
+                          >
+                            <p class="fs-sm fs-sm-7 fs-md-6 text-justify mb-md-0 mb-4">
+                              50分鐘 x <span class="text-primary">1堂</span>
+                            </p>
+                            <div class="d-flex flex-md-row flex-column gap-2">
+                              <div class="w-150px">
+                                <input
+                                  class="form-control border-light cursor-pointer jq-appointmentDate${idx} ${item.uid}"
+                                  type="text"
+                                  name="accountDate1-1"
+                                  placeholder="日期"
+                                  value="2023/${item.day}"
+                                  autocomplete="off"
+                                  data-courseId="${item.id}"
+                                  data-uid="${item.uid}"
+                                  id="date"
+                                  disabled
+                                  required
+                                />
+                              </div>
+                      
+                              <div class="w-150px">
+                                <select
+                                  class="form-select border border-light ${item.uid}"
+                                  id="time"
+                                  disabled
+                                >
+                                  <option selected>${item.time}</option>
+                                </select>
+                              </div>
+                              <button
+                                type="button"
+                                class="btn text-primary"
+                                data-course="${item.uid}"
+                                id="change"
                               >
-                                <option selected>${item.time}</option>
-                              </select>
+                                修改
+                              </button>
                             </div>
-                            <button
-                              type="button"
-                              class="btn text-primary"
-                              data-course="${item.uid}"
-                              id="change"
-                            >
-                              修改
-                            </button>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <!--  按鈕區塊 -->
-                    <div
-                      class="course-card-footer d-flex flex-lg-row justify-content-center gap-2 gap-sm-6 p-4 bg-secondary"
-                      id="btnBlock"
-                    >
-                      <!-- 購買按鈕 -->
-                      
-                      ${ischeck_str}
-                      <a
-                        href="#"
-                        type="button"
-                        class="btn btn-white w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
-                        data-course="${item.uid}"
-                        data-courseId="${item.id}"
-                        id="deleteCourse"
+                      <!--  按鈕區塊 -->
+                      <div
+                        class="course-card-footer d-flex flex-lg-row justify-content-center gap-2 gap-sm-6 p-4 bg-secondary"
+                        id="btnBlock"
                       >
-                        取消預約
-                      </a>
-                    </div>
-                    <div
-                      class="collapse course-card-footer p-4 bg-secondary"
-                      id="save0"
-                    >
-                      <a
-                        href="#"
-                        type="button"
-                        class="btn btn-white w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#save0"
-                        aria-expanded="false"
-                        aria-controls="save0"
-                        id="saveBtn"
+                        <!-- 購買按鈕 -->
+                        
+                        ${ischeck_str}
+                        <a
+                          href="#"
+                          type="button"
+                          class="btn btn-white w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
+                          data-course="${item.uid}"
+                          data-courseId="${item.id}"
+                          id="deleteCourse"
+                        >
+                          取消預約
+                        </a>
+                      </div>
+                      <div
+                        class="collapse course-card-footer p-4 bg-secondary"
+                        id="save0"
                       >
-                        儲存
-                      </a>
-                    </div>
-                    </li>`;
-                });
+                        <a
+                          href="#"
+                          type="button"
+                          class="btn btn-white w-100 fs-sm fs-sm-7 py-1 px-2 py-sm-2 px-sm-4"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#save0"
+                          aria-expanded="false"
+                          aria-controls="save0"
+                          id="saveBtn"
+                        >
+                          儲存
+                        </a>
+                      </div>
+                      </li>`;
+                  });
+                  course_management.innerHTML = str;//課程管理頁面刷新
+                }
                 $.datepicker.setDefaults($.datepicker.regional["zh-TW"]);
                 $(function () {
                   $("[class*=jq-appointmentDate]").each(function(index) {
@@ -220,7 +223,6 @@ function updateTeacherList(){
                       formatDate: "yy-mm-dd",
                       showButtonPanel: true,
                       onSelect: function(){
-                        console.log(vm.getAttribute('data-uid'),vm.getAttribute('data-courseId'));
                         let str = '';
                         const getSelect = document.querySelectorAll(`.${vm.getAttribute('data-uid')}`)[1];
                         //console.log(getSelect);
@@ -230,7 +232,7 @@ function updateTeacherList(){
                         // console.log(vm.value.slice(5));
                         // console.log(selectCourse.teacher.openTime.find(day=>day.date === vm.value.slice(5)));
                         const courseDay = {...selectCourse.teacher.openTime.find(day=>day.date === vm.value.slice(5))};
-                        console.log(courseDay);
+                        // console.log(courseDay);
                         if(Object.keys(courseDay).length === 0){
                           getSelect.innerHTML = ``;
                           return 0;
@@ -246,7 +248,7 @@ function updateTeacherList(){
                     });
                   });
                 });
-                course_management.innerHTML = str;
+                management_render();//render課程管理頁面
                 const change_btn = document.querySelectorAll('#change');
                 // console.log(change_btn);
                 change_btn.forEach(btn => { //按下修改時，當前日期以及時間可變為更改狀態。
@@ -274,9 +276,9 @@ function updateTeacherList(){
                         btn.removeAttribute('disabled');
                         btn.textContent = '儲存';
                         //
-                        console.log(get2[0]);
+                        //console.log(get2[0]);
                         get2[0].addEventListener('input',e=>{
-                          console.log(e.currentTarget.value);
+                          //console.log(e.currentTarget.value);
                         })
                         //1.click儲存時，儲存現有資料。
                         //2.並且改變確認鍵上的資料。
@@ -399,7 +401,13 @@ function updateTeacherList(){
                         })
                         .then(response => {
                           console.log('delete success');
-                          location.reload();
+                          Swal.fire({
+                            icon: "success",
+                            title: "取消預約成功",
+                            showConfirmButton: false,
+                            timer: 2000
+                        });
+                        updateTeacherList();
                         })
                         .catch(error => {
                           console.error('Error adding post:', error);
