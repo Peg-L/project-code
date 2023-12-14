@@ -6,13 +6,6 @@ import {
 } from "./firebase";
 import axios from "axios";
 
-const loginButton = document.querySelector("#loginButton");
-
-let emailLoginInput = document.querySelector("#floatingEmailLogin");
-let passwordLoginInput = document.querySelector("#floatingPasswordLogin");
-let emailLoginValue;
-let passwordLoginValue;
-
 const userInfo = {
   email: "",
   password: "",
@@ -26,6 +19,76 @@ const userInfo = {
   address: "",
   followList: [],
 };
+
+// 替 input 框加上警示或通過的樣式
+function addIsInvalid(inputItem) {
+  // console.log("失敗");
+  inputItem.classList.remove("is-valid");
+  inputItem.classList.add("is-invalid");
+  return;
+}
+
+function addIsValid(inputItem) {
+  // console.log("成功");
+  inputItem.classList.remove("is-invalid");
+  inputItem.classList.add("is-valid");
+}
+
+let emailLoginState = false;
+let passwordLoginState = false;
+
+const loginButton = document.querySelector("#loginButton");
+
+let emailLoginInput = document.querySelector("#floatingEmailLogin");
+let passwordLoginInput = document.querySelector("#floatingPasswordLogin");
+
+// 監聽 input
+emailLoginInput.addEventListener("input", emailLoginValidate);
+passwordLoginInput.addEventListener("input", passwordLoginValidate);
+
+// 驗證格式
+// - 驗證 email 格式
+function emailLoginValidate() {
+  const emailLoginValue = emailLoginInput.value;
+  userInfo.email = emailLoginValue;
+
+  const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+  if (emailRegex.test(emailLoginValue)) {
+    addIsValid(emailLoginInput);
+    emailLoginState = true;
+  } else {
+    addIsInvalid(emailLoginInput);
+  }
+
+  enableLoginBtn();
+}
+
+// - 驗證 密碼 格式
+function passwordLoginValidate() {
+  const passwordLoginValue = passwordLoginInput.value;
+  userInfo.password = passwordLoginValue;
+
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+
+  if (passwordRegex.test(passwordLoginValue)) {
+    addIsValid(passwordLoginInput);
+    passwordLoginState = true;
+  } else {
+    addIsInvalid(passwordLoginInput);
+  }
+
+  enableLoginBtn();
+}
+
+function enableLoginBtn() {
+  if (emailLoginState && passwordLoginState) {
+    loginButton.removeAttribute("disabled");
+  } else {
+    loginButton.setAttribute("disabled", "true");
+  }
+}
+enableLoginBtn();
 
 let token = "";
 
@@ -74,8 +137,8 @@ function handleLogin(userInfo) {
 
 if (window.location.href.includes("login.html")) {
   loginButton.addEventListener("click", function () {
-    emailLoginValue = emailLoginInput.value;
-    passwordLoginValue = passwordLoginInput.value;
+    let emailLoginValue = emailLoginInput.value;
+    let passwordLoginValue = passwordLoginInput.value;
 
     userInfo.email = emailLoginValue;
     userInfo.password = passwordLoginValue;
