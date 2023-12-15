@@ -36,13 +36,15 @@
             class="col-12 col-sm-10 col-md-8 col-lg-5 needs-validation"
             novalidate
           >
-            <button
-              type="button"
-              class="btn btn-outline-secondary2 rounded-1 fs-5 w-100 py-3 mb-2 mb-md-4"
-              id="google-login"
-            >
-              <i class="fa-brands fa-google me-3"></i>使用 Google 帳戶登入
-            </button>
+            <div id="firebaseui-auth-container">
+              <button
+                type="button"
+                class="btn btn-outline-secondary2 rounded-1 fs-5 w-100 py-3 mb-2 mb-md-4 googleBtn"
+                id="google-login"
+              >
+                <i class="fa-brands fa-google me-3"></i>使用 Google 帳戶登入
+              </button>
+            </div>
             <div class="form-floating mb-2 mb-md-4">
               <input
                 type="email"
@@ -50,19 +52,20 @@
                 id="floatingEmailLogin"
                 placeholder="name@example.com"
                 required
+                name="Email"
               />
               <label for="floatingEmailLogin">Email</label>
             </div>
+            <p class="warning-message" data-message="Email"></p>
             <div class="form-floating d-flex align-items-center">
               <input
                 type="password"
                 class="form-control rounded-1"
-                id="floatingPasswordLogin"
+                id="floatingPwdLogin"
                 placeholder="Password"
-                required
+                name="密碼"
               />
-              <!-- <i class="bi bi-eye-slash-fill position-absolute end-0 pe-4"></i> -->
-              <label for="floatingPasswordLogin">密碼</label>
+              <label for="floatingPwdLogin">密碼</label>
             </div>
             <div
               id="passwordHelpBlock"
@@ -88,10 +91,12 @@
               </div>
               <div><a href="###">忘記密碼?</a></div>
             </div>
+            <p class="warning-message" data-message="密碼"></p>
             <button
               type="button"
               id="loginButton"
               class="btn btn-secondary2 rounded-1 fs-5 w-100 py-3 mb-4"
+              disabled
             >
               <i class="fa-solid fa-user me-3"></i>
               登入會員
@@ -120,7 +125,9 @@
     <!-- backtotop -->
     <%- include("./layout/backtotop.ejs") -%>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
     <script type="module" src="../main.js"></script>
     <script type="module" src="../assets/js/login.js"></script>
   </body>
