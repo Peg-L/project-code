@@ -41,7 +41,7 @@
             <div id="firebaseui-auth-container">
               <button
                 type="button"
-                class="btn btn-outline-secondary2 rounded-1 fs-5 w-100 py-3 mb-2 mb-md-4"
+                class="btn btn-outline-secondary2 rounded-1 fs-5 w-100 py-3 mb-2 mb-md-4 googleBtn"
                 id="google-register"
               >
                 <i class="fa-brands fa-google me-3"></i>使用 Google 帳戶註冊
@@ -54,9 +54,11 @@
                 id="floatingEmail"
                 placeholder="name@example.com"
                 required
+                name="Email"
               />
               <label for="floatingEmail">Email</label>
             </div>
+            <p class="warning-message" data-message="Email"></p>
             <div class="form-floating mb-2 mb-md-4">
               <input
                 type="text"
@@ -64,9 +66,11 @@
                 id="floatingName"
                 placeholder="Username"
                 required
+                name="姓名"
               />
               <label for="floatingName">姓名</label>
             </div>
+            <p class="warning-message" data-message="姓名"></p>
             <div class="form-floating mb-2 mb-md-4">
               <input
                 type="tel"
@@ -75,6 +79,7 @@
                 pattern="^09\d{8}$"
                 placeholder="Tel"
                 required
+                name="手機"
               />
               <label for="floatingTel">手機</label>
               <button
@@ -90,7 +95,16 @@
                 ></span>
                 <span role="status">發送驗證碼</span>
               </button>
+              <button
+                class="btn btn-outline-secondary2 rounded-1 position-absolute top-50 end-0 translate-middle-y me-2 d-none"
+                type="button"
+                id="verifySuccessMsg"
+                disabled
+              >
+                <span role="status">驗證成功</span>
+              </button>
             </div>
+            <p class="warning-message" data-message="手機"></p>
             <div class="form-floating mb-2 mb-md-4 d-none" id="inputVerifyCode">
               <input
                 type="tel"
@@ -99,6 +113,7 @@
                 pattern="^09\d{8}$"
                 placeholder="Tel"
                 required
+                name="驗證碼"
               />
               <label for="floatingVerifyCode">請填寫手機驗證碼</label>
               <button
@@ -109,17 +124,20 @@
                 立即驗證
               </button>
             </div>
+            <p class="warning-message" data-message="驗證碼"></p>
             <div class="form-floating d-flex align-items-center">
               <input
                 type="password"
                 class="form-control rounded-1"
-                id="floatingPassword"
+                id="floatingpwd"
                 pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$"
                 placeholder="Password"
                 required
+                name="密碼"
               />
-              <label for="floatingPassword">密碼</label>
+              <label for="floatingpwd">密碼</label>
             </div>
+            <p class="warning-message" data-message="密碼"></p>
             <div id="passwordHelpBlock" class="form-text ms-2 mb-2 mb-md-4">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -142,16 +160,19 @@
               <input
                 type="password"
                 class="form-control rounded-1"
-                id="floatingCheckPassword"
+                id="floatingCheckpwd"
                 placeholder="Password"
                 required
+                name="確認密碼"
               />
-              <label for="floatingCheckPassword">確認密碼</label>
+              <label for="floatingCheckpwd">確認密碼</label>
             </div>
+            <p class="warning-message" data-message="確認密碼"></p>
             <button
               id="registerBtn"
-              type="button"
+              type="submit"
               class="btn btn-secondary2 rounded-1 fs-5 w-100 py-3 mb-4"
+              disabled
             >
               <i class="fa-solid fa-user me-3"></i>
               加入會員
@@ -217,6 +238,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
     <script type="module" src="../main.js"></script>
     <script type="module" src="../assets/js/register.js"></script>
   </body>
