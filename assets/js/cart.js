@@ -177,14 +177,14 @@ async function deleteCart(id) {
       return item.courseId != id;
     });
     checkAndRenderMyCart(); // 渲染購買項目和下次再買項目
-    await axios.patch(
-      `${_url}/myCarts/${myCartId}`,
-      { userId: "", courseId: "", quantity: "" },
-      headers
-    );
-    // await axios.delete(`${_url}/myCarts/${myCartId}`); // coupons 的 id 1 和 2 也會一起被刪掉，不知道為什麼，所以先改成用 patch
+    // await axios.patch(
+    //   `${_url}/myCarts/${myCartId}`,
+    //   { userId: "", courseId: "", quantity: "" },
+    //   headers
+    // );
+    await axios.delete(`${_url}/myCarts/${myCartId}`); // coupons 的 id 1 和 2 也會一起被刪掉，不知道為什麼，所以先改成用 patch
   } catch (error) {
-    console.log("deleteCart", error);
+    console.log("刪除會報錯，但購物車能正常刪除"); // coupons 的 id 1 和 2 的 courseId 和 teacherId 改成 null，json-server 要把他們一起刪掉時會報錯，就不會被一起刪掉，只有購物車項目會被刪
   }
 }
 

@@ -40,17 +40,24 @@ async function getCoupons() {
   try {
     const couponUrl = `${_url}/myCoupons?_expand=coupon&canUse=true&userId=${userId}&_page=${couponCurrentPage}&_limit=6_sort=dueDate&_order=asc`;
     const res = await axios.get(couponUrl);
-
-    let myCouponsNum = parseInt(res.headers.get("X-Total-Count"));
-    // 展開老師資料
-    for (let item of res.data) {
-      const { data } = await axios.get(
-        `${_url}/coupons/${item.couponId}?_expand=teacher`
-      );
-      item.coupon = data;
-    }
     if (res.data.length) {
+      // 展開老師資料
+      const couponUrls = res.data.map((myCoupon) =>
+        myCoupon.coupon.teacherId === null
+          ? `${_url}/coupons/${myCoupon.couponId}`
+          : `${_url}/coupons/${myCoupon.couponId}?_expand=teacher`
+      );
+      const responses = await Promise.all(
+        couponUrls.map((couponUrl) => axios.get(couponUrl))
+      );
+      res.data.forEach((item, index) => {
+        item.coupon = responses[index].data;
+      });
+
       myCoupons = res.data;
+
+      // 計算頁數
+      const myCouponsNum = parseInt(res.headers.get("X-Total-Count"));
       couponLastPage = Math.ceil(myCouponsNum / 6);
       //   console.log("myCoupons", myCoupons);
       checkDueDate();

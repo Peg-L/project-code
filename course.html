@@ -10,10 +10,10 @@
       type="image/x-icon"
     />
     <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
-    <script type="module" crossorigin src="/project-code/assets/course-9009224a.js"></script>
-    <link rel="modulepreload" crossorigin href="/project-code/assets/backtotop-7745fe90.js">
-    <link rel="modulepreload" crossorigin href="/project-code/assets/startCourse-d2005fda.js">
-    <link rel="stylesheet" href="/project-code/assets/backtotop-3346e440.css">
+    <script type="module" crossorigin src="/project-code/assets/course-7afb94c0.js"></script>
+    <link rel="modulepreload" crossorigin href="/project-code/assets/backtotop-f8562c14.js">
+    <link rel="modulepreload" crossorigin href="/project-code/assets/startCourse-eb5bf10a.js">
+    <link rel="stylesheet" href="/project-code/assets/backtotop-5e14e6ef.css">
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-white fixed-top">
@@ -763,11 +763,14 @@
           <div class="input-group">
             <input
               type="text"
-              class="form-control border-light course-search-input"
+              class="form-control border-light course-search-input z-1"
               placeholder="今天想學什麼..."
               aria-label="search keywords"
               aria-describedby="button-addon2"
-            />
+            /><i
+              type="button"
+              class="fa-solid fa-xmark position-absolute top-50 end-0 translate-middle-y me-15 me-md-17 z-2 clear-input"
+            ></i>
             <button
               class="btn btn-secondary2 btn-search z-0 course-search-button"
               type="button"
@@ -2422,7 +2425,7 @@
   type="button"
   class="rounded-circle text-light border-0 backtotopBtn z-1"
 >
-  <p class="fs-tiny">TOP</p>
+  <p class="fs-6"><i class="fa-solid fa-chevron-up"></i></p>
 </button>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

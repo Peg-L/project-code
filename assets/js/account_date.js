@@ -21,22 +21,24 @@ function init() {
     .get(`${_url}/user_courses?_expand=user&userId=${userId.toString()}`)
     .then(function (response) {
       data = response.data[0]; //資料擷取篩選
-      // userImg.setAttribute("src",data.user.Img); //頭貼
+      userImg.setAttribute("src", data.user.avatar); //頭貼
       userName.textContent = data.user.name; //姓名
       userRole.textContent = data.user.role; //職稱
       updateData();
     });
 }
 
-function updateData() { //課表生成
-    const daysDate = document.querySelectorAll('.calendar-time');
-    daysDate.forEach(item => {
-        let dataNum = item.getAttribute('data-num'); //拿日期
-        let matchData = findMatchData(dataNum); //日期比對
-        let str = '';
-        if (matchData.length !== 0) { //取得當前預約課程
-            for(let i=0;i<matchData.length;i++){
-                str += `<li class="c2"><a href=''
+function updateData() {
+  //課表生成
+  const daysDate = document.querySelectorAll(".calendar-time");
+  daysDate.forEach((item) => {
+    let dataNum = item.getAttribute("data-num"); //拿日期
+    let matchData = findMatchData(dataNum); //日期比對
+    let str = "";
+    if (matchData.length !== 0) {
+      //取得當前預約課程
+      for (let i = 0; i < matchData.length; i++) {
+        str += `<li class="c2"><a href=''
                 data-bs-toggle="modal"
                 data-bs-target="#calendarModal"
                 data-course-id="${matchData[i].courseId}"
