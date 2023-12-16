@@ -326,7 +326,7 @@ async function getTeacherOpenTime(courseId, dateText) {
     const { data } = await axios.get(api);
     // 取得老師在選取日期的時間
     const openTime = data.teacher.openTime.find(
-      (item) => item.date === dateText.slice(-5)
+      (item) => item.date === dateText
     );
     // 篩選可以預約(還沒被預約)的時間
     const time = openTime.time.filter(
