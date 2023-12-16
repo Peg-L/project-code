@@ -32,7 +32,7 @@ saveBtn.forEach((item, index) => {
 });
 
 // ----------------
-// 我的關注
+// 我的收藏
 
 let pageId = 1;
 let followArray = [];
@@ -44,7 +44,7 @@ const newURL = regex.test(currentURL)
   ? currentURL.replace(regex, "/course_intro.html")
   : currentURL + "course_intro.html";
 
-// 關注列表容器
+// 收藏列表容器
 const followList = document.querySelector("#followList");
 
 // 點擊 開始上課 -> 加入購物車、優惠券
@@ -53,10 +53,10 @@ if (followList) {
 }
 
 document.addEventListener("DOMContentLoaded", async function () {
-  // 取得追蹤列表 + 課程資料
+  // 取得收藏列表 + 課程資料
   async function fetchData() {
     try {
-      // 取得追蹤列表
+      // 取得收藏列表
       let usersResponse = await axios.get(`${_url}/users/${userId}`);
       followArray = usersResponse.data.followList;
       // 計算總頁數
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         let coursesResponse = await axios.get(`${apiString}`);
         courseData = coursesResponse.data;
-        console.log("追蹤的課程資料", courseData);
+        console.log("收藏的課程資料", courseData);
 
         courseData.forEach((courseItem) => {
           courseCards += `<div class="col"><div class="card teacher-card swiper-slide h-100"><button
@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         switchPage();
         setButtonListeners();
       } else {
-        courseCards = `<p class="text-center fs-5">目前沒有追蹤任何課程</p>`;
+        courseCards = `<p class="text-center fs-5">目前沒有收藏任何課程</p>`;
         followList.innerHTML = courseCards;
         renderFollowPagination();
       }
@@ -233,7 +233,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
   }
 
-  // 取消追蹤
+  // 取消收藏
   async function unFollow(e) {
     let buttonId = e.target.dataset.buttonid;
     console.log("buttonId", buttonId);
@@ -241,17 +241,17 @@ document.addEventListener("DOMContentLoaded", async function () {
     let editfollowList = followArray.filter((item) => item != buttonId);
 
     Swal.fire({
-      title: "確定要取消追蹤?",
+      title: "確定要取消收藏?",
       showDenyButton: true,
       confirmButtonColor: "#115BC9",
-      confirmButtonText: "取消追蹤",
+      confirmButtonText: "取消收藏",
       denyButtonText: `我再想想`,
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire({
           position: "center",
           icon: "success",
-          title: "已取消追蹤",
+          title: "已取消收藏",
           showConfirmButton: false,
           timer: 1500,
         });

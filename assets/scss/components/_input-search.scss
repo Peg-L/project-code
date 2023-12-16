@@ -27,3 +27,10 @@
     padding: 12px;
   }
 }
+
+// type="search" (購物車優惠券input)
+/* 預設的清除按鈕 */
+input[type="search"]::-webkit-search-cancel-button {
+  cursor: pointer;
+  padding: 2px;
+}

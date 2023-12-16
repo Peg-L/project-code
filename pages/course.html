@@ -36,11 +36,14 @@
           <div class="input-group">
             <input
               type="text"
-              class="form-control border-light course-search-input"
+              class="form-control border-light course-search-input z-1"
               placeholder="今天想學什麼..."
               aria-label="search keywords"
               aria-describedby="button-addon2"
-            />
+            /><i
+              type="button"
+              class="fa-solid fa-xmark position-absolute top-50 end-0 translate-middle-y me-15 me-md-17 z-2 clear-input"
+            ></i>
             <button
               class="btn btn-secondary2 btn-search z-0 course-search-button"
               type="button"
@@ -443,11 +446,11 @@
                   >
                     <h2 class="accordion-header d-flex">
                       <label
-                        class="fs-5 fw-bold text-nowrap d-flex align-items-center"
+                        class="fs-5 fw-bold text-nowrap d-flex align-items-center cursor-pointer"
                         for="frontend"
                       >
                         <input
-                          class="js-selectAll"
+                          class="js-selectAll cursor-pointer"
                           type="checkbox"
                           name="frontend"
                           id="frontend"
@@ -455,7 +458,7 @@
                         <span>前端</span>
                       </label>
                       <button
-                        class="accordion-button collapsed"
+                        class="accordion-button collapsed w-50 ms-auto"
                         type="button"
                         data-bs-toggle="collapse"
                         data-bs-target="#collapseFrontend"
@@ -471,11 +474,11 @@
                       <ul class="accordion-body mb-0 ms-4 ms-md-5">
                         <li class="mb-2">
                           <label
-                            class="fs-7 text-nowrap"
+                            class="fs-7 text-nowrap cursor-pointer"
                             for="frontendBootstrap"
                           >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="Bootstrap"
                               id="frontendBootstrap"
@@ -487,9 +490,12 @@
                           </label>
                         </li>
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="frontendCss">
+                          <label
+                            class="fs-7 text-nowrap cursor-pointer"
+                            for="frontendCss"
+                          >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="css"
                               id="frontendCss"
@@ -499,9 +505,12 @@
                           </label>
                         </li>
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="frontendHtml">
+                          <label
+                            class="fs-7 text-nowrap cursor-pointer"
+                            for="frontendHtml"
+                          >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="html"
                               id="frontendHtml"
@@ -511,9 +520,12 @@
                           </label>
                         </li>
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="frontendJQuery">
+                          <label
+                            class="fs-7 text-nowrap cursor-pointer"
+                            for="frontendJQuery"
+                          >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="jQuery"
                               id="frontendJQuery"
@@ -525,9 +537,12 @@
                           </label>
                         </li>
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="frontendReact">
+                          <label
+                            class="fs-7 text-nowrap cursor-pointer"
+                            for="frontendReact"
+                          >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="React"
                               id="frontendReact"
@@ -539,9 +554,12 @@
                           </label>
                         </li>
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="frontendScss">
+                          <label
+                            class="fs-7 text-nowrap cursor-pointer"
+                            for="frontendScss"
+                          >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="scss"
                               id="frontendScss"
@@ -552,11 +570,11 @@
                         </li>
                         <li class="mb-2">
                           <label
-                            class="fs-7 text-nowrap"
+                            class="fs-7 text-nowrap cursor-pointer"
                             for="frontendTailwind"
                           >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="Tailwind"
                               id="frontendTailwind"
@@ -568,9 +586,12 @@
                           </label>
                         </li>
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="frontendVue">
+                          <label
+                            class="fs-7 text-nowrap cursor-pointer"
+                            for="frontendVue"
+                          >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="Vue"
                               id="frontendVue"
@@ -581,11 +602,11 @@
                         </li>
                         <li class="mb-2">
                           <label
-                            class="fs-7 text-nowrap"
+                            class="fs-7 text-nowrap cursor-pointer"
                             for="frontendJavascript"
                           >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="Javascript"
                               id="frontendJavascript"
@@ -606,11 +627,11 @@
                   >
                     <h2 class="accordion-header d-flex">
                       <label
-                        class="fs-5 fw-bold text-nowrap d-flex align-items-center"
+                        class="fs-5 fw-bold text-nowrap d-flex align-items-center cursor-pointer"
                         for="backend"
                       >
                         <input
-                          class="js-selectAll"
+                          class="js-selectAll cursor-pointer"
                           type="checkbox"
                           name="backend"
                           id="backend"
@@ -618,7 +639,7 @@
                         <span>後端</span>
                       </label>
                       <button
-                        class="accordion-button collapsed"
+                        class="accordion-button collapsed w-50 ms-auto"
                         type="button"
                         data-bs-toggle="collapse"
                         data-bs-target="#collapseBackend"
@@ -634,11 +655,11 @@
                       <ul class="accordion-body mb-0 ms-4 ms-md-5">
                         <li class="mb-2">
                           <label
-                            class="fs-7 text-nowrap"
+                            class="fs-7 text-nowrap cursor-pointer"
                             for="backendWebCrawler"
                           >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="WebCrawler"
                               id="backendWebCrawler"
@@ -650,9 +671,12 @@
                           </label>
                         </li>
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="backendC">
+                          <label
+                            class="fs-7 text-nowrap cursor-pointer"
+                            for="backendC"
+                          >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="C"
                               id="backendC"
@@ -662,9 +686,12 @@
                           </label>
                         </li>
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="backendCSharp">
+                          <label
+                            class="fs-7 text-nowrap cursor-pointer"
+                            for="backendCSharp"
+                          >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="CSharp"
                               id="backendCSharp"
@@ -674,9 +701,12 @@
                           </label>
                         </li>
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="backendJava">
+                          <label
+                            class="fs-7 text-nowrap cursor-pointer"
+                            for="backendJava"
+                          >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="Java"
                               id="backendJava"
@@ -687,11 +717,11 @@
                         </li>
                         <li class="mb-2">
                           <label
-                            class="fs-7 text-nowrap"
+                            class="fs-7 text-nowrap cursor-pointer"
                             for="backendJavaScript"
                           >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="JavaScript"
                               id="backendJavaScript"
@@ -704,9 +734,12 @@
                           </label>
                         </li>
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="backendNodeJs">
+                          <label
+                            class="fs-7 text-nowrap cursor-pointer"
+                            for="backendNodeJs"
+                          >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="NodeJs"
                               id="backendNodeJs"
@@ -718,9 +751,12 @@
                           </label>
                         </li>
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="backendPHP">
+                          <label
+                            class="fs-7 text-nowrap cursor-pointer"
+                            for="backendPHP"
+                          >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="PHP"
                               id="backendPHP"
@@ -730,9 +766,12 @@
                           </label>
                         </li>
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="backendPython">
+                          <label
+                            class="fs-7 text-nowrap cursor-pointer"
+                            for="backendPython"
+                          >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="Python"
                               id="backendPython"
@@ -752,11 +791,11 @@
                   >
                     <h2 class="accordion-header d-flex">
                       <label
-                        class="fs-5 fw-bold text-nowrap d-flex align-items-center"
+                        class="fs-5 fw-bold text-nowrap d-flex align-items-center cursor-pointer"
                         for="database"
                       >
                         <input
-                          class="js-selectAll"
+                          class="js-selectAll cursor-pointer"
                           type="checkbox"
                           name="database"
                           id="database"
@@ -764,7 +803,7 @@
                         <span>資料庫</span>
                       </label>
                       <button
-                        class="accordion-button collapsed"
+                        class="accordion-button collapsed w-50 ms-auto"
                         type="button"
                         data-bs-toggle="collapse"
                         data-bs-target="#collapseDatabase"
@@ -779,9 +818,12 @@
                     >
                       <ul class="accordion-body mb-0 ms-4 ms-md-5">
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="databaseMongoDB">
+                          <label
+                            class="fs-7 text-nowrap cursor-pointer"
+                            for="databaseMongoDB"
+                          >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="mongoDB"
                               id="databaseMongoDB"
@@ -793,9 +835,12 @@
                           </label>
                         </li>
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="databaseSQL">
+                          <label
+                            class="fs-7 text-nowrap cursor-pointer"
+                            for="databaseSQL"
+                          >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="SQL"
                               id="databaseSQL"
@@ -813,11 +858,11 @@
                   >
                     <h2 class="accordion-header d-flex">
                       <label
-                        class="fs-5 fw-bold text-nowrap d-flex align-items-center"
+                        class="fs-5 fw-bold text-nowrap d-flex align-items-center cursor-pointer"
                         for="mobileApp"
                       >
                         <input
-                          class="js-selectAll"
+                          class="js-selectAll cursor-pointer"
                           type="checkbox"
                           name="mobileApp"
                           id="mobileApp"
@@ -825,7 +870,7 @@
                         <span>行動應用</span>
                       </label>
                       <button
-                        class="accordion-button collapsed"
+                        class="accordion-button collapsed w-50 ms-auto"
                         type="button"
                         data-bs-toggle="collapse"
                         data-bs-target="#collapseMobileApp"
@@ -841,11 +886,11 @@
                       <ul class="accordion-body mb-0 ms-4 ms-md-5">
                         <li class="mb-2">
                           <label
-                            class="fs-7 text-nowrap"
+                            class="fs-7 text-nowrap cursor-pointer"
                             for="mobileAppAndroid"
                           >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="Android"
                               id="mobileAppAndroid"
@@ -859,9 +904,12 @@
                           </label>
                         </li>
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="mobileAppIOS">
+                          <label
+                            class="fs-7 text-nowrap cursor-pointer"
+                            for="mobileAppIOS"
+                          >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="IOS"
                               id="mobileAppIOS"
@@ -873,9 +921,12 @@
                           </label>
                         </li>
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="mobileAppKotlin">
+                          <label
+                            class="fs-7 text-nowrap cursor-pointer"
+                            for="mobileAppKotlin"
+                          >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="Kotlin"
                               id="mobileAppKotlin"
@@ -888,11 +939,11 @@
                         </li>
                         <li class="mb-2">
                           <label
-                            class="fs-7 text-nowrap"
+                            class="fs-7 text-nowrap cursor-pointer"
                             for="mobileAppSpringBoot"
                           >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="SpringBoot"
                               id="mobileAppSpringBoot"
@@ -904,9 +955,12 @@
                           </label>
                         </li>
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="mobileAppSwift">
+                          <label
+                            class="fs-7 text-nowrap cursor-pointer"
+                            for="mobileAppSwift"
+                          >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="Swift"
                               id="mobileAppSwift"
@@ -926,11 +980,11 @@
                   >
                     <h2 class="accordion-header d-flex">
                       <label
-                        class="fs-5 fw-bold text-nowrap d-flex align-items-center"
+                        class="fs-5 fw-bold text-nowrap d-flex align-items-center cursor-pointer"
                         for="DevOps"
                       >
                         <input
-                          class="js-selectAll"
+                          class="js-selectAll cursor-pointer"
                           type="checkbox"
                           name="DevOps"
                           id="DevOps"
@@ -938,7 +992,7 @@
                         <span>開發維運</span>
                       </label>
                       <button
-                        class="accordion-button collapsed"
+                        class="accordion-button collapsed w-50 ms-auto"
                         type="button"
                         data-bs-toggle="collapse"
                         data-bs-target="#collapseDevOps"
@@ -953,9 +1007,12 @@
                     >
                       <ul class="accordion-body mb-0 ms-4 ms-md-5">
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="DevOpsAWS">
+                          <label
+                            class="fs-7 text-nowrap cursor-pointer"
+                            for="DevOpsAWS"
+                          >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="AWS"
                               id="DevOpsAWS"
@@ -965,9 +1022,12 @@
                           </label>
                         </li>
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="DevOpsDocker">
+                          <label
+                            class="fs-7 text-nowrap cursor-pointer"
+                            for="DevOpsDocker"
+                          >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="Docker"
                               id="DevOpsDocker"
@@ -980,11 +1040,11 @@
                         </li>
                         <li class="mb-2">
                           <label
-                            class="fs-7 text-nowrap"
+                            class="fs-7 text-nowrap cursor-pointer"
                             for="DevOpsKubernetes"
                           >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="Kubernetes"
                               id="DevOpsKubernetes"
@@ -996,9 +1056,12 @@
                           </label>
                         </li>
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="DevOpsLinux">
+                          <label
+                            class="fs-7 text-nowrap cursor-pointer"
+                            for="DevOpsLinux"
+                          >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="Linux"
                               id="DevOpsLinux"
@@ -1018,11 +1081,11 @@
                   >
                     <h2 class="accordion-header d-flex">
                       <label
-                        class="fs-5 fw-bold text-nowrap d-flex align-items-center"
+                        class="fs-5 fw-bold text-nowrap d-flex align-items-center cursor-pointer"
                         for="productTesting"
                       >
                         <input
-                          class="js-selectAll"
+                          class="js-selectAll cursor-pointer"
                           type="checkbox"
                           name="productTesting"
                           id="productTesting"
@@ -1030,7 +1093,7 @@
                         <span>產品測試</span>
                       </label>
                       <button
-                        class="accordion-button collapsed"
+                        class="accordion-button collapsed w-50 ms-auto"
                         type="button"
                         data-bs-toggle="collapse"
                         data-bs-target="#collapseProductTesting"
@@ -1046,11 +1109,11 @@
                       <ul class="accordion-body mb-0 ms-4 ms-md-5">
                         <li class="mb-2">
                           <label
-                            class="fs-7 text-nowrap"
+                            class="fs-7 text-nowrap cursor-pointer"
                             for="productTestingAutoTesting"
                           >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="AutoTesting"
                               id="productTestingAutoTesting"
@@ -1063,11 +1126,11 @@
                         </li>
                         <li class="mb-2">
                           <label
-                            class="fs-7 text-nowrap"
+                            class="fs-7 text-nowrap cursor-pointer"
                             for="productTestingPostman"
                           >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="Postman"
                               id="productTestingPostman"
@@ -1080,11 +1143,11 @@
                         </li>
                         <li class="mb-2">
                           <label
-                            class="fs-7 text-nowrap"
+                            class="fs-7 text-nowrap cursor-pointer"
                             for="productTestingSelenium"
                           >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="Selenium"
                               id="productTestingSelenium"
@@ -1104,11 +1167,11 @@
                   >
                     <h2 class="accordion-header d-flex">
                       <label
-                        class="fs-5 fw-bold text-nowrap d-flex align-items-center"
+                        class="fs-5 fw-bold text-nowrap d-flex align-items-center cursor-pointer"
                         for="UIUX"
                       >
                         <input
-                          class="js-selectAll"
+                          class="js-selectAll cursor-pointer"
                           type="checkbox"
                           name="UIUX"
                           id="UIUX"
@@ -1116,7 +1179,7 @@
                         <span>UI / UX</span>
                       </label>
                       <button
-                        class="accordion-button collapsed"
+                        class="accordion-button collapsed w-50 ms-auto"
                         type="button"
                         data-bs-toggle="collapse"
                         data-bs-target="#collapseUIUX"
@@ -1131,9 +1194,12 @@
                     >
                       <ul class="accordion-body mb-0 ms-4 ms-md-5">
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="UIUXAdobeXD">
+                          <label
+                            class="fs-7 text-nowrap cursor-pointer"
+                            for="UIUXAdobeXD"
+                          >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="AdobeXD"
                               id="UIUXAdobeXD"
@@ -1145,9 +1211,12 @@
                           </label>
                         </li>
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="UIUXFigma">
+                          <label
+                            class="fs-7 text-nowrap cursor-pointer"
+                            for="UIUXFigma"
+                          >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="Figma"
                               id="UIUXFigma"
@@ -1159,9 +1228,12 @@
                           </label>
                         </li>
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="UIUXPhotoshop">
+                          <label
+                            class="fs-7 text-nowrap cursor-pointer"
+                            for="UIUXPhotoshop"
+                          >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="Photoshop"
                               id="UIUXPhotoshop"
@@ -1181,11 +1253,11 @@
                   >
                     <h2 class="accordion-header d-flex">
                       <label
-                        class="fs-5 fw-bold text-nowrap d-flex align-items-center"
+                        class="fs-5 fw-bold text-nowrap d-flex align-items-center cursor-pointer"
                         for="security"
                       >
                         <input
-                          class="js-selectAll"
+                          class="js-selectAll cursor-pointer"
                           type="checkbox"
                           name="security"
                           id="security"
@@ -1193,7 +1265,7 @@
                         <span>資安</span>
                       </label>
                       <button
-                        class="accordion-button collapsed"
+                        class="accordion-button collapsed w-50 ms-auto"
                         type="button"
                         data-bs-toggle="collapse"
                         data-bs-target="#collapseSecurity"
@@ -1208,9 +1280,12 @@
                     >
                       <ul class="accordion-body mb-0 ms-4 ms-md-5">
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="securityLinux">
+                          <label
+                            class="fs-7 text-nowrap cursor-pointer"
+                            for="securityLinux"
+                          >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="Linux"
                               id="securityLinux"
@@ -1223,11 +1298,11 @@
                         </li>
                         <li class="mb-2">
                           <label
-                            class="fs-7 text-nowrap"
+                            class="fs-7 text-nowrap cursor-pointer"
                             for="securityEthicalHacker"
                           >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="EthicalHacker"
                               id="securityEthicalHacker"
@@ -1240,11 +1315,11 @@
                         </li>
                         <li class="mb-2">
                           <label
-                            class="fs-7 text-nowrap"
+                            class="fs-7 text-nowrap cursor-pointer"
                             for="securityReverseEngineering"
                           >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="ReverseEngineering"
                               id="securityReverseEngineering"
@@ -1264,11 +1339,11 @@
                   >
                     <h2 class="accordion-header d-flex">
                       <label
-                        class="fs-5 fw-bold text-nowrap d-flex align-items-center"
+                        class="fs-5 fw-bold text-nowrap d-flex align-items-center cursor-pointer"
                         for="AI"
                       >
                         <input
-                          class="js-selectAll"
+                          class="js-selectAll cursor-pointer"
                           type="checkbox"
                           name="AI"
                           id="AI"
@@ -1276,7 +1351,7 @@
                         <span>AI</span>
                       </label>
                       <button
-                        class="accordion-button collapsed"
+                        class="accordion-button collapsed w-50 ms-auto"
                         type="button"
                         data-bs-toggle="collapse"
                         data-bs-target="#collapseAI"
@@ -1292,11 +1367,11 @@
                       <ul class="accordion-body mb-0 ms-4 ms-md-5">
                         <li class="mb-2">
                           <label
-                            class="fs-7 text-nowrap"
+                            class="fs-7 text-nowrap cursor-pointer"
                             for="AIGameDevelopmentAI"
                           >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="gameDevelopmentAI"
                               id="AIGameDevelopmentAI"
@@ -1311,11 +1386,11 @@
                         </li>
                         <li class="mb-2">
                           <label
-                            class="fs-7 text-nowrap"
+                            class="fs-7 text-nowrap cursor-pointer"
                             for="AIMachineLearning"
                           >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="MachineLearning"
                               id="AIMachineLearning"
@@ -1327,9 +1402,12 @@
                           </label>
                         </li>
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="AIChatGPT">
+                          <label
+                            class="fs-7 text-nowrap cursor-pointer"
+                            for="AIChatGPT"
+                          >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="ChatGPT"
                               id="AIChatGPT"
@@ -1349,11 +1427,11 @@
                   >
                     <h2 class="accordion-header d-flex">
                       <label
-                        class="fs-5 fw-bold text-nowrap d-flex align-items-center"
+                        class="fs-5 fw-bold text-nowrap d-flex align-items-center cursor-pointer"
                         for="GameDevelopment"
                       >
                         <input
-                          class="js-selectAll"
+                          class="js-selectAll cursor-pointer"
                           type="checkbox"
                           name="GameDevelopment"
                           id="GameDevelopment"
@@ -1361,7 +1439,7 @@
                         <span>遊戲開發</span>
                       </label>
                       <button
-                        class="accordion-button collapsed"
+                        class="accordion-button collapsed w-50 ms-auto"
                         type="button"
                         data-bs-toggle="collapse"
                         data-bs-target="#collapseGameDevelopment"
@@ -1377,11 +1455,11 @@
                       <ul class="accordion-body mb-0 ms-4 ms-md-5">
                         <li class="mb-2">
                           <label
-                            class="fs-7 text-nowrap"
+                            class="fs-7 text-nowrap cursor-pointer"
                             for="GameDevelopmentBlender"
                           >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="Blender"
                               id="GameDevelopmentBlender"
@@ -1394,11 +1472,11 @@
                         </li>
                         <li class="mb-2">
                           <label
-                            class="fs-7 text-nowrap"
+                            class="fs-7 text-nowrap cursor-pointer"
                             for="GameDevelopmentUnity"
                           >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="Unity"
                               id="GameDevelopmentUnity"
@@ -1418,11 +1496,11 @@
                   >
                     <h2 class="accordion-header d-flex">
                       <label
-                        class="fs-5 fw-bold text-nowrap d-flex align-items-center"
+                        class="fs-5 fw-bold text-nowrap d-flex align-items-center cursor-pointer"
                         for="career"
                       >
                         <input
-                          class="js-selectAll"
+                          class="js-selectAll cursor-pointer"
                           type="checkbox"
                           name="career"
                           id="career"
@@ -1430,7 +1508,7 @@
                         <span>職涯</span>
                       </label>
                       <button
-                        class="accordion-button collapsed"
+                        class="accordion-button collapsed w-50 ms-auto"
                         type="button"
                         data-bs-toggle="collapse"
                         data-bs-target="#collapseCareer"
@@ -1445,9 +1523,12 @@
                     >
                       <ul class="accordion-body mb-0 ms-4 ms-md-5">
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="careerPortfolio">
+                          <label
+                            class="fs-7 text-nowrap cursor-pointer"
+                            for="careerPortfolio"
+                          >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="portfolio"
                               id="careerPortfolio"
@@ -1459,9 +1540,12 @@
                           </label>
                         </li>
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="careerInterview">
+                          <label
+                            class="fs-7 text-nowrap cursor-pointer"
+                            for="careerInterview"
+                          >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="interview"
                               id="careerInterview"
@@ -1471,9 +1555,12 @@
                           </label>
                         </li>
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="careerResume">
+                          <label
+                            class="fs-7 text-nowrap cursor-pointer"
+                            for="careerResume"
+                          >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="resume"
                               id="careerResume"
@@ -1484,11 +1571,11 @@
                         </li>
                         <li class="mb-2">
                           <label
-                            class="fs-7 text-nowrap"
+                            class="fs-7 text-nowrap cursor-pointer"
                             for="careerCounseling"
                           >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="counseling"
                               id="careerCounseling"
@@ -1508,11 +1595,11 @@
                   >
                     <h2 class="accordion-header d-flex">
                       <label
-                        class="fs-5 fw-bold text-nowrap d-flex align-items-center"
+                        class="fs-5 fw-bold text-nowrap d-flex align-items-center cursor-pointer"
                         for="level"
                       >
                         <input
-                          class="js-selectAll"
+                          class="js-selectAll cursor-pointer"
                           type="checkbox"
                           name="level"
                           id="level"
@@ -1520,7 +1607,7 @@
                         <span>程度</span>
                       </label>
                       <button
-                        class="accordion-button collapsed"
+                        class="accordion-button collapsed w-50 ms-auto"
                         type="button"
                         data-bs-toggle="collapse"
                         data-bs-target="#collapseLevel"
@@ -1535,9 +1622,12 @@
                     >
                       <ul class="accordion-body mb-0 ms-4 ms-md-5">
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="levelEasy">
+                          <label
+                            class="fs-7 text-nowrap cursor-pointer"
+                            for="levelEasy"
+                          >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="easy"
                               id="levelEasy"
@@ -1547,9 +1637,12 @@
                           </label>
                         </li>
                         <li class="mb-2">
-                          <label class="fs-7 text-nowrap" for="levelHard">
+                          <label
+                            class="fs-7 text-nowrap cursor-pointer"
+                            for="levelHard"
+                          >
                             <input
-                              class="js-category"
+                              class="js-category cursor-pointer"
                               type="checkbox"
                               name="hard"
                               id="levelHard"

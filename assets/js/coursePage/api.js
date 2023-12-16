@@ -1,5 +1,5 @@
 import { inputDisable, renderCourses, renderPagination } from "./render.js";
-import { handleFilterNum } from "./filter.js";
+import { countFilterCategoryNum, countFilterRatingNum } from "./filter.js";
 import axios from "axios";
 
 let totalSearchNum = document.querySelector(".js-totalSearchNum");
@@ -29,12 +29,11 @@ function init() {
   const indexSearchInput = localStorage.getItem("indexSearchInput");
   const cateItemName = sessionStorage.getItem("cateItemName");
   const redirectToPopular = localStorage.getItem("redirectToPopular");
-  console.log(redirectToPopular);
 
   if (!indexSearchInput && !cateItemName && !redirectToPopular) {
     getCoursesData(data);
   }
-  getAllData(data);
+  handleFilterNum(data);
 }
 
 /*** api-取得卡片內容 ***/
@@ -51,7 +50,7 @@ async function getCoursesData({
   order,
 }) {
   try {
-    const apiUrl = `${_url}/courses?_expand=teacher&_page=${page}&_limit=${limit}&q=${q}&rate_gte=${rate_gte}&rate_lte=${rate_lte}&price_gte=${price_gte}&price_lte=${price_lte}${filters}&_sort=${sort}&_order=${order}`;
+    const apiUrl = `${_url}/courses?_expand=teacher&_expand=comment&_page=${page}&_limit=${limit}&q=${q}&rate_gte=${rate_gte}&rate_lte=${rate_lte}&price_gte=${price_gte}&price_lte=${price_lte}${filters}&_sort=${sort}&_order=${order}`;
 
     isLoading = true;
     renderCourses();
@@ -59,6 +58,8 @@ async function getCoursesData({
 
     const res = await axios.get(apiUrl);
     currentPageCourses = res.data;
+    console.log("currentPageCourses", currentPageCourses);
+
     allCoursesNum = parseInt(res.headers.get("X-Total-Count"));
     totalSearchNum.innerHTML = `共 ${allCoursesNum} 個結果`;
     /** 課程卡片評論api **/
@@ -100,10 +101,23 @@ async function getAllData({
     const apiUrl = `${_url}/courses?&q=${q}&rate_gte=${rate_gte}&rate_lte=${rate_lte}&price_gte=${price_gte}&price_lte=${price_lte}${filters}`;
 
     const res = await axios.get(apiUrl);
-    handleFilterNum(res.data);
+    return res.data;
   } catch (error) {
     console.log("getAllData", error);
   }
+}
+
+async function handleFilterNum(data) {
+  const allData = await getAllData(data);
+  // 計算評論、課程分類小項筆數
+  countFilterRatingNum(allData);
+  countFilterCategoryNum(allData);
+}
+
+async function handleRatingNum(data) {
+  const allData = await getAllData(data);
+  // 計算評論小項筆數
+  countFilterRatingNum(allData);
 }
 
 export {
@@ -114,5 +128,5 @@ export {
   data,
   isLoading,
   getCoursesData,
-  getAllData,
+  handleRatingNum,
 };

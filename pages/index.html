@@ -35,11 +35,15 @@
               <div class="input-group">
                 <input
                   type="text"
-                  class="form-control border-light banner-input"
+                  class="form-control border-light banner-input z-1"
                   placeholder="今天想學什麼..."
                   aria-label="search keywords"
                   aria-describedby="button-addon2"
                 />
+                <i
+                  type="button"
+                  class="fa-solid fa-xmark position-absolute top-50 end-0 translate-middle-y me-15 me-md-17 z-2 clear-input"
+                ></i>
                 <button
                   class="btn btn-secondary2 btn-search banner-btn-search"
                   type="button"
@@ -63,11 +67,14 @@
               <div class="input-group">
                 <input
                   type="text"
-                  class="form-control border-light banner-input"
+                  class="form-control border-light banner-input z-1"
                   placeholder="今天想學什麼..."
                   aria-label="search keywords"
                   aria-describedby="button-addon2"
-                />
+                /><i
+                  type="button"
+                  class="fa-solid fa-xmark position-absolute top-50 end-0 translate-middle-y me-15 me-md-17 z-2 clear-input"
+                ></i>
                 <button
                   class="btn btn-secondary2 btn-search banner-btn-search"
                   type="button"
@@ -91,11 +98,14 @@
               <div class="input-group">
                 <input
                   type="text"
-                  class="form-control border-light banner-input"
+                  class="form-control border-light banner-input z-1"
                   placeholder="今天想學什麼..."
                   aria-label="search keywords"
                   aria-describedby="button-addon2"
-                />
+                /><i
+                  type="button"
+                  class="fa-solid fa-xmark position-absolute top-50 end-0 translate-middle-y me-15 me-md-17 z-2 clear-input"
+                ></i>
                 <button
                   class="btn btn-secondary2 btn-search banner-btn-search"
                   type="button"
@@ -138,7 +148,7 @@
         </a>
       </div>
       <!-- 輪播 -->
-      <div class="container" data-aos="fade-up">
+      <div class="container" data-aos="fade-up" data-aos-offset="200">
         <div class="swiper recommendSwiper">
           <div class="swiper-wrapper recommend-swiper"></div>
         </div>
@@ -176,6 +186,7 @@
           <div
             class="col-12 col-md-3 d-flex flex-column align-items-start"
             data-aos="fade-right"
+            data-aos-duration="900"
           >
             <h3
               class="badge-title badge-title-sm bg-primary text-white mb-2 mb-md-4"
@@ -451,6 +462,7 @@
           <div
             class="col-md-6 col-lg-4 order-1 order-md-2 d-flex flex-column justify-content-between align-items-start pt-10 pt-md-20 pb-md-32 thumb-up-img"
             data-aos="fade-left"
+            data-aos-anchor-placement="top-center"
           >
             <div
               class="d-flex flex-column align-items-start justify-content-between mb-22 mb-md-0"
@@ -488,8 +500,6 @@
     <script>
       AOS.init();
 
-      // You can also pass an optional settings object
-      // below listed default settings
       AOS.init({
         // Global settings:
         disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function

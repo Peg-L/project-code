@@ -90,44 +90,47 @@ function handleData(data) {
   nextPurchaseCarts = data.filter((item) => item.isNextPurchase);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  // 購物車卡片的按鈕監聽
-  purchaseTabContent.addEventListener("click", (e) => {
-    const target = e.target;
-    const listItem = target.closest("li");
+// 購物車卡片的按鈕監聽
+purchaseTabContent.addEventListener("click", (e) => {
+  const target = e.target;
+  const listItem = target.closest("li");
 
-    if (listItem) {
-      e.preventDefault(); // 防止連結跳轉的問題發生
-      // e.stopPropagation();
-      const courseId = listItem.dataset.course;
-      // 取得 數量 input
-      const countInput = listItem.querySelector("input[name='count']");
-      // 若點擊 刪除 按鈕
-      if (target.classList.contains("delete-order")) {
-        deleteOrder(courseId);
-      }
-      // 若點擊 下次再買 按鈕
-      else if (target.classList.contains("js-nextPurchaseBtn")) {
-        nextPurchaseOrder(courseId);
-      }
-      // 若點擊 移至購買項目 按鈕
-      else if (target.classList.contains("js-mainPurchaseBtn")) {
-        mainPurchaseOrder(courseId);
-      }
-      // 若點擊 增加數量 按鈕
-      else if (target.classList.contains("js-increment")) {
-        incrementValue(courseId, countInput);
-      }
-      // 若點擊 減少數量 按鈕
-      else if (target.classList.contains("js-decrement")) {
-        decrementValue(courseId, countInput);
-      } else if (target.classList.contains("js-delCoupon")) {
-        const index = target.dataset.index;
+  if (listItem) {
+    const courseId = listItem.dataset.course;
+    // 取得 數量 input
+    const countInput = listItem.querySelector("input[name='count']");
 
-        handleCouponDelBtn(index);
-      }
+    // 若點擊 刪除 按鈕
+    if (target.classList.contains("delete-order")) {
+      e.preventDefault();
+      deleteOrder(courseId);
     }
-  });
+    // 若點擊 下次再買 按鈕
+    else if (target.classList.contains("js-nextPurchaseBtn")) {
+      e.preventDefault();
+      nextPurchaseOrder(courseId);
+    }
+    // 若點擊 移至購買項目 按鈕
+    else if (target.classList.contains("js-mainPurchaseBtn")) {
+      e.preventDefault();
+      mainPurchaseOrder(courseId);
+    }
+    // 若點擊 增加數量 按鈕
+    else if (target.classList.contains("js-increment")) {
+      e.preventDefault();
+      incrementValue(courseId, countInput);
+    }
+    // 若點擊 減少數量 按鈕
+    else if (target.classList.contains("js-decrement")) {
+      e.preventDefault();
+      decrementValue(courseId, countInput);
+    } else if (target.classList.contains("js-delCoupon")) {
+      e.preventDefault();
+      const index = target.dataset.index;
+
+      handleCouponDelBtn(index);
+    }
+  }
 });
 
 /*** 刪除 ***/
@@ -177,14 +180,14 @@ async function deleteCart(id) {
       return item.courseId != id;
     });
     checkAndRenderMyCart(); // 渲染購買項目和下次再買項目
-    await axios.patch(
-      `${_url}/myCarts/${myCartId}`,
-      { userId: "", courseId: "", quantity: "" },
-      headers
-    );
-    // await axios.delete(`${_url}/myCarts/${myCartId}`); // coupons 的 id 1 和 2 也會一起被刪掉，不知道為什麼，所以先改成用 patch
+    // await axios.patch(
+    //   `${_url}/myCarts/${myCartId}`,
+    //   { userId: "", courseId: "", quantity: "" },
+    //   headers
+    // );
+    await axios.delete(`${_url}/myCarts/${myCartId}`); // coupons 的 id 1 和 2 也會一起被刪掉，不知道為什麼，所以先改成用 patch
   } catch (error) {
-    console.log("deleteCart", error);
+    console.log("刪除會報錯，但購物車能正常刪除"); // coupons 的 id 1 和 2 的 courseId 和 teacherId 改成 null，json-server 要把他們一起刪掉時會報錯，就不會被一起刪掉，只有購物車項目會被刪
   }
 }
 
@@ -311,8 +314,7 @@ function incrementValue(courseId, input) {
   $(input).val(function (i, currentValue) {
     return parseInt(currentValue) + 1;
   });
-
-  // 更新數量
+  // 更新數量、重新確認優惠券資格、計算總額
   quantityChange(courseId, input.value);
 }
 
@@ -321,7 +323,7 @@ function decrementValue(courseId, input) {
   $(input).val(function (i, currentValue) {
     return parseInt(currentValue) === 1 ? 1 : parseInt(currentValue) - 1;
   });
-  // 更新數量
+  // 更新數量、重新確認優惠券資格、計算總額
   quantityChange(courseId, input.value);
 }
 

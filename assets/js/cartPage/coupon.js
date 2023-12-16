@@ -9,7 +9,7 @@ const Toast = Swal.mixin({
   toast: true,
   position: "top-end",
   showConfirmButton: false,
-  timer: 2000,
+  timer: 1500,
 });
 
 // 取得 使用優惠券input
@@ -78,20 +78,6 @@ async function getCoupons() {
     const userUrl = `${_url}/myCoupons?_expand=coupon&userId=${userId}&_sort=couponId&_order=asc`;
     const { data } = await axios.get(userUrl);
 
-    if (data.length) {
-      const couponUrls = data.map((item) => {
-        return `${_url}/coupons/${item.couponId}?_expand=teacher&_expand=course`;
-      });
-
-      const responses = await Promise.all(
-        couponUrls.map((couponUrl) => axios.get(couponUrl))
-      );
-
-      data.forEach((item, index) => {
-        item.coupon = responses[index].data;
-      });
-    }
-
     myCoupons = data;
 
     // 確認有無過期
@@ -146,8 +132,8 @@ function getCartCouponsData() {
   // 先清空之前的資料
   cartCoupons = [];
   // 篩選出任何課程都能使用的優惠券
-  myCoupons.forEach((coupon) => {
-    if (coupon.coupon.type === "allCourse") {
+  myCoupons.forEach((myCoupon) => {
+    if (myCoupon.coupon.type === "allCourse") {
       const {
         courseId,
         type,
@@ -155,9 +141,9 @@ function getCartCouponsData() {
         minSpending,
         discountCourseNum,
         discount,
-      } = coupon.coupon;
+      } = myCoupon.coupon;
       const obj = {
-        myCouponId: coupon.id,
+        myCouponId: myCoupon.id,
         originPrice: null,
         courseId,
         type,
@@ -171,8 +157,11 @@ function getCartCouponsData() {
   });
   // 篩選出在購物車的課程的優惠券
   myCarts.forEach((cart) => {
-    myCoupons.forEach((coupon) => {
-      if (coupon.coupon.type === "course") {
+    myCoupons.forEach((myCoupon) => {
+      if (
+        myCoupon.coupon.type === "course" &&
+        cart.courseId == myCoupon.coupon.courseId
+      ) {
         const {
           courseId,
           type,
@@ -180,12 +169,12 @@ function getCartCouponsData() {
           discount,
           minSpending,
           discountCourseNum,
-        } = coupon.coupon;
-        const { price } = coupon.coupon.course;
+        } = myCoupon.coupon;
+        const originPrice = cart.course.price;
         if (courseId == cart.courseId) {
           const obj = {
-            myCouponId: coupon.id,
-            originPrice: price,
+            myCouponId: myCoupon.id,
+            originPrice,
             courseId,
             type,
             title,
@@ -218,7 +207,6 @@ function handleToUseCoupon() {
     const listItem = document.querySelectorAll("li[data-course]");
     // 輸入的優惠券資訊：折扣、低銷、折抵課堂數
     const { minSpending, discountCourseNum, courseId } = chooseCoupon;
-    // 是否是特定課程優惠券
 
     Toast.fire({
       icon: "success",
@@ -239,9 +227,9 @@ function handleToUseCoupon() {
             // 判斷是否符合條件-購買課程數量
             if (
               discountCourseNum === null ||
-              discountCourseNum <= courseNum.value
+              Number(discountCourseNum) <= Number(courseNum.value)
             ) {
-              // 若該課程還沒使用優惠券
+              // 若該課程還沒使用優惠券 -> 代表可以用優惠券
               if (usedCouponData[cartIndex].myCouponId == "") {
                 //將輸入優惠券的 input 清空
                 couponInput.value = "";
@@ -262,9 +250,11 @@ function handleToUseCoupon() {
             }
           }
         });
-      } else {
+      }
+      // 若用全課程都能使用的優惠券
+      else {
         const lastIndex = usedCouponData.length - 1;
-        // 若該課程還沒使用優惠券
+        // 若該課程還沒使用優惠券 -> 代表可以用優惠券
         if (usedCouponData[lastIndex].myCouponId == "") {
           //將輸入優惠券的 input 清空
           couponInput.value = "";
@@ -290,6 +280,7 @@ function handleToUseCoupon() {
       title: "沒有匹配的優惠券",
     });
   }
+  console.log(usedCouponData);
 }
 
 function handleCouponDelBtn(index) {
@@ -307,12 +298,11 @@ function reCheckCoupon(cartCourseId, quantity) {
   usedCouponData.forEach((coupon, index) => {
     // 使用的優惠券資訊：折扣、低銷、折抵課堂數
     const { minSpending, discountCourseNum, courseId, myCouponId } = coupon;
-
     // 判斷是否符合條件-低消
     if (minSpending <= originalTotalPrice) {
-      // 找到指定課程優惠券是哪個欄位的
+      // 若是有使用指定課程優惠券，就找到欄位
       if (courseId == cartCourseId) {
-        // 判斷是否符合條件-購買課程數量
+        // 判斷是否符合條件 - 購買課程數量;
         if (discountCourseNum === null || discountCourseNum <= quantity) {
           // 更新特定課程優惠券的折價
           // updateUsedCoupon(index, coupon);
@@ -325,8 +315,6 @@ function reCheckCoupon(cartCourseId, quantity) {
       else if (index == usedCouponData.length - 1 && myCouponId !== "") {
         // 更新全優惠券的折價
         coupon.discountPrice = calculateDiscountPrice(coupon);
-      } else {
-        clearUsedCoupon(index);
       }
     } else {
       clearUsedCoupon(index);
@@ -337,15 +325,15 @@ function reCheckCoupon(cartCourseId, quantity) {
 
 // 將該欄位的優惠券資訊清空
 function clearUsedCoupon(index) {
-  usedCouponData[index].type = "";
-  usedCouponData[index].originPrice = 0;
-  usedCouponData[index].discountPrice = 0;
-  usedCouponData[index].title = "";
   usedCouponData[index].myCouponId = "";
+  usedCouponData[index].originPrice = 0;
   usedCouponData[index].courseId = "";
+  usedCouponData[index].type = "";
+  usedCouponData[index].title = "";
   usedCouponData[index].discount = "";
   usedCouponData[index].minSpending = 0; // 總消費低消
   usedCouponData[index].discountCourseNum = 0; // 最低購買量
+  usedCouponData[index].discountPrice = 0;
 }
 
 // 寫入使用優惠券資訊
@@ -354,7 +342,6 @@ function updateUsedCoupon(index, coupon) {
     ...coupon,
     discountPrice: calculateDiscountPrice(coupon),
   };
-  // console.log("usedCouponData", usedCouponData);
   renderCoupon();
 }
 

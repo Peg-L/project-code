@@ -242,7 +242,7 @@ function renderCourses() {
                       class="d-flex justify-content-end align-items-center"
                     >
                       <img
-                        class="me-2 d-none d-md-block w-40px h-40px"
+                        class="me-2 d-none d-md-block w-40px h-40px rounded-circle"
                         src="${item.comment?.user?.avatar}"
                         alt="student"
                       />
@@ -373,7 +373,7 @@ function renderPagination() {
   pagination.innerHTML = pagePrev + pageNum.join("") + pageNext;
 }
 
-// 追蹤
+// 收藏
 let followList = [];
 
 async function getFollowList() {
@@ -386,16 +386,16 @@ async function getFollowList() {
   }
 }
 
-// 追蹤/取消追蹤
+// 收藏/取消收藏
 function toggleFollowCourse(followBtn, following) {
   let heartEl = followBtn.querySelector("i.fa-regular.fa-heart");
   let buttonId = Number(heartEl.dataset.buttonid);
 
   Swal.fire({
-    title: following ? "確定要取消追蹤課程?" : "確定要追蹤課程?",
+    title: following ? "確定要取消收藏課程?" : "確定要收藏課程?",
     showDenyButton: true,
     confirmButtonColor: "#115BC9",
-    confirmButtonText: following ? "取消追蹤" : "確認",
+    confirmButtonText: following ? "取消收藏" : "確認",
     denyButtonText: following ? "我再想想" : "取消",
   })
     .then(async (result) => {
@@ -403,7 +403,8 @@ function toggleFollowCourse(followBtn, following) {
         Swal.fire({
           position: "center",
           icon: "success",
-          title: following ? "已取消追蹤" : "成功追蹤",
+          title: following ? "已取消收藏" : "成功收藏",
+          text: following ? "" : "可至會員中心「我的收藏」中查看",
           showConfirmButton: false,
           timer: 1500,
         });
@@ -425,7 +426,7 @@ function toggleFollowCourse(followBtn, following) {
               console.error(err);
             });
         } else {
-          // 確定追蹤
+          // 確定收藏
           followList.push(buttonId);
 
           await axios.patch(`${_url}/users/${userId}`, { followList });

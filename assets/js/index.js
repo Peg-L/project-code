@@ -29,25 +29,33 @@ bannerInputs.forEach((bannerInput) => {
   bannerInput.addEventListener("input", () => {
     bannerInputValue = bannerInput.value;
 
-    // 監聽搜尋按鈕
-    bannerSearchBtns.forEach((bannerSearchBtn) => {
-      bannerSearchBtn.addEventListener("click", () => {
-        //- 點擊按鈕後將 搜尋內容 放入 localStorage
-        localStorage.setItem("indexSearchInput", bannerInputValue);
-
-        // 清空首頁搜尋框
+    // 清除輸入框
+    const clearInputBtns = document.querySelectorAll(".clear-input");
+    clearInputBtns.forEach((clearInputBtn) => {
+      clearInputBtn.addEventListener("click", function () {
         bannerInput.value = "";
-
-        //- 跳轉 course.html
-        location.href = "./course.html";
-      });
-
-      document.addEventListener("keyup", function (e) {
-        if (e.key === "Enter") {
-          bannerSearchBtn.click();
-        }
+        bannerInputValue = bannerInput.value;
       });
     });
+  });
+});
+
+// 監聽搜尋按鈕
+bannerSearchBtns.forEach((bannerSearchBtn) => {
+  bannerSearchBtn.addEventListener("click", () => {
+    if (bannerInputValue) {
+      //- 點擊按鈕後將 搜尋內容 放入 localStorage
+      localStorage.setItem("indexSearchInput", bannerInputValue);
+
+      //- 跳轉 course.html
+      location.href = "./course.html";
+    }
+  });
+
+  document.addEventListener("keyup", function (e) {
+    if (e.key === "Enter") {
+      bannerSearchBtn.click();
+    }
   });
 });
 
