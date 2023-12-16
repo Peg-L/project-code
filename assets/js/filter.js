@@ -38,6 +38,17 @@ function runFilter() {
   handleRatingNum(data);
 }
 
+function runRatingFilter() {
+  //回到第一頁
+  data.page = 1;
+  // 畫面回到上面
+  toCoursesTop();
+  //呼叫 api
+  getCoursesData(data);
+  // 計算幾個篩選條件
+  countSelectedFilters();
+}
+
 /*** 課程評等篩選功能 ***/
 filterRatings.forEach((rate) => {
   /* 找到選取的評等 */
@@ -58,7 +69,7 @@ function handleRatingFilter(rate) {
   }[rate];
 
   // 進行篩選呼叫api
-  runFilter();
+  runRatingFilter();
 }
 
 /*** 價格 篩選功能 ***/

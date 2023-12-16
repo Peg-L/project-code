@@ -57,6 +57,8 @@ function init() {
       updateData();
       // 取得多堂預約價格
       getDiscountedPrices();
+      // 取得評價
+      getComment();
     });
 }
 function updateData() {
@@ -83,7 +85,9 @@ function updateData() {
     });
   });
   function findMatchData(dataNum) {
-    return data.teacher.openTime.filter((item) => item.date === dataNum);
+    return data.teacher.openTime.filter(
+      (item) => item.date.slice(-5) === dataNum
+    );
   }
 }
 
@@ -122,6 +126,110 @@ right.addEventListener("click", () => {
 //     init();
 //   })
 // })
+
+let commentData = [];
+/*** 評價 ***/
+async function getComment() {
+  try {
+    const api = `${_url}/comments?courseId=${courseId.toString()}&_expand=user`;
+    const { data } = await axios.get(api);
+    commentData = data;
+    const length = data.length;
+    // 平均分數
+    handleRatingScore();
+
+    // 若有評論
+    if (length) {
+      // 評論 html (array)
+      const renderContent = makeCommentCard(data);
+      // 渲染評論區
+      renderCommentSection(renderContent.slice(0, 2).join(""));
+      // 渲染評論 modal
+      renderCommentModal(renderContent.join(""));
+    }
+    // 若無評論
+    else {
+      const renderEmpty = '<p class="text-center fs-5">目前沒有評論</p>';
+      renderCommentSection(renderEmpty);
+    }
+  } catch (error) {
+    console.log("getComment", error);
+  }
+}
+
+// 平均分數
+function handleRatingScore() {
+  const score = (
+    commentData.reduce((acc, cur) => (acc += cur.rate), 0) / commentData.length
+  ).toFixed(1);
+  const ratingScore = document.querySelector(".js-ratingScore");
+
+  let ratingScoreHtml = "";
+  for (let i = 1; i <= score; i++) {
+    ratingScoreHtml +=
+      '<li class="star"><span class="material-symbols-outlined"> star </span></li>';
+  }
+  ratingScoreHtml += `<li class="star"><span>${score}</span>/5</li>`;
+  ratingScore.innerHTML = ratingScoreHtml;
+}
+
+// 渲染評論區
+function renderCommentSection(str) {
+  // 評論區渲染
+  const commentSection = document.querySelector(".js-comment");
+  commentSection.innerHTML = str;
+
+  // 查看所有評論按鈕
+  const allComment = document.querySelector(
+    'button[data-bs-target="#courseTalk"]'
+  );
+  if (commentData.length) {
+    // 若有評論
+    allComment.textContent += `(${commentData.length})`;
+  } else {
+    // 若無評論就不顯示
+    allComment.classList.add("d-none");
+  }
+}
+
+// 渲染評論 modal
+function renderCommentModal(str) {
+  const commentModal = document.querySelector("#courseTalk .modal-body");
+  commentModal.innerHTML = str;
+}
+
+// 產卡片html
+function makeCommentCard(data) {
+  return data.map((item) => {
+    let star = "";
+    for (let i = 1; i <= item.rate; i++) {
+      star +=
+        '<img src="https://raw.githubusercontent.com/Peg-L/project-code/89a637dfbea6e49a34b11aacf46dc07a001b4a90/assets/images/star.svg" alt="star" />';
+    }
+    return `<ul class="card-evaluate">
+    <li class="card-evaluate-content mb-lg-5">
+      ${item.content}
+    </li>
+    <li class="card-evaluate-person flex-lg-row flex-row-reverse">
+      <img
+        class="w-60px h-60px"
+        src="${item.user.avatar}"
+        alt=""
+      />
+      <div class="d-flex flex-column">
+        <div class="text-primary d-flex align-items-center">
+         ${star}
+        </div>
+        <div class="align-bottom">
+          <p class="card-evaluate-name">
+          ${item.user.name}<span class="ms-1 card-evaluate-title">${item.user.title}</span>
+          </p>
+        </div>
+      </div>
+    </li>
+  </ul>`;
+  });
+}
 
 /*** 多堂預約 ***/
 
