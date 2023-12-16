@@ -85,7 +85,9 @@ function updateData() {
     });
   });
   function findMatchData(dataNum) {
-    return data.teacher.openTime.filter((item) => item.date === dataNum);
+    return data.teacher.openTime.filter(
+      (item) => item.date.slice(-5) === dataNum
+    );
   }
 }
 
