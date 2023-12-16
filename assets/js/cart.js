@@ -90,44 +90,42 @@ function handleData(data) {
   nextPurchaseCarts = data.filter((item) => item.isNextPurchase);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  // 購物車卡片的按鈕監聽
-  purchaseTabContent.addEventListener("click", (e) => {
-    const target = e.target;
-    const listItem = target.closest("li");
+// 購物車卡片的按鈕監聽
+purchaseTabContent.addEventListener("click", (e) => {
+  const target = e.target;
+  const listItem = target.closest("li");
 
-    if (listItem) {
-      e.preventDefault(); // 防止連結跳轉的問題發生
-      // e.stopPropagation();
-      const courseId = listItem.dataset.course;
-      // 取得 數量 input
-      const countInput = listItem.querySelector("input[name='count']");
-      // 若點擊 刪除 按鈕
-      if (target.classList.contains("delete-order")) {
-        deleteOrder(courseId);
-      }
-      // 若點擊 下次再買 按鈕
-      else if (target.classList.contains("js-nextPurchaseBtn")) {
-        nextPurchaseOrder(courseId);
-      }
-      // 若點擊 移至購買項目 按鈕
-      else if (target.classList.contains("js-mainPurchaseBtn")) {
-        mainPurchaseOrder(courseId);
-      }
-      // 若點擊 增加數量 按鈕
-      else if (target.classList.contains("js-increment")) {
-        incrementValue(courseId, countInput);
-      }
-      // 若點擊 減少數量 按鈕
-      else if (target.classList.contains("js-decrement")) {
-        decrementValue(courseId, countInput);
-      } else if (target.classList.contains("js-delCoupon")) {
-        const index = target.dataset.index;
+  if (listItem) {
+    e.preventDefault(); // 防止連結跳轉的問題發生
+    const courseId = listItem.dataset.course;
+    // 取得 數量 input
+    const countInput = listItem.querySelector("input[name='count']");
 
-        handleCouponDelBtn(index);
-      }
+    // 若點擊 刪除 按鈕
+    if (target.classList.contains("delete-order")) {
+      deleteOrder(courseId);
     }
-  });
+    // 若點擊 下次再買 按鈕
+    else if (target.classList.contains("js-nextPurchaseBtn")) {
+      nextPurchaseOrder(courseId);
+    }
+    // 若點擊 移至購買項目 按鈕
+    else if (target.classList.contains("js-mainPurchaseBtn")) {
+      mainPurchaseOrder(courseId);
+    }
+    // 若點擊 增加數量 按鈕
+    else if (target.classList.contains("js-increment")) {
+      incrementValue(courseId, countInput);
+    }
+    // 若點擊 減少數量 按鈕
+    else if (target.classList.contains("js-decrement")) {
+      decrementValue(courseId, countInput);
+    } else if (target.classList.contains("js-delCoupon")) {
+      const index = target.dataset.index;
+
+      handleCouponDelBtn(index);
+    }
+  }
 });
 
 /*** 刪除 ***/
@@ -311,8 +309,7 @@ function incrementValue(courseId, input) {
   $(input).val(function (i, currentValue) {
     return parseInt(currentValue) + 1;
   });
-
-  // 更新數量
+  // 更新數量、重新確認優惠券資格、計算總額
   quantityChange(courseId, input.value);
 }
 
@@ -321,7 +318,7 @@ function decrementValue(courseId, input) {
   $(input).val(function (i, currentValue) {
     return parseInt(currentValue) === 1 ? 1 : parseInt(currentValue) - 1;
   });
-  // 更新數量
+  // 更新數量、重新確認優惠券資格、計算總額
   quantityChange(courseId, input.value);
 }
 

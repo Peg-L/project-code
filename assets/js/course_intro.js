@@ -19,19 +19,22 @@ const language = document.querySelector("#language");
 const level = document.querySelector("#level");
 const intro = document.querySelector("#intro");
 //第三部分參數
+const youCanGet = document.querySelector("#youCanGet");
+
 //第四部分參數
 
 const left = document.querySelector("#PreviousWeek");
 const right = document.querySelector("#NextWeek");
 
 //資料取得完畢並且初始化
-function init(){
-  axios.get(`${_url}/courses/${courseId.toString()}?_expand=teacher`)
-  .then(function(response){
+function init() {
+  axios
+    .get(`${_url}/courses/${courseId.toString()}?_expand=teacher`)
+    .then(function (response) {
       let str = ``;
-      data=response.data;
+      data = response.data;
       //sections1(course profile)
-      teacherImg.setAttribute("src",data.teacher.avatar);
+      teacherImg.setAttribute("src", data.teacher.avatar);
       teacherName.textContent = data.teacher.name;
       course_title.textContent = data.name;
       courseClass.textContent = data.topics;
@@ -41,48 +44,48 @@ function init(){
       teacher_experience.textContent = data.teacher.experience;
       language.textContent = data.teacher.lang.join("/");
       level.textContent = data.level;
-      intro.innerHTML = data.teacher.intro.replace(/\r\n\r\n/g, '<br><br>');
+      intro.innerHTML = data.teacher.intro.replace(/\r\n\r\n/g, "<br><br>");
       console.log(data.teacher.intro);
       //section3
-      data.mainPoints.forEach(point=>{
-          str += `<li class="list-decorate ps-4 position-relative">
+      data.mainPoints.forEach((point) => {
+        str += `<li class="list-decorate ps-4 position-relative">
           ${point}
         </li>`;
-      })
+      });
       youCanGet.innerHTML = str;
       //section4(calendar)
       updateData();
-       // 取得多堂預約價格
-       getDiscountedPrices();
-  })
+      // 取得多堂預約價格
+      getDiscountedPrices();
+    });
 }
 function updateData() {
-    const daysDate = document.querySelectorAll('.calendar-time');
-    daysDate.forEach(item => {
-        let dataNum = item.getAttribute('data-num');
-        let matchData = findMatchData(dataNum);
-        let str = '';
-        if (matchData.length !== 0) {
-            matchData[0].time.forEach(date => {
-                if(!matchData[0].useTime.find(item => date === item)){
-                    str += `<li><a href=''  class="deleteDefault">${date}</a></li>`
-                }else{
-                    str += `<li><a class="text-primary deleteDefault" href=''>${date}</a></li>`
-                }
-            })
-            item.innerHTML = str;
+  const daysDate = document.querySelectorAll(".calendar-time");
+  daysDate.forEach((item) => {
+    let dataNum = item.getAttribute("data-num");
+    let matchData = findMatchData(dataNum);
+    let str = "";
+    if (matchData.length !== 0) {
+      matchData[0].time.forEach((date) => {
+        if (!matchData[0].useTime.find((item) => date === item)) {
+          str += `<li><a href=''  class="deleteDefault">${date}</a></li>`;
+        } else {
+          str += `<li><a class="text-primary deleteDefault" href=''>${date}</a></li>`;
         }
-    });
-    const deleteDefault = document.querySelectorAll('.deleteDefault');
-    deleteDefault.forEach(btn=>{
-        btn.addEventListener('click',e=>{
-            e.preventDefault();
-        })
-    })
-    function findMatchData(dataNum) {
-        return data.teacher.openTime.filter(item => item.date === dataNum);
+      });
+      item.innerHTML = str;
     }
+  });
+  const deleteDefault = document.querySelectorAll(".deleteDefault");
+  deleteDefault.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+    });
+  });
+  function findMatchData(dataNum) {
+    return data.teacher.openTime.filter((item) => item.date === dataNum);
   }
+}
 
 // 預設載入初始化環境
 init();

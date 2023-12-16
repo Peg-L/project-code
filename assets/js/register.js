@@ -340,9 +340,10 @@ class="text-center mb-2 d-flex justify-content-between align-items-center"
         // google 註冊完直接登入
         handleLogin(userInfo, true);
       } else {
-        // 一般註冊跳 modal
-        const registerSuccessModal = new bootstrap.Modal("#registerSuccess");
-        registerSuccessModal.show();
+        handleLogin(userInfo, false);
+        // // 一般註冊跳 modal
+        // const registerSuccessModal = new bootstrap.Modal("#registerSuccess");
+        // registerSuccessModal.show();
       }
     })
     .catch((err) => {
