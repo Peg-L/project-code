@@ -66,6 +66,7 @@ const newURL = regex.test(currentURL)
   ? currentURL.replace(regex, "/course_intro.html")
   : currentURL + "course_intro.html";
 
+toggleLoading();
 // 熱門教師 API
 axios.get(`${_url}/courses?_expand=teacher`).then((res) => {
   let courses = res.data;
@@ -128,7 +129,15 @@ axios.get(`${_url}/courses?_expand=teacher`).then((res) => {
   </div>`;
   });
   swiperWrapper.innerHTML = coursesCard;
+  toggleLoading();
 });
+
+function toggleLoading() {
+  const body = document.querySelector("body");
+  const loading = document.querySelector(".bg-loading");
+  body.classList.toggle("overflow-hidden");
+  loading.classList.toggle("d-none");
+}
 
 // 點擊 開始上課 -> 加入購物車、優惠券
 handleClickStartCourseBtn(document.querySelector(".recommend-swiper"));
