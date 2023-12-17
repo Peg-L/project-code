@@ -2,6 +2,8 @@ import axios from "axios";
 import { userId, isLogin, currentURL } from "./config";
 import { handleClickStartCourseBtn } from "./coursePage/startCourse";
 
+window.addEventListener("load", toggleLoading);
+
 let bannerSwiper = new Swiper(".bannerSwiper", {
   slidesPerView: 1,
   loop: true,
@@ -66,7 +68,7 @@ const newURL = regex.test(currentURL)
   ? currentURL.replace(regex, "/course_intro.html")
   : currentURL + "course_intro.html";
 
-toggleLoading();
+// toggleLoading();
 // 熱門教師 API
 axios.get(`${_url}/courses?_expand=teacher`).then((res) => {
   let courses = res.data;

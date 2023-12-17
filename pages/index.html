@@ -14,11 +14,135 @@
       href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
     />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+    <style>
+      @keyframes ldio-bqnpbseeqr5-1 {
+        0% {
+          transform: rotate(0deg);
+        }
+        50% {
+          transform: rotate(-45deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+      @keyframes ldio-bqnpbseeqr5-2 {
+        0% {
+          transform: rotate(180deg);
+        }
+        50% {
+          transform: rotate(225deg);
+        }
+        100% {
+          transform: rotate(180deg);
+        }
+      }
+      .bg-loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: #01a3e8;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .ldio-bqnpbseeqr5 > div:nth-child(2) {
+        transform: translate(-15px, 0);
+      }
+      .ldio-bqnpbseeqr5 > div:nth-child(2) div {
+        position: absolute;
+        top: 55px;
+        left: 45px;
+        width: 100px;
+        height: 50px;
+        border-radius: 100px 100px 0 0;
+        background: #fff;
+        animation: ldio-bqnpbseeqr5-1 1s linear infinite;
+        transform-origin: 50px 50px;
+      }
+      .ldio-bqnpbseeqr5 > div:nth-child(2) div:nth-child(2) {
+        animation: ldio-bqnpbseeqr5-2 1s linear infinite;
+      }
+      .ldio-bqnpbseeqr5 > div:nth-child(2) div:nth-child(3) {
+        transform: rotate(-90deg);
+        animation: none;
+      }
+      @keyframes ldio-bqnpbseeqr5-3 {
+        0% {
+          transform: translate(190px, 0);
+          opacity: 0;
+        }
+        20% {
+          opacity: 1;
+        }
+        100% {
+          transform: translate(70px, 0);
+          opacity: 1;
+        }
+      }
+      .ldio-bqnpbseeqr5 > div:nth-child(1) {
+        display: block;
+      }
+      .ldio-bqnpbseeqr5 > div:nth-child(1) div {
+        position: absolute;
+        top: 100px;
+        left: -8px;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #d4f2ff;
+        animation: ldio-bqnpbseeqr5-3 1s linear infinite;
+      }
+      .ldio-bqnpbseeqr5 > div:nth-child(1) div:nth-child(1) {
+        animation-delay: -0.67s;
+      }
+      .ldio-bqnpbseeqr5 > div:nth-child(1) div:nth-child(2) {
+        animation-delay: -0.33s;
+      }
+      .ldio-bqnpbseeqr5 > div:nth-child(1) div:nth-child(3) {
+        animation-delay: 0s;
+      }
+      .loadingio-spinner-bean-eater-o1tp2fuk7w {
+        width: 180px;
+        height: 180px;
+        display: inline-block;
+        overflow: hidden;
+        background: none;
+      }
+      .ldio-bqnpbseeqr5 {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transform: translateZ(0) scale(1);
+        backface-visibility: hidden;
+        transform-origin: 0 0;
+        /* see note above */
+      }
+      .ldio-bqnpbseeqr5 div {
+        box-sizing: content-box;
+      }
+
+      .text-white {
+        color: #fff;
+        font-family: "Manrope", sans-serif;
+      }
+      .font-bold {
+        font-weight: bold;
+      }
+      .fs-3 {
+        font-size: 24px;
+      }
+    </style>
   </head>
   <body class="position-relative">
-    <%- include("./layout/loading.ejs") -%> <%- include("./layout/header.ejs",
-    {page: "index"}) -%>
+    <!-- loading -->
+    <%- include("./layout/loading.ejs") -%>
+    <!-- 標頭 -->
+    <%- include("./layout/header.ejs", {page: "index"}) -%>
     <!-- banner -->
     <div class="bg-gray-400 mt-16 mt-md-19">
       <div class="swiper bannerSwiper mx-3 mx-md-5 position-relative">
@@ -495,6 +619,7 @@
     <%- include("./layout/backtotop.ejs") -%>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
