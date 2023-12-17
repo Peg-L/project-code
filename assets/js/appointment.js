@@ -185,9 +185,13 @@ function updateTeacherList() {
                 return item1;
               }
             });
-            // console.log(arr);
+            //console.log(arr);
             arr.forEach((item, idx) => {
               //課程管理列表
+              //console.log(item.teacher);
+              if(item.teacher === undefined){
+                return;
+              }
               let ischeck_str = "";
               if (item.isCheck) {
                 ischeck_str = `<button
@@ -325,10 +329,10 @@ function updateTeacherList() {
                   formatDate: "yy-mm-dd",
                   showButtonPanel: true,
                   onSelect: function () {
-                    console.log(
-                      vm.getAttribute("data-uid"),
-                      vm.getAttribute("data-courseId")
-                    );
+                    // console.log(
+                    //   vm.getAttribute("data-uid"),
+                    //   vm.getAttribute("data-courseId")
+                    // );
                     let str = "";
                     const getSelect = document.querySelectorAll(
                       `.${vm.getAttribute("data-uid")}`
@@ -364,6 +368,7 @@ function updateTeacherList() {
                 });
               });
             });
+            
             course_management.innerHTML = str;
             const change_btn = document.querySelectorAll("#change");
             // console.log(change_btn);
@@ -393,9 +398,9 @@ function updateTeacherList() {
                 btn.removeAttribute("disabled");
                 btn.textContent = "儲存";
                 //
-                console.log(get2[0]);
+                // console.log(get2[0]);
                 get2[0].addEventListener("input", (e) => {
-                  console.log(e.currentTarget.value);
+                  // console.log(e.currentTarget.value);
                 });
                 //1.click儲存時，儲存現有資料。
                 //2.並且改變確認鍵上的資料。
@@ -450,7 +455,7 @@ function updateTeacherList() {
                               attendTime: [...oldData],
                             })
                             .then((response) => {
-                              console.log("add success");
+                              // console.log("add success");
                               Swal.fire({
                                 icon: "success",
                                 title: "預約成功",
@@ -460,7 +465,7 @@ function updateTeacherList() {
                               updateTeacherList();
                             })
                             .catch((error) => {
-                              console.error("Error adding post:", error);
+                              // console.error("Error adding post:", error);
                             });
                         });
                     }
@@ -475,7 +480,7 @@ function updateTeacherList() {
                 e.preventDefault();
                 const delete_courseId =
                   e.currentTarget.getAttribute("data-course");
-                console.log(delete_courseId);
+                // console.log(delete_courseId);
                 const courseId = e.currentTarget.getAttribute("data-courseId");
                 axios.get(`${_url}/user_courses/${userId}`).then((res) => {
                   const oldData = [...res.data.attendTime];
@@ -501,7 +506,7 @@ function updateTeacherList() {
                       const get2 = document.querySelectorAll(
                         `.${delete_courseId}`
                       );
-                      console.log(get2);
+                      // console.log(get2);
                       //get2[0]日期
                       //get2[1]時間
                       axios.get(`${_url}/teachers/${teacherId}`).then((res) => {
@@ -518,10 +523,10 @@ function updateTeacherList() {
                             opentime: [...oldOpenTime],
                           })
                           .then((response) => {
-                            console.log("update success");
+                            // console.log("update success");
                           })
                           .catch((error) => {
-                            console.error("Error adding post:", error);
+                            // console.error("Error adding post:", error);
                           });
                       });
                     });
@@ -530,7 +535,7 @@ function updateTeacherList() {
                         attendTime: [...oldData],
                       })
                       .then((response) => {
-                        console.log("delete success");
+                        // console.log("delete success");
                         Swal.fire({
                           icon: "success",
                           title: "取消預約成功",
@@ -540,7 +545,7 @@ function updateTeacherList() {
                         updateTeacherList();
                       })
                       .catch((error) => {
-                        console.error("Error adding post:", error);
+                        // console.error("Error adding post:", error);
                       });
                   }
                 });
@@ -548,12 +553,12 @@ function updateTeacherList() {
             });
           })
           .catch((err) => {
-            console.error(err);
+            // console.error(err);
           });
       }
     })
     .catch((err) => {
-      console.error(err);
+      // console.error(err);
     });
 }
 updateTeacherList();
@@ -588,7 +593,7 @@ function viewTimeCourse(
         const filteredTimeCourse = response.data.teacher.openTime.filter(
           (item) => item.date === clickDay
         );
-        console.log(filteredTimeCourse);
+        // console.log(filteredTimeCourse);
         if (filteredTimeCourse.length > 0) {
           const viewTime = filteredTimeCourse[0].time;
           function isUseDate(time) {
@@ -669,7 +674,7 @@ function postAttendCourse(clickCourse, clickDay, userId, clickTime) {
           attendTime: [...oldAttendTime, data],
         })
         .then((response) => {
-          console.log("add success");
+          // console.log("add success");
           Swal.fire({
             icon: "success",
             title: "預約成功",
@@ -678,7 +683,7 @@ function postAttendCourse(clickCourse, clickDay, userId, clickTime) {
           });
         })
         .catch((error) => {
-          console.error("Error adding post:", error);
+          // console.error("Error adding post:", error);
         });
       //add to teacher's useTime
       axios
@@ -700,23 +705,23 @@ function postAttendCourse(clickCourse, clickDay, userId, clickTime) {
                   openTime: [...oldTeacherData],
                 })
                 .then((response) => {
-                  console.log("更新老師資料成功");
+                  // console.log("更新老師資料成功");
                   viewTimeCourse(clickCourse, clickDay);
                 })
                 .catch((error) => {
-                  console.error("Error adding post:", error);
+                  // console.error("Error adding post:", error);
                 });
             })
             .catch((error) => {
-              console.error("Error adding post:", error);
+              // console.error("Error adding post:", error);
             });
         })
         .catch((error) => {
-          console.error("Error adding post:", error);
+          // console.error("Error adding post:", error);
         });
     })
     .catch((error) => {
-      console.error("Error adding post:", error);
+      // console.error("Error adding post:", error);
     });
 }
 //判斷時間為早、中、晚
