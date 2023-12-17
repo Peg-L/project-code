@@ -148,7 +148,7 @@ function updateTeacherList() {
             var Today = new Date();
             viewTimeCourse(
               first_teacher_list.getAttribute("data-courseId"),
-              `${Today.getMonth() + 1}/${Today.getDate()}`
+              `${Today.getFullYear()}/${Today.getMonth() + 1}/${Today.getDate()}`
             );
             first_teacher_list.classList.add("active");
             teacher_list.forEach((btn) => {
