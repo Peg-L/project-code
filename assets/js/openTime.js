@@ -59,7 +59,7 @@ function showWeek(startingDate) {
  let daysOfWeek = calendarDiv.querySelectorAll('.calendar-time');
  startingDate.setDate(startingDate.getDate() - startingDate.getDay()); // 回到星期日
  for (let i = 0; i < 7; i++) {
-   daysOfWeek[i].setAttribute('data-num',startingDate.toLocaleDateString("zh-TW", { month: '2-digit', day: '2-digit' })); //標上日期
+   daysOfWeek[i].setAttribute('data-num',startingDate.toLocaleDateString("zh-TW", {year: 'numeric', month: '2-digit', day: '2-digit' })); //標上日期
    startingDate.setDate(startingDate.getDate() + 1);
  }
 }
