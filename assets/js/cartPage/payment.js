@@ -25,7 +25,7 @@ payBtns.forEach((btn) => {
         // 如果表單驗證通過
         await patchMyCoupon(); // 按確認購買後優惠券 canUse 改成 false
         await patchMyCarts(); // 按確認購買後更新商品狀態
-        form.submit();
+        location.href = "cart2.html";
       } else {
         // 如果表單驗證沒通過
         // 顯示錯誤訊息
