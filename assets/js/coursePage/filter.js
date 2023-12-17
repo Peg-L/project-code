@@ -3,6 +3,7 @@ import {
   maxPriceDefault,
   data,
   getCoursesData,
+  handleRatingNum,
 } from "./api.js";
 
 //選取 控制篩選收合按鈕的數字 (collapse、offcanvas各一)
@@ -31,7 +32,20 @@ function runFilter() {
   toCoursesTop();
   //呼叫 api
   getCoursesData(data);
-  // 計算篩選幾項
+  // 計算幾個篩選條件
+  countSelectedFilters();
+  // 計算評論篩選數
+  handleRatingNum(data);
+}
+
+function runRatingFilter() {
+  //回到第一頁
+  data.page = 1;
+  // 畫面回到上面
+  toCoursesTop();
+  //呼叫 api
+  getCoursesData(data);
+  // 計算幾個篩選條件
   countSelectedFilters();
 }
 
@@ -55,7 +69,7 @@ function handleRatingFilter(rate) {
   }[rate];
 
   // 進行篩選呼叫api
-  runFilter();
+  runRatingFilter();
 }
 
 /*** 價格 篩選功能 ***/
@@ -135,7 +149,7 @@ function cate() {
 
       //呼叫 api
       getCoursesData(data);
-      // 計算篩選幾項
+      // 計算幾個篩選條件
       countSelectedFilters();
     } else {
       // console.log(`${target.name}內沒有checkbox`);
@@ -280,14 +294,13 @@ function countSelectedFilters() {
 }
 
 /*** 篩選項目筆數 ***/
-function handleFilterNum(allCourses) {
+
+/* 評論篩選項目筆數 */
+function countFilterRatingNum(allCourses) {
   // 選取 評等的比數
   const filterRatingNum = document.querySelectorAll(".js-filterRatingNum");
-  // 選取課程分類小項的筆數
-  const categoriesNum = document.querySelectorAll("[data-category]");
 
   const ratingLength = filterRatingNum.length;
-  const categoryLength = categoriesNum.length;
 
   // 建立 評等:筆數 對照物件
   const ratingNumData = {
@@ -297,6 +310,30 @@ function handleFilterNum(allCourses) {
     2: 0,
     1: 0,
   };
+
+  allCourses.forEach((course) => {
+    /* 計算各評等筆數 */
+    const rate = Math.floor(parseFloat(course.rate));
+    if (rate >= 1) {
+      for (let i = 1; i <= rate; i++) {
+        ratingNumData[i]++;
+      }
+    }
+  });
+
+  /* 將各評等筆數寫入HTML */
+  for (let i = 0; i < ratingLength; i++) {
+    filterRatingNum[i].innerHTML = `(${ratingNumData[ratingLength - i]} 筆)`;
+  }
+}
+
+/* 課程分類小項篩選項目筆數 */
+function countFilterCategoryNum(allCourses) {
+  // 選取課程分類小項的筆數
+  const categoriesNum = document.querySelectorAll("[data-category]");
+
+  const categoryLength = categoriesNum.length;
+
   // 建立 課程分類小項:筆數 對照物件
   const categoryNumData = {};
 
@@ -309,14 +346,6 @@ function handleFilterNum(allCourses) {
   }
 
   allCourses.forEach((course) => {
-    /* 計算各評等筆數 */
-    const rate = Math.floor(parseFloat(course.rate));
-    if (rate >= 1) {
-      for (let i = 1; i <= rate; i++) {
-        ratingNumData[i]++;
-      }
-    }
-
     /* 計算各分類筆數 */
     course.categories.forEach((category) => {
       categoryNumData[category]++;
@@ -324,11 +353,6 @@ function handleFilterNum(allCourses) {
 
     categoryNumData[course.level]++;
   });
-
-  /* 將各評等筆數寫入HTML */
-  for (let i = 0; i < ratingLength; i++) {
-    filterRatingNum[i].innerHTML = `(${ratingNumData[ratingLength - i]} 筆)`;
-  }
 
   /* 將各分類筆數寫入HTML */
   for (let i = 0; i < categoryLength; i++) {
@@ -390,8 +414,8 @@ function toCoursesTop() {
 // data.page = 1;
 // //呼叫 api
 // getCoursesData(data);
-// // 計算篩選幾項
+// // 計算幾個篩選條件
 // countSelectedFilters();
 // });
 
-export { handleFilterNum, toCoursesTop };
+export { countFilterCategoryNum, countFilterRatingNum, toCoursesTop };

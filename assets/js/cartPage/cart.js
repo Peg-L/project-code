@@ -96,31 +96,36 @@ purchaseTabContent.addEventListener("click", (e) => {
   const listItem = target.closest("li");
 
   if (listItem) {
-    e.preventDefault(); // 防止連結跳轉的問題發生
     const courseId = listItem.dataset.course;
     // 取得 數量 input
     const countInput = listItem.querySelector("input[name='count']");
 
     // 若點擊 刪除 按鈕
     if (target.classList.contains("delete-order")) {
+      e.preventDefault();
       deleteOrder(courseId);
     }
     // 若點擊 下次再買 按鈕
     else if (target.classList.contains("js-nextPurchaseBtn")) {
+      e.preventDefault();
       nextPurchaseOrder(courseId);
     }
     // 若點擊 移至購買項目 按鈕
     else if (target.classList.contains("js-mainPurchaseBtn")) {
+      e.preventDefault();
       mainPurchaseOrder(courseId);
     }
     // 若點擊 增加數量 按鈕
     else if (target.classList.contains("js-increment")) {
+      e.preventDefault();
       incrementValue(courseId, countInput);
     }
     // 若點擊 減少數量 按鈕
     else if (target.classList.contains("js-decrement")) {
+      e.preventDefault();
       decrementValue(courseId, countInput);
     } else if (target.classList.contains("js-delCoupon")) {
+      e.preventDefault();
       const index = target.dataset.index;
 
       handleCouponDelBtn(index);
