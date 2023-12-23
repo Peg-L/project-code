@@ -11,6 +11,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border: none;
+  &:focus {
+    box-shadow: none;
+  }
 
   &-icon,
   &-icon::before,
@@ -18,54 +22,49 @@
     background-image: none;
     display: block;
     content: "";
-    background-color: $black;
+    background-color: $gray-300;
     position: absolute;
     height: 2px;
-    width: 30px;
-    transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    width: 33px;
     border-radius: 4px;
+    transition: transform 0.5s ease-in-out, background-color 0.5s ease-in;
   }
 
   &-icon {
+    transform-origin: 8px 0px;
+
     &::before {
       margin-top: -8px;
+      transform-origin: 0% 0%;
     }
 
     &::after {
       margin-top: 8px;
+      transform-origin: 0% 100%;
     }
   }
+}
 
-  &:hover {
-    border: 1px solid $gray-100;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+.navbar-toggler {
+  border: none;
+  box-shadow: none;
+  z-index: 1070;
+
+  &-icon.close-btn {
+    background-color: $white;
+
+    &::before {
+      transform: rotate(45deg) translate(2px, -7px);
+    }
+
+    &::after {
+      transform: rotate(-45deg) translate(2px, 7px);
+    }
   }
 }
 
 .navbar-scrollBar::-webkit-scrollbar {
   display: none; // 隱藏滾動軸
-}
-
-#menu-toggle {
-  display: none;
-
-  &:checked {
-    + .navbar-toggler {
-      .navbar-toggler-icon {
-        background-color: $white;
-
-        &::before {
-          margin-top: 0;
-          transform: rotate(405deg);
-        }
-
-        &::after {
-          margin-top: 0;
-          transform: rotate(-405deg);
-        }
-      }
-    }
-  }
 }
 
 .nav-link {
@@ -190,4 +189,8 @@ $bdrs: 50%;
   top: -16px !important;
   border-radius: $bdrs;
   font-family: $font-family-monospace;
+}
+
+.z-6 {
+  z-index: 1060;
 }

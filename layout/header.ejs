@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg bg-white fixed-top">
-  <div class="container">
+  <div class="container-fluid">
     <h1 class="navbar-brand">
       <a href="./index.html">
         <img
@@ -24,189 +24,210 @@
           ><span class="badge rounded-pill hasProducts"></span
         ></i>
       </a>
-      <input type="checkbox" id="menu-toggle" />
-      <label
-        for="menu-toggle"
+      <button
         class="navbar-toggler"
         type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarScroll"
-        aria-controls="navbarScroll"
-        aria-expanded="false"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar"
         aria-label="Toggle navigation"
       >
-        <span class="navbar-toggler-icon"></span>
-      </label>
+        <span class="navbar-toggler-icon z-6"></span>
+      </button>
     </div>
 
-    <div class="navbar-collapse collapse py-6 py-lg-0" id="navbarScroll">
-      <ul
-        id="accordionFlush"
-        class="navbar-scrollBar navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll m-auto column-gap-10 row-gap-2"
-        style="--bs-scroll-height: 205px"
-      >
-        <li class="nav-item">
-          <a
-            class="nav-link pc d-none d-lg-block <%= page === 'course' || page === 'course-intro' ? 'menu-active' : '' %>"
-            aria-current="page"
-            href="./course.html"
-            >課程分類</a
-          >
-          <div
-            class="accordion accordion-flush d-block d-lg-none"
-            id="accordionFlush"
-          >
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button
-                  class="accordion-button collapsed nav-link <%= page === 'course' || page === 'course-intro' ? 'menu-active' : '' %>"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#category"
-                  aria-expanded="false"
-                  aria-controls="category"
+    <div
+      class="offcanvas offcanvas-end"
+      id="offcanvasNavbar"
+      tabindex="-1"
+      aria-labelledby="offcanvasNavbarLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+          <a href="./index.html">
+            <img
+              class="d-none d-lg-block"
+              src="https://raw.githubusercontent.com/Peg-L/project-code/89a637dfbea6e49a34b11aacf46dc07a001b4a90/assets/images/logo.svg"
+              alt="C0DE logo"
+            />
+            <img
+              class="d-block d-lg-none"
+              src="https://raw.githubusercontent.com/Peg-L/project-code/89a637dfbea6e49a34b11aacf46dc07a001b4a90/assets/images/logo-sm.svg"
+              alt="C0DE logo"
+            />
+          </a>
+        </h5>
+      </div>
+      <div class="offcanvas-body">
+        <ul
+          id="accordionFlush"
+          class="navbar-nav me-auto my-2 my-lg-0 m-auto column-gap-10 row-gap-2"
+        >
+          <li class="nav-item">
+            <a
+              class="nav-link pc d-none d-lg-block <%= page === 'course' || page === 'course-intro' ? 'menu-active' : '' %>"
+              aria-current="page"
+              href="./course.html"
+              >課程分類</a
+            >
+            <div
+              class="accordion accordion-flush d-block d-lg-none"
+              id="accordionFlush"
+            >
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed nav-link <%= page === 'course' || page === 'course-intro' ? 'menu-active' : '' %>"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#category"
+                    aria-expanded="false"
+                    aria-controls="category"
+                  >
+                    課程分類
+                  </button>
+                </h2>
+                <div
+                  id="category"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#accordionFlush"
                 >
-                  課程分類
-                </button>
-              </h2>
-              <div
-                id="category"
-                class="accordion-collapse collapse"
-                data-bs-parent="#accordionFlush"
-              >
-                <ul class="accordion-body text-center">
-                  <li class="cateitem" name="frontend">
-                    <a href="./course.html">前端</a>
-                  </li>
-                  <li class="cateitem" name="backend">
-                    <a href="./course.html">後端</a>
-                  </li>
-                  <li class="cateitem" name="database">
-                    <a href="./course.html">資料庫</a>
-                  </li>
-                  <li class="cateitem" name="security">
-                    <a href="./course.html">資安</a>
-                  </li>
-                  <li class="cateitem" name="productTesting">
-                    <a href="./course.html">產品測試</a>
-                  </li>
-                  <li class="cateitem" name="UIUX">
-                    <a href="./course.html">UI / UX</a>
-                  </li>
-                  <li class="cateitem" name="DevOps">
-                    <a href="./course.html">開發維運</a>
-                  </li>
-                  <li class="cateitem" name="mobileApp">
-                    <a href="./course.html">行動應用</a>
-                  </li>
-                  <li class="cateitem" name="AI">
-                    <a href="./course.html">AI</a>
-                  </li>
-                  <li class="cateitem" name="GameDevelopment">
-                    <a href="./course.html">遊戲開發</a>
-                  </li>
-                  <li class="cateitem" name="levelEasy">
-                    <a href="./course.html">程式入門</a>
-                  </li>
-                  <li class="cateitem" name="career">
-                    <a href="./course.html">職涯</a>
-                  </li>
-                </ul>
+                  <ul
+                    class="navbar-nav-scroll accordion-body text-center"
+                    style="--bs-scroll-height: 310px"
+                  >
+                    <li class="cateitem" name="frontend">
+                      <a href="./course.html">前端</a>
+                    </li>
+                    <li class="cateitem" name="backend">
+                      <a href="./course.html">後端</a>
+                    </li>
+                    <li class="cateitem" name="database">
+                      <a href="./course.html">資料庫</a>
+                    </li>
+                    <li class="cateitem" name="security">
+                      <a href="./course.html">資安</a>
+                    </li>
+                    <li class="cateitem" name="productTesting">
+                      <a href="./course.html">產品測試</a>
+                    </li>
+                    <li class="cateitem" name="UIUX">
+                      <a href="./course.html">UI / UX</a>
+                    </li>
+                    <li class="cateitem" name="DevOps">
+                      <a href="./course.html">開發維運</a>
+                    </li>
+                    <li class="cateitem" name="mobileApp">
+                      <a href="./course.html">行動應用</a>
+                    </li>
+                    <li class="cateitem" name="AI">
+                      <a href="./course.html">AI</a>
+                    </li>
+                    <li class="cateitem" name="GameDevelopment">
+                      <a href="./course.html">遊戲開發</a>
+                    </li>
+                    <li class="cateitem" name="levelEasy">
+                      <a href="./course.html">程式入門</a>
+                    </li>
+                    <li class="cateitem" name="career">
+                      <a href="./course.html">職涯</a>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link pc d-none d-lg-block student-faq <%= page === 'faq' ? 'menu-active' : '' %>"
-            aria-current="page"
-            href="#"
-            >常見問答</a
-          >
-          <div
-            class="accordion accordion-flush d-block d-lg-none"
-            id="accordionFlush"
-          >
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button
-                  class="accordion-button collapsed nav-link <%= page === 'faq' ? 'menu-active' : '' %>"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#faq"
-                  aria-expanded="false"
-                  aria-controls="faq"
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link pc d-none d-lg-block student-faq <%= page === 'faq' ? 'menu-active' : '' %>"
+              aria-current="page"
+              href="#"
+              >常見問答</a
+            >
+            <div
+              class="accordion accordion-flush d-block d-lg-none"
+              id="accordionFlush"
+            >
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed nav-link <%= page === 'faq' ? 'menu-active' : '' %>"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq"
+                    aria-expanded="false"
+                    aria-controls="faq"
+                  >
+                    常見問答
+                  </button>
+                </h2>
+                <div
+                  id="faq"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#accordionFlush"
                 >
-                  常見問答
-                </button>
-              </h2>
-              <div
-                id="faq"
-                class="accordion-collapse collapse"
-                data-bs-parent="#accordionFlush"
-              >
-                <ul class="accordion-body text-center">
-                  <li>
-                    <a href="./faq.html" class="student-faq">學生常見問答</a>
-                  </li>
-                  <li><a href="#" class="teacher-faq">老師常見問答</a></li>
-                </ul>
+                  <ul class="accordion-body text-center">
+                    <li>
+                      <a href="./faq.html" class="student-faq">學生常見問答</a>
+                    </li>
+                    <li><a href="#" class="teacher-faq">老師常見問答</a></li>
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
-        </li>
-        <li class="nav-item">
-          <button
-            class="nav-link pc d-none d-lg-block"
-            aria-current="page"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#message-list"
-            aria-controls="#message-list"
+          </li>
+          <li class="nav-item">
+            <button
+              class="nav-link pc d-none d-lg-block"
+              aria-current="page"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#message-list"
+              aria-controls="#message-list"
+            >
+              聯絡老師
+            </button>
+            <button
+              class="nav-link d-block d-lg-none mx-auto"
+              aria-current="page"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#message-list"
+              aria-controls="#message-list"
+            >
+              聯絡老師
+            </button>
+          </li>
+        </ul>
+        <div class="d-flex flex-column flex-lg-row row-gap-2 mt-6 mt-lg-0">
+          <a
+            class="d-none d-lg-block btn btn-outline-secondary2 border-0 js-toMyCart position-relative"
+            type="button"
+            data-bs-target="#loginModal"
           >
-            聯絡老師
-          </button>
-          <button
-            class="nav-link d-block d-lg-none mx-auto"
-            aria-current="page"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#message-list"
-            aria-controls="#message-list"
+            <i class="fa-solid fa-cart-shopping fa-xl"
+              ><span class="badge hasProducts"></span
+            ></i>
+          </a>
+          <a
+            href="./account.html"
+            type="button"
+            class="btn btn-member btn-secondary2"
           >
-            聯絡老師
-          </button>
-        </li>
-      </ul>
-
-      <div class="d-flex flex-column flex-lg-row row-gap-2 mt-6 mt-lg-0">
-        <a
-          class="d-none d-lg-block btn btn-outline-secondary2 border-0 js-toMyCart position-relative"
-          type="button"
-          data-bs-target="#loginModal"
-        >
-          <i class="fa-solid fa-cart-shopping fa-xl"
-            ><span class="badge hasProducts"></span
-          ></i>
-        </a>
-        <a
-          href="./account.html"
-          type="button"
-          class="btn btn-member btn-secondary2"
-        >
-          會員中心
-        </a>
-        <a href="./index.html" type="button" class="btn btn-logout fw-medium">
-          登出
-        </a>
-        <a
-          href="./register.html"
-          type="button"
-          class="btn btn-register btn-secondary2"
-        >
-          註冊
-        </a>
-        <a href="./login.html" type="button" class="btn btn-login fw-medium"
-          >登入</a
-        >
+            會員中心
+          </a>
+          <a href="./index.html" type="button" class="btn btn-logout fw-medium">
+            登出
+          </a>
+          <a
+            href="./register.html"
+            type="button"
+            class="btn btn-register btn-secondary2"
+          >
+            註冊
+          </a>
+          <a href="./login.html" type="button" class="btn btn-login fw-medium"
+            >登入</a
+          >
+        </div>
       </div>
     </div>
   </div>
@@ -216,3 +237,13 @@
 <%- include("./layout/message.ejs") -%>
 <!-- login modal -->
 <%- include("./layout/loginModal.ejs") -%>
+
+<script>
+  const hamBtn = document.querySelector(".navbar-toggler");
+  const hamBtnEl = document.querySelector(".navbar-toggler-icon");
+  hamBtn.addEventListener("click", toggleHamBtn);
+
+  function toggleHamBtn() {
+    hamBtnEl.classList.toggle("close-btn");
+  }
+</script>
