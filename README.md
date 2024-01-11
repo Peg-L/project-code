@@ -4,6 +4,8 @@
 
 ## 作品說明
 
+- 資料庫使用 json-server 技術，本作品資料庫[連結](https://github.com/Peg-L/project-code-json)
+
 ## 功能
 
 ### 測試帳號密碼
@@ -113,3 +115,5 @@ http://localhost:5173/
 - jquery-ui: `v1.13.2`
 - sass: `v1.61.0`
 - sass-loader: `v13.2.2`
+- json-server: `v0.17.4`
+- json-server-auth: `v2.1.0`
