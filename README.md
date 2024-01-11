@@ -1,58 +1,115 @@
-# 網頁切版直播班 Vite 範例
+# C0DE 程式家教網 | [DEMO](https://peg-l.github.io/project-code/index.html)
 
-#+1+1+1+2
+![C0DE](https://github.com/Peg-L/project-code/assets/134919211/c5fbf3dd-e0aa-4d00-b334-b83063b7223c)
 
-## Node.js 版本
+## 作品說明
 
-- 專案的 Node.js 版本需為 v16 以上
-- 查看自己版本指令：`node -v`
-- 查看自己版本指令：`666`
+## 功能
 
-## 指令列表
+### 測試帳號密碼
 
-- `npm install` - 初次下載該範例專案後，需要使用 npm install 來安裝套件
-- `npm run dev` - 執行開發模式
-  - 若沒有自動開啟瀏覽器，可嘗試手動在瀏覽器上輸入
-    `http://localhost:5173/<專案名稱>/pages/index.html`
-- `npm run build` - 執行編譯模式（不會開啟瀏覽器）
-- `npm run deploy` - 自動化部署
+```bash
+帳號： example@example.com
+密碼： example
+```
+### 使用者故事
 
-## 資料夾結構
+#### 使用者端(學生)：
 
-- assets # 靜態資源放置處
+- 我是使用者，我想要查看課程相關資訊
 
-  - images # 圖片放置處
-  - scss # SCSS 的樣式放置處
+  - 我能夠從平台看到可預約的老師
+  - 我能夠從平台看到老師和課程的介紹
+  - 我能夠看到老師所釋出的時間表
+  - 我能夠看到課程和老師的評價
 
-- layout # ejs 模板放置處
-- pages # 頁面放置處
+- 我是使用者，我想要找到適合我的老師、課程
 
-- JavaScript 程式碼可寫在 main.js 檔案
+  - 我能夠選擇項目檢索課程（評等、類別、程度）
+  - 我能夠透過關鍵字搜尋老師和課程
+  - 我能夠關注課程
 
-### 注意事項
+- 我是使用者，我想要購買課程
 
-- 已將 pages 資料夾內的 index.html 預設為首頁，建議不要任意修改 index.html 的檔案名稱
-- .gitignore 檔案是用來忽略掉不該上傳到 GitHub 的檔案（例如 node_modules），請不要移除 .gitignore
+  - 我能夠將課程加入或刪除購物車
+  - 我能夠使用優惠券
+  - 我能夠下次再買指定課程
+  - 我能夠付款完成訂單
+  - 我能夠看到預約或訂購的資訊
 
-## 開發模式的監聽
+- 我是使用者，我想要預約課程
 
-vite 專案執行開發模式 `npm run dev` 後即會自動監聽，不需要使用 `Live Sass Compiler` 的 `Watch SCSS` 功能
+  - 我能夠選擇/取消/修改上課的時間
+  - 我能夠透過小聊天室跟老師商量課程
 
-## 部署 gh-pages 流程說明
+- 我是使用者，我想要上課
 
-### Windows 版本
+  - 我能夠進入上課的教室
+  - 我能夠給予老師、課程評價
 
-1. 在 GitHub 建立一個新的 Repository
+- 我是使用者，我想要解決我有的疑惑和問題
 
-2. 部署前請務必先將原始碼上傳到 GitHub Repository 也就是初始化 GitHub，因此通常第一步驟會在專案終端機輸入以下指令
+  - 我能夠看到常見問答
 
-```cmd
-git init # 若已經初始化過就可以不用輸入
-git add .
-git commit -m 'first commit'
-git branch -M main
-git remote add origin [GitHub Repositories Url]
-git push -u origin main // 僅限第一次輸入，往後只需要輸入 git push
+- 我是使用者，我想要登入註冊帳號
+
+## 安裝
+
+- Node.js 版本建議為：`18.16.0` 以上
+
+### 取得專案
+
+```bash
+git clone git@github.com:Peg-L/project-code.git
 ```
 
-3. 初始化完畢後，執行 `npm run deploy` 指令進行自動化部署
+### 移動到專案內
+
+```bash
+cd project-code
+```
+
+### 安裝套件
+
+```bash
+npm install
+```
+
+### 運行專案
+
+```bash
+npm run dev
+```
+
+### 開啟專案
+
+在瀏覽器網址列輸入以下即可看到畫面
+
+```bash
+http://localhost:5173/
+```
+
+## 資料夾說明
+
+```
+|- layout - 共用元件
+|- pages - html 頁面
+|- asset - 圖片、js、scss
+    |- images - 圖片
+    |- js - javascript
+    |- scss - 樣式
+```     
+
+## 專案技術
+
+- Node.js `v18.16.0`
+- Vite `v4.2.0`
+- axios: `v1.6.2`
+- bootstrap: `v5.3.1`
+- firebase: `v10.6.0`
+- firebaseui: `v6.1.0`
+- jquery": `v3.7.1`
+- jQuery": `v1.7.4`
+- jquery-ui: `v1.13.2`
+- sass: `v1.61.0`
+- sass-loader: `v13.2.2`
